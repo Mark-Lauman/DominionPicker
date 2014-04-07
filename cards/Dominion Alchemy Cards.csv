@@ -1,0 +1,13 @@
+Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory
+Herbalist;;3;0;Action;Alchemy;1;0;0;1;0
+Apprentice;;5;0;Action;Alchemy;0;1;0;0;0
+Transmute;;0;1;Action;Alchemy;0;0;0;0;0
+Vineyard;;0;1;Victory;Alchemy;0;0;0;0;0
+Apothecary;;2;1;Action;Alchemy;0;1;1;0;0
+Scrying Pool;;2;1;Action Attack;Alchemy;0;1;0;0;0
+University;;2;1;Action;Alchemy;0;2;0;0;0
+Alchemist;;3;1;Action;Alchemy;0;1;2;0;0
+Familiar;;3;1;Action Attack;Alchemy;0;1;1;0;0
+Philosopher's Stone;;3;1;Treasure;Alchemy;0;0;0;0;0
+Golem;;4;1;Action;Alchemy;0;0;0;0;0
+Possesion;;6;1;Action;Alchemy;0;0;0;0;0

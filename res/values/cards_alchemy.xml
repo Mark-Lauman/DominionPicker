@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory -->
+    <string-array name="cards_alchemy">
+        <item>Herbalist;;3;0;Action;Alchemy;1;0;0;1;0</item>
+        <item>Apprentice;;5;0;Action;Alchemy;0;1;0;0;0</item>
+        <item>Transmute;;0;1;Action;Alchemy;0;0;0;0;0</item>
+        <item>Vineyard;;0;1;Victory;Alchemy;0;0;0;0;0</item>
+        <item>Apothecary;;2;1;Action;Alchemy;0;1;1;0;0</item>
+        <item>Scrying Pool;;2;1;Action Attack;Alchemy;0;1;0;0;0</item>
+        <item>University;;2;1;Action;Alchemy;0;2;0;0;0</item>
+        <item>Alchemist;;3;1;Action;Alchemy;0;1;2;0;0</item>
+        <item>Familiar;;3;1;Action Attack;Alchemy;0;1;1;0;0</item>
+        <item>Philosopher\'s Stone;;3;1;Treasure;Alchemy;0;0;0;0;0</item>
+        <item>Golem;;4;1;Action;Alchemy;0;0;0;0;0</item>
+        <item>Possesion;;6;1;Action;Alchemy;0;0;0;0;0</item>
+    </string-array>
+    
+</resources>

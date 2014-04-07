@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Current version of the database.
+         (Change when db updated).         -->
+    <integer name="db_version">2</integer>
+    
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory -->
+    <string-array name="cards_base">
+        <item>Cellar;A powerful cycler.;2;0;Action;Base;0;1;0;0;0</item>
+        <item>Chapel;The best trasher;2;0;Action;Base;0;0;0;0;0</item>
+        <item>Moat;Defense against attacks.;2;0;Action Reaction;Base;0;0;2;0;0</item>
+        <item>Chancellor;Bum chin.;3;0;Action;Base;0;0;0;2;0</item>
+        <item>Village;;3;0;Action;Base;0;2;1;0;0</item>
+        <item>Woodcutter;;3;0;Action;Base;1;0;0;2;0</item>
+        <item>Workshop;;3;0;Action;Base;0;0;0;0;0</item>
+        <item>Bureaucrat;;4;0;Action Attack;Base;0;0;0;0;0</item>
+        <item>Feast;;4;0;Action;Base;0;0;0;0;0</item>
+        <item>Gardens;;4;0;Victory;Base;0;0;0;0;0</item>
+        <item>Militia;;4;0;Action Attack;Base;0;0;0;2;0</item>
+        <item>Moneylender;;4;0;Action;Base;0;0;0;0;0</item>
+        <item>Remodel;;4;0;Action;Base;0;0;0;0;0</item>
+        <item>Smithy;;4;0;Action;Base;0;0;3;0;0</item>
+        <item>Spy;;4;0;Action Attack;Base;0;1;1;0;0</item>
+        <item>Thief;;4;0;Action Attack;Base;0;0;0;0;0</item>
+        <item>Throne Room;;4;0;Action;Base;0;0;0;0;0</item>
+        <item>Council Room;;5;0;Action;Base;1;0;4;0;0</item>
+        <item>Festival;;5;0;Action;Base;1;2;0;2;0</item>
+        <item>Laboratory;;5;0;Action;Base;0;1;2;0;0</item>
+        <item>Library;;5;0;Action;Base;0;0;0;0;0</item>
+        <item>Market;;5;0;Action;Base;1;1;1;1;0</item>
+        <item>Mine;;5;0;Action;Base;0;0;0;0;0</item>
+        <item>Witch;;5;0;Action Attack;Base;0;0;2;0;0</item>
+        <item>Adventurer;;6;0;Action;Base;0;0;0;0;0</item>
+    </string-array>
+</resources>

@@ -1,0 +1,26 @@
+Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory
+Loan;;3;0;Treasure;Prosperity;0;0;0;0;0
+Trade Route;;3;0;Action;Prosperity;1;0;0;0;0
+Watchtower;;3;0;Action Reaction;Prosperity;0;0;0;0;0
+Bishop;;4;0;Action;Prosperity;0;0;0;1;1
+Monument;;4;0;Action;Prosperity;0;0;0;2;1
+Quarry;;4;0;Treasure;Prosperity;0;0;0;0;0
+Tailsman;;4;0;Treasure;Prosperity;0;0;0;0;0
+Worker's Village;;4;0;Action;Prosperity;1;2;1;0;0
+City;;5;0;Action;Prosperity;0;2;1;0;0
+Contraband;;5;0;Treasure;Prosperity;1;0;0;0;0
+Counting House;;5;0;Action;Prosperity;0;0;0;0;0
+Mint;;5;0;Action;Prosperity;0;0;0;0;0
+Mountebank;;5;0;Action Attack;Prosperity;0;0;0;2;0
+Rabble;;5;0;Action Attack;Prosperity;0;0;3;0;0
+Royal Seal;;5;0;Treasure;Prosperity;0;0;0;0;0
+Vault;;5;0;Action;Prosperity;0;0;2;0;0
+Venture;;5;0;Treasure;Prosperity;0;0;0;0;0
+Goons;;6;0;Action Attack;Prosperity;1;0;0;2;0
+Grand Market;;6;0;Action;Prosperity;1;1;1;2;0
+Hoard;;6;0;Treasure;Prosperity;0;0;0;0;0
+Bank;;7;0;Treasure;Prosperity;0;0;0;0;0
+Expand;;7;0;Action;Prosperity;0;0;0;0;0
+Forge;;7;0;Action;Prosperity;0;0;0;0;0
+King's Court;;7;0;Action;Prosperity;0;0;0;0;0
+Peddler;;8*;0;Action;Prosperity;0;1;1;1;0

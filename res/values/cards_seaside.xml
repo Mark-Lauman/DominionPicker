@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory -->
+    <string-array name="cards_seaside">
+        <item>Embargo;;2;0;Action;Seaside;0;0;0;2;0</item>
+        <item>Haven;;2;0;Action Duration;Seaside;0;1;1;0;0</item>
+        <item>Lighthouse;;2;0;Action Duration;Seaside;0;1;0;1;0</item>
+        <item>Native Village;;2;0;Action;Seaside;0;2;0;0;0</item>
+        <item>Pearl Diver;;2;0;Action;Seaside;0;1;1;0;0</item>
+        <item>Ambassador;;3;0;Action Attack;Seaside;0;0;0;0;0</item>
+        <item>Fishing Village;;3;0;Action Duration;Seaside;0;2;0;1;0</item>
+        <item>Lookout;;3;0;Action;Seaside;0;1;0;0;0</item>
+        <item>Smugglers;;3;0;Action;Seaside;0;0;0;0;0</item>
+        <item>Warehouse;;3;0;Action;Seaside;0;1;3;0;0</item>
+        <item>Caravan;;4;0;Action Duration;Seaside;0;1;1;0;0</item>
+        <item>Cutpurse;;4;0;Action Attack;Seaside;0;0;0;2;0</item>
+        <item>Island;;4;0;Action Victory;Seaside;0;0;0;0;0</item>
+        <item>Navigator;;4;0;Action;Seaside;0;0;0;2;0</item>
+        <item>Pirate Ship;;4;0;Action Attack;Seaside;0;0;0;0;0</item>
+        <item>Salvager;;4;0;Action;Seaside;1;0;0;0;0</item>
+        <item>Sea Hag;;4;0;Action Attack;Seaside;0;0;0;0;0</item>
+        <item>Treasure Map;;4;0;Action;Seaside;0;0;0;0;0</item>
+        <item>Bazaar;;5;0;Action;Seaside;0;2;1;1;0</item>
+        <item>Explorer;;5;0;Action;Seaside;0;0;0;0;0</item>
+        <item>Ghost Ship;;5;0;Action Attack;Seaside;0;0;2;0;0</item>
+        <item>Merchant Ship;;5;0;Action Duration;Seaside;0;0;0;2;0</item>
+        <item>Outpost;;5;0;Action Duration;Seaside;0;0;0;0;0</item>
+        <item>Tactician;;5;0;Action Duration;Seaside;0;0;0;0;0</item>
+        <item>Treasury;;5;0;Action;Seaside;0;1;1;1;0</item>
+        <item>Wharf;;5;0;Action Duration;Seaside;1;0;2;0;0</item>
+    </string-array>
+    
+</resources>
