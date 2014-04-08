@@ -43,7 +43,7 @@ public class CardList extends ContentProvider {
 					+ _ACTION + " TEXT, "
 					+ _DRAW + " TEXT, "
 					+ _GOLD + " TEXT, "
-					+ _VICTORY + " TEXT, "
+					+ _VICTORY + " TEXT"
 					+ ");";
 	
 	private DBHandler dbhandle;
