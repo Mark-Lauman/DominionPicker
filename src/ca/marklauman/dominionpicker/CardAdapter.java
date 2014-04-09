@@ -22,25 +22,7 @@ public class CardAdapter extends CursorSelAdapter
 	public static final String _DESC = CardList._DESC;
 	public static final String[] COLS = CardList.COLS;
 	
-	private static final HashMap<String, Integer> exp_icons;
-	
-	static {
-		exp_icons = new HashMap<String, Integer>();
-		exp_icons.put("Base", R.drawable.ic_set_base);
-		exp_icons.put("Alchemy", R.drawable.ic_set_alchemy);
-		exp_icons.put("Black Market", R.drawable.ic_set_black_market);
-		exp_icons.put("Cornucopia", R.drawable.ic_set_cornucopia);
-		exp_icons.put("Dark Ages", R.drawable.ic_set_dark_ages);
-		exp_icons.put("Envoy", R.drawable.ic_set_envoy);
-		exp_icons.put("Governor", R.drawable.ic_set_governor);
-		exp_icons.put("Hinterlands", R.drawable.ic_set_hinterlands);
-		exp_icons.put("Intrigue", R.drawable.ic_set_intrigue);
-		exp_icons.put("Prosperity", R.drawable.ic_set_prosperity);
-		exp_icons.put("Seaside", R.drawable.ic_set_seaside);
-		exp_icons.put("Stash", R.drawable.ic_set_stash);
-		exp_icons.put("Walled Village", R.drawable.ic_set_walled_village);
-		
-	}
+	private static HashMap<String, Integer> exp_icons = null;
 	
 	private int col_desc = -1;
 	private int col_cost = -1;
@@ -72,7 +54,33 @@ public class CardAdapter extends CursorSelAdapter
 				        R.id.card_res,
 				        R.id.card_desc,
 				        R.id.card_res_victory});
+		staticSetup(context);
 		this.setViewBinder(this);
+	}
+	
+	private static void staticSetup(Context c) {
+		if(exp_icons != null)
+			return;
+		exp_icons = new HashMap<String, Integer>();
+		String[] sets = c.getResources()
+						 .getStringArray(R.array.card_sets);
+		int[] icons = {R.drawable.ic_set_base,
+					   R.drawable.ic_set_alchemy,
+					   R.drawable.ic_set_black_market,
+					   R.drawable.ic_set_cornucopia,
+					   R.drawable.ic_set_dark_ages,
+					   R.drawable.ic_set_envoy,
+					   R.drawable.ic_set_governor,
+					   R.drawable.ic_set_hinterlands,
+					   R.drawable.ic_set_intrigue,
+					   R.drawable.ic_set_prosperity,
+					   R.drawable.ic_set_seaside,
+					   R.drawable.ic_set_stash,
+					   R.drawable.ic_set_walled_village};
+		int len = sets.length;
+		if(icons.length < len) len = icons.length;
+		for(int i = 0; i < len; i++)
+			exp_icons.put(sets[i], icons[i]);
 	}
 	
 	public void changeCursor(Cursor cursor) {
