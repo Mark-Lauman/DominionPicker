@@ -226,7 +226,7 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 			return;
 		for(long sel : selections) {
 			int pos = getPosition(sel);
-			if(pos >= 0) selectItem(pos);
+			if(0 <= pos) selectItem(pos);
 		}
 	}
 	

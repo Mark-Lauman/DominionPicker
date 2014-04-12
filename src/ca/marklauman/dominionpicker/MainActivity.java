@@ -1,6 +1,7 @@
 package ca.marklauman.dominionpicker;
 
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
@@ -9,6 +10,7 @@ import com.actionbarsherlock.view.MenuItem;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
@@ -31,8 +33,15 @@ public class MainActivity extends SherlockFragmentActivity
 		setContentView(R.layout.activity_main);
 		card_list = (ListView) findViewById(R.id.card_list);
 		last_select = null;
-		if(savedInstanceState != null)
-			last_select = savedInstanceState.getLongArray(KEY_SELECT);
+		
+		// load last selections
+		String store = PreferenceManager.getDefaultSharedPreferences(this)
+						                .getString(KEY_SELECT, null);
+		if(store == null) return;
+		StringTokenizer tok = new StringTokenizer(store, ",");
+		last_select = new long[tok.countTokens()];
+		for(int i=0; i<last_select.length; i++)
+			last_select[i] = Long.parseLong(tok.nextToken());
 	}
 	
 	@Override
@@ -43,11 +52,20 @@ public class MainActivity extends SherlockFragmentActivity
 	}
 	
 	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
+	protected void onDestroy() {
 		if(adapter != null)
 			last_select = adapter.getSelections();
-		outState.putLongArray(KEY_SELECT, last_select);
+		
+		// save the selections to permanent storage
+		StringBuilder str = new StringBuilder();
+		for (int i = 0; i < last_select.length; i++)
+		    str.append(last_select[i]).append(",");
+		PreferenceManager.getDefaultSharedPreferences(this)
+		 				 .edit()
+		 				 .putString(KEY_SELECT, str.toString())
+		 				 .commit();
+		
+		super.onDestroy();
 	}
 
 	@Override

@@ -6,7 +6,6 @@ import java.util.HashMap;
 import android.content.Context;
 import android.database.Cursor;
 import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
@@ -132,7 +131,6 @@ public class CardAdapter extends CursorSelAdapter
 			if(!"0".equals(val)) res += ", +" + val + " card";
 			val = cursor.getString(col_act);
 			if(!"0".equals(val)) res += ", +" + val + " action";
-			Log.d("gold=", cursor.getString(col_gold));
 			if(!"0".equals(col_gold)
 					&& !"0".equals(col_vict)
 					&& res.length() > 2)
