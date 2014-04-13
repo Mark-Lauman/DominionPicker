@@ -192,6 +192,47 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 	}
 	
 	
+	/** All items are selected.
+	 *  Choice mode changes to
+	 *  {@link #CHOICE_MODE_MULTIPLE}. */
+	public void selectAll() {
+		mChoiceMode = CHOICE_MODE_MULTIPLE;
+		mSelected.clear();
+		if(mCursor == null) return;
+		
+		for(int i = 0; i < mCursor.getCount(); i++)
+			mSelected.add(i);
+		notifyDataSetChanged();
+	}
+	
+	
+	/** All items are deselected. Choice mode is unchanged */
+	public void deselectAll() {
+		mSelected.clear();
+		notifyDataSetChanged();
+	}
+	
+	
+	/** All items in the list are selected. If they are already
+	 *  all selected, then everything is deselected instead.
+	 *  Choice mode changes to {@link #CHOICE_MODE_MULTIPLE}
+	 *  regardless.
+	 * @return {@code true} if all items are selected.   */
+	public boolean toggleAll() {
+		mChoiceMode = CHOICE_MODE_MULTIPLE;
+		
+		// check all items are selected
+		boolean selected = true;
+		for(int i = 0; selected && i < mCursor.getCount(); i++)
+			selected = mSelected.contains(i);
+		
+		// apply the change
+		if(selected) deselectAll();
+		else selectAll();
+		return !selected;
+	}
+	
+	
 	/** Gets all selected items.
 	 *  @return The ids of each selected item. There is
 	 *  no guaranteed order to this list, users must sort
@@ -219,7 +260,7 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 	 *  Items are considered valid if they
 	 *  are in the list.                                 */
 	public void setSelections(long... selections) {
-		clearSelections();
+		deselectAll();
 		if(selections == null
 				|| selections.length == 0
 				|| mChoiceMode == CHOICE_MODE_NONE)
@@ -228,12 +269,5 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 			int pos = getPosition(sel);
 			if(0 <= pos) selectItem(pos);
 		}
-	}
-	
-	
-	/** All items are deselected. Selection mode is unchanged */
-	public void clearSelections() {
-		mSelected.clear();
-		notifyDataSetChanged();
 	}
 }

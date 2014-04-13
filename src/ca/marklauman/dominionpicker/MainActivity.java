@@ -77,6 +77,10 @@ public class MainActivity extends SherlockFragmentActivity
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch(item.getItemId()) {
+		case R.id.action_toggle_all:
+			adapter.toggleAll();
+			last_select = adapter.getSelections();
+			return true;
 		case R.id.action_submit:
 			last_select = adapter.getSelections();
 			if(last_select.length < 10) {
