@@ -3,6 +3,8 @@ package ca.marklauman.dominionpicker;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+import ca.marklauman.dominionpicker.settings.SettingsActivity;
+
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -52,7 +54,7 @@ public class MainActivity extends SherlockFragmentActivity
 	}
 	
 	@Override
-	protected void onDestroy() {
+	protected void onStop() {
 		if(adapter != null)
 			last_select = adapter.getSelections();
 		
@@ -65,7 +67,7 @@ public class MainActivity extends SherlockFragmentActivity
 		 				 .putString(KEY_SELECT, str.toString())
 		 				 .commit();
 		
-		super.onDestroy();
+		super.onStop();
 	}
 
 	@Override
@@ -80,6 +82,10 @@ public class MainActivity extends SherlockFragmentActivity
 		case R.id.action_toggle_all:
 			adapter.toggleAll();
 			last_select = adapter.getSelections();
+			return true;
+		case R.id.action_filters:
+			Intent intent = new Intent(this, SettingsActivity.class);
+			startActivity(intent);
 			return true;
 		case R.id.action_submit:
 			last_select = adapter.getSelections();

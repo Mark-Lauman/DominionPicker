@@ -38,6 +38,7 @@ public class ResActivity extends SherlockFragmentActivity
 		lm.initLoader(2, out_cards, this);
 	}
 	
+	
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

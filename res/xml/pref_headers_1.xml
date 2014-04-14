@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/settings" >
+    
+    <PreferenceScreen android:title="@string/pref_filters">
+        <intent android:targetPackage="ca.marklauman.dominionpicker"
+            android:targetClass="ca.marklauman.dominionpicker.settings.SettingsActivity"
+            android:action="ca.marklauman.dominionpicker.PREF_FILTERS" />
+    </PreferenceScreen>
+    
+</PreferenceScreen>

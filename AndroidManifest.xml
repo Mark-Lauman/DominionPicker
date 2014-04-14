@@ -16,12 +16,22 @@
         
         <activity
             android:name="ca.marklauman.dominionpicker.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:uiOptions="splitActionBarWhenNarrow" >
+        	<meta-data android:name="android.support.UI_OPTIONS"
+        	    android:value="splitActionBarWhenNarrow" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="ca.marklauman.dominionpicker.settings.SettingsActivity"
+            android:label="@string/settings">
+            <meta-data
+            	android:name="android.support.PARENT_ACTIVITY"
+            	android:value="ca.marklauman.dominionpicker.SettingsActivity" />
         </activity>
         
         <activity
@@ -39,5 +49,4 @@
             android:exported="false" />
             
     </application>
-
 </manifest>
