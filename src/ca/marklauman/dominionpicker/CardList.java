@@ -128,6 +128,7 @@ public class CardList extends ContentProvider {
 			addCards(db, r.getStringArray(R.array.cards_intrigue));
 			addCards(db, r.getStringArray(R.array.cards_prosperity));
 			addCards(db, r.getStringArray(R.array.cards_seaside));
+			addCards(db, r.getStringArray(R.array.cards_dark_ages));
 		}
 		
 		private void addCards(SQLiteDatabase db, String[] cards) {

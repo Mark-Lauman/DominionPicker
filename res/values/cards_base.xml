@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     
-    <!-- Current version of the database.
-         (Change when db updated).         -->
-    <integer name="db_version">2</integer>
-    
     <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory -->
     <string-array name="cards_base">
         <item>Cellar;A powerful cycler.;2;0;Action;Base;0;1;0;0;0</item>
@@ -33,4 +29,5 @@
         <item>Witch;;5;0;Action Attack;Base;0;0;2;0;0</item>
         <item>Adventurer;;6;0;Action;Base;0;0;0;0;0</item>
     </string-array>
+    
 </resources>

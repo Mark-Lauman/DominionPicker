@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Dominion Picker</string>
-    <string name="pick_cards">Pick Cards</string>
     
     <string name="picks">Your Picks!</string>
     <string name="toggle_all">Toggle All</string>
@@ -20,4 +19,5 @@
     
     <string name="settings">Settings</string>
     <string name="pref_filters">Filters</string>
+    <string name="pref_filt_sets">Card Sets</string>
 </resources>
