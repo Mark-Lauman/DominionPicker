@@ -11,19 +11,34 @@ import android.net.Uri;
 
 public class CardList extends ContentProvider {
 	
+	/** URI used to access this ContentProvider */
 	public static final Uri URI = Uri.parse("content://ca.marklauman.dominionpicker/cards");
+	/** Name of the table containing all cards */
 	public static final String TABLE_CARDS = "cards";
+	/** Column for the id id number of the card (internal). */
 	public static final String _ID = "_id";
+	/** Column for the name of a card. */
 	public static final String _NAME = "name";
+	/** Column for the description of a card. */
 	public static final String _DESC = "description";
+	/** Column for the cost of a card (in coppers). */
 	public static final String _COST = "cost";
+	/** Column for the potion cost of a card (# needed to buy). */
 	public static final String _POTION = "potion";
+	/** Column for the categories of the card
+	 *  (action, reaction, etc)               */
 	public static final String _CATEGORY = "category";
+	/** Column for the expansion set the card belongs to */
 	public static final String _EXP = "expansion";
+	/** Column for +1 buys this card provides */
 	public static final String _BUY = "buy";
+	/** Column for +1 actions this card provides. */
 	public static final String _ACTION = "act";
+	/** Column for +1 cards this card provides. */
 	public static final String _DRAW = "draw";
+	/** Column for +1 buying power this card provides. */
 	public static final String _GOLD = "gold";
+	/** Column for the value of this card in victory points. */
 	public static final String _VICTORY = "victory";
 	
 	public static final String[] COLS = {_ID, _NAME, _DESC,

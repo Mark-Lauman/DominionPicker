@@ -1,6 +1,7 @@
 package ca.marklauman.dominionpicker;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.StringTokenizer;
 
 import ca.marklauman.dominionpicker.settings.SettingsActivity;
@@ -10,6 +11,8 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -36,6 +39,9 @@ public class MainActivity extends SherlockFragmentActivity
 		card_list = (ListView) findViewById(R.id.card_list);
 		last_select = null;
 		
+		// Setup default settings
+		PreferenceManager.setDefaultValues(this, R.xml.pref_filters, false);
+		
 		// load last selections
 		String store = PreferenceManager.getDefaultSharedPreferences(this)
 						                .getString(KEY_SELECT, null);
@@ -50,7 +56,7 @@ public class MainActivity extends SherlockFragmentActivity
 	protected void onStart() {
 		super.onStart();
 		LoaderManager lm = getSupportLoaderManager();
-		lm.initLoader(1, null, this);
+		lm.restartLoader(1, null, this);
 	}
 	
 	@Override
@@ -121,6 +127,28 @@ public class MainActivity extends SherlockFragmentActivity
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		CursorLoader c = new CursorLoader(this);
 		c.setUri(CardList.URI);
+		
+		// Filter by set
+		ArrayList<String> sel_args = new ArrayList<String>();
+		Resources res = getResources();
+		String[] sets = res.getStringArray(R.array.card_sets);
+		HashSet<String> vis_sets = getVisibleSets(PreferenceManager.getDefaultSharedPreferences(this),
+												  res);
+		for(String set : sets) {
+			if(!vis_sets.contains(set))
+				sel_args.add(set);
+		}
+		String sel = "";
+		for(int i=0; i<sel_args.size(); i++)
+			sel += "AND " + CardList._EXP + "!=? ";
+		if(sel_args.size() != 0)
+			sel = sel.substring(4);
+		
+		c.setSelection(sel);
+		String[] sel_args2 = new String[sel_args.size()];
+		sel_args.toArray(sel_args2);
+		c.setSelectionArgs(sel_args2);
+		
 		return c;
 	}
 	
@@ -140,5 +168,36 @@ public class MainActivity extends SherlockFragmentActivity
 		last_select = adapter.getSelections();
 		card_list.setAdapter(null);
 		adapter = null;
+	}
+	
+	public static HashSet<String> getVisibleSets(SharedPreferences prefs, Resources res) {
+		HashSet<String> out = new HashSet<String>();
+		if(prefs.getBoolean("filt_set_base", false))
+			out.add(res.getString(R.string.set_base));
+		if(prefs.getBoolean("filt_set_alchemy", false))
+			out.add(res.getString(R.string.set_alchemy));
+		if(prefs.getBoolean("filt_set_black_market", false))
+			out.add(res.getString(R.string.set_black_market));
+		if(prefs.getBoolean("filt_set_cornucopia", false))
+			out.add(res.getString(R.string.set_cornucopia));
+		if(prefs.getBoolean("filt_set_dark_ages", false))
+			out.add(res.getString(R.string.set_dark_ages));
+		if(prefs.getBoolean("filt_set_envoy", false))
+			out.add(res.getString(R.string.set_envoy));
+		if(prefs.getBoolean("filt_set_governor", false))
+			out.add(res.getString(R.string.set_governor));
+		if(prefs.getBoolean("filt_set_hinterlands", false))
+			out.add(res.getString(R.string.set_hinterlands));
+		if(prefs.getBoolean("filt_set_intrigue", false))
+			out.add(res.getString(R.string.set_intrigue));
+		if(prefs.getBoolean("filt_set_prosperity", false))
+			out.add(res.getString(R.string.set_prosperity));
+		if(prefs.getBoolean("filt_set_seaside", false))
+			out.add(res.getString(R.string.set_seaside));
+		if(prefs.getBoolean("filt_set_stash", false))
+			out.add(res.getString(R.string.set_stash));
+		if(prefs.getBoolean("filt_set_walled_village", false))
+			out.add(res.getString(R.string.set_walled_village));
+		return out;
 	}
 }
