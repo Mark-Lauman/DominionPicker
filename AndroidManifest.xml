@@ -35,7 +35,7 @@
         </activity>
         
         <activity
-            android:name="ca.marklauman.dominionpicker.ResActivity"
+            android:name="ca.marklauman.dominionpicker.SupplyActivity"
             android:label="@string/picks">
             <meta-data
             	android:name="android.support.PARENT_ACTIVITY"

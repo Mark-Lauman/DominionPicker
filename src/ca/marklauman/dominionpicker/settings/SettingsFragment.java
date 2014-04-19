@@ -6,6 +6,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 
+/** Fragment used for settings in android > 3.0.
+ *  @author Mark Lauman                       */
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class SettingsFragment extends PreferenceFragment {
 	@Override

@@ -12,25 +12,33 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 
+/** Adapter used to display cards from the {@link CardList}
+ *  ContentProvider.
+ *  @author Mark Lauman                                  */
 public class CardAdapter extends CursorSelAdapter
 						 implements OnItemClickListener,
 						 			ViewBinder {
 	
-	public static final String _ID = CardList._ID;
-	public static final String _NAME = CardList._NAME;
-	public static final String _DESC = CardList._DESC;
-	public static final String[] COLS = CardList.COLS;
-	
+	/** Maps expansion names to expansion icons */
 	private static HashMap<String, Integer> exp_icons = null;
 	
+	/** Index of the {@link CardList#_DESC} column. */
 	private int col_desc = -1;
+	/** Index of the {@link CardList#_COST} column. */
 	private int col_cost = -1;
+	/** Index of the {@link CardList#_POTION} column. */
 	private int col_potion = -1;
+	/** Index of the {@link CardList#_EXP} column. */
 	private int col_expansion = -1;
+	/** Index of the {@link CardList#_GOLD} column. */
 	private int col_gold = -1;
+	/** Index of the {@link CardList#_VICTORY} column. */
 	private int col_vict = -1;
+	/** Index of the {@link CardList#_BUY} column. */
 	private int col_buy = -1;
-	private int col_card = -1;
+	/** Index of the {@link CardList#_DRAW} column. */
+	private int col_draw = -1;
+	/** Index of the {@link CardList#_ACTION} column. */
 	private int col_act = -1;
 	
 	public CardAdapter(Context context) {
@@ -57,6 +65,9 @@ public class CardAdapter extends CursorSelAdapter
 		this.setViewBinder(this);
 	}
 	
+	/** Retrieve static resources if needed (these only
+	 *  need to be retrieved once per context).
+	 *  @param c The context of the application.     */
 	private static void staticSetup(Context c) {
 		if(exp_icons != null)
 			return;
@@ -82,6 +93,7 @@ public class CardAdapter extends CursorSelAdapter
 			exp_icons.put(sets[i], icons[i]);
 	}
 	
+	@Override
 	public void changeCursor(Cursor cursor) {
 		super.changeCursor(cursor);
 		if(cursor == null) return;
@@ -93,7 +105,7 @@ public class CardAdapter extends CursorSelAdapter
 		col_gold = cursor.getColumnIndex(CardList._GOLD);
 		col_vict = cursor.getColumnIndex(CardList._VICTORY);
 		col_buy = cursor.getColumnIndex(CardList._BUY);
-		col_card = cursor.getColumnIndex(CardList._DRAW);
+		col_draw = cursor.getColumnIndex(CardList._DRAW);
 		col_act = cursor.getColumnIndex(CardList._ACTION);
 		col_desc = cursor.getColumnIndex(CardList._DESC);
 	}
@@ -127,7 +139,7 @@ public class CardAdapter extends CursorSelAdapter
 			String res = "";
 			String val = cursor.getString(col_buy);
 			if(!"0".equals(val)) res += ", +" + val + " buy";
-			val = cursor.getString(col_card);
+			val = cursor.getString(col_draw);
 			if(!"0".equals(val)) res += ", +" + val + " card";
 			val = cursor.getString(col_act);
 			if(!"0".equals(val)) res += ", +" + val + " action";
@@ -162,12 +174,17 @@ public class CardAdapter extends CursorSelAdapter
 		toggleItem(position);
 	}
 	
+	/** Get the card with the specified id and return it.
+	 *  @param id The SQL id of the card in question.
+	 *  @return The card as a String array. The parameters
+	 *  are in the same order as {@link CardList#COLS}. */
 	public String[] getCard(long id) {
+		String[] cols = CardList.COLS;
 		int position = getPosition(id);
 		this.mCursor.moveToPosition(position);
-		ArrayList<String> data = new ArrayList<String>(COLS.length);
-		for(int i = 0; i < COLS.length; i++) {
-			int index = mCursor.getColumnIndex(COLS[i]);
+		ArrayList<String> data = new ArrayList<String>(cols.length);
+		for(int i = 0; i < cols.length; i++) {
+			int index = mCursor.getColumnIndex(cols[i]);
 			data.add(mCursor.getString(index));
 		}
 		String[] res = new String[data.size()];

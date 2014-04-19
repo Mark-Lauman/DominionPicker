@@ -9,12 +9,17 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 
+/** This is the card database. All card information is stored
+ *  here, and it is all retrieved from here.
+ *  @author Mark Lauman                                    */
 public class CardList extends ContentProvider {
 	
 	/** URI used to access this ContentProvider */
 	public static final Uri URI = Uri.parse("content://ca.marklauman.dominionpicker/cards");
 	/** Name of the table containing all cards */
 	public static final String TABLE_CARDS = "cards";
+	/** MIME type for cards */
+	public static final String MIME = "ca.marklauman.dominionpicker.card";
 	/** Column for the id id number of the card (internal). */
 	public static final String _ID = "_id";
 	/** Column for the name of a card. */
@@ -41,10 +46,12 @@ public class CardList extends ContentProvider {
 	/** Column for the value of this card in victory points. */
 	public static final String _VICTORY = "victory";
 	
+	/** Array of all column names in {@link #TABLE_CARDS}. */
 	public static final String[] COLS = {_ID, _NAME, _DESC,
 		_COST, _POTION, _CATEGORY, _EXP,
 		_BUY, _ACTION, _DRAW, _GOLD, _VICTORY};
 	
+	/** Create Table sql statement for {@link #TABLE_CARDS}. */
 	public static final String CREATE_TABLE =
 			"CREATE TABLE "+ TABLE_CARDS + " ("
 					+ _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -61,6 +68,7 @@ public class CardList extends ContentProvider {
 					+ _VICTORY + " TEXT"
 					+ ");";
 	
+	/** Handle to the sql database. */
 	private DBHandler dbhandle;
 	
 	@Override
@@ -71,8 +79,7 @@ public class CardList extends ContentProvider {
 	
 	@Override
 	public String getType(Uri uri) {
-		// TODO Auto-generated method stub
-		return null;
+		return MIME;
 	}
 	
 	@Override

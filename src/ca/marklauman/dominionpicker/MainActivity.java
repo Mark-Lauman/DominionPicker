@@ -23,21 +23,28 @@ import android.support.v4.content.Loader;
 import android.widget.ListView;
 import android.widget.Toast;
 
+/** Execution starts here. This activity allows you to pick
+ *  the cards to use in your deck.
+ *  @author Mark Lauman                                  */
 public class MainActivity extends SherlockFragmentActivity
 						  implements LoaderCallbacks<Cursor> {
 	
+	/** Key used to save selections to the preferences. */
 	public static final String KEY_SELECT = "selections";
 	
+	/** The view associated with the card list. */
 	ListView card_list;
+	/** The adapter for the card list. */
 	CardAdapter adapter;
-	long[] last_select;
+	/** Used to store the currently selected cards. */
+	long[] selections;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		card_list = (ListView) findViewById(R.id.card_list);
-		last_select = null;
+		selections = null;
 		
 		// Setup default settings
 		PreferenceManager.setDefaultValues(this, R.xml.pref_filters, false);
@@ -47,9 +54,9 @@ public class MainActivity extends SherlockFragmentActivity
 						                .getString(KEY_SELECT, null);
 		if(store == null) return;
 		StringTokenizer tok = new StringTokenizer(store, ",");
-		last_select = new long[tok.countTokens()];
-		for(int i=0; i<last_select.length; i++)
-			last_select[i] = Long.parseLong(tok.nextToken());
+		selections = new long[tok.countTokens()];
+		for(int i=0; i<selections.length; i++)
+			selections[i] = Long.parseLong(tok.nextToken());
 	}
 	
 	@Override
@@ -62,12 +69,12 @@ public class MainActivity extends SherlockFragmentActivity
 	@Override
 	protected void onStop() {
 		if(adapter != null)
-			last_select = adapter.getSelections();
+			selections = adapter.getSelections();
 		
 		// save the selections to permanent storage
 		StringBuilder str = new StringBuilder();
-		for (int i = 0; i < last_select.length; i++)
-		    str.append(last_select[i]).append(",");
+		for (int i = 0; i < selections.length; i++)
+		    str.append(selections[i]).append(",");
 		PreferenceManager.getDefaultSharedPreferences(this)
 		 				 .edit()
 		 				 .putString(KEY_SELECT, str.toString())
@@ -87,34 +94,22 @@ public class MainActivity extends SherlockFragmentActivity
 		switch(item.getItemId()) {
 		case R.id.action_toggle_all:
 			adapter.toggleAll();
-			last_select = adapter.getSelections();
+			selections = adapter.getSelections();
 			return true;
 		case R.id.action_filters:
 			Intent intent = new Intent(this, SettingsActivity.class);
 			startActivity(intent);
 			return true;
 		case R.id.action_submit:
-			last_select = adapter.getSelections();
-			if(last_select.length < 10) {
+			selections = adapter.getSelections();
+			if(selections.length < 10) {
 				String more = getResources().getString(R.string.more);
-				Toast.makeText(this, more + " (" + last_select.length + "/10)", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, more + " (" + selections.length + "/10)", Toast.LENGTH_LONG).show();
 				return true;
 			}
 			
-			ArrayList<Long> pool = new ArrayList<Long>();
-			for(long id : last_select)
-				pool.add(id);
-			
-			String[] cards = new String[10];
-			for(int i=0; i<10; i++) {
-				int pick = (int) (Math.random() * pool.size());
-				long pick_id = pool.get(pick);
-				pool.remove(pick);
-				cards[i] = "" + pick_id;
-			}
-			
-			Intent resAct = new Intent(this, ResActivity.class);
-			resAct.putExtra(ResActivity.PARAM_CARDS, cards);
+			Intent resAct = new Intent(this, SupplyActivity.class);
+			resAct.putExtra(SupplyActivity.PARAM_CARDS, selections);
 			startActivityForResult(resAct, -1);
 			return true;
 		}
@@ -157,19 +152,25 @@ public class MainActivity extends SherlockFragmentActivity
 		adapter = new CardAdapter(this);
 		adapter.setChoiceMode(CardAdapter.CHOICE_MODE_MULTIPLE);
 		adapter.changeCursor(data);
-		if(last_select != null)
-			adapter.setSelections(last_select);
+		if(selections != null)
+			adapter.setSelections(selections);
 		card_list.setAdapter(adapter);
 		card_list.setOnItemClickListener(adapter);
 	}
 	
 	@Override
 	public void onLoaderReset(Loader<Cursor> loader) {
-		last_select = adapter.getSelections();
+		selections = adapter.getSelections();
 		card_list.setAdapter(null);
 		adapter = null;
 	}
 	
+	/** Get a {@link HashSet} containing all sets not filtered
+	 *  out in the settings.
+	 *  @param prefs The {@link SharedPreferences} object of
+	 *  this application.
+	 *  @param res The {@link Resources} of the current context.
+	 */
 	public static HashSet<String> getVisibleSets(SharedPreferences prefs, Resources res) {
 		HashSet<String> out = new HashSet<String>();
 		if(prefs.getBoolean("filt_set_base", false))

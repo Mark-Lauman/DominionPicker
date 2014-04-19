@@ -11,6 +11,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.annotation.TargetApi;
 
+/** Handles the preferences for this activity.
+ *  @author Mark Lauman                     */
 public class SettingsActivity extends SherlockPreferenceActivity {
 	final static String PREF_FILTERS = "ca.marklauman.dominionpicker.PREF_FILTERS";
 	
