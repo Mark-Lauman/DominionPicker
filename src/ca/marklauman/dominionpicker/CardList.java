@@ -133,6 +133,7 @@ public class CardList extends ContentProvider {
 			addCards(db, r.getStringArray(R.array.cards_alchemy));
 			addCards(db, r.getStringArray(R.array.cards_base));
 			addCards(db, r.getStringArray(R.array.cards_intrigue));
+			addCards(db, r.getStringArray(R.array.cards_promo));
 			addCards(db, r.getStringArray(R.array.cards_prosperity));
 			addCards(db, r.getStringArray(R.array.cards_seaside));
 			addCards(db, r.getStringArray(R.array.cards_dark_ages));
