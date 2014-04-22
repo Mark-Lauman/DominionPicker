@@ -68,6 +68,9 @@ public class CardList extends ContentProvider {
 					+ _VICTORY + " TEXT"
 					+ ");";
 	
+	/** The _ID value of the Black Market card. */
+	public static final long BLACK_MARKET_ID = 1L;
+	
 	/** Handle to the sql database. */
 	private DBHandler dbhandle;
 	
@@ -128,12 +131,12 @@ public class CardList extends ContentProvider {
 		@Override
 		public void onCreate(SQLiteDatabase db) {
 			db.execSQL(CREATE_TABLE);
-
+			
 			Resources r = context.getResources();
-			addCards(db, r.getStringArray(R.array.cards_alchemy));
-			addCards(db, r.getStringArray(R.array.cards_base));
-			addCards(db, r.getStringArray(R.array.cards_intrigue));
 			addCards(db, r.getStringArray(R.array.cards_promo));
+			addCards(db, r.getStringArray(R.array.cards_base));
+			addCards(db, r.getStringArray(R.array.cards_alchemy));
+			addCards(db, r.getStringArray(R.array.cards_intrigue));
 			addCards(db, r.getStringArray(R.array.cards_prosperity));
 			addCards(db, r.getStringArray(R.array.cards_seaside));
 			addCards(db, r.getStringArray(R.array.cards_dark_ages));

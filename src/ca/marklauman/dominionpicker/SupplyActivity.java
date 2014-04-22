@@ -2,6 +2,7 @@ package ca.marklauman.dominionpicker;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
@@ -11,6 +12,7 @@ import android.support.v4.content.Loader;
 import android.widget.ListView;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
 /** Activity for choosing and displaying the supply piles for
@@ -28,7 +30,7 @@ public class SupplyActivity extends SherlockFragmentActivity
 	/** The adapter used to display the supply cards. */
 	CardAdapter adapter;
 	/** The supply chosen for this deck. */
-	private String[] supply;
+	private long[] supply;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,7 @@ public class SupplyActivity extends SherlockFragmentActivity
 		// Get the chosen supply cards
 		supply = null;
 		if(savedInstanceState != null)
-			supply = savedInstanceState.getStringArray(KEY_SUPPLY);
+			supply = savedInstanceState.getLongArray(KEY_SUPPLY);
 		if(supply == null)
 			chooseCards(getIntent().getExtras()
 								   .getLongArray(PARAM_CARDS));
@@ -58,8 +60,18 @@ public class SupplyActivity extends SherlockFragmentActivity
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState.putStringArray(KEY_SUPPLY, supply);
+		outState.putLongArray(KEY_SUPPLY, supply);
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		if(blackMarket()) {
+			getSupportMenuInflater().inflate(R.menu.supply, menu);
+			return true;
+		}
+		return super.onCreateOptionsMenu(menu);
+	}
+	
 	
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -68,6 +80,15 @@ public class SupplyActivity extends SherlockFragmentActivity
         case android.R.id.home:
             finish();
             return true;
+        case R.id.action_market:
+        	Intent resAct = new Intent(this, MarketActivity.class);
+        	resAct.putExtra(MarketActivity.PARAM_CARDS,
+        					getIntent().getExtras()
+        							   .getLongArray(PARAM_CARDS));
+        	resAct.putExtra(MarketActivity.PARAM_SUPPLY,
+        					supply);
+			startActivityForResult(resAct, -1);
+			return true;
         }
         return super.onOptionsItemSelected(item);
 	}
@@ -77,7 +98,10 @@ public class SupplyActivity extends SherlockFragmentActivity
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		CursorLoader c = new CursorLoader(this);
 		c.setUri(CardList.URI);
-		c.setSelectionArgs(supply);
+		String[] strSupply = new String[supply.length];
+		for(int i=0; i<supply.length; i++)
+			strSupply[i] = "" + supply[i];
+		c.setSelectionArgs(strSupply);
 		String selection = "";
 		for(int i = 0; i < supply.length; i++)
 			selection += " OR " + CardList._ID + "=?";
@@ -104,12 +128,22 @@ public class SupplyActivity extends SherlockFragmentActivity
 		for(long card : in_pool)
 			pool.add(card);
 		
-		supply = new String[10];
+		supply = new long[10];
 		for(int i=0; i<10; i++) {
 			int pick = (int) (Math.random() * pool.size());
-			String pick_val = "" + pool.get(pick);
+			long pick_val = pool.get(pick);
 			pool.remove(pick);
 			supply[i] = pick_val;
 		}
+	}
+	
+	/** Returns {@code true} if a Black Market is in
+	 *  the supply.                               */
+	private boolean blackMarket() {
+		if(supply == null) return false;
+		for(long card : supply)
+			if(card == CardList.BLACK_MARKET_ID)
+				return true;
+		return false;
 	}
 }
