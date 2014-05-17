@@ -87,7 +87,7 @@ public class MarketActivity extends SherlockFragmentActivity
 		} else {
 			but_draw.setVisibility(View.GONE);
 			choice_panel.setVisibility(View.VISIBLE);
-			getSupportLoaderManager().restartLoader(3, null, this);
+			getSupportLoaderManager().restartLoader(4, null, this);
 		}
 	}
 	
