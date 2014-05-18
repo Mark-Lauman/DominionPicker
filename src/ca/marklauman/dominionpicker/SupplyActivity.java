@@ -33,8 +33,6 @@ public class SupplyActivity extends SherlockFragmentActivity
 	
 	/** ID of the loader for the supply cards. */
 	private static final int LOADER_SUPPLY = 2;
-	/** ID of the loader for the resource cards. */
-	private static final int LOADER_RES = 3;
 	
 	/** The adapter used to display the supply cards. */
 	CardAdapter adapter;
@@ -75,7 +73,6 @@ public class SupplyActivity extends SherlockFragmentActivity
 		// Start loading the cards
 		LoaderManager lm = getSupportLoaderManager();
 		lm.initLoader(LOADER_SUPPLY, null, this);
-		lm.initLoader(LOADER_RES, null, this);
 	}
 	
 	
@@ -123,58 +120,42 @@ public class SupplyActivity extends SherlockFragmentActivity
 		CursorLoader c = new CursorLoader(this);
 		c.setUri(CardList.URI);
 		
-		// Selection varies depending on the loader
+		// Selection string
 		String sel = "";
-		String[] selArgs = new String[0];
-		switch(id) {
-		case LOADER_SUPPLY:
-			selArgs = new String[supply.length];
-			for(int i=0; i<supply.length; i++)
-				selArgs[i] = "" + supply[i];
-			for(int i = 0; i < supply.length; i++)
-				sel += " OR " + CardList._ID + "=?";
-			sel = sel.substring(4);
-			break;
-		case LOADER_RES:
-			sel = CardList._ID + "=? OR "
-					+ CardList._ID + "=?";
-			selArgs = new String[resources.length];
-			selArgs[0] = "" + resources[0];
-			selArgs[1] = "" + resources[1];
-			break;
-		}
+		for(int i = 0; i < supply.length; i++)
+			sel += " OR " + CardList._ID + "=?";
+		sel = sel.substring(4);
 		c.setSelection(sel);
+		
+		// Selection arguments
+		String[] selArgs = new String[supply.length];
+		for(int i=0; i<supply.length; i++)
+			selArgs[i] = "" + supply[i];
 		c.setSelectionArgs(selArgs);
+		
 		return c;
 	}
 	
 	
 	@Override
 	public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-		if(loader == null) return;
-		switch(loader.getId()) {
-		case LOADER_SUPPLY:
-			adapter.changeCursor(data);
-			break;
-		case LOADER_RES:
-			// set the resource cards
-			String[] exp = new String[]{"", ""};
-			int col_exp = data.getColumnIndex(CardList._EXP);
-			int col_id = data.getColumnIndex(CardList._ID);
-			
-			data.moveToFirst();
-			exp[0] = data.getString(col_exp);
-			/* If the same card is drawn twice,
-			 * data.moveToNext will be false. */
-			exp[1] = exp[0];
-			if(data.moveToNext()) {
-				if(resources[0] == data.getLong(col_id))
-					exp[0] = data.getString(col_exp);
-				else exp[1] = data.getString(col_exp);
-			}
-			setResourceCards(exp[0], exp[1]);
-			break;
+		if(data == null) return;
+		
+		// display the resource cards
+		String[] res = new String[]{"", ""};
+		int col_exp = data.getColumnIndex(CardList._EXP);
+		int col_id = data.getColumnIndex(CardList._ID);
+		data.moveToPosition(-1);
+		while(data.moveToNext()) {
+			if(resources[0] == data.getLong(col_id))
+				res[0] = data.getString(col_exp);
+			if(resources[1] == data.getLong(col_id))
+				res[1] = data.getString(col_exp);
 		}
+		displayResourceCards(res[0], res[1]);
+		
+		// display the supply cards
+		adapter.changeCursor(data);
 	}
 	
 	
@@ -198,21 +179,21 @@ public class SupplyActivity extends SherlockFragmentActivity
 		for(long card : in_pool)
 			pool.add(card);
 		
-		// Choose the resources
-		resources = new long[2];
-		int pick = (int) (Math.random() * pool.size());
-		resources[0] = pool.get(pick);
-		pick = (int) (Math.random() * pool.size());
-		resources[1] = pool.get(pick);
-		
 		// Choose the supply
 		supply = new long[10];
 		for(int i=0; i<10; i++) {
-			pick = (int) (Math.random() * pool.size());
+			int pick = (int) (Math.random() * pool.size());
 			long pick_val = pool.get(pick);
 			pool.remove(pick);
 			supply[i] = pick_val;
 		}
+		
+		// Choose the resources from the supply
+		resources = new long[2];
+		int pick = (int) (Math.random() * supply.length);
+		resources[0] = supply[pick];
+		pick = (int) (Math.random() * supply.length);
+		resources[1] = supply[pick];
 	}
 	
 	/** Returns {@code true} if a Black Market is in
@@ -226,13 +207,13 @@ public class SupplyActivity extends SherlockFragmentActivity
 	}
 	
 	
-	/** Set the resource cards in use for this game
-	 *  (Colony, Platinum and Shelters).
+	/** Display the resource cards in use for this
+	 *  game (Colony, Platinum and Shelters).
 	 *  @param colony_set If this set is Prosperity,
 	 *  colonies and Platinum are used.
 	 *  @param shelter_set If this set is Dark Ages,
 	 *  Shelters are used.                        */
-	public void setResourceCards(String colony_set, String shelter_set) {
+	public void displayResourceCards(String colony_set, String shelter_set) {
 		String output = "";
 		String set_prosp = getString(R.string.set_prosperity);
 		String set_dark = getString(R.string.set_dark_ages);
