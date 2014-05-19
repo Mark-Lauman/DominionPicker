@@ -143,6 +143,7 @@ public class CardList extends ContentProvider {
 		}
 		
 		private void addCards(SQLiteDatabase db, String[] cards) {
+			db.beginTransaction();
 			for(String card : cards) {
 				String[] in_data = card.split(";");
 				ContentValues values = new ContentValues();
@@ -154,6 +155,8 @@ public class CardList extends ContentProvider {
 							values,
 							SQLiteDatabase.CONFLICT_IGNORE);
 			}
+			db.setTransactionSuccessful();
+			db.endTransaction();
 		}
 		
 		@Override
