@@ -194,31 +194,33 @@ public class MainActivity extends SherlockFragmentActivity
 	 */
 	public static HashSet<String> getVisibleSets(SharedPreferences prefs, Resources res) {
 		HashSet<String> out = new HashSet<String>();
-		if(prefs.getBoolean("filt_set_base", false))
+		if(prefs.getBoolean("filt_set_base", true))
 			out.add(res.getString(R.string.set_base));
-		if(prefs.getBoolean("filt_set_alchemy", false))
+		if(prefs.getBoolean("filt_set_alchemy", true))
 			out.add(res.getString(R.string.set_alchemy));
-		if(prefs.getBoolean("filt_set_black_market", false))
+		if(prefs.getBoolean("filt_set_black_market", true))
 			out.add(res.getString(R.string.set_black_market));
-		if(prefs.getBoolean("filt_set_cornucopia", false))
+		if(prefs.getBoolean("filt_set_cornucopia", true))
 			out.add(res.getString(R.string.set_cornucopia));
-		if(prefs.getBoolean("filt_set_dark_ages", false))
+		if(prefs.getBoolean("filt_set_dark_ages", true))
 			out.add(res.getString(R.string.set_dark_ages));
-		if(prefs.getBoolean("filt_set_envoy", false))
+		if(prefs.getBoolean("filt_set_envoy", true))
 			out.add(res.getString(R.string.set_envoy));
-		if(prefs.getBoolean("filt_set_governor", false))
+		if(prefs.getBoolean("filt_set_governor", true))
 			out.add(res.getString(R.string.set_governor));
-		if(prefs.getBoolean("filt_set_hinterlands", false))
+		if(prefs.getBoolean("filt_set_guilds", true))
+			out.add(res.getString(R.string.set_guilds));
+		if(prefs.getBoolean("filt_set_hinterlands", true))
 			out.add(res.getString(R.string.set_hinterlands));
-		if(prefs.getBoolean("filt_set_intrigue", false))
+		if(prefs.getBoolean("filt_set_intrigue", true))
 			out.add(res.getString(R.string.set_intrigue));
-		if(prefs.getBoolean("filt_set_prosperity", false))
+		if(prefs.getBoolean("filt_set_prosperity", true))
 			out.add(res.getString(R.string.set_prosperity));
-		if(prefs.getBoolean("filt_set_seaside", false))
+		if(prefs.getBoolean("filt_set_seaside", true))
 			out.add(res.getString(R.string.set_seaside));
-		if(prefs.getBoolean("filt_set_stash", false))
+		if(prefs.getBoolean("filt_set_stash", true))
 			out.add(res.getString(R.string.set_stash));
-		if(prefs.getBoolean("filt_set_walled_village", false))
+		if(prefs.getBoolean("filt_set_walled_village", true))
 			out.add(res.getString(R.string.set_walled_village));
 		return out;
 	}

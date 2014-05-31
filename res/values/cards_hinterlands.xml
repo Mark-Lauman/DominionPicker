@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory -->
+    <string-array name="cards_hinterlands">
+        <item>Crossroads;;2;0;Action;Hinterlands;0;0;0;0;0</item>
+        <item>Duchess;;2;0;Action;Hinterlands;0;0;0;2;0</item>
+        <item>Fool\'s Gold;;2;0;Treasure Reaction;Hinterlands;0;0;0;0;0</item>
+        <item>Develop;;3;0;Action;Hinterlands;0;0;0;0;0</item>
+        <item>Oasis;;3;0;Action;Hinterlands;0;1;1;1;0</item>
+        <item>Oracle;;3;0;Action Attack;Hinterlands;0;0;2;0;0</item>
+        <item>Scheme;;3;0;Action;Hinterlands;0;1;1;0;0</item>
+        <item>Tunnel;;3;0;Victory Reaction;Hinterlands;0;0;0;0;0</item>
+        <item>Jack of all Trades;;4;0;Action;Hinterlands;0;0;0;0;0</item>
+        <item>Noble Brigand;;4;0;Action Attack;Hinterlands;0;0;0;1;0</item>
+        <item>Nomad Camp;;4;0;Action;Hinterlands;1;0;0;2;0</item>
+        <item>Silk Road;;4;0;Victory;Hinterlands;0;0;0;0;0</item>
+        <item>Spice Merchant;;4;0;Action;Hinterlands;0;0;0;0;0</item>
+        <item>Trader;;4;0;Action Reaction;Hinterlands;0;0;0;0;0</item>
+        <item>Cache;;5;0;Treasure;Hinterlands;0;0;0;3;0</item>
+        <item>Cartographer;;5;0;Action;Hinterlands;0;1;1;0;0</item>
+        <item>Embassy;;5;0;Action;Hinterlands;0;0;5;0;0</item>
+        <item>Haggler;;5;0;Action;Hinterlands;0;0;0;2;0</item>
+        <item>Highway;;5;0;Action;Hinterlands;0;1;1;0;0</item>
+        <item>Ill-Gotten Gains;;5;0;Treasure;Hinterlands;0;0;0;1;0</item>
+        <item>Inn;;5;0;Action;Hinterlands;0;2;2;0;0</item>
+        <item>Mandarin;;5;0;Action;Hinterlands;0;0;0;3;0</item>
+        <item>Margave;;5;0;Action Attack;Hinterlands;1;0;3;0;0</item>
+        <item>Stables;;5;0;Action;Hinterlands;0;0;0;0;0</item>
+        <item>Border Village;;6;0;Action;Hinterlands;0;2;1;0;0</item>
+        <item>Farmland;;6;0;Victory;Hinterlands;0;0;0;0;0</item>
+    </string-array>
+    
+</resources>

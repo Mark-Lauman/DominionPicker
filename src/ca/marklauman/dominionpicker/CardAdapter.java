@@ -102,6 +102,7 @@ public class CardAdapter extends CursorSelAdapter
 					   R.drawable.ic_set_dark_ages,
 					   R.drawable.ic_set_envoy,
 					   R.drawable.ic_set_governor,
+					   R.drawable.ic_set_guilds,
 					   R.drawable.ic_set_hinterlands,
 					   R.drawable.ic_set_intrigue,
 					   R.drawable.ic_set_prosperity,

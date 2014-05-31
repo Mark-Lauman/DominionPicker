@@ -3,7 +3,7 @@
     
     <header android:fragment="ca.marklauman.dominionpicker.settings.SettingsFragment"
         android:title="@string/pref_filters">
-        <extra android:name="category" android:value="filters" />
+        <extra android:name="category" android:value="ca.marklauman.dominionpicker.PREF_FILTERS" />
     </header>
     
 </preference-headers>

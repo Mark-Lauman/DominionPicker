@@ -39,6 +39,11 @@
             android:key="filt_set_governor"
             android:defaultValue="true" />
         
+        <CheckBoxPreference android:title="@string/set_guilds"
+            android:icon="@drawable/ic_set_guilds"
+            android:key="filt_set_guilds"
+            android:defaultValue="true" />
+        
         <CheckBoxPreference android:title="@string/set_hinterlands"
             android:icon="@drawable/ic_set_hinterlands"
             android:key="filt_set_hinterlands"

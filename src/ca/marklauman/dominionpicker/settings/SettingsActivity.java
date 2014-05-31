@@ -41,8 +41,9 @@ public class SettingsActivity extends SherlockPreferenceActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB)
-        	setupLegacy();
+//        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB)
+//        	setupLegacy();
+        setupLegacy();
     }
 	
 	@SuppressWarnings("deprecation")
@@ -56,11 +57,11 @@ public class SettingsActivity extends SherlockPreferenceActivity {
 	}
 	
 	
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-	@Override
-    public void onBuildHeaders(List<Header> target) {
-        loadHeadersFromResource(R.xml.pref_headers_3, target);
-    }
+//	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+//	@Override
+//    public void onBuildHeaders(List<Header> target) {
+//        loadHeadersFromResource(R.xml.pref_headers_3, target);
+//    }
 	
 	
 	@Override
@@ -72,5 +73,12 @@ public class SettingsActivity extends SherlockPreferenceActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	protected boolean isValidFragment (String fragmentName) {
+		if(SettingsFragment.class.getName().equals(fragmentName))
+			return true;
+		return super.isValidFragment(fragmentName);
 	}
 }
