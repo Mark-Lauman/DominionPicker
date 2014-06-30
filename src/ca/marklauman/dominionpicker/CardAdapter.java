@@ -24,6 +24,7 @@ package ca.marklauman.dominionpicker;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import ca.marklauman.tools.CursorSelAdapter;
 import android.content.Context;
 import android.database.Cursor;
 import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;

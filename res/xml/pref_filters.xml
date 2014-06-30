@@ -2,78 +2,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/pref_filters" >
     
-    <PreferenceCategory android:title="@string/pref_filt_sets">
-        
-        <CheckBoxPreference android:title="@string/set_base"
-            android:icon="@drawable/ic_set_base"
-            android:key="filt_set_base"
-            android:defaultValue="true" />
-        
-        <CheckBoxPreference android:title="@string/set_alchemy"
-            android:icon="@drawable/ic_set_alchemy"
-            android:key="filt_set_alchemy"
-            android:defaultValue="true" />
-        
-        <CheckBoxPreference android:title="@string/set_black_market"
-            android:icon="@drawable/ic_set_black_market"
-            android:key="filt_set_black_market"
-            android:defaultValue="true" />
-        
-        <CheckBoxPreference android:title="@string/set_cornucopia"
-            android:icon="@drawable/ic_set_cornucopia"
-            android:key="filt_set_cornucopia"
-            android:defaultValue="true" />
-        
-        <CheckBoxPreference android:title="@string/set_dark_ages"
-            android:icon="@drawable/ic_set_dark_ages"
-            android:key="filt_set_dark_ages"
-            android:defaultValue="true" />
-        
-        <CheckBoxPreference android:title="@string/set_envoy"
-            android:icon="@drawable/ic_set_envoy"
-            android:key="filt_set_envoy"
-            android:defaultValue="true" />
-        
-        <CheckBoxPreference android:title="@string/set_governor"
-            android:icon="@drawable/ic_set_governor"
-            android:key="filt_set_governor"
-            android:defaultValue="true" />
-        
-        <CheckBoxPreference android:title="@string/set_guilds"
-            android:icon="@drawable/ic_set_guilds"
-            android:key="filt_set_guilds"
-            android:defaultValue="true" />
-        
-        <CheckBoxPreference android:title="@string/set_hinterlands"
-            android:icon="@drawable/ic_set_hinterlands"
-            android:key="filt_set_hinterlands"
-            android:defaultValue="true" />
-        
-        <CheckBoxPreference android:title="@string/set_intrigue"
-            android:icon="@drawable/ic_set_intrigue"
-            android:key="filt_set_intrigue"
-            android:defaultValue="true" />
-        
-        <CheckBoxPreference android:title="@string/set_prosperity"
-            android:icon="@drawable/ic_set_prosperity"
-            android:key="filt_set_prosperity"
-            android:defaultValue="true" />
-        
-        <CheckBoxPreference android:title="@string/set_seaside"
-            android:icon="@drawable/ic_set_seaside"
-            android:key="filt_set_seaside"
-            android:defaultValue="true" />
-        
-        <CheckBoxPreference android:title="@string/set_stash"
-            android:icon="@drawable/ic_set_stash"
-            android:key="filt_set_stash"
-            android:defaultValue="true" />
-        
-        <CheckBoxPreference android:title="@string/set_walled_village"
-            android:icon="@drawable/ic_set_walled_village"
-            android:key="filt_set_walled_village"
-            android:defaultValue="true" />
-        
-    </PreferenceCategory>
+    <ca.marklauman.tools.MultiSelectImagePreference
+        android:key="filt_set"
+        android:title="@string/pref_filt_sets"
+        android:icon="@drawable/ic_set_base"
+        android:entries="@array/card_sets"
+        android:entryValues="@array/card_sets"
+        android:defaultValue="@array/card_sets"
+        icons="@array/card_set_icons" />
     
 </PreferenceScreen>

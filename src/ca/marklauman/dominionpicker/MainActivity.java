@@ -26,6 +26,7 @@ import java.util.HashSet;
 import java.util.StringTokenizer;
 
 import ca.marklauman.dominionpicker.settings.SettingsActivity;
+import ca.marklauman.tools.MultiSelectImagePreference;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
@@ -33,6 +34,7 @@ import com.actionbarsherlock.view.MenuItem;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -41,6 +43,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -67,8 +70,8 @@ public class MainActivity extends SherlockFragmentActivity
 		card_list = (ListView) findViewById(R.id.card_list);
 		selections = null;
 		
-		// Setup default settings
-		PreferenceManager.setDefaultValues(this, R.xml.pref_filters, false);
+		// Setup default preferences
+		setupPreferences();
 		
 		// load last selections
 		String store = PreferenceManager.getDefaultSharedPreferences(this)
@@ -185,6 +188,70 @@ public class MainActivity extends SherlockFragmentActivity
 		card_list.setAdapter(null);
 		adapter = null;
 	}
+	
+	private void setupPreferences() {
+		PreferenceManager.setDefaultValues(this, R.xml.pref_version, false);
+		PreferenceManager.setDefaultValues(this, R.xml.pref_filters, false);
+		
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		// Update settings from version 0
+		if(prefs.contains("filt_set_base")) {
+			// interpret old settings
+			String[] set_names = getResources().getStringArray(R.array.card_sets);
+			ArrayList<String> set_filt = new ArrayList<String>();
+			if(prefs.getBoolean("filt_set_base", true))
+				set_filt.add(set_names[0]);
+			if(prefs.getBoolean("filt_set_alchemy", true))
+				set_filt.add(set_names[1]);
+			if(prefs.getBoolean("filt_set_black_market", true))
+				set_filt.add(set_names[2]);
+			if(prefs.getBoolean("filt_set_cornucopia", true))
+				set_filt.add(set_names[3]);
+			if(prefs.getBoolean("filt_set_dark_ages", true))
+				set_filt.add(set_names[4]);
+			if(prefs.getBoolean("filt_set_envoy", true))
+				set_filt.add(set_names[5]);
+			if(prefs.getBoolean("filt_set_governor", true))
+				set_filt.add(set_names[6]);
+			if(prefs.getBoolean("filt_set_guilds", true))
+				set_filt.add(set_names[7]);
+			if(prefs.getBoolean("filt_set_hinterlands", true))
+				set_filt.add(set_names[8]);
+			if(prefs.getBoolean("filt_set_intrigue", true))
+				set_filt.add(set_names[9]);
+			if(prefs.getBoolean("filt_set_prosperity", true))
+				set_filt.add(set_names[10]);
+			if(prefs.getBoolean("filt_set_seaside", true))
+				set_filt.add(set_names[11]);
+			if(prefs.getBoolean("filt_set_stash", true))
+				set_filt.add(set_names[12]);
+			if(prefs.getBoolean("filt_set_walled_village", true))
+				set_filt.add(set_names[13]);
+			
+			// write them in the new format
+			Log.d("new set_filt", set_filt.toString());
+			
+			// remove old settings
+//			MultiSelectImagePreference.saveValue(prefs, "filt_set", set_filt);
+//			Editor edit = prefs.edit();
+//			edit.remove("filt_set_base");
+//			edit.remove("filt_set_alchemy");
+//			edit.remove("filt_set_black_market");
+//			edit.remove("filt_set_cornucopia");
+//			edit.remove("filt_set_dark_ages");
+//			edit.remove("filt_set_envoy");
+//			edit.remove("filt_set_governor");
+//			edit.remove("filt_set_guilds");
+//			edit.remove("filt_set_hinterlands");
+//			edit.remove("filt_set_intrigue");
+//			edit.remove("filt_set_prosperity");
+//			edit.remove("filt_set_seaside");
+//			edit.remove("filt_set_stash");
+//			edit.remove("filt_set_walled_village");
+//			edit.apply();
+		}
+	}
+	
 	
 	/** Get a {@link HashSet} containing all sets not filtered
 	 *  out in the settings.

@@ -29,7 +29,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
-import android.util.Log;
 
 /** This is the card database. All card information is stored
  *  here, and it is all retrieved from here.
@@ -175,7 +174,6 @@ public class CardList extends ContentProvider {
 				for(int i = 0; i < in_data.length; i++) {
 					values.put(COLS[i+1], in_data[i]);
 				}
-				Log.d("", values.getAsString(_EXP));
 				db.insertWithOnConflict(TABLE_CARDS,
 							null,
 							values,

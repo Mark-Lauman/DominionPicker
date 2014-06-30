@@ -1,41 +1,25 @@
-/* Copyright (c) 2014 Mark Christopher Lauman
- * 
- * Licensed under the The MIT License (MIT)
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.                                                                  */
-package ca.marklauman.dominionpicker;
+package ca.marklauman.tools;
 
 import java.security.InvalidParameterException;
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CheckedTextView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 /** Selection Utility class I made because I hate android's
  *  selection implementation. This should work for all
  *  versions of Android down to API v4.
  *  @author Mark Lauman                                  */
-public class CursorSelAdapter extends SimpleCursorAdapter {
+public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 	
 	/** Normal adapter that does not indicate choices. */
 	public static final int CHOICE_MODE_NONE = ListView.CHOICE_MODE_NONE;
@@ -43,84 +27,124 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 	public static final int CHOICE_MODE_SINGLE = ListView.CHOICE_MODE_SINGLE;
 	/** The adapter allows multiple choices.  */
 	public static final int CHOICE_MODE_MULTIPLE = ListView.CHOICE_MODE_MULTIPLE;
-	
-	/** Background color of a tab in its normal state */
-	private static int COLOR_NORM = -1;
-	/** Background color of a tab when selected */
-	private static int COLOR_SELECT = -1;
-	
+
+	/** Background color of a selected item. */
+	private Integer color_select = null;
+	/** Background color of a deselected item. */
+	private Integer color_deselect = null;
 	
 	/** Current choice mode.   */
 	private int mChoiceMode = CHOICE_MODE_NONE;
 	/** Current selections.    */
 	private HashSet<Integer> mSelected = new HashSet<Integer>();
+	/** Icon resource ids for the list entries. */
+	private int[] mIcons;
 	
 	
-	/** Standard constructor.
-	 *  @param context The context where the ListView
-	 *  associated with this CursorSelAdapter is
-	 *  running.
-	 *  @param layout resource identifier of a layout file
-	 *  that defines the views for this list item. The
-	 *  layout file should include at least those named
-	 *  views defined in "to"
-	 *  @param from A list of column names representing
-	 *  the data to bind to the UI. Can be null if the
-	 *  cursor is not available yet.
-	 *  @param to The views that should display column in
-	 *  the "from" parameter. These should all be
-	 *  TextViews. The first N views in this list are given
-	 *  the values of the first N columns in the from
-	 *  parameter. Can be null if the cursor is not
-	 *  available yet.                                 */
-	public CursorSelAdapter(Context context, int layout,
-			String[] from, int[] to) {
-		super(context, layout, null, from, to, 0);
-		if(COLOR_NORM == -1) {
-			COLOR_NORM	 = context.getResources()
-								  .getColor(android.R.color.transparent);
-			COLOR_SELECT = context.getResources()
-								  .getColor(R.color.list_activated_holo);
-		}
+	// DEFAULT SUPER CONSTRUCTORS \\
+	public ArrayCheckAdapter(Context context, int resource) {
+		super(context, resource);
+	}
+	public ArrayCheckAdapter(Context context, int resource,
+			int textViewResourceId) {
+		super(context, resource, textViewResourceId);
+	}
+	public ArrayCheckAdapter(Context context, int resource,
+			int textViewResourceId, List<T> objects) {
+		super(context, resource, textViewResourceId, objects);
+	}
+	public ArrayCheckAdapter(Context context, int resource,
+			int textViewResourceId, T[] objects) {
+		super(context, resource, textViewResourceId, objects);
+	}
+	public ArrayCheckAdapter(Context context, int resource, List<T> objects) {
+		super(context, resource, objects);
+	}
+	public ArrayCheckAdapter(Context context, int resource, T[] objects) {
+		super(context, resource, objects);
+	}
+	// END CONSTRUCTORS \\
+	
+	
+	/** When selecting items, toggle the background
+	 *  color of an item between these values. If this
+	 *  function is not called, the background will
+	 *  not be used as a selection indicator.
+	 *  @param selected The color corresponding to
+	 *  a selected item (not an android id value).
+	 * @param deselected The color corresponding to
+	 *  a deselected item (not an android id value). */
+	public void setBackgroundColors(int selected, int deselected) {
+		color_select   = selected;
+		color_deselect = deselected;
+	}
+	
+	
+	/** Set an array of drawables to act as icons
+	 *  for list items. If this is set and an
+	 *  {@link ImageView} with the id
+	 *  {@code @android:id/icon} is inside this
+	 *  adapter's view, then that drawable will be
+	 *  assigned to that {@code ImageView}. If not,
+	 *  {@code @android:id/text1} will be given a
+	 *  drawable to its left.
+	 *  @param icons An array containing the resource
+	 *  ids of the drawables to use (one per list
+	 *  entry).                                    */
+	public void setIcons(int[] icons) {
+		mIcons = icons;
 	}
 	
 	
 	/** Gets the view for a specified position in the list.
-	 *  In {@link SimpleCursorAdapter}s, this method is
-	 *  not responsible for the inflation of the view, just
-	 *  its retrieval and refreshing. Inflation is done in
-	 *  {@link #newView(Context, Cursor, ViewGroup)}.
-	 *  @param position The position of the item within the
-	 *  adapter's data set of the item whose view we want.
 	 *  @param convertView The old view to reuse, if possible.
 	 *  @param parent The parent that this view will
-	 *  eventually be attached to
+	 *  eventually be attached to.
 	 *  @return A View corresponding to the data at
 	 *  the specified position.                             */
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View res = super.getView(position, convertView, parent);
+		
+		// list entry icons
+		if(mIcons != null && position < mIcons.length) {
+			View icon = res.findViewById(android.R.id.icon);
+			TextView text1 = (TextView) res.findViewById(android.R.id.text1);
+			if(icon != null && icon instanceof ImageView) {
+				((ImageView)icon).setImageResource(mIcons[position]);
+			} else if(text1 != null) {
+				text1.setCompoundDrawablesWithIntrinsicBounds(
+						mIcons[position],0,0,0);
+			}
+		}
+		
 		if(mSelected.contains(position))
-			res.setBackgroundColor(COLOR_SELECT);
+			selectView(res, true);
 		else
-			res.setBackgroundColor(COLOR_NORM);
+			selectView(res, false);
 		return res;
 	}
 	
-	
-	/** Get the item position paired with this id.
-	 *  @param id The sql id of the item.
-	 *  (from the "_id" column)
-	 *  @return The position of that item in the list,
-	 *  or -1 if no items exist with that id.       */
-	public int getPosition(long id) {
-		if(mCursor == null || !mCursor.moveToFirst())
-			return -1;
-		do {
-			if(id == mCursor.getLong(mRowIDColumn))
-				return mCursor.getPosition();
-		} while(mCursor.moveToNext());
-		return -1;
+	/** Make the provided View de/selected.
+	 *  @param view The view to make de/selected.
+	 *  @param select True if the view is selected.
+	 *  False, if deselected.
+	 *  @return The changed view.                */
+	private void selectView(View view, boolean select) {
+		View check = view.findViewById(android.R.id.checkbox);
+		View text1 = view.findViewById(android.R.id.text1);
+		
+		// checkbox toggle
+		if(check != null && check instanceof CheckBox)
+			((CheckBox) check).setChecked(select);
+		if(text1 != null && text1 instanceof CheckedTextView)
+			((CheckedTextView) text1).setChecked(select);
+		
+		// background toggle
+		if(select && color_select != null)
+			view.setBackgroundColor(color_select);
+		else if(!select && color_deselect != null)
+			view.setBackgroundColor(color_deselect);
 	}
 	
 	
@@ -149,7 +173,6 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 		mSelected.clear();
 		notifyDataSetChanged();
 	}
-	
 	
 	/** Gets the current ChoiceMode of this CursorSelAdapter.
 	 *  @return One of {@link #CHOICE_MODE_NONE},
@@ -219,9 +242,9 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 	public void selectAll() {
 		mChoiceMode = CHOICE_MODE_MULTIPLE;
 		mSelected.clear();
-		if(mCursor == null) return;
+		if(getCount() == 0) return;
 		
-		for(int i = 0; i < mCursor.getCount(); i++)
+		for(int i = 0; i < getCount(); i++)
 			mSelected.add(i);
 		notifyDataSetChanged();
 	}
@@ -244,7 +267,7 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 		
 		// check all items are selected
 		boolean selected = true;
-		for(int i = 0; selected && i < mCursor.getCount(); i++)
+		for(int i = 0; selected && i < getCount(); i++)
 			selected = mSelected.contains(i);
 		
 		// apply the change
@@ -253,26 +276,21 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 		return !selected;
 	}
 	
-	
 	/** Gets all selected items.
-	 *  @return The ids of each selected item. There is
-	 *  no guaranteed order to this list, users must sort
-	 *  it themselves if necessary.                    */
-	public long[] getSelections() {
-		long[] res = new long[mSelected.size()];
-		int i = 0;
-		for(Integer pos : mSelected) {
-			res[i] = getItemId(pos);
-			i++;
-		}
+	 *  @return The positions of each selected item.
+	 *  There is no guaranteed order to this list,
+	 *  users must sort it themselves if necessary. */
+	public Integer[] getSelections() {
+		Integer[] res = new Integer[mSelected.size()];
+		mSelected.toArray(res);
 		return res;
 	}
 	
 	
-	/** Sets the selected items. Be sure to set the choice
-	 *  mode (using {@link #setChoiceMode(int)})
+	/** Sets the selected items. Be sure to set the
+	 *  choice mode (using {@link #setChoiceMode(int)})
 	 *  before calling this!
-	 *  @param selections The sql ids of the items to select.
+	 *  @param selections The positions to select
 	 *  If {@link #CHOICE_MODE_NONE}, nothing is selected.
 	 *  If {@link #CHOICE_MODE_SINGLE}, only the last valid
 	 *  item is selected.
@@ -280,15 +298,35 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 	 *  are selected.
 	 *  Items are considered valid if they
 	 *  are in the list.                                 */
-	public void setSelections(long... selections) {
+	public void setSelections(int... selections) {
 		deselectAll();
 		if(selections == null
 				|| selections.length == 0
 				|| mChoiceMode == CHOICE_MODE_NONE)
 			return;
-		for(long sel : selections) {
-			int pos = getPosition(sel);
-			if(0 <= pos) selectItem(pos);
-		}
+		
+		for(int sel : selections) 
+			mSelected.add(sel);
+		notifyDataSetChanged();
+	}
+	
+	/** Sets the selected items. Be sure to set the
+	 *  choice mode (using {@link #setChoiceMode(int)})
+	 *  before calling this!
+	 *  @param selections The positions to select
+	 *  If {@link #CHOICE_MODE_NONE}, nothing is selected.
+	 *  If {@link #CHOICE_MODE_SINGLE}, only the last valid
+	 *  item is selected.
+	 *  If {@link #CHOICE_MODE_MULTIPLE}, all valid items
+	 *  are selected.
+	 *  Items are considered valid if they
+	 *  are in the list.                                 */
+	public void setSelections(Collection<? extends Integer> selections) {
+		deselectAll();
+		if(selections == null
+				|| selections.size() == 0
+				|| mChoiceMode == CHOICE_MODE_NONE)
+			return;
+		mSelected.addAll(selections);
 	}
 }
