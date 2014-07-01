@@ -8,7 +8,7 @@
         android:icon="@drawable/ic_set_base"
         android:entries="@array/card_sets"
         android:entryValues="@array/card_sets"
-        android:defaultValue="@array/card_sets"
-        icons="@array/card_set_icons" />
+        icons="@array/card_set_icons"
+        inverted="true" />
     
 </PreferenceScreen>

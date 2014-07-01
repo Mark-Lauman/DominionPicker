@@ -1,11 +1,14 @@
 package ca.marklauman.tools;
 
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.Comparator;
 import java.util.List;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -35,35 +38,107 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 	
 	/** Current choice mode.   */
 	private int mChoiceMode = CHOICE_MODE_NONE;
+	/** Last selected item (used in single choice mode) */
+	private int last_select = -1;
 	/** Current selections.    */
-	private HashSet<Integer> mSelected = new HashSet<Integer>();
+	private ArrayList<Boolean> mSelected;
 	/** Icon resource ids for the list entries. */
 	private int[] mIcons;
 	
 	
 	// DEFAULT SUPER CONSTRUCTORS \\
+	//   all call setupSelect()   \\
 	public ArrayCheckAdapter(Context context, int resource) {
 		super(context, resource);
+		setupSelect(0);
 	}
 	public ArrayCheckAdapter(Context context, int resource,
 			int textViewResourceId) {
 		super(context, resource, textViewResourceId);
+		setupSelect(0);
 	}
 	public ArrayCheckAdapter(Context context, int resource,
 			int textViewResourceId, List<T> objects) {
 		super(context, resource, textViewResourceId, objects);
+		if(objects == null) setupSelect(0);
+		else setupSelect(objects.size());
 	}
 	public ArrayCheckAdapter(Context context, int resource,
 			int textViewResourceId, T[] objects) {
 		super(context, resource, textViewResourceId, objects);
+		if(objects == null) setupSelect(0);
+		else setupSelect(objects.length);
 	}
 	public ArrayCheckAdapter(Context context, int resource, List<T> objects) {
 		super(context, resource, objects);
+		if(objects == null) setupSelect(0);
+		else setupSelect(objects.size());
 	}
 	public ArrayCheckAdapter(Context context, int resource, T[] objects) {
 		super(context, resource, objects);
+		if(objects == null) setupSelect(0);
+		else setupSelect(objects.length);
+	}
+	private void setupSelect(int length) {
+		mSelected = new ArrayList<Boolean>(length);
+		for(int i=0; i<length; i++)
+			mSelected.add(false);
 	}
 	// END CONSTRUCTORS \\
+	
+	
+	@Override
+	public void add(T object) {
+		mSelected.add(false);
+		super.add(object);
+	}
+
+	@Override
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	public void addAll(Collection<? extends T> collection) {
+		if(collection == null) return;
+		ArrayList<Boolean> sels = new ArrayList<Boolean>(collection.size());
+		for(int i=0; i<sels.size(); i++)
+			sels.set(i, false);
+		mSelected.addAll(sels);
+		super.addAll(collection);
+	}
+	
+	@Override
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	@SuppressWarnings("unchecked")
+	public void addAll(T... items) {
+		if(items == null) return;
+		ArrayList<Boolean> sels = new ArrayList<Boolean>(items.length);
+		for(int i=0; i<sels.size(); i++)
+			sels.set(i, false);
+		mSelected.addAll(sels);
+		super.addAll(items);
+	}
+	
+	@Override
+	public void clear() {
+		mSelected.clear();
+		super.clear();
+	}
+	
+	@Override
+	public void insert(T object, int index) {
+		mSelected.add(index, false);
+		super.insert(object, index);
+	}
+	
+	@Override
+	public void remove(T object) {
+		int pos = super.getPosition(object);
+		mSelected.remove(pos);
+		super.remove(object);
+	}
+	
+	
+	public void sort(Comparator<? super T> comparator) {
+		throw new RuntimeException("sort() is not supported on ArrayCheckAdapter");
+	}
 	
 	
 	/** When selecting items, toggle the background
@@ -118,7 +193,7 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 			}
 		}
 		
-		if(mSelected.contains(position))
+		if(mSelected.get(position))
 			selectView(res, true);
 		else
 			selectView(res, false);
@@ -170,8 +245,7 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 		default:	throw new InvalidParameterException("Invalid choice mode");
 		}
 		mChoiceMode = choiceMode;
-		mSelected.clear();
-		notifyDataSetChanged();
+		deselectAll();
 	}
 	
 	/** Gets the current ChoiceMode of this CursorSelAdapter.
@@ -192,11 +266,13 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 		case CHOICE_MODE_NONE:
 			return;
 		case CHOICE_MODE_SINGLE:
-			mSelected.clear();
+			if(0 <= last_select)
+				mSelected.set(last_select, false);
+			last_select = position;
 		case CHOICE_MODE_MULTIPLE: break;
 		default: 	throw new IllegalStateException("Choice Mode is an invalid value: " + mChoiceMode);
 		}
-		mSelected.add(position);
+		mSelected.set(position, true);
 		notifyDataSetChanged();
 	}
 	
@@ -206,7 +282,7 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 	 *  @param position The position of the row in the
 	 *  list.                                        */
 	public void deselectItem(int position) {
-		mSelected.remove(position);
+		mSelected.set(position, false);
 		notifyDataSetChanged();
 	}
 	
@@ -222,17 +298,14 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 		case CHOICE_MODE_NONE:
 			return false;
 		case CHOICE_MODE_SINGLE:
-			mSelected.clear();
+			deselectAll();
 		case CHOICE_MODE_MULTIPLE: break;
 		default: 	throw new IllegalStateException("Choice Mode is an invalid value: " + mChoiceMode);
 		}
 		
-		if(mSelected.contains(position))
-			mSelected.remove(position);
-		else mSelected.add(position);
-		
+		mSelected.set(position, !mSelected.get(position));
 		notifyDataSetChanged();
-		return mSelected.contains(position);
+		return mSelected.get(position);
 	}
 	
 	
@@ -241,18 +314,17 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 	 *  {@link #CHOICE_MODE_MULTIPLE}. */
 	public void selectAll() {
 		mChoiceMode = CHOICE_MODE_MULTIPLE;
-		mSelected.clear();
-		if(getCount() == 0) return;
-		
 		for(int i = 0; i < getCount(); i++)
-			mSelected.add(i);
+			mSelected.set(i, true);
 		notifyDataSetChanged();
 	}
 	
 	
 	/** All items are deselected. Choice mode is unchanged */
 	public void deselectAll() {
-		mSelected.clear();
+		last_select = -1;
+		for(int i = 0; i < getCount(); i++)
+			mSelected.set(i, false);
 		notifyDataSetChanged();
 	}
 	
@@ -268,7 +340,7 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 		// check all items are selected
 		boolean selected = true;
 		for(int i = 0; selected && i < getCount(); i++)
-			selected = mSelected.contains(i);
+			selected = mSelected.get(i);
 		
 		// apply the change
 		if(selected) deselectAll();
@@ -281,9 +353,32 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 	 *  There is no guaranteed order to this list,
 	 *  users must sort it themselves if necessary. */
 	public Integer[] getSelections() {
-		Integer[] res = new Integer[mSelected.size()];
-		mSelected.toArray(res);
-		return res;
+		ArrayList<Integer> res = new ArrayList<Integer>();
+		for(int i=0; i<mSelected.size(); i++) {
+			if(mSelected.get(i))
+				res.add(i);
+		}
+		
+		Integer[] resArr = new Integer[res.size()];
+		res.toArray(resArr);
+		return resArr;
+	}
+	
+	
+	/** Gets all deselected items.
+	 *  @return The positions of each deselected item.
+	 *  There is no guaranteed order to this list,
+	 *  users must sort it themselves if necessary. */
+	public Integer[] getDeselections() {
+		ArrayList<Integer> res = new ArrayList<Integer>();
+		for(int i=0; i<mSelected.size(); i++) {
+			if(!mSelected.get(i))
+				res.add(i);
+		}
+		
+		Integer[] resArr = new Integer[res.size()];
+		res.toArray(resArr);
+		return resArr;
 	}
 	
 	
@@ -306,7 +401,7 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 			return;
 		
 		for(int sel : selections) 
-			mSelected.add(sel);
+			mSelected.set(sel, true);
 		notifyDataSetChanged();
 	}
 	
@@ -327,6 +422,7 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 				|| selections.size() == 0
 				|| mChoiceMode == CHOICE_MODE_NONE)
 			return;
-		mSelected.addAll(selections);
+		for(int sel : selections) 
+			mSelected.set(sel, true);
 	}
 }

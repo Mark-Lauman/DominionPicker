@@ -21,16 +21,12 @@
  * SOFTWARE.                                                                  */
 package ca.marklauman.dominionpicker.settings;
 
-import java.util.List;
-
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import com.actionbarsherlock.view.MenuItem;
 
 import ca.marklauman.dominionpicker.R;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.annotation.TargetApi;
 
 /** Handles the preferences for this activity.
  *  @author Mark Lauman                     */

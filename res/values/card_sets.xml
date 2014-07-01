@@ -1,39 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     
-    <string name="set_base">Base</string>
-    <string name="set_alchemy">Alchemy</string>
+    <!-- These strings are used by themselves in other
+         parts of the app -->
     <string name="set_black_market">Black Market</string>
-    <string name="set_cornucopia">Cornucopia</string>
     <string name="set_dark_ages">Dark Ages</string>
-    <string name="set_envoy">Envoy</string>
-    <string name="set_governor">Governor</string>
-    <string name="set_guilds">Guilds</string>
-    <string name="set_hinterlands">Hinterlands</string>
-    <string name="set_intrigue">Intrigue</string>
     <string name="set_prosperity">Prosperity</string>
-    <string name="set_seaside">Seaside</string>
-    <string name="set_stash">Stash</string>
-    <string name="set_walled_village">Walled Village</string>
     
     <!-- Names of all the expansions. Order DOES matter! -->
     <string-array name="card_sets">
-        <item>@string/set_base</item>
-        <item>@string/set_alchemy</item>
+        <item>Base</item>
+        <item>Alchemy</item>
         <item>@string/set_black_market</item>
-        <item>@string/set_cornucopia</item>
+        <item>Cornucopia</item>
         <item>@string/set_dark_ages</item>
-        <item>@string/set_envoy</item>
-        <item>@string/set_governor</item>
-        <item>@string/set_guilds</item>
-        <item>@string/set_hinterlands</item>
-        <item>@string/set_intrigue</item>
+        <item>Envoy</item>
+        <item>Governor</item>
+        <item>Guilds</item>
+        <item>Hinterlands</item>
+        <item>Intrigue</item>
         <item>@string/set_prosperity</item>
-        <item>@string/set_seaside</item>
-        <item>@string/set_stash</item>
-        <item>@string/set_walled_village</item>
+        <item>Seaside</item>
+        <item>Stash</item>
+        <item>Walled Village</item>
     </string-array>
     
+    <!-- Icons for each expansion -->
     <array name="card_set_icons">
         <item>@drawable/ic_set_base</item>
         <item>@drawable/ic_set_alchemy</item>

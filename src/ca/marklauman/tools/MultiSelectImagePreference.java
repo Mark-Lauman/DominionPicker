@@ -11,9 +11,11 @@ import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.preference.ListPreference;
 import android.text.TextUtils.TruncateAt;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -29,13 +31,26 @@ import android.widget.TextView;
  *  https://gist.github.com/cardil/4754571&nbsp;. */
 public class MultiSelectImagePreference extends ListPreference {
 	
+	/** Separator between list entries */
     private static final String SEPARATOR = "\u0001\u0007\u001D\u0007\u0001";
-    
+    /** Adapter used to track selections */
     private ArrayCheckAdapter<CharSequence> adapt;
+    /** Icon resources used by the adapter */
     private int[] icons = null;
-
+    /** If this preference is inverted, it saves the
+     *  items that are NOT selected */
+    private boolean inverted = false;
+    
+    
+    public MultiSelectImagePreference(Context context) {
+        this(context, null);
+    }
+    
     public MultiSelectImagePreference(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        
+        // load inversion settings
+        Log.d("inverted", "" + isInverted(attributeSet));
         
         // setup the adapter
         CharSequence[] entries = getEntries();
@@ -51,10 +66,13 @@ public class MultiSelectImagePreference extends ListPreference {
         											entries);
         adapt.setChoiceMode(ArrayCheckAdapter.CHOICE_MODE_MULTIPLE);
         adapt.setIcons(getEntryIcons(attributeSet));
-    }
-
-    public MultiSelectImagePreference(Context context) {
-        this(context, null);
+        
+        // setup the summary
+        CharSequence[] values = getValues(getValue());
+        ArrayList<String> listVals = new ArrayList<String>(values.length);
+        for(CharSequence val : values)
+        	listVals.add("" + val);
+        setSummary(prepareSummary(listVals));
     }
     
     
@@ -96,13 +114,37 @@ public class MultiSelectImagePreference extends ListPreference {
     	return icons;
     }
     
+    /** <p>Check if this preference is inverted in its
+     *  xml description. Inverted preferences save
+     *  items that are NOT selected.</p>
+     *  <p>After this is called once
+     *  {@link #isInverted()} returns the same thing
+     *  and is faster. Before this is called,
+     *  {@link #isInverted()} returns {@code null}.</p>
+     *  @param attrs The attributes provided
+     *  to this {@code MultiSelectImagePreference}.
+     *  The setting is retrieved from this parameter.
+     *  @return {@code true} if this is inverted */
+    private boolean isInverted(AttributeSet attrs) {
+    	inverted = attrs.getAttributeBooleanValue(null, "inverted", false);
+    	return inverted;
+    }
+    
+    /** Check if this preference is inverted.
+     *  Inverted preferences save items that are
+     *  NOT selected.
+     *  @return {@code true} if this is inverted */
+    public boolean isInverted() {
+    	return inverted;
+    }
+    
     
     @Override
     protected void onPrepareDialogBuilder(Builder builder) {
         restoreCheckedEntries();
         
-        
         ListView list = new ListView(getContext());
+        list.setBackgroundColor(Color.WHITE);
         list.setAdapter(adapt);
         OnItemClickListener listener = new OnItemClickListener() {
 			public void onItemClick (AdapterView<?> parent, View view, int position, long id) {
@@ -118,17 +160,27 @@ public class MultiSelectImagePreference extends ListPreference {
         // get preference state
         CharSequence[] saved = getValues(getValue());
         
-        if (saved == null || "".equals(saved)) {
-        	adapt.deselectAll();
+        Log.d("saved", Arrays.toString(saved));
+        
+        if (saved == null || saved.length == 0) {
+        	if(inverted) adapt.selectAll();
+        	else adapt.deselectAll();
         	return;
         }
         
         List<CharSequence> savedList = Arrays.asList(saved);
         CharSequence[] values = getEntryValues();
         ArrayList<Integer> selections = new ArrayList<Integer>(savedList.size());
-        for (int i = 0; i < values.length; i++) {
-        	if(savedList.contains(values[i]))
-        		selections.add(i);
+        if(inverted) {
+        	for (int i = 0; i < values.length; i++) {
+            	if(!savedList.contains(values[i]))
+                	selections.add(i);
+            }
+        } else {
+        	for (int i = 0; i < values.length; i++) {
+            	if(savedList.contains(values[i]))
+                	selections.add(i);
+            }
         }
         adapt.setSelections(selections);
     }
@@ -138,11 +190,13 @@ public class MultiSelectImagePreference extends ListPreference {
     	if(!positiveResult) return;
     	
     	CharSequence[] entryValues = getEntryValues();
-        Integer[] select = adapt.getSelections();
-        List<CharSequence> values = new ArrayList<CharSequence>();
+    	Integer[] select;
+    	if(inverted) select = adapt.getDeselections();
+    	else select = adapt.getSelections();
+        List<String> values = new ArrayList<String>();
         if (select != null) {
         	for(int id : select)
-        		values.add(entryValues[id]);
+        		values.add("" + entryValues[id]);
             String value = join(values, SEPARATOR);
             setSummary(prepareSummary(values));
             setValueAndEvent(value);
@@ -155,17 +209,26 @@ public class MultiSelectImagePreference extends ListPreference {
             setValue(value);
         }
     }
-
-    private CharSequence prepareSummary(List<CharSequence> joined) {
+    
+    private CharSequence prepareSummary(List<String> joined) {
         List<String> titles = new ArrayList<String>();
         CharSequence[] entryTitle = getEntries();
         CharSequence[] entryValues = getEntryValues();
         int ix = 0;
-        for (CharSequence value : entryValues) {
-            if (joined.contains(value)) {
-                titles.add((String) entryTitle[ix]);
+        if(inverted) {
+        	for (CharSequence value : entryValues) {
+                if (!joined.contains(value)) {
+                    titles.add((String) entryTitle[ix]);
+                }
+                ix += 1;
             }
-            ix += 1;
+        } else {
+        	for (CharSequence value : entryValues) {
+                if (joined.contains(value)) {
+                    titles.add((String) entryTitle[ix]);
+                }
+                ix += 1;
+            }
         }
         return join(titles, ", ");
     }
@@ -237,7 +300,8 @@ public class MultiSelectImagePreference extends ListPreference {
      *  there.                                */
     public static void saveValue(SharedPreferences prefs, String key, Collection<? extends String> values) {
     	prefs.edit()
-    		 .putString(key, join(values, SEPARATOR));
+    		 .putString(key, join(values, SEPARATOR))
+    		 .commit();
     }
     
     /** Extract the values stored by a
@@ -246,9 +310,9 @@ public class MultiSelectImagePreference extends ListPreference {
      *  them to this)
      *  @param val The value stored in the preferences
      *  @return The values stored inside that.      */
-    public static CharSequence[] getValues(CharSequence val) {
+    public static String[] getValues(CharSequence val) {
         if (val == null || "".equals(val)) {
-            return new CharSequence[0];
+            return new String[0];
         } else {
             return ((String) val).split(SEPARATOR);
         }
