@@ -6,6 +6,7 @@
     <string name="toggle_all">Toggle All</string>
     <string name="submit">Submit</string>
     <string name="more">Need More Cards!</string>
+    <string name="all_filt">All cards filtered out</string>
     
     <string name="set">Set</string>
     <string name="potion">Potion</string>

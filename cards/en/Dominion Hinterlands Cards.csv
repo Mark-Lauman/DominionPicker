@@ -1,27 +1,27 @@
-Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory
-Crossroads;;2;0;Action;Hinterlands;0;0;0;0;0
-Duchess;;2;0;Action;Hinterlands;0;0;0;2;0
-Fool's Gold;;2;0;Treasure Reaction;Hinterlands;0;0;0;0;0
-Develop;;3;0;Action;Hinterlands;0;0;0;0;0
-Oasis;;3;0;Action;Hinterlands;0;1;1;1;0
-Oracle;;3;0;Action Attack;Hinterlands;0;0;2;0;0
-Scheme;;3;0;Action;Hinterlands;0;1;1;0;0
-Tunnel;;3;0;Victory Reaction;Hinterlands;0;0;0;0;0
-Jack of all Trades;;4;0;Action;Hinterlands;0;0;0;0;0
-Noble Brigand;;4;0;Action Attack;Hinterlands;0;0;0;1;0
-Nomad Camp;;4;0;Action;Hinterlands;1;0;0;2;0
-Silk Road;;4;0;Victory;Hinterlands;0;0;0;0;0
-Spice Merchant;;4;0;Action;Hinterlands;0;0;0;0;0
-Trader;;4;0;Action Reaction;Hinterlands;0;0;0;0;0
-Cache;;5;0;Treasure;Hinterlands;0;0;0;3;0
-Cartographer;;5;0;Action;Hinterlands;0;1;1;0;0
-Embassy;;5;0;Action;Hinterlands;0;0;5;0;0
-Haggler;;5;0;Action;Hinterlands;0;0;0;2;0
-Highway;;5;0;Action;Hinterlands;0;1;1;0;0
-Ill-Gotten Gains;;5;0;Treasure;Hinterlands;0;0;0;1;0
-Inn;;5;0;Action;Hinterlands;0;2;2;0;0
-Mandarin;;5;0;Action;Hinterlands;0;0;0;3;0
-Margave;;5;0;Action Attack;Hinterlands;1;0;3;0;0
-Stables;;5;0;Action;Hinterlands;0;0;0;0;0
-Border Village;;6;0;Action;Hinterlands;0;2;1;0;0
-Farmland;;6;0;Victory;Hinterlands;0;0;0;0;0
+Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser
+Crossroads;;2;0;Action;Hinterlands;0;0;0;0;0;0
+Duchess;;2;0;Action;Hinterlands;0;0;0;2;0;0
+Fool's Gold;;2;0;Treasure Reaction;Hinterlands;0;0;0;0;0;0
+Develop;;3;0;Action;Hinterlands;0;0;0;0;0;0
+Oasis;;3;0;Action;Hinterlands;0;1;1;1;0;0
+Oracle;;3;0;Action Attack;Hinterlands;0;0;2;0;0;0
+Scheme;;3;0;Action;Hinterlands;0;1;1;0;0;0
+Tunnel;;3;0;Victory Reaction;Hinterlands;0;0;0;0;0;0
+Jack of all Trades;;4;0;Action;Hinterlands;0;0;0;0;0;0
+Noble Brigand;;4;0;Action Attack;Hinterlands;0;0;0;1;0;0
+Nomad Camp;;4;0;Action;Hinterlands;1;0;0;2;0;0
+Silk Road;;4;0;Victory;Hinterlands;0;0;0;0;0;0
+Spice Merchant;;4;0;Action;Hinterlands;0;0;0;0;0;0
+Trader;;4;0;Action Reaction;Hinterlands;0;0;0;0;0;0
+Cache;;5;0;Treasure;Hinterlands;0;0;0;3;0;0
+Cartographer;;5;0;Action;Hinterlands;0;1;1;0;0;0
+Embassy;;5;0;Action;Hinterlands;0;0;5;0;0;0
+Haggler;;5;0;Action;Hinterlands;0;0;0;2;0;0
+Highway;;5;0;Action;Hinterlands;0;1;1;0;0;0
+Ill-Gotten Gains;;5;0;Treasure;Hinterlands;0;0;0;1;0;1
+Inn;;5;0;Action;Hinterlands;0;2;2;0;0;0
+Mandarin;;5;0;Action;Hinterlands;0;0;0;3;0;0
+Margave;;5;0;Action Attack;Hinterlands;1;0;3;0;0;0
+Stables;;5;0;Action;Hinterlands;0;0;0;0;0;0
+Border Village;;6;0;Action;Hinterlands;0;2;1;0;0;0
+Farmland;;6;0;Victory;Hinterlands;0;0;0;0;0;0

@@ -43,6 +43,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -59,6 +60,10 @@ public class MainActivity extends SherlockFragmentActivity
 	ListView card_list;
 	/** The adapter for the card list. */
 	CardAdapter adapter;
+	/** The view associated with an empty list */
+	private View empty;
+	/** The view associated with a loading list */
+	private View loading;
 	/** Used to store the currently selected cards. */
 	long[] selections;
 
@@ -67,7 +72,8 @@ public class MainActivity extends SherlockFragmentActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		card_list = (ListView) findViewById(R.id.card_list);
-		card_list.setEmptyView(findViewById(android.R.id.empty));
+		empty = findViewById(android.R.id.empty);
+		loading = findViewById(android.R.id.progress);
 		selections = null;
 		
 		// Setup default preferences
@@ -143,6 +149,9 @@ public class MainActivity extends SherlockFragmentActivity
 	
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+		empty.setVisibility(View.GONE);
+		loading.setVisibility(View.GONE);
+		card_list.setEmptyView(loading);
 		card_list.setAdapter(null);
 		CursorLoader c = new CursorLoader(this);
 		c.setUri(CardList.URI);
@@ -173,6 +182,12 @@ public class MainActivity extends SherlockFragmentActivity
 		for(int i=0; i<split_val.size(); i++)
 			sel += "AND " + CardList._COST + "!=? ";
 		
+		// Filter out cursors
+		if(!pref.getBoolean("filt_curse", true)) {
+			sel += "AND " + CardList._CURSER + "=? ";
+			sel_args.add("0");
+		}
+		
 		if(sel_args.size() != 0)
 			sel = sel.substring(4);
 		
@@ -193,10 +208,16 @@ public class MainActivity extends SherlockFragmentActivity
 			adapter.setSelections(selections);
 		card_list.setAdapter(adapter);
 		card_list.setOnItemClickListener(adapter);
+		empty.setVisibility(View.GONE);
+		loading.setVisibility(View.GONE);
+		card_list.setEmptyView(empty);
 	}
 	
 	@Override
 	public void onLoaderReset(Loader<Cursor> loader) {
+		empty.setVisibility(View.GONE);
+		loading.setVisibility(View.GONE);
+		card_list.setEmptyView(loading);
 		selections = adapter.getSelections();
 		card_list.setAdapter(null);
 		adapter = null;

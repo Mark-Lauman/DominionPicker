@@ -1,26 +1,26 @@
-Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory
-Courtyard;;2;0;Action;Intrigue;0;0;3;0;0
-Pawn;;2;0;Action;Intrigue;1;1;1;1;0
-Secret Chamber;;2;0;Action Reaction;Intrigue;0;0;0;0;0
-Great Hall;;3;0;Action Victory;Intrigue;0;1;1;0;0
-Masquerade;;3;0;Action;Intrigue;0;0;2;0;0
-Shanty Town;;3;0;Action;Intrigue;0;2;0;0;0
-Steward;;3;0;Action;Intrigue;0;0;2;2;0
-Swindler;;3;0;Action Attack;Intrigue;0;0;0;2;0
-Wishing Well;;3;0;Action;Intrigue;0;1;1;0;0
-Baron;;4;0;Action;Intrigue;1;0;0;0;0
-Bridge;;4;0;Action;Intrigue;1;0;0;1;0
-Conspirator;;4;0;Action;Intrigue;0;0;0;2;0
-Coppersmith;;4;0;Action;Intrigue;0;0;0;0;0
-Ironworks;;4;0;Action;Intrigue;0;0;0;0;0
-Mining Village;;4;0;Action;Intrigue;0;2;1;0;0
-Scout;;4;0;Action;Intrigue;0;1;0;0;0
-Duke;;5;0;Victory;Intrigue;0;0;0;0;0
-Minion;;5;0;Action Attack;Intrigue;0;1;0;0;0
-Saboteur;;5;0;Action Attack;Intrigue;0;0;0;0;0
-Torturer;;5;0;Action Attack;Intrigue;0;0;3;0;0
-Trading Post;;5;0;Action;Intrigue;0;0;0;0;0
-Tribute;;5;0;Action;Intrigue;0;0;0;0;0
-Upgrade;;5;0;Action;Intrigue;0;1;1;0;0
-Harem;;6;0;Treasure Victory;Intrigue;0;0;0;0;0
-Nobles;;6;0;Action Victory;Intrigue;0;2;3;0;0
+Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser 
+Courtyard;;2;0;Action;Intrigue;0;0;3;0;0;0
+Pawn;;2;0;Action;Intrigue;1;1;1;1;0;0
+Secret Chamber;;2;0;Action Reaction;Intrigue;0;0;0;0;0;0
+Great Hall;;3;0;Action Victory;Intrigue;0;1;1;0;0;0
+Masquerade;;3;0;Action;Intrigue;0;0;2;0;0;0
+Shanty Town;;3;0;Action;Intrigue;0;2;0;0;0;0
+Steward;;3;0;Action;Intrigue;0;0;2;2;0;0
+Swindler;;3;0;Action Attack;Intrigue;0;0;0;2;0;0
+Wishing Well;;3;0;Action;Intrigue;0;1;1;0;0;0
+Baron;;4;0;Action;Intrigue;1;0;0;0;0;0
+Bridge;;4;0;Action;Intrigue;1;0;0;1;0;0
+Conspirator;;4;0;Action;Intrigue;0;0;0;2;0;0
+Coppersmith;;4;0;Action;Intrigue;0;0;0;0;0;0
+Ironworks;;4;0;Action;Intrigue;0;0;0;0;0;0
+Mining Village;;4;0;Action;Intrigue;0;2;1;0;0;0
+Scout;;4;0;Action;Intrigue;0;1;0;0;0;0
+Duke;;5;0;Victory;Intrigue;0;0;0;0;0;0
+Minion;;5;0;Action Attack;Intrigue;0;1;0;0;0;0
+Saboteur;;5;0;Action Attack;Intrigue;0;0;0;0;0;0
+Torturer;;5;0;Action Attack;Intrigue;0;0;3;0;0;1
+Trading Post;;5;0;Action;Intrigue;0;0;0;0;0;0
+Tribute;;5;0;Action;Intrigue;0;0;0;0;0;0
+Upgrade;;5;0;Action;Intrigue;0;1;1;0;0;0
+Harem;;6;0;Treasure Victory;Intrigue;0;0;0;0;0;0
+Nobles;;6;0;Action Victory;Intrigue;0;2;3;0;0;0

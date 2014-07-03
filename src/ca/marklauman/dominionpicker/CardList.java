@@ -66,11 +66,13 @@ public class CardList extends ContentProvider {
 	public static final String _GOLD = "gold";
 	/** Column for the value of this card in victory points. */
 	public static final String _VICTORY = "victory";
+	/** Column indicating if this card is a curser */
+	public static final String _CURSER = "curser";
 	
 	/** Array of all column names in {@link #TABLE_CARDS}. */
 	public static final String[] COLS = {_ID, _NAME, _DESC,
 		_COST, _POTION, _CATEGORY, _EXP,
-		_BUY, _ACTION, _DRAW, _GOLD, _VICTORY};
+		_BUY, _ACTION, _DRAW, _GOLD, _VICTORY, _CURSER};
 	
 	/** Create Table sql statement for {@link #TABLE_CARDS}. */
 	public static final String CREATE_TABLE =
@@ -86,7 +88,8 @@ public class CardList extends ContentProvider {
 					+ _ACTION + " TEXT, "
 					+ _DRAW + " TEXT, "
 					+ _GOLD + " TEXT, "
-					+ _VICTORY + " TEXT"
+					+ _VICTORY + " TEXT, "
+					+ _CURSER + " TEXT"
 					+ ");";
 	
 	/** The _ID value of the Black Market card. */

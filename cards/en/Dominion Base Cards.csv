@@ -1,26 +1,26 @@
-Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory
-Cellar;A powerful cycler.;2;0;Action;Base;0;1;0;0;0
-Chapel;The best trasher;2;0;Action;Base;0;0;0;0;0
-Moat;Defense against attacks.;2;0;Action Reaction;Base;0;0;2;0;0
-Chancellor;Bum chin.;3;0;Action;Base;0;0;0;2;0
-Village;;3;0;Action;Base;0;2;1;0;0
-Woodcutter;;3;0;Action;Base;1;0;0;2;0
-Workshop;;3;0;Action;Base;0;0;0;0;0
-Bureaucrat;;4;0;Action Attack;Base;0;0;0;0;0
-Feast;;4;0;Action;Base;0;0;0;0;0
-Gardens;;4;0;Victory;Base;0;0;0;0;0
-Militia;;4;0;Action Attack;Base;0;0;0;2;0
-Moneylender;;4;0;Action;Base;0;0;0;0;0
-Remodel;;4;0;Action;Base;0;0;0;0;0
-Smithy;;4;0;Action;Base;0;0;3;0;0
-Spy;;4;0;Action Attack;Base;0;1;1;0;0
-Thief;;4;0;Action Attack;Base;0;0;0;0;0
-Throne Room;;4;0;Action;Base;0;0;0;0;0
-Council Room;;5;0;Action;Base;1;0;4;0;0
-Festival;;5;0;Action;Base;1;2;0;2;0
-Laboratory;;5;0;Action;Base;0;1;2;0;0
-Library;;5;0;Action;Base;0;0;0;0;0
-Market;;5;0;Action;Base;1;1;1;1;0
-Mine;;5;0;Action;Base;0;0;0;0;0
-Witch;;5;0;Action Attack;Base;0;0;2;0;0
-Adventurer;;6;0;Action;Base;0;0;0;0;0
+Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser
+Cellar;;2;0;Action;Base;0;1;0;0;0;0
+Chapel;;2;0;Action;Base;0;0;0;0;0;0
+Moat;;2;0;Action Reaction;Base;0;0;2;0;0;0
+Chancellor;Bum chin.;3;0;Action;Base;0;0;0;2;0;0
+Village;;3;0;Action;Base;0;2;1;0;0;0
+Woodcutter;;3;0;Action;Base;1;0;0;2;0;0
+Workshop;;3;0;Action;Base;0;0;0;0;0;0
+Bureaucrat;;4;0;Action Attack;Base;0;0;0;0;0;0
+Feast;;4;0;Action;Base;0;0;0;0;0;0
+Gardens;;4;0;Victory;Base;0;0;0;0;0;0
+Militia;;4;0;Action Attack;Base;0;0;0;2;0;0
+Moneylender;;4;0;Action;Base;0;0;0;0;0;0
+Remodel;;4;0;Action;Base;0;0;0;0;0;0
+Smithy;;4;0;Action;Base;0;0;3;0;0;0
+Spy;;4;0;Action Attack;Base;0;1;1;0;0;0
+Thief;;4;0;Action Attack;Base;0;0;0;0;0;0
+Throne Room;;4;0;Action;Base;0;0;0;0;0;0
+Council Room;;5;0;Action;Base;1;0;4;0;0;0
+Festival;;5;0;Action;Base;1;2;0;2;0;0
+Laboratory;;5;0;Action;Base;0;1;2;0;0;0
+Library;;5;0;Action;Base;0;0;0;0;0;0
+Market;;5;0;Action;Base;1;1;1;1;0;0
+Mine;;5;0;Action;Base;0;0;0;0;0;0
+Witch;;5;0;Action Attack;Base;0;0;2;0;0;1
+Adventurer;;6;0;Action;Base;0;0;0;0;0;0

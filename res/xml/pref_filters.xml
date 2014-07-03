@@ -20,4 +20,11 @@
         icons="@array/filt_cost_icons"
         inverted="true" />
     
+    <CheckBoxPreference
+        android:key="filt_curse"
+        android:title="@string/filt_curse"
+        android:summary="@string/filt_curse_desc"
+        android:icon="@drawable/ic_curse"
+        android:defaultValue="true" />
+    
 </PreferenceScreen>

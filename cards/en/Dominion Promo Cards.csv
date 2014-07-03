@@ -1,6 +1,6 @@
-Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory
-Stash;When you shuffle, you may put this anywhere in your deck.;5;0;Treasure;Stash;0;0;0;2;0
-Black Market;Add cards from outside the supply pile.;3;0;Action;Black Market;0;0;0;2;0
-Envoy;Reveal the top 5 cards of your deck. The player to your left chooses 1 for you to discard. Draw the rest.;4;0;Action;Envoy;0;0;0;0;0
-Walled Village;You can re-play this card in set circumstances.;4;0;Action;Walled Village;0;2;1;0;0
-Governor;Choose 1 of 3 additional effects.;5;0;Action;Governor;0;1;0;0;0
+Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser
+Black Market;Add cards from outside the supply pile.;3;0;Action;Black Market;0;0;0;2;0;0
+Stash;When you shuffle, you may put this anywhere in your deck.;5;0;Treasure;Stash;0;0;0;2;0;0
+Envoy;Reveal the top 5 cards of your deck. The player to your left chooses 1 for you to discard. Draw the rest.;4;0;Action;Envoy;0;0;0;0;0;0
+Walled Village;You can re-play this card in set circumstances.;4;0;Action;Walled Village;0;2;1;0;0;0
+Governor;Choose 1 of 3 additional effects.;5;0;Action;Governor;0;1;0;0;0;0

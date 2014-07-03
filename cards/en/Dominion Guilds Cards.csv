@@ -1,14 +1,14 @@
-Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory
-Candlestick Maker;;2;0;Action;Guilds;1;1;0;0;0
-Stonemason;Overpay Functionality;2;0;Action;Guilds;0;0;0;0;0
-Doctor;Overpay Functionality;3;0;Action;Guilds;0;0;0;0;0
-Masterpiece;Overpay Functionality;3;0;Treasure;Guilds;0;0;0;1;0
-Advisor;;4;0;Action;Guilds;0;1;0;0;0
-Plaza;;4;0;Action;Guilds;0;2;1;0;0
-Taxman;;4;0;Action Attack;Guilds;0;0;0;0;0
-Herald;Overpay Functionality;4;0;Action;Guilds;0;1;1;0;0
-Baker;;5;0;Action;Guilds;0;1;1;0;0
-Butcher;;5;0;Action;Guilds;0;0;0;0;0
-Journeyman;;5;0;Action;Guilds;0;0;0;0;0
-Merchant Guild;;5;0;Action;Guilds;1;0;0;1;0
-Soothsayer;;5;0;Action Attack;Guilds;0;0;0;0;0
+Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser
+Candlestick Maker;;2;0;Action;Guilds;1;1;0;0;0;0
+Stonemason;Overpay Functionality;2;0;Action;Guilds;0;0;0;0;0;0
+Doctor;Overpay Functionality;3;0;Action;Guilds;0;0;0;0;0;0
+Masterpiece;Overpay Functionality;3;0;Treasure;Guilds;0;0;0;1;0;0
+Advisor;;4;0;Action;Guilds;0;1;0;0;0;0
+Plaza;;4;0;Action;Guilds;0;2;1;0;0;0
+Taxman;;4;0;Action Attack;Guilds;0;0;0;0;0;0
+Herald;Overpay Functionality;4;0;Action;Guilds;0;1;1;0;0;0
+Baker;;5;0;Action;Guilds;0;1;1;0;0;0
+Butcher;;5;0;Action;Guilds;0;0;0;0;0;0
+Journeyman;;5;0;Action;Guilds;0;0;0;0;0;0
+Merchant Guild;;5;0;Action;Guilds;1;0;0;1;0;0
+Soothsayer;;5;0;Action Attack;Guilds;0;0;0;0;0;1
