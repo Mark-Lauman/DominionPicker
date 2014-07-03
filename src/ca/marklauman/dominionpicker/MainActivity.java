@@ -22,6 +22,8 @@
 package ca.marklauman.dominionpicker;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import ca.marklauman.dominionpicker.settings.SettingsActivity;
@@ -65,6 +67,7 @@ public class MainActivity extends SherlockFragmentActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		card_list = (ListView) findViewById(R.id.card_list);
+		card_list.setEmptyView(findViewById(android.R.id.empty));
 		selections = null;
 		
 		// Setup default preferences
@@ -134,29 +137,49 @@ public class MainActivity extends SherlockFragmentActivity
 			startActivityForResult(resAct, -1);
 			return true;
 		}
-		
 		return super.onOptionsItemSelected(item);
 	}
 	
 	
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+		card_list.setAdapter(null);
 		CursorLoader c = new CursorLoader(this);
 		c.setUri(CardList.URI);
 		
-		// Filter by set
-		String sel_args1 = PreferenceManager.getDefaultSharedPreferences(this)
-											.getString("filt_set", "");
-		String[] sel_args = MultiSelectImagePreference.getValues(sel_args1);
-		
 		String sel = "";
-		for(int i=0; i<sel_args.length; i++)
+		ArrayList<String> sel_args = new ArrayList<String>();
+		
+		// Filter by set
+		SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+		String val = pref.getString("filt_set", "");
+		List<String> split_val = Arrays.asList(MultiSelectImagePreference.getValues(val));
+		for(String s : split_val)
+			sel_args.add(s);
+		for(int i=0; i<split_val.size(); i++)
 			sel += "AND " + CardList._EXP + "!=? ";
-		if(sel_args.length != 0)
+		
+		// Filter by cost
+		val = pref.getString("filt_cost", "");
+		split_val = new ArrayList<String>(Arrays.asList(MultiSelectImagePreference.getValues(val)));
+		String potion = getResources().getStringArray(R.array.filt_cost)[0];
+		if(0 < split_val.size() && potion.equals(split_val.get(0))) {
+			sel += "AND " + CardList._POTION + "=? ";
+			sel_args.add("0");
+			split_val.remove(0);
+		}
+		for(String s : split_val)
+			sel_args.add(s);
+		for(int i=0; i<split_val.size(); i++)
+			sel += "AND " + CardList._COST + "!=? ";
+		
+		if(sel_args.size() != 0)
 			sel = sel.substring(4);
 		
 		c.setSelection(sel);
-		c.setSelectionArgs(sel_args);
+		String[] sel_args_final = new String[sel_args.size()];
+		sel_args.toArray(sel_args_final);
+		c.setSelectionArgs(sel_args_final);
 		
 		return c;
 	}

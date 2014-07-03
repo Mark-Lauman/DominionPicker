@@ -11,4 +11,13 @@
         icons="@array/card_set_icons"
         inverted="true" />
     
+    <ca.marklauman.tools.MultiSelectImagePreference
+        android:key="filt_cost"
+        android:title="@string/filt_cost"
+        android:icon="@drawable/ic_coin_lg"
+        android:entries="@array/filt_cost"
+        android:entryValues="@array/filt_cost"
+        icons="@array/filt_cost_icons"
+        inverted="true" />
+    
 </PreferenceScreen>
