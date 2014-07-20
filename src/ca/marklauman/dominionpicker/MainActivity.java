@@ -71,6 +71,7 @@ public class MainActivity extends SherlockFragmentActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
 		card_list = (ListView) findViewById(R.id.card_list);
 		empty = findViewById(android.R.id.empty);
 		loading = findViewById(android.R.id.progress);
