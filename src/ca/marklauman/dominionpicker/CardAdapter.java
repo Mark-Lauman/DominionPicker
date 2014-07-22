@@ -26,6 +26,7 @@ import java.util.HashMap;
 
 import ca.marklauman.tools.CursorSelAdapter;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
 import android.view.View;
@@ -96,20 +97,8 @@ public class CardAdapter extends CursorSelAdapter
 		exp_icons = new HashMap<String, Integer>();
 		String[] sets = c.getResources()
 						 .getStringArray(R.array.card_sets);
-		int[] icons = {R.drawable.ic_set_base,
-					   R.drawable.ic_set_alchemy,
-					   R.drawable.ic_set_black_market,
-					   R.drawable.ic_set_cornucopia,
-					   R.drawable.ic_set_dark_ages,
-					   R.drawable.ic_set_envoy,
-					   R.drawable.ic_set_governor,
-					   R.drawable.ic_set_guilds,
-					   R.drawable.ic_set_hinterlands,
-					   R.drawable.ic_set_intrigue,
-					   R.drawable.ic_set_prosperity,
-					   R.drawable.ic_set_seaside,
-					   R.drawable.ic_set_stash,
-					   R.drawable.ic_set_walled_village};
+		
+		int[] icons = getDrawables(c, R.array.card_set_icons);
 		int len = sets.length;
 		if(icons.length < len) len = icons.length;
 		for(int i = 0; i < len; i++)
@@ -213,5 +202,26 @@ public class CardAdapter extends CursorSelAdapter
 		String[] res = new String[data.size()];
 		data.toArray(res);
 		return res;
+	}
+	
+	/** Retrieve an array of drawable resources from
+	 *  the xml of the provided {@link Context}.
+	 *  @param c The {@code Context} to search for the array.
+	 *  @param resourceId The resource id of an
+	 *  {@code <array>} containing a list of drawables.
+	 *  @return The resource ids of all the drawables
+	 *  in the array, in the order in which they appear
+	 *  in the xml.                                  */
+	public static int[] getDrawables(Context c, int resourceId) {
+		TypedArray ta = c.getResources()
+				 		 .obtainTypedArray(resourceId);
+		if(ta == null) return null;
+		
+    	int[] res = new int[ta.length()];
+    	for(int i=0; i<ta.length(); i++)
+    		res[i] = ta.getResourceId(i, -1);
+    	
+    	ta.recycle();
+    	return res;
 	}
 }

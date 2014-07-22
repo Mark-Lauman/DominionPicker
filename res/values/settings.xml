@@ -11,10 +11,12 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
+        <item>8</item>
         <item>8*</item>
     </string-array>
     <array name="filt_cost_icons">
         <item>@drawable/ic_potion_lg</item>
+        <item>@drawable/ic_coin_lg</item>
         <item>@drawable/ic_coin_lg</item>
         <item>@drawable/ic_coin_lg</item>
         <item>@drawable/ic_coin_lg</item>

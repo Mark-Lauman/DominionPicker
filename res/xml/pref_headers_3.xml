@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
-    
-    <header android:fragment="ca.marklauman.dominionpicker.settings.SettingsFragment"
-        android:title="@string/pref_filters">
-        <extra android:name="category" android:value="ca.marklauman.dominionpicker.PREF_FILTERS" />
-    </header>
-    
-</preference-headers>

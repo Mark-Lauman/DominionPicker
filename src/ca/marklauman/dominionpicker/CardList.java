@@ -167,9 +167,10 @@ public class CardList extends ContentProvider {
 			addCards(db, r.getStringArray(R.array.cards_cornucopia));
 			addCards(db, r.getStringArray(R.array.cards_guilds));
 			addCards(db, r.getStringArray(R.array.cards_hinterlands));
+			addCards(db, r.getString(R.string.card_prince));
 		}
 		
-		private void addCards(SQLiteDatabase db, String[] cards) {
+		private void addCards(SQLiteDatabase db, String... cards) {
 			db.beginTransaction();
 			for(String card : cards) {
 				String[] in_data = card.split(";");

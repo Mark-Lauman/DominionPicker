@@ -10,4 +10,6 @@
         <item>Governor;Choose 1 of 3 additional effects.;5;0;Action;Governor;0;1;0;0;0;0</item>
     </string-array>
     
+    <string name="card_prince">Prince;Choose an Action card costing 4 or less. You play that card for free every turn. Set Prince aside.;8;0;Action;Prince;0;0;0;0;0;0</string>
+    
 </resources>

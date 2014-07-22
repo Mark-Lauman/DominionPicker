@@ -19,6 +19,7 @@
         <item>Guilds</item>
         <item>Hinterlands</item>
         <item>Intrigue</item>
+        <item>Prince</item>
         <item>@string/set_prosperity</item>
         <item>Seaside</item>
         <item>Stash</item>
@@ -37,6 +38,7 @@
         <item>@drawable/ic_set_guilds</item>
         <item>@drawable/ic_set_hinterlands</item>
         <item>@drawable/ic_set_intrigue</item>
+        <item>@drawable/ic_set_prince</item>
         <item>@drawable/ic_set_prosperity</item>
         <item>@drawable/ic_set_seaside</item>
         <item>@drawable/ic_set_stash</item>
