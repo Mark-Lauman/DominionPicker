@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal|center_vertical"
     tools:context=".SupplyActivity" >
     
     <TextView android:id="@+id/resources"
@@ -19,5 +20,11 @@
         android:layout_height="match_parent"
         android:layout_below="@id/resources"
         android:layout_alignWithParentIfMissing="true" />
+    
+    <ProgressBar
+        android:id="@android:id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
     
 </RelativeLayout>

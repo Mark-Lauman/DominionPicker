@@ -30,6 +30,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -74,6 +75,8 @@ public class SupplyActivity extends SherlockFragmentActivity
 		setContentView(R.layout.activity_supply);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		ListView card_list = (ListView) findViewById(R.id.card_list);
+		View loading = findViewById(android.R.id.progress);
+		card_list.setEmptyView(loading);
 		resView = (TextView) findViewById(R.id.resources);
 		
 		// Setup the adapter
@@ -87,13 +90,28 @@ public class SupplyActivity extends SherlockFragmentActivity
 			supply = savedInstanceState.getLongArray(KEY_SUPPLY);
 			resources = savedInstanceState.getLongArray(KEY_RES);
 		}
-		if(supply == null)
-			chooseCards(getIntent().getExtras()
-								   .getLongArray(PARAM_CARDS));
 		
-		// Start loading the cards
-		LoaderManager lm = getSupportLoaderManager();
-		lm.initLoader(LOADER_SUPPLY, null, this);
+		if(supply != null) {
+			// Start loading the cards
+			LoaderManager lm = getSupportLoaderManager();
+			lm.initLoader(LOADER_SUPPLY, null, this);
+			
+		} else {
+			// TODO: Setup SupplyShuffler
+			SupplyShuffler shuffler = new SupplyShuffler(this);
+			
+			// Run the shuffler with the provided cards
+			long[] cards = getIntent().getExtras()
+					  				  .getLongArray(PARAM_CARDS);
+			Long[] pool = new Long[cards.length];
+			for(int i=0; i<cards.length; i++)
+				pool[i] = cards[i];
+			shuffler.execute(pool);
+		}
+		
+//		if(supply == null)
+//			chooseCards(getIntent().getExtras()
+//								   .getLongArray(PARAM_CARDS));
 	}
 	
 	
