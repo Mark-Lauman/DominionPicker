@@ -21,8 +21,6 @@
  * SOFTWARE.                                                                  */
 package ca.marklauman.dominionpicker;
 
-import java.util.ArrayList;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -44,29 +42,22 @@ import com.actionbarsherlock.view.MenuItem;
 public class SupplyActivity extends SherlockFragmentActivity
 						 	implements LoaderCallbacks<Cursor> {
 	
+	
 	/** Key used to pass the card pool to this activity */
 	public static final String PARAM_CARDS = "cards";
-	/** Key used to store the chosen supply cards in
-	 *  a savedInstanceState.                     */
+	/** Key used to store the chosen supply
+	 *  in a savedInstanceState.         */
 	private static final String KEY_SUPPLY = "supply";
-	/** Key used to store the chosen resouces cards in
-	 *  a savedInstanceState.                     */
-	private static final String KEY_RES = "resources";
-	
 	/** ID of the loader for the supply cards. */
 	private static final int LOADER_SUPPLY = 2;
+	
 	
 	/** The adapter used to display the supply cards. */
 	CardAdapter adapter;
 	/** The TextView used to display the resource cards. */
 	TextView resView;
 	/** The supply chosen for this deck. */
-	private long[] supply;
-	/** The resource cards chosen for this game
-	 *  (If {@code resources[0]} is from Prosperity,
-	 *  add Colonies & Platinum. If {@code resources[1]}
-	 *  is from Dark Ages, add Shelters.)       */
-	private long[] resources;
+	private Supply supply;
 	
 	
 	@Override
@@ -78,29 +69,24 @@ public class SupplyActivity extends SherlockFragmentActivity
 		View loading = findViewById(android.R.id.progress);
 		card_list.setEmptyView(loading);
 		resView = (TextView) findViewById(R.id.resources);
+		resView.setVisibility(View.GONE);
 		
 		// Setup the adapter
 		adapter = new CardAdapter(this);
 		adapter.changeCursor(null);
 		card_list.setAdapter(adapter);
 		
-		// Get the chosen supply cards
+		// Restore the supply if this is a restore
 		supply = null;
 		if(savedInstanceState != null) {
-			supply = savedInstanceState.getLongArray(KEY_SUPPLY);
-			resources = savedInstanceState.getLongArray(KEY_RES);
-		}
-		
-		if(supply != null) {
-			// Start loading the cards
-			LoaderManager lm = getSupportLoaderManager();
-			lm.initLoader(LOADER_SUPPLY, null, this);
+			Supply supply = (Supply) savedInstanceState.getParcelable(KEY_SUPPLY);
+			if(supply != null)
+				setSupply(supply);
 			
 		} else {
-			// TODO: Setup SupplyShuffler
+			// No supply? Shuffle one!
 			SupplyShuffler shuffler = new SupplyShuffler(this);
-			
-			// Run the shuffler with the provided cards
+			// Pool must be passed as type Long not long
 			long[] cards = getIntent().getExtras()
 					  				  .getLongArray(PARAM_CARDS);
 			Long[] pool = new Long[cards.length];
@@ -108,28 +94,42 @@ public class SupplyActivity extends SherlockFragmentActivity
 				pool[i] = cards[i];
 			shuffler.execute(pool);
 		}
-		
-//		if(supply == null)
-//			chooseCards(getIntent().getExtras()
-//								   .getLongArray(PARAM_CARDS));
 	}
 	
 	
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState.putLongArray(KEY_SUPPLY, supply);
-		outState.putLongArray(KEY_RES, resources);
+		outState.putParcelable(KEY_SUPPLY, supply);
 	}
 	
 	
+	/** Called to inflate the ActionBar */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		if(blackMarket()) {
-			getSupportMenuInflater().inflate(R.menu.supply, menu);
+		getSupportMenuInflater().inflate(R.menu.supply, menu);
+		return true;
+	}
+	
+	
+	/** Called just before the ActionBar is displayed. */
+	@Override
+	public boolean onPrepareOptionsMenu(Menu menu){
+		// Apply any changes super wants to apply.
+		boolean orig = super.onPrepareOptionsMenu(menu);
+		
+		/* Check if the black market icon is in/visible
+		 * when it shouldn't be. If a change is needed,
+		 * apply the change.                         */
+		MenuItem marketButton = menu.findItem(R.id.action_market);
+		boolean marketPresent = blackMarket();
+		if(marketPresent != marketButton.isVisible()) {
+			marketButton.setVisible(marketPresent);
 			return true;
 		}
-		return super.onCreateOptionsMenu(menu);
+		
+		// We didn't change anything
+		return orig;
 	}
 	
 	
@@ -146,7 +146,7 @@ public class SupplyActivity extends SherlockFragmentActivity
         					getIntent().getExtras()
         							   .getLongArray(PARAM_CARDS));
         	resAct.putExtra(MarketActivity.PARAM_SUPPLY,
-        					supply);
+        					supply.cards);
 			startActivityForResult(resAct, -1);
 			return true;
         }
@@ -156,20 +156,26 @@ public class SupplyActivity extends SherlockFragmentActivity
 	
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+		// Display the loading icon, hide the resources
+		resView.setVisibility(View.GONE);
+		adapter.changeCursor(null);
+		
+		// Basic loader
 		CursorLoader c = new CursorLoader(this);
 		c.setUri(CardList.URI);
 		
-		// Selection string
+		// Selection string (sql WHERE clause)
 		String sel = "";
-		for(int i = 0; i < supply.length; i++)
+		int numCards = supply.cards.length;
+		for(int i = 0; i < numCards; i++)
 			sel += " OR " + CardList._ID + "=?";
 		sel = sel.substring(4);
 		c.setSelection(sel);
 		
-		// Selection arguments
-		String[] selArgs = new String[supply.length];
-		for(int i=0; i<supply.length; i++)
-			selArgs[i] = "" + supply[i];
+		// Selection arguments (the numbers)
+		String[] selArgs = new String[numCards];
+		for(int i=0; i<numCards; i++)
+			selArgs[i] = "" + supply.cards[i];
 		c.setSelectionArgs(selArgs);
 		
 		return c;
@@ -178,23 +184,23 @@ public class SupplyActivity extends SherlockFragmentActivity
 	
 	@Override
 	public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+		// In case the load finishes as the app closes
 		if(data == null) return;
-		
-		// display the resource cards
-		String[] res = new String[]{"", ""};
-		int col_exp = data.getColumnIndex(CardList._EXP);
-		int col_id = data.getColumnIndex(CardList._ID);
-		data.moveToPosition(-1);
-		while(data.moveToNext()) {
-			if(resources[0] == data.getLong(col_id))
-				res[0] = data.getString(col_exp);
-			if(resources[1] == data.getLong(col_id))
-				res[1] = data.getString(col_exp);
-		}
-		displayResourceCards(res[0], res[1]);
 		
 		// display the supply cards
 		adapter.changeCursor(data);
+		
+		// display the resource cards
+		String output = "";
+		if(supply.high_cost)
+			output += getString(R.string.supply_colonies);
+		if(supply.shelters)
+			output += "\n" + getString(R.string.supply_shelters);
+		output = output.trim();
+		if("".equals(output))
+			output = getString(R.string.supply_normal);
+		resView.setText(output);
+		resView.setVisibility(View.VISIBLE);
 	}
 	
 	
@@ -204,42 +210,30 @@ public class SupplyActivity extends SherlockFragmentActivity
 		switch(loader.getId()) {
 		case LOADER_SUPPLY:
 			adapter.changeCursor(null);
+			resView.setVisibility(View.GONE);
 			break;
 		}
 	}
 	
 	
-	/** Choose 10 cards at random from the input pool make them
-	 *  the new {@link #supply}. 
-	 *  @param in_pool Each string in this array is the id #
-	 *  of a card. The supply will be chosen from these ids. */
-	private void chooseCards(long[] in_pool) {
-		ArrayList<Long> pool = new ArrayList<Long>(in_pool.length);
-		for(long card : in_pool)
-			pool.add(card);
+	/** Set the supply on display in this activity.
+	 *  This triggers some UI changes, and should
+	 *  be called on the UI thread.
+	 *  @param supply The new supply to display. */
+	public void setSupply(Supply supply) {
+		this.supply = supply;
 		
-		// Choose the supply
-		supply = new long[10];
-		for(int i=0; i<10; i++) {
-			int pick = (int) (Math.random() * pool.size());
-			long pick_val = pool.get(pick);
-			pool.remove(pick);
-			supply[i] = pick_val;
-		}
-		
-		// Choose the resources from the supply
-		resources = new long[2];
-		int pick = (int) (Math.random() * supply.length);
-		resources[0] = supply[pick];
-		pick = (int) (Math.random() * supply.length);
-		resources[1] = supply[pick];
+		// Start loading the supply
+		LoaderManager lm = getSupportLoaderManager();
+		lm.initLoader(LOADER_SUPPLY, null, this);
 	}
+	
 	
 	/** Returns {@code true} if a Black Market is in
 	 *  the supply.                               */
 	private boolean blackMarket() {
 		if(supply == null) return false;
-		for(long card : supply)
+		for(long card : supply.cards)
 			if(card == CardList.BLACK_MARKET_ID)
 				return true;
 		return false;
@@ -252,13 +246,11 @@ public class SupplyActivity extends SherlockFragmentActivity
 	 *  colonies and Platinum are used.
 	 *  @param shelter_set If this set is Dark Ages,
 	 *  Shelters are used.                        */
-	public void displayResourceCards(String colony_set, String shelter_set) {
+	public void displayResourceCards() {
 		String output = "";
-		String set_prosp = getString(R.string.set_prosperity);
-		String set_dark = getString(R.string.set_dark_ages);
-		if(set_prosp.equals(colony_set))
+		if(supply.high_cost)
 			output += getString(R.string.supply_colonies);
-		if(set_dark.equals(shelter_set))
+		if(supply.shelters)
 			output += "\n" + getString(R.string.supply_shelters);
 		output = output.trim();
 		if("".equals(output))

@@ -30,13 +30,16 @@ import android.util.Log;
 
 public class SupplyShuffler extends AsyncTask<Long, Void, Supply> {
 	
+	
 	/** The activity that needs the supply. */
 	SupplyActivity callback;
+	
 	
 	/** String tied to the Prosperity set */
 	String set_prosp;
 	/** String tied to the Dark Ages set */
 	String set_dark;
+	
 	
 	/** Default Constructor
 	 *  @param activity The activity that needs the supply.
@@ -119,6 +122,8 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Supply> {
 	@Override
 	protected void onPostExecute(Supply supply) {
 		if(callback == null) return;
+		
+		callback.setSupply(supply);
 		
 		Log.d("supply", "" + Arrays.toString(supply.cards));
 		Log.d("colonies", "" + supply.high_cost);
