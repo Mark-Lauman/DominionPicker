@@ -50,7 +50,7 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 	/** Current choice mode.   */
 	private int mChoiceMode = CHOICE_MODE_NONE;
 	/** Current selections.    */
-	private HashSet<Integer> mSelected = new HashSet<Integer>();
+	protected HashSet<Integer> mSelected = new HashSet<Integer>();
 	
 	
 	/** Standard constructor.
@@ -187,26 +187,17 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 	
 	/** If the list item at the given location is selected,
 	 *  deselects it. If it is not selected, selects it.
-	 *  @param position The position of the row in the
-	 *  list.
+	 *  @param position The position of the row in the list.
 	 *  @return {@code true} if the item is selected,
 	 *  {@code false} otherwise.                   */
 	public boolean toggleItem(int position) {
-		switch(mChoiceMode) {
-		case CHOICE_MODE_NONE:
+		if(mSelected.contains(position)) {
+			deselectItem(position);
 			return false;
-		case CHOICE_MODE_SINGLE:
-			mSelected.clear();
-		case CHOICE_MODE_MULTIPLE: break;
-		default: 	throw new IllegalStateException("Choice Mode is an invalid value: " + mChoiceMode);
+		} else {
+			selectItem(position);
+			return true;
 		}
-		
-		if(mSelected.contains(position))
-			mSelected.remove(position);
-		else mSelected.add(position);
-		
-		notifyDataSetChanged();
-		return mSelected.contains(position);
 	}
 	
 	

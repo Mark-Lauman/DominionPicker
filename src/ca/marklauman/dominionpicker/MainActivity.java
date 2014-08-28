@@ -133,9 +133,37 @@ public class MainActivity extends SherlockFragmentActivity
 			return true;
 		case R.id.action_submit:
 			selections = adapter.getSelections();
-			if(selections.length < 10) {
+			int min_select = 10;
+			
+			// check for young witch
+			int young_witch = -1;
+			for(int i=0; i<selections.length; i++) {
+				if(selections[i] == CardList.ID_YOUNG_WITCH)
+					young_witch = i;
+			}
+			
+			// Handle young witch
+			if(young_witch != -1) {
+				if(adapter.checkYWitchTargets() < 1) {
+					/* Eliminate young witch, as it has no
+					 * viable targets.                  */
+					long[] new_sel = new long[selections.length - 1];
+					int b = 0;
+					for(int a=0; a<new_sel.length; a++) {
+						if(b == young_witch)
+							b++;
+						new_sel[a] = selections[b];
+						b++;
+					}
+					selections = new_sel;
+				} else min_select++;
+			}
+			
+			if(selections.length < min_select) {
 				String more = getResources().getString(R.string.more);
-				Toast.makeText(this, more + " (" + selections.length + "/10)", Toast.LENGTH_LONG).show();
+				Toast.makeText(this,
+						more + " (" + selections.length + "/" + min_select + ")",
+						Toast.LENGTH_LONG).show();
 				return true;
 			}
 			
@@ -207,6 +235,7 @@ public class MainActivity extends SherlockFragmentActivity
 		adapter.changeCursor(data);
 		if(selections != null)
 			adapter.setSelections(selections);
+		else adapter.selectAll();
 		card_list.setAdapter(adapter);
 		card_list.setOnItemClickListener(adapter);
 		empty.setVisibility(View.GONE);

@@ -93,7 +93,9 @@ public class CardList extends ContentProvider {
 					+ ");";
 	
 	/** The _ID value of the Black Market card. */
-	public static final long BLACK_MARKET_ID = 1L;
+	public static final long ID_BLACK_MARKET = 1L;
+	/** The ID value of the Young Witch card */
+	public static final long ID_YOUNG_WITCH = 161L;
 	
 	/** Handle to the sql database. */
 	private DBHandler dbhandle;

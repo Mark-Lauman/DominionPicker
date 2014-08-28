@@ -234,7 +234,7 @@ public class SupplyActivity extends SherlockFragmentActivity
 	private boolean blackMarket() {
 		if(supply == null) return false;
 		for(long card : supply.cards)
-			if(card == CardList.BLACK_MARKET_ID)
+			if(card == CardList.ID_BLACK_MARKET)
 				return true;
 		return false;
 	}

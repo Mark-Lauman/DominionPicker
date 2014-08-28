@@ -59,10 +59,14 @@ public class CardAdapter extends CursorSelAdapter
 	private int col_vict = -1;
 	/** Index of the {@link CardList#_BUY} column. */
 	private int col_buy = -1;
+	
 	/** Index of the {@link CardList#_DRAW} column. */
 	private int col_draw = -1;
 	/** Index of the {@link CardList#_ACTION} column. */
 	private int col_act = -1;
+	
+	/** Number of viable young witch targets selected */
+	private int qty_yw_targets = 0;
 	
 	public CardAdapter(Context context) {
 		super(context, R.layout.list_item_card,
@@ -109,8 +113,7 @@ public class CardAdapter extends CursorSelAdapter
 	public void changeCursor(Cursor cursor) {
 		super.changeCursor(cursor);
 		if(cursor == null) return;
-		for(int i = 0; i < cursor.getCount(); i++)
-			selectItem(i);
+		// get the columns from the cursor
 		col_cost = cursor.getColumnIndex(CardList._COST);
 		col_potion = cursor.getColumnIndex(CardList._POTION);
 		col_expansion = cursor.getColumnIndex(CardList._EXP);
@@ -179,12 +182,78 @@ public class CardAdapter extends CursorSelAdapter
 		}
 		return false;
 	}
-
-
+	
+	
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		toggleItem(position);
 	}
+	
+	@Override
+	public void selectItem(int position) {
+		super.selectItem(position);
+		updateStats(position, true);
+	}
+	
+	@Override
+	public void deselectItem(int position) {
+		super.deselectItem(position);
+		updateStats(position, false);
+	}
+	
+	@Override
+	public void selectAll() {
+		super.selectAll();
+		clearStats();
+		if(mCursor == null) return;
+		for(int card=0; card<mCursor.getCount(); card++)
+			updateStats(card, true);
+	}
+	
+	@Override
+	public void deselectAll() {
+		super.deselectAll();
+		clearStats();
+	}
+	
+	@Override
+	public boolean toggleAll() {
+		boolean res = super.toggleAll();
+		clearStats();
+		for(int card : mSelected)
+			updateStats(card, true);
+		return res;
+	}
+	
+	
+	/** Update the statistics variables. Called when
+	 *  one selection is changed.
+	 *  @param cardPosition Position of the card to
+	 *  add/remove from the statistics.
+	 * @param add {@code true} of this card is added,
+	 * {@code false} if this card is to be removed. */
+	private void updateStats(int cardPosition, boolean add) {
+		// update stats from the card
+		if(mCursor == null
+				|| !mCursor.moveToPosition(cardPosition))
+			return;
+		String cost = mCursor.getString(col_cost);
+		if("2".equals(cost) || "3".equals(cost)) {
+			if(add) qty_yw_targets++;
+			else qty_yw_targets--;
+		}
+	}
+	
+	/** Reset all statistics variables to 0 */
+	private void clearStats() {
+		qty_yw_targets = 0;
+	}
+	
+	/** Check how many young witch targets are available */
+	public int checkYWitchTargets() {
+		return qty_yw_targets;
+	}
+	
 	
 	/** Get the card with the specified id and return it.
 	 *  @param id The SQL id of the card in question.
