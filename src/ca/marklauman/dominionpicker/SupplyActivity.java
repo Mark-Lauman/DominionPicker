@@ -227,6 +227,8 @@ public class SupplyActivity extends SherlockFragmentActivity
 		// Start loading the supply
 		LoaderManager lm = getSupportLoaderManager();
 		lm.initLoader(LOADER_SUPPLY, null, this);
+
+		supportInvalidateOptionsMenu();
 	}
 	
 	
