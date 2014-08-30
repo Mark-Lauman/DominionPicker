@@ -59,18 +59,22 @@ public class CardAdapter extends CursorSelAdapter
 	private int col_vict = -1;
 	/** Index of the {@link CardList#_BUY} column. */
 	private int col_buy = -1;
-	
 	/** Index of the {@link CardList#_DRAW} column. */
 	private int col_draw = -1;
 	/** Index of the {@link CardList#_ACTION} column. */
 	private int col_act = -1;
+	/** Index of the {@link CardList#_ID} column. */
+	private int col_id = -1;
 	
 	/** Number of viable young witch targets selected */
 	private int qty_yw_targets = 0;
+	/** The bane card of the young witch (-1 if no bane) */
+	private long yw_bane = -1;
 	
 	public CardAdapter(Context context) {
 		super(context, R.layout.list_item_card,
-			  new String[]{CardList._NAME,
+			  new String[]{CardList._ID,
+						   CardList._NAME,
 						   CardList._COST,
 						   CardList._POTION,
 						   CardList._EXP,
@@ -79,7 +83,8 @@ public class CardAdapter extends CursorSelAdapter
 						   CardList._BUY,
 						   CardList._DESC,
 						   CardList._VICTORY},
-			  new int[]{R.id.card_title,
+			  new int[]{R.id.card_special,
+						R.id.card_title,
 				        R.id.card_cost,
 				        R.id.card_potion,
 				        R.id.card_set,
@@ -109,6 +114,7 @@ public class CardAdapter extends CursorSelAdapter
 			exp_icons.put(sets[i], icons[i]);
 	}
 	
+	
 	@Override
 	public void changeCursor(Cursor cursor) {
 		super.changeCursor(cursor);
@@ -123,8 +129,24 @@ public class CardAdapter extends CursorSelAdapter
 		col_draw = cursor.getColumnIndex(CardList._DRAW);
 		col_act = cursor.getColumnIndex(CardList._ACTION);
 		col_desc = cursor.getColumnIndex(CardList._DESC);
+		col_id = cursor.getColumnIndex(CardList._ID);
 	}
 	
+	
+	/** Binds the contents of the Cursor to View elements
+	 *  provided by this adapter. When a value is bound
+	 *  by this method, it returns {@code true}, so
+	 *  that no other binding is performed. If it
+	 *  returns false, the value is bound by the default
+	 *  SimpleCursorAdapter methods.
+	 *  @param view the view to bind the data to.
+	 *  @param cursor the cursor to get the data from
+	 *  (it has been moved to the appropriate position
+	 *  for this row).
+	 *  @param columnIndex the index of the column
+	 *  that is being bound right now.
+	 *  @return {@code true} if that column was bound to
+	 *  the view, {@code false} otherwise.            */
 	@Override
 	public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
 		if(col_cost == columnIndex
@@ -134,14 +156,14 @@ public class CardAdapter extends CursorSelAdapter
 				view.setVisibility(View.GONE);
 			else view.setVisibility(View.VISIBLE);
 			return false;
-		}
-		if(col_potion == columnIndex) {
+			
+		} else if(col_potion == columnIndex) {
 			if(1 > cursor.getInt(columnIndex))
 				view.setVisibility(View.GONE);
 			else view.setVisibility(View.VISIBLE);
 			return true;
-		}
-		if(col_expansion == columnIndex) {
+			
+		} else if(col_expansion == columnIndex) {
 			String val = cursor.getString(col_expansion);
 			ImageView v = (ImageView) view;
 			v.setContentDescription(val);
@@ -149,8 +171,8 @@ public class CardAdapter extends CursorSelAdapter
 			if(icon_id == null) icon_id = R.drawable.ic_set_unknown;
 			v.setImageResource(icon_id);
 			return true;
-		}
-		if(col_buy == columnIndex) {
+			
+		} else if(col_buy == columnIndex) {
 			String res = "";
 			String val = cursor.getString(col_buy);
 			if(!"0".equals(val)) res += ", +" + val + " buy";
@@ -170,8 +192,8 @@ public class CardAdapter extends CursorSelAdapter
 				v.setText(res);
 			}
 			return true;
-		}
-		if(col_desc == columnIndex) {
+			
+		} else if(col_desc == columnIndex) {
 			String desc = cursor.getString(columnIndex);
 			if("".equals(desc)) {
 				view.setVisibility(View.GONE);
@@ -179,7 +201,15 @@ public class CardAdapter extends CursorSelAdapter
 			}
 			view.setVisibility(View.VISIBLE);
 			return false;
+			
+		} else if(col_id == columnIndex) {
+			TextView v = (TextView) view;
+			if(yw_bane != cursor.getLong(col_id))
+				v.setVisibility(View.GONE);
+			else v.setVisibility(View.VISIBLE);
+			return true;
 		}
+		
 		return false;
 	}
 	
@@ -252,6 +282,23 @@ public class CardAdapter extends CursorSelAdapter
 	/** Check how many young witch targets are available */
 	public int checkYWitchTargets() {
 		return qty_yw_targets;
+	}
+	
+	/** Set the bane card in this adapter and select it */
+	public void setBane(long card_id) {
+		if(mCursor == null) return;
+		
+		mCursor.moveToPosition(-1);
+		int pos = 0;
+		while(mCursor.moveToNext()) {
+			if(mCursor.getLong(col_id) == card_id) {
+				yw_bane = card_id;
+				setChoiceMode(CHOICE_MODE_SINGLE);
+				selectItem(pos);
+				return;
+			}
+			pos++;
+		}
 	}
 	
 	

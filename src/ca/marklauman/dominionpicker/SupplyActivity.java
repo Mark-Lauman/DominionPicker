@@ -189,6 +189,7 @@ public class SupplyActivity extends SherlockFragmentActivity
 		
 		// display the supply cards
 		adapter.changeCursor(data);
+		adapter.setBane(supply.bane);
 		
 		// display the resource cards
 		String output = "";
