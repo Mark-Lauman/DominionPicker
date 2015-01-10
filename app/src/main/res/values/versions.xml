@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Current version of the database. -->
+    <integer name="db_version">8</integer>
+    <!-- Current version of preferences -->
+    <integer name="pref_version">1</integer>
+</resources>

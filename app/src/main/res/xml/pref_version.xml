@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <!-- This screen will never be displayed.
+         It is just to keep track of the version
+         of the preferences.                     -->
+    
+    <Preference android:key="pref_version"
+        android:defaultValue="@integer/pref_version" />
+    
+</PreferenceScreen>

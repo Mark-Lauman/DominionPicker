@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="filt_cost">Card Costs</string>
+    <string-array name="filt_cost">
+        <item>Potion</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>8*</item>
+    </string-array>
+    <array name="filt_cost_icons">
+        <item>@drawable/ic_potion_lg</item>
+        <item>@drawable/ic_coin_lg</item>
+        <item>@drawable/ic_coin_lg</item>
+        <item>@drawable/ic_coin_lg</item>
+        <item>@drawable/ic_coin_lg</item>
+        <item>@drawable/ic_coin_lg</item>
+        <item>@drawable/ic_coin_lg</item>
+        <item>@drawable/ic_coin_lg</item>
+        <item>@drawable/ic_coin_lg</item>
+        <item>@drawable/ic_coin_lg</item>
+    </array>
+    
+    <string name="filt_curse">Cursers</string>
+    <string name="filt_curse_desc">Take Victory Points from other players!</string>
+    
+</resources>

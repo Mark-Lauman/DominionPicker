@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/pref_filters" >
+    
+    <ca.marklauman.tools.MultiSelectImagePreference
+        android:key="filt_set"
+        android:title="@string/pref_filt_sets"
+        android:icon="@drawable/ic_set_base"
+        android:entries="@array/card_sets"
+        android:entryValues="@array/card_sets"
+        icons="@array/card_set_icons"
+        inverted="true" />
+    
+    <ca.marklauman.tools.MultiSelectImagePreference
+        android:key="filt_cost"
+        android:title="@string/filt_cost"
+        android:icon="@drawable/ic_coin_lg"
+        android:entries="@array/filt_cost"
+        android:entryValues="@array/filt_cost"
+        icons="@array/filt_cost_icons"
+        inverted="true" />
+    
+    <CheckBoxPreference
+        android:key="filt_curse"
+        android:title="@string/filt_curse"
+        android:summary="@string/filt_curse_desc"
+        android:icon="@drawable/ic_curse"
+        android:defaultValue="true" />
+    
+</PreferenceScreen>

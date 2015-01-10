@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_dark_ages">
+        <item>Poor House;;1;0;Action;Dark Ages;0;0;0;4;0;0</item>
+        <item>Beggar;;2;0;Action Reaction;Dark Ages;0;0;0;0;0;0</item>
+        <item>Squire;;2;0;Action;Dark Ages;0;0;0;1;0;0</item>
+        <item>Vagrant;;2;0;Action;Dark Ages;0;1;1;0;0;0</item>
+        <item>Forager;;3;0;Action;Dark Ages;1;1;0;0;0;0</item>
+        <item>Hermit;;3;0;Action;Dark Ages;0;0;0;0;0;0</item>
+        <item>Market Square;;3;0;Action Reaction;Dark Ages;1;1;1;0;0;0</item>
+        <item>Sage;;3;0;Action;Dark Ages;0;1;0;0;0;0</item>
+        <item>Storeroom;;3;0;Action;Dark Ages;1;0;0;0;0;0</item>
+        <item>Urchin;;3;0;Action Attack;Dark Ages;0;1;1;0;0;0</item>
+        <item>Armory;;4;0;Action;Dark Ages;0;0;0;0;0;0</item>
+        <item>Death Cart;;4;0;Action Attack;Dark Ages;0;0;0;5;0;0</item>
+        <item>Feodum;;4;0;Victory;Dark Ages;0;0;0;0;0;0</item>
+        <item>Fortress;;4;0;Action;Dark Ages;0;2;1;0;0;0</item>
+        <item>Ironmonger;;4;0;Action Attack;Dark Ages;0;1;1;0;0;0</item>
+        <item>Marauder;;4;0;Action Attack Looter;Dark Ages;0;0;0;0;0;0</item>
+        <item>Procession;;4;0;Action;Dark Ages;0;0;0;0;0;0</item>
+        <item>Rats;;4;0;Action;Dark Ages;0;1;1;0;0;0</item>
+        <item>Scavenger;;4;0;Action;Dark Ages;0;0;0;2;0;0</item>
+        <item>Wandering Minstrel;;4;0;Action;Dark Ages;0;2;1;0;0;0</item>
+        <item>Band of Misfits;;5;0;Action;Dark Ages;0;0;0;0;0;0</item>
+        <item>Bandit Camp;;5;0;Action;Dark Ages;0;2;1;0;0;0</item>
+        <item>Catacombs;;5;0;Action;Dark Ages;0;0;0;0;0;0</item>
+        <item>Count;;5;0;Action;Dark Ages;0;0;0;0;0;0</item>
+        <item>Counterfeit;;5;0;Treasure;Dark Ages;1;0;0;1;0;0</item>
+        <item>Cultist;;5;0;Action Attack Looter;Dark Ages;0;0;2;0;0;0</item>
+        <item>Graverobber;;5;0;Action;Dark Ages;0;0;0;0;0;0</item>
+        <item>Junk Dealer;;5;0;Action;Dark Ages;0;1;1;1;0;0</item>
+        <item>Knights;;5;0;Action Attack;Dark Ages;0;0;0;0;0;0</item>
+        <item>Mystic;;5;0;Action;Dark Ages;0;1;0;2;0;0</item>
+        <item>Pillage;;5;0;Action Attack;Dark Ages;0;0;0;0;0;0</item>
+        <item>Rebuild;;5;0;Action;Dark Ages;0;1;0;0;0;0</item>
+        <item>Rogue;;5;0;Action;Dark Ages;0;0;0;2;0;0</item>
+        <item>Altar;;6;0;Action;Dark Ages;0;0;0;0;0;0</item>
+        <item>Hunting Grounds;;6;0;Action;Dark Ages;0;0;4;0;0;0</item>
+    </string-array>
+    
+</resources>

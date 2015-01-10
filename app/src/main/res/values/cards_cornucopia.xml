@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_cornucopia">
+        <item>Hamlet;;2;0;Action;Cornucopia;0;1;1;0;0;0</item>
+        <item>Fortune Teller;;3;0;Action Attack;Cornucopia;0;0;0;2;0;0</item>
+        <item>Menagerie;;3;0;Action;Cornucopia;0;1;0;0;0;0</item>
+        <item>Farming Village;;4;0;Action;Cornucopia;0;2;0;0;0;0</item>
+        <item>Horse Traders;;4;0;Action Reaction;Cornucopia;1;0;0;3;0;0</item>
+        <item>Remake;;4;0;Action;Cornucopia;0;0;0;0;0;0</item>
+        <item>Tournament;;4;0;Action;Cornucopia;0;1;0;0;0;0</item>
+        <item>Young Witch;;4;0;Action Attack;Cornucopia;0;0;2;0;0;1</item>
+        <item>Harvest;;5;0;Action;Cornucopia;0;0;0;0;0;0</item>
+        <item>Horn of Plenty;;5;0;Treasure;Cornucopia;0;0;0;0;0;0</item>
+        <item>Hunting Party;;5;0;Action;Cornucopia;0;1;1;0;0;0</item>
+        <item>Jester;;5;0;Action Attack;Cornucopia;0;0;0;2;0;1</item>
+        <item>Fairgrounds;;6;0;Victory;Cornucopia;0;0;0;0;0;0</item>
+    </string-array>
+    
+</resources>

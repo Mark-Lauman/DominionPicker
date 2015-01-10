@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_guilds">
+        <item>Candlestick Maker;;2;0;Action;Guilds;1;1;0;0;0;0</item>
+        <item>Stonemason;Overpay Functionality;2;0;Action;Guilds;0;0;0;0;0;0</item>
+        <item>Doctor;Overpay Functionality;3;0;Action;Guilds;0;0;0;0;0;0</item>
+        <item>Masterpiece;Overpay Functionality;3;0;Treasure;Guilds;0;0;0;1;0;0</item>
+        <item>Advisor;;4;0;Action;Guilds;0;1;0;0;0;0</item>
+        <item>Plaza;;4;0;Action;Guilds;0;2;1;0;0;0</item>
+        <item>Taxman;;4;0;Action Attack;Guilds;0;0;0;0;0;0</item>
+        <item>Herald;Overpay Functionality;4;0;Action;Guilds;0;1;1;0;0;0</item>
+        <item>Baker;;5;0;Action;Guilds;0;1;1;0;0;0</item>
+        <item>Butcher;;5;0;Action;Guilds;0;0;0;0;0;0</item>
+        <item>Journeyman;;5;0;Action;Guilds;0;0;0;0;0;0</item>
+        <item>Merchant Guild;;5;0;Action;Guilds;1;0;0;1;0;0</item>
+        <item>Soothsayer;;5;0;Action Attack;Guilds;0;0;0;0;0;1</item>
+    </string-array>
+    
+</resources>

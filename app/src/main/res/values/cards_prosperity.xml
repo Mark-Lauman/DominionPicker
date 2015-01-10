@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_prosperity">
+        <item>Loan;;3;0;Treasure;Prosperity;0;0;0;0;0;0</item>
+        <item>Trade Route;;3;0;Action;Prosperity;1;0;0;0;0;0</item>
+        <item>Watchtower;;3;0;Action Reaction;Prosperity;0;0;0;0;0;0</item>
+        <item>Bishop;;4;0;Action;Prosperity;0;0;0;1;1;0</item>
+        <item>Monument;;4;0;Action;Prosperity;0;0;0;2;1;0</item>
+        <item>Quarry;;4;0;Treasure;Prosperity;0;0;0;0;0;0</item>
+        <item>Tailsman;;4;0;Treasure;Prosperity;0;0;0;0;0;0</item>
+        <item>Worker\'s Village;;4;0;Action;Prosperity;1;2;1;0;0;0</item>
+        <item>City;;5;0;Action;Prosperity;0;2;1;0;0;0</item>
+        <item>Contraband;;5;0;Treasure;Prosperity;1;0;0;0;0;0</item>
+        <item>Counting House;;5;0;Action;Prosperity;0;0;0;0;0;0</item>
+        <item>Mint;;5;0;Action;Prosperity;0;0;0;0;0;0</item>
+        <item>Mountebank;;5;0;Action Attack;Prosperity;0;0;0;2;0;1</item>
+        <item>Rabble;;5;0;Action Attack;Prosperity;0;0;3;0;0;0</item>
+        <item>Royal Seal;;5;0;Treasure;Prosperity;0;0;0;0;0;0</item>
+        <item>Vault;;5;0;Action;Prosperity;0;0;2;0;0;0</item>
+        <item>Venture;;5;0;Treasure;Prosperity;0;0;0;0;0;0</item>
+        <item>Goons;;6;0;Action Attack;Prosperity;1;0;0;2;0;0</item>
+        <item>Grand Market;;6;0;Action;Prosperity;1;1;1;2;0;0</item>
+        <item>Hoard;;6;0;Treasure;Prosperity;0;0;0;0;0;0</item>
+        <item>Bank;;7;0;Treasure;Prosperity;0;0;0;0;0;0</item>
+        <item>Expand;;7;0;Action;Prosperity;0;0;0;0;0;0</item>
+        <item>Forge;;7;0;Action;Prosperity;0;0;0;0;0;0</item>
+        <item>King\'s Court;;7;0;Action;Prosperity;0;0;0;0;0;0</item>
+        <item>Peddler;;8*;0;Action;Prosperity;0;1;1;1;0;0</item>
+    </string-array>
+    
+</resources>
