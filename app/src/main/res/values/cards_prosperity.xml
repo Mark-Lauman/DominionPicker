@@ -9,7 +9,7 @@
         <item>Bishop;;4;0;Action;Prosperity;0;0;0;1;1;0</item>
         <item>Monument;;4;0;Action;Prosperity;0;0;0;2;1;0</item>
         <item>Quarry;;4;0;Treasure;Prosperity;0;0;0;0;0;0</item>
-        <item>Tailsman;;4;0;Treasure;Prosperity;0;0;0;0;0;0</item>
+        <item>Talisman;;4;0;Treasure;Prosperity;0;0;0;0;0;0</item>
         <item>Worker\'s Village;;4;0;Action;Prosperity;1;2;1;0;0;0</item>
         <item>City;;5;0;Action;Prosperity;0;2;1;0;0;0</item>
         <item>Contraband;;5;0;Treasure;Prosperity;1;0;0;0;0;0</item>

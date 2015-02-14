@@ -28,18 +28,17 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
-/** Activity for choosing and displaying the supply piles for
- *  a new game.
+/** Activity for choosing and displaying the supply piles
+ *  for a new game.
  *  @author Mark Lauman                                  */
-public class SupplyActivity extends SherlockFragmentActivity
+public class ActivitySupply extends ActionBarActivity
 						 	implements LoaderCallbacks<Cursor> {
 	
 	
@@ -53,9 +52,9 @@ public class SupplyActivity extends SherlockFragmentActivity
 	
 	
 	/** The adapter used to display the supply cards. */
-	CardAdapter adapter;
+	private CardAdapter adapter;
 	/** The TextView used to display the resource cards. */
-	TextView resView;
+	private TextView resView;
 	/** The supply chosen for this deck. */
 	private Supply supply;
 	
@@ -107,7 +106,7 @@ public class SupplyActivity extends SherlockFragmentActivity
 	/** Called to inflate the ActionBar */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getSupportMenuInflater().inflate(R.menu.supply, menu);
+		getMenuInflater().inflate(R.menu.supply, menu);
 		return true;
 	}
 	
@@ -141,12 +140,12 @@ public class SupplyActivity extends SherlockFragmentActivity
             finish();
             return true;
         case R.id.action_market:
-        	Intent resAct = new Intent(this, MarketActivity.class);
-        	resAct.putExtra(MarketActivity.PARAM_CARDS,
-        					getIntent().getExtras()
-        							   .getLongArray(PARAM_CARDS));
-        	resAct.putExtra(MarketActivity.PARAM_SUPPLY,
+        	Intent resAct = new Intent(this, ActivityMarket.class);
+        	resAct.putExtra(ActivityMarket.PARAM_SUPPLY,
         					supply.cards);
+            resAct.putExtra(ActivityMarket.PARAM_CARDS,
+                            getIntent().getExtras()
+                                       .getLongArray(PARAM_CARDS));
 			startActivityForResult(resAct, -1);
 			return true;
         }

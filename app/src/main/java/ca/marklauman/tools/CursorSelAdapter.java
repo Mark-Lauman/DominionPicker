@@ -28,15 +28,16 @@ import android.widget.ListView;
  *  selection implementation. This should work for all
  *  versions of Android down to API v4.
  *  @author Mark Lauman                                  */
+@SuppressWarnings({"SameParameterValue", "WeakerAccess"})
 public class CursorSelAdapter extends SimpleCursorAdapter {
 	
 	/** Default background color id for selected items */
-	public static final int SEL_COLOR = R.color.list_activated_holo;
+	private static final int SEL_COLOR = R.color.list_activated_holo;
 	
 	
 	/** Normal adapter that does not indicate choices. */
-	public static final int CHOICE_MODE_NONE = ListView.CHOICE_MODE_NONE;
-	/** The adapter allows up to one choice. */ 
+    public static final int CHOICE_MODE_NONE = ListView.CHOICE_MODE_NONE;
+	/** The adapter allows up to one choice. */
 	public static final int CHOICE_MODE_SINGLE = ListView.CHOICE_MODE_SINGLE;
 	/** The adapter allows multiple choices.  */
 	public static final int CHOICE_MODE_MULTIPLE = ListView.CHOICE_MODE_MULTIPLE;
@@ -50,7 +51,7 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 	/** Current choice mode.   */
 	private int mChoiceMode = CHOICE_MODE_NONE;
 	/** Current selections.    */
-	protected HashSet<Integer> mSelected = new HashSet<>();
+	protected final HashSet<Integer> mSelected = new HashSet<>();
 	
 	
 	/** Standard constructor.
@@ -71,7 +72,7 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 	 *  parameter. Can be null if the cursor is not
 	 *  available yet.                                 */
 	public CursorSelAdapter(Context context, int layout,
-			String[] from, int[] to) {
+			                String[] from, int[] to) {
 		super(context, layout, null, from, to, 0);
 		if(COLOR_NORM == -1) {
 			COLOR_NORM	 = context.getResources()
@@ -181,7 +182,8 @@ public class CursorSelAdapter extends SimpleCursorAdapter {
 	 *  @param position The position of the row in the list.
 	 *  @return {@code true} if the item is selected,
 	 *  {@code false} otherwise.                   */
-	public boolean toggleItem(int position) {
+	@SuppressWarnings("UnusedReturnValue")
+    public boolean toggleItem(int position) {
 		if(mSelected.contains(position)) {
 			deselectItem(position);
 			return false;

@@ -55,9 +55,9 @@ public class Supply implements Parcelable {
 	 *  into a {@code Supply} */
     private Supply(Parcel in) {
     	cards = in.createLongArray();
-    	boolean[] bools = in.createBooleanArray();
-    	high_cost = bools[0];
-    	shelters = bools[1];
+    	boolean[] booleans = in.createBooleanArray();
+    	high_cost = booleans[0];
+    	shelters = booleans[1];
     	bane = in.readLong();
     }
     
@@ -91,9 +91,9 @@ public class Supply implements Parcelable {
     @Override
 	public void writeToParcel(Parcel out, int flags) {
 		out.writeLongArray(cards);
-		boolean[] bools = new boolean[] {high_cost,
+		boolean[] booleans = new boolean[] {high_cost,
 										 shelters };
-		out.writeBooleanArray(bools);
+		out.writeBooleanArray(booleans);
 		out.writeLong(bane);
     }
     

@@ -56,7 +56,7 @@ public class CardAdapter extends CursorSelAdapter
 	/** Index of the {@link CardList#_GOLD} column. */
 	private int col_gold = -1;
 	/** Index of the {@link CardList#_VICTORY} column. */
-	private int col_vict = -1;
+	private int col_victory = -1;
 	/** Index of the {@link CardList#_BUY} column. */
 	private int col_buy = -1;
 	/** Index of the {@link CardList#_DRAW} column. */
@@ -124,7 +124,7 @@ public class CardAdapter extends CursorSelAdapter
 		col_potion = cursor.getColumnIndex(CardList._POTION);
 		col_expansion = cursor.getColumnIndex(CardList._EXP);
 		col_gold = cursor.getColumnIndex(CardList._GOLD);
-		col_vict = cursor.getColumnIndex(CardList._VICTORY);
+		col_victory = cursor.getColumnIndex(CardList._VICTORY);
 		col_buy = cursor.getColumnIndex(CardList._BUY);
 		col_draw = cursor.getColumnIndex(CardList._DRAW);
 		col_act = cursor.getColumnIndex(CardList._ACTION);
@@ -151,7 +151,7 @@ public class CardAdapter extends CursorSelAdapter
 	public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
 		if(col_cost == columnIndex
 				|| col_gold == columnIndex
-				|| col_vict == columnIndex) {
+				|| col_victory == columnIndex) {
 			if("0".equals(cursor.getString(columnIndex)))
 				view.setVisibility(View.GONE);
 			else view.setVisibility(View.VISIBLE);
@@ -181,7 +181,7 @@ public class CardAdapter extends CursorSelAdapter
 			val = cursor.getString(col_act);
 			if(!"0".equals(val)) res += ", +" + val + " action";
 			if(0!= col_gold
-					&& 0 != col_vict
+					&& 0 != col_victory
 					&& res.length() > 2)
 				res = res.substring(2);
 			if("".equals(res))
@@ -328,7 +328,8 @@ public class CardAdapter extends CursorSelAdapter
 	 *  @return The resource ids of all the drawables
 	 *  in the array, in the order in which they appear
 	 *  in the xml.                                  */
-	public static int[] getDrawables(Context c, int resourceId) {
+	@SuppressWarnings("SameParameterValue")
+    private static int[] getDrawables(Context c, int resourceId) {
 		TypedArray ta = c.getResources()
 				 		 .obtainTypedArray(resourceId);
 		if(ta == null) return null;

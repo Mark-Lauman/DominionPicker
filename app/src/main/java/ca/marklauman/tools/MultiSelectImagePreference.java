@@ -42,11 +42,13 @@ import android.widget.TextView;
  *  This is a heavily modified version of
  *  Krzysztof Suszynski's MultiSelectListPreference:
  *  https://gist.github.com/cardil/4754571&nbsp;. */
+@SuppressWarnings({"SameParameterValue", "UnusedReturnValue"})
 public class MultiSelectImagePreference extends ListPreference {
 	
 	/** The view used by this preference for items in
 	 *  the popup list.                            */
-	public static final int LIST_ITEM_VIEW = R.layout.list_item_check;
+	@SuppressWarnings("WeakerAccess")
+    public static final int LIST_ITEM_VIEW = R.layout.list_item_check;
 	
 	/** Separator between list entries */
     private static final String SEPARATOR = "\u0001\u0007\u001D\u0007\u0001";
@@ -82,10 +84,10 @@ public class MultiSelectImagePreference extends ListPreference {
         
         // setup the summary
         CharSequence[] values = getValues(getValue());
-        ArrayList<String> listVals = new ArrayList<>(values.length);
+        ArrayList<String> listValues = new ArrayList<>(values.length);
         for(CharSequence val : values)
-        	listVals.add("" + val);
-        setSummary(prepareSummary(listVals));
+        	listValues.add("" + val);
+        setSummary(prepareSummary(listValues));
     }
     
     
@@ -202,7 +204,7 @@ public class MultiSelectImagePreference extends ListPreference {
     	
     	CharSequence[] entryValues = getEntryValues();
     	Integer[] select;
-    	if(inverted) select = adapt.getDeselections();
+    	if(inverted) select = adapt.getUnselected();
     	else select = adapt.getSelections();
         List<String> values = new ArrayList<>();
         if (select != null) {
@@ -276,11 +278,11 @@ public class MultiSelectImagePreference extends ListPreference {
      *  http://snippets.dzone.com/posts/show/91
      *   @param iterable any kind of iterable
      *   ex.: <code>["a", "b", "c"]</code>
-     *  @param separator separetes entries
+     *  @param separator separates entries
      *  ex.: <code>","</code>
      *  @return joined string
      *  ex.: <code>"a,b,c"</code>                  */
-    protected static String join(Iterable<?> iterable, String separator) {
+    private static String join(Iterable<?> iterable, String separator) {
         Iterator<?> oIter;
         if (iterable == null || (!(oIter = iterable.iterator()).hasNext()))
             return "";

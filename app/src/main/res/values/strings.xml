@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Dominion Picker</string>
+
+    <string-array name="navNames">
+        <item>Picker</item>
+        <item>@string/market_title</item>
+        <item>@string/filters</item>
+    </string-array>
+
+    <string name="menu_open">Open Menu</string>
+    <string name="menu_close">Close Menu</string>
     
     <string name="picks">Your Picks!</string>
     <string name="toggle_all">Toggle All</string>
@@ -12,7 +21,7 @@
     <string name="potion">Potion</string>
     
     <string name="settings">Settings</string>
-    <string name="pref_filters">Filters</string>
+    <string name="filters">Filters</string>
     <string name="pref_filt_sets">Card Sets</string>
     
     <string name="supply_normal">Normal game</string>
@@ -21,6 +30,7 @@
     <string name="young_witch_bane">Young Witch - Bane</string>
     
     <string name="market_title">Black Market</string>
+    <string name="market_begin">New market created from the picker</string>
     <string name="market_draw">Draw</string>
     <string name="market_pass">Pass</string>
     <string name="market_sold_out">Sold Out!</string>

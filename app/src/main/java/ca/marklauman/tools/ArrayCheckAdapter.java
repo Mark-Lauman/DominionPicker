@@ -34,19 +34,20 @@ import android.widget.TextView;
  *  selection implementation. This should work for all
  *  versions of Android down to API v4.
  *  @author Mark Lauman                                  */
+@SuppressWarnings({"SameParameterValue", "WeakerAccess"})
 public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 	
 	/** Normal adapter that does not indicate choices. */
-	public static final int CHOICE_MODE_NONE = ListView.CHOICE_MODE_NONE;
-	/** The adapter allows up to one choice. */ 
-	public static final int CHOICE_MODE_SINGLE = ListView.CHOICE_MODE_SINGLE;
+    public static final int CHOICE_MODE_NONE = ListView.CHOICE_MODE_NONE;
+	/** The adapter allows up to one choice. */
+    public static final int CHOICE_MODE_SINGLE = ListView.CHOICE_MODE_SINGLE;
 	/** The adapter allows multiple choices.  */
 	public static final int CHOICE_MODE_MULTIPLE = ListView.CHOICE_MODE_MULTIPLE;
 
 	/** Background color of a selected item. */
-	private Integer color_select = null;
+	private final Integer color_select = null;
 	/** Background color of a deselected item. */
-	private Integer color_deselect = null;
+	private final Integer color_deselect = null;
 	
 	/** Current choice mode.   */
 	private int mChoiceMode = CHOICE_MODE_NONE;
@@ -81,10 +82,10 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	public void addAll(Collection<? extends T> collection) {
 		if(collection == null) return;
-		ArrayList<Boolean> sels = new ArrayList<>(collection.size());
-		for(int i=0; i<sels.size(); i++)
-			sels.set(i, false);
-		mSelected.addAll(sels);
+		ArrayList<Boolean> selections = new ArrayList<>(collection.size());
+		for(int i=0; i<selections.size(); i++)
+			selections.set(i, false);
+		mSelected.addAll(selections);
 		super.addAll(collection);
 	}
 	
@@ -93,10 +94,10 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 	@SuppressWarnings("unchecked")
 	public void addAll(T... items) {
 		if(items == null) return;
-		ArrayList<Boolean> sels = new ArrayList<>(items.length);
-		for(int i=0; i<sels.size(); i++)
-			sels.set(i, false);
-		mSelected.addAll(sels);
+		ArrayList<Boolean> selections = new ArrayList<>(items.length);
+		for(int i=0; i<selections.size(); i++)
+			selections.set(i, false);
+		mSelected.addAll(selections);
 		super.addAll(items);
 	}
 	
@@ -224,7 +225,8 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 	 *  list.
 	 *  @return {@code true} if the item is selected,
 	 *  {@code false} otherwise.                   */
-	public boolean toggleItem(int position) {
+	@SuppressWarnings("UnusedReturnValue")
+    public boolean toggleItem(int position) {
 		switch(mChoiceMode) {
 		case CHOICE_MODE_NONE:
 			return false;
@@ -279,7 +281,7 @@ public class ArrayCheckAdapter<T> extends ArrayAdapter<T> {
 	 *  @return The positions of each deselected item.
 	 *  There is no guaranteed order to this list,
 	 *  users must sort it themselves if necessary. */
-	public Integer[] getDeselections() {
+	public Integer[] getUnselected() {
 		ArrayList<Integer> res = new ArrayList<>();
 		for(int i=0; i<mSelected.size(); i++) {
 			if(!mSelected.get(i))

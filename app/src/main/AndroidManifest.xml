@@ -1,49 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="ca.marklauman.dominionpicker"
     android:installLocation="auto"
-    android:versionCode="13"
-    android:versionName="1.6.2" >
+    android:versionCode="14"
+    android:versionName="1.7.0" >
 
-    <application
-        android:allowBackup="true"
+    <application android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:supportsRtl="false"
+        tools:ignore="UnusedAttribute" >
         
         <activity
-            android:name="ca.marklauman.dominionpicker.MainActivity"
-            android:label="@string/app_name"
-            android:uiOptions="splitActionBarWhenNarrow" >
-        	<meta-data android:name="android.support.UI_OPTIONS"
-        	    android:value="splitActionBarWhenNarrow" />
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         
-        <activity
-            android:name="ca.marklauman.dominionpicker.settings.SettingsActivity"
-            android:label="@string/settings">
-            <meta-data android:name="android.support.UI_OPTIONS"
-        	    android:value="splitActionBarWhenNarrow" />
-        </activity>
+        <activity android:name=".settings.ActivitySettings"
+            android:label="@string/settings" />
         
-        <activity
-            android:name="ca.marklauman.dominionpicker.SupplyActivity"
-            android:label="@string/picks">
-            <meta-data
-            	android:name="android.support.PARENT_ACTIVITY"
-            	android:value="ca.marklauman.dominionpicker.MainActivity" />
-        </activity>
+        <activity android:name=".ActivitySupply"
+            android:label="@string/picks" />
         
-        <activity
-            android:name="ca.marklauman.dominionpicker.MarketActivity"
+        <activity android:name=".ActivityMarket"
             android:label="@string/market_title" />
         
-        <provider
-            android:name="ca.marklauman.dominionpicker.CardList"
+        <provider android:name=".CardList"
             android:authorities="ca.marklauman.dominionpicker"
             android:enabled="true"
             android:exported="false" />

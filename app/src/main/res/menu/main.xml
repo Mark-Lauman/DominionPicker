@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    
-    <item android:id="@+id/action_filters"
-        android:showAsAction="ifRoom"
-        android:title="@string/settings"
-        android:icon="@drawable/ic_action_settings" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
 
     <item
         android:id="@+id/action_toggle_all"
-        android:showAsAction="ifRoom"
+        app:showAsAction="ifRoom"
         android:title="@string/toggle_all"
         android:icon="@drawable/ic_action_select_all" />
     
     <item
         android:id="@+id/action_submit"
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:title="@string/submit"
         android:icon="@drawable/ic_action_send" />
 

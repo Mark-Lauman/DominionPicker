@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content" >
     
@@ -7,20 +8,22 @@
         style="?android:attr/listSeparatorTextViewStyle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
+        android:textColor="@color/list_div_txt"
         android:background="@color/list_div"
         android:text="@string/young_witch_bane" />
     
     <RelativeLayout android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/card_special"
-        android:paddingRight="8dp"
-        android:paddingLeft="8dp"
-        android:paddingBottom="4dp" >
+        android:layout_marginTop="4dp"
+        android:paddingBottom="4dp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp" >
         
         <ImageView android:id="@+id/card_potion"
             android:layout_width="15sp"
             android:layout_height="15sp"
+            android:layout_marginTop="2dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:src="@drawable/ic_potion"
@@ -50,7 +53,8 @@
             android:ellipsize="end"
             android:textSize="18sp"
             android:textColor="?android:attr/textColorPrimary"
-            android:text="@string/demo_card_title" />
+            android:text="@string/demo_card_title"
+            tools:ignore="RtlSymmetry" />
         
         <ImageView android:id="@+id/card_set"
             android:layout_width="wrap_content"
@@ -78,13 +82,16 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/card_cat" >
+
+            <!-- The fields in this layout (except card_res)
+                 will never grow beyond 3 characters. -->
             
             <TextView android:id="@+id/card_res_gold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:drawableRight="@drawable/ic_coin"
-                android:singleLine="false"
+                android:singleLine="true"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textSize="14sp"
                 android:textStyle="normal"
@@ -95,21 +102,23 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/card_res_gold"
                 android:drawableRight="@drawable/ic_vp"
-                android:singleLine="false"
+                android:singleLine="true"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textSize="14sp"
                 android:textStyle="normal"
                 android:text="@string/demo_card_plus_1" />
-            
+
             <TextView android:id="@+id/card_res"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/card_res_victory"
-                android:singleLine="false"
+                android:singleLine="true"
+                android:ellipsize="end"
                 android:textColor="?android:attr/textColorSecondary"
                 android:textSize="14sp"
                 android:textStyle="normal"
-                android:text="@string/demo_card_res" />
+                android:text="@string/demo_card_res"
+                tools:ignore="RelativeOverlap" />
             
         </RelativeLayout>
         

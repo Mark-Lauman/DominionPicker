@@ -2,13 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_vertical"
     android:orientation="vertical" >
     
     <Button android:id="@+id/market_draw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/market_draw"
-        android:onClick="drawCards" />
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/market_draw" />
     
     <LinearLayout android:id="@+id/market_choices"
     	android:layout_width="match_parent"
@@ -23,8 +25,10 @@
     	<Button android:id="@+id/market_pass"
         	android:layout_width="match_parent"
         	android:layout_height="wrap_content"
-        	android:text="@string/market_pass"
-        	android:onClick="passPick" />
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+        	android:text="@string/market_pass" />
     	
     </LinearLayout>
     

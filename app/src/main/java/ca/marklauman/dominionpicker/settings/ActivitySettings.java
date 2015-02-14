@@ -21,56 +21,44 @@
  * SOFTWARE.                                                                  */
 package ca.marklauman.dominionpicker.settings;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import com.actionbarsherlock.view.MenuItem;
-
 import ca.marklauman.dominionpicker.R;
 
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 /** Handles the preferences for this activity.
  *  @author Mark Lauman                     */
-public class SettingsActivity extends SherlockPreferenceActivity {
+public class ActivitySettings extends PreferenceActivity {
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB)
-//        	setupLegacy();
-        setupLegacy();
-    }
-	
-	@SuppressWarnings("deprecation")
-	public void setupLegacy() {
-		addPreferencesFromResource(R.xml.pref_filters);
-//		String category = getIntent().getAction();
-//		if(PREF_FILTERS.equals(category))
-//			addPreferencesFromResource(R.xml.pref_filters);
-//		else
-//			addPreferencesFromResource(R.xml.pref_headers_1);
-	}
-	
-	
-//	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-//	@Override
-//    public void onBuildHeaders(List<Header> target) {
-//        loadHeadersFromResource(R.xml.pref_headers_3, target);
-//    }
-	
-	
-	@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-        // android "back" button on the action bar
-        case android.R.id.home:
-            finish();
-            return true;
+
+        // Add action bar
+        setContentView(R.layout.activity_settings);
+        Toolbar t = (Toolbar) findViewById(R.id.toolbar);
+        t.setTitle(R.string.filters);
+        t.setNavigationIcon(R.drawable.ic_action_back);
+        t.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        // hide the drop shadow if its already there
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            View shadow = findViewById(R.id.toolbar_shadow);
+            shadow.setVisibility(View.GONE);
         }
-        return super.onOptionsItemSelected(item);
-	}
+
+        //noinspection deprecation
+        addPreferencesFromResource(R.xml.pref_filters);
+    }
 	
 	@Override
     @TargetApi(Build.VERSION_CODES.KITKAT)

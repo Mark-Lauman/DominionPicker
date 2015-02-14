@@ -31,7 +31,8 @@ import android.preference.PreferenceFragment;
  *  @author Mark Lauman                       */
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class SettingsFragment extends PreferenceFragment {
-	final static String PREF_FILTERS = "ca.marklauman.dominionpicker.PREF_FILTERS";
+	@SuppressWarnings("WeakerAccess")
+    final static String PREF_FILTERS = "ca.marklauman.dominionpicker.PREF_FILTERS";
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {

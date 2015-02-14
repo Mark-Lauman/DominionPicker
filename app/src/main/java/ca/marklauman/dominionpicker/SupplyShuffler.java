@@ -27,26 +27,29 @@ import java.util.Collection;
 import android.database.Cursor;
 import android.os.AsyncTask;
 
-public class SupplyShuffler extends AsyncTask<Long, Void, Supply> {
+/** Task for choosing the supply cards. This task
+ *  assumes a valid supply IS possible.
+ *  @author Mark Lauman                        */
+class SupplyShuffler extends AsyncTask<Long, Void, Supply> {
 	
 	
 	/** The activity that needs the supply. */
-	SupplyActivity callback;
+	private final ActivitySupply callback;
 	
 	
 	/** String tied to the Prosperity set */
-	String set_prosp;
+	private final String set_prosperity;
 	/** String tied to the Dark Ages set */
-	String set_dark;
+	private final String set_dark;
 	
 	
 	/** Default Constructor
 	 *  @param activity The activity that needs the supply.
 	 */
-	public SupplyShuffler(SupplyActivity activity) {
+	public SupplyShuffler(ActivitySupply activity) {
 		super();
 		callback = activity;
-		set_prosp = activity.getString(R.string.set_prosperity);
+		set_prosperity = activity.getString(R.string.set_prosperity);
 		set_dark  = activity.getString(R.string.set_dark_ages);
 	}
 	
@@ -58,7 +61,7 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Supply> {
 	 *  combos have been checked.                      */
 	@Override
 	protected Supply doInBackground(Long... possibleSupply) {
-		// Turn the poosibleSupply into an ArrayList pool
+		// Turn the possibleSupply into an ArrayList pool
 		ArrayList<Long> pool = new ArrayList<>(possibleSupply.length);
 		for(long card : possibleSupply)
 			pool.add(card);
@@ -108,10 +111,14 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Supply> {
 		resources[0] = "" + supply.cards[pick];
 		pick = (int) (Math.random() * supply.cards.length);
 		resources[1] = "" + supply.cards[pick];
+
+        // Due to multi-threading, callback could have
+        // been deleted before this point.
+        //noinspection ConstantConditions
+        if(callback == null) return null;
 		
 		// Get the sets the resource cards are from
 		// and replace the resources strings with them
-		if(callback == null) return null;
 		Cursor c = callback.getContentResolver()
 				.query(CardList.URI,
 					   new String[]{CardList._ID,
@@ -130,7 +137,7 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Supply> {
 		}
 		
 		// Determine colonies and shelters from the sets
-		if(set_prosp.equals(resources[0]))
+		if(set_prosperity.equals(resources[0]))
 			supply.high_cost = true;
 		if(set_dark.equals(resources[1]))
 			supply.shelters = true;
@@ -140,11 +147,14 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Supply> {
 	
 	
 	/** Apply the supply to the calling
-	 *  {@link SupplyActivity}.      
+	 *  {@link ActivitySupply}.
 	 *  @param supply The supply chosen by
 	 *  {@link #doInBackground(Long...)}. */
 	@Override
 	protected void onPostExecute(Supply supply) {
+        // Due to multi-threading, callback could have
+        // been deleted before this point.
+        //noinspection ConstantConditions
 		if(callback == null) return;
 		callback.setSupply(supply);
 	}
@@ -154,7 +164,7 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Supply> {
 	 *  @param pool The pool of card ids to choose from.
 	 *  @return The id of the bane card or -1 if no
 	 *  valid bane could be found.                    */
-	public long pickBane(Collection<Long> pool) {
+    long pickBane(Collection<Long> pool) {
 		/* Selection string
 		 * format: (cost=? OR cost=? AND (id=? OR ...) */
 		String sel = "";

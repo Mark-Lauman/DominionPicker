@@ -33,6 +33,7 @@ import android.net.Uri;
 /** This is the card database. All card information is stored
  *  here, and it is all retrieved from here.
  *  @author Mark Lauman                                    */
+@SuppressWarnings("WeakerAccess")
 public class CardList extends ContentProvider {
 	
 	/** URI used to access this ContentProvider */
@@ -98,11 +99,11 @@ public class CardList extends ContentProvider {
 	public static final long ID_YOUNG_WITCH = 161L;
 	
 	/** Handle to the sql database. */
-	private DBHandler dbhandle;
+	private DBHandler db_handle;
 	
 	@Override
 	public boolean onCreate() {
-		dbhandle = new DBHandler(getContext());
+		db_handle = new DBHandler(getContext());
 		return true;
 	}
 	
@@ -115,7 +116,7 @@ public class CardList extends ContentProvider {
 	public Cursor query(Uri uri, String[] projection,
 				String selection, String[] selectionArgs,
 				String sortOrder) {
-		SQLiteDatabase db = dbhandle.getReadableDatabase();
+		SQLiteDatabase db = db_handle.getReadableDatabase();
 		if(sortOrder == null)
 			sortOrder = _EXP + ", " + _NAME;
 		return db.query(TABLE_CARDS, projection,
@@ -145,7 +146,7 @@ public class CardList extends ContentProvider {
 	
 	/** Handles the sql database. */
 	private static class DBHandler extends SQLiteOpenHelper {
-		Context context;
+		private final Context context;
 		
 		public DBHandler(Context c) {
 			super(c, "cards.db", null,

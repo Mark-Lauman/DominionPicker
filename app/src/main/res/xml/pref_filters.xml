@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/pref_filters" >
+    android:title="@string/filters" >
     
     <ca.marklauman.tools.MultiSelectImagePreference
         android:key="filt_set"
