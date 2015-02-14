@@ -1,0 +1,26 @@
+Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser
+Burghof;;2;0;Aktion;Die Intrige;0;0;3;0;0;0
+Handlanger;;2;0;Aktion;Die Intrige;1;1;1;1;0;0
+Geheimkammer;;2;0;Aktion Reaktion;Die Intrige;0;0;0;0;0;0
+Große Halle;;3;0;Aktion Punkte;Die Intrige;0;1;1;0;0;0
+Maskerade;;3;0;Aktion;Die Intrige;0;0;2;0;0;0
+Armenviertel;;3;0;Aktion;Die Intrige;0;2;0;0;0;0
+Verwalter;;3;0;Aktion;Die Intrige;0;0;2;2;0;0
+Trickser;;3;0;Aktion Angriff;Die Intrige;0;0;0;2;0;0
+Wunschbrunnen;;3;0;Aktion;Die Intrige;0;1;1;0;0;0
+Baron;;4;0;Aktion;Die Intrige;1;0;0;0;0;0
+Brücke;;4;0;Aktion;Die Intrige;1;0;0;1;0;0
+Verschwörer;;4;0;Aktion;Die Intrige;0;0;0;2;0;0
+Kupferschmied;;4;0;Aktion;Die Intrige;0;0;0;0;0;0
+Eisenhütte;;4;0;Aktion;Die Intrige;0;0;0;0;0;0
+Bergwerk;;4;0;Aktion;Die Intrige;0;2;1;0;0;0
+Späher;;4;0;Aktion;Die Intrige;0;1;0;0;0;0
+Herzog;;5;0;Punkte;Die Intrige;0;0;0;0;0;0
+Lakai;;5;0;Aktion Angriff;Die Intrige;0;1;0;0;0;0
+Saboteur;;5;0;Aktion Angriff;Die Intrige;0;0;0;0;0;0
+Kerkermeister;;5;0;Aktion Angriff;Die Intrige;0;0;3;0;0;1
+Handelsposten;;5;0;Aktion;Die Intrige;0;0;0;0;0;0
+Tribut;;5;0;Aktion;Die Intrige;0;0;0;0;0;0
+Anbau;;5;0;Aktion;Die Intrige;0;1;1;0;0;0
+Harem;;6;0;Geld Punkte;Die Intrige;0;0;0;0;0;0
+Adlige;;6;0;Aktion Punkte;Die Intrige;0;2;3;0;0;0

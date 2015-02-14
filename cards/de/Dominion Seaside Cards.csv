@@ -1,0 +1,27 @@
+Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser
+Embargo;;2;0;Aktion;Seaside;0;0;0;2;0;1
+Hafen;;2;0;Aktion Dauer;Seaside;0;1;1;0;0;0
+Leuchtturm;;2;0;Aktion Dauer;Seaside;0;1;0;1;0;0
+Eingeborenendorf;;2;0;Aktion;Seaside;0;2;0;0;0;0
+Perlentaucher;;2;0;Aktion;Seaside;0;1;1;0;0;0
+Botschafter;;3;0;Aktion Angriff;Seaside;0;0;0;0;0;0
+Fischerdorf;;3;0;Aktion Dauer;Seaside;0;2;0;1;0;0
+Ausguck;;3;0;Aktion;Seaside;0;1;0;0;0;0
+Schmuggler;;3;0;Aktion;Seaside;0;0;0;0;0;0
+Lagerhaus;;3;0;Aktion;Seaside;0;1;3;0;0;0
+Karawane;;4;0;Aktion Dauer;Seaside;0;1;1;0;0;0
+Beutelschneider;;4;0;Aktion Angriff;Seaside;0;0;0;2;0;0
+Insel;;4;0;Aktion Punkte;Seaside;0;0;0;0;0;0
+Navigator;;4;0;Aktion;Seaside;0;0;0;2;0;0
+Piratenschiff;;4;0;Aktion Angriff;Seaside;0;0;0;0;0;0
+Müllverwerter;;4;0;Aktion;Seaside;1;0;0;0;0;0
+Seehexe;;4;0;Aktion Angriff;Seaside;0;0;0;0;0;1
+Schatzkarte;;4;0;Aktion;Seaside;0;0;0;0;0;0
+Bazar;;5;0;Aktion;Seaside;0;2;1;1;0;0
+Entdecker;;5;0;Aktion;Seaside;0;0;0;0;0;0
+Geisterschiff;;5;0;Aktion Angriff;Seaside;0;0;2;0;0;0
+Handelsschiff;;5;0;Aktion Dauer;Seaside;0;0;0;2;0;0
+Aussenposten;;5;0;Aktion Dauer;Seaside;0;0;0;0;0;0
+Taktiker;;5;0;Aktion Dauer;Seaside;0;0;0;0;0;0
+Schatzkammer;;5;0;Aktion;Seaside;0;1;1;1;0;0
+Werft;;5;0;Aktion Dauer;Seaside;1;0;2;0;0;0

@@ -1,0 +1,13 @@
+Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser
+Kräuterkundiger;;3;0;Aktion;Alchemisten;1;0;0;1;0;0
+Lehrling;;5;0;Aktion;Alchemisten;0;1;0;0;0;0
+Verwandlung;;0;1;Aktion;Alchemisten;0;0;0;0;0;0
+Weinberg;;0;1;Punkte;Alchemisten;0;0;0;0;0;0
+Apotheker;;2;1;Aktion;Alchemisten;0;1;1;0;0;0
+Vision;;2;1;Aktion Angriff;Alchemisten;0;1;0;0;0;0
+Universität;;2;1;Aktion;Alchemisten;0;2;0;0;0;0
+Alchemist;;3;1;Aktion;Alchemisten;0;1;2;0;0;0
+Vertrauter;;3;1;Aktion Angriff;Alchemisten;0;1;1;0;0;1
+Stein der Weisen;;3;1;Geld;Alchemisten;0;0;0;0;0;0
+Golem;;4;1;Aktion;Alchemisten;0;0;0;0;0;0
+Besessenheit;;6;1;Aktion;Alchemisten;0;0;0;0;0;0
