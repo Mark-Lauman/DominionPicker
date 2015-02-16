@@ -26,4 +26,5 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'ca.marklauman.tools:AndroidTools:1.2@aar'
 }

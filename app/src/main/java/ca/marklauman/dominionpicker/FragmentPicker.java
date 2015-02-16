@@ -250,7 +250,7 @@ public class FragmentPicker extends Fragment
 
     /** Get the currently selected cards. */
     public long[] getSelections() {
-        return adapter.getSelections();
+        return adapter.getSelectionIds();
     }
 
     /** Check the selected cards to see if they are a valid
@@ -261,7 +261,7 @@ public class FragmentPicker extends Fragment
         // minimum allowable selection size (may increase due to some cards)
         int min_select = 10;
         // the result
-        long[] res = adapter.getSelections();
+        long[] res = adapter.getSelectionIds();
 
         // check for young witch
         int young_witch = -1;
@@ -305,7 +305,7 @@ public class FragmentPicker extends Fragment
     /** Save currently selected items to the preferences */
     public void saveSelections(Context c) {
         if(c == null || adapter == null) return;
-        long[] selections = adapter.getSelections();
+        long[] selections = adapter.getSelectionIds();
         StringBuilder str = new StringBuilder();
         for (long selection : selections)
             str.append(selection).append(",");
