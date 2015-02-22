@@ -23,6 +23,7 @@ package ca.marklauman.dominionpicker;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -40,10 +41,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Collections;
 import java.util.StringTokenizer;
 
-import ca.marklauman.tools.MultiSelectImagePreference;
+import ca.marklauman.tools.MultiSelectPreference;
 
 /** Used to pick the cards used in all other shuffles.
  *  @author Mark Lauman                             */
@@ -163,33 +164,36 @@ public class FragmentPicker extends Fragment
         }
         adapter = null;
 
+        // Basic setup
         CursorLoader c = new CursorLoader(getActivity());
         c.setUri(CardList.URI);
-
         String sel = "";
-        ArrayList<String> sel_args = new ArrayList<>();
+        ArrayList<CharSequence> sel_args = new ArrayList<>();
+        Resources res = getActivity().getResources();
+        String[] sets  = res.getStringArray(R.array.card_sets);
+        String[] costs = res.getStringArray(R.array.filt_cost);
 
         // Filter by set
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         filt_set = pref.getString("filt_set", "");
-        List<String> split_val = Arrays.asList(MultiSelectImagePreference.getValues(filt_set));
-        for(String s : split_val)
-            sel_args.add(s);
-        for(int i=0; i<split_val.size(); i++)
+        CharSequence[] split_set = MultiSelectPreference.mapValues(filt_set, sets);
+        Collections.addAll(sel_args, split_set);
+        for (CharSequence ignored:split_set)
             sel += "AND " + CardList._EXP + "!=? ";
 
         // Filter by cost
         filt_cost = pref.getString("filt_cost", "");
-        split_val = new ArrayList<>(Arrays.asList(MultiSelectImagePreference.getValues(filt_cost)));
+        ArrayList<CharSequence> split_cost = new ArrayList<>(Arrays.asList(
+                        MultiSelectPreference.mapValues(filt_cost, costs)));
         String potion = getResources().getStringArray(R.array.filt_cost)[0];
-        if(0 < split_val.size() && potion.equals(split_val.get(0))) {
+        if(0 < split_cost.size() && potion.equals(split_cost.get(0))) {
             sel += "AND " + CardList._POTION + "=? ";
             sel_args.add("0");
-            split_val.remove(0);
+            split_cost.remove(0);
         }
-        for(String s : split_val)
+        for(CharSequence s : split_cost)
             sel_args.add(s);
-        for(int i=0; i<split_val.size(); i++)
+        for(int i=0; i<split_cost.size(); i++)
             sel += "AND " + CardList._COST + "!=? ";
 
         // Filter out cursors
@@ -204,7 +208,8 @@ public class FragmentPicker extends Fragment
 
         c.setSelection(sel);
         String[] sel_args_final = new String[sel_args.size()];
-        sel_args.toArray(sel_args_final);
+        for(int i=0; i<sel_args.size(); i++)
+            sel_args_final[i] = sel_args.get(i).toString();
         c.setSelectionArgs(sel_args_final);
 
         return c;

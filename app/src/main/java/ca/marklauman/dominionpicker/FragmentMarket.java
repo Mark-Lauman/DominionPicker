@@ -21,6 +21,7 @@
  * SOFTWARE.                                                                  */
 package ca.marklauman.dominionpicker;
 
+import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -101,12 +102,14 @@ public class FragmentMarket extends Fragment
         if(stock == null) setupMarketStock();
     }
 
-    public final void onAttach(FragmentActivity activity) {
+    @Override
+    public final void onAttach(Activity activity) {
         super.onAttach(activity);
         /* First initialization of the loader must be called
          * early, or the loader will not function.        */
-        activity.getSupportLoaderManager()
-                .initLoader(LOADER_MARKET, null, this);
+        FragmentActivity a = (FragmentActivity) activity;
+        a.getSupportLoaderManager()
+         .initLoader(LOADER_MARKET, null, this);
     }
 
 

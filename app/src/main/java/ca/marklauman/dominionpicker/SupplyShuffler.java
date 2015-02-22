@@ -135,6 +135,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Supply> {
 			else
 				resources[1] = c.getString(col_set);
 		}
+        c.close();
 		
 		// Determine colonies and shelters from the sets
 		if(set_prosperity.equals(resources[0]))
@@ -201,6 +202,8 @@ class SupplyShuffler extends AsyncTask<Long, Void, Supply> {
 		int id_col = c.getColumnIndex(CardList._ID);
 		int bane_pos = (int) (Math.random() * c.getCount());
 		c.moveToPosition(bane_pos);
-		return c.getLong(id_col);
+        long res = c.getLong(id_col);
+        c.close();
+		return res;
 	}
 }

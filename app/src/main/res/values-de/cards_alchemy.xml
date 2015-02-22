@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_alchemy">
+        <item>Kr&#228;uterkundiger;;3;0;Aktion;Alchemisten;1;0;0;1;0;0</item>
+        <item>Lehrling;;5;0;Aktion;Alchemisten;0;1;0;0;0;0</item>
+        <item>Verwandlung;;0;1;Aktion;Alchemisten;0;0;0;0;0;0</item>
+        <item>Weinberg;;0;1;Punkte;Alchemisten;0;0;0;0;0;0</item>
+        <item>Apotheker;;2;1;Aktion;Alchemisten;0;1;1;0;0;0</item>
+        <item>Vision;;2;1;Aktion Angriff;Alchemisten;0;1;0;0;0;0</item>
+        <item>Universit&#228;t;;2;1;Aktion;Alchemisten;0;2;0;0;0;0</item>
+        <item>Alchemist;;3;1;Aktion;Alchemisten;0;1;2;0;0;0</item>
+        <item>Vertrauter;;3;1;Aktion Angriff;Alchemisten;0;1;1;0;0;1</item>
+        <item>Stein der Weisen;;3;1;Geld;Alchemisten;0;0;0;0;0;0</item>
+        <item>Golem;;4;1;Aktion;Alchemisten;0;0;0;0;0;0</item>
+        <item>Besessenheit;;6;1;Aktion;Alchemisten;0;0;0;0;0;0</item>
+    </string-array>
+    
+</resources>

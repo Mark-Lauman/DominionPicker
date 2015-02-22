@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_base">
+        <item>Keller;;2;0;Aktion;Dominion;0;1;0;0;0;0</item>
+        <item>Kapelle;;2;0;Aktion;Dominion;0;0;0;0;0;0</item>
+        <item>Burggraben;;2;0;Aktion Reaktion;Dominion;0;0;2;0;0;0</item>
+        <item>Kanzler;;3;0;Aktion;Dominion;0;0;0;2;0;0</item>
+        <item>Dorf;;3;0;Aktion;Dominion;0;2;1;0;0;0</item>
+        <item>Holzf&#228;ller;;3;0;Aktion;Dominion;1;0;0;2;0;0</item>
+        <item>Werkstatt;;3;0;Aktion;Dominion;0;0;0;0;0;0</item>
+        <item>B&#252;rokrat;;4;0;Aktion Angriff;Dominion;0;0;0;0;0;0</item>
+        <item>Festmahl;;4;0;Aktion;Dominion;0;0;0;0;0;0</item>
+        <item>G&#228;rten;;4;0;Punkte;Dominion;0;0;0;0;0;0</item>
+        <item>Miliz;;4;0;Aktion Angriff;Dominion;0;0;0;2;0;0</item>
+        <item>Geldverleiher;;4;0;Aktion;Dominion;0;0;0;0;0;0</item>
+        <item>Umbau;;4;0;Aktion;Dominion;0;0;0;0;0;0</item>
+        <item>Schmiede;;4;0;Aktion;Dominion;0;0;3;0;0;0</item>
+        <item>Spion;;4;0;Aktion Angriff;Dominion;0;1;1;0;0;0</item>
+        <item>Dieb;;4;0;Aktion Angriff;Dominion;0;0;0;0;0;0</item>
+        <item>Thronsaal;;4;0;Aktion;Dominion;0;0;0;0;0;0</item>
+        <item>Ratsversammlun;;5;0;Aktion;Dominion;1;0;4;0;0;0</item>
+        <item>Jahrmarkt;;5;0;Aktion;Dominion;1;2;0;2;0;0</item>
+        <item>Laboratorium;;5;0;Aktion;Dominion;0;1;2;0;0;0</item>
+        <item>Bibliothek;;5;0;Aktion;Dominion;0;0;0;0;0;0</item>
+        <item>Markt;;5;0;Aktion;Dominion;1;1;1;1;0;0</item>
+        <item>Mine;;5;0;Aktion;Dominion;0;0;0;0;0;0</item>
+        <item>Hexe;;5;0;Aktion Angriff;Dominion;0;0;2;0;0;1</item>
+        <item>Abenteurer;;6;0;Aktion;Dominion;0;0;0;0;0;0</item>
+    </string-array>
+    
+</resources>

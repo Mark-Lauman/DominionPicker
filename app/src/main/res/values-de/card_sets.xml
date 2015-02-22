@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- These strings are used by themselves in other
+         parts of the app -->
+    <string name="set_black_market">Schwarzmarkt</string>
+    <string name="set_dark_ages">Dark Ages</string>
+    <string name="set_prosperity">Bl&#252;tezeit</string>
+    
+    <!-- Names of all the expansions. Order DOES matter! -->
+    <string-array name="card_sets">
+        <item>Dominion</item>
+        <item>Alchemisten</item>
+        <item>@string/set_black_market</item>
+        <item>Basiskarte</item>
+        <item>@string/set_dark_ages</item>
+        <item>Gesandter</item>
+        <item>Gouverneur</item>
+        <item>Die Gilden</item>
+        <item>Hinterland</item>
+        <item>Die Intrige</item>
+        <item>Prinz</item>
+        <item>@string/set_prosperity</item>
+        <item>Seaside</item>
+        <item>Geldversteck</item>
+        <item>Carcasonne</item>
+    </string-array>
+    
+</resources>

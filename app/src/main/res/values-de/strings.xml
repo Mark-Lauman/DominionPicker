@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dominion Auswahl</string>
+
+    <string-array name="navNames">
+        <item>Auswahl</item>
+        <item>@string/market_title</item>
+        <item>@string/filters</item>
+    </string-array>
+
+    <string name="menu_open">Men&#252; &#246;ffnen</string>
+    <string name="menu_close">Men&#252; schlie&#223;en</string>
+    
+    <string name="picks">Ihre Karten!</string>
+    <string name="toggle_all">Ver&#228;nderung Auswahl</string>
+    <string name="submit">Shuffle</string>
+    <string name="more">Ben&#246;tigen Sie mehr Karten!</string>
+    <string name="all_filt">Alle Karten herausgefiltert</string>
+    
+    <string name="set">Erweiterungen</string>
+    <string name="potion">Trank</string>
+    
+    <string name="settings">Einstellungen</string>
+    <string name="filters">Filter</string>
+    <string name="pref_filt_sets">Erweiterung</string>
+    <string name="filt_all">Ablehnen alle</string>
+    
+    <string name="supply_normal">normales Spiel</string>
+    <string name="supply_colonies">Verwenden Kolonien u Platin</string>
+    <string name="supply_shelters">Verwenden Sie Unterschlupf</string>
+    <string name="young_witch_bane">Junge Hexe – Fluch</string>
+    
+    <string name="market_title">@string/set_black_market</string>
+    <string name="market_begin">New schwarzen Markt erstellt</string>
+    <string name="market_draw">Ziehe eine Karte</string>
+    <string name="market_pass">kaufen Sie nichts</string>
+    <string name="market_sold_out">Ausverkauft!</string>
+
+    <string name="format_act">+%1$s Aktion</string>
+    <string name="format_acts">+%1$s Aktionen</string>
+    <string name="format_buy">+%1$s Kauf</string>
+    <string name="format_buys">+%1$s K&#228;ufe</string>
+    <string name="format_card">+%1$s Karte</string>
+    <string name="format_cards">+%1$s Karten</string>
+</resources>

@@ -23,22 +23,23 @@
     <string name="settings">Settings</string>
     <string name="filters">Filters</string>
     <string name="pref_filt_sets">Card Sets</string>
+    <string name="filt_all">Reject All</string>
     
     <string name="supply_normal">Normal game</string>
     <string name="supply_colonies">Use Colonies &amp; Platinum</string>
     <string name="supply_shelters">Use Shelters</string>
     <string name="young_witch_bane">Young Witch - Bane</string>
     
-    <string name="market_title">Black Market</string>
+    <string name="market_title">@string/set_black_market</string>
     <string name="market_begin">New market created from the picker</string>
     <string name="market_draw">Draw</string>
     <string name="market_pass">Pass</string>
     <string name="market_sold_out">Sold Out!</string>
-    
-    <string name="demo_card_cost">1</string>
-    <string name="demo_card_title">Name of the card goes here, even if it overextends</string>
-    <string name="demo_card_cat">Action Reaction</string>
-    <string name="demo_card_plus_1">+1</string>
-    <string name="demo_card_res">, +1 buy, +1 card, +1 action</string>
-    <string name="demo_card_desc">Description of the card goes here and on the next line if the space is really needed.</string>
+
+    <string name="format_act">+%1$s Action</string>
+    <string name="format_acts">+%1$s Actions</string>
+    <string name="format_buy">+%1$s Buy</string>
+    <string name="format_buys">+%1$s Buys</string>
+    <string name="format_card">+%1$s Card</string>
+    <string name="format_cards">+%1$s Cards</string>
 </resources>

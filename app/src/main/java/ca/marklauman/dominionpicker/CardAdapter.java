@@ -38,12 +38,25 @@ import android.widget.ImageView;
 /** Adapter used to display cards from the {@link CardList}
  *  ContentProvider.
  *  @author Mark Lauman                                  */
-public class CardAdapter extends CursorSelAdapter
+class CardAdapter extends CursorSelAdapter
 						 implements OnItemClickListener,
 						 			ViewBinder {
 	
 	/** Maps expansion names to expansion icons */
 	private static HashMap<String, Integer> exp_icons = null;
+
+    /** Format string for +1 Action */
+    private final String formatAct;
+    /** Format string for more than +1 Action */
+    private final String formatActs;
+    /** Format string for +1 Buy */
+    private final String formatBuy;
+    /** Format string for more than +1 Buy */
+    private final String formatBuys;
+    /** Format string for +1 Card */
+    private final String formatCard;
+    /** Format string for more than +1 Card */
+    private final String formatCards;
 	
 	/** Index of the {@link CardList#_DESC} column. */
 	private int col_desc = -1;
@@ -93,6 +106,15 @@ public class CardAdapter extends CursorSelAdapter
 				        R.id.card_res,
 				        R.id.card_desc,
 				        R.id.card_res_victory});
+
+        // format strings
+        formatAct   = context.getString(R.string.format_act);
+        formatActs  = context.getString(R.string.format_acts);
+        formatBuy   = context.getString(R.string.format_buy);
+        formatBuys  = context.getString(R.string.format_buys);
+        formatCard  = context.getString(R.string.format_card);
+        formatCards = context.getString(R.string.format_cards);
+
 		staticSetup(context);
 		this.setViewBinder(this);
 	}
@@ -175,11 +197,20 @@ public class CardAdapter extends CursorSelAdapter
 		} else if(col_buy == columnIndex) {
 			String res = "";
 			String val = cursor.getString(col_buy);
-			if(!"0".equals(val)) res += ", +" + val + " buy";
+            if(!"0".equals(val)) {
+                if("1".equals(val)) res += ", " + String.format(formatBuy, val);
+                else res += ", " + String.format(formatBuys, val);
+            }
 			val = cursor.getString(col_draw);
-			if(!"0".equals(val)) res += ", +" + val + " card";
+            if(!"0".equals(val)) {
+                if("1".equals(val)) res += ", " + String.format(formatCard, val);
+                else res += ", " + String.format(formatCards, val);
+            }
 			val = cursor.getString(col_act);
-			if(!"0".equals(val)) res += ", +" + val + " action";
+            if(!"0".equals(val)) {
+                if("1".equals(val)) res += ", " + String.format(formatAct, val);
+                else res += ", " + String.format(formatActs, val);
+            }
 			if(0!= col_gold
 					&& 0 != col_victory
 					&& res.length() > 2)

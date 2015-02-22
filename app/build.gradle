@@ -8,7 +8,7 @@ android {
         applicationId "ca.marklauman.dominionpicker"
         minSdkVersion 8
         targetSdkVersion 21
-        resConfigs "en"
+        resConfigs "en", "de"
     }
 
     buildTypes {
@@ -16,6 +16,7 @@ android {
             minifyEnabled true
             shrinkResources true
             zipAlignEnabled true
+            //noinspection GroovyAssignabilityCheck
             proguardFiles getDefaultProguardFile('proguard-android.txt')
         }
         debug {
@@ -26,5 +27,5 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
-    compile 'ca.marklauman.tools:AndroidTools:1.2@aar'
+    compile 'ca.marklauman.tools:AndroidTools:1.4@aar'
 }

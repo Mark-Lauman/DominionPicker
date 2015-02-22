@@ -24,11 +24,14 @@ package ca.marklauman.dominionpicker;
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
+
+import java.util.Locale;
 
 /** This is the card database. All card information is stored
  *  here, and it is all retrieved from here.
@@ -123,6 +126,21 @@ public class CardList extends ContentProvider {
 						selection, selectionArgs,
 						null, null, sortOrder);
 	}
+
+
+    @Override
+    public void onConfigurationChanged (Configuration newConfig) {
+        String newLanguage = newConfig.locale.getLanguage();
+        if(! newLanguage.equals(db_handle.language)) {
+            // if the language has changed, open that language's database
+            db_handle.close();
+            db_handle = new DBHandler(getContext());
+            // Notify any listeners that their cursors are invalid
+            getContext().getContentResolver()
+                        .notifyChange(URI, null);
+        }
+    }
+
 	
 	@Override
 	public Uri insert(Uri uri, ContentValues values) {
@@ -147,12 +165,18 @@ public class CardList extends ContentProvider {
 	/** Handles the sql database. */
 	private static class DBHandler extends SQLiteOpenHelper {
 		private final Context context;
+        public final String language;
 		
 		public DBHandler(Context c) {
-			super(c, "cards.db", null,
-					c.getResources()
-					 .getInteger(R.integer.db_version));
+            // db file: "cards-en.db", etc.
+			super(c, "cards-" + Locale.getDefault().getLanguage() + ".db",
+                    null,
+                    c.getResources()
+                            .getInteger(R.integer.db_version));
+            // remove the generic db used in db versions < 9
+            c.deleteDatabase("cards.db");
 			context = c;
+            language = Locale.getDefault().getLanguage();
 		}
 		
 		@Override

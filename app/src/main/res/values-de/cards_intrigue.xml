@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_intrigue">
+        <item>Burghof;;2;0;Aktion;Die Intrige;0;0;3;0;0;0</item>
+        <item>Handlanger;;2;0;Aktion;Die Intrige;1;1;1;1;0;0</item>
+        <item>Geheimkammer;;2;0;Aktion Reaktion;Die Intrige;0;0;0;0;0;0</item>
+        <item>Gro&#223;e Halle;;3;0;Aktion Punkte;Die Intrige;0;1;1;0;0;0</item>
+        <item>Maskerade;;3;0;Aktion;Die Intrige;0;0;2;0;0;0</item>
+        <item>Armenviertel;;3;0;Aktion;Die Intrige;0;2;0;0;0;0</item>
+        <item>Verwalter;;3;0;Aktion;Die Intrige;0;0;2;2;0;0</item>
+        <item>Trickser;;3;0;Aktion Angriff;Die Intrige;0;0;0;2;0;0</item>
+        <item>Wunschbrunnen;;3;0;Aktion;Die Intrige;0;1;1;0;0;0</item>
+        <item>Baron;;4;0;Aktion;Die Intrige;1;0;0;0;0;0</item>
+        <item>Br&#252;cke;;4;0;Aktion;Die Intrige;1;0;0;1;0;0</item>
+        <item>Verschw&#246;rer;;4;0;Aktion;Die Intrige;0;0;0;2;0;0</item>
+        <item>Kupferschmied;;4;0;Aktion;Die Intrige;0;0;0;0;0;0</item>
+        <item>Eisenh&#252;tte;;4;0;Aktion;Die Intrige;0;0;0;0;0;0</item>
+        <item>Bergwerk;;4;0;Aktion;Die Intrige;0;2;1;0;0;0</item>
+        <item>Sp&#228;her;;4;0;Aktion;Die Intrige;0;1;0;0;0;0</item>
+        <item>Herzog;;5;0;Punkte;Die Intrige;0;0;0;0;0;0</item>
+        <item>Lakai;;5;0;Aktion Angriff;Die Intrige;0;1;0;0;0;0</item>
+        <item>Saboteur;;5;0;Aktion Angriff;Die Intrige;0;0;0;0;0;0</item>
+        <item>Kerkermeister;;5;0;Aktion Angriff;Die Intrige;0;0;3;0;0;1</item>
+        <item>Handelsposten;;5;0;Aktion;Die Intrige;0;0;0;0;0;0</item>
+        <item>Tribut;;5;0;Aktion;Die Intrige;0;0;0;0;0;0</item>
+        <item>Anbau;;5;0;Aktion;Die Intrige;0;1;1;0;0;0</item>
+        <item>Harem;;6;0;Geld Punkte;Die Intrige;0;0;0;0;0;0</item>
+        <item>Adlige;;6;0;Aktion Punkte;Die Intrige;0;2;3;0;0;0</item>
+	</string-array>
+
+</resources>

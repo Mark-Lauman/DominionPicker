@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_seaside">
+        <item>Embargo;;2;0;Aktion;Seaside;0;0;0;2;0;1</item>
+        <item>Hafen;;2;0;Aktion Dauer;Seaside;0;1;1;0;0;0</item>
+        <item>Leuchtturm;;2;0;Aktion Dauer;Seaside;0;1;0;1;0;0</item>
+        <item>Eingeborenendorf;;2;0;Aktion;Seaside;0;2;0;0;0;0</item>
+        <item>Perlentaucher;;2;0;Aktion;Seaside;0;1;1;0;0;0</item>
+        <item>Botschafter;;3;0;Aktion Angriff;Seaside;0;0;0;0;0;0</item>
+        <item>Fischerdorf;;3;0;Aktion Dauer;Seaside;0;2;0;1;0;0</item>
+        <item>Ausguck;;3;0;Aktion;Seaside;0;1;0;0;0;0</item>
+        <item>Schmuggler;;3;0;Aktion;Seaside;0;0;0;0;0;0</item>
+        <item>Lagerhaus;;3;0;Aktion;Seaside;0;1;3;0;0;0</item>
+        <item>Karawane;;4;0;Aktion Dauer;Seaside;0;1;1;0;0;0</item>
+        <item>Beutelschneider;;4;0;Aktion Angriff;Seaside;0;0;0;2;0;0</item>
+        <item>Insel;;4;0;Aktion Punkte;Seaside;0;0;0;0;0;0</item>
+        <item>Navigator;;4;0;Aktion;Seaside;0;0;0;2;0;0</item>
+        <item>Piratenschiff;;4;0;Aktion Angriff;Seaside;0;0;0;0;0;0</item>
+        <item>M&#252;llverwerter;;4;0;Aktion;Seaside;1;0;0;0;0;0</item>
+        <item>Seehexe;;4;0;Aktion Angriff;Seaside;0;0;0;0;0;1</item>
+        <item>Schatzkarte;;4;0;Aktion;Seaside;0;0;0;0;0;0</item>
+        <item>Bazar;;5;0;Aktion;Seaside;0;2;1;1;0;0</item>
+        <item>Entdecker;;5;0;Aktion;Seaside;0;0;0;0;0;0</item>
+        <item>Geisterschiff;;5;0;Aktion Angriff;Seaside;0;0;2;0;0;0</item>
+        <item>Handelsschiff;;5;0;Aktion Dauer;Seaside;0;0;0;2;0;0</item>
+        <item>Aussenposten;;5;0;Aktion Dauer;Seaside;0;0;0;0;0;0</item>
+        <item>Taktiker;;5;0;Aktion Dauer;Seaside;0;0;0;0;0;0</item>
+        <item>Schatzkammer;;5;0;Aktion;Seaside;0;1;1;1;0;0</item>
+        <item>Werft;;5;0;Aktion Dauer;Seaside;1;0;2;0;0;0</item>
+    </string-array>
+    
+</resources>
