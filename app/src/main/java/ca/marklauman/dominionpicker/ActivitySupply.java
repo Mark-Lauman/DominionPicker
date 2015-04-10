@@ -35,6 +35,10 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import ca.marklauman.dominionpicker.database.CardDb;
+import ca.marklauman.dominionpicker.database.LoaderId;
+import ca.marklauman.dominionpicker.database.Provider;
+
 /** Activity for choosing and displaying the supply piles
  *  for a new game.
  *  @author Mark Lauman                                  */
@@ -47,11 +51,9 @@ public class ActivitySupply extends ActionBarActivity
 	/** Key used to store the chosen supply
 	 *  in a savedInstanceState.         */
 	private static final String KEY_SUPPLY = "supply";
-	/** ID of the loader for the supply cards. */
-	private static final int LOADER_SUPPLY = 2;
-	
-	
-	/** The adapter used to display the supply cards. */
+
+
+    /** The adapter used to display the supply cards. */
 	private CardAdapter adapter;
 	/** The TextView used to display the resource cards. */
 	private TextView resView;
@@ -84,7 +86,7 @@ public class ActivitySupply extends ActionBarActivity
 			
 		} else {
 			// No supply? Shuffle one!
-			SupplyShuffler shuffler = new SupplyShuffler(this);
+			SupplyShufflerOld shuffler = new SupplyShufflerOld(this);
 			// Pool must be passed as type Long not long
 			long[] cards = getIntent().getExtras()
 					  				  .getLongArray(PARAM_CARDS);
@@ -161,12 +163,12 @@ public class ActivitySupply extends ActionBarActivity
 		
 		// Basic loader
 		CursorLoader c = new CursorLoader(this);
-		c.setUri(CardList.URI);
+		c.setUri(Provider.URI_CARDS);
 		
 		// Selection string (sql WHERE clause)
 		String sel = "";
         for(long ignored : supply.cards)
-			sel += " OR " + CardList._ID + "=?";
+			sel += " OR " + CardDb._ID + "=?";
 		sel = sel.substring(4);
 		c.setSelection(sel);
 		
@@ -207,7 +209,7 @@ public class ActivitySupply extends ActionBarActivity
 	public void onLoaderReset(Loader<Cursor> loader) {
 		if(loader == null) return;
 		switch(loader.getId()) {
-		case LOADER_SUPPLY:
+		case LoaderId.SUPPLY:
 			adapter.changeCursor(null);
 			resView.setVisibility(View.GONE);
 			break;
@@ -224,7 +226,7 @@ public class ActivitySupply extends ActionBarActivity
 		
 		// Start loading the supply
 		LoaderManager lm = getSupportLoaderManager();
-		lm.initLoader(LOADER_SUPPLY, null, this);
+		lm.initLoader(LoaderId.SUPPLY, null, this);
 
 		supportInvalidateOptionsMenu();
 	}
@@ -235,7 +237,7 @@ public class ActivitySupply extends ActionBarActivity
 	private boolean blackMarket() {
 		if(supply == null) return false;
 		for(long card : supply.cards)
-			if(card == CardList.ID_BLACK_MARKET)
+			if(card == CardDb.ID_BLACK_MARKET)
 				return true;
 		return false;
 	}

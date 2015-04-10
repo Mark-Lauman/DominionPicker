@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="ca.marklauman.dominionpicker"
-    android:installLocation="auto"
-    android:versionCode="14"
-    android:versionName="1.7.0" >
+    android:installLocation="auto" >
 
     <application android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -31,7 +29,7 @@
         <activity android:name=".ActivityMarket"
             android:label="@string/market_title" />
         
-        <provider android:name=".CardList"
+        <provider android:name=".database.Provider"
             android:authorities="ca.marklauman.dominionpicker"
             android:enabled="true"
             android:exported="false" />

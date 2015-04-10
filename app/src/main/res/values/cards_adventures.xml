@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cards_adventures">
+
+    </string-array>
+
+    <!-- All event card ids -->
+    <integer-array name="cards_events">
+
+    </integer-array>
+</resources>

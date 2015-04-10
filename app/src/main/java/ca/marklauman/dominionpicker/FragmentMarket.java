@@ -42,6 +42,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 
+import ca.marklauman.dominionpicker.database.CardDb;
+import ca.marklauman.dominionpicker.database.Provider;
+
 /** Used to run a Black Market (see the Black Market card)
  *  @author Mark Lauman                                 */
 public class FragmentMarket extends Fragment
@@ -227,11 +230,11 @@ public class FragmentMarket extends Fragment
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         CursorLoader c = new CursorLoader(getActivity());
-        c.setUri(CardList.URI);
+        c.setUri(Provider.URI_CARDS);
 
         // no choices, no cards
         if(choices == null || choices.length == 0) {
-            c.setSelection(CardList._ID + "=?");
+            c.setSelection(CardDb._ID + "=?");
             c.setSelectionArgs(new String[]{"-1"});
             return c;
         }
@@ -239,7 +242,7 @@ public class FragmentMarket extends Fragment
         // Generate selection string
         String selection = "";
         for(long ignored : choices)
-            selection += " OR " + CardList._ID + "=?";
+            selection += " OR " + CardDb._ID + "=?";
         // remove the " OR " at the beginning
         selection = selection.substring(4);
         c.setSelection(selection);
@@ -287,7 +290,7 @@ public class FragmentMarket extends Fragment
         if(deck_arr != null) {
             deck = new ArrayList<>(deck_arr.length);
             for (long card : deck_arr)
-                if (card != CardList.ID_BLACK_MARKET && !supply.contains(card))
+                if (card != CardDb.ID_BLACK_MARKET && !supply.contains(card))
                     deck.add(card);
         }
 

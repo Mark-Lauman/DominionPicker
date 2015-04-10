@@ -25,7 +25,10 @@ import ca.marklauman.dominionpicker.settings.ActivitySettings;
 import ca.marklauman.tools.ExpandedArrayAdapter;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
@@ -33,11 +36,13 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -55,6 +60,9 @@ public class MainActivity extends ActionBarActivity
     /** Key used to save the id of the selected fragment to savedInstanceState. */
     private static final String KEY_ACTIVE = "active";
 
+    /** Used by external threads to access the context */
+    private static Context staticContext;
+
     /** The name of the app */
     private String app_name;
     /** The names of the navigation drawer entries */
@@ -71,11 +79,15 @@ public class MainActivity extends ActionBarActivity
 
     /** The current active fragment. */
     private Fragment active;
+    /** Handler used to manage the shuffler */
+    private ShuffleManager shuffler;
 
     /** Called when the activity is first created */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        staticContext = getApplicationContext();
+        shuffler = new ShuffleManager();
 		setContentView(R.layout.activity_main);
         navLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navView = (ListView) findViewById(R.id.left_drawer);
@@ -125,11 +137,22 @@ public class MainActivity extends ActionBarActivity
         }
 	}
 
+    /** Get the context for the process. (accessible outside the display thread) */
+    public static Context getStaticContext() {
+        return staticContext;
+    }
+
     /** Save the current state of this activity. */
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putInt(KEY_ACTIVE, navAdapt.getSelection());
         super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onDestroy() {
+        shuffler.unregister();
+        super.onDestroy();
     }
 
     /** Setup the ActionBar's menu. Only called once at application start */
@@ -167,13 +190,16 @@ public class MainActivity extends ActionBarActivity
                 ((FragmentPicker)active).toggleAll();
                 return true;
             case R.id.action_submit:
-                long[] selections = ((FragmentPicker)active).getSupplySelections();
-                // Check for insufficient cards
-                if(selections == null) return true;
+                Long[] cards = ((FragmentPicker)active).getLongSelections();
+                shuffler.startShuffle(cards);
 
-                Intent resAct = new Intent(this, ActivitySupply.class);
-                resAct.putExtra(ActivitySupply.PARAM_CARDS, selections);
-                startActivityForResult(resAct, -1);
+                // TODO: Remove section
+//                // Check for insufficient cards
+//                if(selections == null) return true;
+//
+//                Intent resAct = new Intent(this, ActivitySupply.class);
+//                resAct.putExtra(ActivitySupply.PARAM_CARDS, selections);
+//                startActivityForResult(resAct, -1);
                 return true;
 		}
 
@@ -248,7 +274,6 @@ public class MainActivity extends ActionBarActivity
 
     /** Setup the preferences and update old preferences to the new standard. */
     private void setupPreferences() {
-        PreferenceManager.setDefaultValues(this, R.xml.pref_version, false);
         PreferenceManager.setDefaultValues(this, R.xml.pref_filters, false);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -340,6 +365,65 @@ public class MainActivity extends ActionBarActivity
                 if(newCost.length() > 1) newCost = newCost.substring(1);
                 prefs.edit().putString("filt_cost", newCost);
             }
+        }
+    }
+
+    private class ShuffleManager extends BroadcastReceiver {
+        private SupplyShuffler shuffler;
+
+        public ShuffleManager() {
+            super();
+            shuffler = null;
+            LocalBroadcastManager.getInstance(getStaticContext())
+                    .registerReceiver(this, new IntentFilter(SupplyShuffler.MSG_INTENT));
+        }
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            shuffler = null;
+            Log.d("Intent action", "" + intent.getAction());
+
+            int res = intent.getIntExtra(SupplyShuffler.MSG_RES, -100);
+            switch(res) {
+                case SupplyShuffler.RES_OK:
+                    Supply s = intent.getParcelableExtra(SupplyShuffler.MSG_SUPPLY);
+                    Log.d("Shuffler", s + "");
+                    return;
+                case SupplyShuffler.RES_MORE:
+                    Log.d("Shortfall",
+                          ""+intent.getStringExtra(SupplyShuffler.MSG_SHORT));
+                    return;
+                case SupplyShuffler.RES_MORE_K:
+                    Log.d("K Shortfall",
+                            ""+intent.getStringExtra(SupplyShuffler.MSG_SHORT));
+                    return;
+                case SupplyShuffler.RES_NO_YW:
+                    Log.d("Young Witch", "No targets");
+                    return;
+                default: // Do nothing
+            }
+        }
+
+        /** Start a shuffle and register this receiver.
+         *  Also cancels any shuffles in progress. */
+        public void startShuffle(Long... cards) {
+            if(cards == null) cards = new Long[0];
+            cancelShuffle();
+            shuffler = new SupplyShuffler(10, 2);
+            shuffler.execute(cards);
+        }
+
+        /** Stop a shuffle if it is in session. */
+        public void cancelShuffle() {
+            if(shuffler != null) shuffler.cancel(true);
+            shuffler = null;
+        }
+
+        /** Unregister this manager and shut down open shuffles */
+        public void unregister() {
+            LocalBroadcastManager.getInstance(getStaticContext())
+                                 .unregisterReceiver(this);
+            cancelShuffle();
         }
     }
 }

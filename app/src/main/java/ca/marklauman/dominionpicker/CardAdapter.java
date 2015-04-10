@@ -24,6 +24,7 @@ package ca.marklauman.dominionpicker;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.tools.CursorSelAdapter;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -35,7 +36,7 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 
-/** Adapter used to display cards from the {@link CardList}
+/** Adapter used to display cards from the {@link ca.marklauman.dominionpicker.database.Provider}
  *  ContentProvider.
  *  @author Mark Lauman                                  */
 class CardAdapter extends CursorSelAdapter
@@ -58,44 +59,42 @@ class CardAdapter extends CursorSelAdapter
     /** Format string for more than +1 Card */
     private final String formatCards;
 	
-	/** Index of the {@link CardList#_DESC} column. */
+	/** Index of the {@link ca.marklauman.dominionpicker.database.CardDb#_DESC} column. */
 	private int col_desc = -1;
-	/** Index of the {@link CardList#_COST} column. */
+	/** Index of the {@link ca.marklauman.dominionpicker.database.CardDb#_COST} column. */
 	private int col_cost = -1;
-	/** Index of the {@link CardList#_POTION} column. */
+	/** Index of the {@link ca.marklauman.dominionpicker.database.CardDb#_POTION} column. */
 	private int col_potion = -1;
-	/** Index of the {@link CardList#_EXP} column. */
+	/** Index of the {@link ca.marklauman.dominionpicker.database.CardDb#_EXP} column. */
 	private int col_expansion = -1;
-	/** Index of the {@link CardList#_GOLD} column. */
+	/** Index of the {@link ca.marklauman.dominionpicker.database.CardDb#_GOLD} column. */
 	private int col_gold = -1;
-	/** Index of the {@link CardList#_VICTORY} column. */
+	/** Index of the {@link ca.marklauman.dominionpicker.database.CardDb#_VICTORY} column. */
 	private int col_victory = -1;
-	/** Index of the {@link CardList#_BUY} column. */
+	/** Index of the {@link ca.marklauman.dominionpicker.database.CardDb#_BUY} column. */
 	private int col_buy = -1;
-	/** Index of the {@link CardList#_DRAW} column. */
+	/** Index of the {@link ca.marklauman.dominionpicker.database.CardDb#_DRAW} column. */
 	private int col_draw = -1;
-	/** Index of the {@link CardList#_ACTION} column. */
+	/** Index of the {@link ca.marklauman.dominionpicker.database.CardDb#_ACTION} column. */
 	private int col_act = -1;
-	/** Index of the {@link CardList#_ID} column. */
+	/** Index of the {@link ca.marklauman.dominionpicker.database.CardDb#_ID} column. */
 	private int col_id = -1;
-	
-	/** Number of viable young witch targets selected */
-	private int qty_yw_targets = 0;
+
 	/** The bane card of the young witch (-1 if no bane) */
 	private long yw_bane = -1;
 	
 	public CardAdapter(Context context) {
 		super(context, R.layout.list_item_card,
-			  new String[]{CardList._ID,
-						   CardList._NAME,
-						   CardList._COST,
-						   CardList._POTION,
-						   CardList._EXP,
-						   CardList._CATEGORY,
-						   CardList._GOLD,
-						   CardList._BUY,
-						   CardList._DESC,
-						   CardList._VICTORY},
+			  new String[]{CardDb._ID,
+						   CardDb._NAME,
+						   CardDb._COST,
+						   CardDb._POTION,
+						   CardDb._EXP,
+						   CardDb._CATEGORY,
+						   CardDb._GOLD,
+						   CardDb._BUY,
+						   CardDb._DESC,
+						   CardDb._VICTORY},
 			  new int[]{R.id.card_special,
 						R.id.card_title,
 				        R.id.card_cost,
@@ -142,16 +141,16 @@ class CardAdapter extends CursorSelAdapter
 		super.changeCursor(cursor);
 		if(cursor == null) return;
 		// get the columns from the cursor
-		col_cost = cursor.getColumnIndex(CardList._COST);
-		col_potion = cursor.getColumnIndex(CardList._POTION);
-		col_expansion = cursor.getColumnIndex(CardList._EXP);
-		col_gold = cursor.getColumnIndex(CardList._GOLD);
-		col_victory = cursor.getColumnIndex(CardList._VICTORY);
-		col_buy = cursor.getColumnIndex(CardList._BUY);
-		col_draw = cursor.getColumnIndex(CardList._DRAW);
-		col_act = cursor.getColumnIndex(CardList._ACTION);
-		col_desc = cursor.getColumnIndex(CardList._DESC);
-		col_id = cursor.getColumnIndex(CardList._ID);
+		col_cost = cursor.getColumnIndex(CardDb._COST);
+		col_potion = cursor.getColumnIndex(CardDb._POTION);
+		col_expansion = cursor.getColumnIndex(CardDb._EXP);
+		col_gold = cursor.getColumnIndex(CardDb._GOLD);
+		col_victory = cursor.getColumnIndex(CardDb._VICTORY);
+		col_buy = cursor.getColumnIndex(CardDb._BUY);
+		col_draw = cursor.getColumnIndex(CardDb._DRAW);
+		col_act = cursor.getColumnIndex(CardDb._ACTION);
+		col_desc = cursor.getColumnIndex(CardDb._DESC);
+		col_id = cursor.getColumnIndex(CardDb._ID);
 	}
 	
 	
@@ -250,71 +249,6 @@ class CardAdapter extends CursorSelAdapter
 		toggleItem(position);
 	}
 	
-	@Override
-	public void selectItem(int position) {
-		super.selectItem(position);
-		updateStats(position, true);
-	}
-	
-	@Override
-	public void deselectItem(int position) {
-		super.deselectItem(position);
-		updateStats(position, false);
-	}
-	
-	@Override
-	public void selectAll() {
-		super.selectAll();
-		clearStats();
-		if(mCursor == null) return;
-		for(int card=0; card<mCursor.getCount(); card++)
-			updateStats(card, true);
-	}
-	
-	@Override
-	public void deselectAll() {
-		super.deselectAll();
-		clearStats();
-	}
-	
-	@Override
-	public boolean toggleAll() {
-		boolean res = super.toggleAll();
-		clearStats();
-		for(int card : mSelected)
-			updateStats(card, true);
-		return res;
-	}
-	
-	
-	/** Update the statistics variables. Called when
-	 *  one selection is changed.
-	 *  @param cardPosition Position of the card to
-	 *  add/remove from the statistics.
-	 * @param add {@code true} of this card is added,
-	 * {@code false} if this card is to be removed. */
-	private void updateStats(int cardPosition, boolean add) {
-		// update stats from the card
-		if(mCursor == null
-				|| !mCursor.moveToPosition(cardPosition))
-			return;
-		String cost = mCursor.getString(col_cost);
-		if("2".equals(cost) || "3".equals(cost)) {
-			if(add) qty_yw_targets++;
-			else qty_yw_targets--;
-		}
-	}
-	
-	/** Reset all statistics variables to 0 */
-	private void clearStats() {
-		qty_yw_targets = 0;
-	}
-	
-	/** Check how many young witch targets are available */
-	public int checkYWitchTargets() {
-		return qty_yw_targets;
-	}
-	
 	/** Set the bane card in this adapter and select it */
 	public void setBane(long card_id) {
 		if(mCursor == null) return;
@@ -336,11 +270,11 @@ class CardAdapter extends CursorSelAdapter
 	/** Get the card with the specified id and return it.
 	 *  @param id The SQL id of the card in question.
 	 *  @return The card as a String array. The parameters
-	 *  are in the same order as {@link CardList#COLS}. */
+	 *  are in the same order as {@link ca.marklauman.dominionpicker.database.CardDb#COLS}. */
 	public String[] getCard(long id) {
-		String[] cols = CardList.COLS;
+		String[] cols = CardDb.COLS;
 		int position = getPosition(id);
-		this.mCursor.moveToPosition(position);
+		mCursor.moveToPosition(position);
 		ArrayList<String> data = new ArrayList<>(cols.length);
         for (String col : cols) {
             int index = mCursor.getColumnIndex(col);

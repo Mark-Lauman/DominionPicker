@@ -29,10 +29,16 @@ import android.os.Parcelable;
 /** Contains all information about a supply set.
  *  @author Mark Lauman                       */
 public class Supply implements Parcelable {
-	
-	
+
+    /** The timestamp of this supply (maps to its database id) */
+    public long time;
+    /** The name of this supply (optional, may be null) */
+    public String name;
+
 	/** The cards in the supply. */
 	public long[] cards;
+    /** The event cards in the supply. */
+    public long[] events;
 	/** {@code true} if colonies + platinum are in use. */
 	public boolean high_cost;
 	/** {@code true} if shelters are in use. */
@@ -44,7 +50,10 @@ public class Supply implements Parcelable {
 	
 	/** Basic constructor */
 	public Supply() {
+        time = 0;
+        name = null;
 		cards = null;
+        events = null;
 		high_cost = false;
 		shelters = false;
 		bane = -1L;
@@ -78,8 +87,7 @@ public class Supply implements Parcelable {
     
     @Override
     public int describeContents() {
-    	/* As far as I can tell, this method
-    	 * has no function.               */
+    	/* As far as I can tell, this method has no function. */
         return 0;
     }
     

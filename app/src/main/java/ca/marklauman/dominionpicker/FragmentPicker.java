@@ -37,13 +37,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
+import ca.marklauman.dominionpicker.database.CardDb;
+import ca.marklauman.dominionpicker.database.LoaderId;
+import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.tools.MultiSelectPreference;
 
 /** Used to pick the cards used in all other shuffles.
@@ -51,9 +53,6 @@ import ca.marklauman.tools.MultiSelectPreference;
 public class FragmentPicker extends Fragment
                             implements LoaderCallbacks<Cursor>,
                                        ListView.OnItemClickListener {
-
-    /** ID used for the picker's card loader */
-    private static final int LOADER_PICKER = 1;
 
     /** Key used to save selections to the preferences. */
     @SuppressWarnings("WeakerAccess")
@@ -85,7 +84,7 @@ public class FragmentPicker extends Fragment
         // Start loading the card list
         adapter = null;
         LoaderManager lm = getActivity().getSupportLoaderManager();
-        lm.initLoader(LOADER_PICKER, null, this);
+        lm.initLoader(LoaderId.PICKER, null, this);
     }
 
 
@@ -118,7 +117,7 @@ public class FragmentPicker extends Fragment
         // The try block prevents crashes if the loader is already restarting
         if(filtChanged()) {
             try { getActivity().getSupportLoaderManager()
-                               .restartLoader(LOADER_PICKER, null, this);
+                               .restartLoader(LoaderId.PICKER, null, this);
             } catch (Exception ignored) {}
         }
 
@@ -166,7 +165,7 @@ public class FragmentPicker extends Fragment
 
         // Basic setup
         CursorLoader c = new CursorLoader(getActivity());
-        c.setUri(CardList.URI);
+        c.setUri(Provider.URI_CARDS);
         String sel = "";
         ArrayList<CharSequence> sel_args = new ArrayList<>();
         Resources res = getActivity().getResources();
@@ -179,7 +178,7 @@ public class FragmentPicker extends Fragment
         CharSequence[] split_set = MultiSelectPreference.mapValues(filt_set, sets);
         Collections.addAll(sel_args, split_set);
         for (CharSequence ignored:split_set)
-            sel += "AND " + CardList._EXP + "!=? ";
+            sel += "AND " + CardDb._EXP + "!=? ";
 
         // Filter by cost
         filt_cost = pref.getString("filt_cost", "");
@@ -187,19 +186,19 @@ public class FragmentPicker extends Fragment
                         MultiSelectPreference.mapValues(filt_cost, costs)));
         String potion = getResources().getStringArray(R.array.filt_cost)[0];
         if(0 < split_cost.size() && potion.equals(split_cost.get(0))) {
-            sel += "AND " + CardList._POTION + "=? ";
+            sel += "AND " + CardDb._POTION + "=? ";
             sel_args.add("0");
             split_cost.remove(0);
         }
         for(CharSequence s : split_cost)
             sel_args.add(s);
         for(int i=0; i<split_cost.size(); i++)
-            sel += "AND " + CardList._COST + "!=? ";
+            sel += "AND " + CardDb._COST + "!=? ";
 
         // Filter out cursors
         filt_curse = pref.getBoolean("filt_curse", true);
         if(!filt_curse) {
-            sel += "AND " + CardList._CURSER + "=? ";
+            sel += "AND " + CardDb._CURSER + "=? ";
             sel_args.add("0");
         }
 
@@ -258,47 +257,9 @@ public class FragmentPicker extends Fragment
         return adapter.getSelectionIds();
     }
 
-    /** Check the selected cards to see if they are a valid
-     *  supply. Eliminate contradictions where they occur, and
-     *  return the cleaned selection.
-     *  @return The supply, or null if no valid supply could be made. */
-    public long[] getSupplySelections() {
-        // minimum allowable selection size (may increase due to some cards)
-        int min_select = 10;
-        // the result
-        long[] res = adapter.getSelectionIds();
-
-        // check for young witch
-        int young_witch = -1;
-        for(int i=0; i<res.length; i++) {
-            if(res[i] == CardList.ID_YOUNG_WITCH)
-                young_witch = i;
-        }
-
-        // Handle young witch
-        if(young_witch != -1) {
-            if(adapter.checkYWitchTargets() < 1) {
-					/* Eliminate young witch, as it has no
-					 * viable targets.                  */
-                long[] new_sel = new long[res.length - 1];
-                int b = 0;
-                for(int a=0; a<new_sel.length; a++) {
-                    if(b == young_witch)
-                        b++;
-                    new_sel[a] = res[b];
-                    b++;
-                }
-                res = new_sel;
-            } else min_select++;
-        }
-
-        if(min_select <= res.length) return res;
-
-        String more = getActivity().getString(R.string.more);
-        Toast.makeText(getActivity(),
-                       more + " (" + res.length + "/" + min_select + ")",
-                       Toast.LENGTH_LONG).show();
-        return null;
+    /** Get the currently selected cards. */
+    public Long[] getLongSelections() {
+        return adapter.getLongSelectionIds();
     }
 
     @Override
