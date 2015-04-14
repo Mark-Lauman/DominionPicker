@@ -3,11 +3,11 @@ package ca.marklauman.dominionpicker.settings;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 import ca.marklauman.dominionpicker.R;
 
-/** Used to set up the preferences and store the preference keys. */
+/** Used to set up the preferences and store the preference keys.
+ *  @author Mark Lauman */
 @SuppressWarnings({"WeakerAccess", "UnusedDeclaration"})
 public abstract class Prefs {
     /** The old separator used in the deprecated MultiSelectImagePreference. */
@@ -32,7 +32,6 @@ public abstract class Prefs {
     public static void setup(Context c) {
         PreferenceManager.setDefaultValues(c, R.xml.pref_filters, false);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
-        Log.d("Version", ""+prefs.getInt(VERSION, 0));
 
         update0(prefs);
         update1(prefs);

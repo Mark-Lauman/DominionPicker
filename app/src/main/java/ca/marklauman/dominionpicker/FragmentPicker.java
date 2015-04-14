@@ -1,24 +1,3 @@
-/* Copyright (c) 2015 Mark Christopher Lauman
- *
- * Licensed under the The MIT License (MIT)
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.                                                                  */
 package ca.marklauman.dominionpicker;
 
 import android.content.Context;
@@ -49,8 +28,8 @@ import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.MultiSelectPreference;
 
-/** Used to pick the cards used in all other shuffles.
- *  @author Mark Lauman                             */
+/** Governs the Picker screen. Allows users to choose what cards they want.
+ *  @author Mark Lauman */
 public class FragmentPicker extends Fragment
                             implements LoaderCallbacks<Cursor>,
                                        ListView.OnItemClickListener {
@@ -221,13 +200,12 @@ public class FragmentPicker extends Fragment
         // Default to all selected if there are no selections.
         Long[] selections = loadSelections(getActivity());
         if(selections != null)
-            adapter.setSelections(selections);
+            adapter.setSelected(selections);
         else adapter.selectAll();
 
         // display the loaded data
         if(card_list != null) {
             card_list.setAdapter(adapter);
-            card_list.setOnItemClickListener(adapter);
             empty.setVisibility(View.GONE);
             loading.setVisibility(View.GONE);
             card_list.setEmptyView(empty);
@@ -251,7 +229,7 @@ public class FragmentPicker extends Fragment
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if(adapter != null) adapter.toggleItem(position);
+        if(adapter != null) adapter.toggleItem(id);
     }
 
 
@@ -259,7 +237,7 @@ public class FragmentPicker extends Fragment
      *  Automatically triggered when this fragment is stopped. */
     public void saveSelections(Context c) {
         if(c == null || adapter == null) return;
-        long[] selections = adapter.getSelectionIds();
+        long[] selections = adapter.getSelected();
         StringBuilder str = new StringBuilder();
         for (long selection : selections)
             str.append(selection).append(",");

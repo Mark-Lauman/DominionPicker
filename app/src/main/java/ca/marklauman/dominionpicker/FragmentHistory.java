@@ -20,14 +20,13 @@ import ca.marklauman.dominionpicker.database.DataDb;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 
-/** Used to display entries in the history table (both favorite and not).
- *  Individual entries are displayed by {@link ActivitySupply}.
+/** Governs the History and Favorites screens. Allows users to see previous shuffles.
  *  @author Mark Lauman */
 public class FragmentHistory extends Fragment
                              implements LoaderCallbacks<Cursor>,
                                         ListView.OnItemClickListener {
     /** Only display the favorite shuffles */
-    private boolean onlyFavs = false;
+    private boolean onlyFav = false;
     /** True if we are loading data */
     private boolean loading = true;
 
@@ -61,7 +60,7 @@ public class FragmentHistory extends Fragment
         View view = inflater.inflate(R.layout.fragment_history, container, false);
         listView = (ListView) view.findViewById(R.id.card_list);
         empty_view = (TextView) view.findViewById(android.R.id.empty);
-        if(onlyFavs) empty_view.setText(R.string.no_fav);
+        if(onlyFav) empty_view.setText(R.string.no_fav);
         load_view = view.findViewById(android.R.id.progress);
 
         // View configuration
@@ -94,7 +93,7 @@ public class FragmentHistory extends Fragment
         c.setProjection(new String[]{DataDb._H_TIME, DataDb._H_NAME, DataDb._H_CARDS,
                                      DataDb._H_HIGH_COST, DataDb._H_SHELTERS});
         c.setSortOrder(DataDb._H_TIME + " DESC");
-        if(onlyFavs) c.setSelection(DataDb._H_NAME + " NOT NULL");
+        if(onlyFav) c.setSelection(DataDb._H_NAME + " NOT NULL");
         return c;
     }
 

@@ -1,24 +1,3 @@
-/* Copyright (c) 2015 Mark Christopher Lauman
- *
- * Licensed under the The MIT License (MIT)
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.                                                                  */
 package ca.marklauman.dominionpicker;
 
 import android.app.Activity;
@@ -46,8 +25,8 @@ import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 
-/** Used to run a Black Market (see the Black Market card)
- *  @author Mark Lauman                                 */
+/** Governs all the Black Market shuffler screens.
+ *  @author Mark Lauman */
 public class FragmentMarket extends Fragment
                             implements LoaderCallbacks<Cursor>,
                                        OnItemClickListener {
@@ -208,7 +187,7 @@ public class FragmentMarket extends Fragment
     @Override
     public void onItemClick(AdapterView<?> parent, View view,
                             int position, long id) {
-        Toast.makeText(getActivity(), adapter.getCard(id)[1], Toast.LENGTH_SHORT)
+        Toast.makeText(getActivity(), adapter.getName(position), Toast.LENGTH_SHORT)
              .show();
 
         // Unused choices return to the stock bottom

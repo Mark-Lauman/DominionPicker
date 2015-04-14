@@ -8,7 +8,8 @@ import android.provider.BaseColumns;
 import ca.marklauman.dominionpicker.R;
 
 /** This database stores user created data and card id numbers.
- *  Cards are referenced by id so they can update with language changes. */
+ *  Cards are referenced by id so they can update with language changes.
+ *  @author Mark Lauman */
 public class DataDb extends SQLiteOpenHelper {
 
     /** The internal name of the history table, which stores
@@ -16,11 +17,11 @@ public class DataDb extends SQLiteOpenHelper {
     public static final String TABLE_HISTORY = "history";
 
 
-    /** Column storing the shuffle's timestamp.
+    /** Column storing the timestamp of the shuffle.
      *  Serves as the index of the table.<br/>
      *  History Table, Java Long */
     public static final String _H_TIME = BaseColumns._ID;
-    /** Column storing the shuffle's name. The name is optional.
+    /** Column storing the name of the shuffle. The name is optional.
      *  If non-null, the row is a favorite.<br/>
      *  History Table, Java String */
     public static final String _H_NAME = "name";
@@ -35,7 +36,7 @@ public class DataDb extends SQLiteOpenHelper {
     /** Column storing if this shuffle uses shelters.<br/>
      *  History Table, Java String */
     public static final String _H_SHELTERS = "shelters";
-    /** Column storing the id of the shuffle's bane card.
+    /** Column storing the id of the bane card.
      *  The card is set to -1 if there is no bane card.<br/>
      *  History Table, Java Long */
     public static final String _H_BANE = "bane";

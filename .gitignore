@@ -1,15 +1,8 @@
-/.classpath
 /.idea
 /.gradle
-/.project
-/.settings
-/project.properties
-/proguard-project.txt
 /app/build
 /app/manifest-merger-release-report.txt
-/bin
 /build
-/gen
 /gradle
 gradlew
 gradlew.bat

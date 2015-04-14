@@ -11,7 +11,7 @@
     <string name="toggle_all">Toggle All</string>
     <string name="submit">Submit</string>
     <string name="more">Need More Cards! (%1$s)</string>
-    <string name="more_k">Need More Kindom Cards! (%1$s)</string>
+    <string name="more_k">Need More Kingdom Cards! (%1$s)</string>
     <string name="yw_no_bane">Young Witch - No Bane</string>
     <string name="all_filt">All cards filtered out.</string>
     
@@ -20,8 +20,6 @@
 
     <string name="history">History</string>
     <string name="favorites">Favorites</string>
-    <string name="fav">Favorite</string>
-    <string name="not_fav">Not Favorite</string>
     <string name="no_hist">Your shuffles are stored here.</string>
     <string name="no_fav">There\'s nothing here.</string>
     
@@ -41,18 +39,26 @@
     <string name="market_pass">Pass</string>
     <string name="market_sold_out">Sold Out!</string>
 
-    <string name="format_act">+%1$s Action</string>
-    <string name="format_acts">+%1$s Actions</string>
-    <string name="format_buy">+%1$s Buy</string>
-    <string name="format_buys">+%1$s Buys</string>
-    <string name="format_card">+%1$s Card</string>
-    <string name="format_cards">+%1$s Cards</string>
+    <plurals name="format_act">
+        <item quantity="one">+%1$s Action</item>
+        <item quantity="other">+%1$s Actions</item>
+    </plurals>
+    <plurals name="format_buy">
+        <item quantity="one">+%1$s Buy</item>
+        <item quantity="other">+%1$s Buys</item>
+    </plurals>
+    <plurals name="format_card">
+        <item quantity="one">+%1$s Card</item>
+        <item quantity="other">+%1$s Cards</item>
+    </plurals>
 
-    <string name="hist_card">1 Card</string>
-    <string name="hist_cards">%d Cards</string>
+    <plurals name="hist_card">
+        <item quantity="one">%d Card</item>
+        <item quantity="other">%d Cards</item>
+    </plurals>
     <string name="hist_normal">Normal Game</string>
     <string name="hist_plat">Platinum</string>
-    <string name="hist_shelt">Shelters</string>
+    <string name="hist_shelter">Shelters</string>
 
     <string name="demo_card_cost">1</string>
     <string name="demo_card_title">Name of the card goes here, even if it overextends</string>

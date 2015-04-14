@@ -95,6 +95,7 @@
                 android:textColor="?android:attr/textColorSecondary"
                 android:textSize="14sp"
                 android:textStyle="normal"
+                android:paddingRight="4dp"
                 android:text="@string/demo_card_plus_1" />
             
             <TextView android:id="@+id/card_res_victory"
@@ -106,6 +107,7 @@
                 android:textColor="?android:attr/textColorSecondary"
                 android:textSize="14sp"
                 android:textStyle="normal"
+                android:paddingRight="4dp"
                 android:text="@string/demo_card_plus_1" />
 
             <TextView android:id="@+id/card_res"
@@ -127,6 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/card_res_wrapper"
             android:singleLine="false"
+            android:maxLines="2"
             android:textColor="?android:attr/textColorSecondary"
             android:textSize="14sp"
             android:textStyle="normal"

@@ -1,24 +1,3 @@
-/* Copyright (c) 2014 Mark Christopher Lauman
- * 
- * Licensed under the The MIT License (MIT)
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.                                                                  */
 package ca.marklauman.dominionpicker;
 
 import android.content.Intent;
@@ -40,9 +19,8 @@ import ca.marklauman.dominionpicker.database.DataDb;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 
-/** Activity for choosing and displaying the supply piles
- *  for a new game.
- *  @author Mark Lauman                                  */
+/** Activity for displaying the supply piles for a new game.
+ *  @author Mark Lauman */
 public class ActivitySupply extends ActionBarActivity {
     /** Key used to pass the supply to this activity.
      *  Alternative to {@link #PARAM_SUPPLY_ID}. */
@@ -170,7 +148,7 @@ public class ActivitySupply extends ActionBarActivity {
 	 *  This triggers some UI changes, and should
 	 *  be called on the UI thread.
 	 *  @param supply The new supply to display. */
-	public void setSupply(Supply supply) {
+	private void setSupply(Supply supply) {
 		this.supply = supply;
 		
 		// Start loading the supply

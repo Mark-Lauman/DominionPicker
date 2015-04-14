@@ -13,9 +13,13 @@ import java.util.Date;
 import ca.marklauman.dominionpicker.database.DataDb;
 import ca.marklauman.tools.CursorSelAdapter;
 
-/** Adapter for displaying shuffles from the history table. */
-public class HistoryAdapter extends CursorSelAdapter
+/** Adapter for displaying shuffles from the history table.
+ *  @author Mark Lauman */
+class HistoryAdapter extends CursorSelAdapter
                             implements ViewBinder {
+    /** Formatter used to display shuffle times. */
+    private final DateFormat tFormat;
+
     /** Column index for time. */
     private int _time;
     /** Column index for name. */
@@ -26,8 +30,6 @@ public class HistoryAdapter extends CursorSelAdapter
     private int _shelters;
     /** Column index for high_cost. */
     private int _high_cost;
-
-    private DateFormat tFormat;
 
     public HistoryAdapter(Context context) {
         super(context, R.layout.list_item_shuffle,
@@ -74,17 +76,16 @@ public class HistoryAdapter extends CursorSelAdapter
         // The description field.
         } else if(columnIndex == _cards) {
             // Count the number of cards
-            String desc;
             int cards = cursor.getString(_cards).split(",").length;
-            if(cards < 2) desc = mContext.getString(R.string.hist_card);
-            else desc = String.format(mContext.getString(R.string.hist_cards), cards);
+            String desc = mContext.getResources()
+                                  .getQuantityString(R.plurals.hist_card, cards, cards);
 
             // Get the special conditions
             boolean high_cost = cursor.getInt(_high_cost) != 0;
             boolean shelters = cursor.getInt(_shelters) != 0;
             if(!(high_cost || shelters)) desc += " | " + mContext.getString(R.string.hist_normal);
             if(high_cost)                desc += " | " + mContext.getString(R.string.hist_plat);
-            if(shelters)                 desc += " | " + mContext.getString(R.string.hist_shelt);
+            if(shelters)                 desc += " | " + mContext.getString(R.string.hist_shelter);
 
             txt.setText(desc);
             return true;

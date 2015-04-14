@@ -20,8 +20,6 @@
 
     <string name="history">Geschichte</string>
     <string name="favorites">Lieblings</string>
-    <string name="fav">Lieblings</string>
-    <string name="not_fav">nicht Lieblings</string>
     <string name="no_hist">Ihre Shuffles werden hier gespeichert.</string>
     <string name="no_fav">Hier ist nichts.</string>
     
@@ -41,18 +39,26 @@
     <string name="market_pass">kaufen Sie nichts</string>
     <string name="market_sold_out">Ausverkauft!</string>
 
-    <string name="format_act">+%1$s Aktion</string>
-    <string name="format_acts">+%1$s Aktionen</string>
-    <string name="format_buy">+%1$s Kauf</string>
-    <string name="format_buys">+%1$s K&#228;ufe</string>
-    <string name="format_card">+%1$s Karte</string>
-    <string name="format_cards">+%1$s Karten</string>
+    <plurals name="format_act">
+        <item quantity="one">+%1$s Aktion</item>
+        <item quantity="other">+%1$s Aktionen</item>
+    </plurals>
+    <plurals name="format_buy">
+        <item quantity="one">+%1$s Kauf</item>
+        <item quantity="other">+%1$s K&#228;ufe</item>
+    </plurals>
+    <plurals name="format_card">
+        <item quantity="one">+%1$s Karte</item>
+        <item quantity="other">+%1$s Karten</item>
+    </plurals>
 
-    <string name="hist_card">1 Karte</string>
-    <string name="hist_cards">%d Karten</string>
+    <plurals name="hist_card">
+        <item quantity="one">1 Karte</item>
+        <item quantity="other">%d Karten</item>
+    </plurals>
     <string name="hist_normal">normales Spiel</string>
     <string name="hist_plat">Platin</string>
-    <string name="hist_shelt">Unterschlupf</string>
+    <string name="hist_shelter">Unterschlupf</string>
 
     <string name="demo_card_cost">1</string>
     <string name="demo_card_title">Namen der Karte wird hier, auch wenn sie zu lang ist</string>

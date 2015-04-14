@@ -3,11 +3,9 @@ package ca.marklauman.dominionpicker;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.BaseColumns;
 import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +21,7 @@ import ca.marklauman.tools.Utils;
  *  are valid, but does not assume a supply is possible
  *  with the provided cards.
  *  @author Mark Lauman */
-public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
+class SupplyShuffler extends AsyncTask<Long, Void, Void> {
 
     /** When the shuffler is done, an intent of this type broadcasts
      *  the results back to the activity.                         */
@@ -48,6 +46,7 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
      *  Shortfall in {@link #MSG_SHORT}. */
     public static final int RES_MORE_K = 3;
     /** Shuffle cancelled by outside source. */
+    @SuppressWarnings("WeakerAccess")
     public static final int RES_CANCEL = 100;
 
     /** The set of all event card ids. */
@@ -56,7 +55,7 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
     /** The number of kingdom cards in the supply. */
     private int minKingdom;
     /** The max number of event cards in the supply. */
-    private int maxEvent;
+    private final int maxEvent;
 
 
     /** @param kingdom The suggested number of kingdom cards in this game.
@@ -78,8 +77,6 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
 
     @Override
     protected Void doInBackground(Long... cardIds) {
-        Log.d("cardIds", ""+cardIds.length);
-
         // The result message we will send on finish
         Intent res = new Intent(MSG_INTENT);
 
@@ -119,17 +116,13 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
             // If we just picked the young witch, we need an extra bane kingdom card.
             if (pick == CardDb.ID_YOUNG_WITCH) {
                 bane = pickBane(cardIds);
-                Log.d("bane", ""+bane);
-
                 // Bane picking is resource intensive. Check we aren't cancelled.
                 if (isCancelled()) {
                     res.putExtra(MSG_RES, RES_CANCEL);
                     return sendMsg(res);
                 }
-
                 // If no bane is available.
                 if (bane < 0) {
-                    Log.d("bane", "no bane");
                     // Invalidate this pick
                     pick = -1;
                     // If we don't have enough cards to finish, return
@@ -137,10 +130,8 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
                         res.putExtra(MSG_RES, RES_NO_YW);
                         return sendMsg(res);
                     }
-
                 // A bane is available! Add it to the kingdom pile if necessary
                 } else {
-                    Log.d("bane", "bane ok");
                     minKingdom++;
                     if(! kingdom.contains(bane)) {
                         pool.remove(bane);
@@ -191,6 +182,7 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
 
 
     /** Broadcast a given message back to the activity */
+    @SuppressWarnings("SameReturnValue")
     private Void sendMsg(Intent msg) {
         try {
             LocalBroadcastManager.getInstance(MainActivity.getStaticContext())
@@ -202,13 +194,13 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
 
     /** Perform a query using the main content resolver.
      *  @return The result, or null if the query failed. */
-    private static Cursor query(Uri uri, String[] projection,
+    private static Cursor query(String[] projection,
                                 String selection, String[] selectionArgs,
                                 String sortBy) {
         // I retain nothing because I don't know if the contentResolver changes.
         return MainActivity.getStaticContext()
                 .getContentResolver()
-                .query(uri, projection,
+                .query(Provider.URI_CARDS, projection,
                         selection, selectionArgs, sortBy);
     }
 
@@ -235,8 +227,7 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
         // query for the bane card and return it.
         long res = -1;
         try {
-            Cursor c = query(Provider.URI_CARDS, new String[]{CardDb._ID},
-                    sel, selArgs, "random() LIMIT 1");
+            Cursor c = query(new String[]{CardDb._ID}, sel, selArgs, "random() LIMIT 1");
             if(c == null) return -1;
             if(c.getCount() < 1) {
                 c.close();
@@ -277,8 +268,7 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
         // run the query, return the result. Default to none found.
         int count = 0;
         try {
-            Cursor c = query(Provider.URI_CARDS,
-                             new String[]{"count(*) AS " + BaseColumns._ID},
+            Cursor c = query(new String[]{"count(*) AS " + BaseColumns._ID},
                              sel, selArgs, null);
             if(c == null) return 0;
             if(c.getCount() == 0) {
@@ -308,8 +298,7 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
         // Match the two cards to their two expansions.
         String[] exp = new String[]{"", ""};
         try {
-            Cursor c = query(Provider.URI_CARDS,
-                             new String[]{CardDb._ID, CardDb._EXP},
+            Cursor c = query(new String[]{CardDb._ID, CardDb._EXP},
                              CardDb._ID+"=? OR "+CardDb._ID+"=?", conditions,
                              null);
             int id = c.getColumnIndex(CardDb._ID);

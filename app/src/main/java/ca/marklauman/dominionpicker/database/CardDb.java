@@ -14,11 +14,12 @@ import ca.marklauman.dominionpicker.R;
 
 /** Describes the card database and provides a link to it for the {@link Provider}.
  *  This database contains only card information, not app data
- *  like history or settings. */
+ *  like history or settings.
+ *  @author Mark Lauman */
 public class CardDb extends SQLiteOpenHelper {
 
     /** The name of the card table in this database. */
-    public static final String TABLE_NAME = "cards";
+    private static final String TABLE_NAME = "cards";
 
     /** Column for the id id number of the card (internal). */
     public static final String _ID = BaseColumns._ID;
@@ -49,7 +50,7 @@ public class CardDb extends SQLiteOpenHelper {
 
     /** Array of all column names.
      *  Useful for converting rows to arrays with a known order. */
-    public static final String[] COLS =
+    private static final String[] COLS =
             {_ID, _NAME, _DESC, _COST, _POTION, _CATEGORY, _EXP,
              _BUY, _ACTION, _DRAW, _GOLD, _VICTORY, _CURSER};
     
