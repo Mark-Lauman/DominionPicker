@@ -46,6 +46,7 @@ import java.util.StringTokenizer;
 import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
+import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.MultiSelectPreference;
 
 /** Used to pick the cards used in all other shuffles.
@@ -53,10 +54,6 @@ import ca.marklauman.tools.MultiSelectPreference;
 public class FragmentPicker extends Fragment
                             implements LoaderCallbacks<Cursor>,
                                        ListView.OnItemClickListener {
-
-    /** Key used to save selections to the preferences. */
-    @SuppressWarnings("WeakerAccess")
-    public static final String KEY_SELECT = "selections";
 
     /** The view associated with the card list. */
     private ListView card_list;
@@ -222,7 +219,7 @@ public class FragmentPicker extends Fragment
 
         // Load and apply the last selections (if any)
         // Default to all selected if there are no selections.
-        long[] selections = loadSelections(getActivity());
+        Long[] selections = loadSelections(getActivity());
         if(selections != null)
             adapter.setSelections(selections);
         else adapter.selectAll();
@@ -252,23 +249,14 @@ public class FragmentPicker extends Fragment
         adapter.toggleAll();
     }
 
-    /** Get the currently selected cards. */
-    public long[] getSelections() {
-        return adapter.getSelectionIds();
-    }
-
-    /** Get the currently selected cards. */
-    public Long[] getLongSelections() {
-        return adapter.getLongSelectionIds();
-    }
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if(adapter != null) adapter.toggleItem(position);
     }
 
 
-    /** Save currently selected items to the preferences */
+    /** Save currently selected items to the preferences.
+     *  Automatically triggered when this fragment is stopped. */
     public void saveSelections(Context c) {
         if(c == null || adapter == null) return;
         long[] selections = adapter.getSelectionIds();
@@ -277,7 +265,7 @@ public class FragmentPicker extends Fragment
             str.append(selection).append(",");
         PreferenceManager.getDefaultSharedPreferences(c)
                          .edit()
-                         .putString(KEY_SELECT, str.toString())
+                         .putString(Prefs.SELECTIONS, str.toString())
                          .commit();
     }
 
@@ -287,12 +275,12 @@ public class FragmentPicker extends Fragment
      *           to load the selections from the preferences.
      *  @return The card ids selected, or {@code null} if no
      *          cards were selected.                      */
-    private static long[] loadSelections(Context c) {
+    public static Long[] loadSelections(Context c) {
         String store = PreferenceManager.getDefaultSharedPreferences(c)
-                                        .getString(KEY_SELECT, null);
+                                        .getString(Prefs.SELECTIONS, null);
         if(store == null) return null;
         StringTokenizer tok = new StringTokenizer(store, ",");
-        long[] selections = new long[tok.countTokens()];
+        Long[] selections = new Long[tok.countTokens()];
         for(int i=0; i<selections.length; i++)
             selections[i] = Long.parseLong(tok.nextToken());
         return selections;

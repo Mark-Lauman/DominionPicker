@@ -30,8 +30,6 @@ import android.widget.FrameLayout;
  *  is invoked from inside a supply.
  *  @author Mark Lauman                                   */
 public class ActivityMarket extends ActionBarActivity {
-    /** Key used to pass the picked cards from the picker (required) */
-    public static final String PARAM_CARDS = FragmentMarket.PARAM_CARDS;
 	/** Key used to pass the supply pool to this activity (optional) */
 	public static final String PARAM_SUPPLY = FragmentMarket.PARAM_SUPPLY;
 	
@@ -49,8 +47,6 @@ public class ActivityMarket extends ActionBarActivity {
         Bundle appExtras = getIntent().getExtras();
         FragmentMarket market = new FragmentMarket();
         Bundle args = new Bundle();
-        args.putLongArray(FragmentMarket.PARAM_CARDS,
-                          appExtras.getLongArray(PARAM_CARDS));
         args.putLongArray(FragmentMarket.PARAM_SUPPLY,
                           appExtras.getLongArray(PARAM_SUPPLY));
         market.setArguments(args);

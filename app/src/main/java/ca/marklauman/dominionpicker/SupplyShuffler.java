@@ -1,5 +1,6 @@
 package ca.marklauman.dominionpicker;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -14,7 +15,9 @@ import java.util.Calendar;
 import java.util.HashSet;
 
 import ca.marklauman.dominionpicker.database.CardDb;
+import ca.marklauman.dominionpicker.database.DataDb;
 import ca.marklauman.dominionpicker.database.Provider;
+import ca.marklauman.tools.Utils;
 
 /** Task for shuffling the supply. Assumes card ids
  *  are valid, but does not assume a supply is possible
@@ -160,13 +163,15 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
 
         // Shuffle finished successfully. Start to build the supply object.
         Supply supply = new Supply();
-        supply.cards = new long[kingdom.size()];
-        for(int i=0; i<kingdom.size(); i++)
-            supply.cards[i] = kingdom.get(i);
-        if(0 < events.size()) {
-            supply.events = new long[events.size()];
-            for(int i=0; i<events.size(); i++)
-                supply.events[i] = events.get(i);
+        supply.cards = new long[kingdom.size() + events.size()];
+        int i = 0;
+        for(long card : kingdom) {
+            supply.cards[i] = card;
+            i++;
+        }
+        for(long card : events) {
+            supply.cards[i] = card;
+            i++;
         }
         supply.bane = bane;
 
@@ -180,7 +185,7 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
         sendMsg(res);
 
         // Insert the supply into the history table
-        // TODO: insert supply object
+        insertSupply(supply);
         return null;
     }
 
@@ -294,24 +299,24 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
      *  Requires a database query. */
     private void setConditions(Supply supply) {
         // pick two cards, one for cost, one for shelter.
-        String[] cond = new String[2];
+        String[] conditions = new String[2];
         int pick = (int)(Math.random() * supply.cards.length);
-        cond[0] = ""+supply.cards[pick];
+        conditions[0] = ""+supply.cards[pick];
         pick = (int)(Math.random() * supply.cards.length);
-        cond[1] = ""+supply.cards[pick];
+        conditions[1] = ""+supply.cards[pick];
 
         // Match the two cards to their two expansions.
         String[] exp = new String[]{"", ""};
         try {
             Cursor c = query(Provider.URI_CARDS,
                              new String[]{CardDb._ID, CardDb._EXP},
-                             CardDb._ID+"=? OR "+CardDb._ID+"=?", cond,
+                             CardDb._ID+"=? OR "+CardDb._ID+"=?", conditions,
                              null);
             int id = c.getColumnIndex(CardDb._ID);
             int exp_id = c.getColumnIndex(CardDb._EXP);
             c.moveToPosition(-1);
             while(c.moveToNext()) {
-                if(cond[0].equals(c.getString(id)))
+                if(conditions[0].equals(c.getString(id)))
                     exp[0] = c.getString(exp_id);
                 else exp[1] = c.getString(exp_id);
             }
@@ -327,5 +332,21 @@ public class SupplyShuffler extends AsyncTask<Long, Void, Void> {
         match = MainActivity.getStaticContext()
                             .getString(R.string.set_dark_ages);
         supply.shelters = match.equals(exp[1]);
+    }
+
+    /** Insert a given supply into the history table */
+    private void insertSupply(Supply s) {
+        ContentValues values = new ContentValues();
+        values.put(DataDb._H_TIME,      s.time);
+        values.put(DataDb._H_NAME,      s.name);
+        values.put(DataDb._H_CARDS,     Utils.join(",", s.cards));
+        values.put(DataDb._H_BANE,      s.bane);
+        values.put(DataDb._H_HIGH_COST, s.high_cost);
+        values.put(DataDb._H_SHELTERS,  s.shelters);
+
+        try{ MainActivity.getStaticContext()
+                         .getContentResolver()
+                         .insert(Provider.URI_HIST, values);
+        } catch(Exception ignored) {}
     }
 }

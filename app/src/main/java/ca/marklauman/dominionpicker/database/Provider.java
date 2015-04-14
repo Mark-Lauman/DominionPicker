@@ -100,16 +100,21 @@ public class Provider extends ContentProvider {
 				String selection, String[] selectionArgs,
 				String sortOrder) {
         SQLiteDatabase db;
+        Cursor res;
         switch(matcher.match(uri)) {
             case ID_CARD:
-                return card_db.query(projection, selection, selectionArgs, sortOrder);
+                res = card_db.query(projection, selection, selectionArgs, sortOrder);
+                break;
             case ID_HIST:
                 db = data_db.getReadableDatabase();
-                return db.query(DataDb.TABLE_HISTORY, projection,
-                                selection, selectionArgs,
-                                null, null, sortOrder);
+                res = db.query(DataDb.TABLE_HISTORY, projection,
+                               selection, selectionArgs,
+                               null, null, sortOrder);
+                break;
             default: return null;
         }
+        res.setNotificationUri(getContext().getContentResolver(), uri);
+        return res;
 	}
 
 
@@ -129,18 +134,18 @@ public class Provider extends ContentProvider {
 	
 	@Override
 	public Uri insert(Uri uri, ContentValues values) {
-        // insertions only allowed on history table
-        int id = matcher.match(uri);
-        if(id != ID_HIST) return null;
-
-        // perform insert
-        long row = data_db.getReadableDatabase()
-                          .insert(DataDb.TABLE_HISTORY, null, values);
-        if(row == -1L) return null;
-        notifyChange(URI_HIST);
-        return Uri.withAppendedPath(URI_HIST, "" + row);
+        switch(matcher.match(uri)) {
+            case ID_HIST:
+                long row = data_db.getReadableDatabase()
+                                  .insert(DataDb.TABLE_HISTORY, null, values);
+                if(row == -1L) return null;
+                notifyChange(URI_HIST);
+                return Uri.withAppendedPath(URI_HIST, "" + row);
+            default: return null;
+        }
 	}
-	
+
+
 	@Override
 	public int update(Uri uri, ContentValues values,
                       String selection, String[] selectionArgs) {

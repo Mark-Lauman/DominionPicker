@@ -28,10 +28,6 @@ public class DataDb extends SQLiteOpenHelper {
      *  This is stored as a string of card ids separated by commas.<br/>
      *  History Table, Java String */
     public static final String _H_CARDS = "cards";
-    /** Column storing the events found in this shuffle.
-     *  This is stored as a string of card ids separated by commas.<br/>
-     *  History Table, Java String */
-    public static final String _H_EVENTS = "events";
     /** Column storing if this shuffle is a high cost game.
      *  (with colonies and shelters).<br/>
      *  History Table, Java Boolean */
@@ -53,10 +49,9 @@ public class DataDb extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_HISTORY + " ("
-                    + _H_TIME + " INTEGER PRIMARY KEY "
+                    + _H_TIME + " INTEGER PRIMARY KEY, "
                     + _H_NAME + " TEXT DEFAULT NULL, "
                     + _H_CARDS + " TEXT, "
-                    + _H_EVENTS + " TEXT, "
                     + _H_HIGH_COST + " INTEGER, "
                     + _H_SHELTERS + " INTEGER, "
                     + _H_BANE + " INTEGER DEFAULT -1);");

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="8dp"
+    android:gravity="start|center_vertical"
+    android:id="@+id/list_item" >
+
+    <TextView android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/demo_shuffle_name"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/black"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textSize="18sp" />
+
+    <TextView android:id="@+id/desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:text="@string/demo_shuffle_desc"
+        android:singleLine="true"
+        android:ellipsize="end" />
+
+</RelativeLayout>

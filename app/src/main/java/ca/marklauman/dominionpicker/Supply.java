@@ -26,6 +26,8 @@ import java.util.Arrays;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import ca.marklauman.dominionpicker.database.CardDb;
+
 /** Contains all information about a supply set.
  *  @author Mark Lauman                       */
 public class Supply implements Parcelable {
@@ -34,11 +36,8 @@ public class Supply implements Parcelable {
     public long time;
     /** The name of this supply (optional, may be null) */
     public String name;
-
 	/** The cards in the supply. */
 	public long[] cards;
-    /** The event cards in the supply. */
-    public long[] events;
 	/** {@code true} if colonies + platinum are in use. */
 	public boolean high_cost;
 	/** {@code true} if shelters are in use. */
@@ -47,13 +46,12 @@ public class Supply implements Parcelable {
 	 *  there isn't one.               */
 	long bane;
 	
-	
+
 	/** Basic constructor */
 	public Supply() {
         time = 0;
         name = null;
 		cards = null;
-        events = null;
 		high_cost = false;
 		shelters = false;
 		bane = -1L;
@@ -82,6 +80,15 @@ public class Supply implements Parcelable {
     	res += "bane=" + bane + ",  ";
     	res += Arrays.toString(cards);
     	return res + "}";
+    }
+
+
+    /** Returns {@code true} if a Black Market is in the supply. */
+    public boolean blackMarket() {
+        if(cards == null) return false;
+        for(long card : cards)
+            if(card == CardDb.ID_BLACK_MARKET) return true;
+        return false;
     }
 	
     

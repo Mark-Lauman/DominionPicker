@@ -2,23 +2,28 @@
 <resources>
     <string name="app_name">Dominion Auswahl</string>
 
-    <string-array name="navNames">
-        <item>Auswahl</item>
-        <item>@string/market_title</item>
-        <item>@string/filters</item>
-    </string-array>
-
     <string name="menu_open">Men&#252; &#246;ffnen</string>
     <string name="menu_close">Men&#252; schlie&#223;en</string>
-    
+
+    <string name="picker">Auswahl</string>
+
     <string name="picks">Ihre Karten!</string>
     <string name="toggle_all">Ver&#228;nderung Auswahl</string>
     <string name="submit">Shuffle</string>
-    <string name="more">Ben&#246;tigen Sie mehr Karten!</string>
-    <string name="all_filt">Alle Karten herausgefiltert</string>
+    <string name="more">Ben&#246;tigen Sie mehr Karten! (%1$s)</string>
+    <string name="more_k">Ben&#246;tigen Sie mehr K&#246;nigreichskarten! (%1$s)</string>
+    <string name="yw_no_bane">Junge Hexe – Kein Fluch</string>
+    <string name="all_filt">Alle Karten herausgefiltert.</string>
     
     <string name="set">Erweiterungen</string>
     <string name="potion">Trank</string>
+
+    <string name="history">Geschichte</string>
+    <string name="favorites">Lieblings</string>
+    <string name="fav">Lieblings</string>
+    <string name="not_fav">nicht Lieblings</string>
+    <string name="no_hist">Ihre Shuffles werden hier gespeichert.</string>
+    <string name="no_fav">Hier ist nichts.</string>
     
     <string name="settings">Einstellungen</string>
     <string name="filters">Filter</string>
@@ -42,4 +47,19 @@
     <string name="format_buys">+%1$s K&#228;ufe</string>
     <string name="format_card">+%1$s Karte</string>
     <string name="format_cards">+%1$s Karten</string>
+
+    <string name="hist_card">1 Karte</string>
+    <string name="hist_cards">%d Karten</string>
+    <string name="hist_normal">normales Spiel</string>
+    <string name="hist_plat">Platin</string>
+    <string name="hist_shelt">Unterschlupf</string>
+
+    <string name="demo_card_cost">1</string>
+    <string name="demo_card_title">Namen der Karte wird hier, auch wenn sie zu lang ist</string>
+    <string name="demo_card_cat">Aktion Reaktion</string>
+    <string name="demo_card_plus_1">+1</string>
+    <string name="demo_card_res">, +1 Kauf, +1 Karte, +1 Aktion</string>
+    <string name="demo_card_desc">Beschreibung der Karte geht hier und in der nächsten Zeile, wenn der Raum wirklich benötigt wird.</string>
+    <string name="demo_shuffle_name">Dies ist ein Test Name des Shuffle damit Sie sehen, wie es funktioniert.</string>
+    <string name="demo_shuffle_desc">10 Karten | Platin | Unterschlupf</string>
 </resources>

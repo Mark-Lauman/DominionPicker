@@ -43,6 +43,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 
 import ca.marklauman.dominionpicker.database.CardDb;
+import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 
 /** Used to run a Black Market (see the Black Market card)
@@ -51,11 +52,6 @@ public class FragmentMarket extends Fragment
                             implements LoaderCallbacks<Cursor>,
                                        OnItemClickListener {
 
-    /** ID used for the market loader */
-    private static final int LOADER_MARKET = 2;
-
-    /** Key used to pass the picked cards from the picker (required) */
-    public static final String PARAM_CARDS = "cards";
     /** Key used to pass the supply pool to this fragment (optional) */
     public static final String PARAM_SUPPLY = "supply";
 
@@ -112,7 +108,7 @@ public class FragmentMarket extends Fragment
          * early, or the loader will not function.        */
         FragmentActivity a = (FragmentActivity) activity;
         a.getSupportLoaderManager()
-         .initLoader(LOADER_MARKET, null, this);
+         .initLoader(LoaderId.MARKET, null, this);
     }
 
 
@@ -181,7 +177,7 @@ public class FragmentMarket extends Fragment
                  * initLoader throws an exception. In this case, we just wait
                  * for the load to finish.                                 */
                 try { getActivity().getSupportLoaderManager()
-                                   .initLoader(LOADER_MARKET, null, this);
+                                   .initLoader(LoaderId.MARKET, null, this);
                 } catch (Exception ignored) {}
             }
         }
@@ -284,8 +280,7 @@ public class FragmentMarket extends Fragment
                 supply.add(id);
 
         // load the deck of available cards and eliminate supply cards.
-        long[] deck_arr = null;
-        if(args != null) deck_arr = args.getLongArray(PARAM_CARDS);
+        Long[] deck_arr = FragmentPicker.loadSelections(getActivity());
         ArrayList<Long> deck = new ArrayList<>();
         if(deck_arr != null) {
             deck = new ArrayList<>(deck_arr.length);
@@ -323,7 +318,7 @@ public class FragmentMarket extends Fragment
 
             // update the view and start loading cards
             getActivity().getSupportLoaderManager()
-                         .restartLoader(LOADER_MARKET, null, getFragment());
+                         .restartLoader(LoaderId.MARKET, null, getFragment());
             updateView();
         }
     }

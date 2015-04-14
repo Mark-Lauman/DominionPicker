@@ -2,23 +2,28 @@
 <resources>
     <string name="app_name">Dominion Picker</string>
 
-    <string-array name="navNames">
-        <item>Picker</item>
-        <item>@string/market_title</item>
-        <item>@string/filters</item>
-    </string-array>
-
     <string name="menu_open">Open Menu</string>
     <string name="menu_close">Close Menu</string>
-    
+
+    <string name="picker">Picker</string>
+
     <string name="picks">Your Picks!</string>
     <string name="toggle_all">Toggle All</string>
     <string name="submit">Submit</string>
-    <string name="more">Need More Cards!</string>
-    <string name="all_filt">All cards filtered out</string>
+    <string name="more">Need More Cards! (%1$s)</string>
+    <string name="more_k">Need More Kindom Cards! (%1$s)</string>
+    <string name="yw_no_bane">Young Witch - No Bane</string>
+    <string name="all_filt">All cards filtered out.</string>
     
     <string name="set">Set</string>
     <string name="potion">Potion</string>
+
+    <string name="history">History</string>
+    <string name="favorites">Favorites</string>
+    <string name="fav">Favorite</string>
+    <string name="not_fav">Not Favorite</string>
+    <string name="no_hist">Your shuffles are stored here.</string>
+    <string name="no_fav">There\'s nothing here.</string>
     
     <string name="settings">Settings</string>
     <string name="filters">Filters</string>
@@ -42,4 +47,26 @@
     <string name="format_buys">+%1$s Buys</string>
     <string name="format_card">+%1$s Card</string>
     <string name="format_cards">+%1$s Cards</string>
+
+    <string name="hist_card">1 Card</string>
+    <string name="hist_cards">%d Cards</string>
+    <string name="hist_normal">Normal Game</string>
+    <string name="hist_plat">Platinum</string>
+    <string name="hist_shelt">Shelters</string>
+
+    <string name="demo_card_cost">1</string>
+    <string name="demo_card_title">Name of the card goes here, even if it overextends</string>
+    <string name="demo_card_cat">Action Reaction</string>
+    <string name="demo_card_plus_1">+1</string>
+    <string name="demo_card_res">, +1 buy, +1 card, +1 action</string>
+    <string name="demo_card_desc">Description of the card goes here and on the next line if the space is really needed.</string>
+    <string name="demo_shuffle_name">This is a test name of the shuffle so you can see how it works.</string>
+    <string name="demo_shuffle_desc">10 Cards | Platinum | Shelters</string>
+
+    <string-array name="navNames">
+        <item>@string/picker</item>
+        <item>@string/market_title</item>
+        <item>@string/history</item>
+        <item>@string/filters</item>
+    </string-array>
 </resources>
