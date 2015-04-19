@@ -11,6 +11,8 @@ public abstract class LoaderId {
     public static final int SUPPLY_C = 3;
     /** ID used for the market loader */
     public static final int MARKET = 4;
+    /** ID used for the favorites loader */
+    public static final int FAVORITES = 5;
     /** ID used for the history loader */
-    public static final int HISTORY = 5;
+    public static final int HISTORY = 6;
 }

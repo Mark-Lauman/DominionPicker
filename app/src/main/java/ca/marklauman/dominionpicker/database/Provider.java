@@ -133,7 +133,7 @@ public class Provider extends ContentProvider {
                 int change = data_db.getReadableDatabase()
                                     .update(DataDb.TABLE_HISTORY, values,
                                             selection, selectionArgs);
-                if(change != 0) notifyChange(URI_HIST);
+                if(0 < change) notifyChange(URI_HIST);
                 return change;
             default: return 0;
         }

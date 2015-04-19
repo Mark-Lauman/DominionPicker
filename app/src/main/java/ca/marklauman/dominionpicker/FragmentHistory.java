@@ -38,6 +38,8 @@ public class FragmentHistory extends Fragment
     private TextView empty_view;
     /** The view for if the list is loading. */
     private View load_view;
+    /** The id used by the loader (changes for favorites only) */
+    private int loader_id = LoaderId.HISTORY;
 
 
     @Override
@@ -48,7 +50,7 @@ public class FragmentHistory extends Fragment
 
         // start loading the card list
         LoaderManager lm = act.getSupportLoaderManager();
-        lm.initLoader(LoaderId.HISTORY, null, this);
+        lm.initLoader(loader_id, null, this);
     }
 
 
@@ -122,5 +124,11 @@ public class FragmentHistory extends Fragment
         load_view.setVisibility(View.GONE);
         if(loading) listView.setEmptyView(load_view);
         else listView.setEmptyView(empty_view);
+    }
+
+    /** Sets it so only favorites are displayed */
+    public void onlyFavorites() {
+        onlyFav = true;
+        loader_id = LoaderId.FAVORITES;
     }
 }

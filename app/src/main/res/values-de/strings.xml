@@ -27,7 +27,11 @@
     <string name="filters">Filter</string>
     <string name="pref_filt_sets">Erweiterung</string>
     <string name="filt_all">Ablehnen alle</string>
-    
+
+    <string name="change_fav">&#228;ndern Lieblings</string>
+    <string name="name_me">Benennen Sie die Shuffle</string>
+    <string name="save">speichern</string>
+
     <string name="supply_normal">normales Spiel</string>
     <string name="supply_colonies">Verwenden Kolonien u Platin</string>
     <string name="supply_shelters">Verwenden Sie Unterschlupf</string>

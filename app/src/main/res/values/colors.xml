@@ -6,4 +6,5 @@
     <color name="nav_drawer_sel">#EDEDED</color>
     <color name="list_div">@color/actionbar_back</color>
     <color name="list_div_txt">#99333333</color>
+    <color name="back_grey">#EEEEEE</color>
 </resources>

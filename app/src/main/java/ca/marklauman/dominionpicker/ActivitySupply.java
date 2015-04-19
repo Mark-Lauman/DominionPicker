@@ -1,5 +1,7 @@
 package ca.marklauman.dominionpicker;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -7,6 +9,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,10 +17,15 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.dominionpicker.database.DataDb;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
+import ca.marklauman.tools.QueryDialogBuilder;
+import ca.marklauman.tools.QueryDialogBuilder.QueryListener;
 
 /** Activity for displaying the supply piles for a new game.
  *  @author Mark Lauman */
@@ -34,6 +42,8 @@ public class ActivitySupply extends ActionBarActivity {
     private final SupplyLoader supplyLoader = new SupplyLoader();
     /** The loader that gets the cards when the supply is loaded */
     private final CardLoader cardLoader = new CardLoader();
+    /** Displays the correct time for the supply */
+    private final DateFormat formatter = DateFormat.getDateTimeInstance();
 
     /** The adapter used to display the supply cards. */
 	private CardAdapter adapter;
@@ -41,6 +51,7 @@ public class ActivitySupply extends ActionBarActivity {
 	private TextView resView;
 	/** The supply on display. */
 	private Supply supply;
+
 	
 	
 	@Override
@@ -110,19 +121,31 @@ public class ActivitySupply extends ActionBarActivity {
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu){
 		// Apply any changes super wants to apply.
-		boolean orig = super.onPrepareOptionsMenu(menu);
+		boolean changed = super.onPrepareOptionsMenu(menu);
+        if(supply == null) return changed;
 		
-		/* Check if the black market icon is in/visible
-		 * when it shouldn't be. If a change is needed,
-		 * apply the change.                         */
+		/* Check if the black market icon is in/visible when it shouldn't be.
+		 * If a change is needed, apply the change. */
 		MenuItem marketButton = menu.findItem(R.id.action_market);
-        if(supply != null && supply.blackMarket() != marketButton.isVisible()) {
+        if(supply.blackMarket() != marketButton.isVisible()) {
 			marketButton.setVisible(supply.blackMarket());
-			return true;
+			changed = true;
 		}
-		
-		// We didn't change anything
-		return orig;
+
+        // Show/hide the correct favorite buttons
+        boolean isFavorite = supply.name != null;
+        MenuItem favButton = menu.findItem(R.id.action_favorite);
+        if(isFavorite != favButton.isVisible()) {
+            favButton.setVisible(isFavorite);
+            changed = true;
+        }
+        MenuItem notFavButton = menu.findItem(R.id.action_notFavorite);
+        if(isFavorite == notFavButton.isVisible()) {
+            notFavButton.setVisible(!isFavorite);
+            changed = true;
+        }
+
+		return changed;
 	}
 	
 	
@@ -139,6 +162,23 @@ public class ActivitySupply extends ActionBarActivity {
         					supply.cards);
 			startActivityForResult(resAct, -1);
 			return true;
+        case R.id.action_notFavorite:
+            FavDialog dialog = new FavDialog(this);
+            dialog.create().show();
+            return true;
+        case R.id.action_favorite:
+            // Wipe the supply name
+            supply.name = null;
+            getSupportActionBar().setTitle(formatter.format(new Date(supply.time)));
+            invalidateOptionsMenu();
+
+            // Save the wipe to the database
+            ContentValues values = new ContentValues();
+            values.putNull(DataDb._H_NAME);
+            getContentResolver().update(Provider.URI_HIST, values,
+                                        DataDb._H_TIME + "=?",
+                                        new String[]{"" + supply.time});
+            return true;
         }
         return super.onOptionsItemSelected(item);
 	}
@@ -267,6 +307,11 @@ public class ActivitySupply extends ActionBarActivity {
             for(int i=0; i<cardList.length; i++)
                 s.cards[i] = Long.parseLong(cardList[i]);
 
+            // Display the appropriate title
+            ActionBar bar = getSupportActionBar();
+            if(s.name != null) bar.setTitle(s.name);
+            else bar.setTitle(formatter.format(new Date(s.time)));
+
             // Finish up
             data.close();
             setSupply(s);
@@ -274,5 +319,47 @@ public class ActivitySupply extends ActionBarActivity {
 
         @Override
         public void onLoaderReset(Loader<Cursor> loader) {}
+    }
+
+    /** Used to ask for the name of the new favorite. */
+    private class FavDialog extends QueryDialogBuilder
+                            implements QueryListener {
+        private TextView txt;
+        private Context mContext;
+
+        public FavDialog(Context context) {
+            super(context);
+            mContext = context;
+            setPositiveButton(R.string.save);
+            setNegativeButton(android.R.string.no);
+            setQueryListener(this);
+            View v = View.inflate(context, R.layout.dialog_favorite, null);
+            txt = (TextView) v.findViewById(R.id.name);
+            setView(v);
+        }
+
+        @Override
+        public void onDialogClose(boolean save) {
+            if(!save) return;
+            if(txt == null) return;
+
+            // Get the name, default to a time if blank
+            String name = "" + txt.getText();
+            if(name.length() < 1)
+                name = formatter.format(new Date(supply.time));
+
+            // Display the new name, switch display to favorite.
+            supply.name = name;
+            ActionBar bar = getSupportActionBar();
+            bar.setTitle(name);
+            invalidateOptionsMenu();
+
+            // Save the new name to the database.
+            ContentValues values = new ContentValues();
+            values.put(DataDb._H_NAME, name);
+            mContext.getContentResolver()
+                    .update(Provider.URI_HIST, values,
+                            DataDb._H_TIME+"=?", new String[]{""+supply.time});
+        }
     }
 }

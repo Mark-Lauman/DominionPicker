@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <item android:id="@+id/action_favorite"
+        app:showAsAction="ifRoom"
+        android:title="@string/change_fav"
+        android:icon="@drawable/ic_action_favorite"
+        android:visible="false" />
+
+    <item android:id="@+id/action_notFavorite"
+        app:showAsAction="ifRoom"
+        android:title="@string/change_fav"
+        android:icon="@drawable/ic_action_not_favorite"
+        android:visible="false" />
     
     <item android:id="@+id/action_market"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:title="@string/market_title"
         android:icon="@drawable/ic_action_market"
         android:visible="false" />
