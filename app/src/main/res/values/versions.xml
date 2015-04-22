@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Current version of preferences -->
-    <integer name="pref_version">2</integer>
+    <integer name="pref_version">3</integer>
     <!-- Current version of the database. -->
     <integer name="db_version">10</integer>
 </resources>

@@ -19,9 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <activity android:name=".settings.ActivitySettings"
-            android:label="@string/settings" />
+
+        <activity android:name=".settings.ActivityFilters"
+            android:label="@string/filters" />
         
         <activity android:name=".ActivitySupply"
             android:label="@string/picks" />

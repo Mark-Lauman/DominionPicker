@@ -115,8 +115,17 @@ public class Provider extends ContentProvider {
 	public Uri insert(Uri uri, ContentValues values) {
         switch(matcher.match(uri)) {
             case ID_HIST:
-                long row = data_db.getReadableDatabase()
-                                  .insert(DataDb.TABLE_HISTORY, null, values);
+                long row;
+                try {
+                    row = data_db.getReadableDatabase()
+                                 .insertOrThrow(DataDb.TABLE_HISTORY, null, values);
+                } catch (Exception e) {
+                    row = values.getAsLong(DataDb._H_TIME);
+                    int change = update(uri, values,
+                                        DataDb._H_TIME + "=?",
+                                        new String[]{"" + row});
+                    if(change < 1) row = -1L;
+                }
                 if(row == -1L) return null;
                 notifyChange(URI_HIST);
                 return Uri.withAppendedPath(URI_HIST, "" + row);

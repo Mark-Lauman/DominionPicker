@@ -26,7 +26,7 @@ import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.settings.Prefs;
-import ca.marklauman.tools.MultiSelectPreference;
+import ca.marklauman.tools.preferences.MultiSelectPreference;
 
 /** Governs the Picker screen. Allows users to choose what cards they want.
  *  @author Mark Lauman */
@@ -151,7 +151,8 @@ public class FragmentPicker extends Fragment
         // Filter by set
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         filt_set = pref.getString("filt_set", "");
-        CharSequence[] split_set = MultiSelectPreference.mapValues(filt_set, sets);
+        int[] set_ids = getResources().getIntArray(R.array.card_set_ids);
+        CharSequence[] split_set = MultiSelectPreference.mapValues(filt_set, set_ids, sets);
         Collections.addAll(sel_args, split_set);
         for (CharSequence ignored:split_set)
             sel += "AND " + CardDb._EXP + "!=? ";
@@ -159,7 +160,7 @@ public class FragmentPicker extends Fragment
         // Filter by cost
         filt_cost = pref.getString("filt_cost", "");
         ArrayList<CharSequence> split_cost = new ArrayList<>(Arrays.asList(
-                        MultiSelectPreference.mapValues(filt_cost, costs)));
+                        MultiSelectPreference.mapValues(filt_cost, null, costs)));
         String potion = getResources().getStringArray(R.array.filt_cost)[0];
         if(0 < split_cost.size() && potion.equals(split_cost.get(0))) {
             sel += "AND " + CardDb._POTION + "=? ";

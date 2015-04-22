@@ -1,6 +1,6 @@
 package ca.marklauman.dominionpicker;
 
-import ca.marklauman.dominionpicker.settings.ActivitySettings;
+import ca.marklauman.dominionpicker.settings.ActivityFilters;
 import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.ExpandedArrayAdapter;
 
@@ -211,7 +211,7 @@ public class MainActivity extends ActionBarActivity
             case 3: active = new FragmentHistory();
                     t.replace(R.id.content_frame, active);
                     break;
-            case 4: Intent intent = new Intent(this, ActivitySettings.class);
+            case 4: Intent intent = new Intent(this, ActivityFilters.class);
                     startActivity(intent);
         }
         t.commit();

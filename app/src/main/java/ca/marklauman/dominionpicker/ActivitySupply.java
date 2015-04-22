@@ -324,8 +324,8 @@ public class ActivitySupply extends ActionBarActivity {
     /** Used to ask for the name of the new favorite. */
     private class FavDialog extends QueryDialogBuilder
                             implements QueryListener {
-        private TextView txt;
-        private Context mContext;
+        final private TextView txt;
+        final private Context mContext;
 
         public FavDialog(Context context) {
             super(context);

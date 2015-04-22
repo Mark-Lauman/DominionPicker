@@ -18,6 +18,8 @@ public abstract class Prefs {
     public static final String SELECTIONS = "selections";
     /** Key used to save the version of the preferences */
     public static final String VERSION = "version";
+    /** Key used to save the set filter to the preferences */
+    public static final String FILT_SET = "filt_set";
 
 
     /** Deprecated key used to identify the version 0 preferences. */
@@ -28,24 +30,53 @@ public abstract class Prefs {
     public static final String PREF_VERSION = "pref_version";
 
     /** Set default preference values and update old preference setups to newer versions.
-     *  @param c A context within DominionPicker.                      */
+     *  @param c A context within DominionPicker. */
     public static void setup(Context c) {
-        PreferenceManager.setDefaultValues(c, R.xml.pref_filters, false);
+        // Get the current preference version
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
+        int version = getVersion(prefs);
 
-        update0(prefs);
-        update1(prefs);
-        int version = c.getResources()
-                       .getInteger(R.integer.pref_version);
-        prefs.edit().putInt(VERSION, version)
-             .commit();
+        // Set values that are not set.
+        PreferenceManager.setDefaultValues(c, R.xml.pref_filters, false);
+
+        // finish up a new preference setup
+        final int cur_ver = c.getResources()
+                             .getInteger(R.integer.pref_version);
+        if(version == -1) {
+            prefs.edit().putInt(VERSION, cur_ver).commit();
+            return;
+        }
+
+        // do what updates are necessary.
+        switch(version) {
+            case 0: update0(prefs);
+            case 1: update1(prefs);
+            case 2: update2(prefs);
+        }
+        prefs.edit().putInt(VERSION, cur_ver).commit();
+    }
+
+
+    /** Determine which version the preferences are on.
+     *  @return The preference version, or -1 for new preferences. */
+    private static int getVersion(SharedPreferences prefs) {
+        // filt_set_base only in v0
+        if(prefs.contains("filt_set_base")) return 0;
+        // filt_set in all versions except v0
+        if(!prefs.contains(FILT_SET)) return -1;
+        // The following distinguish v1
+        if(prefs.contains("pref_version")) return 1;
+        String filt = prefs.getString(FILT_SET, "");
+        if(filt.contains(OLD_SEP)) return 1;
+        filt = prefs.getString("filt_cost", "");
+        if(filt.contains(OLD_SEP)) return 1;
+        // v2 does not have VERSION set.
+        return prefs.getInt(VERSION, 2);
     }
 
 
     /** Detects v0 preferences and updates them to v2. */
     private static void update0(SharedPreferences prefs) {
-        if(! prefs.contains("filt_set_base")) return;
-
         // interpret old settings
         String newFilt = "";
         if (!prefs.getBoolean("filt_set_base", true)) newFilt += ",0";
@@ -67,10 +98,10 @@ public abstract class Prefs {
         if (newFilt.length() > 1) newFilt = newFilt.substring(1);
 
         // write them in the new format
-        prefs.edit().putString("filt_set", newFilt);
+        SharedPreferences.Editor edit = prefs.edit();
+        edit.putString(FILT_SET, newFilt);
 
         // remove old settings
-        SharedPreferences.Editor edit = prefs.edit();
         edit.remove("filt_set_base");
         edit.remove("filt_set_alchemy");
         edit.remove("filt_set_black_market");
@@ -94,7 +125,7 @@ public abstract class Prefs {
         SharedPreferences.Editor edit = prefs.edit();
         edit.remove("pref_version");
 
-        String filt = prefs.getString("filt_set", "");
+        String filt = prefs.getString(FILT_SET, "");
         if(filt.contains(OLD_SEP)) {
             String newSets = "";
             if(filt.contains("Base")) newSets += ",0";
@@ -113,7 +144,7 @@ public abstract class Prefs {
             if(filt.contains("Stash")) newSets += ",13";
             if(filt.contains("Walled Village")) newSets += ",14";
             if(newSets.length() > 1) newSets = newSets.substring(1);
-            edit.putString("filt_set", newSets);
+            edit.putString(FILT_SET, newSets);
         }
 
         // update costs to newest version
@@ -135,5 +166,13 @@ public abstract class Prefs {
             edit.putString("filt_cost", newCost);
         }
         edit.commit();
+    }
+
+    /** Updates preferences from v2 to v3. Does not detect version number. */
+    private static void update2(SharedPreferences prefs) {
+        String filt = prefs.getString(FILT_SET, "");
+        if(filt.length() < 1)
+             prefs.edit().putString(FILT_SET, "15").commit();
+        else prefs.edit().putString(FILT_SET, filt + ",15").commit();
     }
 }

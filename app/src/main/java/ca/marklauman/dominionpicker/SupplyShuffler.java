@@ -170,10 +170,10 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
         setConditions(supply);
 
         // Insert the supply into the history table
+        supply.time = Calendar.getInstance().getTimeInMillis();
         insertSupply(supply);
 
         // Finish and return supply
-        supply.time = Calendar.getInstance().getTimeInMillis();
         res.putExtra(MSG_RES, RES_OK);
         res.putExtra(MSG_SUPPLY, supply);
         return sendMsg(res);
