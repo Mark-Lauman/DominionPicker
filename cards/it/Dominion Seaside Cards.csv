@@ -1,0 +1,27 @@
+Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser
+Embargo;;2;0;Azione;Seaside;0;0;0;2;0;1
+Rada;;2;0;Azione Durata;Seaside;0;1;1;0;0;0
+Faro;;2;0;Azione Durata;Seaside;0;1;0;1;0;0
+Villaggio Indigeno;;2;0;Azione;Seaside;0;2;0;0;0;0
+Pescatore di Perle;;2;0;Azione;Seaside;0;1;1;0;0;0
+Ambasciatore;;3;0;Azione Attacco;Seaside;0;0;0;0;0;0
+Villaggio di Pescatori;;3;0;Azione Durata;Seaside;0;2;0;1;0;0
+Vedetta;;3;0;Azione;Seaside;0;1;0;0;0;0
+Contrabbandieri;;3;0;Azione;Seaside;0;0;0;0;0;0
+Magazzino;;3;0;Azione;Seaside;0;1;3;0;0;0
+Carovana;;4;0;Azione Durata;Seaside;0;1;1;0;0;0
+Borseggiatore;;4;0;Azione Attacco;Seaside;0;0;0;2;0;0
+Isola;;4;0;Azione Vittoria;Seaside;0;0;0;0;0;0
+Navigatore;;4;0;Azione;Seaside;0;0;0;2;0;0
+Nave Pirata;;4;0;Azione Attacco;Seaside;0;0;0;0;0;0
+Recupero;;4;0;Azione;Seaside;1;0;0;0;0;0
+Megera dei Mari;;4;0;Azione Attacco;Seaside;0;0;0;0;0;1
+Mappa del Tesoro;;4;0;Azione;Seaside;0;0;0;0;0;0
+Bazaar;;5;0;Azione;Seaside;0;2;1;1;0;0
+Avventuriero;;5;0;Azione;Seaside;0;0;0;0;0;0
+Nave Fantasma;;5;0;Azione Attacco;Seaside;0;0;2;0;0;0
+Nave Mercantile;;5;0;Azione Durata;Seaside;0;0;0;2;0;0
+Avamposto;;5;0;Azione Durata;Seaside;0;0;0;0;0;0
+Stratega;;5;0;Azione Durata;Seaside;0;0;0;0;0;0
+Tesoro;;5;0;Azione;Seaside;0;1;1;1;0;0
+Molo;;5;0;Azione Durata;Seaside;1;0;2;0;0;0

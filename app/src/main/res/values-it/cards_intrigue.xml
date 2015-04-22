@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_intrigue">
+        <item>Cortile di Campagna;;2;0;Azione;Intrigo;0;0;3;0;0;0</item>
+        <item>Pedina;;2;0;Azione;Intrigo;1;1;1;1;0;0</item>
+        <item>Stanza Segreta;;2;0;Azione Reazione;Intrigo;0;0;0;0;0;0</item>
+        <item>Grande Salone;;3;0;Azione Vittoria;Intrigo;0;1;1;0;0;0</item>
+        <item>Ballo in Maschera;;3;0;Azione;Intrigo;0;0;2;0;0;0</item>
+        <item>Baraccopoli;;3;0;Azione;Intrigo;0;2;0;0;0;0</item>
+        <item>Maggiordomo;;3;0;Azione;Intrigo;0;0;2;2;0;0</item>
+        <item>Truffatore;;3;0;Azione Attacco;Intrigo;0;0;0;2;0;0</item>
+        <item>Pozzo dei Desideri;;3;0;Azione;Intrigo;0;1;1;0;0;0</item>
+        <item>Barone;;4;0;Azione;Intrigo;1;0;0;0;0;0</item>
+        <item>Ponte;;4;0;Azione;Intrigo;1;0;0;1;0;0</item>
+        <item>Cospiratore;;4;0;Azione;Intrigo;0;0;0;2;0;0</item>
+        <item>Battirame;;4;0;Azione;Intrigo;0;0;0;0;0;0</item>
+        <item>Fonderia;;4;0;Azione;Intrigo;0;0;0;0;0;0</item>
+        <item>Villaggio Minerario;;4;0;Azione;Intrigo;0;2;1;0;0;0</item>
+        <item>Scout;;4;0;Azione;Intrigo;0;1;0;0;0;0</item>
+        <item>Duca;;5;0;Vittoria;Intrigo;0;0;0;0;0;0</item>
+        <item>Tirapiedi;;5;0;Azione Attacco;Intrigo;0;1;0;0;0;0</item>
+        <item>Sabotatore;;5;0;Azione Attacco;Intrigo;0;0;0;0;0;0</item>
+        <item>Carceriere;;5;0;Azione Attacco;Intrigo;0;0;3;0;0;1</item>
+        <item>Stazione Commerciale;;5;0;Azione;Intrigo;0;0;0;0;0;0</item>
+        <item>Tributo;;5;0;Azione;Intrigo;0;0;0;0;0;0</item>
+        <item>Potenziameno;;5;0;Azione;Intrigo;0;1;1;0;0;0</item>
+        <item>Harem;;6;0;Tesoro Vittoria;Intrigo;0;0;0;0;0;0</item>
+        <item>Nobili;;6;0;Azione Vittoria;Intrigo;0;2;3;0;0;0</item>
+	</string-array>
+
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_seaside">
+        <item>Embargo;;2;0;Azione;Seaside;0;0;0;2;0;1</item>
+        <item>Rada;;2;0;Azione Durata;Seaside;0;1;1;0;0;0</item>
+        <item>Faro;;2;0;Azione Durata;Seaside;0;1;0;1;0;0</item>
+        <item>Villaggio Indigeno;;2;0;Azione;Seaside;0;2;0;0;0;0</item>
+        <item>Pescatore di Perle;;2;0;Azione;Seaside;0;1;1;0;0;0</item>
+        <item>Ambasciatore;;3;0;Azione Attacco;Seaside;0;0;0;0;0;0</item>
+        <item>Villaggio di Pescatori;;3;0;Azione Durata;Seaside;0;2;0;1;0;0</item>
+        <item>Vedetta;;3;0;Azione;Seaside;0;1;0;0;0;0</item>
+        <item>Contrabbandieri;;3;0;Azione;Seaside;0;0;0;0;0;0</item>
+        <item>Magazzino;;3;0;Azione;Seaside;0;1;3;0;0;0</item>
+        <item>Carovana;;4;0;Azione Durata;Seaside;0;1;1;0;0;0</item>
+        <item>Borseggiatore;;4;0;Azione Attacco;Seaside;0;0;0;2;0;0</item>
+        <item>Isola;;4;0;Azione Vittoria;Seaside;0;0;0;0;0;0</item>
+        <item>Navigatore;;4;0;Azione;Seaside;0;0;0;2;0;0</item>
+        <item>Nave Pirata;;4;0;Azione Attacco;Seaside;0;0;0;0;0;0</item>
+        <item>Recupero;;4;0;Azione;Seaside;1;0;0;0;0;0</item>
+        <item>Megera dei Mari;;4;0;Azione Attacco;Seaside;0;0;0;0;0;1</item>
+        <item>Mappa del Tesoro;;4;0;Azione;Seaside;0;0;0;0;0;0</item>
+        <item>Bazaar;;5;0;Azione;Seaside;0;2;1;1;0;0</item>
+        <item>Avventuriero;;5;0;Azione;Seaside;0;0;0;0;0;0</item>
+        <item>Nave Fantasma;;5;0;Azione Attacco;Seaside;0;0;2;0;0;0</item>
+        <item>Nave Mercantile;;5;0;Azione Durata;Seaside;0;0;0;2;0;0</item>
+        <item>Avamposto;;5;0;Azione Durata;Seaside;0;0;0;0;0;0</item>
+        <item>Stratega;;5;0;Azione Durata;Seaside;0;0;0;0;0;0</item>
+        <item>Tesoro;;5;0;Azione;Seaside;0;1;1;1;0;0</item>
+        <item>Molo;;5;0;Azione Durata;Seaside;1;0;2;0;0;0</item>
+    </string-array>
+    
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_cornucopia">
+        <item>Borgo;;2;0;Azione;Cornucopia;0;1;1;0;0;0</item>
+        <item>Indovina;;3;0;Azione Attacco;Cornucopia;0;0;0;2;0;0</item>
+        <item>Serraglio;;3;0;Azione;Cornucopia;0;1;0;0;0;0</item>
+        <item>Villaggio Agricolo;;4;0;Azione;Cornucopia;0;2;0;0;0;0</item>
+        <item>Mercante di Cavalli;;4;0;Azione Reazione;Cornucopia;1;0;0;3;0;0</item>
+        <item>Rifacimento;;4;0;Azione;Cornucopia;0;0;0;0;0;0</item>
+        <item>Torneo;;4;0;Azione;Cornucopia;0;1;0;0;0;0</item>
+        <item>Giovane Strega;;4;0;Azione Attacco;Cornucopia;0;0;2;0;0;1</item>
+        <item>Mietitura;;5;0;Azione;Cornucopia;0;0;0;0;0;0</item>
+        <item>Cornucopia;;5;0;Tesoro;Cornucopia;0;0;0;0;0;0</item>
+        <item>Battuta di Caccia;;5;0;Azione;Cornucopia;0;1;1;0;0;0</item>
+        <item>Giullare;;5;0;Azione Attacco;Cornucopia;0;0;0;2;0;1</item>
+        <item>Mercatino;;6;0;Vittoria;Cornucopia;0;0;0;0;0;0</item>
+    </string-array>
+    
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_alchemy">
+        <item>Erborista;;3;0;Azione;Alchimia;1;0;0;1;0;0</item>
+        <item>Apprendista;;5;0;Azione;Alchimia;0;1;0;0;0;0</item>
+        <item>Trasmutazione;;0;1;Azione;Alchimia;0;0;0;0;0;0</item>
+        <item>Vigna;;0;1;Vittoria;Alchimia;0;0;0;0;0;0</item>
+        <item>Farmacista;;2;1;Azione;Alchimia;0;1;1;0;0;0</item>
+        <item>Divinazione;;2;1;Azione Attacco;Alchimia;0;1;0;0;0;0</item>
+        <item>Universit&#224;;;2;1;Azione;Alchimia;0;2;0;0;0;0</item>
+        <item>Alchimista;;3;1;Azione;Alchimia;0;1;2;0;0;0</item>
+        <item>Famiglio;;3;1;Azione Attacco;Alchimia;0;1;1;0;0;1</item>
+        <item>Pietra Filosofale;;3;1;Tesoro;Alchimia;0;0;0;0;0;0</item>
+        <item>Golem;;4;1;Azione;Alchimia;0;0;0;0;0;0</item>
+        <item>Possessione;;6;1;Azione;Alchimia;0;0;0;0;0;0</item>
+    </string-array>
+    
+</resources>

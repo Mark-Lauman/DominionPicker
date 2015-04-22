@@ -3,47 +3,46 @@
     
     <!-- These strings are used by themselves in other
          parts of the app -->
-    <string name="set_black_market">Schwarzmarkt</string>
+    <string name="set_black_market">Black Market</string>
     <string name="set_dark_ages">Dark Ages</string>
-    <string name="set_prosperity">Bl&#252;tezeit</string>
+    <string name="set_prosperity">Prosperit&#224;</string>
     
     <!-- Names of all the expansions. Order DOES matter! -->
     <string-array name="card_sets">
-        <item>Dominion</item>
+        <item>Base</item>
         <item>Adventures</item>
-        <item>Alchemisten</item>
-        <item>Basiskarte</item>
-        <item>@string/set_prosperity</item>
-        <item>Carcasonne</item>
+        <item>Alchimia</item>
+        <item>@string/set_black_market</item>
+        <item>Cornucopia</item>
         <item>@string/set_dark_ages</item>
-        <item>Geldversteck</item>
-        <item>Gesandter</item>
-		<item>Die Gilden</item>
-        <item>Gouverneur</item>
-        <item>Hinterland</item>
-        <item>Die Intrige</item>
-        <item>Prinz</item>
+        <item>Governor</item>
+        <item>Gruzzolo</item>
+        <item>Guilds</item>
+        <item>Intrigo</item>
+        <item>Inviato</item>
+        <item>Nuovi Orizzonti</item>
+		<item>Prince</item>
+        <item>@string/set_prosperity</item>
         <item>Seaside</item>
-		<item>@string/set_black_market</item>
+        <item>Walled Village</item>
     </string-array>
 
     <integer-array name="card_set_ids">
         <item>0</item>
         <item>15</item>
         <item>1</item>
+        <item>2</item>
         <item>3</item>
-        <item>11</item>
-        <item>14</item>
         <item>4</item>
-        <item>13</item>
-        <item>5</item>
-		<item>7</item>
         <item>6</item>
-        <item>8</item>
+        <item>13</item>
+        <item>7</item>
         <item>9</item>
+		<item>5</item>
+        <item>8</item>
         <item>10</item>
+        <item>11</item>
         <item>12</item>
-		<item>2</item>
+        <item>14</item>
     </integer-array>
-    
 </resources>

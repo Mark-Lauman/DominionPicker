@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_prosperity">
+        <item>Prestito;;3;0;Tesoro;Prosperit&#224;;0;0;0;0;0;0</item>
+        <item>Mercante;;3;0;Azione;Prosperit&#224;;1;0;0;0;0;0</item>
+        <item>Torre di Guardia;;3;0;Reazione;Prosperit&#224;;0;0;0;0;0;0</item>
+        <item>Vescovo;;4;0;Azione;Prosperit&#224;;0;0;0;1;1;0</item>
+        <item>Monumento;;4;0;Azione;Prosperit&#224;;0;0;0;2;1;0</item>
+        <item>Cava;;4;0;Tesoro;Prosperit&#224;;0;0;0;0;0;0</item>
+        <item>Talismano;;4;0;Tesoro;Prosperit&#224;;0;0;0;0;0;0</item>
+        <item>Cantiere;;4;0;Azione;Prosperit&#224;;1;2;1;0;0;0</item>
+        <item>Citt&#224;;;5;0;Azione;Prosperit&#224;;0;2;1;0;0;0</item>
+        <item>Contrabbando;;5;0;Tesoro;Prosperit&#224;;1;0;0;0;0;0</item>
+        <item>Contabilit&#224;;;5;0;Azione;Prosperit&#224;;0;0;0;0;0;0</item>
+        <item>Zecca;;5;0;Azione;Prosperit&#224;;0;0;0;0;0;0</item>
+        <item>Ciarlatano;;5;0;Azione Attacco;Prosperit&#224;;0;0;0;2;0;1</item>
+        <item>Tumulto;;5;0;Azione Attacco;Prosperit&#224;;0;0;3;0;0;0</item>
+        <item>Sigillo Reale;;5;0;Tesoro;Prosperit&#224;;0;0;0;0;0;0</item>
+        <item>Nascondiglio;;5;0;Azione;Prosperit&#224;;0;0;2;0;0;0</item>
+        <item>Soldo;;5;0;Tesoro;Prosperit&#224;;0;0;0;0;0;0</item>
+        <item>Scagnozzi;;6;0;Azione Attacco;Prosperit&#224;;1;0;0;2;0;0</item>
+        <item>Mercato di Lusso;;6;0;Azione;Prosperit&#224;;1;1;1;2;0;0</item>
+        <item>Mucchio;;6;0;Tesoro;Prosperit&#224;;0;0;0;0;0;0</item>
+        <item>Banca;;7;0;Tesoro;Prosperit&#224;;0;0;0;0;0;0</item>
+        <item>Ampliamento;;7;0;Azione;Prosperit&#224;;0;0;0;0;0;0</item>
+        <item>Incastonare;;7;0;Azione;Prosperit&#224;;0;0;0;0;0;0</item>
+        <item>Corte;;7;0;Azione;Prosperit&#224;;0;0;0;0;0;0</item>
+        <item>Ambulante;;8*;0;Azione;Prosperit&#224;;0;1;1;1;0;0</item>
+    </string-array>
+    
+</resources>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     
     <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
-    <string-array name="cards_guilds">
+    <string-array name="cards_guilds" tools:ignore="MissingTranslation">
         <item>Candlestick Maker;;2;0;Action;Guilds;1;1;0;0;0;0</item>
         <item>Stonemason;Overpay Functionality;2;0;Action;Guilds;0;0;0;0;0;0</item>
         <item>Doctor;Overpay Functionality;3;0;Action;Guilds;0;0;0;0;0;0</item>

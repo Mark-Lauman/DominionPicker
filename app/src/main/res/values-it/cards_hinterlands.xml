@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_hinterlands">
+        <item>Incrocio;;2;0;Azione;Nuovi Orizzonti;0;0;0;0;0;0</item>
+        <item>Duchessa;;2;0;Azione;Nuovi Orizzonti;0;0;0;2;0;0</item>
+        <item>Oro dello Stolto;;2;0;Tesoro Reazione;Nuovi Orizzonti;0;0;0;0;0;0</item>
+        <item>Sviluppo;;3;0;Azione;Nuovi Orizzonti;0;0;0;0;0;0</item>
+        <item>Oasi;;3;0;Azione;Nuovi Orizzonti;0;1;1;1;0;0</item>
+        <item>Oracolo;;3;0;Azione Attacco;Nuovi Orizzonti;0;0;2;0;0;0</item>
+        <item>Macchinazione;;3;0;Azione;Nuovi Orizzonti;0;1;1;0;0;0</item>
+        <item>Galleria;;3;0;Vittoria Reazione;Nuovi Orizzonti;0;0;0;0;0;0</item>
+        <item>Tuttofare;;4;0;Azione;Nuovi Orizzonti;0;0;0;0;0;0</item>
+        <item>Ladro Gentiluomo;;4;0;Azione Attacco;Nuovi Orizzonti;0;0;0;1;0;0</item>
+        <item>Campo Nomadi;;4;0;Azione;Nuovi Orizzonti;1;0;0;2;0;0</item>
+        <item>Via della Seta;;4;0;Vittoria;Nuovi Orizzonti;0;0;0;0;0;0</item>
+        <item>Mercante di Spezia;;4;0;Azione;Nuovi Orizzonti;0;0;0;0;0;0</item>
+        <item>Commerciante;;4;0;Azione Reazione;Nuovi Orizzonti;0;0;0;0;0;0</item>
+        <item>Forziere;;5;0;Tesoro;Nuovi Orizzonti;0;0;0;3;0;0</item>
+        <item>Cartografo;;5;0;Azione;Nuovi Orizzonti;0;1;1;0;0;0</item>
+        <item>Diplomatico;;5;0;Azione;Nuovi Orizzonti;0;0;5;0;0;0</item>
+        <item>Contrattazione;;5;0;Azione;Nuovi Orizzonti;0;0;0;2;0;0</item>
+        <item>Strada Maestra;;5;0;Azione;Nuovi Orizzonti;0;1;1;0;0;0</item>
+        <item>Infame Profitto;;5;0;Tesoro;Nuovi Orizzonti;0;0;0;1;0;1</item>
+        <item>Locanda;;5;0;Azione;Nuovi Orizzonti;0;2;2;0;0;0</item>
+        <item>Mandarino;;5;0;Azione;Nuovi Orizzonti;0;0;0;3;0;0</item>
+        <item>Margravio;;5;0;Azione Attacco;Nuovi Orizzonti;1;0;3;0;0;0</item>
+        <item>Stalla;;5;0;Azione;Nuovi Orizzonti;0;0;0;0;0;0</item>
+        <item>Villaggio di Frontiera;;6;0;Azione;Nuovi Orizzonti;0;2;1;0;0;0</item>
+        <item>Terra Coltivata;;6;0;Vittoria;Nuovi Orizzonti;0;0;0;0;0;0</item>
+    </string-array>
+    
+</resources>
