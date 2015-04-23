@@ -11,7 +11,6 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -152,10 +151,7 @@ public class FragmentPicker extends Fragment
         // Filter by set
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         filt_set = pref.getString("filt_set", "");
-        Log.d("filt_set", ""+filt_set);
-        Log.d("filt_set sets", Arrays.toString(sets));
         CharSequence[] split_set = MultiSelectPreference.mapValues(filt_set, null, sets);
-        Log.d("filt_set", ""+Arrays.toString(split_set));
         Collections.addAll(sel_args, split_set);
         for (CharSequence ignored:split_set)
             sel += "AND " + CardDb._EXP + "!=? ";
@@ -233,7 +229,6 @@ public class FragmentPicker extends Fragment
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Log.d("Card Id", "" + id);
         if(adapter != null) adapter.toggleItem(id);
     }
 

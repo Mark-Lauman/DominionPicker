@@ -56,7 +56,7 @@
         <item>@drawable/ic_set_seaside</item>
         <item>@drawable/ic_set_stash</item>
         <item>@drawable/ic_set_walled_village</item>
-        <item>@drawable/ic_set_unknown</item>
+        <item>@drawable/ic_set_adventures</item>
     </array>
     
 </resources>

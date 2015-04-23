@@ -63,6 +63,7 @@ class CardAdapter extends CursorSelAdapter
 				        R.id.card_desc, R.id.card_res_victory});
         this.setViewBinder(this);
         resources = context.getResources();
+        setSelectionColor(context.getResources().getColor(R.color.card_list_select));
 
         // Load the expansion icons if they haven't been loaded.
         if(exp_icons != null) return;

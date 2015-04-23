@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="list_activated_holo">#660099CC</color>
     <color name="actionbar_back">#63CBC4</color>
     <color name="accent">#33B5E5</color>
     <color name="nav_drawer_sel">#EDEDED</color>
+    <color name="card_list_select">#CECECE</color>
     <color name="list_div">@color/actionbar_back</color>
     <color name="list_div_txt">#99333333</color>
     <color name="back_grey">#EEEEEE</color>
