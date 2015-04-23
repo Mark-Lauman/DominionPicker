@@ -3,59 +3,50 @@
     <string name="filters">Filtri</string>
     <string name="filt_all">Togli tutto</string>
 
-    <string name="pref_filt_sets">Espansioni e promo</string>
+    <string name="filt_set">Espansioni e promo</string>
     <string-array name="filt_set">
         <item>@string/set_base</item>
-        <item>@string/set_adventures</item>
         <item>@string/set_alchemy</item>
-        <item>@string/set_black_market</item>
         <item>@string/set_cornucopia</item>
-        <item>@string/set_dark_ages</item>
-        <item>@string/set_governor</item>
-        <item>@string/set_stash</item>
-        <item>@string/set_guilds</item>
         <item>@string/set_intrigue</item>
-        <item>@string/set_envoy</item>
         <item>@string/set_hinterlands</item>
-        <item>@string/set_prince</item>
         <item>@string/set_prosperity</item>
         <item>@string/set_seaside</item>
+		<item>@string/set_stash</item>
+        <item>@string/set_envoy</item>
+		<item>@string/set_adventures</item>
+        <item>@string/set_dark_ages</item>
+        <item>@string/set_guilds</item>
+		<item>@string/set_black_market</item>
+		<item>@string/set_governor</item>
+        <item>@string/set_prince</item>
         <item>@string/set_walled_village</item>
     </string-array>
     <integer-array name="filt_set_ids">
         <item>0</item>
-        <item>15</item>
         <item>1</item>
-        <item>2</item>
         <item>3</item>
-        <item>4</item>
-        <item>6</item>
-        <item>13</item>
-        <item>7</item>
         <item>9</item>
-        <item>5</item>
         <item>8</item>
-        <item>10</item>
         <item>11</item>
         <item>12</item>
+		<item>13</item>
+        <item>5</item>
+		<item>15</item>
+        <item>4</item>
+        <item>7</item>
+		<item>2</item>
+		<item>6</item>
+        <item>10</item>
         <item>14</item>
     </integer-array>
+    <string name="filt_set_def">15,4,7,2,6,10,14</string>
 
     <string name="filt_cost">Costo della carta</string>
-    <string-array name="filt_cost">
-        <item>Pozione</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>8*</item>
-    </string-array>
+    <string name="filt_cost_def" />
 	
     <string name="filt_curse">Cursers</string>
     <string name="filt_curse_desc">Take Victory Points from other players!</string>
+    <bool name="filt_curse_def">true</bool>
 
 </resources>

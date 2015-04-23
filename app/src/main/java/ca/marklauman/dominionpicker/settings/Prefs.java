@@ -2,6 +2,7 @@ package ca.marklauman.dominionpicker.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.preference.PreferenceManager;
 
 import ca.marklauman.dominionpicker.R;
@@ -20,6 +21,10 @@ public abstract class Prefs {
     public static final String VERSION = "version";
     /** Key used to save the set filter to the preferences */
     public static final String FILT_SET = "filt_set";
+    /** Key used to save the cost filter to the preferences */
+    public static final String FILT_COST = "filt_cost";
+    /** Key used to save the curse filter to the preferences */
+    public static final String FILT_CURSE = "filt_curse";
 
 
     /** Deprecated key used to identify the version 0 preferences. */
@@ -37,7 +42,7 @@ public abstract class Prefs {
         int version = getVersion(prefs);
 
         // Set values that are not set.
-        PreferenceManager.setDefaultValues(c, R.xml.pref_filters, false);
+        setDefaultValues(c);
 
         // finish up a new preference setup
         final int cur_ver = c.getResources()
@@ -56,6 +61,21 @@ public abstract class Prefs {
         prefs.edit().putInt(VERSION, cur_ver).commit();
     }
 
+    /** Set the default preference values (current version) */
+    private static void setDefaultValues(Context c) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
+        SharedPreferences.Editor edit = prefs.edit();
+        Resources res = c.getResources();
+
+        if(!prefs.contains(FILT_SET))
+            edit.putString(FILT_SET, res.getString(R.string.filt_set_def));
+        if(!prefs.contains(FILT_COST))
+            edit.putString(FILT_COST, res.getString(R.string.filt_cost_def));
+        if(!prefs.contains(FILT_CURSE))
+            edit.putBoolean(FILT_CURSE, res.getBoolean(R.bool.filt_curse_def));
+        edit.commit();
+    }
+
 
     /** Determine which version the preferences are on.
      *  @return The preference version, or -1 for new preferences. */
@@ -68,7 +88,7 @@ public abstract class Prefs {
         if(prefs.contains("pref_version")) return 1;
         String filt = prefs.getString(FILT_SET, "");
         if(filt.contains(OLD_SEP)) return 1;
-        filt = prefs.getString("filt_cost", "");
+        filt = prefs.getString(FILT_COST, "");
         if(filt.contains(OLD_SEP)) return 1;
         // v2 does not have VERSION set.
         return prefs.getInt(VERSION, 2);
@@ -148,7 +168,7 @@ public abstract class Prefs {
         }
 
         // update costs to newest version
-        filt = prefs.getString("filt_cost", "");
+        filt = prefs.getString(FILT_COST, "");
         if(filt.contains(OLD_SEP)) {
             String newCost = "";
             if(filt.contains("Potion")) newCost += ",0";
@@ -163,7 +183,7 @@ public abstract class Prefs {
             if(filt.contains("8*")) newCost += ",9";
 
             if(newCost.length() > 1) newCost = newCost.substring(1);
-            edit.putString("filt_cost", newCost);
+            edit.putString(FILT_COST, newCost);
         }
         edit.commit();
     }

@@ -4,22 +4,22 @@
     <string name="filters">Filters</string>
     <string name="filt_all">Reject All</string>
 
-    <string name="pref_filt_sets">Card Sets</string>
+    <string name="filt_set">Card Sets</string>
     <string-array name="filt_set">
         <item>@string/set_base</item>
         <item>@string/set_adventures</item>
         <item>@string/set_alchemy</item>
-        <item>@string/set_black_market</item>
         <item>@string/set_cornucopia</item>
         <item>@string/set_dark_ages</item>
-        <item>@string/set_envoy</item>
-        <item>@string/set_governor</item>
         <item>@string/set_guilds</item>
         <item>@string/set_hinterlands</item>
         <item>@string/set_intrigue</item>
-        <item>@string/set_prince</item>
         <item>@string/set_prosperity</item>
         <item>@string/set_seaside</item>
+		<item>@string/set_black_market</item>
+	    <item>@string/set_envoy</item>
+	    <item>@string/set_governor</item>
+        <item>@string/set_prince</item>
         <item>@string/set_stash</item>
         <item>@string/set_walled_village</item>
     </string-array>
@@ -27,24 +27,25 @@
         <item>0</item>
         <item>15</item>
         <item>1</item>
-        <item>2</item>
         <item>3</item>
         <item>4</item>
-        <item>5</item>
-        <item>6</item>
         <item>7</item>
         <item>8</item>
         <item>9</item>
-        <item>10</item>
         <item>11</item>
         <item>12</item>
+		<item>2</item>
+	    <item>5</item>
+        <item>6</item>
+        <item>10</item>
         <item>13</item>
         <item>14</item>
     </integer-array>
+    <string name="filt_set_def" />
     
     <string name="filt_cost">Card Costs</string>
     <string-array name="filt_cost">
-        <item>Potion</item>
+        <item>@string/potion</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -67,8 +68,10 @@
         <item>@drawable/ic_coin_lg</item>
         <item>@drawable/ic_coin_lg</item>
     </array>
+    <string name="filt_cost_def" />
     
     <string name="filt_curse">Cursers</string>
     <string name="filt_curse_desc">Take Victory Points from other players!</string>
+    <bool name="filt_curse_def">true</bool>
     
 </resources>
