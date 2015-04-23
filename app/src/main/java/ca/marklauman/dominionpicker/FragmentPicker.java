@@ -237,7 +237,7 @@ public class FragmentPicker extends Fragment
      *  Automatically triggered when this fragment is stopped. */
     public void saveSelections(Context c) {
         if(c == null || adapter == null) return;
-        long[] selections = adapter.getSelected();
+        long[] selections = adapter.getSelectedVerify();
         StringBuilder str = new StringBuilder();
         for (long selection : selections)
             str.append(selection).append(",");

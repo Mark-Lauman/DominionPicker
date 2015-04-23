@@ -1,70 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Dominion Picker</string>
-
-    <string name="menu_open">Apri Menu</string>
-    <string name="menu_close">Chiudi Menu</string>
-
-    <string name="picker">Selettore</string>
-
-    <string name="picks">Carte scelte!</string>
-    <string name="toggle_all">Seleziona Tutto</string>
-    <string name="submit">Invia</string>
-    <string name="more">Voglio altre carte! (%1$s)</string>
-    <string name="more_k">Voglio altre carte regno! (%1$s)</string>
-    <string name="yw_no_bane">Giovane strega - No Scongiuro</string>
-    <string name="all_filt">Tutte le carte filtrate.</string>
-    
-    <string name="set">Selezione</string>
-    <string name="potion">Pozione</string>
-
-    <string name="history">Cronologia</string>
-    <string name="favorites">Preferiti</string>
-    <string name="no_hist">Le selezioni sono memorizzate qui.</string>
-    <string name="no_fav">Qui non c\'&#232; niente.</string>
-
-    <string name="change_fav">Cambia preferiti</string>
-    <string name="name_me">Dammi un nome!</string>
-    <string name="save">Salva</string>
-
-    <string name="supply_normal">Gioco normale</string>
-    <string name="supply_colonies">Usa Colonie &amp; Platino</string>
-    <string name="supply_shelters">Usa le carte "Shelter"</string>
-    <string name="young_witch_bane">Giovane strega - Scongiuro</string>
-    
-    <string name="market_title">@string/set_black_market</string>
-    <string name="market_begin">Nuovo mercato nero creato dal selettore</string>
-    <string name="market_draw">Pesca</string>
-    <string name="market_pass">Passa</string>
-    <string name="market_sold_out">Esaurito!</string>
-
-    <plurals name="format_act">
-        <item quantity="one">+%1$s Azione</item>
-        <item quantity="other">+%1$s Azioni</item>
-    </plurals>
-    <plurals name="format_buy">
-        <item quantity="one">+%1$s Acquisto</item>
-        <item quantity="other">+%1$s Acquisti</item>
-    </plurals>
-    <plurals name="format_card">
-        <item quantity="one">+%1$s Carta</item>
-        <item quantity="other">+%1$s Carte</item>
-    </plurals>
-
-    <plurals name="hist_card">
-        <item quantity="one">%d Carta</item>
-        <item quantity="other">%d Carte</item>
-    </plurals>
-    <string name="hist_normal">Gioco normale</string>
-    <string name="hist_plat">Platino</string>
-    <string name="hist_shelter">Shelter</string>
-
-    <string name="demo_card_cost">1</string>
-    <string name="demo_card_title">Il nome della carta va qui, anche se &#232; troppo lungo</string>
-    <string name="demo_card_cat">Azione Reazione</string>
-    <string name="demo_card_plus_1">+1</string>
-    <string name="demo_card_res">+1 acquisto, +1 carta, +1 azione</string>
-    <string name="demo_card_desc">La descrizione della carta va qui e nella prossima riga nel caso serva più spazio.</string>
-    <string name="demo_shuffle_name">Questo &#232; un nome di test per la selezione di carte così puoi vedere come funziona.</string>
-    <string name="demo_shuffle_desc">10 Carte | Platino | Shelter</string>
+  <string name="app_name">Selettore Carte Dominion</string>
+  
+  <string name="menu_open">Apri Menu</string>
+  <string name="menu_close">Chiudi Menu</string>
+  
+  <string name="picker">Scegli carte</string>
+  
+  <string name="picks">Carte scelte!</string>
+  <string name="toggle_all">Seleziona Tutto</string>
+  <string name="submit">Invia</string>
+  <string name="more">Seleziona altre carte! (%1$s)</string>
+  <string name="more_k">Seleziona altre carte regno! (%1$s)</string>
+  <string name="yw_no_bane">Giovane strega - No Scongiuro</string>
+  <string name="all_filt">Tutte le carte filtrate.</string>
+  
+  <string name="set">Selezione</string>
+  <string name="potion">Pozione</string>
+  
+  <string name="history">Cronologia</string>
+  <string name="favorites">Preferiti</string>
+  <string name="no_hist">Le selezioni sono memorizzate qui.</string>
+  <string name="no_fav">Qui non c\'&#232; niente.</string>
+  
+  <string name="change_fav">Cambia preferiti</string>
+  <string name="name_me">Nome selezione</string>
+  <string name="save">Salva</string>
+  
+  <string name="supply_normal">Gioco normale</string>
+  <string name="supply_colonies">Usa Colonie &amp; Platino</string>
+  <string name="supply_shelters">Usa le carte "Shelter"</string>
+  <string name="young_witch_bane">Giovane strega - Scongiuro</string>
+  
+  <string name="market_title">@string/set_black_market</string>
+  <string name="market_begin">Nuovo mercato nero creato dal selettore</string>
+  <string name="market_draw">Pesca</string>
+  <string name="market_pass">Passa</string>
+  <string name="market_sold_out">Esaurito!</string>
+  
+  <plurals name="format_act">
+    <item quantity="one">+%1$s Azione</item>
+    <item quantity="other">+%1$s Azioni</item>
+  </plurals>
+  <plurals name="format_buy">
+    <item quantity="one">+%1$s Acquisto</item>
+    <item quantity="other">+%1$s Acquisti</item>
+  </plurals>
+  <plurals name="format_card">
+    <item quantity="one">+%1$s Carta</item>
+    <item quantity="other">+%1$s Carte</item>
+  </plurals>
+  
+  <plurals name="hist_card">
+    <item quantity="one">%d Carta</item>
+    <item quantity="other">%d Carte</item>
+  </plurals>
+  <string name="hist_normal">Gioco normale</string>
+  <string name="hist_plat">Platino</string>
+  <string name="hist_shelter">Shelter</string>
+  
+  <string name="demo_card_cost">1</string>
+  <string name="demo_card_title">Il nome della carta va qui, anche se &#232; troppo lungo</string>
+  <string name="demo_card_cat">Azione Reazione</string>
+  <string name="demo_card_plus_1">+1</string>
+  <string name="demo_card_res">+1 acquisto, +1 carta, +1 azione</string>
+  <string name="demo_card_desc">La descrizione della carta va qui e nella prossima riga nel caso serva più spazio.</string>
+  <string name="demo_shuffle_name">Questo &#232; un nome di test per la selezione di carte così puoi vedere come funziona.</string>
+  <string name="demo_shuffle_desc">10 Carte | Platino | Shelter</string>
 </resources>

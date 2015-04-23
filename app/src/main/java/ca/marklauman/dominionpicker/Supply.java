@@ -21,8 +21,7 @@ public class Supply implements Parcelable {
 	public boolean high_cost;
 	/** {@code true} if shelters are in use. */
 	public boolean shelters;
-	/** The id of the bane card, or -1 if
-	 *  there isn't one.               */
+	/** The id of the bane card, or -1 if there isn't one. */
 	long bane;
 	
 
@@ -37,9 +36,9 @@ public class Supply implements Parcelable {
 	}
 	
 	
-	/** Constructor for unpacking a parcel
-	 *  into a {@code Supply} */
+	/** Constructor for unpacking a parcel into a {@code Supply} */
     private Supply(Parcel in) {
+        time = in.readLong();
     	cards = in.createLongArray();
     	boolean[] booleans = in.createBooleanArray();
     	high_cost = booleans[0];
@@ -84,6 +83,7 @@ public class Supply implements Parcelable {
      *  @param flags Parameter is ignored */
     @Override
 	public void writeToParcel(Parcel out, int flags) {
+        out.writeLong(time);
 		out.writeLongArray(cards);
 		boolean[] booleans = new boolean[] {high_cost,
 										 shelters };
