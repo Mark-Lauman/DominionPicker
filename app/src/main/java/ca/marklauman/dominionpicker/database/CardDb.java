@@ -102,6 +102,7 @@ public class CardDb extends SQLiteOpenHelper {
         addCards(db, r.getStringArray(R.array.cards_guilds));
         addCards(db, r.getStringArray(R.array.cards_hinterlands));
         addCards(db, r.getString(R.string.card_prince));
+        addCards(db, r.getStringArray(R.array.cards_adventures));
     }
 
     /** Add all the cards from a parsed resource file to the database */

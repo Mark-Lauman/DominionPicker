@@ -22,10 +22,6 @@
     <string name="favorites">Preferiti</string>
     <string name="no_hist">Le selezioni sono memorizzate qui.</string>
     <string name="no_fav">Qui non c\'&#232; niente.</string>
-    
-    <string name="filters">Filtri</string>
-    <string name="pref_filt_sets">Espansioni e promo</string>
-    <string name="filt_all">Togli tutto</string>
 
     <string name="change_fav">Cambia preferiti</string>
     <string name="name_me">Dammi un nome!</string>

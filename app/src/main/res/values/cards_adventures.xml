@@ -1,11 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="cards_adventures">
-
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string-array name="cards_adventures" tools:ignore="MissingTranslation">
+        <item>Coin of the Realm;;2;0;Treasure Reserve;Adventures;0;0;0;1;0;0</item>
+        <item>Page;;2;0;Action Traveller;Adventures;0;1;1;0;0;0</item>
+        <item>Peasant;;2;0;Action Traveller;Adventures;1;0;0;1;0;0</item>
+        <item>Ratcatcher;;2;0;Action Reserve;Adventures;0;1;1;0;0;0</item>
+        <item>Raze;;2;0;Action;Adventures;0;1;0;0;0;0</item>
+        <item>Amulet;Choose one of three options;3;0;Action Duration;Adventures;0;0;0;0;0;0</item>
+        <item>Caravan Guard;;3;0;Action Duration Reaction;Adventures;0;1;1;0;0;0</item>
+        <item>Dungeon;;3;0;Action Duration;Adventures;0;1;0;0;0;0</item>
+        <item>Gear;;3;0;Action Duration;Adventures;0;0;2;0;0;0</item>
+        <item>Guide;;3;0;Action Reserve;Adventures;0;1;1;0;0;0</item>
+        <item>Duplicate;;4;0;Action Reserve;Adventures;0;0;0;0;0;0</item>
+        <item>Magpie;;4;0;Action;Adventures;0;1;1;0;0;0</item>
+        <item>Messenger;;4;0;Action;Adventures;1;0;0;2;0;0</item>
+        <item>Miser;;4;0;Action;Adventures;0;0;0;0;0;0</item>
+        <item>Port;;4;0;Action;Adventures;0;2;1;0;0;0</item>
+        <item>Ranger;;4;0;Action;Adventures;1;0;0;0;0;0</item>
+        <item>Transmogrify;;4;0;Action Reserve;Adventures;0;1;0;0;0;0</item>
+        <item>Artificer;;5;0;Action;Adventures;0;1;1;1;0;0</item>
+        <item>Bridge Troll;;5;0;Action Attack Duration;Adventures;1;0;0;0;0;0</item>
+        <item>Distant Lands;;5;0;Action Reserve Victory;Adventures;0;0;0;0;0;0</item>
+        <item>Giant;;5;0;Action Attack;Adventures;0;0;0;0;0;0</item>
+        <item>Haunted Woods;;5;0;Action Attack Duration;Adventures;0;0;3;0;0;0</item>
+        <item>Lost City;;5;0;Action;Adventures;0;2;2;0;0;0</item>
+        <item>Relic;;5;0;Treasure Attack;Adventures;0;0;0;2;0;0</item>
+        <item>Royal Carriage;;5;0;Action Reserve;Adventures;0;1;0;0;0;0</item>
+        <item>Storyteller;;5;0;Action;Adventures;0;1;0;1;0;0</item>
+        <item>Swamp Hag;;5;0;Action Attack Duration;Adventures;0;0;0;0;0;1</item>
+        <item>Treasure Trove;;5;0;Treasure;Adventures;0;0;0;2;0;0</item>
+        <item>Wine Merchant;;5;0;Action Reserve;Adventures;1;0;0;4;0;0</item>
+        <item>Hireling;This stays in play;6;0;Action Duration;Adventures;0;0;1;0;0;0</item>
+        <item>Alms;;0;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Borrow;;0;0;Event;Adventures;1;0;0;0;0;0</item>
+        <item>Quest;Discard for gold;0;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Save;;1;0;Event;Adventures;1;0;0;0;0;0</item>
+        <item>Scouting Party;;2;0;Event;Adventures;1;0;0;0;0;0</item>
+        <item>Travelling Fair;;2;0;Event;Adventures;2;0;0;0;0;0</item>
+        <item>Bonfire;Trash up to 2 cards in play.;3;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Expedition;Draw 2 extra cards next round.;3;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Ferry;;3;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Plan;;3;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Mission;;4;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Pilgrimage;;4;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Ball;;5;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Raid;;5;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Seaway;;5;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Trade;Trash for silver;5;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Lost Arts;;6;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Training;;6;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Inheritance;;7;0;Event;Adventures;0;0;0;0;0;0</item>
+        <item>Pathfinding;;8;0;Event;Adventures;0;0;0;0;0;0</item>
     </string-array>
 
     <!-- All event card ids -->
     <integer-array name="cards_events">
-
+        <item>237</item>
+        <item>238</item>
+        <item>239</item>
+        <item>240</item>
+        <item>241</item>
+        <item>242</item>
+        <item>243</item>
+        <item>244</item>
+        <item>245</item>
+        <item>246</item>
+        <item>247</item>
+        <item>248</item>
+        <item>249</item>
+        <item>250</item>
+        <item>251</item>
+        <item>252</item>
+        <item>253</item>
+        <item>254</item>
+        <item>255</item>
+        <item>256</item>
     </integer-array>
 </resources>

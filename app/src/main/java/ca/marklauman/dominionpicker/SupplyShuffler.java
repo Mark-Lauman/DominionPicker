@@ -106,7 +106,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
              * or events are in the shuffle. */
             if (pool.size() < 1) {
                 res.putExtra(MSG_RES, RES_MORE_K);
-                res.putExtra(MSG_SHORT, pool.size() + "/" + minKingdom);
+                res.putExtra(MSG_SHORT, kingdom.size() + "/" + minKingdom);
                 return sendMsg(res);
             }
 

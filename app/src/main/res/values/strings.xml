@@ -22,10 +22,6 @@
     <string name="favorites">Favorites</string>
     <string name="no_hist">Your shuffles are stored here.</string>
     <string name="no_fav">There\'s nothing here.</string>
-    
-    <string name="filters">Filters</string>
-    <string name="pref_filt_sets">Card Sets</string>
-    <string name="filt_all">Reject All</string>
 
     <string name="change_fav">Change Favorite</string>
     <string name="name_me">Name me!</string>

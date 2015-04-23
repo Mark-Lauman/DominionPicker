@@ -22,10 +22,6 @@
     <string name="favorites">Lieblings</string>
     <string name="no_hist">Ihre Shuffles werden hier gespeichert.</string>
     <string name="no_fav">Hier ist nichts.</string>
-    
-    <string name="filters">Filter</string>
-    <string name="pref_filt_sets">Erweiterung</string>
-    <string name="filt_all">Ablehnen alle</string>
 
     <string name="change_fav">&#228;ndern Lieblings</string>
     <string name="name_me">Benennen Sie die Shuffle</string>

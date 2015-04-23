@@ -1,49 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
-    <!-- These strings are used by themselves in other
-         parts of the app -->
-    <string name="set_black_market">Schwarzmarkt</string>
-    <string name="set_dark_ages">Dark Ages</string>
-    <string name="set_prosperity">Bl&#252;tezeit</string>
-    
-    <!-- Names of all the expansions. Order DOES matter! -->
-    <string-array name="card_sets">
-        <item>Dominion</item>
-        <item>Adventures</item>
-        <item>Alchemisten</item>
-        <item>Basiskarte</item>
-        <item>@string/set_prosperity</item>
-        <item>Carcasonne</item>
-        <item>@string/set_dark_ages</item>
-        <item>Geldversteck</item>
-        <item>Gesandter</item>
-		<item>Die Gilden</item>
-        <item>Gouverneur</item>
-        <item>Hinterland</item>
-        <item>Die Intrige</item>
-        <item>Prinz</item>
-        <item>Seaside</item>
-		<item>@string/set_black_market</item>
-    </string-array>
 
-    <integer-array name="card_set_ids">
-        <item>0</item>
-        <item>15</item>
-        <item>1</item>
-        <item>3</item>
-        <item>11</item>
-        <item>14</item>
-        <item>4</item>
-        <item>13</item>
-        <item>5</item>
-		<item>7</item>
-        <item>6</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>12</item>
-		<item>2</item>
-    </integer-array>
+    <!-- Names of the expansions.  -->
+    <string name="set_base">Dominion</string>
+    <string name="set_alchemy">Alchemisten</string>
+    <string name="set_black_market">Schwarzmarkt</string>
+    <string name="set_cornucopia">Basiskarte</string>
+    <string name="set_dark_ages">Dark Ages</string>
+    <string name="set_envoy">Gesandter</string>
+    <string name="set_governor">Gouverneur</string>
+    <string name="set_guilds">Die Gilden</string>
+    <string name="set_hinterlands">Hinterland</string>
+    <string name="set_intrigue">Die Intrige</string>
+    <string name="set_prince">Prinz</string>
+    <string name="set_prosperity">Bl&#252;tezeit</string>
+    <string name="set_seaside">Seaside</string>
+    <string name="set_stash">Geldversteck</string>
+    <string name="set_walled_village">Carcasonne</string>
     
 </resources>
