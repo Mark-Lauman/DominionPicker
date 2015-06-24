@@ -87,8 +87,10 @@ public abstract class Prefs {
         // The following distinguish v1
         if(prefs.contains("pref_version")) return 1;
         String filt = prefs.getString(FILT_SET, "");
+        if(filt == null) filt = "";
         if(filt.contains(OLD_SEP)) return 1;
         filt = prefs.getString(FILT_COST, "");
+        if(filt == null) filt = "";
         if(filt.contains(OLD_SEP)) return 1;
         // v2 does not have VERSION set.
         return prefs.getInt(VERSION, 2);
@@ -146,6 +148,7 @@ public abstract class Prefs {
         edit.remove("pref_version");
 
         String filt = prefs.getString(FILT_SET, "");
+        if(filt == null) filt = "";
         if(filt.contains(OLD_SEP)) {
             String newSets = "";
             if(filt.contains("Base")) newSets += ",0";
@@ -169,6 +172,7 @@ public abstract class Prefs {
 
         // update costs to newest version
         filt = prefs.getString(FILT_COST, "");
+        if(filt == null) filt = "";
         if(filt.contains(OLD_SEP)) {
             String newCost = "";
             if(filt.contains("Potion")) newCost += ",0";
@@ -191,6 +195,7 @@ public abstract class Prefs {
     /** Updates preferences from v2 to v3. Does not detect version number. */
     private static void update2(SharedPreferences prefs) {
         String filt = prefs.getString(FILT_SET, "");
+        if(filt == null) filt = "";
         if(filt.length() < 1)
              prefs.edit().putString(FILT_SET, "15").commit();
         else prefs.edit().putString(FILT_SET, filt + ",15").commit();

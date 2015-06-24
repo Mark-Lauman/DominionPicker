@@ -1,14 +1,15 @@
 package ca.marklauman.dominionpicker;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 /** Activity used to wrap the {@link FragmentMarket} when it is invoked
  *  from inside a supply.
  *  @author Mark Lauman */
-public class ActivityMarket extends ActionBarActivity {
+public class ActivityMarket extends AppCompatActivity {
 	/** Key used to pass the supply pool to this activity (optional) */
 	public static final String PARAM_SUPPLY = FragmentMarket.PARAM_SUPPLY;
 	
@@ -19,7 +20,8 @@ public class ActivityMarket extends ActionBarActivity {
         FrameLayout swapPanel = new FrameLayout(this);
         swapPanel.setId(R.id.content_frame);
         setContentView(swapPanel);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar ab = getSupportActionBar();
+        if(ab != null) ab.setDisplayHomeAsUpEnabled(true);
 
         if(savedInstanceState != null) return;
 

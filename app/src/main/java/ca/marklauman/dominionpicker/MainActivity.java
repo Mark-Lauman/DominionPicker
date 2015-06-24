@@ -17,8 +17,8 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,7 +29,7 @@ import android.widget.Toast;
 /** Execution starts here. This activity is the hub you first see upon entering
  *  the app. Individual screens are covered by their own Fragments.
  *  @author Mark Lauman */
-public class MainActivity extends ActionBarActivity
+public class MainActivity extends AppCompatActivity
                           implements ListView.OnItemClickListener {
 
     /** Key used to save the id of the selected fragment to savedInstanceState. */
@@ -76,9 +76,11 @@ public class MainActivity extends ActionBarActivity
 
         // Display nav drawer icon on the action bar
         ActionBar bar = getSupportActionBar();
-        bar.setDisplayHomeAsUpEnabled(true);
-        bar.setHomeAsUpIndicator(R.drawable.ic_navdrawer);
-        bar.setHomeButtonEnabled(true);
+        if(bar != null) {
+            bar.setDisplayHomeAsUpEnabled(true);
+            bar.setHomeAsUpIndicator(R.drawable.ic_navdrawer);
+            bar.setHomeButtonEnabled(true);
+        }
 
         // Setup the navigation drawer
         navLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
@@ -230,7 +232,8 @@ public class MainActivity extends ActionBarActivity
         /** Called when a drawer has settled in a completely closed state. */
         public void onDrawerClosed(View view) {
             // make the current selection the active title
-            getSupportActionBar().setTitle(navNames[navAdapt.getSelection()]);
+            ActionBar ab = getSupportActionBar();
+            if(ab != null) ab.setTitle(navNames[navAdapt.getSelection()]);
             invalidateOptionsMenu();
             super.onDrawerClosed(view);
         }
@@ -238,7 +241,8 @@ public class MainActivity extends ActionBarActivity
         /** Called when a drawer has settled in a completely open state. */
         public void onDrawerOpened(View view) {
             // make the application name the active title
-            getSupportActionBar().setTitle(app_name);
+            ActionBar ab = getSupportActionBar();
+            if(ab != null) ab.setTitle(app_name);
             invalidateOptionsMenu();
             super.onDrawerOpened(view);
         }

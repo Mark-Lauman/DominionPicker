@@ -103,7 +103,9 @@ public class FragmentPicker extends Fragment
     private boolean filtChanged() {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String new_set = pref.getString("filt_set", "");
+        if(new_set == null) new_set = "";
         String new_cost = pref.getString("filt_cost", "");
+        if(new_cost == null) new_cost = "";
         boolean new_curse = pref.getBoolean("filt_curse", true);
 
         return !new_set.equals(filt_set) ||

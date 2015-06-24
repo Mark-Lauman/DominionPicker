@@ -71,7 +71,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
                     .getResources()
                     .getIntArray(R.array.cards_events);
             eventSet = new HashSet<>(eventList.length);
-            for(int e : eventList) eventSet.add(0L + e);
+            for(int e : eventList) eventSet.add((long) e);
         }
     }
 

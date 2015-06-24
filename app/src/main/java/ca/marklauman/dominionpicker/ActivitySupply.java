@@ -10,7 +10,7 @@ import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,7 +29,7 @@ import ca.marklauman.tools.QueryDialogBuilder.QueryListener;
 
 /** Activity for displaying the supply piles for a new game.
  *  @author Mark Lauman */
-public class ActivitySupply extends ActionBarActivity {
+public class ActivitySupply extends AppCompatActivity {
     /** Key used to pass the supply to this activity.
      *  Alternative to {@link #PARAM_SUPPLY_ID}. */
     public static final String PARAM_SUPPLY_OBJ = "supply";
@@ -58,7 +58,8 @@ public class ActivitySupply extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_supply);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar ab = getSupportActionBar();
+        if(ab != null) ab.setDisplayHomeAsUpEnabled(true);
         Bundle params = getIntent().getExtras();
 
         // Basic view setup
@@ -169,7 +170,8 @@ public class ActivitySupply extends ActionBarActivity {
         case R.id.action_favorite:
             // Wipe the supply name
             supply.name = null;
-            getSupportActionBar().setTitle(formatter.format(new Date(supply.time)));
+            ActionBar ab = getSupportActionBar();
+            if(ab != null) ab.setTitle(formatter.format(new Date(supply.time)));
             invalidateOptionsMenu();
 
             // Save the wipe to the database
@@ -200,7 +202,7 @@ public class ActivitySupply extends ActionBarActivity {
 
 
     /** Used by subclasses to access the activity context */
-    private ActionBarActivity getActivity() {
+    private AppCompatActivity getActivity() {
         return this;
     }
 
@@ -309,8 +311,10 @@ public class ActivitySupply extends ActionBarActivity {
 
             // Display the appropriate title
             ActionBar bar = getSupportActionBar();
-            if(s.name != null) bar.setTitle(s.name);
-            else bar.setTitle(formatter.format(new Date(s.time)));
+            if(bar != null) {
+                if (s.name != null) bar.setTitle(s.name);
+                else bar.setTitle(formatter.format(new Date(s.time)));
+            }
 
             // Finish up
             data.close();
@@ -351,7 +355,7 @@ public class ActivitySupply extends ActionBarActivity {
             // Display the new name, switch display to favorite.
             supply.name = name;
             ActionBar bar = getSupportActionBar();
-            bar.setTitle(name);
+            if(bar != null) bar.setTitle(name);
             invalidateOptionsMenu();
 
             // Save the new name to the database.

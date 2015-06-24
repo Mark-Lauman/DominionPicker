@@ -70,6 +70,7 @@ class CardAdapter extends CursorSelAdapter
         exp_icons = new HashMap<>();
         String[] sets = resources.getStringArray(R.array.card_sets);
         int[] icons = getDrawables(context, R.array.card_set_icons);
+		if(icons == null) icons = new int[0];
         int len = sets.length;
         if(icons.length < len) len = icons.length;
         for(int i = 0; i < len; i++)
