@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation" >
+
+    <!-- Nothing in this file is shown to the user.
+         It's just used for debug purposes. -->
+
+    <string name="demo_card_cost">1</string>
+    <string name="demo_card_title">Name of the card goes here, even if it overextends</string>
+    <string name="demo_card_cat">Action Reaction</string>
+    <string name="demo_card_plus_1">+1</string>
+    <string name="demo_card_res">+1 buy, +1 card, +1 action</string>
+    <string name="demo_card_desc">Description of the card goes here and on the next line if the space is really needed.</string>
+    <string name="demo_shuffle_name">This is a test name of the shuffle so you can see how it works.</string>
+    <string name="demo_shuffle_desc">10 Cards | Platinum | Shelters</string>
+
+</resources>

@@ -58,13 +58,4 @@
     <string name="hist_normal">normales Spiel</string>
     <string name="hist_plat">Platin</string>
     <string name="hist_shelter">Unterschlupf</string>
-
-    <string name="demo_card_cost">1</string>
-    <string name="demo_card_title">Namen der Karte wird hier, auch wenn sie zu lang ist</string>
-    <string name="demo_card_cat">Aktion Reaktion</string>
-    <string name="demo_card_plus_1">+1</string>
-    <string name="demo_card_res">+1 Kauf, +1 Karte, +1 Aktion</string>
-    <string name="demo_card_desc">Beschreibung der Karte geht hier und in der nächsten Zeile, wenn der Raum wirklich benötigt wird.</string>
-    <string name="demo_shuffle_name">Dies ist ein Test Name des Shuffle damit Sie sehen, wie es funktioniert.</string>
-    <string name="demo_shuffle_desc">10 Karten | Platin | Unterschlupf</string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation" >
 
     <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory -->
     <string-array name="cards_promo">
@@ -10,6 +11,6 @@
         <item>Governor;Choose 1 of 3 additional effects.;5;0;Action;Governor;0;1;0;0;0;0</item>
     </string-array>
     
-    <string name="card_prince" tools:ignore="MissingTranslation">Prince;Choose an Action card costing 4 or less. You play that card for free every turn. Set Prince aside.;8;0;Action;Prince;0;0;0;0;0;0</string>
+    <string name="card_prince">Prince;Choose an Action card costing 4 or less. You play that card for free every turn. Set Prince aside.;8;0;Action;Prince;0;0;0;0;0;0</string>
     
 </resources>

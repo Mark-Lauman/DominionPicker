@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Names;Descriptions;Cost;Potion;Category;Set;+Buy;+Action;+Card;+Gold;+Victory;Curser -->
+    <string-array name="cards_base">
+        <item>Adega;;2;0;A&#231;&#227;o;Base;0;1;0;0;0;0</item>
+        <item>Capela;;2;0;A&#231;&#227;o;Base;0;0;0;0;0;0</item>
+        <item>Fosso;;2;0;A&#231;&#227;o Rea&#231;&#227;o;Base;0;0;2;0;0;0</item>
+        <item>Chanceler;Bum chin.;3;0;A&#231;&#227;o;Base;0;0;0;2;0;0</item>
+        <item>Aldeia;;3;0;A&#231;&#227;o;Base;0;2;1;0;0;0</item>
+        <item>Lenhador;;3;0;A&#231;&#227;o;Base;1;0;0;2;0;0</item>
+        <item>Oficina;;3;0;A&#231;&#227;o;Base;0;0;0;0;0;0</item>
+        <item>Burocrata;;4;0;A&#231;&#227;o Ataque;Base;0;0;0;0;0;0</item>
+        <item>Banquete;;4;0;A&#231;&#227;o;Base;0;0;0;0;0;0</item>
+        <item>Jardins;;4;0;Vit&#243;ria;Base;0;0;0;0;0;0</item>
+        <item>Mil&#237;cia;;4;0;A&#231;&#227;o Ataque;Base;0;0;0;2;0;0</item>
+        <item>Agiota;;4;0;A&#231;&#227;o;Base;0;0;0;0;0;0</item>
+        <item>Remodelar;;4;0;A&#231;&#227;o;Base;0;0;0;0;0;0</item>
+        <item>Forja;;4;0;A&#231;&#227;o;Base;0;0;3;0;0;0</item>
+        <item>Espi&#227;o;;4;0;A&#231;&#227;o Ataque;Base;0;1;1;0;0;0</item>
+        <item>Ladr&#227;o;;4;0;A&#231;&#227;o Ataque;Base;0;0;0;0;0;0</item>
+        <item>Sala do Trono;;4;0;A&#231;&#227;o;Base;0;0;0;0;0;0</item>
+        <item>Sala do Conselho;;5;0;A&#231;&#227;o;Base;1;0;4;0;0;0</item>
+        <item>Festival;;5;0;A&#231;&#227;o;Base;1;2;0;2;0;0</item>
+        <item>Laborat&#243;rio;;5;0;A&#231;&#227;o;Base;0;1;2;0;0;0</item>
+        <item>Biblioteca;;5;0;A&#231;&#227;o;Base;0;0;0;0;0;0</item>
+        <item>Mercado;;5;0;A&#231;&#227;o;Base;1;1;1;1;0;0</item>
+        <item>Mina;;5;0;A&#231;&#227;o;Base;0;0;0;0;0;0</item>
+        <item>Bruxa;;5;0;A&#231;&#227;o Ataque;Base;0;0;2;0;0;1</item>
+        <item>Aventureiro;;6;0;A&#231;&#227;o;Base;0;0;0;0;0;0</item>
+    </string-array>
+    
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="filters">Filters</string>
+    <string name="filt_all">Nada Selecionado</string>
+
+    <string name="filt_set">Edi&#231;&#245;es</string>
+    <string name="filt_set_def">1,2,3,4,5,6,7,8,9,10,11,12,13,14,15</string>
+
+    <string name="filt_cost">Custo das Cartas</string>
+    <string name="filt_cost_def" />
+
+    <string name="filt_curse">Amaldi&#231;oadores</string>
+    <string name="filt_curse_desc">Retiram pontos de vit&#243;ria de seus oponentes</string>
+    
+</resources>
