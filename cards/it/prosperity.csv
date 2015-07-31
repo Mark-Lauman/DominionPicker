@@ -1,0 +1,26 @@
+id;Card Name;Requires;Description
+68;Prestito;;
+69;Mercante;Coin Token, Trade Mat;
+70;Torre di Guardia;;
+71;Vescovo;Victory Token;
+72;Monumento;Victory Token;
+73;Cava;;
+74;Talismano;;
+75;Cantiere;;
+76;Città;;
+77;Contrabbando;;
+78;Contabilità;;
+79;Zecca;;
+80;Ciarlatano;Curse;
+81;Tumulto;;
+82;Sigillo Reale;;
+83;Nascondiglio;;
+84;Soldo;;
+85;Scagnozzi;Victory Token;
+86;Mercato di Lusso;;
+87;Mucchio;;
+88;Banca;;
+89;Ampliamento;;
+90;Incastonare;;
+91;Corte;;
+92;Ambulante;;

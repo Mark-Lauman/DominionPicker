@@ -12,8 +12,8 @@ android {
         minSdkVersion 8
         targetSdkVersion 22
         resConfigs "en", "de", "it", "pt"
-        versionCode 17
-        versionName "1.8.1"
+        versionCode 18
+        versionName "1.9.0"
     }
 
     buildTypes {

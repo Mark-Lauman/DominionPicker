@@ -4,7 +4,6 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.UriMatcher;
-import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -26,13 +25,21 @@ public class Provider extends ContentProvider {
 
     /** Internal id for unrecognized URIs */
     private static final int ID_WTF = 0;
-    /** Internal id for the card table's URI. */
-    private static final int ID_CARD = 1;
+    /** Internal id for the cardData table's URI. */
+    private static final int ID_CARD_DATA = 1;
+    /** Internal id for the cardTrans table's URI. */
+    private static final int ID_CARD_TRANS = 2;
+    /** Internal id for the combined card table's URI. */
+    private static final int ID_CARD_ALL = 3;
     /** Internal id for the history table's URI. */
-    private static final int ID_HIST = 2;
-	
-	/** URI to access the card table. */
-	public static final Uri URI_CARDS = Uri.parse("content://ca.marklauman.dominionpicker/cards");
+    private static final int ID_HIST = 4;
+
+    /** URI to access the card data table */
+    public static final Uri URI_CARD_DATA = Uri.parse("content://ca.marklauman.dominionpicker/cardData");
+    /** URI to access the card trans table */
+    public static final Uri URI_CARD_TRANS = Uri.parse("content://ca.marklauman.dominionpicker/cardTrans");
+    /** URI to access the combination of all card tables */
+    public static final Uri URI_CARD_ALL = Uri.parse("content://ca.marklauman.dominionpicker/cardAll");
     /** URI to access the history table */
     public static final Uri URI_HIST = Uri.parse("content://ca.marklauman.dominionpicker/history");
 
@@ -51,7 +58,9 @@ public class Provider extends ContentProvider {
 	public boolean onCreate() {
         // setup the uri matcher
         matcher = new UriMatcher(ID_WTF);
-        matcher.addURI(AUTHORITY, "cards", ID_CARD);
+        matcher.addURI(AUTHORITY, "cardData", ID_CARD_DATA);
+        matcher.addURI(AUTHORITY, "cardTrans", ID_CARD_TRANS);
+        matcher.addURI(AUTHORITY, "cardAll", ID_CARD_ALL);
         matcher.addURI(AUTHORITY, "history", ID_HIST);
 
         Context c = getContext();
@@ -68,7 +77,9 @@ public class Provider extends ContentProvider {
 	@Override
 	public String getType(Uri uri) {
         switch (matcher.match(uri)) {
-            case ID_CARD: return MIME_CARD;
+            case ID_CARD_DATA:
+            case ID_CARD_TRANS:
+            case ID_CARD_ALL:   return MIME_CARD;
             case ID_HIST: return MIME_SHUFFLE;
             default:      return null;
         }
@@ -81,8 +92,17 @@ public class Provider extends ContentProvider {
         SQLiteDatabase db;
         Cursor res;
         switch(matcher.match(uri)) {
-            case ID_CARD:
-                res = card_db.query(projection, selection, selectionArgs, sortOrder);
+            case ID_CARD_DATA:
+                res = card_db.query(CardDb.TABLE_ID_DATA, projection,
+                                    selection, selectionArgs, sortOrder);
+                break;
+            case ID_CARD_TRANS:
+                res = card_db.query(CardDb.TABLE_ID_TRANS, projection,
+                                    selection, selectionArgs, sortOrder);
+                break;
+            case ID_CARD_ALL:
+                res = card_db.query(CardDb.TABLE_ID_ALL, projection,
+                                    selection, selectionArgs, sortOrder);
                 break;
             case ID_HIST:
                 db = data_db.getReadableDatabase();
@@ -95,20 +115,6 @@ public class Provider extends ContentProvider {
         res.setNotificationUri(getContext().getContentResolver(), uri);
         return res;
 	}
-
-
-    @Override
-    public void onConfigurationChanged (Configuration newConfig) {
-        String newLanguage = newConfig.locale.getLanguage();
-        if(! newLanguage.equals(card_db.language)) {
-            TYPE_EVENT = getContext().getString(R.string.card_type_event);
-            // if the language has changed, open that language's database
-            card_db.close();
-            card_db = new CardDb(getContext());
-            // Notify any listeners that their cursors are invalid
-            notifyChange(URI_CARDS);
-        }
-    }
 
 	
 	@Override
@@ -129,6 +135,15 @@ public class Provider extends ContentProvider {
                 if(row == -1L) return null;
                 notifyChange(URI_HIST);
                 return Uri.withAppendedPath(URI_HIST, "" + row);
+            case ID_CARD_TRANS:
+                if(! values.containsKey(CardDb._LANG)) return null;
+                String lang = values.getAsString(CardDb._LANG);
+                int res = CardDb.insertTrans(card_db.getWritableDatabase(),
+                                             getContext().getResources(),
+                                             lang);
+                notifyChange(URI_CARD_TRANS);
+                notifyChange(URI_CARD_ALL);
+                if(0 < res) return Uri.withAppendedPath(URI_CARD_TRANS, lang);
             default: return null;
         }
 	}

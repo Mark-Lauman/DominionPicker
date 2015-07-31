@@ -5,9 +5,11 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,6 +20,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 
@@ -39,6 +42,8 @@ public class FragmentMarket extends Fragment
     /** Key used to save current choices to savedInstanceState. */
     private static final String KEY_CHOICES = "choices";
 
+    /** The ListView used to display the cards */
+    ListView card_view;
     /** The button to show the next pick */
     private View but_draw;
     /** The list displaying the choices */
@@ -48,8 +53,9 @@ public class FragmentMarket extends Fragment
     /** The notice for when there is no stock */
     private View sold_out;
 
-    /** The stock available in the market.
-     *  Is empty if no stock is left.   */
+    /** Stores the stock of the market. (in drawing order)
+     *  If null, the stock is being retrieved.
+     *  If empty then no stock is left.    */
     private LinkedList<Long> stock;
     /** The cards the user may choose from this round.
      *  Is null if the cards have not yet been drawn. */
@@ -62,6 +68,7 @@ public class FragmentMarket extends Fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("market", "onCreate");
 
         // Default fragment state if no data is passed
         stock = null;
@@ -71,33 +78,39 @@ public class FragmentMarket extends Fragment
         // Restore to previous state, if available.
         if(savedInstanceState != null) {
             long[] arrStock = savedInstanceState.getLongArray(KEY_STOCK);
+            if(arrStock == null) return;
             stock = new LinkedList<>();
             for(long id : arrStock) stock.add(id);
             choices = savedInstanceState.getLongArray(KEY_CHOICES);
         }
-
-        // load the market stock if none has been restored
-        if(stock == null) setupMarketStock();
+        Log.d("market", "onCreate done");
     }
 
     @Override
     public final void onAttach(Activity activity) {
         super.onAttach(activity);
+        Log.d("market", "onAttach");
         /* First initialization of the loader must be called
          * early, or the loader will not function.        */
-        FragmentActivity a = (FragmentActivity) activity;
-        a.getSupportLoaderManager()
-         .initLoader(LoaderId.MARKET, null, this);
+        LoaderManager lm = ((FragmentActivity) activity).getSupportLoaderManager();
+        lm.initLoader(LoaderId.MARKET_DISP, null, this);
+        // load the market stock if none has been restored
+        if(stock == null)
+            lm.restartLoader(LoaderId.MARKET_SHUFFLE, null, this);
+        Log.d("market", "onAttach done");
     }
 
 
-    /** Called to create this fragment's view for the first time.  */
+    /** Called to create this fragment's view for the first time.
+     *  We cannot guarantee that the cards have been loaded or shuffled. */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+        Log.d("market", "onCreateView");
         FragmentActivity act = getActivity();
         View view = inflater.inflate(R.layout.fragment_market, container, false);
+        Log.d("market", "view inflated");
 
         // Get View items
         but_draw = view.findViewById(R.id.market_draw);
@@ -106,26 +119,37 @@ public class FragmentMarket extends Fragment
         but_pass.setOnClickListener(new PassListener());
         choice_panel = view.findViewById(R.id.market_choices);
         sold_out = view.findViewById(R.id.market_sold_out);
+        Log.d("market", "views retrieved");
 
         // Setup the list & adapter
-        ListView card_list = (ListView) view.findViewById(R.id.card_list);
+        card_view = (ListView) view.findViewById(R.id.card_list);
         adapter = new CardAdapter(act);
         adapter.changeCursor(loaded);
-        card_list.setAdapter(adapter);
-        card_list.setOnItemClickListener(this);
+        if(stock != null) card_view.setAdapter(adapter);
+        card_view.setOnItemClickListener(this);
+        Log.d("market", "adapter setup");
 
         updateView();
+        Log.d("market", "onCreateView done");
         return view;
     }
 
 
     /** Updates the view to reflect the current market state */
     private void updateView() {
-        // No update if the views aren't created
-        if(but_draw == null) return;
+        // No update if we don't have views or stock
+        if(but_draw == null || stock == null) {
+            Log.d("market", "updateView skipped");
+            return;
+        }
+        Log.d("market", "updateView");
 
         // Cursor changes happen first
         adapter.changeCursor(loaded);
+        Log.d("market", "cursor changed");
+
+        if(card_view.getAdapter() == null)
+            card_view.setAdapter(adapter);
 
         // If no cards have been drawn
         if(choices == null || choices.length == 0) {
@@ -156,15 +180,17 @@ public class FragmentMarket extends Fragment
                  * initLoader throws an exception. In this case, we just wait
                  * for the load to finish.                                 */
                 try { getActivity().getSupportLoaderManager()
-                                   .initLoader(LoaderId.MARKET, null, this);
+                                   .initLoader(LoaderId.MARKET_DISP, null, this);
                 } catch (Exception ignored) {}
             }
         }
+        Log.d("market", "updateView done");
     }
 
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        Log.d("market", "onSaveInstanceState");
         long[] arrStock = new long[stock.size()];
         int i = 0;
         for(long card : stock) {
@@ -174,6 +200,7 @@ public class FragmentMarket extends Fragment
         outState.putLongArray(KEY_STOCK, arrStock);
         outState.putLongArray(KEY_CHOICES, choices);
         super.onSaveInstanceState(outState);
+        Log.d("market", "onSaveInstanceState done");
     }
 
 
@@ -204,77 +231,117 @@ public class FragmentMarket extends Fragment
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        Log.d("market", "oCreateLoader " + id);
         CursorLoader c = new CursorLoader(getActivity());
-        c.setUri(Provider.URI_CARDS);
+        switch (id) {
+            case LoaderId.MARKET_SHUFFLE:
+                c.setUri(Provider.URI_CARD_DATA);
 
-        // no choices, no cards
-        if(choices == null || choices.length == 0) {
-            c.setSelection(CardDb._ID + "=?");
-            c.setSelectionArgs(new String[]{"-1"});
-            return c;
+                // load the supply (if provided)
+                Bundle fragArgs = getArguments();
+                HashSet<Long> supply = new HashSet<>();
+                long[] supply_arr = null;
+                if(fragArgs != null) supply_arr = fragArgs.getLongArray(PARAM_SUPPLY);
+                if(supply_arr != null)
+                    for(long cardID : supply_arr)
+                        supply.add(cardID);
+
+                // load the deck of available cards and eliminate supply cards.
+                Long[] deck_arr = FragmentPicker.loadSelections(getActivity());
+                ArrayList<Long> deck = new ArrayList<>();
+                if(deck_arr != null) {
+                    deck = new ArrayList<>(deck_arr.length);
+                    for (long card : deck_arr)
+                        if (card != CardDb.ID_BLACK_MARKET && !supply.contains(card))
+                            deck.add(card);
+                }
+
+                // Build the cursor loader from the deck
+                c.setProjection(new String[]{CardDb._ID});
+                String sel = "";
+                String[] selArgs = new String[deck.size()];
+                for(int i=0; i<deck.size(); i++) {
+                    sel += " OR "+CardDb._ID+"=?";
+                    selArgs[i]=""+deck.get(i);
+                }
+                sel = sel.substring(4);
+                Log.d("marketSel",""+sel);
+                Log.d("marketSelArgs", Arrays.toString(selArgs));
+                c.setSelection(sel);
+                c.setSelectionArgs(selArgs);
+                c.setSortOrder("random()");
+                Log.d("market", "oCreateLoader done");
+                return c;
+
+            case LoaderId.MARKET_DISP:
+                c.setUri(Provider.URI_CARD_ALL);
+
+                // TODO: Limit what columns are loaded to what we need
+
+                // no choices, no cards
+                if(choices == null || choices.length == 0) {
+                    c.setSelection(CardDb._ID + "=?");
+                    c.setSelectionArgs(new String[]{"-1"});
+                    Log.d("market", "oCreateLoader nothing");
+                    return c;
+                }
+
+                // Generate selection string
+                String cardSel = "";
+                for(long ignored : choices)
+                    cardSel += " OR " + CardDb._ID + "=?";
+                // remove the " OR " at the beginning
+                cardSel = cardSel.substring(4);
+                c.setSelection(cardSel);
+
+                // selection args
+                String[] strChoices = new String[choices.length];
+                for(int i=0; i<choices.length; i++)
+                    strChoices[i] = "" + choices[i];
+                c.setSelectionArgs(strChoices);
+
+                Log.d("marketSel",""+cardSel);
+                Log.d("marketSelArgs", Arrays.toString(strChoices));
+
+                updateView();
+                Log.d("market", "oCreateLoader done");
+                return c;
         }
-
-        // Generate selection string
-        String selection = "";
-        for(long ignored : choices)
-            selection += " OR " + CardDb._ID + "=?";
-        // remove the " OR " at the beginning
-        selection = selection.substring(4);
-        c.setSelection(selection);
-
-        // selection args
-        String[] strChoices = new String[choices.length];
-        for(int i=0; i<choices.length; i++)
-            strChoices[i] = "" + choices[i];
-        c.setSelectionArgs(strChoices);
-
-        updateView();
-        return c;
+        Log.d("market", "oCreateLoader done null");
+        return null;
     }
 
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        loaded = data;
-        updateView();
+        Log.d("market", "onLoadFinished "+loader.getId());
+        switch (loader.getId()) {
+            case LoaderId.MARKET_SHUFFLE:
+                stock = new LinkedList<>();
+                int _id = data.getColumnIndex(CardDb._ID);
+                data.moveToPosition(-1);
+                while(data.moveToNext()) {
+                    stock.add(data.getLong(_id));
+                }
+                data.close();
+                FragmentActivity a = getActivity();
+                if(a != null) a.getSupportLoaderManager()
+                               .restartLoader(LoaderId.MARKET_DISP, null, this);
+                break;
+            case LoaderId.MARKET_DISP:
+                loaded = data;
+                updateView();
+                break;
+        }
+        Log.d("market", "onLoadFinished done");
     }
 
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
+        if(LoaderId.MARKET_DISP != loader.getId()) return;
         loaded = null;
         updateView();
-    }
-
-    /** Grab the market stock from provided arguments. */
-    private void setupMarketStock() {
-        Bundle args = getArguments();
-
-        // load the supply (if provided)
-        HashSet<Long> supply = new HashSet<>();
-        long[] supply_arr = null;
-        if(args != null) supply_arr = args.getLongArray(PARAM_SUPPLY);
-        if(supply_arr != null)
-            for(long id : supply_arr)
-                supply.add(id);
-
-        // load the deck of available cards and eliminate supply cards.
-        Long[] deck_arr = FragmentPicker.loadSelections(getActivity());
-        ArrayList<Long> deck = new ArrayList<>();
-        if(deck_arr != null) {
-            deck = new ArrayList<>(deck_arr.length);
-            for (long card : deck_arr)
-                if (card != CardDb.ID_BLACK_MARKET && !supply.contains(card))
-                    deck.add(card);
-        }
-
-        // shuffle the deck to make the stock
-        stock = new LinkedList<>();
-        while(0 < deck.size()) {
-            int pick = (int) (Math.random() * deck.size());
-            stock.add(deck.get(pick));
-            deck.remove(pick);
-        }
     }
 
     /** Used so subclasses can access this fragment */
@@ -297,7 +364,7 @@ public class FragmentMarket extends Fragment
 
             // update the view and start loading cards
             getActivity().getSupportLoaderManager()
-                         .restartLoader(LoaderId.MARKET, null, getFragment());
+                         .restartLoader(LoaderId.MARKET_DISP, null, getFragment());
             updateView();
         }
     }

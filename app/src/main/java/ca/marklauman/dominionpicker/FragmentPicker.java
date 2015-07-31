@@ -11,6 +11,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -103,9 +104,7 @@ public class FragmentPicker extends Fragment
     private boolean filtChanged() {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String new_set = pref.getString("filt_set", "");
-        if(new_set == null) new_set = "";
         String new_cost = pref.getString("filt_cost", "");
-        if(new_cost == null) new_cost = "";
         boolean new_curse = pref.getBoolean("filt_curse", true);
 
         return !new_set.equals(filt_set) ||
@@ -143,20 +142,24 @@ public class FragmentPicker extends Fragment
 
         // Basic setup
         CursorLoader c = new CursorLoader(getActivity());
-        c.setUri(Provider.URI_CARDS);
-        String sel = "";
-        ArrayList<CharSequence> sel_args = new ArrayList<>();
+        c.setUri(Provider.URI_CARD_ALL);
         Resources res = getActivity().getResources();
         String[] sets  = res.getStringArray(R.array.card_sets);
         String[] costs = res.getStringArray(R.array.filt_cost);
+        c.setSortOrder(CardDb._SET_NAME);
+
+        // Filter by language
+        String sel = CardDb._LANG+"=?";
+        ArrayList<CharSequence> sel_args = new ArrayList<>();
+        sel_args.add(MainActivity.language);
 
         // Filter by set
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         filt_set = pref.getString("filt_set", "");
-        CharSequence[] split_set = MultiSelectPreference.mapValues(filt_set, null, sets);
+        String[] split_set = filt_set.split(",");
         Collections.addAll(sel_args, split_set);
         for (CharSequence ignored:split_set)
-            sel += "AND " + CardDb._EXP + "!=? ";
+            sel += " AND " + CardDb._SET_ID + "!=? ";
 
         // Filter by cost
         filt_cost = pref.getString("filt_cost", "");
@@ -164,24 +167,21 @@ public class FragmentPicker extends Fragment
                         MultiSelectPreference.mapValues(filt_cost, null, costs)));
         String potion = getResources().getStringArray(R.array.filt_cost)[0];
         if(0 < split_cost.size() && potion.equals(split_cost.get(0))) {
-            sel += "AND " + CardDb._POTION + "=? ";
+            sel += " AND " + CardDb._POT + "=?";
             sel_args.add("0");
             split_cost.remove(0);
         }
         for(CharSequence s : split_cost)
             sel_args.add(s);
         for(int i=0; i<split_cost.size(); i++)
-            sel += "AND " + CardDb._COST + "!=? ";
+            sel += " AND " + CardDb._COST + "!=?";
 
-        // Filter out cursors
+        // Filter out cursers
         filt_curse = pref.getBoolean("filt_curse", true);
         if(!filt_curse) {
-            sel += "AND " + CardDb._CURSER + "=? ";
+            sel += " AND " + CardDb._META_CURSER + "=?";
             sel_args.add("0");
         }
-
-        if(sel_args.size() != 0)
-            sel = sel.substring(4);
 
         c.setSelection(sel);
         String[] sel_args_final = new String[sel_args.size()];
@@ -238,8 +238,10 @@ public class FragmentPicker extends Fragment
     /** Save currently selected items to the preferences.
      *  Automatically triggered when this fragment is stopped. */
     public void saveSelections(Context c) {
+        Log.d("picker", "saveSelections");
         if(c == null || adapter == null) return;
         long[] selections = adapter.getSelectedVerify();
+        Log.d("picker", "got selections");
         StringBuilder str = new StringBuilder();
         for (long selection : selections)
             str.append(selection).append(",");
@@ -247,6 +249,7 @@ public class FragmentPicker extends Fragment
                          .edit()
                          .putString(Prefs.SELECTIONS, str.toString())
                          .commit();
+        Log.d("picker", "saveSelections done");
     }
 
 

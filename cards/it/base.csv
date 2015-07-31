@@ -1,0 +1,26 @@
+id;Card Name;Requires;Description
+6;Sotterraneo;;
+7;Cappella;;
+8;Fossato;;
+9;Cancelliere;;
+10;Villaggio;;
+11;Taglialegna;;
+12;Officina;;
+13;Burocrate;;
+14;Banchetto;;
+15;Giardini;;
+16;Milizia;;
+17;Usuraio;;
+18;Miglioria;;
+19;Fucina;;
+20;Spia;;
+21;Ladro;;
+22;Sala del Trono;;
+23;Sala del Consiglio;;
+24;Fiera;;
+25;Laboratorio;;
+26;Biblioteca;;
+27;Mercato;;
+28;Miniera;;
+29;Strega;Curse;
+30;Esploratore;;

@@ -1,11 +1,14 @@
 package ca.marklauman.dominionpicker;
 
+import ca.marklauman.dominionpicker.database.CardDb;
+import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.settings.ActivityFilters;
 import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.ExpandedArrayAdapter;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -37,6 +40,8 @@ public class MainActivity extends AppCompatActivity
 
     /** Used by external threads to access the context */
     private static Context staticContext;
+    /** The language that the app is operating under. */
+    public static String language;
 
     /** The name of the app */
     private String app_name;
@@ -62,6 +67,7 @@ public class MainActivity extends AppCompatActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         staticContext = getApplicationContext();
+        language = getResources().getConfiguration().locale.getLanguage();
         shuffler = new ShuffleManager();
 		setContentView(R.layout.activity_main);
         navLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -69,6 +75,11 @@ public class MainActivity extends AppCompatActivity
 		
 		// Setup default preferences
         Prefs.setup(this);
+
+        // Setup the database with the current language
+        ContentValues values = new ContentValues(1);
+        values.put(CardDb._LANG, language);
+        staticContext.getContentResolver().insert(Provider.URI_CARD_TRANS, values);
 
         // Get the strings for the nav drawer
         app_name = getString(R.string.app_name);

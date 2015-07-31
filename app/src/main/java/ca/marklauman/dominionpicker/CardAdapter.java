@@ -22,7 +22,7 @@ class CardAdapter extends CursorSelAdapter
 						 			ViewBinder {
 	
 	/** Maps expansion names to expansion icons */
-	private static HashMap<String, Integer> exp_icons = null;
+	private static int[] exp_icons = null;
 
     /** Resources used to format strings */
     private final Resources resources;
@@ -31,19 +31,19 @@ class CardAdapter extends CursorSelAdapter
 	private int col_desc = -1;
 	/** Index of the {@link CardDb#_COST} column. */
 	private int col_cost = -1;
-	/** Index of the {@link CardDb#_POTION} column. */
+	/** Index of the {@link CardDb#_POT} column. */
 	private int col_potion = -1;
-	/** Index of the {@link CardDb#_EXP} column. */
-	private int col_expansion = -1;
-	/** Index of the {@link CardDb#_GOLD} column. */
+	/** Index of the {@link CardDb#_SET_ID} column. */
+	private int col_set = -1;
+	/** Index of the {@link CardDb#_COIN} column. */
 	private int col_gold = -1;
 	/** Index of the {@link CardDb#_VICTORY} column. */
 	private int col_victory = -1;
 	/** Index of the {@link CardDb#_BUY} column. */
 	private int col_buy = -1;
-	/** Index of the {@link CardDb#_DRAW} column. */
+	/** Index of the {@link CardDb#_CARD} column. */
 	private int col_draw = -1;
-	/** Index of the {@link CardDb#_ACTION} column. */
+	/** Index of the {@link CardDb#_ACT} column. */
 	private int col_act = -1;
 	/** Index of the {@link CardDb#_ID} column. */
 	private int col_id = -1;
@@ -55,26 +55,19 @@ class CardAdapter extends CursorSelAdapter
 	
 	public CardAdapter(Context context) {
 		super(context, R.layout.list_item_card,
-			  new String[]{CardDb._ID, CardDb._NAME, CardDb._COST, CardDb._POTION,
-						   CardDb._EXP, CardDb._CATEGORY, CardDb._GOLD, CardDb._BUY,
+			  new String[]{CardDb._ID, CardDb._NAME, CardDb._COST, CardDb._POT,
+						   CardDb._SET_ID, CardDb._TYPE, CardDb._COIN, CardDb._BUY,
 						   CardDb._DESC, CardDb._VICTORY},
-			  new int[]{R.id.card_special, R.id.card_title, R.id.card_cost, R.id.card_potion,
-				        R.id.card_set, R.id.card_cat, R.id.card_res_gold, R.id.card_res,
+			  new int[]{R.id.card_special, R.id.card_name, R.id.card_cost, R.id.card_potion,
+				        R.id.card_set, R.id.card_type, R.id.card_res_gold, R.id.card_res,
 				        R.id.card_desc, R.id.card_res_victory});
         this.setViewBinder(this);
         resources = context.getResources();
         setSelectionColor(context.getResources().getColor(R.color.card_list_select));
 
         // Load the expansion icons if they haven't been loaded.
-        if(exp_icons != null) return;
-        exp_icons = new HashMap<>();
-        String[] sets = resources.getStringArray(R.array.card_sets);
-        int[] icons = getDrawables(context, R.array.card_set_icons);
-		if(icons == null) icons = new int[0];
-        int len = sets.length;
-        if(icons.length < len) len = icons.length;
-        for(int i = 0; i < len; i++)
-            exp_icons.put(sets[i], icons[i]);
+        if(exp_icons == null)
+			exp_icons = getDrawables(context, R.array.card_set_icons);
 	}
 	
 	
@@ -84,13 +77,13 @@ class CardAdapter extends CursorSelAdapter
 		if(cursor == null) return;
 		// get the columns from the cursor
 		col_cost = cursor.getColumnIndex(CardDb._COST);
-		col_potion = cursor.getColumnIndex(CardDb._POTION);
-		col_expansion = cursor.getColumnIndex(CardDb._EXP);
-		col_gold = cursor.getColumnIndex(CardDb._GOLD);
+		col_potion = cursor.getColumnIndex(CardDb._POT);
+		col_set = cursor.getColumnIndex(CardDb._SET_ID);
+		col_gold = cursor.getColumnIndex(CardDb._COIN);
 		col_victory = cursor.getColumnIndex(CardDb._VICTORY);
 		col_buy = cursor.getColumnIndex(CardDb._BUY);
-		col_draw = cursor.getColumnIndex(CardDb._DRAW);
-		col_act = cursor.getColumnIndex(CardDb._ACTION);
+		col_draw = cursor.getColumnIndex(CardDb._CARD);
+		col_act = cursor.getColumnIndex(CardDb._ACT);
 		col_desc = cursor.getColumnIndex(CardDb._DESC);
 		col_id = cursor.getColumnIndex(CardDb._ID);
         col_name = cursor.getColumnIndex(CardDb._NAME);
@@ -129,12 +122,12 @@ class CardAdapter extends CursorSelAdapter
 			return true;
 
         // map expansion to icon
-		} else if(col_expansion == columnIndex) {
-			String val = cursor.getString(col_expansion);
+		} else if(col_set == columnIndex) {
 			ImageView v = (ImageView) view;
-			v.setContentDescription(val);
-			Integer icon_id = exp_icons.get(val);
-			if(icon_id == null) icon_id = R.drawable.ic_set_unknown;
+			int icon_id = 0;
+			try{ icon_id = exp_icons[cursor.getInt(col_set)];
+			} catch(Exception ignored){}
+			if(icon_id == 0) icon_id = R.drawable.ic_set_unknown;
 			v.setImageResource(icon_id);
 			return true;
 
@@ -161,7 +154,8 @@ class CardAdapter extends CursorSelAdapter
 
         // Basic string mapping with hide on ""
 		} else if(col_desc == columnIndex) {
-			if("".equals(cursor.getString(columnIndex)))
+            String desc = cursor.getString(columnIndex);
+			if(desc == null || desc.length() < 1)
 				view.setVisibility(View.GONE);
             else view.setVisibility(View.VISIBLE);
 			return false;

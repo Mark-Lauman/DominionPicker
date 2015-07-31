@@ -216,19 +216,23 @@ public class ActivitySupply extends AppCompatActivity {
 
             // Basic loader
             CursorLoader c = new CursorLoader(getActivity());
-            c.setUri(Provider.URI_CARDS);
+            c.setUri(Provider.URI_CARD_ALL);
+            // TODO: Limit what columns are loaded to what we need
 
             // Selection string (sql WHERE clause)
-            String sel = "";
+            String cards = "";
             for(long ignored : supply.cards)
-                sel += " OR " + CardDb._ID + "=?";
-            sel = sel.substring(4);
-            c.setSelection(sel);
+                cards += " OR " + CardDb._ID + "=?";
+            cards = cards.substring(4);
+            c.setSelection("("+CardDb._LANG+"=? OR "
+                              +CardDb._LANG+"=NULL) AND ("
+                              +cards+")");
 
-            // Selection arguments (the numbers)
-            String[] selArgs = new String[supply.cards.length];
+            // Selection arguments (the numbers and language)
+            String[] selArgs = new String[supply.cards.length+1];
+            selArgs[0] = MainActivity.language;
             for(int i=0; i<supply.cards.length; i++)
-                selArgs[i] = "" + supply.cards[i];
+                selArgs[i+1] = "" + supply.cards[i];
             c.setSelectionArgs(selArgs);
 
             return c;

@@ -1,0 +1,14 @@
+;;;;;;;;;;Card Type;;;;;;;;;;;Meta Type
+id;Card Name;Set ID;Cost;Potion;+Buy;+Action;+Card;+Coin;+Victory;Action;Reaction;Treasure;Attack;Victory;Duration;Looter;Knight;Reserve;Traveller;Event;Curser
+31;Herbalist;1;3;0;1;0;0;1;0;1;0;0;0;0;0;0;0;0;0;0;0
+32;Apprentice;1;5;0;0;1;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0
+33;Transmute;1;0;1;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0
+34;Vineyard;1;0;1;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0
+35;Apothecary;1;2;1;0;1;1;0;0;1;0;0;0;0;0;0;0;0;0;0;0
+36;Scrying Pool;1;2;1;0;1;0;0;0;1;0;0;1;0;0;0;0;0;0;0;0
+37;University;1;2;1;0;2;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0
+38;Alchemist;1;3;1;0;1;2;0;0;1;0;0;0;0;0;0;0;0;0;0;0
+39;Familiar;1;3;1;0;1;1;0;0;1;0;0;1;0;0;0;0;0;0;0;1
+40;Philosopher's Stone;1;3;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0
+41;Golem;1;4;1;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0
+42;Possession;1;6;1;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0
