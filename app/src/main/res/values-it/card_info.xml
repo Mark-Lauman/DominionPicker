@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Names of the expansions. -->
+    <string name="set_base">Base</string>
+    <string name="set_alchemy">Alchimia</string>
+    <string name="set_cornucopia">Cornucopia</string>
+    <string name="set_envoy">Inviato</string>
+    <string name="set_hinterlands">Nuovi Orizzonti</string>
+    <string name="set_intrigue">Intrigo</string>
+    <string name="set_prosperity">Prosperit&#224;</string>
+    <string name="set_seaside">Seaside</string>
+    <string name="set_stash">Gruzzolo</string>
+
+    <!-- Default translation to use for each set. The order is the same as card_sets. -->
+    <string-array name="def_trans">
+        <item>it</item>
+        <item>it</item>
+        <item>en</item>
+        <item>it</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>it</item>
+        <item>it</item>
+        <item>en</item>
+        <item>it</item>
+        <item>it</item>
+        <item>it</item>
+        <item>en</item>
+        <item>en</item>
+    </string-array>
+
+</resources>

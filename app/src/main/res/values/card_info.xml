@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingTranslation">
-    
-    <!-- Names of the expansions.  -->
+<resources>
+
+    <!-- This file contains card info needed by the app to function.
+         It does not populate the database, but should reflect it. -->
+
+    <!-- Names of the expansions. -->
     <string name="set_base">Base</string>
     <string name="set_alchemy">Alchemy</string>
     <string name="set_black_market">Black Market</string>
@@ -20,7 +22,7 @@
     <string name="set_walled_village">Walled Village</string>
     <string name="set_adventures">Adventures</string>
 
-    <!-- Expansion names sorted by id (used by CardAdapter) -->
+    <!-- Expansion names sorted by id (used for card_set_icons' alt text) -->
     <string-array name="card_sets">
         <item>@string/set_base</item>
         <item>@string/set_alchemy</item>
@@ -39,7 +41,7 @@
         <item>@string/set_walled_village</item>
         <item>@string/set_adventures</item>
     </string-array>
-    
+
     <!-- Icons for each expansion, sorted by id -->
     <array name="card_set_icons">
         <item>@drawable/ic_set_base</item>
@@ -59,5 +61,26 @@
         <item>@drawable/ic_set_walled_village</item>
         <item>@drawable/ic_set_adventures</item>
     </array>
-    
+
+
+    <!-- Default translation to use for each set. The order is the same as card_sets. -->
+    <string-array name="def_trans">
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+    </string-array>
+
 </resources>

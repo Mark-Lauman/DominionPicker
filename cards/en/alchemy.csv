@@ -1,13 +1,13 @@
-id;Card Name;Requires;Description
-31;Herbalist;;
-32;Apprentice;;
-33;Transmute;;
-34;Vineyard;;
-35;Apothecary;;
-36;Scrying Pool;;
-37;University;;
-38;Alchemist;;
-39;Familiar;Curse;
-40;Philosopher's Stone;;
-41;Golem;;
-42;Possession;;
+id;Set;Name;Type;Requires;Description
+31;Alchemy;Herbalist;Action;;
+32;Alchemy;Apprentice;Action;;
+33;Alchemy;Transmute;Action;;
+34;Alchemy;Vineyard;Victory;;
+35;Alchemy;Apothecary;Action;;
+36;Alchemy;Scrying Pool;Action Attack;;
+37;Alchemy;University;Action;;
+38;Alchemy;Alchemist;Action;;
+39;Alchemy;Familiar;Action Attack;Curse;
+40;Alchemy;Philosopher's Stone;Treasure;;
+41;Alchemy;Golem;Action;;
+42;Alchemy;Possession;Action;;

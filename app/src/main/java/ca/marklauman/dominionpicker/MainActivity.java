@@ -22,12 +22,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.HashMap;
 
 /** Execution starts here. This activity is the hub you first see upon entering
  *  the app. Individual screens are covered by their own Fragments.
@@ -67,7 +70,8 @@ public class MainActivity extends AppCompatActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         staticContext = getApplicationContext();
-        language = getResources().getConfiguration().locale.getLanguage();
+        language = getLanguage();
+        Log.d("DPlanguage", language);
         shuffler = new ShuffleManager();
 		setContentView(R.layout.activity_main);
         navLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -75,11 +79,6 @@ public class MainActivity extends AppCompatActivity
 		
 		// Setup default preferences
         Prefs.setup(this);
-
-        // Setup the database with the current language
-        ContentValues values = new ContentValues(1);
-        values.put(CardDb._LANG, language);
-        staticContext.getContentResolver().insert(Provider.URI_CARD_TRANS, values);
 
         // Get the strings for the nav drawer
         app_name = getString(R.string.app_name);
@@ -327,5 +326,30 @@ public class MainActivity extends AppCompatActivity
                                  .unregisterReceiver(this);
             cancelShuffle();
         }
+    }
+
+    /** Loads the current languages for each card set */
+    private String getLanguage() {
+        // Load the default translation
+        String[] trans = getResources().getStringArray(R.array.def_trans);
+        // TODO: Override default translation with settings.
+        // Group the sets together by language
+        HashMap<String, String> map = new HashMap<>();
+        String language;
+        for(int set=0; set<trans.length; set++) {
+            language = trans[set];
+            if(!map.containsKey(language))
+                map.put(language, "");
+            map.put(language, map.get(language) + " OR " + CardDb._SET_ID + "=" + set);
+        }
+        // Turn the translation into an SQL "WHERE" clause
+        // Cards with null language are user defined, and load regardless of language.
+        language = CardDb._LANG + "=NULL";
+        for(String key : map.keySet()) {
+            language += " OR " + CardDb._LANG + "='" + key
+                               + "' AND (" + map.get(key).substring(4) + ")";
+        }
+        // Surround the language selector with brackets to prevent logic leaks.
+        return "(" + language + ")";
     }
 }

@@ -7,6 +7,9 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.util.Log;
+
+import java.io.File;
 
 import ca.marklauman.dominionpicker.R;
 
@@ -43,9 +46,6 @@ public class Provider extends ContentProvider {
     /** URI to access the history table */
     public static final Uri URI_HIST = Uri.parse("content://ca.marklauman.dominionpicker/history");
 
-    /** Card type used for Event cards */
-    public static String TYPE_EVENT;
-
     /** Used to match URIs to tables. */
     UriMatcher matcher;
     /** Handle to the card database. */
@@ -63,10 +63,25 @@ public class Provider extends ContentProvider {
         matcher.addURI(AUTHORITY, "cardAll", ID_CARD_ALL);
         matcher.addURI(AUTHORITY, "history", ID_HIST);
 
+
+        // Remove old database files.
         Context c = getContext();
-        TYPE_EVENT = c.getString(R.string.card_type_event);
-        // remove the generic db used in db versions < 9
-        c.deleteDatabase("cards.db");
+        File[] dbListing = c.getDatabasePath(CardDb.FILE_NAME)
+                            .getParentFile()
+                            .listFiles();
+        String name;
+        if(dbListing != null) {
+            for (File db : dbListing) {
+                name = db.getName();
+                Log.d("database", "" + name);
+                if (!(CardDb.FILE_NAME.equals(name) || DataDb.FILE_NAME.equals(name))) {
+                    Log.d("database", "deleted");
+                    //noinspection ResultOfMethodCallIgnored
+                    db.delete();
+                }
+            }
+        }
+
         // get the database files
 		card_db = new CardDb(c);
         data_db = new DataDb(c);
@@ -84,7 +99,7 @@ public class Provider extends ContentProvider {
             default:      return null;
         }
 	}
-	
+
 	@Override
 	public Cursor query(Uri uri, String[] projection,
 				String selection, String[] selectionArgs,
@@ -93,15 +108,15 @@ public class Provider extends ContentProvider {
         Cursor res;
         switch(matcher.match(uri)) {
             case ID_CARD_DATA:
-                res = card_db.query(CardDb.TABLE_ID_DATA, projection,
+                res = card_db.query(CardDb.TABLE_DATA, projection,
                                     selection, selectionArgs, sortOrder);
                 break;
             case ID_CARD_TRANS:
-                res = card_db.query(CardDb.TABLE_ID_TRANS, projection,
+                res = card_db.query(CardDb.TABLE_TRANS, projection,
                                     selection, selectionArgs, sortOrder);
                 break;
             case ID_CARD_ALL:
-                res = card_db.query(CardDb.TABLE_ID_ALL, projection,
+                res = card_db.query(CardDb.VIEW_ALL, projection,
                                     selection, selectionArgs, sortOrder);
                 break;
             case ID_HIST:
@@ -135,15 +150,6 @@ public class Provider extends ContentProvider {
                 if(row == -1L) return null;
                 notifyChange(URI_HIST);
                 return Uri.withAppendedPath(URI_HIST, "" + row);
-            case ID_CARD_TRANS:
-                if(! values.containsKey(CardDb._LANG)) return null;
-                String lang = values.getAsString(CardDb._LANG);
-                int res = CardDb.insertTrans(card_db.getWritableDatabase(),
-                                             getContext().getResources(),
-                                             lang);
-                notifyChange(URI_CARD_TRANS);
-                notifyChange(URI_CARD_ALL);
-                if(0 < res) return Uri.withAppendedPath(URI_CARD_TRANS, lang);
             default: return null;
         }
 	}

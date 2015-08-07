@@ -1,14 +1,14 @@
-id;Card Name;Requires;Description
-154;Weiler;;
-155;Wahrsagerin;;
-156;Menagerie;;
-157;Bauerndorf;;
-158;Pferdehändler;;
-159;Nachbau;;
-160;Turnier;Die Preise, Fluch;
-161;Junge Hexe;Fluch;
-162;Ernte;;
-163;Füllhorn;;
-164;Treibjagd;;
-165;Harlekin;Fluch;
-166;Festplatz;;
+id;Set;Name;Type;Requires;Description
+154;Basiskarte;Weiler;Aktion;;
+155;Basiskarte;Wahrsagerin;Aktion Angriff;;
+156;Basiskarte;Menagerie;Aktion;;
+157;Basiskarte;Bauerndorf;Aktion;;
+158;Basiskarte;Pferdehändler;Aktion Reaktion;;
+159;Basiskarte;Nachbau;Aktion;;
+160;Basiskarte;Turnier;Aktion;Die Preise, Fluch;
+161;Basiskarte;Junge Hexe;Aktion Angriff;Fluch;
+162;Basiskarte;Ernte;Aktion;;
+163;Basiskarte;Füllhorn;Geld;;
+164;Basiskarte;Treibjagd;Aktion;;
+165;Basiskarte;Harlekin;Aktion Angriff;Fluch;
+166;Basiskarte;Festplatz;Punkte;;

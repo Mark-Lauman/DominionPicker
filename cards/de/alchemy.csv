@@ -1,13 +1,13 @@
-id;Card Name;Requires;Description
-31;Kräuterkundiger;;
-32;Lehrling;;
-33;Verwandlung;;
-34;Weinberg;;
-35;Apotheker;;
-36;Vision;;
-37;Universität;;
-38;Alchemist;;
-39;Vertrauter;Fluch;
-40;Stein der Weisen;;
-41;Golem;;
-42;Besessenheit;;
+id;Set;Name;Type;Requires;Description
+31;Alchemisten;Kräuterkundiger;Aktion;;
+32;Alchemisten;Lehrling;Aktion;;
+33;Alchemisten;Verwandlung;Aktion;;
+34;Alchemisten;Weinberg;Punkte;;
+35;Alchemisten;Apotheker;Aktion;;
+36;Alchemisten;Vision;Aktion Angriff;;
+37;Alchemisten;Universität;Aktion;;
+38;Alchemisten;Alchemist;Aktion;;
+39;Alchemisten;Vertrauter;Aktion Angriff;Fluch;
+40;Alchemisten;Stein der Weisen;Geld;;
+41;Alchemisten;Golem;Aktion;;
+42;Alchemisten;Besessenheit;Aktion;;

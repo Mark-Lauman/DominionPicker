@@ -1,7 +1,7 @@
-id;Card Name;Requires;Description
-1;Schwarzmarkt;;
-2;Geldversteck;;
-3;Gesandter;;
-4;Carcasonne;;
-5;Gouverneur;;
-206;Prinz;;
+id;Set;Name;Type;Requires;Description
+1;Schwarzmarkt;Schwarzmarkt;Aktion;;
+2;Geldversteck;Geldversteck;Geld;;
+3;Gesandter;Gesandter;Aktion;;
+4;Carcasonne;Carcasonne;Aktion;;
+5;Gouverneur;Gouverneur;Aktion;;
+206;Prinz;Prinz;Aktion;;

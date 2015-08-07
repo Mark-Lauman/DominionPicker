@@ -11,6 +11,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -224,15 +225,13 @@ public class ActivitySupply extends AppCompatActivity {
             for(long ignored : supply.cards)
                 cards += " OR " + CardDb._ID + "=?";
             cards = cards.substring(4);
-            c.setSelection("("+CardDb._LANG+"=? OR "
-                              +CardDb._LANG+"=NULL) AND ("
-                              +cards+")");
+            Log.d("selection", MainActivity.language + " AND (" + cards + ")");
+            c.setSelection(MainActivity.language+" AND ("+cards+")");
 
             // Selection arguments (the numbers and language)
-            String[] selArgs = new String[supply.cards.length+1];
-            selArgs[0] = MainActivity.language;
+            String[] selArgs = new String[supply.cards.length];
             for(int i=0; i<supply.cards.length; i++)
-                selArgs[i+1] = "" + supply.cards[i];
+                selArgs[i] = "" + supply.cards[i];
             c.setSelectionArgs(selArgs);
 
             return c;

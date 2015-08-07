@@ -144,14 +144,12 @@ public class FragmentPicker extends Fragment
         CursorLoader c = new CursorLoader(getActivity());
         c.setUri(Provider.URI_CARD_ALL);
         Resources res = getActivity().getResources();
-        String[] sets  = res.getStringArray(R.array.card_sets);
         String[] costs = res.getStringArray(R.array.filt_cost);
         c.setSortOrder(CardDb._SET_NAME);
 
         // Filter by language
-        String sel = CardDb._LANG+"=?";
+        String sel = MainActivity.language;
         ArrayList<CharSequence> sel_args = new ArrayList<>();
-        sel_args.add(MainActivity.language);
 
         // Filter by set
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());

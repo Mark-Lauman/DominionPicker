@@ -11,7 +11,8 @@ import ca.marklauman.dominionpicker.R;
  *  Cards are referenced by id so they can update with language changes.
  *  @author Mark Lauman */
 public class DataDb extends SQLiteOpenHelper {
-
+    /** The file that the database is stored in. */
+    static final String FILE_NAME = "data.db";
     /** The internal name of the history table, which stores
      *  all shuffles by the user.                         */
     public static final String TABLE_HISTORY = "history";
@@ -43,7 +44,7 @@ public class DataDb extends SQLiteOpenHelper {
 
 
     public DataDb(Context c) {
-        super(c, "data.db", null, c.getResources().getInteger(R.integer.db_version));
+        super(c, FILE_NAME, null, c.getResources().getInteger(R.integer.db_version));
     }
 
 

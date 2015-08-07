@@ -292,7 +292,7 @@ public class FragmentMarket extends Fragment
                     cardSel += " OR " + CardDb._ID + "=?";
                 // remove the " OR " at the beginning
                 cardSel = cardSel.substring(4);
-                c.setSelection(cardSel);
+                c.setSelection(MainActivity.language+" AND ("+cardSel+")");
 
                 // selection args
                 String[] strChoices = new String[choices.length];

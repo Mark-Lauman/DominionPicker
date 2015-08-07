@@ -1,14 +1,14 @@
-id;Card Name;Requires;Description
-167;Leuchtenmacher;Münzechip;
-168;Steinmetz;;
-169;Arzt;;
-170;Meisterstück;;
-171;Berater;;
-172;Platz;Münzechip;
-173;Steuereintreiber;;
-174;Herold;;
-175;Bäcker;Münzechip;
-176;Metzger;Münzechip;
-177;Wandergeselle;;
-178;Kaufmannsgilde;Münzechip;
-179;Wahrsager;Fluch;
+id;Set;Name;Type;Requires;Description
+167;Die Gilden;Leuchtenmacher;Aktion;Münzechip;
+168;Die Gilden;Steinmetz;Aktion;;
+169;Die Gilden;Arzt;Aktion;;
+170;Die Gilden;Meisterstück;Geld;;
+171;Die Gilden;Berater;Aktion;;
+172;Die Gilden;Platz;Aktion;Münzechip;
+173;Die Gilden;Steuereintreiber;Aktion Angriff;;
+174;Die Gilden;Herold;Aktion;;
+175;Die Gilden;Bäcker;Aktion;Münzechip;
+176;Die Gilden;Metzger;Aktion;Münzechip;
+177;Die Gilden;Wandergeselle;Aktion;;
+178;Die Gilden;Kaufmannsgilde;Aktion;Münzechip;
+179;Die Gilden;Wahrsager;Aktion Angriff;Fluch;

@@ -1,14 +1,14 @@
-id;Card Name;Requires;Description
-167;Candlestick Maker;Coin Token;
-168;Stonemason;;Overpay Functionality
-169;Doctor;;Overpay Functionality
-170;Masterpiece;;Overpay Functionality
-171;Advisor;;
-172;Plaza;Coin Token;
-173;Taxman;;
-174;Herald;;Overpay Functionality
-175;Baker;Coin Token;
-176;Butcher;Coin Token;
-177;Journeyman;;
-178;Merchant Guild;Coin Token;
-179;Soothsayer;Curse;
+id;Set;Name;Type;Requires;Description
+167;Guilds;Candlestick Maker;Action;Coin Token;
+168;Guilds;Stonemason;Action;;Overpay Functionality
+169;Guilds;Doctor;Action;;Overpay Functionality
+170;Guilds;Masterpiece;Treasure;;Overpay Functionality
+171;Guilds;Advisor;Action;;
+172;Guilds;Plaza;Action;Coin Token;
+173;Guilds;Taxman;Action Attack;;
+174;Guilds;Herald;Action;;Overpay Functionality
+175;Guilds;Baker;Action;Coin Token;
+176;Guilds;Butcher;Action;Coin Token;
+177;Guilds;Journeyman;Action;;
+178;Guilds;Merchant Guild;Action;Coin Token;
+179;Guilds;Soothsayer;Action Attack;Curse;

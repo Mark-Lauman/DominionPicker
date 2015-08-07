@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Names of the expansions.  -->
+    <!-- Names of the expansions. -->
     <string name="set_base">Dominion</string>
     <string name="set_alchemy">Alchemisten</string>
     <string name="set_black_market">Schwarzmarkt</string>
@@ -17,5 +17,25 @@
     <string name="set_seaside">Seaside</string>
     <string name="set_stash">Geldversteck</string>
     <string name="set_walled_village">Carcasonne</string>
-    
+
+    <!-- Default translation to use for each set. The order is the same as card_sets. -->
+    <string-array name="def_trans">
+        <item>de</item>
+        <item>de</item>
+        <item>de</item>
+        <item>de</item>
+        <item>de</item>
+        <item>de</item>
+        <item>de</item>
+        <item>de</item>
+        <item>de</item>
+        <item>de</item>
+        <item>de</item>
+        <item>de</item>
+        <item>de</item>
+        <item>de</item>
+        <item>de</item>
+        <item>en</item>
+    </string-array>
+
 </resources>

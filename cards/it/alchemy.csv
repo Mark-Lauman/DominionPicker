@@ -1,13 +1,13 @@
-id;Card Name;Requires;Description
-31;Erborista;;
-32;Apprendista;;
-33;Trasmutazione;;
-34;Vigna;;
-35;Farmacista;;
-36;Divinazione;;
-37;Università;;
-38;Alchimista;;
-39;Famiglio;Curse;
-40;Pietra Filosofale;;
-41;Golem;;
-42;Possessione;;
+id;Set;Name;Type;Requires;Description
+31;Alchimia;Erborista;Azione;;
+32;Alchimia;Apprendista;Azione;;
+33;Alchimia;Trasmutazione;Azione;;
+34;Alchimia;Vigna;Vittoria;;
+35;Alchimia;Farmacista;Azione;;
+36;Alchimia;Divinazione;Azione Attacco;;
+37;Alchimia;Università;Azione;;
+38;Alchimia;Alchimista;Azione;;
+39;Alchimia;Famiglio;Azione Attacco;Curse;
+40;Alchimia;Pietra Filosofale;Tesoro;;
+41;Alchimia;Golem;Azione;;
+42;Alchimia;Possessione;Azione;;

@@ -10,10 +10,10 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
         maven {
             url "https://raw.githubusercontent.com/Mark-Lauman/AndroidTools/master/maven/"
         }
         mavenLocal()
+        mavenCentral()
     }
 }

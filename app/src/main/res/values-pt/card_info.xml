@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Names of the expansions. -->
+    <string name="set_base">Base</string>
+
+    <!-- Default translation to use for each set. The order is the same as card_sets. -->
+    <string-array name="def_trans">
+        <item>pt</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+    </string-array>
+
+</resources>
