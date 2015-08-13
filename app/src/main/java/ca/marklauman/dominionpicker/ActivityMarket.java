@@ -6,8 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-/** Activity used to wrap the {@link FragmentMarket} when it is invoked
- *  from inside a supply.
+/** Activity used to wrap the {@link FragmentMarket} when it is invoked from inside a supply.
  *  @author Mark Lauman */
 public class ActivityMarket extends AppCompatActivity {
 	/** Key used to pass the supply pool to this activity (optional) */
@@ -17,6 +16,8 @@ public class ActivityMarket extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        App.updateInfo(this);
+
         FrameLayout swapPanel = new FrameLayout(this);
         swapPanel.setId(R.id.content_frame);
         setContentView(swapPanel);
@@ -36,6 +37,12 @@ public class ActivityMarket extends AppCompatActivity {
                                    .replace(R.id.content_frame, market)
                                    .commit();
 	}
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        App.updateInfo(this);
+    }
 	
 	
 	@Override

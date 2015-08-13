@@ -11,7 +11,6 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,6 +45,9 @@ public class ActivitySupply extends AppCompatActivity {
     /** Displays the correct time for the supply */
     private final DateFormat formatter = DateFormat.getDateTimeInstance();
 
+
+    /** The language that this activity is using to display cards */
+    private String langId;
     /** The adapter used to display the supply cards. */
 	private CardAdapter adapter;
 	/** The TextView used to display the resource cards. */
@@ -58,6 +60,8 @@ public class ActivitySupply extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        App.updateInfo(this);
+
 		setContentView(R.layout.activity_supply);
         ActionBar ab = getSupportActionBar();
         if(ab != null) ab.setDisplayHomeAsUpEnabled(true);
@@ -100,8 +104,17 @@ public class ActivitySupply extends AppCompatActivity {
         Bundle args = new Bundle();
         args.putLong(PARAM_SUPPLY_ID, supplyId);
         LoaderManager lm = getSupportLoaderManager();
-        lm.initLoader(LoaderId.SUPPLY_S, args, supplyLoader);
+        lm.initLoader(LoaderId.SUPPLY_HIST, args, supplyLoader);
 	}
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check the language. If it has changed, reload the cards.
+        App.updateInfo(this);
+        if(supply != null && !App.transId.equals(langId))
+            getSupportLoaderManager().restartLoader(LoaderId.SUPPLY_CARDS, null, cardLoader);
+    }
 	
 	
 	@Override
@@ -135,7 +148,7 @@ public class ActivitySupply extends AppCompatActivity {
 		}
 
         // Show/hide the correct favorite buttons
-        boolean isFavorite = supply.name != null;
+        final boolean isFavorite = supply.name != null;
         MenuItem favButton = menu.findItem(R.id.action_favorite);
         if(isFavorite != favButton.isVisible()) {
             favButton.setVisible(isFavorite);
@@ -193,17 +206,16 @@ public class ActivitySupply extends AppCompatActivity {
 	 *  @param supply The new supply to display. */
 	private void setSupply(Supply supply) {
 		this.supply = supply;
-		
 		// Start loading the supply
-		LoaderManager lm = getSupportLoaderManager();
-		lm.initLoader(LoaderId.SUPPLY_C, null, cardLoader);
-
+        getSupportLoaderManager()
+                .initLoader(LoaderId.SUPPLY_CARDS, null, cardLoader);
+        // Now that we have a supply, redo the action bar
 		supportInvalidateOptionsMenu();
 	}
 
 
     /** Used by subclasses to access the activity context */
-    private AppCompatActivity getActivity() {
+    private ActivitySupply getActivity() {
         return this;
     }
 
@@ -218,15 +230,15 @@ public class ActivitySupply extends AppCompatActivity {
             // Basic loader
             CursorLoader c = new CursorLoader(getActivity());
             c.setUri(Provider.URI_CARD_ALL);
-            // TODO: Limit what columns are loaded to what we need
+            c.setProjection(CardAdapter.COLS_USED);
+            c.setSortOrder(App.sortOrder);
 
             // Selection string (sql WHERE clause)
             String cards = "";
             for(long ignored : supply.cards)
                 cards += " OR " + CardDb._ID + "=?";
             cards = cards.substring(4);
-            Log.d("selection", MainActivity.language + " AND (" + cards + ")");
-            c.setSelection(MainActivity.language+" AND ("+cards+")");
+            c.setSelection(App.transFilter+" AND ("+cards+")");
 
             // Selection arguments (the numbers and language)
             String[] selArgs = new String[supply.cards.length];
@@ -292,12 +304,12 @@ public class ActivitySupply extends AppCompatActivity {
             if(data == null || data.getCount() < 1) return;
 
             // Column indexes
-            int _time = data.getColumnIndex(DataDb._H_TIME);
-            int _name = data.getColumnIndex(DataDb._H_NAME);
-            int _bane = data.getColumnIndex(DataDb._H_BANE);
-            int _cost = data.getColumnIndex(DataDb._H_HIGH_COST);
-            int _shelters = data.getColumnIndex(DataDb._H_SHELTERS);
-            int _cards = data.getColumnIndex(DataDb._H_CARDS);
+            final int _time = data.getColumnIndex(DataDb._H_TIME);
+            final int _name = data.getColumnIndex(DataDb._H_NAME);
+            final int _bane = data.getColumnIndex(DataDb._H_BANE);
+            final int _cost = data.getColumnIndex(DataDb._H_HIGH_COST);
+            final int _shelters = data.getColumnIndex(DataDb._H_SHELTERS);
+            final int _cards = data.getColumnIndex(DataDb._H_CARDS);
             data.moveToFirst();
 
             // Build the supply object

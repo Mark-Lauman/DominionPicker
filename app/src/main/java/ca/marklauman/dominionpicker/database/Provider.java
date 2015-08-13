@@ -7,11 +7,8 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.util.Log;
 
 import java.io.File;
-
-import ca.marklauman.dominionpicker.R;
 
 /** This content provider is where all database queries in this app end up.
  *  @author Mark Lauman */
@@ -73,12 +70,9 @@ public class Provider extends ContentProvider {
         if(dbListing != null) {
             for (File db : dbListing) {
                 name = db.getName();
-                Log.d("database", "" + name);
-                if (!(CardDb.FILE_NAME.equals(name) || DataDb.FILE_NAME.equals(name))) {
-                    Log.d("database", "deleted");
+                if (!(CardDb.FILE_NAME.equals(name) || DataDb.FILE_NAME.equals(name)))
                     //noinspection ResultOfMethodCallIgnored
                     db.delete();
-                }
             }
         }
 

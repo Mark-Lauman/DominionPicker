@@ -1,7 +1,5 @@
 package ca.marklauman.dominionpicker;
 
-import java.util.HashMap;
-
 import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.tools.CursorSelAdapter;
 import android.content.Context;
@@ -20,6 +18,14 @@ import android.widget.ImageView;
 class CardAdapter extends CursorSelAdapter
 						 implements OnItemClickListener,
 						 			ViewBinder {
+
+	/** The columns used by the CardAdapter.
+	 *  Any other columns provided will be ignored. */
+	public static final String[] COLS_USED
+			= {CardDb._ID, CardDb._NAME, CardDb._SET_NAME, CardDb._TYPE,
+               CardDb._DESC, CardDb._SET_ID, CardDb._COST, CardDb._POT,
+               CardDb._BUY, CardDb._ACT, CardDb._CARD, CardDb._COIN,
+               CardDb._VICTORY, CardDb._REQ};
 	
 	/** Maps expansion names to expansion icons */
 	private static int[] exp_icons = null;
@@ -35,6 +41,8 @@ class CardAdapter extends CursorSelAdapter
 	private int col_potion = -1;
 	/** Index of the {@link CardDb#_SET_ID} column. */
 	private int col_set = -1;
+    /** Index of the {@link CardDb#_SET_NAME} column. */
+    private int col_sname = -1;
 	/** Index of the {@link CardDb#_COIN} column. */
 	private int col_gold = -1;
 	/** Index of the {@link CardDb#_VICTORY} column. */
@@ -49,18 +57,27 @@ class CardAdapter extends CursorSelAdapter
 	private int col_id = -1;
     /** Index of the {@link CardDb#_NAME} column. */
     private int col_name = -1;
+	/** Index of the {@link CardDb#_REQ} column. */
+	private int col_req = -1;
 
-	/** The bane card of the young witch (-1 if no bane) */
+	/** The id of the young witch's bane card (-1 if no bane) */
 	private long yw_bane = -1;
+
+    /** In the main display loop this is used to store string values temporarily */
+    private String loopStr;
+    /** In the main display loop this is used to store int values temporarily */
+    private int loopInt;
 	
 	public CardAdapter(Context context) {
-		super(context, R.layout.list_item_card,
-			  new String[]{CardDb._ID, CardDb._NAME, CardDb._COST, CardDb._POT,
-						   CardDb._SET_ID, CardDb._TYPE, CardDb._COIN, CardDb._BUY,
-						   CardDb._DESC, CardDb._VICTORY},
-			  new int[]{R.id.card_special, R.id.card_name, R.id.card_cost, R.id.card_potion,
-				        R.id.card_set, R.id.card_type, R.id.card_res_gold, R.id.card_res,
-				        R.id.card_desc, R.id.card_res_victory});
+		super(context, R.layout.card_layout_picker,
+              new String[]{CardDb._ID, CardDb._NAME, CardDb._SET_ID, CardDb._TYPE,
+                           CardDb._DESC, CardDb._SET_NAME, CardDb._COST, CardDb._POT,
+                           CardDb._BUY, CardDb._COIN, CardDb._VICTORY,
+                           CardDb._REQ},
+			  new int[]{R.id.card_special, R.id.card_name, R.id.card_set, R.id.card_type,
+                        R.id.card_desc, R.id.card_set, R.id.card_cost, R.id.card_potion,
+                        R.id.card_res, R.id.card_res_gold, R.id.card_res_victory,
+                        R.id.card_requires});
         this.setViewBinder(this);
         resources = context.getResources();
         setSelectionColor(context.getResources().getColor(R.color.card_list_select));
@@ -79,6 +96,7 @@ class CardAdapter extends CursorSelAdapter
 		col_cost = cursor.getColumnIndex(CardDb._COST);
 		col_potion = cursor.getColumnIndex(CardDb._POT);
 		col_set = cursor.getColumnIndex(CardDb._SET_ID);
+        col_sname = cursor.getColumnIndex(CardDb._SET_NAME);
 		col_gold = cursor.getColumnIndex(CardDb._COIN);
 		col_victory = cursor.getColumnIndex(CardDb._VICTORY);
 		col_buy = cursor.getColumnIndex(CardDb._BUY);
@@ -87,86 +105,96 @@ class CardAdapter extends CursorSelAdapter
 		col_desc = cursor.getColumnIndex(CardDb._DESC);
 		col_id = cursor.getColumnIndex(CardDb._ID);
         col_name = cursor.getColumnIndex(CardDb._NAME);
+        col_req = cursor.getColumnIndex(CardDb._REQ);
 	}
 	
 	
-	/** Binds the contents of the Cursor to View elements
-	 *  provided by this adapter. When a value is bound
-	 *  by this method, it returns {@code true}, so
-	 *  that no other binding is performed. If it
-	 *  returns false, the value is bound by the default
-	 *  SimpleCursorAdapter methods.
+	/** Binds the contents of the Cursor to View elements provided by this adapter.
+     *  When a value is bound by this method, it returns {@code true},
+     *  so that no other binding is performed. If it returns false,
+     *  the value is bound by the default SimpleCursorAdapter methods.
 	 *  @param view the view to bind the data to.
 	 *  @param cursor the cursor to get the data from
-	 *  (it has been moved to the appropriate position
-	 *  for this row).
-	 *  @param columnIndex the index of the column
-	 *  that is being bound right now.
-	 *  @return {@code true} if that column was bound to
-	 *  the view, {@code false} otherwise.            */
+     *  (it has been moved to the appropriate position for this row).
+	 *  @param columnIndex the index of the column that is being bound right now.
+	 *  @return {@code true} if that column was bound to the view, {@code false} otherwise. */
 	@Override
 	public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
         // Basic string mapping, with hide on "0" (values like "3*" exist)
-		if(col_cost == columnIndex || col_gold == columnIndex
-				|| col_victory == columnIndex) {
-			if("0".equals(cursor.getString(columnIndex)))
-				view.setVisibility(View.GONE);
-			else view.setVisibility(View.VISIBLE);
-			return false;
+        if (col_cost == columnIndex || col_gold == columnIndex
+                || col_victory == columnIndex) {
+            if ("0".equals(cursor.getString(columnIndex)))
+                view.setVisibility(View.GONE);
+            else view.setVisibility(View.VISIBLE);
+            return false;
 
-        // Basic hide/show
-		} else if(col_potion == columnIndex) {
-			if(cursor.getInt(columnIndex) != 0)
+            // Basic hide/show
+        } else if (col_potion == columnIndex) {
+            if (cursor.getInt(columnIndex) != 0)
                 view.setVisibility(View.VISIBLE);
             else view.setVisibility(View.GONE);
-			return true;
+            return true;
 
-        // map expansion to icon
-		} else if(col_set == columnIndex) {
-			ImageView v = (ImageView) view;
-			int icon_id = 0;
-			try{ icon_id = exp_icons[cursor.getInt(col_set)];
-			} catch(Exception ignored){}
-			if(icon_id == 0) icon_id = R.drawable.ic_set_unknown;
-			v.setImageResource(icon_id);
-			return true;
+            // map expansion to icon
+        } else if (col_set == columnIndex) {
+            loopInt = 0;
+            try { loopInt = exp_icons[cursor.getInt(col_set)];
+            } catch(Exception ignored){}
+            if (loopInt == 0) loopInt = R.drawable.ic_set_unknown;
+            ((ImageView)view).setImageResource(loopInt);
+            return true;
 
-        // All the resources after the icon bonuses
-		} else if(col_buy == columnIndex) {
-			String res = "";
+        } else if(col_sname == columnIndex) {
+            view.setContentDescription(cursor.getString(columnIndex));
+            return true;
+
+            // All the resources after the icon bonuses
+        } else if (col_buy == columnIndex) {
+            loopStr = "";
             // + buy
-			int val = cursor.getInt(col_buy);
-            if(val != 0) res += ", " + resources.getQuantityString(R.plurals.format_buy, val, val);
+            loopInt = cursor.getInt(col_buy);
+            if (loopInt != 0)
+                loopStr += ", " + resources.getQuantityString(R.plurals.format_buy, loopInt, loopInt);
             // + card
-			val = cursor.getInt(col_draw);
-            if(val != 0) res += ", " + resources.getQuantityString(R.plurals.format_card, val, val);
+            loopInt = cursor.getInt(col_draw);
+            if (loopInt != 0)
+                loopStr += ", " + resources.getQuantityString(R.plurals.format_card, loopInt, loopInt);
             // + action
-			val = cursor.getInt(col_act);
-            if(val != 0) res += ", " + resources.getQuantityString(R.plurals.format_act, val, val);
-			// Only show the result if we have a result.
-			if(2 < res.length()) {
+            loopInt = cursor.getInt(col_act);
+            if (loopInt != 0)
+                loopStr += ", " + resources.getQuantityString(R.plurals.format_act, loopInt, loopInt);
+            // Only show the result if we have a result.
+            if (2 < loopStr.length()) {
                 // Trim off the first ", "
-                res = res.substring(2);
+                loopStr = loopStr.substring(2);
                 view.setVisibility(View.VISIBLE);
-                ((TextView) view).setText(res);
+                ((TextView) view).setText(loopStr);
             } else view.setVisibility(View.GONE);
-			return true;
+            return true;
 
-        // Basic string mapping with hide on ""
-		} else if(col_desc == columnIndex) {
-            String desc = cursor.getString(columnIndex);
-			if(desc == null || desc.length() < 1)
-				view.setVisibility(View.GONE);
+        // Hide if empty and replace special format characters.
+        } else if (col_desc == columnIndex) {
+            loopStr = cursor.getString(columnIndex);
+            if (loopStr == null || "".equals(loopStr)) view.setVisibility(View.GONE);
             else view.setVisibility(View.VISIBLE);
-			return false;
+            return false;
 
-        // Show only on match
-		} else if(col_id == columnIndex) {
-			if(yw_bane != cursor.getLong(col_id))
-				view.setVisibility(View.GONE);
-			else view.setVisibility(View.VISIBLE);
-			return true;
-		}
+        // Show on match
+        } else if (col_id == columnIndex) {
+            if (yw_bane != cursor.getLong(col_id))
+                view.setVisibility(View.GONE);
+            else view.setVisibility(View.VISIBLE);
+            return true;
+
+        // Hide if empty, use format string
+        } else if (col_req == columnIndex) {
+            loopStr = cursor.getString(columnIndex);
+            if (loopStr == null || "".equals(loopStr)) view.setVisibility(View.GONE);
+            else view.setVisibility(View.VISIBLE);
+            ((TextView) view).setText(String.format(mContext.getString(R.string.format_req),
+                                      loopStr));
+            return true;
+        }
 
         // All other columns should be handled the default ways.
 		return false;
@@ -194,35 +222,13 @@ class CardAdapter extends CursorSelAdapter
             return null;
         return mCursor.getString(col_name);
     }
-	
-	
-//	/** Get the card with the specified id and return it.
-//	 *  @param id The SQL id of the card in question.
-//	 *  @return The card as a String array. The parameters
-//	 *  are in the same order as {@link CardDb#COLS}. */
-//	public String[] getCard(long id) {
-//		String[] cols = CardDb.COLS;
-//		int position = getPosition(id);
-//		mCursor.moveToPosition(position);
-//		ArrayList<String> data = new ArrayList<>(cols.length);
-//        for (String col : cols) {
-//            int index = mCursor.getColumnIndex(col);
-//            data.add(mCursor.getString(index));
-//        }
-//		String[] res = new String[data.size()];
-//		data.toArray(res);
-//		return res;
-//	}
 
 
-	/** Retrieve an array of drawable resources from
-	 *  the xml of the provided {@link Context}.
+	/** Retrieve an array of drawable resources from the xml of the provided {@link Context}.
 	 *  @param c The {@code Context} to search for the array.
-	 *  @param resourceId The resource id of an
-	 *  {@code <array>} containing a list of drawables.
-	 *  @return The resource ids of all the drawables
-	 *  in the array, in the order in which they appear
-	 *  in the xml.                                  */
+	 *  @param resourceId The resource id of an {@code <array>} containing a list of drawables.
+	 *  @return The resource ids of all the drawables in the array, in the order in which
+     *  they appear in the xml. */
 	@SuppressWarnings("SameParameterValue")
     private static int[] getDrawables(Context c, int resourceId) {
 		TypedArray ta = c.getResources()

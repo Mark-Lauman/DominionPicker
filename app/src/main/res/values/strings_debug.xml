@@ -7,6 +7,7 @@
 
     <string name="demo_card_cost">1</string>
     <string name="demo_card_title">Name of the card goes here, even if it overextends</string>
+    <string name="demo_card_requires">Requires: Truffle Shuffle</string>
     <string name="demo_card_cat">Action Reaction</string>
     <string name="demo_card_plus_1">+1</string>
     <string name="demo_card_res">+1 buy, +1 card, +1 action</string>

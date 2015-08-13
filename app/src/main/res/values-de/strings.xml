@@ -38,6 +38,8 @@
     <string name="market_pass">kaufen Sie nichts</string>
     <string name="market_sold_out">Ausverkauft!</string>
 
+    <string name="format_req">Ben&#246;tigt %1$s</string>
+
     <plurals name="format_act">
         <item quantity="one">+%1$s Aktion</item>
         <item quantity="other">+%1$s Aktionen</item>

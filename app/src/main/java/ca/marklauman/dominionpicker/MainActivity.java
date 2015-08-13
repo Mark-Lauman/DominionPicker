@@ -1,14 +1,11 @@
 package ca.marklauman.dominionpicker;
 
-import ca.marklauman.dominionpicker.database.CardDb;
-import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.settings.ActivityFilters;
 import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.ExpandedArrayAdapter;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -22,15 +19,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import java.util.HashMap;
 
 /** Execution starts here. This activity is the hub you first see upon entering
  *  the app. Individual screens are covered by their own Fragments.
@@ -40,11 +34,6 @@ public class MainActivity extends AppCompatActivity
 
     /** Key used to save the id of the selected fragment to savedInstanceState. */
     private static final String KEY_ACTIVE = "active";
-
-    /** Used by external threads to access the context */
-    private static Context staticContext;
-    /** The language that the app is operating under. */
-    public static String language;
 
     /** The name of the app */
     private String app_name;
@@ -69,16 +58,13 @@ public class MainActivity extends AppCompatActivity
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        staticContext = getApplicationContext();
-        language = getLanguage();
-        Log.d("DPlanguage", language);
+        App.updateInfo(this);
+        Prefs.setup(this);
+
         shuffler = new ShuffleManager();
 		setContentView(R.layout.activity_main);
         navLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navView = (ListView) findViewById(R.id.left_drawer);
-		
-		// Setup default preferences
-        Prefs.setup(this);
 
         // Get the strings for the nav drawer
         app_name = getString(R.string.app_name);
@@ -125,9 +111,10 @@ public class MainActivity extends AppCompatActivity
         }
 	}
 
-    /** Get the context for the process. (accessible outside the display thread) */
-    public static Context getStaticContext() {
-        return staticContext;
+    @Override
+    public void onStart() {
+        super.onStart();
+        App.updateInfo(this);
     }
 
     /** Save the current state of this activity. */
@@ -269,7 +256,7 @@ public class MainActivity extends AppCompatActivity
         public ShuffleManager() {
             super();
             shuffler = null;
-            LocalBroadcastManager.getInstance(getStaticContext())
+            LocalBroadcastManager.getInstance(getActivity())
                     .registerReceiver(this, new IntentFilter(SupplyShuffler.MSG_INTENT));
         }
 
@@ -322,34 +309,9 @@ public class MainActivity extends AppCompatActivity
 
         /** Unregister this manager and shut down open shuffles */
         public void unregister() {
-            LocalBroadcastManager.getInstance(getStaticContext())
+            LocalBroadcastManager.getInstance(getActivity())
                                  .unregisterReceiver(this);
             cancelShuffle();
         }
-    }
-
-    /** Loads the current languages for each card set */
-    private String getLanguage() {
-        // Load the default translation
-        String[] trans = getResources().getStringArray(R.array.def_trans);
-        // TODO: Override default translation with settings.
-        // Group the sets together by language
-        HashMap<String, String> map = new HashMap<>();
-        String language;
-        for(int set=0; set<trans.length; set++) {
-            language = trans[set];
-            if(!map.containsKey(language))
-                map.put(language, "");
-            map.put(language, map.get(language) + " OR " + CardDb._SET_ID + "=" + set);
-        }
-        // Turn the translation into an SQL "WHERE" clause
-        // Cards with null language are user defined, and load regardless of language.
-        language = CardDb._LANG + "=NULL";
-        for(String key : map.keySet()) {
-            language += " OR " + CardDb._LANG + "='" + key
-                               + "' AND (" + map.get(key).substring(4) + ")";
-        }
-        // Surround the language selector with brackets to prevent logic leaks.
-        return "(" + language + ")";
     }
 }

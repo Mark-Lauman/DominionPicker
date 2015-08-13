@@ -38,6 +38,8 @@
     <string name="market_pass">Pass</string>
     <string name="market_sold_out">Sold Out!</string>
 
+    <string name="format_req">Requires %1$s</string>
+
     <plurals name="format_act">
         <item quantity="one">+%1$s Action</item>
         <item quantity="other">+%1$s Actions</item>

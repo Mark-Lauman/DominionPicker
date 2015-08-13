@@ -1,28 +1,19 @@
 package ca.marklauman.dominionpicker.database;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Build;
 import android.provider.BaseColumns;
-
-import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
-
-import java.util.Locale;
 
 import ca.marklauman.dominionpicker.R;
 
+import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
+
 /** Describes the card database and provides a link to it for the {@link Provider}.
- *  This database contains only card information, not app data
- *  like history or settings.
+ *  This database contains only card information, not history.
  *  @author Mark Lauman */
 public class CardDb extends SQLiteAssetHelper {
     /** The file that the database is stored in. */
-    static final String FILE_NAME = "cards.db";
+    static final String FILE_NAME = "card.db";
 
     /** Table containing all card data */
     static final String TABLE_DATA = "cardData";
@@ -30,14 +21,6 @@ public class CardDb extends SQLiteAssetHelper {
     static final String TABLE_TRANS = "cardTrans";
     /** View that spans all card tables. */
     static final String VIEW_ALL = "cardAll";
-
-
-    /** ID for the data table for the content provider */
-    public static final int TABLE_ID_DATA = 0;
-    /** ID for the trans table for the content provider */
-    public static final int TABLE_ID_TRANS = 1;
-    /** ID for the all table for the content provider */
-    public static final int TABLE_ID_ALL = 2;
 
     /** Each card has a unique id, visible across all tables */
     public static final String _ID = BaseColumns._ID;

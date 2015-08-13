@@ -8,7 +8,7 @@ import android.provider.BaseColumns;
 import ca.marklauman.dominionpicker.R;
 
 /** This database stores user created data and card id numbers.
- *  Cards are referenced by id so they can update with language changes.
+ *  Cards are referenced by id due to translation issues.
  *  @author Mark Lauman */
 public class DataDb extends SQLiteOpenHelper {
     /** The file that the database is stored in. */

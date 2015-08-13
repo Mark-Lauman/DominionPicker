@@ -11,7 +11,6 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +37,7 @@ public class FragmentPicker extends Fragment
     /** The view associated with the card list. */
     private ListView card_list;
     /** The adapter for the card list. */
-    private CardAdapter adapter;
+    private CardAdapter adapter = null;
     /** The view associated with an empty list */
     private View empty;
     /** The view associated with a loading list */
@@ -47,6 +46,8 @@ public class FragmentPicker extends Fragment
     /* These values are set in onCreate when it calls initLoader.
      * They are then checked at each startup to see if they have
      * changed. If they have, a reload is required.            */
+    /** Current language loaded by this picker */
+    private String language;
     /** Value of the set filter */
     private String filt_set;
     /** Value of the cost filter */
@@ -57,9 +58,7 @@ public class FragmentPicker extends Fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // Start loading the card list
-        adapter = null;
         LoaderManager lm = getActivity().getSupportLoaderManager();
         lm.initLoader(LoaderId.PICKER, null, this);
     }
@@ -70,8 +69,8 @@ public class FragmentPicker extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
-        if(view != null)
-            return view;
+        if(view != null) return view;
+
         view = inflater.inflate(R.layout.fragment_picker, container, false);
         card_list = (ListView) view.findViewById(R.id.card_list);
         card_list.setOnItemClickListener(this);
@@ -89,25 +88,22 @@ public class FragmentPicker extends Fragment
     @Override
     public void onStart() {
         super.onStart();
-
-        // Restart the loader if the filters have changed
-        // The try block prevents crashes if the loader is already restarting
-        if(filtChanged()) {
-            try { getActivity().getSupportLoaderManager()
-                               .restartLoader(LoaderId.PICKER, null, this);
-            } catch (Exception ignored) {}
-        }
+        // Reload the cards if the display language has changed.
+        if(filterChanged())
+            getActivity().getSupportLoaderManager()
+                         .restartLoader(LoaderId.PICKER, null, this);
 
     }
 
     /** Checks if any filters' value has changed */
-    private boolean filtChanged() {
+    private boolean filterChanged() {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String new_set = pref.getString("filt_set", "");
-        String new_cost = pref.getString("filt_cost", "");
-        boolean new_curse = pref.getBoolean("filt_curse", true);
+        final String new_set = pref.getString("filt_set", "");
+        final String new_cost = pref.getString("filt_cost", "");
+        final boolean new_curse = pref.getBoolean("filt_curse", true);
 
-        return !new_set.equals(filt_set) ||
+        return !App.transId.equals(language) ||
+               !new_set.equals(filt_set) ||
                !new_cost.equals(filt_cost) ||
                new_curse != filt_curse;
     }
@@ -131,7 +127,7 @@ public class FragmentPicker extends Fragment
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        // Set the display to loading if the display exists
+        // Show the loading icon if we have views
         if(card_list != null) {
             empty.setVisibility(View.GONE);
             loading.setVisibility(View.GONE);
@@ -143,12 +139,12 @@ public class FragmentPicker extends Fragment
         // Basic setup
         CursorLoader c = new CursorLoader(getActivity());
         c.setUri(Provider.URI_CARD_ALL);
-        Resources res = getActivity().getResources();
-        String[] costs = res.getStringArray(R.array.filt_cost);
-        c.setSortOrder(CardDb._SET_NAME);
+        c.setProjection(CardAdapter.COLS_USED);
+        c.setSortOrder(App.sortOrder);
 
         // Filter by language
-        String sel = MainActivity.language;
+        language = App.transId;
+        String sel = App.transFilter;
         ArrayList<CharSequence> sel_args = new ArrayList<>();
 
         // Filter by set
@@ -160,6 +156,8 @@ public class FragmentPicker extends Fragment
             sel += " AND " + CardDb._SET_ID + "!=? ";
 
         // Filter by cost
+        String[] costs = getActivity().getResources()
+                                      .getStringArray(R.array.filt_cost);
         filt_cost = pref.getString("filt_cost", "");
         ArrayList<CharSequence> split_cost = new ArrayList<>(Arrays.asList(
                         MultiSelectPreference.mapValues(filt_cost, null, costs)));
@@ -236,10 +234,8 @@ public class FragmentPicker extends Fragment
     /** Save currently selected items to the preferences.
      *  Automatically triggered when this fragment is stopped. */
     public void saveSelections(Context c) {
-        Log.d("picker", "saveSelections");
         if(c == null || adapter == null) return;
         long[] selections = adapter.getSelectedVerify();
-        Log.d("picker", "got selections");
         StringBuilder str = new StringBuilder();
         for (long selection : selections)
             str.append(selection).append(",");
@@ -247,7 +243,6 @@ public class FragmentPicker extends Fragment
                          .edit()
                          .putString(Prefs.SELECTIONS, str.toString())
                          .commit();
-        Log.d("picker", "saveSelections done");
     }
 
 

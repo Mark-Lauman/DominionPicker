@@ -89,7 +89,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
         String sel="";
         String[] selArgs = new String[cardIds.length];
         for(int i=0; i<selArgs.length; i++) {
-            sel += " OR "+CardDb._ID+"=?";
+            sel += " OR "+ CardDb._ID+"=?";
             selArgs[i] = ""+cardIds[i];
         }
         if(4 < sel.length()) sel = sel.substring(4);
@@ -169,7 +169,6 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
                 // We just don't have enough kingdom cards
                 } else {
                     res.putExtra(MSG_RES, RES_MORE_K);
-                    int size = cardIds.length;
                     res.putExtra(MSG_SHORT, kingdom.size() +"/"+ minKingdom);
                     return sendMsg(res);
                 }
@@ -212,7 +211,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
     @SuppressWarnings("SameReturnValue")
     private Void sendMsg(Intent msg) {
         try {
-            LocalBroadcastManager.getInstance(MainActivity.getStaticContext())
+            LocalBroadcastManager.getInstance(App.staticContext)
                                  .sendBroadcast(msg);
         } catch(Exception ignored) {}
         return null;
@@ -225,10 +224,10 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
                                 String selection, String[] selectionArgs,
                                 String sortBy) {
         // I retain nothing because I don't know if the contentResolver changes.
-        return MainActivity.getStaticContext()
-                           .getContentResolver()
-                           .query(Provider.URI_CARD_DATA, projection,
-                                  selection, selectionArgs, sortBy);
+        return App.staticContext
+                  .getContentResolver()
+                  .query(Provider.URI_CARD_DATA, projection,
+                         selection, selectionArgs, sortBy);
     }
 
 
@@ -242,9 +241,9 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
         values.put(DataDb._H_HIGH_COST, s.high_cost);
         values.put(DataDb._H_SHELTERS,  s.shelters);
 
-        try{ MainActivity.getStaticContext()
-                         .getContentResolver()
-                         .insert(Provider.URI_HIST, values);
+        try{ App.staticContext
+                .getContentResolver()
+                .insert(Provider.URI_HIST, values);
         } catch(Exception ignored) {}
     }
 }
