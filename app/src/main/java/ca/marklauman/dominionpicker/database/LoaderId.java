@@ -12,7 +12,7 @@ public abstract class LoaderId {
     /** The market's shuffle loader. */
     public static final int MARKET_SHUFFLE = 4;
     /** The market's display loader. */
-    public static final int MARKET_DISP = 5;
+    public static final int MARKET_SHOW = 5;
     /** The favorites loader. */
     public static final int FAVORITES = 6;
     /** The history loader. */

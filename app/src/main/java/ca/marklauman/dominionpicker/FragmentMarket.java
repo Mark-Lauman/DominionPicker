@@ -9,7 +9,6 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -42,13 +41,13 @@ public class FragmentMarket extends Fragment
     private static final String KEY_CHOICES = "choices";
 
     /** The ListView used to display the cards */
-    ListView card_view;
+    private ListView card_view;
     /** The button to show the next pick */
     private View but_draw;
     /** The list displaying the choices */
     private View choice_panel;
     /** The adapter used to display the choices. */
-    private CardAdapter adapter;
+    private AdapterCards adapter;
     /** The notice for when there is no stock */
     private View sold_out;
 
@@ -86,7 +85,7 @@ public class FragmentMarket extends Fragment
         /* First initialization of the loader must be called early,
          * or the loader will not function. */
         LoaderManager lm = ((FragmentActivity) activity).getSupportLoaderManager();
-        lm.initLoader(LoaderId.MARKET_DISP, null, this);
+        lm.initLoader(LoaderId.MARKET_SHOW, null, this);
         // Shuffle a new market if the stock wasn't restored
         if(stock == null)
             lm.restartLoader(LoaderId.MARKET_SHUFFLE, null, this);
@@ -98,7 +97,7 @@ public class FragmentMarket extends Fragment
         // Reload the cards if the display language has changed.
         if(!App.transId.equals(language))
             getActivity().getSupportLoaderManager()
-                         .restartLoader(LoaderId.MARKET_DISP, null, this);
+                         .restartLoader(LoaderId.MARKET_SHOW, null, this);
     }
 
     /** Called to create this fragment's view for the first time.
@@ -120,7 +119,7 @@ public class FragmentMarket extends Fragment
 
         // Setup the list & adapter
         card_view = (ListView) view.findViewById(R.id.card_list);
-        adapter = new CardAdapter(act);
+        adapter = new AdapterCards(act);
         adapter.changeCursor(loaded);
         if(stock != null) card_view.setAdapter(adapter);
         card_view.setOnItemClickListener(this);
@@ -169,7 +168,7 @@ public class FragmentMarket extends Fragment
                  * initLoader throws an exception. In this case, we just wait
                  * for the load to finish.                                 */
                 try { getActivity().getSupportLoaderManager()
-                                   .initLoader(LoaderId.MARKET_DISP, null, this);
+                                   .initLoader(LoaderId.MARKET_SHOW, null, this);
                 } catch (Exception ignored) {}
             }
         }
@@ -248,15 +247,15 @@ public class FragmentMarket extends Fragment
                     sel += " OR "+ CardDb._ID+"=?";
                     selArgs[i]=""+deck.get(i);
                 }
-                sel = sel.substring(4);
+                if(4 < sel.length()) sel = sel.substring(4);
                 c.setSelection(sel);
                 c.setSelectionArgs(selArgs);
                 c.setSortOrder("random()");
                 return c;
 
-            case LoaderId.MARKET_DISP:
+            case LoaderId.MARKET_SHOW:
                 c.setUri(Provider.URI_CARD_ALL);
-                c.setProjection(CardAdapter.COLS_USED);
+                c.setProjection(AdapterCards.COLS_USED);
                 c.setSortOrder(App.sortOrder);
                 language = App.transId;
 
@@ -301,9 +300,9 @@ public class FragmentMarket extends Fragment
                 data.close();
                 FragmentActivity a = getActivity();
                 if(a != null) a.getSupportLoaderManager()
-                               .restartLoader(LoaderId.MARKET_DISP, null, this);
+                               .restartLoader(LoaderId.MARKET_SHOW, null, this);
                 break;
-            case LoaderId.MARKET_DISP:
+            case LoaderId.MARKET_SHOW:
                 loaded = data;
                 updateView();
                 break;
@@ -313,7 +312,7 @@ public class FragmentMarket extends Fragment
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-        if(LoaderId.MARKET_DISP != loader.getId()) return;
+        if(LoaderId.MARKET_SHOW != loader.getId()) return;
         loaded = null;
         updateView();
     }
@@ -338,7 +337,7 @@ public class FragmentMarket extends Fragment
 
             // update the view and start loading cards
             getActivity().getSupportLoaderManager()
-                         .restartLoader(LoaderId.MARKET_DISP, null, getFragment());
+                         .restartLoader(LoaderId.MARKET_SHOW, null, getFragment());
             updateView();
         }
     }

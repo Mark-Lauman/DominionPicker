@@ -86,8 +86,7 @@ public class MainActivity extends AppCompatActivity
         navAdapt = new ExpandedArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, headers);
         navAdapt.setIcons(R.drawable.ic_action_send, R.drawable.ic_action_market,
-                          R.drawable.ic_action_not_favorite, R.drawable.ic_action_time,
-                          R.drawable.ic_action_settings);
+                          R.drawable.ic_action_time, R.drawable.ic_action_filter);
         navAdapt.setSelBack(R.color.nav_drawer_sel);
         navView.setAdapter(navAdapt);
         navView.setOnItemClickListener(this);
@@ -186,7 +185,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         // never select filters
-        if(position != 4) navAdapt.setSelection(position);
+        if(position < 3) navAdapt.setSelection(position);
 
         // save selections before swap
         if(active instanceof FragmentPicker)
@@ -202,15 +201,10 @@ public class MainActivity extends AppCompatActivity
                     active = new FragmentMarket();
                     t.replace(R.id.content_frame, active);
                     break;
-            case 2: FragmentHistory h = new FragmentHistory();
-                    h.onlyFavorites();
-                    active = h;
+            case 2: active = new FragmentHistory();
                     t.replace(R.id.content_frame, active);
                     break;
-            case 3: active = new FragmentHistory();
-                    t.replace(R.id.content_frame, active);
-                    break;
-            case 4: Intent intent = new Intent(this, ActivityFilters.class);
+            case 3: Intent intent = new Intent(this, ActivityFilters.class);
                     startActivity(intent);
         }
         t.commit();

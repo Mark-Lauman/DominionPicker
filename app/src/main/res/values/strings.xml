@@ -13,11 +13,12 @@
     <string name="more">Need More Cards! (%1$s)</string>
     <string name="more_k">Need More Kingdom Cards! (%1$s)</string>
     <string name="yw_no_bane">Young Witch - No Bane</string>
-    <string name="all_filt">All cards filtered out.</string>
+    <string name="all_filtered">All cards filtered out.</string>
     
     <string name="set">Set</string>
     <string name="potion">Potion</string>
 
+    <string name="hist_samples">Samples</string>
     <string name="history">History</string>
     <string name="favorites">Favorites</string>
     <string name="no_hist">Your shuffles are stored here.</string>
@@ -64,8 +65,13 @@
     <string-array name="navNames">
         <item>@string/picker</item>
         <item>@string/market_title</item>
-        <item>@string/favorites</item>
         <item>@string/history</item>
         <item>@string/filters</item>
+    </string-array>
+
+    <string-array name="historyTypes">
+        <item>@string/hist_samples</item>
+        <item>@string/favorites</item>
+        <item>@string/history</item>
     </string-array>
 </resources>

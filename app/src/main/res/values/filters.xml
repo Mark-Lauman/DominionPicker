@@ -2,10 +2,10 @@
 <resources>
 
     <string name="filters">Filters</string>
-    <string name="filt_all">Reject All</string>
+    <string name="filter_all">Reject All</string>
 
-    <string name="filt_set">Card Sets</string>
-    <string-array name="filt_set">
+    <string name="filter_set">Card Sets</string>
+    <string-array name="filter_set">
         <item>@string/set_base</item>
         <item>@string/set_adventures</item>
         <item>@string/set_alchemy</item>
@@ -23,7 +23,7 @@
         <item>@string/set_stash</item>
         <item>@string/set_walled_village</item>
     </string-array>
-    <integer-array name="filt_set_ids">
+    <integer-array name="filter_set_ids">
         <item>0</item>
         <item>15</item>
         <item>1</item>
@@ -41,9 +41,9 @@
         <item>13</item>
         <item>14</item>
     </integer-array>
-    <string name="filt_set_def" />
+    <string name="filter_set_def">1,2,3,4,5,6,7,8,9,10,11,12,13,14,15</string>
     
-    <string name="filt_cost">Card Costs</string>
+    <string name="filter_cost">Card Costs</string>
     <string-array name="filt_cost">
         <item>@string/potion</item>
         <item>1</item>
@@ -56,7 +56,7 @@
         <item>8</item>
         <item>8*</item>
     </string-array>
-    <array name="filt_cost_icons">
+    <array name="filter_cost_icons">
         <item>@drawable/ic_potion_lg</item>
         <item>@drawable/ic_coin_lg</item>
         <item>@drawable/ic_coin_lg</item>
@@ -68,10 +68,10 @@
         <item>@drawable/ic_coin_lg</item>
         <item>@drawable/ic_coin_lg</item>
     </array>
-    <string name="filt_cost_def" />
+    <string name="filter_cost_def" />
     
-    <string name="filt_curse">Cursers</string>
-    <string name="filt_curse_desc">Take Victory Points from other players!</string>
-    <bool name="filt_curse_def">true</bool>
+    <string name="filter_curse">Cursers</string>
+    <string name="filter_curse_desc">Take Victory Points from other players!</string>
+    <bool name="filter_curse_def">true</bool>
     
 </resources>

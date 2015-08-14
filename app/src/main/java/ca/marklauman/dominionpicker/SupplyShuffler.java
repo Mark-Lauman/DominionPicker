@@ -104,8 +104,8 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
         // The rest of this process can throw errors. So it must be tried.
         try {
             // Load the available cards
-            c = query(new String[]{CardDb._ID, CardDb._TYPE_EVENT, CardDb._SET_ID},
-                                   sel, selArgs, "random()");
+            c = shuffleCards(new String[]{CardDb._ID, CardDb._TYPE_EVENT, CardDb._SET_ID},
+                    sel, selArgs);
             int _id = c.getColumnIndex(CardDb._ID);
             int _event = c.getColumnIndex(CardDb._TYPE_EVENT);
             int _set = c.getColumnIndex(CardDb._SET_ID);
@@ -121,7 +121,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
             boolean needBane = false;
             // random cards chosen for the high cost & shelters variables
             int costCard = (int)(Math.random() * minKingdom)+1;
-            int sheltCard = (int)(Math.random() * minKingdom)+1;
+            int shelterCard = (int)(Math.random() * minKingdom)+1;
 
             // Main Shuffle loop
             c.moveToPosition(-1);
@@ -140,7 +140,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
                     if(kingdom.size() == costCard)
                         supply.high_cost = (c.getInt(_set) == CardDb.SET_PROSPERITY);
                     // Determine if shelters game
-                    if(kingdom.size() == sheltCard)
+                    if(kingdom.size() == shelterCard)
                         supply.shelters = (c.getInt(_set) == CardDb.SET_DARK_AGES);
                     // If we need a bane, this is our bane
                     if(needBane) {
@@ -218,16 +218,15 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
     }
 
 
-    /** Perform a query using the main content resolver.
+    /** Get the selected cards from the cardData table in random order.
      *  @return The result, or null if the query failed. */
-    private static Cursor query(String[] projection,
-                                String selection, String[] selectionArgs,
-                                String sortBy) {
+    private static Cursor shuffleCards(String[] projection,
+                                       String selection, String[] selectionArgs) {
         // I retain nothing because I don't know if the contentResolver changes.
         return App.staticContext
                   .getContentResolver()
                   .query(Provider.URI_CARD_DATA, projection,
-                         selection, selectionArgs, sortBy);
+                         selection, selectionArgs, "random()");
     }
 
 

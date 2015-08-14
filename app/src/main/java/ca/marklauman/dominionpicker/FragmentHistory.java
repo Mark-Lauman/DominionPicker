@@ -1,134 +1,85 @@
 package ca.marklauman.dominionpicker;
 
-import android.content.Intent;
-import android.database.Cursor;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.app.LoaderManager.LoaderCallbacks;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.TextView;
 
-import ca.marklauman.dominionpicker.database.DataDb;
-import ca.marklauman.dominionpicker.database.LoaderId;
-import ca.marklauman.dominionpicker.database.Provider;
+import ca.marklauman.tools.SlidingTabLayout;
 
-/** Governs the History and Favorites screens. Allows users to see previous shuffles.
+/** Governs the History screen. Allows users to see previous shuffles.
  *  @author Mark Lauman */
-public class FragmentHistory extends Fragment
-                             implements LoaderCallbacks<Cursor>,
-                                        ListView.OnItemClickListener {
-    /** Only display the favorite shuffles */
-    private boolean onlyFav = false;
-    /** True if we are loading data */
-    private boolean loading = true;
-
-    /** The view for the history list */
-    private ListView listView;
-    /** The adapter for the ListView. */
-    private HistoryAdapter adapter;
-    /** The view for if the list is empty */
-    private TextView empty_view;
-    /** The view for if the list is loading. */
-    private View load_view;
-    /** The id used by the loader (changes for favorites only) */
-    private int loader_id = LoaderId.HISTORY;
-
+public class FragmentHistory extends Fragment {
+    /** Key used to save the active tab to savedInstanceState */
+    private static final String ACTIVE_KEY = "activeTab";
+    /** The currently active tab */
+    private int activeTab = 1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FragmentActivity act = getActivity();
-        adapter = new HistoryAdapter(act);
+        if(savedInstanceState != null)
+            activeTab = savedInstanceState.getInt(ACTIVE_KEY);
+    }
 
-        // start loading the card list
-        LoaderManager lm = act.getSupportLoaderManager();
-        lm.initLoader(loader_id, null, this);
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(ACTIVE_KEY, activeTab);
     }
 
 
-    /** Called to create this fragment's view for the first time.  */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Basic view setup and retrieval
         View view = inflater.inflate(R.layout.fragment_history, container, false);
-        listView = (ListView) view.findViewById(R.id.card_list);
-        empty_view = (TextView) view.findViewById(android.R.id.empty);
-        if(onlyFav) empty_view.setText(R.string.no_fav);
-        load_view = view.findViewById(android.R.id.progress);
 
-        // View configuration
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(this);
-        updateEmpty();
+        // Tab setup
+        ViewPager pager = (ViewPager) view.findViewById(R.id.pager);
+        pager.setAdapter(new PagerAdapter(getActivity(), getChildFragmentManager()));
+        pager.setCurrentItem(activeTab);
+        SlidingTabLayout tabs = (SlidingTabLayout) view.findViewById(R.id.tabs);
+        tabs.setViewPager(pager);
 
         return view;
     }
 
 
-    /** Called when a history entry is clicked */
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent showSupply = new Intent(getActivity(), ActivitySupply.class);
-        showSupply.putExtra(ActivitySupply.PARAM_SUPPLY_ID, id);
-        startActivity(showSupply);
-    }
+    private class PagerAdapter extends FragmentStatePagerAdapter {
+        /** The tab names */
+        final String[] titles;
 
-    /** Used to launch the query to the history database */
-    @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        // switch the fragment to load mode
-        loading = true;
-        updateEmpty();
+        public PagerAdapter(Context c, FragmentManager fm) {
+            super(fm);
+            titles = c.getResources().getStringArray(R.array.historyTypes);
+        }
 
-        // start the query going
-        CursorLoader c = new CursorLoader(getActivity());
-        c.setUri(Provider.URI_HIST);
-        c.setProjection(new String[]{DataDb._H_TIME, DataDb._H_NAME, DataDb._H_CARDS,
-                                     DataDb._H_HIGH_COST, DataDb._H_SHELTERS});
-        c.setSortOrder(DataDb._H_TIME + " DESC");
-        if(onlyFav) c.setSelection(DataDb._H_NAME + " NOT NULL");
-        return c;
-    }
+        @Override
+        public Fragment getItem(int position) {
+            activeTab = position;
+            FragmentHistoryList res = new FragmentHistoryList();
+            switch (position) {
+                case 0:  return res;
+                case 1:  res.onlyFavorites();
+                         return res;
+                case 2: return res;
+                default: return null;
+            }
+        }
 
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return titles[position];
+        }
 
-    /** When the query is finished, it returns here */
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        adapter.changeCursor(data);
-        loading = false;
-        updateEmpty();
-    }
-
-
-    /** When the history table changes, this is invoked. */
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
-        adapter.changeCursor(null);
-    }
-
-
-    /** Updates the empty list view to reflect if we are loading or not */
-    private void updateEmpty() {
-        if(listView == null) return;
-
-        empty_view.setVisibility(View.GONE);
-        load_view.setVisibility(View.GONE);
-        if(loading) listView.setEmptyView(load_view);
-        else listView.setEmptyView(empty_view);
-    }
-
-    /** Sets it so only favorites are displayed */
-    public void onlyFavorites() {
-        onlyFav = true;
-        loader_id = LoaderId.FAVORITES;
+        @Override
+        public int getCount() {
+            return 3;
+        }
     }
 }

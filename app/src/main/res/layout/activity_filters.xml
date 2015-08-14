@@ -14,11 +14,11 @@
         android:layout_height="?android:attr/listPreferredItemHeight"
         android:background="?attr/selectableItemBackground"
         app:key="filt_set"
-        app:entries="@array/filt_set"
-        app:entryValues="@array/filt_set_ids"
-        app:name="@string/filt_set"
+        app:entries="@array/filter_set"
+        app:entryValues="@array/filter_set_ids"
+        app:name="@string/filter_set"
         app:image="@drawable/ic_set_base"
-        app:summary="@string/filt_all"
+        app:summary="@string/filter_all"
         app:entryIcons="@array/card_set_icons"
         app:inverted="true" />
 
@@ -31,11 +31,11 @@
         android:layout_height="?android:attr/listPreferredItemHeight"
         android:background="?attr/selectableItemBackground"
         app:key="filt_cost"
-        app:name="@string/filt_cost"
+        app:name="@string/filter_cost"
         app:image="@drawable/ic_coin_lg"
         app:entries="@array/filt_cost"
-        app:summary="@string/filt_all"
-        app:entryIcons="@array/filt_cost_icons"
+        app:summary="@string/filter_all"
+        app:entryIcons="@array/filter_cost_icons"
         app:inverted="true" />
 
     <View android:layout_width="match_parent"
@@ -47,8 +47,8 @@
         android:layout_height="?android:attr/listPreferredItemHeight"
         android:background="?attr/selectableItemBackground"
         app:key="filt_curse"
-        app:name="@string/filt_curse"
-        app:summary="@string/filt_curse_desc"
+        app:name="@string/filter_curse"
+        app:summary="@string/filter_curse_desc"
         app:image="@drawable/ic_curse" />
 
     <View android:layout_width="match_parent"

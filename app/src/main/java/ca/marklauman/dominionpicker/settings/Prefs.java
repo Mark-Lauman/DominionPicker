@@ -68,11 +68,11 @@ public abstract class Prefs {
         Resources res = c.getResources();
 
         if(!prefs.contains(FILT_SET))
-            edit.putString(FILT_SET, res.getString(R.string.filt_set_def));
+            edit.putString(FILT_SET, res.getString(R.string.filter_set_def));
         if(!prefs.contains(FILT_COST))
-            edit.putString(FILT_COST, res.getString(R.string.filt_cost_def));
+            edit.putString(FILT_COST, res.getString(R.string.filter_cost_def));
         if(!prefs.contains(FILT_CURSE))
-            edit.putBoolean(FILT_CURSE, res.getBoolean(R.bool.filt_curse_def));
+            edit.putBoolean(FILT_CURSE, res.getBoolean(R.bool.filter_curse_def));
         edit.commit();
     }
 
@@ -87,10 +87,8 @@ public abstract class Prefs {
         // The following distinguish v1
         if(prefs.contains("pref_version")) return 1;
         String filt = prefs.getString(FILT_SET, "");
-        if(filt == null) filt = "";
         if(filt.contains(OLD_SEP)) return 1;
         filt = prefs.getString(FILT_COST, "");
-        if(filt == null) filt = "";
         if(filt.contains(OLD_SEP)) return 1;
         // v2 does not have VERSION set.
         return prefs.getInt(VERSION, 2);
@@ -147,44 +145,42 @@ public abstract class Prefs {
         SharedPreferences.Editor edit = prefs.edit();
         edit.remove("pref_version");
 
-        String filt = prefs.getString(FILT_SET, "");
-        if(filt == null) filt = "";
-        if(filt.contains(OLD_SEP)) {
+        String filter = prefs.getString(FILT_SET, "");
+        if(filter.contains(OLD_SEP)) {
             String newSets = "";
-            if(filt.contains("Base")) newSets += ",0";
-            if(filt.contains("Alchemy")) newSets += ",1";
-            if(filt.contains("Black Market")) newSets += ",2";
-            if(filt.contains("Cornucopia")) newSets += ",3";
-            if(filt.contains("Dark Ages")) newSets += ",4";
-            if(filt.contains("Envoy")) newSets += ",5";
-            if(filt.contains("Governor")) newSets += ",6";
-            if(filt.contains("Guilds")) newSets += ",7";
-            if(filt.contains("Hinterlands")) newSets += ",8";
-            if(filt.contains("Intrigue")) newSets += ",9";
-            if(filt.contains("Prince")) newSets += ",10";
-            if(filt.contains("Prosperity")) newSets += ",11";
-            if(filt.contains("Seaside")) newSets += ",12";
-            if(filt.contains("Stash")) newSets += ",13";
-            if(filt.contains("Walled Village")) newSets += ",14";
+            if(filter.contains("Base")) newSets += ",0";
+            if(filter.contains("Alchemy")) newSets += ",1";
+            if(filter.contains("Black Market")) newSets += ",2";
+            if(filter.contains("Cornucopia")) newSets += ",3";
+            if(filter.contains("Dark Ages")) newSets += ",4";
+            if(filter.contains("Envoy")) newSets += ",5";
+            if(filter.contains("Governor")) newSets += ",6";
+            if(filter.contains("Guilds")) newSets += ",7";
+            if(filter.contains("Hinterlands")) newSets += ",8";
+            if(filter.contains("Intrigue")) newSets += ",9";
+            if(filter.contains("Prince")) newSets += ",10";
+            if(filter.contains("Prosperity")) newSets += ",11";
+            if(filter.contains("Seaside")) newSets += ",12";
+            if(filter.contains("Stash")) newSets += ",13";
+            if(filter.contains("Walled Village")) newSets += ",14";
             if(newSets.length() > 1) newSets = newSets.substring(1);
             edit.putString(FILT_SET, newSets);
         }
 
         // update costs to newest version
-        filt = prefs.getString(FILT_COST, "");
-        if(filt == null) filt = "";
-        if(filt.contains(OLD_SEP)) {
+        filter = prefs.getString(FILT_COST, "");
+        if(filter.contains(OLD_SEP)) {
             String newCost = "";
-            if(filt.contains("Potion")) newCost += ",0";
-            if(filt.contains("1")) newCost += ",1";
-            if(filt.contains("2")) newCost += ",2";
-            if(filt.contains("3")) newCost += ",3";
-            if(filt.contains("4")) newCost += ",4";
-            if(filt.contains("5")) newCost += ",5";
-            if(filt.contains("6")) newCost += ",6";
-            if(filt.contains("7")) newCost += ",7";
-            if(filt.contains("8")) newCost += ",8";
-            if(filt.contains("8*")) newCost += ",9";
+            if(filter.contains("Potion")) newCost += ",0";
+            if(filter.contains("1")) newCost += ",1";
+            if(filter.contains("2")) newCost += ",2";
+            if(filter.contains("3")) newCost += ",3";
+            if(filter.contains("4")) newCost += ",4";
+            if(filter.contains("5")) newCost += ",5";
+            if(filter.contains("6")) newCost += ",6";
+            if(filter.contains("7")) newCost += ",7";
+            if(filter.contains("8")) newCost += ",8";
+            if(filter.contains("8*")) newCost += ",9";
 
             if(newCost.length() > 1) newCost = newCost.substring(1);
             edit.putString(FILT_COST, newCost);
@@ -194,10 +190,9 @@ public abstract class Prefs {
 
     /** Updates preferences from v2 to v3. Does not detect version number. */
     private static void update2(SharedPreferences prefs) {
-        String filt = prefs.getString(FILT_SET, "");
-        if(filt == null) filt = "";
-        if(filt.length() < 1)
+        String filter = prefs.getString(FILT_SET, "");
+        if(filter.length() < 1)
              prefs.edit().putString(FILT_SET, "15").commit();
-        else prefs.edit().putString(FILT_SET, filt + ",15").commit();
+        else prefs.edit().putString(FILT_SET, filter + ",15").commit();
     }
 }

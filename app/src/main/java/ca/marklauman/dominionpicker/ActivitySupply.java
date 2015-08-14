@@ -49,7 +49,7 @@ public class ActivitySupply extends AppCompatActivity {
     /** The language that this activity is using to display cards */
     private String langId;
     /** The adapter used to display the supply cards. */
-	private CardAdapter adapter;
+	private AdapterCards adapter;
 	/** The TextView used to display the resource cards. */
 	private TextView resView;
 	/** The supply on display. */
@@ -75,7 +75,7 @@ public class ActivitySupply extends AppCompatActivity {
 		resView.setVisibility(View.GONE);
 		
 		// Setup the adapter
-		adapter = new CardAdapter(this);
+		adapter = new AdapterCards(this);
 		adapter.changeCursor(null);
 		card_list.setAdapter(adapter);
 
@@ -230,7 +230,7 @@ public class ActivitySupply extends AppCompatActivity {
             // Basic loader
             CursorLoader c = new CursorLoader(getActivity());
             c.setUri(Provider.URI_CARD_ALL);
-            c.setProjection(CardAdapter.COLS_USED);
+            c.setProjection(AdapterCards.COLS_USED);
             c.setSortOrder(App.sortOrder);
 
             // Selection string (sql WHERE clause)

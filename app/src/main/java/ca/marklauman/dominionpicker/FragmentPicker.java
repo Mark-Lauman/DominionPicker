@@ -2,7 +2,6 @@ package ca.marklauman.dominionpicker;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -37,7 +36,7 @@ public class FragmentPicker extends Fragment
     /** The view associated with the card list. */
     private ListView card_list;
     /** The adapter for the card list. */
-    private CardAdapter adapter = null;
+    private AdapterCards adapter = null;
     /** The view associated with an empty list */
     private View empty;
     /** The view associated with a loading list */
@@ -49,11 +48,11 @@ public class FragmentPicker extends Fragment
     /** Current language loaded by this picker */
     private String language;
     /** Value of the set filter */
-    private String filt_set;
+    private String filter_set;
     /** Value of the cost filter */
-    private String filt_cost;
+    private String filter_cost;
     /** Value of the curse filter */
-    private boolean filt_curse;
+    private boolean filter_curse;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,14 +97,14 @@ public class FragmentPicker extends Fragment
     /** Checks if any filters' value has changed */
     private boolean filterChanged() {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        final String new_set = pref.getString("filt_set", "");
-        final String new_cost = pref.getString("filt_cost", "");
-        final boolean new_curse = pref.getBoolean("filt_curse", true);
+        final String new_set = pref.getString("filter_set", "");
+        final String new_cost = pref.getString("filter_cost", "");
+        final boolean new_curse = pref.getBoolean("filter_curse", true);
 
         return !App.transId.equals(language) ||
-               !new_set.equals(filt_set) ||
-               !new_cost.equals(filt_cost) ||
-               new_curse != filt_curse;
+               !new_set.equals(filter_set) ||
+               !new_cost.equals(filter_cost) ||
+               new_curse != filter_curse;
     }
 
     @Override
@@ -139,7 +138,7 @@ public class FragmentPicker extends Fragment
         // Basic setup
         CursorLoader c = new CursorLoader(getActivity());
         c.setUri(Provider.URI_CARD_ALL);
-        c.setProjection(CardAdapter.COLS_USED);
+        c.setProjection(AdapterCards.COLS_USED);
         c.setSortOrder(App.sortOrder);
 
         // Filter by language
@@ -149,8 +148,8 @@ public class FragmentPicker extends Fragment
 
         // Filter by set
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        filt_set = pref.getString("filt_set", "");
-        String[] split_set = filt_set.split(",");
+        filter_set = pref.getString("filter_set", "");
+        String[] split_set = filter_set.split(",");
         Collections.addAll(sel_args, split_set);
         for (CharSequence ignored:split_set)
             sel += " AND " + CardDb._SET_ID + "!=? ";
@@ -158,9 +157,9 @@ public class FragmentPicker extends Fragment
         // Filter by cost
         String[] costs = getActivity().getResources()
                                       .getStringArray(R.array.filt_cost);
-        filt_cost = pref.getString("filt_cost", "");
+        filter_cost = pref.getString("filter_cost", "");
         ArrayList<CharSequence> split_cost = new ArrayList<>(Arrays.asList(
-                        MultiSelectPreference.mapValues(filt_cost, null, costs)));
+                        MultiSelectPreference.mapValues(filter_cost, null, costs)));
         String potion = getResources().getStringArray(R.array.filt_cost)[0];
         if(0 < split_cost.size() && potion.equals(split_cost.get(0))) {
             sel += " AND " + CardDb._POT + "=?";
@@ -173,8 +172,8 @@ public class FragmentPicker extends Fragment
             sel += " AND " + CardDb._COST + "!=?";
 
         // Filter out cursers
-        filt_curse = pref.getBoolean("filt_curse", true);
-        if(!filt_curse) {
+        filter_curse = pref.getBoolean("filter_curse", true);
+        if(!filter_curse) {
             sel += " AND " + CardDb._META_CURSER + "=?";
             sel_args.add("0");
         }
@@ -190,8 +189,8 @@ public class FragmentPicker extends Fragment
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        adapter = new CardAdapter(getActivity());
-        adapter.setChoiceMode(CardAdapter.CHOICE_MODE_MULTIPLE);
+        adapter = new AdapterCards(getActivity());
+        adapter.setChoiceMode(AdapterCards.CHOICE_MODE_MULTIPLE);
         adapter.changeCursor(data);
 
         // Load and apply the last selections (if any)

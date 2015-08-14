@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="filters">Filtri</string>
-    <string name="filt_all">Togli tutto</string>
+    <string name="filter_all">Togli tutto</string>
 
-    <string name="filt_set">Espansioni e promo</string>
+    <string name="filter_set">Espansioni e promo</string>
     <string-array name="filt_set">
         <item>@string/set_base</item>
         <item>@string/set_alchemy</item>
@@ -40,13 +40,10 @@
         <item>10</item>
         <item>14</item>
     </integer-array>
-    <string name="filt_set_def">15,4,7,2,6,10,14</string>
 
-    <string name="filt_cost">Costo della carta</string>
-    <string name="filt_cost_def" />
+    <string name="filter_cost">Costo della carta</string>
 	
-    <string name="filt_curse">Cursers</string>
-    <string name="filt_curse_desc">Take Victory Points from other players!</string>
-    <bool name="filt_curse_def">true</bool>
+    <string name="filter_curse">Cursers</string>
+    <string name="filter_curse_desc">Take Victory Points from other players!</string>
 
 </resources>

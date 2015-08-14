@@ -4,7 +4,7 @@ import android.content.Context;
 import ca.marklauman.dominionpicker.database.CardDb;
 import java.util.HashMap;
 
-/** Used to store generic info that are useful all over the app. */
+/** Used to store generic info that is useful all over the app. */
 public abstract class App {
     /** The context of the process that the application is in.
      *  (This is different from the context of each thread,

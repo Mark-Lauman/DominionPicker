@@ -1,25 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:res="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal|center_vertical" >
+    android:layout_height="match_parent" >
 
-    <ListView
-        android:id="@+id/card_list"
+    <ca.marklauman.tools.SlidingTabLayout
+        android:id="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fastScrollEnabled="true" />
-
-    <ProgressBar
-        android:id="@android:id/progress"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone" />
+        android:layout_alignParentTop="true"
+        android:textColor="@android:color/black"
+        android:background="@color/colorPrimary"
+        res:indicatorColor="@color/colorPrimaryDark"
+        res:dividerColor="@android:color/black" />
 
-    <TextView
-        android:id="@android:id/empty"
-        android:layout_width="wrap_content"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/no_hist"
-        android:visibility="gone" />
+        android:layout_below="@id/tabs" />
 
 </RelativeLayout>

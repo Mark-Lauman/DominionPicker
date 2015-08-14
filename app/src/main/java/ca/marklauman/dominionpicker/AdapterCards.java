@@ -15,11 +15,11 @@ import android.widget.ImageView;
 
 /** Adapter used to display cards from the {@link CardDb}.
  *  @author Mark Lauman */
-class CardAdapter extends CursorSelAdapter
+class AdapterCards extends CursorSelAdapter
 						 implements OnItemClickListener,
 						 			ViewBinder {
 
-	/** The columns used by the CardAdapter.
+	/** The columns used by this adapter.
 	 *  Any other columns provided will be ignored. */
 	public static final String[] COLS_USED
 			= {CardDb._ID, CardDb._NAME, CardDb._SET_NAME, CardDb._TYPE,
@@ -42,17 +42,17 @@ class CardAdapter extends CursorSelAdapter
 	/** Index of the {@link CardDb#_SET_ID} column. */
 	private int col_set = -1;
     /** Index of the {@link CardDb#_SET_NAME} column. */
-    private int col_sname = -1;
+    private int col_setName = -1;
 	/** Index of the {@link CardDb#_COIN} column. */
-	private int col_gold = -1;
+	private int col_plusCoin = -1;
 	/** Index of the {@link CardDb#_VICTORY} column. */
-	private int col_victory = -1;
+	private int col_plusVP = -1;
 	/** Index of the {@link CardDb#_BUY} column. */
-	private int col_buy = -1;
+	private int col_plusBuy = -1;
 	/** Index of the {@link CardDb#_CARD} column. */
-	private int col_draw = -1;
+	private int col_plusCard = -1;
 	/** Index of the {@link CardDb#_ACT} column. */
-	private int col_act = -1;
+	private int col_plusAct = -1;
 	/** Index of the {@link CardDb#_ID} column. */
 	private int col_id = -1;
     /** Index of the {@link CardDb#_NAME} column. */
@@ -68,16 +68,16 @@ class CardAdapter extends CursorSelAdapter
     /** In the main display loop this is used to store int values temporarily */
     private int loopInt;
 	
-	public CardAdapter(Context context) {
+	public AdapterCards(Context context) {
 		super(context, R.layout.card_layout_picker,
-              new String[]{CardDb._ID, CardDb._NAME, CardDb._SET_ID, CardDb._TYPE,
-                           CardDb._DESC, CardDb._SET_NAME, CardDb._COST, CardDb._POT,
-                           CardDb._BUY, CardDb._COIN, CardDb._VICTORY,
-                           CardDb._REQ},
-			  new int[]{R.id.card_special, R.id.card_name, R.id.card_set, R.id.card_type,
-                        R.id.card_desc, R.id.card_set, R.id.card_cost, R.id.card_potion,
-                        R.id.card_res, R.id.card_res_gold, R.id.card_res_victory,
-                        R.id.card_requires});
+                new String[]{CardDb._ID, CardDb._NAME, CardDb._COST, CardDb._POT,
+                             CardDb._SET_ID, CardDb._SET_NAME, CardDb._TYPE, CardDb._REQ,
+                             CardDb._COIN, CardDb._VICTORY, CardDb._BUY,
+                             CardDb._DESC},
+                new int[]{R.id.card_special, R.id.card_name, R.id.card_cost, R.id.card_potion,
+                          R.id.card_set, R.id.card_set, R.id.card_type, R.id.card_requires,
+                          R.id.card_res_gold, R.id.card_res_victory, R.id.card_res,
+                          R.id.card_desc});
         this.setViewBinder(this);
         resources = context.getResources();
         setSelectionColor(context.getResources().getColor(R.color.card_list_select));
@@ -93,18 +93,18 @@ class CardAdapter extends CursorSelAdapter
 		super.changeCursor(cursor);
 		if(cursor == null) return;
 		// get the columns from the cursor
+        col_id = cursor.getColumnIndex(CardDb._ID);
+        col_name = cursor.getColumnIndex(CardDb._NAME);
 		col_cost = cursor.getColumnIndex(CardDb._COST);
 		col_potion = cursor.getColumnIndex(CardDb._POT);
 		col_set = cursor.getColumnIndex(CardDb._SET_ID);
-        col_sname = cursor.getColumnIndex(CardDb._SET_NAME);
-		col_gold = cursor.getColumnIndex(CardDb._COIN);
-		col_victory = cursor.getColumnIndex(CardDb._VICTORY);
-		col_buy = cursor.getColumnIndex(CardDb._BUY);
-		col_draw = cursor.getColumnIndex(CardDb._CARD);
-		col_act = cursor.getColumnIndex(CardDb._ACT);
+        col_setName = cursor.getColumnIndex(CardDb._SET_NAME);
+		col_plusCoin = cursor.getColumnIndex(CardDb._COIN);
+		col_plusVP = cursor.getColumnIndex(CardDb._VICTORY);
+		col_plusBuy = cursor.getColumnIndex(CardDb._BUY);
+		col_plusCard = cursor.getColumnIndex(CardDb._CARD);
+		col_plusAct = cursor.getColumnIndex(CardDb._ACT);
 		col_desc = cursor.getColumnIndex(CardDb._DESC);
-		col_id = cursor.getColumnIndex(CardDb._ID);
-        col_name = cursor.getColumnIndex(CardDb._NAME);
         col_req = cursor.getColumnIndex(CardDb._REQ);
 	}
 	
@@ -121,21 +121,21 @@ class CardAdapter extends CursorSelAdapter
 	@Override
 	public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
         // Basic string mapping, with hide on "0" (values like "3*" exist)
-        if (col_cost == columnIndex || col_gold == columnIndex
-                || col_victory == columnIndex) {
+        if (col_cost == columnIndex || col_plusCoin == columnIndex
+                || col_plusVP == columnIndex) {
             if ("0".equals(cursor.getString(columnIndex)))
                 view.setVisibility(View.GONE);
             else view.setVisibility(View.VISIBLE);
             return false;
 
-            // Basic hide/show
+        // Basic hide/show
         } else if (col_potion == columnIndex) {
             if (cursor.getInt(columnIndex) != 0)
                 view.setVisibility(View.VISIBLE);
             else view.setVisibility(View.GONE);
             return true;
 
-            // map expansion to icon
+        // map expansion to icon
         } else if (col_set == columnIndex) {
             loopInt = 0;
             try { loopInt = exp_icons[cursor.getInt(col_set)];
@@ -144,25 +144,26 @@ class CardAdapter extends CursorSelAdapter
             ((ImageView)view).setImageResource(loopInt);
             return true;
 
-        } else if(col_sname == columnIndex) {
+        // Expansion name to icon description
+        } else if(col_setName == columnIndex) {
             view.setContentDescription(cursor.getString(columnIndex));
             return true;
 
-            // All the resources after the icon bonuses
-        } else if (col_buy == columnIndex) {
+        // All the resources after the icon bonuses
+        } else if (col_plusBuy == columnIndex) {
             loopStr = "";
             // + buy
-            loopInt = cursor.getInt(col_buy);
+            loopInt = cursor.getInt(col_plusBuy);
             if (loopInt != 0)
-                loopStr += ", " + resources.getQuantityString(R.plurals.format_buy, loopInt, loopInt);
+                loopStr += ", "+resources.getQuantityString(R.plurals.format_buy, loopInt, loopInt);
             // + card
-            loopInt = cursor.getInt(col_draw);
+            loopInt = cursor.getInt(col_plusCard);
             if (loopInt != 0)
-                loopStr += ", " + resources.getQuantityString(R.plurals.format_card, loopInt, loopInt);
+                loopStr += ", "+resources.getQuantityString(R.plurals.format_card, loopInt, loopInt);
             // + action
-            loopInt = cursor.getInt(col_act);
+            loopInt = cursor.getInt(col_plusAct);
             if (loopInt != 0)
-                loopStr += ", " + resources.getQuantityString(R.plurals.format_act, loopInt, loopInt);
+                loopStr += ", "+resources.getQuantityString(R.plurals.format_act, loopInt, loopInt);
             // Only show the result if we have a result.
             if (2 < loopStr.length()) {
                 // Trim off the first ", "
@@ -172,7 +173,7 @@ class CardAdapter extends CursorSelAdapter
             } else view.setVisibility(View.GONE);
             return true;
 
-        // Hide if empty and replace special format characters.
+        // Hide if empty.
         } else if (col_desc == columnIndex) {
             loopStr = cursor.getString(columnIndex);
             if (loopStr == null || "".equals(loopStr)) view.setVisibility(View.GONE);

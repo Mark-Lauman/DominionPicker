@@ -15,7 +15,7 @@ import ca.marklauman.tools.CursorSelAdapter;
 
 /** Adapter for displaying shuffles from the history table.
  *  @author Mark Lauman */
-class HistoryAdapter extends CursorSelAdapter
+class AdapterHistory extends CursorSelAdapter
                             implements ViewBinder {
     /** Formatter used to display shuffle times. */
     private final DateFormat tFormat;
@@ -31,7 +31,7 @@ class HistoryAdapter extends CursorSelAdapter
     /** Column index for high_cost. */
     private int _high_cost;
 
-    public HistoryAdapter(Context context) {
+    public AdapterHistory(Context context) {
         super(context, R.layout.list_item_shuffle,
                 new String[]{DataDb._H_NAME, DataDb._H_CARDS},
                 new int[]{R.id.name, R.id.desc});
