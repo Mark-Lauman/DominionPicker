@@ -1,4 +1,4 @@
-package ca.marklauman.dominionpicker;
+package ca.marklauman.dominionpicker.history;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import ca.marklauman.dominionpicker.R;
+import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.tools.SlidingTabLayout;
 
-/** Governs the History screen. Allows users to see previous shuffles.
+/** Governs the History screen, and all three of its panels.
  *  @author Mark Lauman */
 public class FragmentHistory extends Fragment {
     /** Key used to save the active tab to savedInstanceState */
@@ -49,7 +51,7 @@ public class FragmentHistory extends Fragment {
         return view;
     }
 
-
+    /** Adapter used to switch panels */
     private class PagerAdapter extends FragmentStatePagerAdapter {
         /** The tab names */
         final String[] titles;
@@ -62,12 +64,17 @@ public class FragmentHistory extends Fragment {
         @Override
         public Fragment getItem(int position) {
             activeTab = position;
-            FragmentHistoryList res = new FragmentHistoryList();
+            FragmentHistoryPanel res = new FragmentHistoryPanel();
             switch (position) {
-                case 0:  return res;
-                case 1:  res.onlyFavorites();
-                         return res;
-                case 2: return res;
+                case 0: res.loaderId = LoaderId.SAMPLE_SUPPLY;
+                        res.handler = new HandlerSamples(getActivity());
+                        return res;
+                case 1: res.loaderId = LoaderId.FAVORITES;
+                        res.handler = new HandlerHistory(getActivity(), true);
+                        return res;
+                case 2: res.loaderId = LoaderId.HISTORY;
+                        res.handler = new HandlerHistory(getActivity(), false);
+                        return res;
                 default: return null;
             }
         }

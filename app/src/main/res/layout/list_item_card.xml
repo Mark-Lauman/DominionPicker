@@ -14,7 +14,8 @@
         android:text="@string/young_witch_bane"
         android:gravity="start" />
 
-    <RelativeLayout android:layout_width="fill_parent"
+    <RelativeLayout android:id="@+id/card_wrapper"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/card_special"
         android:layout_marginTop="4dp"
@@ -160,5 +161,11 @@
             android:text="@string/demo_card_desc" />
 
     </RelativeLayout>
+
+    <View android:id="@+id/card_special_2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/card_wrapper"
+        android:background="@color/list_div" />
 
 </RelativeLayout>

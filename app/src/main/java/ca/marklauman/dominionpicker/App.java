@@ -6,6 +6,13 @@ import java.util.HashMap;
 
 /** Used to store generic info that is useful all over the app. */
 public abstract class App {
+
+    // Columns that a database table must include to use the translation filter.
+    /** Language column used in the translated databases. */
+    public static final String COL_LANG = "language";
+    /** Set id column used in the translated databases. */
+    public static final String COL_SET_ID = "set_id";
+
     /** The context of the process that the application is in.
      *  (This is different from the context of each thread,
      *  and should only be used only if no other context is available) */
@@ -38,13 +45,13 @@ public abstract class App {
             language = trans[set];
             if (!map.containsKey(language))
                 map.put(language, "");
-            map.put(language, map.get(language) + " OR " + CardDb._SET_ID + "=" + set);
+            map.put(language, map.get(language) + " OR " + COL_SET_ID + "=" + set);
         }
         // Turn the translation into an SQL "WHERE" clause
         // Cards with null language are user defined, and load regardless of language.
-        String filter = CardDb._LANG + "=NULL";
+        String filter = COL_LANG + "=NULL";
         for (String key : map.keySet()) {
-            filter += " OR " + CardDb._LANG + "='" + key
+            filter += " OR " + COL_LANG + "='" + key
                     + "' AND (" + map.get(key).substring(4) + ")";
         }
         // Surround the filter with brackets to prevent logic leaks.

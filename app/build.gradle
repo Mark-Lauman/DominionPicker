@@ -32,6 +32,6 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'ca.marklauman.tools:AndroidTools:2.8.26@aar'
+    compile 'ca.marklauman.tools:AndroidTools:2.9.1@aar'
     compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
 }

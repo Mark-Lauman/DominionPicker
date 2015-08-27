@@ -1,5 +1,6 @@
 package ca.marklauman.dominionpicker;
 
+import ca.marklauman.dominionpicker.history.FragmentHistory;
 import ca.marklauman.dominionpicker.settings.ActivityFilters;
 import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.ExpandedArrayAdapter;

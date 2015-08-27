@@ -1,0 +1,15 @@
+_id;set_id;set name;cards;high_cost;shelters;bane
+1;0;Base;6,27,16,28,8,18,19,10,11,12;0;0;-1
+2;0;Base;30,13,9,7,14,25,27,28,17,22;0;0;-1
+3;0;Base;13,9,23,24,26,16,8,20,21,10;0;0;-1
+4;0;Base;6,7,14,15,25,21,10,29,11,12;0;0;-1
+5;0;Base;13,6,24,26,27,18,19,22,10,11;0;0;-1
+;9;Intrigue;;;;
+;12;Seaside;;;;
+;1;Alchemy;;;;
+;11;Prosperity;;;;
+;3;Cornucopia;;;;
+;8;Hinterlands;;;;
+;4;Dark Ages;;;;
+;7;Guilds;;;;
+;15;Adventures;;;;

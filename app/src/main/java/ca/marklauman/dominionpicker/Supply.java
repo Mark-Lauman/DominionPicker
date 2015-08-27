@@ -21,8 +21,11 @@ public class Supply implements Parcelable {
 	public boolean high_cost;
 	/** {@code true} if shelters are in use. */
 	public boolean shelters;
+    /** {@code true} if this is from the sample database. */
+    public boolean sample;
 	/** The id of the bane card, or -1 if there isn't one. */
 	long bane;
+
 	
 
 	/** Basic constructor */
@@ -32,6 +35,7 @@ public class Supply implements Parcelable {
 		cards = null;
 		high_cost = false;
 		shelters = false;
+        sample = false;
 		bane = -1L;
 	}
 	
@@ -43,6 +47,7 @@ public class Supply implements Parcelable {
     	boolean[] booleans = in.createBooleanArray();
     	high_cost = booleans[0];
     	shelters = booleans[1];
+        sample = booleans[2];
     	bane = in.readLong();
     }
     
@@ -55,6 +60,8 @@ public class Supply implements Parcelable {
     	else		  res += "low cost, ";
     	if(shelters) res += "shelters, ";
     	else		 res += "no shelters, ";
+        if(sample) res += "sample, ";
+        else         res += "history, ";
     	res += "bane=" + bane + ",  ";
     	res += Arrays.toString(cards);
     	return res + "}";
@@ -85,9 +92,7 @@ public class Supply implements Parcelable {
 	public void writeToParcel(Parcel out, int flags) {
         out.writeLong(time);
 		out.writeLongArray(cards);
-		boolean[] booleans = new boolean[] {high_cost,
-										 shelters };
-		out.writeBooleanArray(booleans);
+		out.writeBooleanArray(new boolean[]{high_cost, shelters, sample});
 		out.writeLong(bane);
     }
     

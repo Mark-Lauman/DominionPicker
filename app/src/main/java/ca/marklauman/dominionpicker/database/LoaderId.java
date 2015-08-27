@@ -5,8 +5,8 @@ package ca.marklauman.dominionpicker.database;
 public abstract class LoaderId {
     /** The picker's card loader. */
     public static final int PICKER = 1;
-    /** The supply fragment's history loader. */
-    public static final int SUPPLY_HIST = 2;
+    /** The supply fragment's supply object loader. */
+    public static final int SUPPLY_OBJECT = 2;
     /** The supply fragment's card loader. */
     public static final int SUPPLY_CARDS = 3;
     /** The market's shuffle loader. */
@@ -17,4 +17,6 @@ public abstract class LoaderId {
     public static final int FAVORITES = 6;
     /** The history loader. */
     public static final int HISTORY = 7;
+    /** The sample supply loader. */
+    public static final int SAMPLE_SUPPLY = 8;
 }

@@ -3,7 +3,6 @@ package ca.marklauman.dominionpicker.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.provider.BaseColumns;
 
 import ca.marklauman.dominionpicker.R;
 
@@ -21,26 +20,26 @@ public class DataDb extends SQLiteOpenHelper {
     /** Column storing the timestamp of the shuffle.
      *  Serves as the index of the table.<br/>
      *  History Table, Java Long */
-    public static final String _H_TIME = BaseColumns._ID;
+    public static final String _H_TIME = SupplyDb._ID;
     /** Column storing the name of the shuffle. The name is optional.
      *  If non-null, the row is a favorite.<br/>
      *  History Table, Java String */
-    public static final String _H_NAME = "name";
+    public static final String _H_NAME = SupplyDb._NAME;
     /** Column storing the cards found in this shuffle.
      *  This is stored as a string of card ids separated by commas.<br/>
      *  History Table, Java String */
-    public static final String _H_CARDS = "cards";
+    public static final String _H_CARDS = SupplyDb._CARDS;
     /** Column storing if this shuffle is a high cost game.
      *  (with colonies and shelters).<br/>
      *  History Table, Java Boolean */
-    public static final String _H_HIGH_COST = "high_cost";
+    public static final String _H_HIGH_COST = SupplyDb._HIGH_COST;
     /** Column storing if this shuffle uses shelters.<br/>
      *  History Table, Java String */
-    public static final String _H_SHELTERS = "shelters";
+    public static final String _H_SHELTERS = SupplyDb._SHELTERS;
     /** Column storing the id of the bane card.
      *  The card is set to -1 if there is no bane card.<br/>
      *  History Table, Java Long */
-    public static final String _H_BANE = "bane";
+    public static final String _H_BANE = SupplyDb._BANE;
 
 
     public DataDb(Context c) {

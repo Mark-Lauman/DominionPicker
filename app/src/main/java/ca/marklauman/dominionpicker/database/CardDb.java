@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.provider.BaseColumns;
 
+import ca.marklauman.dominionpicker.App;
 import ca.marklauman.dominionpicker.R;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
@@ -37,11 +38,11 @@ public class CardDb extends SQLiteAssetHelper {
     /** Column for the description of a card. From the cardTrans table. */
     public static final String _DESC = "description";
     /** Column for the language code of the card. From the cardTans table. */
-    public static final String _LANG = "language";
+    public static final String _LANG = App.COL_LANG;
 
     /** Column for the expansion id of the card.
      *  From the cardData table. */
-    public static final String _SET_ID = "set_id";
+    public static final String _SET_ID = App.COL_SET_ID;
     /** Column for the cost of a card (in coins).
      *  From the cardData table. */
     public static final String _COST = "cost";

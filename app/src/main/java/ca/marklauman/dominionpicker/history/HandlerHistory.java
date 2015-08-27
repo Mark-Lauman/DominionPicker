@@ -1,24 +1,32 @@
-package ca.marklauman.dominionpicker;
+package ca.marklauman.dominionpicker.history;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Typeface;
-import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
+import android.os.Bundle;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.view.View;
 import android.widget.TextView;
 
 import java.text.DateFormat;
 import java.util.Date;
 
+import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.DataDb;
+import ca.marklauman.dominionpicker.database.Provider;
+import ca.marklauman.tools.CursorHandler;
 import ca.marklauman.tools.CursorSelAdapter;
+import ca.marklauman.tools.Utils;
 
-/** Adapter for displaying shuffles from the history table.
+/** Handler for loading and displaying shuffles from the {@link DataDb}.
  *  @author Mark Lauman */
-class AdapterHistory extends CursorSelAdapter
-                            implements ViewBinder {
+class HandlerHistory extends CursorSelAdapter
+                            implements CursorHandler {
     /** Formatter used to display shuffle times. */
     private final DateFormat tFormat;
+    /** True if only favorites are to be displayed */
+    private final boolean onlyFav;
 
     /** Column index for time. */
     private int _time;
@@ -31,15 +39,18 @@ class AdapterHistory extends CursorSelAdapter
     /** Column index for high_cost. */
     private int _high_cost;
 
-    public AdapterHistory(Context context) {
-        super(context, R.layout.list_item_shuffle,
+    /** Default constructor.
+     *  @param context The context that the handler is used in.
+     *  @param onlyFavorites Only loads favorite shuffles if true. */
+    public HandlerHistory(Context context, boolean onlyFavorites) {
+        super(context, R.layout.list_item_supply,
                 new String[]{DataDb._H_NAME, DataDb._H_CARDS},
                 new int[]{R.id.name, R.id.desc});
         setChoiceMode(CHOICE_MODE_NONE);
         setViewBinder(this);
         tFormat = DateFormat.getDateTimeInstance();
+        onlyFav = onlyFavorites;
     }
-
 
     @Override
     public void changeCursor(Cursor c) {
@@ -51,7 +62,6 @@ class AdapterHistory extends CursorSelAdapter
         _high_cost = c.getColumnIndex(DataDb._H_HIGH_COST);
         _shelters = c.getColumnIndex(DataDb._H_SHELTERS);
     }
-
 
     @Override
     public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
@@ -67,8 +77,7 @@ class AdapterHistory extends CursorSelAdapter
                 txt.setTypeface(Typeface.create(type, Typeface.BOLD));
             } else {
                 // Not Favorite, display normal name
-                String time = tFormat.format(new Date(cursor.getLong(_time)));
-                txt.setText(time);
+                txt.setText(tFormat.format(new Date(cursor.getLong(_time))));
                 txt.setTypeface(Typeface.create(type, Typeface.NORMAL));
             }
             return true;
@@ -76,7 +85,7 @@ class AdapterHistory extends CursorSelAdapter
         // The description field.
         } else if(columnIndex == _cards) {
             // Count the number of cards
-            int cards = cursor.getString(_cards).split(",").length;
+            int cards = Utils.countChar(cursor.getString(_cards), ',')+1;
             String desc = mContext.getResources()
                                   .getQuantityString(R.plurals.hist_card, cards, cards);
 
@@ -91,5 +100,26 @@ class AdapterHistory extends CursorSelAdapter
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        CursorLoader c = new CursorLoader(mContext);
+        c.setProjection(new String[]{DataDb._H_TIME, DataDb._H_NAME, DataDb._H_CARDS,
+                                     DataDb._H_HIGH_COST, DataDb._H_SHELTERS});
+        c.setUri(Provider.URI_HIST);
+        c.setSortOrder(DataDb._H_TIME + " DESC");
+        if(onlyFav) c.setSelection(DataDb._H_NAME + " NOT NULL");
+        return c;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        changeCursor(data);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        changeCursor(null);
     }
 }

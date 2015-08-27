@@ -21,7 +21,9 @@ public class Provider extends ContentProvider {
     /** MIME type for cards. */
     public static final String MIME_CARD = "ca.marklauman.dominionpicker.card";
     /** Mime type for supplies. */
-    public static final String MIME_SHUFFLE = "ca.marklauman.dominionpicker.supply";
+    public static final String MIME_SUPPLY = "ca.marklauman.dominionpicker.supply";
+    /** Mime type for translated supplies. */
+    public static final String MIME_SUPPLY_TRANS = MIME_SUPPLY +".trans";
 
     /** Internal id for unrecognized URIs */
     private static final int ID_WTF = 0;
@@ -31,8 +33,10 @@ public class Provider extends ContentProvider {
     private static final int ID_CARD_TRANS = 2;
     /** Internal id for the combined card table's URI. */
     private static final int ID_CARD_ALL = 3;
+    /** Internal id for the supply table's URI. */
+    private static final int ID_SUPPLY = 4;
     /** Internal id for the history table's URI. */
-    private static final int ID_HIST = 4;
+    private static final int ID_HIST = 5;
 
     /** URI to access the card data table */
     public static final Uri URI_CARD_DATA = Uri.parse("content://ca.marklauman.dominionpicker/cardData");
@@ -40,6 +44,8 @@ public class Provider extends ContentProvider {
     public static final Uri URI_CARD_TRANS = Uri.parse("content://ca.marklauman.dominionpicker/cardTrans");
     /** URI to access the combination of all card tables */
     public static final Uri URI_CARD_ALL = Uri.parse("content://ca.marklauman.dominionpicker/cardAll");
+    /** URI to access the sample supply table */
+    public static final Uri URI_SUPPLY = Uri.parse("content://ca.marklauman.dominionpicker/supply");
     /** URI to access the history table */
     public static final Uri URI_HIST = Uri.parse("content://ca.marklauman.dominionpicker/history");
 
@@ -47,6 +53,8 @@ public class Provider extends ContentProvider {
     UriMatcher matcher;
     /** Handle to the card database. */
 	private CardDb card_db;
+    /** Handle to the supply database */
+    private SupplyDb supplyDb;
     /** Handle to the data database */
     private DataDb data_db;
 
@@ -58,6 +66,7 @@ public class Provider extends ContentProvider {
         matcher.addURI(AUTHORITY, "cardData", ID_CARD_DATA);
         matcher.addURI(AUTHORITY, "cardTrans", ID_CARD_TRANS);
         matcher.addURI(AUTHORITY, "cardAll", ID_CARD_ALL);
+        matcher.addURI(AUTHORITY, "supply", ID_SUPPLY);
         matcher.addURI(AUTHORITY, "history", ID_HIST);
 
 
@@ -70,7 +79,8 @@ public class Provider extends ContentProvider {
         if(dbListing != null) {
             for (File db : dbListing) {
                 name = db.getName();
-                if (!(CardDb.FILE_NAME.equals(name) || DataDb.FILE_NAME.equals(name)))
+                if (!(CardDb.FILE_NAME.equals(name) || SupplyDb.FILE_NAME.equals(name)
+                      || DataDb.FILE_NAME.equals(name)))
                     //noinspection ResultOfMethodCallIgnored
                     db.delete();
             }
@@ -78,6 +88,7 @@ public class Provider extends ContentProvider {
 
         // get the database files
 		card_db = new CardDb(c);
+        supplyDb = new SupplyDb(c);
         data_db = new DataDb(c);
 		return true;
 	}
@@ -88,9 +99,10 @@ public class Provider extends ContentProvider {
         switch (matcher.match(uri)) {
             case ID_CARD_DATA:
             case ID_CARD_TRANS:
-            case ID_CARD_ALL:   return MIME_CARD;
-            case ID_HIST: return MIME_SHUFFLE;
-            default:      return null;
+            case ID_CARD_ALL: return MIME_CARD;
+            case ID_SUPPLY: return MIME_SUPPLY_TRANS;
+            case ID_HIST: return MIME_SUPPLY;
+            default: return null;
         }
 	}
 
@@ -112,6 +124,9 @@ public class Provider extends ContentProvider {
             case ID_CARD_ALL:
                 res = card_db.query(CardDb.VIEW_ALL, projection,
                                     selection, selectionArgs, sortOrder);
+                break;
+            case ID_SUPPLY:
+                res = supplyDb.query(projection, selection, selectionArgs, sortOrder);
                 break;
             case ID_HIST:
                 db = data_db.getReadableDatabase();

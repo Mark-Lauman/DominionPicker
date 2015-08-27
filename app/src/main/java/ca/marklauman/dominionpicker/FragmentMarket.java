@@ -119,7 +119,7 @@ public class FragmentMarket extends Fragment
 
         // Setup the list & adapter
         card_view = (ListView) view.findViewById(R.id.card_list);
-        adapter = new AdapterCards(act);
+        adapter = new AdapterCards(act, false);
         adapter.changeCursor(loaded);
         if(stock != null) card_view.setAdapter(adapter);
         card_view.setOnItemClickListener(this);

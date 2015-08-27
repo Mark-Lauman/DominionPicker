@@ -2,9 +2,10 @@ package ca.marklauman.dominionpicker;
 
 import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.tools.CursorSelAdapter;
+import ca.marklauman.tools.Utils;
+
 import android.content.Context;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
 import android.view.View;
@@ -32,6 +33,8 @@ class AdapterCards extends CursorSelAdapter
 
     /** Resources used to format strings */
     private final Resources resources;
+    /** Indicates if card color is shown */
+    private final boolean showColor;
 	
 	/** Index of the {@link CardDb#_DESC} column. */
 	private int col_desc = -1;
@@ -67,24 +70,28 @@ class AdapterCards extends CursorSelAdapter
     private String loopStr;
     /** In the main display loop this is used to store int values temporarily */
     private int loopInt;
-	
-	public AdapterCards(Context context) {
-		super(context, R.layout.card_layout_picker,
-                new String[]{CardDb._ID, CardDb._NAME, CardDb._COST, CardDb._POT,
-                             CardDb._SET_ID, CardDb._SET_NAME, CardDb._TYPE, CardDb._REQ,
-                             CardDb._COIN, CardDb._VICTORY, CardDb._BUY,
-                             CardDb._DESC},
-                new int[]{R.id.card_special, R.id.card_name, R.id.card_cost, R.id.card_potion,
-                          R.id.card_set, R.id.card_set, R.id.card_type, R.id.card_requires,
-                          R.id.card_res_gold, R.id.card_res_victory, R.id.card_res,
-                          R.id.card_desc});
+
+    /** Default constructor.
+     *  @param context The application context
+     *  @param showCardColor True if the background color of the card should be shown. */
+	public AdapterCards(Context context, boolean showCardColor) {
+		super(context, R.layout.list_item_card,
+                new String[]{CardDb._ID, CardDb._ID, CardDb._NAME, CardDb._COST, CardDb._POT,
+                        CardDb._SET_ID, CardDb._SET_NAME, CardDb._TYPE, CardDb._REQ,
+                        CardDb._COIN, CardDb._VICTORY, CardDb._BUY,
+                        CardDb._DESC},
+                new int[]{R.id.card_special, R.id.card_special_2, R.id.card_name, R.id.card_cost, R.id.card_potion,
+                        R.id.card_set, R.id.card_set, R.id.card_type, R.id.card_requires,
+                        R.id.card_res_gold, R.id.card_res_victory, R.id.card_res,
+                        R.id.card_desc});
+        showColor = showCardColor;
         this.setViewBinder(this);
         resources = context.getResources();
         setSelectionColor(context.getResources().getColor(R.color.card_list_select));
 
         // Load the expansion icons if they haven't been loaded.
         if(exp_icons == null)
-			exp_icons = getDrawables(context, R.array.card_set_icons);
+			exp_icons = Utils.getDrawableResources(context, R.array.card_set_icons);
 	}
 	
 	
@@ -137,6 +144,7 @@ class AdapterCards extends CursorSelAdapter
 
         // map expansion to icon
         } else if (col_set == columnIndex) {
+            // TODO: Better methods are available for mapping ints to images.
             loopInt = 0;
             try { loopInt = exp_icons[cursor.getInt(col_set)];
             } catch(Exception ignored){}
@@ -223,24 +231,4 @@ class AdapterCards extends CursorSelAdapter
             return null;
         return mCursor.getString(col_name);
     }
-
-
-	/** Retrieve an array of drawable resources from the xml of the provided {@link Context}.
-	 *  @param c The {@code Context} to search for the array.
-	 *  @param resourceId The resource id of an {@code <array>} containing a list of drawables.
-	 *  @return The resource ids of all the drawables in the array, in the order in which
-     *  they appear in the xml. */
-	@SuppressWarnings("SameParameterValue")
-    private static int[] getDrawables(Context c, int resourceId) {
-		TypedArray ta = c.getResources()
-				 		 .obtainTypedArray(resourceId);
-		if(ta == null) return null;
-		
-    	int[] res = new int[ta.length()];
-    	for(int i=0; i<ta.length(); i++)
-    		res[i] = ta.getResourceId(i, -1);
-    	
-    	ta.recycle();
-    	return res;
-	}
 }
