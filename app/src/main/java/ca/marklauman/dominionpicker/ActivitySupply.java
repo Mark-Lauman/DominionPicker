@@ -21,9 +21,9 @@ import java.text.DateFormat;
 import java.util.Date;
 
 import ca.marklauman.dominionpicker.database.CardDb;
-import ca.marklauman.dominionpicker.database.DataDb;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
+import ca.marklauman.dominionpicker.database.SupplyDb;
 import ca.marklauman.tools.QueryDialogBuilder;
 import ca.marklauman.tools.QueryDialogBuilder.QueryListener;
 
@@ -31,12 +31,14 @@ import ca.marklauman.tools.QueryDialogBuilder.QueryListener;
  *  @author Mark Lauman */
 public class ActivitySupply extends AppCompatActivity {
     /** Key used to pass the supply to this activity.
-     *  Alternative to {@link #PARAM_SUPPLY_ID}. */
+     *  Alternative to {@link #PARAM_HISTORY_ID}. */
     public static final String PARAM_SUPPLY_OBJ = "supply";
-    /** Key used to pass a supply timestamp to this activity.
-     *  Alternative to {@link #PARAM_SUPPLY_OBJ}.
-     *  The supply will load from the history table. */
+    /** Key used to pass a supply id to this activity.
+     *  The supply will load from the supply table. */
     public static final String PARAM_SUPPLY_ID = "supplyId";
+    /** Key used to pass a history timestamp to this activity.
+     *  The supply will load from the history table. */
+    public static final String PARAM_HISTORY_ID = "historyId";
 
     /** The loader that gets the supply when an id is provided. */
     private final SupplyLoader supplyLoader = new SupplyLoader();
@@ -47,11 +49,13 @@ public class ActivitySupply extends AppCompatActivity {
 
 
     /** The language that this activity is using to display cards */
-    private String langId;
+    private String transId;
     /** The adapter used to display the supply cards. */
 	private AdapterCards adapter;
 	/** The TextView used to display the resource cards. */
 	private TextView resView;
+    /** {@code true} if the supply is from the sample table */
+    private boolean sampleSupply = false;
 	/** The supply on display. */
 	private Supply supply;
 
@@ -61,6 +65,7 @@ public class ActivitySupply extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         App.updateInfo(this);
+        transId = App.transId;
 
 		setContentView(R.layout.activity_supply);
         ActionBar ab = getSupportActionBar();
@@ -75,7 +80,7 @@ public class ActivitySupply extends AppCompatActivity {
 		resView.setVisibility(View.GONE);
 		
 		// Setup the adapter
-		adapter = new AdapterCards(this);
+		adapter = new AdapterCards(this, true);
 		adapter.changeCursor(null);
 		card_list.setAdapter(adapter);
 
@@ -94,17 +99,26 @@ public class ActivitySupply extends AppCompatActivity {
             return;
         }
 
-        // We have no supply, check for an id
-        long supplyId = -1;
-        if(params != null)
-            supplyId = params.getLong(PARAM_SUPPLY_ID, -1);
-        if(supplyId < 0) return;
-
-        // We have an id, load the supply.
-        Bundle args = new Bundle();
-        args.putLong(PARAM_SUPPLY_ID, supplyId);
-        LoaderManager lm = getSupportLoaderManager();
-        lm.initLoader(LoaderId.SUPPLY_HIST, args, supplyLoader);
+        // We have no supply, check for a history id
+        if(params == null) return;
+        long supplyId = params.getLong(PARAM_HISTORY_ID, -1);
+        if(supplyId != -1) {
+            Bundle args = new Bundle();
+            args.putLong(PARAM_HISTORY_ID, supplyId);
+            LoaderManager lm = getSupportLoaderManager();
+            lm.initLoader(LoaderId.SUPPLY_OBJECT, args, supplyLoader);
+            return;
+        }
+        
+        // We still have no supply, check for a sample supply id.
+        supplyId = params.getLong(PARAM_SUPPLY_ID, -1);
+        if(supplyId != -1) {
+            sampleSupply = true;
+            Bundle args = new Bundle();
+            args.putLong(PARAM_SUPPLY_ID, supplyId);
+            LoaderManager lm = getSupportLoaderManager();
+            lm.initLoader(LoaderId.SUPPLY_OBJECT, args, supplyLoader);
+        }
 	}
 
     @Override
@@ -112,7 +126,7 @@ public class ActivitySupply extends AppCompatActivity {
         super.onStart();
         // Check the language. If it has changed, reload the cards.
         App.updateInfo(this);
-        if(supply != null && !App.transId.equals(langId))
+        if(supply != null && !App.transId.equals(transId))
             getSupportLoaderManager().restartLoader(LoaderId.SUPPLY_CARDS, null, cardLoader);
     }
 	
@@ -146,6 +160,9 @@ public class ActivitySupply extends AppCompatActivity {
 			marketButton.setVisible(supply.blackMarket());
 			changed = true;
 		}
+
+        // No favorite button on sample
+        if(sampleSupply) return changed;
 
         // Show/hide the correct favorite buttons
         final boolean isFavorite = supply.name != null;
@@ -190,9 +207,9 @@ public class ActivitySupply extends AppCompatActivity {
 
             // Save the wipe to the database
             ContentValues values = new ContentValues();
-            values.putNull(DataDb._H_NAME);
+            values.putNull(SupplyDb._ID);
             getContentResolver().update(Provider.URI_HIST, values,
-                                        DataDb._H_TIME + "=?",
+                                        SupplyDb._ID + "=?",
                                         new String[]{"" + supply.time});
             return true;
         }
@@ -206,6 +223,7 @@ public class ActivitySupply extends AppCompatActivity {
 	 *  @param supply The new supply to display. */
 	private void setSupply(Supply supply) {
 		this.supply = supply;
+        sampleSupply = supply.sample;
 		// Start loading the supply
         getSupportLoaderManager()
                 .initLoader(LoaderId.SUPPLY_CARDS, null, cardLoader);
@@ -238,9 +256,10 @@ public class ActivitySupply extends AppCompatActivity {
             for(long ignored : supply.cards)
                 cards += " OR " + CardDb._ID + "=?";
             cards = cards.substring(4);
+            transId = App.transId;
             c.setSelection(App.transFilter+" AND ("+cards+")");
 
-            // Selection arguments (the numbers and language)
+            // Selection arguments (the cards to load)
             String[] selArgs = new String[supply.cards.length];
             for(int i=0; i<supply.cards.length; i++)
                 selArgs[i] = "" + supply.cards[i];
@@ -292,11 +311,25 @@ public class ActivitySupply extends AppCompatActivity {
 
             // Basic loader
             CursorLoader c = new CursorLoader(getActivity());
-            c.setUri(Provider.URI_HIST);
-            c.setSelection(DataDb._H_TIME + "=?");
-            long time = args.getLong(PARAM_SUPPLY_ID);
-            c.setSelectionArgs(new String[]{""+time});
-            return c;
+            c.setSelection(SupplyDb._ID + "=?");
+            c.setProjection(new String[]{SupplyDb._ID, SupplyDb._NAME, SupplyDb._BANE,
+                                         SupplyDb._HIGH_COST, SupplyDb._SHELTERS, SupplyDb._CARDS});
+            
+            // Load from the history table
+            long supply_id = args.getLong(PARAM_HISTORY_ID, -1);
+            if(supply_id != -1) {
+                c.setUri(Provider.URI_HIST);
+                c.setSelectionArgs(new String[]{""+supply_id});
+                return c;
+            }
+            // Load from the sample table
+            supply_id = args.getLong(PARAM_SUPPLY_ID, -1);
+            if(supply_id != -1) {
+                c.setUri(Provider.URI_SUPPLY);
+                c.setSelectionArgs(new String[]{""+supply_id});
+                return c;
+            }
+            return null;
         }
 
         @Override
@@ -304,12 +337,12 @@ public class ActivitySupply extends AppCompatActivity {
             if(data == null || data.getCount() < 1) return;
 
             // Column indexes
-            final int _time = data.getColumnIndex(DataDb._H_TIME);
-            final int _name = data.getColumnIndex(DataDb._H_NAME);
-            final int _bane = data.getColumnIndex(DataDb._H_BANE);
-            final int _cost = data.getColumnIndex(DataDb._H_HIGH_COST);
-            final int _shelters = data.getColumnIndex(DataDb._H_SHELTERS);
-            final int _cards = data.getColumnIndex(DataDb._H_CARDS);
+            final int _time = data.getColumnIndex(SupplyDb._ID);
+            final int _name = data.getColumnIndex(SupplyDb._NAME);
+            final int _bane = data.getColumnIndex(SupplyDb._BANE);
+            final int _cost = data.getColumnIndex(SupplyDb._HIGH_COST);
+            final int _shelters = data.getColumnIndex(SupplyDb._SHELTERS);
+            final int _cards = data.getColumnIndex(SupplyDb._CARDS);
             data.moveToFirst();
 
             // Build the supply object
@@ -319,6 +352,7 @@ public class ActivitySupply extends AppCompatActivity {
             s.bane = data.getLong(_bane);
             s.high_cost = data.getInt(_cost) != 0;
             s.shelters = data.getInt(_shelters) != 0;
+            s.sample = sampleSupply;
             String[] cardList = data.getString(_cards).split(",");
             s.cards = new long[cardList.length];
             for(int i=0; i<cardList.length; i++)
@@ -375,10 +409,10 @@ public class ActivitySupply extends AppCompatActivity {
 
             // Save the new name to the database.
             ContentValues values = new ContentValues();
-            values.put(DataDb._H_NAME, name);
+            values.put(SupplyDb._NAME, name);
             mContext.getContentResolver()
                     .update(Provider.URI_HIST, values,
-                            DataDb._H_TIME+"=?", new String[]{""+supply.time});
+                            SupplyDb._ID+"=?", new String[]{""+supply.time});
         }
     }
 }
