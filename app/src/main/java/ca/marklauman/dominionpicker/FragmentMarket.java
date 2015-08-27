@@ -244,10 +244,10 @@ public class FragmentMarket extends Fragment
                 String sel = "";
                 String[] selArgs = new String[deck.size()];
                 for(int i=0; i<deck.size(); i++) {
-                    sel += " OR "+ CardDb._ID+"=?";
+                    sel += ",?";
                     selArgs[i]=""+deck.get(i);
                 }
-                if(4 < sel.length()) sel = sel.substring(4);
+                if(0 < sel.length()) sel = CardDb._ID+" IN ("+sel.substring(1)+")";
                 c.setSelection(sel);
                 c.setSelectionArgs(selArgs);
                 c.setSortOrder("random()");
@@ -269,10 +269,10 @@ public class FragmentMarket extends Fragment
                 // Generate selection string
                 String cardSel = "";
                 for(long ignored : choices)
-                    cardSel += " OR " + CardDb._ID + "=?";
+                    cardSel += ",?";
                 // remove the " OR " at the beginning
-                cardSel = cardSel.substring(4);
-                c.setSelection(App.transFilter+" AND ("+cardSel+")");
+                cardSel = CardDb._ID+" IN ("+cardSel.substring(1)+")";
+                c.setSelection("("+cardSel+") AND "+App.transFilter);
 
                 // selection args
                 String[] strChoices = new String[choices.length];

@@ -26,6 +26,7 @@ import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.SupplyDb;
 import ca.marklauman.tools.QueryDialogBuilder;
 import ca.marklauman.tools.QueryDialogBuilder.QueryListener;
+import ca.marklauman.tools.Utils;
 
 /** Activity for displaying the supply piles for a new game.
  *  @author Mark Lauman */
@@ -252,18 +253,10 @@ public class ActivitySupply extends AppCompatActivity {
             c.setSortOrder(App.sortOrder);
 
             // Selection string (sql WHERE clause)
-            String cards = "";
-            for(long ignored : supply.cards)
-                cards += " OR " + CardDb._ID + "=?";
-            cards = cards.substring(4);
+            // _id IN (1,2,3,4)
+            String cards = CardDb._ID+" IN ("+ Utils.join(",",supply.cards)+")";
             transId = App.transId;
-            c.setSelection(App.transFilter+" AND ("+cards+")");
-
-            // Selection arguments (the cards to load)
-            String[] selArgs = new String[supply.cards.length];
-            for(int i=0; i<supply.cards.length; i++)
-                selArgs[i] = "" + supply.cards[i];
-            c.setSelectionArgs(selArgs);
+            c.setSelection("("+cards+") AND "+App.transFilter);
 
             return c;
         }

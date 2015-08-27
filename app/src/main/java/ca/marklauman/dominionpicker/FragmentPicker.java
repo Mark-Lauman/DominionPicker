@@ -46,7 +46,7 @@ public class FragmentPicker extends Fragment
      * They are then checked at each startup to see if they have
      * changed. If they have, a reload is required.            */
     /** Current language loaded by this picker */
-    private String language;
+    private String transId;
     /** Value of the set filter */
     private String filt_set;
     /** Value of the cost filter */
@@ -101,7 +101,7 @@ public class FragmentPicker extends Fragment
         final String new_cost = pref.getString("filt_cost", "");
         final boolean new_curse = pref.getBoolean("filt_curse", true);
 
-        return !App.transId.equals(language) ||
+        return !App.transId.equals(transId) ||
                !new_set.equals(filt_set) ||
                !new_cost.equals(filt_cost) ||
                new_curse != filt_curse;
@@ -140,21 +140,22 @@ public class FragmentPicker extends Fragment
         c.setUri(Provider.URI_CARD_ALL);
         c.setProjection(AdapterCards.COLS_USED);
         c.setSortOrder(App.sortOrder);
-
-        // Filter by language
-        language = App.transId;
-        String sel = App.transFilter;
+        String sel = "";
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         ArrayList<CharSequence> sel_args = new ArrayList<>();
 
-        // Filter by set
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        // Filter out sets
+        String curSel = "";
         filt_set = pref.getString("filt_set", "");
-        String[] split_set = filt_set.split(",");
-        Collections.addAll(sel_args, split_set);
-        for (CharSequence ignored:split_set)
-            sel += " AND " + CardDb._SET_ID + "!=? ";
+        if(0 < filt_set.length()) {
+            String[] split_set = filt_set.split(",");
+            Collections.addAll(sel_args, split_set);
+            for (CharSequence ignored : split_set) curSel += ",?";
+            if (0 < curSel.length())
+                sel += " AND "+CardDb._SET_ID+" NOT IN ("+curSel.substring(1)+")";
+        }
 
-        // Filter by cost
+        // Filter out potions
         String[] costs = getActivity().getResources()
                                       .getStringArray(R.array.filt_cost);
         filt_cost = pref.getString("filt_cost", "");
@@ -166,10 +167,14 @@ public class FragmentPicker extends Fragment
             sel_args.add("0");
             split_cost.remove(0);
         }
-        for(CharSequence s : split_cost)
+
+        // Filter out costs
+        curSel = "";
+        for(CharSequence s : split_cost) {
             sel_args.add(s);
-        for(int i=0; i<split_cost.size(); i++)
-            sel += " AND " + CardDb._COST + "!=?";
+            curSel += ",?";
+        }
+        if(0 < curSel.length()) sel += " AND "+CardDb._COST+" NOT IN ("+curSel.substring(1)+")";
 
         // Filter out cursers
         filt_curse = pref.getBoolean("filt_curse", true);
@@ -177,6 +182,10 @@ public class FragmentPicker extends Fragment
             sel += " AND " + CardDb._META_CURSER + "=?";
             sel_args.add("0");
         }
+
+        // Translation filter
+        transId = App.transId;
+        sel = (sel+" AND "+App.transFilter).substring(5);
 
         c.setSelection(sel);
         String[] sel_args_final = new String[sel_args.size()];

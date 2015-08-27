@@ -89,10 +89,10 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
         String sel="";
         String[] selArgs = new String[cardIds.length];
         for(int i=0; i<selArgs.length; i++) {
-            sel += " OR "+ CardDb._ID+"=?";
+            sel += ",?";
             selArgs[i] = ""+cardIds[i];
         }
-        if(4 < sel.length()) sel = sel.substring(4);
+        if(0 < sel.length()) sel = CardDb._ID+" IN ("+sel.substring(1)+")";
 
         // Variables that must live through the try statement
         Supply supply = new Supply();

@@ -45,14 +45,14 @@ public abstract class App {
             language = trans[set];
             if (!map.containsKey(language))
                 map.put(language, "");
-            map.put(language, map.get(language) + " OR " + COL_SET_ID + "=" + set);
+            map.put(language, map.get(language)+","+set);
         }
         // Turn the translation into an SQL "WHERE" clause
         // Cards with null language are user defined, and load regardless of language.
         String filter = COL_LANG + "=NULL";
         for (String key : map.keySet()) {
-            filter += " OR " + COL_LANG + "='" + key
-                    + "' AND (" + map.get(key).substring(4) + ")";
+            filter += " OR (" + COL_LANG + "='" + key
+                    + "' AND "+COL_SET_ID+" IN ("+map.get(key).substring(1) + "))";
         }
         // Surround the filter with brackets to prevent logic leaks.
         App.transFilter = "(" + filter + ")";
