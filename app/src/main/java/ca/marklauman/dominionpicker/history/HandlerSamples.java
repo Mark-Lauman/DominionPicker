@@ -60,7 +60,6 @@ class HandlerSamples extends SimpleCursorAdapter
     @Override
     public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
         if(columnIndex == _set_id) {
-            // TODO: Better methods are available for mapping ints to images.
             // Map the set id to an image
             int setImg = 0;
             try { setImg = exp_icons[cursor.getInt(_set_id)];

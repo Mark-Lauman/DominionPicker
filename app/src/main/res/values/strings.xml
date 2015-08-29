@@ -18,11 +18,10 @@
     <string name="set">Set</string>
     <string name="potion">Potion</string>
 
-    <string name="hist_samples">Samples</string>
     <string name="history">History</string>
+    <string name="hist_samples">Samples</string>
     <string name="favorites">Favorites</string>
     <string name="no_hist">Your shuffles are stored here.</string>
-    <string name="no_fav">There\'s nothing here.</string>
 
     <string name="change_fav">Change Favorite</string>
     <string name="name_me">Name me!</string>

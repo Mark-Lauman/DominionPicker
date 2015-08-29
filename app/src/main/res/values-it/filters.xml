@@ -4,7 +4,7 @@
     <string name="filter_all">Togli tutto</string>
 
     <string name="filter_set">Espansioni e promo</string>
-    <string-array name="filt_set">
+    <string-array name="filter_set">
         <item>@string/set_base</item>
         <item>@string/set_alchemy</item>
         <item>@string/set_cornucopia</item>
@@ -22,7 +22,7 @@
         <item>@string/set_prince</item>
         <item>@string/set_walled_village</item>
     </string-array>
-    <integer-array name="filt_set_ids">
+    <integer-array name="filter_set_ids">
         <item>0</item>
         <item>1</item>
         <item>3</item>

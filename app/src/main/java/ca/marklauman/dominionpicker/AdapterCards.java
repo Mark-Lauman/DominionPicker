@@ -33,8 +33,6 @@ class AdapterCards extends CursorSelAdapter
 
     /** Resources used to format strings */
     private final Resources resources;
-    /** Indicates if card color is shown */
-    private final boolean showColor;
 	
 	/** Index of the {@link CardDb#_DESC} column. */
 	private int col_desc = -1;
@@ -84,7 +82,6 @@ class AdapterCards extends CursorSelAdapter
                         R.id.card_set, R.id.card_set, R.id.card_type, R.id.card_requires,
                         R.id.card_res_gold, R.id.card_res_victory, R.id.card_res,
                         R.id.card_desc});
-        showColor = showCardColor;
         this.setViewBinder(this);
         resources = context.getResources();
         setSelectionColor(context.getResources().getColor(R.color.card_list_select));
@@ -144,7 +141,6 @@ class AdapterCards extends CursorSelAdapter
 
         // map expansion to icon
         } else if (col_set == columnIndex) {
-            // TODO: Better methods are available for mapping ints to images.
             loopInt = 0;
             try { loopInt = exp_icons[cursor.getInt(col_set)];
             } catch(Exception ignored){}

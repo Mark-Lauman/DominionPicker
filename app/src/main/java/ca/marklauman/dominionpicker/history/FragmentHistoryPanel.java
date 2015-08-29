@@ -71,7 +71,7 @@ public class FragmentHistoryPanel extends Fragment
     }
 
     /** Updates the empty list view to reflect if we are loading or not */
-    protected void updateEmpty() {
+    private void updateEmpty() {
         if(listView == null || empty_view == null || load_view == null)
             return;
         empty_view.setVisibility(View.GONE);

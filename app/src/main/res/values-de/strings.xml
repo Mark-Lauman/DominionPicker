@@ -19,9 +19,9 @@
     <string name="potion">Trank</string>
 
     <string name="history">Geschichte</string>
+    <string name="hist_samples">Beispiel</string>
     <string name="favorites">Lieblings</string>
     <string name="no_hist">Ihre Shuffles werden hier gespeichert.</string>
-    <string name="no_fav">Hier ist nichts.</string>
 
     <string name="change_fav">&#228;ndern Lieblings</string>
     <string name="name_me">Benennen Sie die Shuffle</string>
