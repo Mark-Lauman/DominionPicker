@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="filters">Filters</string>
+    <string name="filters">Filtros</string>
     <string name="filter_all">Nada Selecionado</string>
 
     <string name="filter_set">Edi&#231;&#245;es</string>
@@ -10,5 +10,7 @@
 
     <string name="filter_curse">Amaldi&#231;oadores</string>
     <string name="filter_curse_desc">Retiram pontos de vit&#243;ria de seus oponentes</string>
+
+    <string name="system_default">Predefini&#231;&#227;o</string>
     
 </resources>

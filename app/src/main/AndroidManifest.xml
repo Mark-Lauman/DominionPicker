@@ -28,6 +28,11 @@
         
         <activity android:name=".ActivityMarket"
             android:label="@string/market_title" />
+
+        <activity android:name=".settings.CardLanguageSelector"
+            android:label="@string/filt_lang" />
+
+        <activity android:name="ca.marklauman.tools.SingleItemSelector" />
         
         <provider android:name=".database.Provider"
             android:authorities="ca.marklauman.dominionpicker"

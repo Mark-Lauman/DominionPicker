@@ -26,6 +26,9 @@ public abstract class Prefs {
     /** Key used to save the curse filter to the preferences */
     public static final String FILT_CURSE = "filt_curse";
 
+    /** Key used to save the current language filter */
+    public static final String FILT_LANG = "filt_lang";
+
 
     /** Deprecated key used to identify the version 0 preferences. */
     @Deprecated
@@ -57,6 +60,7 @@ public abstract class Prefs {
             case 0: update0(prefs);
             case 1: update1(prefs);
             case 2: update2(prefs);
+            case 3: // v3 -> v4 adds filt_lang. Setting default values is all that is needed.
         }
         prefs.edit().putInt(VERSION, cur_ver).commit();
     }
@@ -68,11 +72,13 @@ public abstract class Prefs {
         Resources res = c.getResources();
 
         if(!prefs.contains(FILT_SET))
-            edit.putString(FILT_SET, res.getString(R.string.filter_set_def));
+            edit.putString(FILT_SET, res.getString(R.string.filt_set_def));
         if(!prefs.contains(FILT_COST))
-            edit.putString(FILT_COST, res.getString(R.string.filter_cost_def));
+            edit.putString(FILT_COST, res.getString(R.string.filt_cost_def));
         if(!prefs.contains(FILT_CURSE))
-            edit.putBoolean(FILT_CURSE, res.getBoolean(R.bool.filter_curse_def));
+            edit.putBoolean(FILT_CURSE, res.getBoolean(R.bool.filt_curse_def));
+        if(!prefs.contains(FILT_LANG))
+            edit.putString(FILT_LANG, res.getString(R.string.filt_lang_def));
         edit.commit();
     }
 
