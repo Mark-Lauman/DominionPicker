@@ -2,6 +2,7 @@ package ca.marklauman.dominionpicker;
 
 import ca.marklauman.dominionpicker.history.FragmentHistory;
 import ca.marklauman.dominionpicker.settings.ActivityFilters;
+import ca.marklauman.dominionpicker.settings.ActivityOptions;
 import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.ExpandedArrayAdapter;
 
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity
     /** Listens to and toggles the navigation drawer */
     private NavToggle navToggle;
     /** ListView for the navigation drawer */
-    private ListView navView;
+    private View navView;
     /** The adapter for the navigation drawer's ListView */
     private ExpandedArrayAdapter<String> navAdapt;
 
@@ -59,13 +60,13 @@ public class MainActivity extends AppCompatActivity
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        App.updateInfo(this);
         Prefs.setup(this);
+        App.updateInfo(this);
 
         shuffler = new ShuffleManager();
 		setContentView(R.layout.activity_main);
         navLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navView = (ListView) findViewById(R.id.left_drawer);
+        navView = findViewById(R.id.left_drawer);
 
         // Get the strings for the nav drawer
         app_name = getString(R.string.app_name);
@@ -83,14 +84,17 @@ public class MainActivity extends AppCompatActivity
         navLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         navToggle = new NavToggle(this, navLayout);
         navLayout.setDrawerListener(navToggle);
+        navView.findViewById(R.id.options)
+               .setOnClickListener(new OptionLauncher());
         String[] headers = getResources().getStringArray(R.array.navNames);
-        navAdapt = new ExpandedArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, headers);
+        navAdapt = new ExpandedArrayAdapter<>(this, android.R.layout.simple_list_item_1, headers);
         navAdapt.setIcons(R.drawable.ic_action_send, R.drawable.ic_action_market,
                           R.drawable.ic_action_time, R.drawable.ic_action_filter);
         navAdapt.setSelBack(R.color.nav_drawer_sel);
-        navView.setAdapter(navAdapt);
-        navView.setOnItemClickListener(this);
+        ListView navList = (ListView) navView.findViewById(R.id.drawer_list);
+        navList.setAdapter(navAdapt);
+        navList.setOnItemClickListener(this);
+
 
         // setup the active fragment
         FragmentManager fm = getSupportFragmentManager();
@@ -176,7 +180,13 @@ public class MainActivity extends AppCompatActivity
 	}
 
 
-    /** Called when an item in the navigation bar is selected */
+    /** Used by subclasses to get this activity */
+    private MainActivity getActivity() {
+        return this;
+    }
+
+
+    /** Called when an item in the navigation bar's list is selected */
     @Override
     public void onItemClick(AdapterView parent, View view, int position, long id) {
         // The case where you selected the same thing again.
@@ -205,12 +215,23 @@ public class MainActivity extends AppCompatActivity
             case 2: active = new FragmentHistory();
                     t.replace(R.id.content_frame, active);
                     break;
-            case 3: Intent intent = new Intent(this, ActivityFilters.class);
-                    startActivity(intent);
+            case 3: Intent filters = new Intent(this, ActivityFilters.class);
+                    startActivity(filters);
         }
         t.commit();
 
         navLayout.closeDrawer(navView);
+    }
+
+
+    /** Opens the options menu when Options is clicked. */
+    private class OptionLauncher implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            Intent options = new Intent(getActivity(), ActivityOptions.class);
+            startActivity(options);
+            navLayout.closeDrawer(navView);
+        }
     }
 
 
@@ -240,12 +261,10 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    /** Used by subclasses to get this activity */
-    private MainActivity getActivity() {
-        return this;
-    }
 
+    /** Allows this activity to request shuffles and get the results */
     private class ShuffleManager extends BroadcastReceiver {
+        /** The shuffler */
         private SupplyShuffler shuffler;
 
         public ShuffleManager() {

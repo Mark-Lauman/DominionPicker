@@ -12,7 +12,6 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 import ca.marklauman.dominionpicker.R;
@@ -177,7 +175,6 @@ public class CardLanguageSelector extends AppCompatActivity
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         LangPreference pref = adapter.getPreference(position);
 
-        Log.d("clicked" + pref.set_id, Arrays.toString(pref.opt));
         // Launch a SingleItem selector to choose the language for this set.
         Intent intent = new Intent(this, SingleItemSelector.class);
         intent.putExtra(SingleItemSelector.PARAM_TITLE, pref.name);
@@ -201,8 +198,6 @@ public class CardLanguageSelector extends AppCompatActivity
 
         // We don't need to worry if there is no change.
         if(prefVal[requestCode].equals(res)) return;
-
-        Log.d("Result",requestCode +" -> "+res);
 
         // Otherwise we update the preference and display
         setMap.get(requestCode).val = res;
@@ -247,8 +242,6 @@ public class CardLanguageSelector extends AppCompatActivity
         public View getView(int position, View convertView, ViewGroup parent) {
             if(convertView == null)
                 convertView = View.inflate(getContext(), R.layout.card_language_pref, null);
-
-            Log.d("val", ""+values[position].val);
 
             // Overridden items have grey backgrounds
             if(values[position].val.startsWith("0"))

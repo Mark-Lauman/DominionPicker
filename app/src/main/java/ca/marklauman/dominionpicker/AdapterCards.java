@@ -7,6 +7,7 @@ import ca.marklauman.tools.Utils;
 import android.content.Context;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
 import android.view.View;
 import android.widget.AdapterView;
@@ -84,7 +85,7 @@ class AdapterCards extends CursorSelAdapter
                         R.id.card_desc});
         this.setViewBinder(this);
         resources = context.getResources();
-        setSelectionColor(context.getResources().getColor(R.color.card_list_select));
+        setSelectionColor(ContextCompat.getColor(context, R.color.card_list_select));
 
         // Load the expansion icons if they haven't been loaded.
         if(exp_icons == null)

@@ -1,6 +1,6 @@
 package ca.marklauman.dominionpicker;
 
-import android.app.Activity;
+import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -80,11 +80,11 @@ public class FragmentMarket extends Fragment
     }
 
     @Override
-    public final void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public final void onAttach(Context context) {
+        super.onAttach(context);
         /* First initialization of the loader must be called early,
          * or the loader will not function. */
-        LoaderManager lm = ((FragmentActivity) activity).getSupportLoaderManager();
+        LoaderManager lm = ((FragmentActivity) context).getSupportLoaderManager();
         lm.initLoader(LoaderId.MARKET_SHOW, null, this);
         // Shuffle a new market if the stock wasn't restored
         if(stock == null)

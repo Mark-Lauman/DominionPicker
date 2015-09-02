@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="options">Options</string>
+
+    <string name="filt_lang">Card Language</string>
+    <string name="filt_lang_desc">Choose the language of each set.</string>
+    <string name="system_default">Default</string>
+    <string-array name="language_names" translatable="false">
+        <item>@string/system_default</item>
+        <item>Deutsch</item>
+        <item>English</item>
+        <item>Italiano</item>
+        <item>Portugu&#234;s</item>
+    </string-array>
+    <string-array name="language_codes" translatable="false">
+        <item>0</item>
+        <item>de</item>
+        <item>en</item>
+        <item>it</item>
+        <item>pt</item>
+    </string-array>
+
+</resources>

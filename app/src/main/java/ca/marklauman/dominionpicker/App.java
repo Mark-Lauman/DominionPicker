@@ -1,7 +1,13 @@
 package ca.marklauman.dominionpicker;
 
 import android.content.Context;
+import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
+
 import ca.marklauman.dominionpicker.database.CardDb;
+import ca.marklauman.dominionpicker.settings.Prefs;
+
+import java.security.InvalidParameterException;
 import java.util.HashMap;
 
 /** Used to store generic info that is useful all over the app. */
@@ -31,13 +37,16 @@ public abstract class App {
         staticContext = c.getApplicationContext();
 
         // Check if the translation has changed
-        String transId = c.getResources().getConfiguration().locale.getLanguage();
-        // TODO: Check if the language settings have changed
+        String filt = PreferenceManager.getDefaultSharedPreferences(c)
+                                       .getString(Prefs.FILT_LANG, "");
+        String transId = c.getResources().getConfiguration().locale.getLanguage()
+                         +"|"+filt;
         if (transId.equals(App.transId)) return;
 
         // We need to update the translation
-        String[] trans = App.staticContext.getResources().getStringArray(R.array.def_trans);
-        // TODO: Override default translation with settings.
+        String[] trans = getTrans(filt.split(","),
+                                  App.staticContext.getResources()
+                                                   .getStringArray(R.array.def_trans));
         // Group the sets together by language
         HashMap<String, String> map = new HashMap<>();
         String language;
@@ -57,5 +66,21 @@ public abstract class App {
         // Surround the filter with brackets to prevent logic leaks.
         App.transFilter = "(" + filter + ")";
         App.transId = transId;
+    }
+
+    /** Get the translation setup given the preference and default values.
+     *  @param pref The preference split into individual language codes.
+     * @param def The default languages to fall back to.
+     * @return The translation that should be used. */
+    private static @NonNull String[] getTrans(@NonNull String[] pref, @NonNull String[] def) {
+        if(pref.length != def.length)
+            throw new InvalidParameterException("Language preference and default not the same");
+        String[] res = new String[def.length];
+        for(int i=0; i< res.length; i++) {
+            res[i] = def[i];
+            if(! pref[i].startsWith("0"))
+                res[i] = pref[i];
+        }
+        return res;
     }
 }

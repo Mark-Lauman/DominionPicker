@@ -19,15 +19,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".settings.ActivityFilters"
-            android:label="@string/filters" />
         
         <activity android:name=".ActivitySupply"
             android:label="@string/picks" />
         
         <activity android:name=".ActivityMarket"
             android:label="@string/market_title" />
+
+        <activity android:name=".settings.ActivityFilters"
+            android:label="@string/filters" />
+
+        <activity android:name=".settings.ActivityOptions"
+            android:label="@string/options" />
 
         <activity android:name=".settings.CardLanguageSelector"
             android:label="@string/filt_lang" />

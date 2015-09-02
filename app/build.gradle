@@ -11,7 +11,7 @@ android {
         applicationId "ca.marklauman.dominionpicker"
         minSdkVersion 8
         targetSdkVersion 23
-        resConfigs "en", "de", "it", "pt"
+        resConfigs "en", "de", "it", "pt", "pt-rBR"
         versionCode 18
         versionName "1.9.0"
     }
@@ -32,6 +32,6 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:23.0.0'
-    compile 'ca.marklauman.tools:AndroidTools:2.3.0@aar'
+    compile 'ca.marklauman.tools:AndroidTools:2.3.2@aar'
     compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
 }

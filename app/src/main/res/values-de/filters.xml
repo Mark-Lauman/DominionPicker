@@ -46,9 +46,5 @@
     
     <string name="filter_curse">Fluch</string>
     <string name="filter_curse_desc">Nehmen Sie den Sieg von Ihrem Gegner!</string>
-
-    <string name="filt_lang">Karte Sprache</string>
-    <string name="filt_lang_desc">Bestimmen Sie die Sprache eines jeden Erweiterung.</string>
-    <string name="system_default">Standard</string>
     
 </resources>

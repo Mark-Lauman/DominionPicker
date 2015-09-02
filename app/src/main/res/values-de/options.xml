@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="options">Optionen</string>
+
+    <string name="filt_lang">Karte Sprache</string>
+    <string name="filt_lang_desc">Wählen Sie die Sprache der jeweiligen Erweiterung.</string>
+    <string name="system_default">Standard</string>
+
+</resources>

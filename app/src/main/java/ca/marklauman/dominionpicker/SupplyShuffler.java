@@ -43,6 +43,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
      *  Shortfall in {@link #MSG_SHORT}. */
     public static final int RES_MORE_K = 3;
     /** Shuffle cancelled by outside source. */
+    @SuppressWarnings("WeakerAccess")
     public static final int RES_CANCEL = 100;
 
     /** The number of kingdom cards in the supply. */

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="8dp" >
+
+    <ca.marklauman.tools.preferences.IntentPreference
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        app:image="@drawable/ic_action_language"
+        app:name="@string/filt_lang"
+        app:summary="@string/filt_lang_desc"
+        android:background="?attr/selectableItemBackground"
+        app:intent="ca.marklauman.dominionpicker.settings.CardLanguageSelector" />
+
+    <View android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:drawable/divider_horizontal_bright" />
+
+</LinearLayout>
