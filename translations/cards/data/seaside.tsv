@@ -1,0 +1,28 @@
+			Cost		Bonus					Card Type											Extra Cards
+id	Card Name	Set ID	Cost	Potion	+Buy	+Action	+Card	+Coin	+Victory	Action	Reaction	Treasure	Attack	Victory	Duration	Looter	Knight	Reserve	Traveller	Event	Curser
+93	Embargo	12	2	0	0	0	0	2	0	1	0	0	0	0	0	0	0	0	0	0	1
+94	Haven	12	2	0	0	1	1	0	0	1	0	0	0	0	1	0	0	0	0	0	0
+95	Lighthouse	12	2	0	0	1	0	1	0	1	0	0	0	0	1	0	0	0	0	0	0
+96	Native Village	12	2	0	0	2	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+97	Pearl Diver	12	2	0	0	1	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+98	Ambassador	12	3	0	0	0	0	0	0	1	0	0	1	0	0	0	0	0	0	0	0
+99	Fishing Village	12	3	0	0	2	0	1	0	1	0	0	0	0	1	0	0	0	0	0	0
+100	Lookout	12	3	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+101	Smugglers	12	3	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+102	Warehouse	12	3	0	0	1	3	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+103	Caravan	12	4	0	0	1	1	0	0	1	0	0	0	0	1	0	0	0	0	0	0
+104	Cutpurse	12	4	0	0	0	0	2	0	1	0	0	1	0	0	0	0	0	0	0	0
+105	Island	12	4	0	0	0	0	0	0	1	0	0	0	1	0	0	0	0	0	0	0
+106	Navigator	12	4	0	0	0	0	2	0	1	0	0	0	0	0	0	0	0	0	0	0
+107	Pirate Ship	12	4	0	0	0	0	0	0	1	0	0	1	0	0	0	0	0	0	0	0
+108	Salvager	12	4	0	1	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+109	Sea Hag	12	4	0	0	0	0	0	0	1	0	0	1	0	0	0	0	0	0	0	1
+110	Treasure Map	12	4	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+111	Bazaar	12	5	0	0	2	1	1	0	1	0	0	0	0	0	0	0	0	0	0	0
+112	Explorer	12	5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+113	Ghost Ship	12	5	0	0	0	2	0	0	1	0	0	1	0	0	0	0	0	0	0	0
+114	Merchant Ship	12	5	0	0	0	0	2	0	1	0	0	0	0	1	0	0	0	0	0	0
+115	Outpost	12	5	0	0	0	0	0	0	1	0	0	0	0	1	0	0	0	0	0	0
+116	Tactician	12	5	0	0	0	0	0	0	1	0	0	0	0	1	0	0	0	0	0	0
+117	Treasury	12	5	0	0	1	1	1	0	1	0	0	0	0	0	0	0	0	0	0	0
+118	Wharf	12	5	0	1	0	2	0	0	1	0	0	0	0	1	0	0	0	0	0	0

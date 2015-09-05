@@ -1,0 +1,26 @@
+id	Set	Name	Type	Requires	Description
+68	Prosperity	Loan	Treasure		
+69	Prosperity	Trade Route	Action	Coin Token, Trade Mat	
+70	Prosperity	Watchtower	Action Reaction		
+71	Prosperity	Bishop	Action	Victory Token	
+72	Prosperity	Monument	Action	Victory Token	
+73	Prosperity	Quarry	Treasure		
+74	Prosperity	Talisman	Treasure		
+75	Prosperity	Worker's Village	Action		
+76	Prosperity	City	Action		
+77	Prosperity	Contraband	Treasure		
+78	Prosperity	Counting House	Action		
+79	Prosperity	Mint	Action		
+80	Prosperity	Mountebank	Action Attack	Curse	
+81	Prosperity	Rabble	Action Attack		
+82	Prosperity	Royal Seal	Treasure		
+83	Prosperity	Vault	Action		
+84	Prosperity	Venture	Treasure		
+85	Prosperity	Goons	Action Attack	Victory Token	
+86	Prosperity	Grand Market	Action		
+87	Prosperity	Hoard	Treasure		
+88	Prosperity	Bank	Treasure		
+89	Prosperity	Expand	Action		
+90	Prosperity	Forge	Action		
+91	Prosperity	King's Court	Action		
+92	Prosperity	Peddler	Action		

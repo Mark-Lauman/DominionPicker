@@ -1,0 +1,27 @@
+										Card Type											Meta Type
+id	Card Name	Set ID	Cost	Potion	+Buy	+Action	+Card	+Coin	+Victory	Action	Reaction	Treasure	Attack	Victory	Duration	Looter	Knight	Reserve	Traveller	Event	Curser
+68	Loan	11	3	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0
+69	Trade Route	11	3	0	1	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+70	Watchtower	11	3	0	0	0	0	0	0	1	1	0	0	0	0	0	0	0	0	0	0
+71	Bishop	11	4	0	0	0	0	1	1	1	0	0	0	0	0	0	0	0	0	0	0
+72	Monument	11	4	0	0	0	0	2	1	1	0	0	0	0	0	0	0	0	0	0	0
+73	Quarry	11	4	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0
+74	Talisman	11	4	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0
+75	Worker's Village	11	4	0	1	2	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+76	City	11	5	0	0	2	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+77	Contraband	11	5	0	1	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0
+78	Counting House	11	5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+79	Mint	11	5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+80	Mountebank	11	5	0	0	0	0	2	0	1	0	0	1	0	0	0	0	0	0	0	1
+81	Rabble	11	5	0	0	0	3	0	0	1	0	0	1	0	0	0	0	0	0	0	0
+82	Royal Seal	11	5	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0
+83	Vault	11	5	0	0	0	2	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+84	Venture	11	5	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0
+85	Goons	11	6	0	1	0	0	2	0	1	0	0	1	0	0	0	0	0	0	0	0
+86	Grand Market	11	6	0	1	1	1	2	0	1	0	0	0	0	0	0	0	0	0	0	0
+87	Hoard	11	6	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0
+88	Bank	11	7	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0
+89	Expand	11	7	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+90	Forge	11	7	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+91	King's Court	11	7	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+92	Peddler	11	8*	0	0	1	1	1	0	1	0	0	0	0	0	0	0	0	0	0	0

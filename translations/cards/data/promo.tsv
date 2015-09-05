@@ -1,0 +1,8 @@
+										Card Type											Meta Type
+id	Card Name	Set ID	Cost	Potion	+Buy	+Action	+Card	+Coin	+Victory	Action	Reaction	Treasure	Attack	Victory	Duration	Looter	Knight	Reserve	Traveller	Event	Curser
+1	Black Market	2	3	0	0	0	0	2	0	1	0	0	0	0	0	0	0	0	0	0	0
+2	Stash	13	5	0	0	0	0	2	0	0	0	1	0	0	0	0	0	0	0	0	0
+3	Envoy	5	4	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+4	Walled Village	14	4	0	0	2	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+5	Governor	6	5	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+206	Prince	10	8	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
