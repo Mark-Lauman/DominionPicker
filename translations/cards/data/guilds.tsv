@@ -1,0 +1,15 @@
+										Card Type											Meta Type
+id	Card Name	Set ID	Cost	Potion	+Buy	+Action	+Card	+Coin	+Victory	Action	Reaction	Treasure	Attack	Victory	Duration	Looter	Knight	Reserve	Traveller	Event	Curser
+167	Candlestick Maker	7	2	0	1	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+168	Stonemason	7	2	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+169	Doctor	7	3	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+170	Masterpiece	7	3	0	0	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0
+171	Advisor	7	4	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+172	Plaza	7	4	0	0	2	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+173	Taxman	7	4	0	0	0	0	0	0	1	0	0	1	0	0	0	0	0	0	0	0
+174	Herald	7	4	0	0	1	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+175	Baker	7	5	0	0	1	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+176	Butcher	7	5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+177	Journeyman	7	5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+178	Merchant Guild	7	5	0	1	0	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0
+179	Soothsayer	7	5	0	0	0	0	0	0	1	0	0	1	0	0	0	0	0	0	0	1

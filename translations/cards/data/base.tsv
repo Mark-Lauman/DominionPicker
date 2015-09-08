@@ -1,0 +1,27 @@
+										Card Type											Meta Type
+id	Card Name	Set ID	Cost	Potion	+Buy	+Action	+Card	+Coin	+Victory	Action	Reaction	Treasure	Attack	Victory	Duration	Looter	Knight	Reserve	Traveller	Event	Curser
+6	Cellar	0	2	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+7	Chapel	0	2	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+8	Moat	0	2	0	0	0	2	0	0	1	1	0	0	0	0	0	0	0	0	0	0
+9	Chancellor	0	3	0	0	0	0	2	0	1	0	0	0	0	0	0	0	0	0	0	0
+10	Village	0	3	0	0	2	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+11	Woodcutter	0	3	0	1	0	0	2	0	1	0	0	0	0	0	0	0	0	0	0	0
+12	Workshop	0	3	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+13	Bureaucrat	0	4	0	0	0	0	0	0	1	0	0	1	0	0	0	0	0	0	0	0
+14	Feast	0	4	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+15	Gardens	0	4	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0
+16	Militia	0	4	0	0	0	0	2	0	1	0	0	1	0	0	0	0	0	0	0	0
+17	Moneylender	0	4	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+18	Remodel	0	4	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+19	Smithy	0	4	0	0	0	3	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+20	Spy	0	4	0	0	1	1	0	0	1	0	0	1	0	0	0	0	0	0	0	0
+21	Thief	0	4	0	0	0	0	0	0	1	0	0	1	0	0	0	0	0	0	0	0
+22	Throne Room	0	4	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+23	Council Room	0	5	0	1	0	4	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+24	Festival	0	5	0	1	2	0	2	0	1	0	0	0	0	0	0	0	0	0	0	0
+25	Laboratory	0	5	0	0	1	2	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+26	Library	0	5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+27	Market	0	5	0	1	1	1	1	0	1	0	0	0	0	0	0	0	0	0	0	0
+28	Mine	0	5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+29	Witch	0	5	0	0	0	2	0	0	1	0	0	1	0	0	0	0	0	0	0	1
+30	Adventurer	0	6	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0

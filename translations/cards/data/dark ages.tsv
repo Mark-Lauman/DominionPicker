@@ -1,0 +1,37 @@
+										Card Type											Meta Type
+id	Card Name	Set ID	Cost	Potion	+Buy	+Action	+Card	+Coin	+Victory	Action	Reaction	Treasure	Attack	Victory	Duration	Looter	Knight	Reserve	Traveller	Event	Curser
+119	Poor House	4	1	0	0	0	0	4	0	1	0	0	0	0	0	0	0	0	0	0	0
+120	Beggar	4	2	0	0	0	0	0	0	1	1	0	0	0	0	0	0	0	0	0	0
+121	Squire	4	2	0	0	0	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0
+122	Vagrant	4	2	0	0	1	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+123	Forager	4	3	0	1	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+124	Hermit	4	3	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+125	Market Square	4	3	0	1	1	1	0	0	1	1	0	0	0	0	0	0	0	0	0	0
+126	Sage	4	3	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+127	Storeroom	4	3	0	1	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+128	Urchin	4	3	0	0	1	1	0	0	1	0	0	1	0	0	0	0	0	0	0	0
+129	Armory	4	4	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+130	Death Cart	4	4	0	0	0	0	5	0	1	0	0	1	0	0	0	0	0	0	0	0
+131	Feodum	4	4	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0
+132	Fortress	4	4	0	0	2	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+133	Ironmonger	4	4	0	0	1	1	0	0	1	0	0	1	0	0	0	0	0	0	0	0
+134	Marauder	4	4	0	0	0	0	0	0	1	0	0	1	0	0	1	0	0	0	0	0
+135	Procession	4	4	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+136	Rats	4	4	0	0	1	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+137	Scavenger	4	4	0	0	0	0	2	0	1	0	0	0	0	0	0	0	0	0	0	0
+138	Wandering Minstrel	4	4	0	0	2	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+139	Band of Misfits	4	5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+140	Bandit Camp	4	5	0	0	2	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+141	Catacombs	4	5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+142	Count	4	5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+143	Counterfeit	4	5	0	1	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0
+144	Cultist	4	5	0	0	0	2	0	0	1	0	0	1	0	0	1	0	0	0	0	0
+145	Graverobber	4	5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+146	Junk Dealer	4	5	0	0	1	1	1	0	1	0	0	0	0	0	0	0	0	0	0	0
+147	Knights	4	5	0	0	0	0	0	0	1	0	0	1	0	0	0	1	0	0	0	0
+148	Mystic	4	5	0	0	1	0	2	0	1	0	0	0	0	0	0	0	0	0	0	0
+149	Pillage	4	5	0	0	0	0	0	0	1	0	0	1	0	0	0	0	0	0	0	0
+150	Rebuild	4	5	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+151	Rogue	4	5	0	0	0	0	2	0	1	0	0	0	0	0	0	0	0	0	0	0
+152	Altar	4	6	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0
+153	Hunting Grounds	4	6	0	0	0	4	0	0	1	0	0	0	0	0	0	0	0	0	0	0
