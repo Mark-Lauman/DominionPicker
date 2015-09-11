@@ -43,7 +43,7 @@ class HandlerSamples extends SimpleCursorAdapter
                 0);
         mContext = context;
         setViewBinder(this);
-        exp_icons = Utils.getDrawableResources(context, R.array.card_set_icons);
+        exp_icons = Utils.getResourceArray(context, R.array.card_set_icons);
     }
 
     @Override

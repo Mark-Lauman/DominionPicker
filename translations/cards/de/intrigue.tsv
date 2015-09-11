@@ -1,26 +1,26 @@
-id	Set	Name	Type	Requires	Description
-43	Die Intrige	Burghof	Aktion		
-44	Die Intrige	Handlanger	Aktion		
-45	Die Intrige	Geheimkammer	Aktion Reaktion		
-46	Die Intrige	Große Halle	Aktion Punkte		
-47	Die Intrige	Maskerade	Aktion		
-48	Die Intrige	Armenviertel	Aktion		
-49	Die Intrige	Verwalter	Aktion		
-50	Die Intrige	Trickser	Aktion Angriff		
-51	Die Intrige	Wunschbrunnen	Aktion		
-52	Die Intrige	Baron	Aktion		
-53	Die Intrige	Brücke	Aktion		
-54	Die Intrige	Verschwörer	Aktion		
-55	Die Intrige	Kupferschmied	Aktion		
-56	Die Intrige	Eisenhütte	Aktion		
-57	Die Intrige	Bergwerk	Aktion		
-58	Die Intrige	Späher	Aktion		
-59	Die Intrige	Herzog	Punkte		
-60	Die Intrige	Lakai	Aktion Angriff		
-61	Die Intrige	Saboteur	Aktion Angriff		
-62	Die Intrige	Kerkermeister	Aktion Angriff	Fluch	
-63	Die Intrige	Handelsposten	Aktion		
-64	Die Intrige	Tribut	Aktion		
-65	Die Intrige	Anbau	Aktion		
-66	Die Intrige	Harem	Geld Punkte		
-67	Die Intrige	Adlige	Aktion Punkte		
+id	Set	Name	Type	Requires	Description	Details
+43	Die Intrige	Burghof	Aktion			
+44	Die Intrige	Handlanger	Aktion			
+45	Die Intrige	Geheimkammer	Aktion Reaktion			
+46	Die Intrige	Große Halle	Aktion Punkte			
+47	Die Intrige	Maskerade	Aktion			
+48	Die Intrige	Armenviertel	Aktion			
+49	Die Intrige	Verwalter	Aktion			
+50	Die Intrige	Trickser	Aktion Angriff			
+51	Die Intrige	Wunschbrunnen	Aktion			
+52	Die Intrige	Baron	Aktion			
+53	Die Intrige	Brücke	Aktion			
+54	Die Intrige	Verschwörer	Aktion			
+55	Die Intrige	Kupferschmied	Aktion			
+56	Die Intrige	Eisenhütte	Aktion			
+57	Die Intrige	Bergwerk	Aktion			
+58	Die Intrige	Späher	Aktion			
+59	Die Intrige	Herzog	Punkte			
+60	Die Intrige	Lakai	Aktion Angriff			
+61	Die Intrige	Saboteur	Aktion Angriff			
+62	Die Intrige	Kerkermeister	Aktion Angriff	Benötigt: Fluch		
+63	Die Intrige	Handelsposten	Aktion			
+64	Die Intrige	Tribut	Aktion			
+65	Die Intrige	Anbau	Aktion			
+66	Die Intrige	Harem	Geld Punkte			
+67	Die Intrige	Adlige	Aktion Punkte			

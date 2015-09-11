@@ -11,8 +11,8 @@ import android.widget.FrameLayout;
 public class ActivityMarket extends AppCompatActivity {
 	/** Key used to pass the supply pool to this activity (optional) */
 	public static final String PARAM_SUPPLY = FragmentMarket.PARAM_SUPPLY;
-	
-	
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,12 +37,6 @@ public class ActivityMarket extends AppCompatActivity {
                                    .replace(R.id.content_frame, market)
                                    .commit();
 	}
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        App.updateInfo(this);
-    }
 	
 	
 	@Override

@@ -1,14 +1,14 @@
-id	Set	Name	Type	Requires	Description
-154	Cornucopia	Borgo	Azione		
-155	Cornucopia	Indovina	Azione Attacco		
-156	Cornucopia	Serraglio	Azione		
-157	Cornucopia	Villaggio Agricolo	Azione		
-158	Cornucopia	Mercante di Cavalli	Azione Reazione		
-159	Cornucopia	Rifacimento	Azione		
-160	Cornucopia	Torneo	Azione	Prizes, Curse	
-161	Cornucopia	Giovane Strega	Azione Attacco	Curse	
-162	Cornucopia	Mietitura	Azione		
-163	Cornucopia	Cornucopia	Tesoro		
-164	Cornucopia	Battuta di Caccia	Azione		
-165	Cornucopia	Giullare	Azione Attacco	Curse	
-166	Cornucopia	Mercatino	Vittoria		
+id	Set	Name	Type	Requires	Description	Details
+154	Cornucopia	Borgo	Azione			
+155	Cornucopia	Indovina	Azione Attacco			
+156	Cornucopia	Serraglio	Azione			
+157	Cornucopia	Villaggio Agricolo	Azione			
+158	Cornucopia	Mercante di Cavalli	Azione Reazione			
+159	Cornucopia	Rifacimento	Azione			
+160	Cornucopia	Torneo	Azione	Requires: Prizes, Curse		
+161	Cornucopia	Giovane Strega	Azione Attacco	Requires: Curse		
+162	Cornucopia	Mietitura	Azione			
+163	Cornucopia	Cornucopia	Tesoro			
+164	Cornucopia	Battuta di Caccia	Azione			
+165	Cornucopia	Giullare	Azione Attacco	Requires: Curse		
+166	Cornucopia	Mercatino	Vittoria			

@@ -69,11 +69,11 @@ public class CardLanguageSelector extends AppCompatActivity
 
         // Load values of the preferences
         String[] set_names = res.getStringArray(R.array.filter_set);
-        int[] icons = Utils.getDrawableResources(this, R.array.card_set_icons);
+        int[] icons = Utils.getResourceArray(this, R.array.card_set_icons);
         int[] set_ids = res.getIntArray(R.array.filter_set_ids);
         prefVal = PreferenceManager.getDefaultSharedPreferences(this)
                                    .getString(Prefs.FILT_LANG,
-                                           res.getString(R.string.filt_lang_def))
+                                              res.getString(R.string.filt_lang_def))
                                    .split(",");
 
         // Setup the preferences and the id map.

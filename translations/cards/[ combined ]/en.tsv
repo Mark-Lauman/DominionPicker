@@ -1,257 +1,257 @@
-_id	language	set_name	name	type	requires	description
-1	en	Black Market	Black Market	Action		Add cards from outside the supply pile.
-2	en	Stash	Stash	Treasure		When you shuffle, you may put this anywhere in your deck.
-3	en	Envoy	Envoy	Action		Reveal the top 5 cards of your deck. The player to your left chooses 1 for you to discard. Draw the rest.
-4	en	Walled Village	Walled Village	Action		You can re-play this card in set circumstances.
-5	en	Governor	Governor	Action		Choose 1 of 3 additional effects.
-6	en	Base	Cellar	Action		
-7	en	Base	Chapel	Action		
-8	en	Base	Moat	Action Reaction		
-9	en	Base	Chancellor	Action		
-10	en	Base	Village	Action		
-11	en	Base	Woodcutter	Action		
-12	en	Base	Workshop	Action		
-13	en	Base	Bureaucrat	Action Attack		
-14	en	Base	Feast	Action		
-15	en	Base	Gardens	Victory		
-16	en	Base	Militia	Action Attack		
-17	en	Base	Moneylender	Action		
-18	en	Base	Remodel	Action		
-19	en	Base	Smithy	Action		
-20	en	Base	Spy	Action Attack		
-21	en	Base	Thief	Action Attack		
-22	en	Base	Throne Room	Action		
-23	en	Base	Council Room	Action		
-24	en	Base	Festival	Action		
-25	en	Base	Laboratory	Action		
-26	en	Base	Library	Action		
-27	en	Base	Market	Action		
-28	en	Base	Mine	Action		
-29	en	Base	Witch	Action Attack	Curse	
-30	en	Base	Adventurer	Action		
-31	en	Alchemy	Herbalist	Action		
-32	en	Alchemy	Apprentice	Action		
-33	en	Alchemy	Transmute	Action		
-34	en	Alchemy	Vineyard	Victory		
-35	en	Alchemy	Apothecary	Action		
-36	en	Alchemy	Scrying Pool	Action Attack		
-37	en	Alchemy	University	Action		
-38	en	Alchemy	Alchemist	Action		
-39	en	Alchemy	Familiar	Action Attack	Curse	
-40	en	Alchemy	Philosopher's Stone	Treasure		
-41	en	Alchemy	Golem	Action		
-42	en	Alchemy	Possession	Action		
-43	en	Intrigue	Courtyard	Action		
-44	en	Intrigue	Pawn	Action		
-45	en	Intrigue	Secret Chamber	Action Reaction		
-46	en	Intrigue	Great Hall	Action Victory		
-47	en	Intrigue	Masquerade	Action		
-48	en	Intrigue	Shanty Town	Action		
-49	en	Intrigue	Steward	Action		
-50	en	Intrigue	Swindler	Action Attack		
-51	en	Intrigue	Wishing Well	Action		
-52	en	Intrigue	Baron	Action		
-53	en	Intrigue	Bridge	Action		
-54	en	Intrigue	Conspirator	Action		
-55	en	Intrigue	Coppersmith	Action		
-56	en	Intrigue	Ironworks	Action		
-57	en	Intrigue	Mining Village	Action		
-58	en	Intrigue	Scout	Action		
-59	en	Intrigue	Duke	Victory		
-60	en	Intrigue	Minion	Action Attack		
-61	en	Intrigue	Saboteur	Action Attack		
-62	en	Intrigue	Torturer	Action Attack	Curse	
-63	en	Intrigue	Trading Post	Action		
-64	en	Intrigue	Tribute	Action		
-65	en	Intrigue	Upgrade	Action		
-66	en	Intrigue	Harem	Treasure Victory		
-67	en	Intrigue	Nobles	Action Victory		
-68	en	Prosperity	Loan	Treasure		
-69	en	Prosperity	Trade Route	Action	Coin Token, Trade Mat	
-70	en	Prosperity	Watchtower	Action Reaction		
-71	en	Prosperity	Bishop	Action	Victory Token	
-72	en	Prosperity	Monument	Action	Victory Token	
-73	en	Prosperity	Quarry	Treasure		
-74	en	Prosperity	Talisman	Treasure		
-75	en	Prosperity	Worker's Village	Action		
-76	en	Prosperity	City	Action		
-77	en	Prosperity	Contraband	Treasure		
-78	en	Prosperity	Counting House	Action		
-79	en	Prosperity	Mint	Action		
-80	en	Prosperity	Mountebank	Action Attack	Curse	
-81	en	Prosperity	Rabble	Action Attack		
-82	en	Prosperity	Royal Seal	Treasure		
-83	en	Prosperity	Vault	Action		
-84	en	Prosperity	Venture	Treasure		
-85	en	Prosperity	Goons	Action Attack	Victory Token	
-86	en	Prosperity	Grand Market	Action		
-87	en	Prosperity	Hoard	Treasure		
-88	en	Prosperity	Bank	Treasure		
-89	en	Prosperity	Expand	Action		
-90	en	Prosperity	Forge	Action		
-91	en	Prosperity	King's Court	Action		
-92	en	Prosperity	Peddler	Action		
-93	en	Seaside	Embargo	Action	Embargo Token, Curse	
-94	en	Seaside	Haven	Action Duration		
-95	en	Seaside	Lighthouse	Action Duration		
-96	en	Seaside	Native Village	Action		
-97	en	Seaside	Pearl Diver	Action		
-98	en	Seaside	Ambassador	Action Attack		
-99	en	Seaside	Fishing Village	Action Duration		
-100	en	Seaside	Lookout	Action		
-101	en	Seaside	Smugglers	Action		
-102	en	Seaside	Warehouse	Action		
-103	en	Seaside	Caravan	Action Duration		
-104	en	Seaside	Cutpurse	Action Attack		
-105	en	Seaside	Island	Action Victory	Island Mat	
-106	en	Seaside	Navigator	Action		
-107	en	Seaside	Pirate Ship	Action Attack	Coin Token, Pirate Mat	
-108	en	Seaside	Salvager	Action		
-109	en	Seaside	Sea Hag	Action Attack	Curse	
-110	en	Seaside	Treasure Map	Action		
-111	en	Seaside	Bazaar	Action		
-112	en	Seaside	Explorer	Action		
-113	en	Seaside	Ghost Ship	Action Attack		
-114	en	Seaside	Merchant Ship	Action Duration		
-115	en	Seaside	Outpost	Action Duration		
-116	en	Seaside	Tactician	Action Duration		
-117	en	Seaside	Treasury	Action		
-118	en	Seaside	Wharf	Action Duration		
-119	en	Dark Ages	Poor House	Action		
-120	en	Dark Ages	Beggar	Action Reaction		
-121	en	Dark Ages	Squire	Action		
-122	en	Dark Ages	Vagrant	Action		
-123	en	Dark Ages	Forager	Action		
-124	en	Dark Ages	Hermit	Action	Madman	
-125	en	Dark Ages	Market Square	Action Reaction		
-126	en	Dark Ages	Sage	Action		
-127	en	Dark Ages	Storeroom	Action		
-128	en	Dark Ages	Urchin	Action Attack	Mercenary	
-129	en	Dark Ages	Armory	Action		
-130	en	Dark Ages	Death Cart	Action Attack	Ruins	
-131	en	Dark Ages	Feodum	Victory		
-132	en	Dark Ages	Fortress	Action		
-133	en	Dark Ages	Ironmonger	Action Attack		
-134	en	Dark Ages	Marauder	Action Attack Looter	Spoils, Ruins	
-135	en	Dark Ages	Procession	Action		
-136	en	Dark Ages	Rats	Action		
-137	en	Dark Ages	Scavenger	Action		
-138	en	Dark Ages	Wandering Minstrel	Action		
-139	en	Dark Ages	Band of Misfits	Action		
-140	en	Dark Ages	Bandit Camp	Action	Spoils	
-141	en	Dark Ages	Catacombs	Action		
-142	en	Dark Ages	Count	Action		
-143	en	Dark Ages	Counterfeit	Treasure		
-144	en	Dark Ages	Cultist	Action Attack Looter	Ruins	
-145	en	Dark Ages	Graverobber	Action		
-146	en	Dark Ages	Junk Dealer	Action		
-147	en	Dark Ages	Knights	Action Attack Knight		
-148	en	Dark Ages	Mystic	Action		
-149	en	Dark Ages	Pillage	Action Attack	Spoils	
-150	en	Dark Ages	Rebuild	Action		
-151	en	Dark Ages	Rogue	Action		
-152	en	Dark Ages	Altar	Action		
-153	en	Dark Ages	Hunting Grounds	Action		
-154	en	Cornucopia	Hamlet	Action		
-155	en	Cornucopia	Fortune Teller	Action Attack		
-156	en	Cornucopia	Menagerie	Action		
-157	en	Cornucopia	Farming Village	Action		
-158	en	Cornucopia	Horse Traders	Action Reaction		
-159	en	Cornucopia	Remake	Action		
-160	en	Cornucopia	Tournament	Action	Prizes, Curse	
-161	en	Cornucopia	Young Witch	Action Attack	Curse	
-162	en	Cornucopia	Harvest	Action		
-163	en	Cornucopia	Horn of Plenty	Treasure		
-164	en	Cornucopia	Hunting Party	Action		
-165	en	Cornucopia	Jester	Action Attack	Curse	
-166	en	Cornucopia	Fairgrounds	Victory		
-167	en	Guilds	Candlestick Maker	Action	Coin Token	
-168	en	Guilds	Stonemason	Action		Overpay Functionality
-169	en	Guilds	Doctor	Action		Overpay Functionality
-170	en	Guilds	Masterpiece	Treasure		Overpay Functionality
-171	en	Guilds	Advisor	Action		
-172	en	Guilds	Plaza	Action	Coin Token	
-173	en	Guilds	Taxman	Action Attack		
-174	en	Guilds	Herald	Action		Overpay Functionality
-175	en	Guilds	Baker	Action	Coin Token	
-176	en	Guilds	Butcher	Action	Coin Token	
-177	en	Guilds	Journeyman	Action		
-178	en	Guilds	Merchant Guild	Action	Coin Token	
-179	en	Guilds	Soothsayer	Action Attack	Curse	
-180	en	Hinterlands	Crossroads	Action		
-181	en	Hinterlands	Duchess	Action		
-182	en	Hinterlands	Fool's Gold	Treasure Reaction		
-183	en	Hinterlands	Develop	Action		
-184	en	Hinterlands	Oasis	Action		
-185	en	Hinterlands	Oracle	Action Attack		
-186	en	Hinterlands	Scheme	Action		
-187	en	Hinterlands	Tunnel	Victory Reaction		
-188	en	Hinterlands	Jack of all Trades	Action		
-189	en	Hinterlands	Noble Brigand	Action Attack		
-190	en	Hinterlands	Nomad Camp	Action		
-191	en	Hinterlands	Silk Road	Victory		
-192	en	Hinterlands	Spice Merchant	Action		
-193	en	Hinterlands	Trader	Action Reaction		
-194	en	Hinterlands	Cache	Treasure		
-195	en	Hinterlands	Cartographer	Action		
-196	en	Hinterlands	Embassy	Action		
-197	en	Hinterlands	Haggler	Action		
-198	en	Hinterlands	Highway	Action		
-199	en	Hinterlands	Ill-Gotten Gains	Treasure	Curse	
-200	en	Hinterlands	Inn	Action		
-201	en	Hinterlands	Mandarin	Action		
-202	en	Hinterlands	Margrave	Action Attack		
-203	en	Hinterlands	Stables	Action		
-204	en	Hinterlands	Border Village	Action		
-205	en	Hinterlands	Farmland	Victory		
-206	en	Prince	Prince	Action		Choose an Action card costing 4 or less. You play that card for free every turn. Set Prince aside.
-207	en	Adventures	Coin of the Realm	Treasure Reserve		
-208	en	Adventures	Page	Action Traveller	Upgrades	
-209	en	Adventures	Peasant	Action Traveller	Upgrades, All +1 Tokens	
-210	en	Adventures	Ratcatcher	Action Reserve		
-211	en	Adventures	Raze	Action		
-212	en	Adventures	Amulet	Action Duration		Choose one of three options
-213	en	Adventures	Caravan Guard	Action Duration Reaction		
-214	en	Adventures	Dungeon	Action Duration		
-215	en	Adventures	Gear	Action Duration		
-216	en	Adventures	Guide	Action Reserve		
-217	en	Adventures	Duplicate	Action Reserve		
-218	en	Adventures	Magpie	Action		
-219	en	Adventures	Messenger	Action		
-220	en	Adventures	Miser	Action		
-221	en	Adventures	Port	Action		
-222	en	Adventures	Ranger	Action	Journey Token	
-223	en	Adventures	Transmogrify	Action Reserve		
-224	en	Adventures	Artificer	Action		
-225	en	Adventures	Bridge Troll	Action Attack Duration	-1 Coin Token	
-226	en	Adventures	Distant Lands	Action Reserve Victory		
-227	en	Adventures	Giant	Action Attack	Journey Token, Curse	
-228	en	Adventures	Haunted Woods	Action Attack Duration		
-229	en	Adventures	Lost City	Action		
-230	en	Adventures	Relic	Treasure Attack	-1 Coin Token	
-231	en	Adventures	Royal Carriage	Action Reserve		
-232	en	Adventures	Storyteller	Action		
-233	en	Adventures	Swamp Hag	Action Attack Duration	Curse	
-234	en	Adventures	Treasure Trove	Treasure		
-235	en	Adventures	Wine Merchant	Action Reserve		
-236	en	Adventures	Hireling	Action Duration		This stays in play
-237	en	Adventures	Alms	Event		
-238	en	Adventures	Borrow	Event	-1 Coin Token	
-239	en	Adventures	Quest	Event		Discard for gold
-240	en	Adventures	Save	Event		
-241	en	Adventures	Scouting Party	Event		
-242	en	Adventures	Travelling Fair	Event		
-243	en	Adventures	Bonfire	Event		Trash up to 2 cards in play.
-244	en	Adventures	Expedition	Event		Draw 2 extra cards next round.
-245	en	Adventures	Ferry	Event	-2 Cost Token	
-246	en	Adventures	Plan	Event	Trash Token	
-247	en	Adventures	Mission	Event		
-248	en	Adventures	Pilgrimage	Event	Journey Token	
-249	en	Adventures	Ball	Event	-1 Coin Token	
-250	en	Adventures	Raid	Event	-1 Coin Token	
-251	en	Adventures	Seaway	Event	+1 Buy Token	
-252	en	Adventures	Trade	Event		Trash for silver
-253	en	Adventures	Lost Arts	Event	+1 Action Token	
-254	en	Adventures	Training	Event	+1 Coin Token	
-255	en	Adventures	Inheritance	Event	Estate Token	
-256	en	Adventures	Pathfinding	Event	+1 Card Token	
+_id	language	set_name	name	type	requires	description	details
+1	en	Black Market	Black Market	Action		Add cards from outside the supply pile.	
+2	en	Stash	Stash	Treasure		When you shuffle, you may put this anywhere in your deck.	
+3	en	Envoy	Envoy	Action		Reveal the top 5 cards of your deck. The player to your left chooses 1 for you to discard. Draw the rest.	
+4	en	Walled Village	Walled Village	Action		You can re-play this card in set circumstances.	
+5	en	Governor	Governor	Action		Choose 1 of 3 additional effects.	
+6	en	Base	Cellar	Action			
+7	en	Base	Chapel	Action			
+8	en	Base	Moat	Action Reaction			
+9	en	Base	Chancellor	Action			
+10	en	Base	Village	Action			
+11	en	Base	Woodcutter	Action			
+12	en	Base	Workshop	Action			
+13	en	Base	Bureaucrat	Action Attack			
+14	en	Base	Feast	Action			
+15	en	Base	Gardens	Victory			
+16	en	Base	Militia	Action Attack			
+17	en	Base	Moneylender	Action			
+18	en	Base	Remodel	Action			
+19	en	Base	Smithy	Action			
+20	en	Base	Spy	Action Attack			
+21	en	Base	Thief	Action Attack			
+22	en	Base	Throne Room	Action			
+23	en	Base	Council Room	Action			
+24	en	Base	Festival	Action			
+25	en	Base	Laboratory	Action			
+26	en	Base	Library	Action			
+27	en	Base	Market	Action			
+28	en	Base	Mine	Action			
+29	en	Base	Witch	Action Attack	Requires: Curse		
+30	en	Base	Adventurer	Action			
+31	en	Alchemy	Herbalist	Action			
+32	en	Alchemy	Apprentice	Action			
+33	en	Alchemy	Transmute	Action			
+34	en	Alchemy	Vineyard	Victory			
+35	en	Alchemy	Apothecary	Action			
+36	en	Alchemy	Scrying Pool	Action Attack			
+37	en	Alchemy	University	Action			
+38	en	Alchemy	Alchemist	Action			
+39	en	Alchemy	Familiar	Action Attack	Requires: Curse		
+40	en	Alchemy	Philosopher's Stone	Treasure			
+41	en	Alchemy	Golem	Action			
+42	en	Alchemy	Possession	Action			
+43	en	Intrigue	Courtyard	Action			
+44	en	Intrigue	Pawn	Action			
+45	en	Intrigue	Secret Chamber	Action Reaction			
+46	en	Intrigue	Great Hall	Action Victory			
+47	en	Intrigue	Masquerade	Action			
+48	en	Intrigue	Shanty Town	Action			
+49	en	Intrigue	Steward	Action			
+50	en	Intrigue	Swindler	Action Attack			
+51	en	Intrigue	Wishing Well	Action			
+52	en	Intrigue	Baron	Action			
+53	en	Intrigue	Bridge	Action			
+54	en	Intrigue	Conspirator	Action			
+55	en	Intrigue	Coppersmith	Action			
+56	en	Intrigue	Ironworks	Action			
+57	en	Intrigue	Mining Village	Action			
+58	en	Intrigue	Scout	Action			
+59	en	Intrigue	Duke	Victory			
+60	en	Intrigue	Minion	Action Attack			
+61	en	Intrigue	Saboteur	Action Attack			
+62	en	Intrigue	Torturer	Action Attack	Requires: Curse		
+63	en	Intrigue	Trading Post	Action			
+64	en	Intrigue	Tribute	Action			
+65	en	Intrigue	Upgrade	Action			
+66	en	Intrigue	Harem	Treasure Victory			
+67	en	Intrigue	Nobles	Action Victory			
+68	en	Prosperity	Loan	Treasure			
+69	en	Prosperity	Trade Route	Action	Requires: Coin Token, Trade Mat		
+70	en	Prosperity	Watchtower	Action Reaction			
+71	en	Prosperity	Bishop	Action	Requires: Victory Token		
+72	en	Prosperity	Monument	Action	Requires: Victory Token		
+73	en	Prosperity	Quarry	Treasure			
+74	en	Prosperity	Talisman	Treasure			
+75	en	Prosperity	Worker's Village	Action			
+76	en	Prosperity	City	Action			
+77	en	Prosperity	Contraband	Treasure			
+78	en	Prosperity	Counting House	Action			
+79	en	Prosperity	Mint	Action			
+80	en	Prosperity	Mountebank	Action Attack	Requires: Curse		
+81	en	Prosperity	Rabble	Action Attack			
+82	en	Prosperity	Royal Seal	Treasure			
+83	en	Prosperity	Vault	Action			
+84	en	Prosperity	Venture	Treasure			
+85	en	Prosperity	Goons	Action Attack	Requires: Victory Token		
+86	en	Prosperity	Grand Market	Action			
+87	en	Prosperity	Hoard	Treasure			
+88	en	Prosperity	Bank	Treasure			
+89	en	Prosperity	Expand	Action			
+90	en	Prosperity	Forge	Action			
+91	en	Prosperity	King's Court	Action			
+92	en	Prosperity	Peddler	Action			
+93	en	Seaside	Embargo	Action	Requires: Embargo Token, Curse		
+94	en	Seaside	Haven	Action Duration			
+95	en	Seaside	Lighthouse	Action Duration			
+96	en	Seaside	Native Village	Action			
+97	en	Seaside	Pearl Diver	Action			
+98	en	Seaside	Ambassador	Action Attack			
+99	en	Seaside	Fishing Village	Action Duration			
+100	en	Seaside	Lookout	Action			
+101	en	Seaside	Smugglers	Action			
+102	en	Seaside	Warehouse	Action			
+103	en	Seaside	Caravan	Action Duration			
+104	en	Seaside	Cutpurse	Action Attack			
+105	en	Seaside	Island	Action Victory	Requires: Island Mat		
+106	en	Seaside	Navigator	Action			
+107	en	Seaside	Pirate Ship	Action Attack	Requires: Coin Token, Pirate Mat		
+108	en	Seaside	Salvager	Action			
+109	en	Seaside	Sea Hag	Action Attack	Requires: Curse		
+110	en	Seaside	Treasure Map	Action			
+111	en	Seaside	Bazaar	Action			
+112	en	Seaside	Explorer	Action			
+113	en	Seaside	Ghost Ship	Action Attack			
+114	en	Seaside	Merchant Ship	Action Duration			
+115	en	Seaside	Outpost	Action Duration			
+116	en	Seaside	Tactician	Action Duration			
+117	en	Seaside	Treasury	Action			
+118	en	Seaside	Wharf	Action Duration			
+119	en	Dark Ages	Poor House	Action			
+120	en	Dark Ages	Beggar	Action Reaction			
+121	en	Dark Ages	Squire	Action			
+122	en	Dark Ages	Vagrant	Action			
+123	en	Dark Ages	Forager	Action			
+124	en	Dark Ages	Hermit	Action	Requires: Madman		
+125	en	Dark Ages	Market Square	Action Reaction			
+126	en	Dark Ages	Sage	Action			
+127	en	Dark Ages	Storeroom	Action			
+128	en	Dark Ages	Urchin	Action Attack	Requires: Mercenary		
+129	en	Dark Ages	Armory	Action			
+130	en	Dark Ages	Death Cart	Action Attack	Requires: Ruins		
+131	en	Dark Ages	Feodum	Victory			
+132	en	Dark Ages	Fortress	Action			
+133	en	Dark Ages	Ironmonger	Action Attack			
+134	en	Dark Ages	Marauder	Action Attack Looter	Requires: Spoils, Ruins		
+135	en	Dark Ages	Procession	Action			
+136	en	Dark Ages	Rats	Action			
+137	en	Dark Ages	Scavenger	Action			
+138	en	Dark Ages	Wandering Minstrel	Action			
+139	en	Dark Ages	Band of Misfits	Action			
+140	en	Dark Ages	Bandit Camp	Action	Requires: Spoils		
+141	en	Dark Ages	Catacombs	Action			
+142	en	Dark Ages	Count	Action			
+143	en	Dark Ages	Counterfeit	Treasure			
+144	en	Dark Ages	Cultist	Action Attack Looter	Requires: Ruins		
+145	en	Dark Ages	Graverobber	Action			
+146	en	Dark Ages	Junk Dealer	Action			
+147	en	Dark Ages	Knights	Action Attack Knight			
+148	en	Dark Ages	Mystic	Action			
+149	en	Dark Ages	Pillage	Action Attack	Requires: Spoils		
+150	en	Dark Ages	Rebuild	Action			
+151	en	Dark Ages	Rogue	Action			
+152	en	Dark Ages	Altar	Action			
+153	en	Dark Ages	Hunting Grounds	Action			
+154	en	Cornucopia	Hamlet	Action			
+155	en	Cornucopia	Fortune Teller	Action Attack			
+156	en	Cornucopia	Menagerie	Action			
+157	en	Cornucopia	Farming Village	Action			
+158	en	Cornucopia	Horse Traders	Action Reaction			
+159	en	Cornucopia	Remake	Action			
+160	en	Cornucopia	Tournament	Action	Requires: Prizes, Curse		
+161	en	Cornucopia	Young Witch	Action Attack	Requires: Curse		
+162	en	Cornucopia	Harvest	Action			
+163	en	Cornucopia	Horn of Plenty	Treasure			
+164	en	Cornucopia	Hunting Party	Action			
+165	en	Cornucopia	Jester	Action Attack	Requires: Curse		
+166	en	Cornucopia	Fairgrounds	Victory			
+167	en	Guilds	Candlestick Maker	Action	Requires: Coin Token		
+168	en	Guilds	Stonemason	Action		Overpay Functionality	
+169	en	Guilds	Doctor	Action		Overpay Functionality	
+170	en	Guilds	Masterpiece	Treasure		Overpay Functionality	
+171	en	Guilds	Advisor	Action			
+172	en	Guilds	Plaza	Action	Requires: Coin Token		
+173	en	Guilds	Taxman	Action Attack			
+174	en	Guilds	Herald	Action		Overpay Functionality	
+175	en	Guilds	Baker	Action	Requires: Coin Token		
+176	en	Guilds	Butcher	Action	Requires: Coin Token		
+177	en	Guilds	Journeyman	Action			
+178	en	Guilds	Merchant Guild	Action	Requires: Coin Token		
+179	en	Guilds	Soothsayer	Action Attack	Requires: Curse		
+180	en	Hinterlands	Crossroads	Action			
+181	en	Hinterlands	Duchess	Action			
+182	en	Hinterlands	Fool's Gold	Treasure Reaction			
+183	en	Hinterlands	Develop	Action			
+184	en	Hinterlands	Oasis	Action			
+185	en	Hinterlands	Oracle	Action Attack			
+186	en	Hinterlands	Scheme	Action			
+187	en	Hinterlands	Tunnel	Victory Reaction			
+188	en	Hinterlands	Jack of all Trades	Action			
+189	en	Hinterlands	Noble Brigand	Action Attack			
+190	en	Hinterlands	Nomad Camp	Action			
+191	en	Hinterlands	Silk Road	Victory			
+192	en	Hinterlands	Spice Merchant	Action			
+193	en	Hinterlands	Trader	Action Reaction			
+194	en	Hinterlands	Cache	Treasure			
+195	en	Hinterlands	Cartographer	Action			
+196	en	Hinterlands	Embassy	Action			
+197	en	Hinterlands	Haggler	Action			
+198	en	Hinterlands	Highway	Action			
+199	en	Hinterlands	Ill-Gotten Gains	Treasure	Requires: Curse		
+200	en	Hinterlands	Inn	Action			
+201	en	Hinterlands	Mandarin	Action			
+202	en	Hinterlands	Margrave	Action Attack			
+203	en	Hinterlands	Stables	Action			
+204	en	Hinterlands	Border Village	Action			
+205	en	Hinterlands	Farmland	Victory			
+206	en	Prince	Prince	Action		Choose an Action card costing 4 or less. You play that card for free every turn. Set Prince aside.	
+207	en	Adventures	Coin of the Realm	Treasure Reserve			
+208	en	Adventures	Page	Action Traveller	Requires: Upgrades		
+209	en	Adventures	Peasant	Action Traveller	Requires: Upgrades, All +1 Tokens		
+210	en	Adventures	Ratcatcher	Action Reserve			
+211	en	Adventures	Raze	Action			
+212	en	Adventures	Amulet	Action Duration		Choose one of three options	
+213	en	Adventures	Caravan Guard	Action Duration Reaction			
+214	en	Adventures	Dungeon	Action Duration			
+215	en	Adventures	Gear	Action Duration			
+216	en	Adventures	Guide	Action Reserve			
+217	en	Adventures	Duplicate	Action Reserve			
+218	en	Adventures	Magpie	Action			
+219	en	Adventures	Messenger	Action			
+220	en	Adventures	Miser	Action			
+221	en	Adventures	Port	Action			
+222	en	Adventures	Ranger	Action	Requires: Journey Token		
+223	en	Adventures	Transmogrify	Action Reserve			
+224	en	Adventures	Artificer	Action			
+225	en	Adventures	Bridge Troll	Action Attack Duration	Requires: -1 Coin Token		
+226	en	Adventures	Distant Lands	Action Reserve Victory			
+227	en	Adventures	Giant	Action Attack	Requires: Journey Token, Curse		
+228	en	Adventures	Haunted Woods	Action Attack Duration			
+229	en	Adventures	Lost City	Action			
+230	en	Adventures	Relic	Treasure Attack	Requires: -1 Coin Token		
+231	en	Adventures	Royal Carriage	Action Reserve			
+232	en	Adventures	Storyteller	Action			
+233	en	Adventures	Swamp Hag	Action Attack Duration	Requires: Curse		
+234	en	Adventures	Treasure Trove	Treasure			
+235	en	Adventures	Wine Merchant	Action Reserve			
+236	en	Adventures	Hireling	Action Duration		This stays in play	
+237	en	Adventures	Alms	Event			
+238	en	Adventures	Borrow	Event	Requires: -1 Coin Token		
+239	en	Adventures	Quest	Event		Discard for gold	
+240	en	Adventures	Save	Event			
+241	en	Adventures	Scouting Party	Event			
+242	en	Adventures	Travelling Fair	Event			
+243	en	Adventures	Bonfire	Event		Trash up to 2 cards in play.	
+244	en	Adventures	Expedition	Event		Draw 2 extra cards next round.	
+245	en	Adventures	Ferry	Event	Requires: -2 Cost Token		
+246	en	Adventures	Plan	Event	Requires: Trash Token		
+247	en	Adventures	Mission	Event			
+248	en	Adventures	Pilgrimage	Event	Requires: Journey Token		
+249	en	Adventures	Ball	Event	Requires: -1 Coin Token		
+250	en	Adventures	Raid	Event	Requires: -1 Coin Token		
+251	en	Adventures	Seaway	Event	Requires: +1 Buy Token		
+252	en	Adventures	Trade	Event		Trash for silver	
+253	en	Adventures	Lost Arts	Event	Requires: +1 Action Token		
+254	en	Adventures	Training	Event	Requires: +1 Coin Token		
+255	en	Adventures	Inheritance	Event	Requires: Estate Token		
+256	en	Adventures	Pathfinding	Event	Requires: +1 Card Token		

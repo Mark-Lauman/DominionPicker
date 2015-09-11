@@ -1,51 +1,51 @@
-id	Set	Name	Type	Requires	Description
-207	Adventures	Coin of the Realm	Treasure Reserve		
-208	Adventures	Page	Action Traveller	Upgrades	
-209	Adventures	Peasant	Action Traveller	Upgrades, All +1 Tokens	
-210	Adventures	Ratcatcher	Action Reserve		
-211	Adventures	Raze	Action		
-212	Adventures	Amulet	Action Duration		Choose one of three options
-213	Adventures	Caravan Guard	Action Duration Reaction		
-214	Adventures	Dungeon	Action Duration		
-215	Adventures	Gear	Action Duration		
-216	Adventures	Guide	Action Reserve		
-217	Adventures	Duplicate	Action Reserve		
-218	Adventures	Magpie	Action		
-219	Adventures	Messenger	Action		
-220	Adventures	Miser	Action		
-221	Adventures	Port	Action		
-222	Adventures	Ranger	Action	Journey Token	
-223	Adventures	Transmogrify	Action Reserve		
-224	Adventures	Artificer	Action		
-225	Adventures	Bridge Troll	Action Attack Duration	-1 Coin Token	
-226	Adventures	Distant Lands	Action Reserve Victory		
-227	Adventures	Giant	Action Attack	Journey Token, Curse	
-228	Adventures	Haunted Woods	Action Attack Duration		
-229	Adventures	Lost City	Action		
-230	Adventures	Relic	Treasure Attack	-1 Coin Token	
-231	Adventures	Royal Carriage	Action Reserve		
-232	Adventures	Storyteller	Action		
-233	Adventures	Swamp Hag	Action Attack Duration	Curse	
-234	Adventures	Treasure Trove	Treasure		
-235	Adventures	Wine Merchant	Action Reserve		
-236	Adventures	Hireling	Action Duration		This stays in play
-237	Adventures	Alms	Event		
-238	Adventures	Borrow	Event	-1 Coin Token	
-239	Adventures	Quest	Event		Discard for gold
-240	Adventures	Save	Event		
-241	Adventures	Scouting Party	Event		
-242	Adventures	Travelling Fair	Event		
-243	Adventures	Bonfire	Event		Trash up to 2 cards in play.
-244	Adventures	Expedition	Event		Draw 2 extra cards next round.
-245	Adventures	Ferry	Event	-2 Cost Token	
-246	Adventures	Plan	Event	Trash Token	
-247	Adventures	Mission	Event		
-248	Adventures	Pilgrimage	Event	Journey Token	
-249	Adventures	Ball	Event	-1 Coin Token	
-250	Adventures	Raid	Event	-1 Coin Token	
-251	Adventures	Seaway	Event	+1 Buy Token	
-252	Adventures	Trade	Event		Trash for silver
-253	Adventures	Lost Arts	Event	+1 Action Token	
-254	Adventures	Training	Event	+1 Coin Token	
-255	Adventures	Inheritance	Event	Estate Token	
-256	Adventures	Pathfinding	Event	+1 Card Token	
+id	Set	Name	Type	Requires	Description	Details
+207	Adventures	Coin of the Realm	Treasure Reserve			
+208	Adventures	Page	Action Traveller	Requires: Upgrades		
+209	Adventures	Peasant	Action Traveller	Requires: Upgrades, All +1 Tokens		
+210	Adventures	Ratcatcher	Action Reserve			
+211	Adventures	Raze	Action			
+212	Adventures	Amulet	Action Duration		Choose one of three options	
+213	Adventures	Caravan Guard	Action Duration Reaction			
+214	Adventures	Dungeon	Action Duration			
+215	Adventures	Gear	Action Duration			
+216	Adventures	Guide	Action Reserve			
+217	Adventures	Duplicate	Action Reserve			
+218	Adventures	Magpie	Action			
+219	Adventures	Messenger	Action			
+220	Adventures	Miser	Action			
+221	Adventures	Port	Action			
+222	Adventures	Ranger	Action	Requires: Journey Token		
+223	Adventures	Transmogrify	Action Reserve			
+224	Adventures	Artificer	Action			
+225	Adventures	Bridge Troll	Action Attack Duration	Requires: -1 Coin Token		
+226	Adventures	Distant Lands	Action Reserve Victory			
+227	Adventures	Giant	Action Attack	Requires: Journey Token, Curse		
+228	Adventures	Haunted Woods	Action Attack Duration			
+229	Adventures	Lost City	Action			
+230	Adventures	Relic	Treasure Attack	Requires: -1 Coin Token		
+231	Adventures	Royal Carriage	Action Reserve			
+232	Adventures	Storyteller	Action			
+233	Adventures	Swamp Hag	Action Attack Duration	Requires: Curse		
+234	Adventures	Treasure Trove	Treasure			
+235	Adventures	Wine Merchant	Action Reserve			
+236	Adventures	Hireling	Action Duration		This stays in play	
+237	Adventures	Alms	Event			
+238	Adventures	Borrow	Event	Requires: -1 Coin Token		
+239	Adventures	Quest	Event		Discard for gold	
+240	Adventures	Save	Event			
+241	Adventures	Scouting Party	Event			
+242	Adventures	Travelling Fair	Event			
+243	Adventures	Bonfire	Event		Trash up to 2 cards in play.	
+244	Adventures	Expedition	Event		Draw 2 extra cards next round.	
+245	Adventures	Ferry	Event	Requires: -2 Cost Token		
+246	Adventures	Plan	Event	Requires: Trash Token		
+247	Adventures	Mission	Event			
+248	Adventures	Pilgrimage	Event	Requires: Journey Token		
+249	Adventures	Ball	Event	Requires: -1 Coin Token		
+250	Adventures	Raid	Event	Requires: -1 Coin Token		
+251	Adventures	Seaway	Event	Requires: +1 Buy Token		
+252	Adventures	Trade	Event		Trash for silver	
+253	Adventures	Lost Arts	Event	Requires: +1 Action Token		
+254	Adventures	Training	Event	Requires: +1 Coin Token		
+255	Adventures	Inheritance	Event	Requires: Estate Token		
+256	Adventures	Pathfinding	Event	Requires: +1 Card Token		

@@ -1,26 +1,26 @@
-id	Set	Name	Type	Requires	Description
-68	Blütezeit	Lohn	Geld		
-69	Blütezeit	Handelsroute	Aktion	Münzechip, Tableau Handelsroute	
-70	Blütezeit	Wachturm	Aktion Reaktion		
-71	Blütezeit	Bischof	Aktion	Siegpunktchip	
-72	Blütezeit	Denkmal	Aktion	Siegpunktchip	
-73	Blütezeit	Steinbruch	Geld		
-74	Blütezeit	Talisman	Geld		
-75	Blütezeit	Arbeiterdorf	Aktion		
-76	Blütezeit	Stadt	Aktion		
-77	Blütezeit	Schmuggelware	Geld		
-78	Blütezeit	Leihhaus	Aktion		
-79	Blütezeit	Münzer	Aktion		
-80	Blütezeit	Quacksalber	Aktion Angriff	Fluch	
-81	Blütezeit	Gesindel	Aktion Angriff		
-82	Blütezeit	Königliches Siegel	Geld		
-83	Blütezeit	Gewölbe	Aktion		
-84	Blütezeit	Abenteuer	Geld		
-85	Blütezeit	Halsabschneider	Aktion Angriff	Siegpunktchip	
-86	Blütezeit	Großer Markt	Aktion		
-87	Blütezeit	Hort	Geld		
-88	Blütezeit	Bank	Geld		
-89	Blütezeit	Ausbau	Aktion		
-90	Blütezeit	Kunstschmiede	Aktion		
-91	Blütezeit	Königshof	Aktion		
-92	Blütezeit	Hausierer	Aktion		
+id	Set	Name	Type	Requires	Description	Details
+68	Blütezeit	Lohn	Geld			
+69	Blütezeit	Handelsroute	Aktion	Benötigt: Münzechip, Tableau Handelsroute		
+70	Blütezeit	Wachturm	Aktion Reaktion			
+71	Blütezeit	Bischof	Aktion	Benötigt: Siegpunktchip		
+72	Blütezeit	Denkmal	Aktion	Benötigt: Siegpunktchip		
+73	Blütezeit	Steinbruch	Geld			
+74	Blütezeit	Talisman	Geld			
+75	Blütezeit	Arbeiterdorf	Aktion			
+76	Blütezeit	Stadt	Aktion			
+77	Blütezeit	Schmuggelware	Geld			
+78	Blütezeit	Leihhaus	Aktion			
+79	Blütezeit	Münzer	Aktion			
+80	Blütezeit	Quacksalber	Aktion Angriff	Benötigt: Fluch		
+81	Blütezeit	Gesindel	Aktion Angriff			
+82	Blütezeit	Königliches Siegel	Geld			
+83	Blütezeit	Gewölbe	Aktion			
+84	Blütezeit	Abenteuer	Geld			
+85	Blütezeit	Halsabschneider	Aktion Angriff	Benötigt: Siegpunktchip		
+86	Blütezeit	Großer Markt	Aktion			
+87	Blütezeit	Hort	Geld			
+88	Blütezeit	Bank	Geld			
+89	Blütezeit	Ausbau	Aktion			
+90	Blütezeit	Kunstschmiede	Aktion			
+91	Blütezeit	Königshof	Aktion			
+92	Blütezeit	Hausierer	Aktion			

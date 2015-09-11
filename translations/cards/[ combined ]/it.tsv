@@ -1,0 +1,155 @@
+_id	language	set_name	name	type	requires	description	details
+2	it	Gruzzolo	Gruzzolo	Tesoro		Quando mischi il tuo scarto, puoi sistemare questa carta ovunque nel mazzo.	
+3	it	Inviato	Inviato	Azione		Rivela le prime 5 carte del tuo mazzo. Il giocatore alla tua sinistra ne sceglie una per te da scartare. Pesca le rimanenti.	
+6	it	Base	Sotterraneo	Azione			
+7	it	Base	Cappella	Azione			
+8	it	Base	Fossato	Azione Reazione			
+9	it	Base	Cancelliere	Azione			
+10	it	Base	Villaggio	Azione			
+11	it	Base	Taglialegna	Azione			
+12	it	Base	Officina	Azione			
+13	it	Base	Burocrate	Azione Attacco			
+14	it	Base	Banchetto	Azione			
+15	it	Base	Giardini	Vittoria			
+16	it	Base	Milizia	Azione Attacco			
+17	it	Base	Usuraio	Azione			
+18	it	Base	Miglioria	Azione			
+19	it	Base	Fucina	Azione			
+20	it	Base	Spia	Azione Attacco			
+21	it	Base	Ladro	Azione Attacco			
+22	it	Base	Sala del Trono	Azione			
+23	it	Base	Sala del Consiglio	Azione			
+24	it	Base	Fiera	Azione			
+25	it	Base	Laboratorio	Azione			
+26	it	Base	Biblioteca	Azione			
+27	it	Base	Mercato	Azione			
+28	it	Base	Miniera	Azione			
+29	it	Base	Strega	Azione Attacco	Requires: Curse		
+30	it	Base	Esploratore	Azione			
+31	it	Alchimia	Erborista	Azione			
+32	it	Alchimia	Apprendista	Azione			
+33	it	Alchimia	Trasmutazione	Azione			
+34	it	Alchimia	Vigna	Vittoria			
+35	it	Alchimia	Farmacista	Azione			
+36	it	Alchimia	Divinazione	Azione Attacco			
+37	it	Alchimia	Università	Azione			
+38	it	Alchimia	Alchimista	Azione			
+39	it	Alchimia	Famiglio	Azione Attacco	Requires: Curse		
+40	it	Alchimia	Pietra Filosofale	Tesoro			
+41	it	Alchimia	Golem	Azione			
+42	it	Alchimia	Possessione	Azione			
+43	it	Intrigo	Cortile di Campagna	Azione			
+44	it	Intrigo	Pedina	Azione			
+45	it	Intrigo	Stanza Segreta	Azione Reazione			
+46	it	Intrigo	Grande Salone	Azione Vittoria			
+47	it	Intrigo	Ballo in Maschera	Azione			
+48	it	Intrigo	Baraccopoli	Azione			
+49	it	Intrigo	Maggiordomo	Azione			
+50	it	Intrigo	Truffatore	Azione Attacco			
+51	it	Intrigo	Pozzo dei Desideri	Azione			
+52	it	Intrigo	Barone	Azione			
+53	it	Intrigo	Ponte	Azione			
+54	it	Intrigo	Cospiratore	Azione			
+55	it	Intrigo	Battirame	Azione			
+56	it	Intrigo	Fonderia	Azione			
+57	it	Intrigo	Villaggio Minerario	Azione			
+58	it	Intrigo	Scout	Azione			
+59	it	Intrigo	Duca	Vittoria			
+60	it	Intrigo	Tirapiedi	Azione Attacco			
+61	it	Intrigo	Sabotatore	Azione Attacco			
+62	it	Intrigo	Carceriere	Azione Attacco	Requires: Curse		
+63	it	Intrigo	Stazione Commerciale	Azione			
+64	it	Intrigo	Tributo	Azione			
+65	it	Intrigo	Potenziameno	Azione			
+66	it	Intrigo	Harem	Tesoro Vittoria			
+67	it	Intrigo	Nobili	Azione Vittoria			
+68	it	Prosperità	Prestito	Tesoro			
+69	it	Prosperità	Mercante	Azione	Requires: Coin Token, Trade Mat		
+70	it	Prosperità	Torre di Guardia	Reazione			
+71	it	Prosperità	Vescovo	Azione	Requires: Victory Token		
+72	it	Prosperità	Monumento	Azione	Requires: Victory Token		
+73	it	Prosperità	Cava	Tesoro			
+74	it	Prosperità	Talismano	Tesoro			
+75	it	Prosperità	Cantiere	Azione			
+76	it	Prosperità	Città	Azione			
+77	it	Prosperità	Contrabbando	Tesoro			
+78	it	Prosperità	Contabilità	Azione			
+79	it	Prosperità	Zecca	Azione			
+80	it	Prosperità	Ciarlatano	Azione Attacco	Requires: Curse		
+81	it	Prosperità	Tumulto	Azione Attacco			
+82	it	Prosperità	Sigillo Reale	Tesoro			
+83	it	Prosperità	Nascondiglio	Azione			
+84	it	Prosperità	Soldo	Tesoro			
+85	it	Prosperità	Scagnozzi	Azione Attacco	Requires: Victory Token		
+86	it	Prosperità	Mercato di Lusso	Azione			
+87	it	Prosperità	Mucchio	Tesoro			
+88	it	Prosperità	Banca	Tesoro			
+89	it	Prosperità	Ampliamento	Azione			
+90	it	Prosperità	Incastonare	Azione			
+91	it	Prosperità	Corte	Azione			
+92	it	Prosperità	Ambulante	Azione			
+93	it	Seaside	Embargo	Azione	Requires: Embargo Token, Curse		
+94	it	Seaside	Rada	Azione Durata			
+95	it	Seaside	Faro	Azione Durata			
+96	it	Seaside	Villaggio Indigeno	Azione			
+97	it	Seaside	Pescatore di Perle	Azione			
+98	it	Seaside	Ambasciatore	Azione Attacco			
+99	it	Seaside	Villaggio di Pescatori	Azione Durata			
+100	it	Seaside	Vedetta	Azione			
+101	it	Seaside	Contrabbandieri	Azione			
+102	it	Seaside	Magazzino	Azione			
+103	it	Seaside	Carovana	Azione Durata			
+104	it	Seaside	Borseggiatore	Azione Attacco			
+105	it	Seaside	Isola	Azione Vittoria	Requires: Island Mat		
+106	it	Seaside	Navigatore	Azione			
+107	it	Seaside	Nave Pirata	Azione Attacco	Requires: Coin Token, Pirate Mat		
+108	it	Seaside	Recupero	Azione			
+109	it	Seaside	Megera dei Mari	Azione Attacco	Requires: Curse		
+110	it	Seaside	Mappa del Tesoro	Azione			
+111	it	Seaside	Bazaar	Azione			
+112	it	Seaside	Avventuriero	Azione			
+113	it	Seaside	Nave Fantasma	Azione Attacco			
+114	it	Seaside	Nave Mercantile	Azione Durata			
+115	it	Seaside	Avamposto	Azione Durata			
+116	it	Seaside	Stratega	Azione Durata			
+117	it	Seaside	Tesoro	Azione			
+118	it	Seaside	Molo	Azione Durata			
+154	it	Cornucopia	Borgo	Azione			
+155	it	Cornucopia	Indovina	Azione Attacco			
+156	it	Cornucopia	Serraglio	Azione			
+157	it	Cornucopia	Villaggio Agricolo	Azione			
+158	it	Cornucopia	Mercante di Cavalli	Azione Reazione			
+159	it	Cornucopia	Rifacimento	Azione			
+160	it	Cornucopia	Torneo	Azione	Requires: Prizes, Curse		
+161	it	Cornucopia	Giovane Strega	Azione Attacco	Requires: Curse		
+162	it	Cornucopia	Mietitura	Azione			
+163	it	Cornucopia	Cornucopia	Tesoro			
+164	it	Cornucopia	Battuta di Caccia	Azione			
+165	it	Cornucopia	Giullare	Azione Attacco	Requires: Curse		
+166	it	Cornucopia	Mercatino	Vittoria			
+180	it	Nuovi Orizzonti	Incrocio	Azione			
+181	it	Nuovi Orizzonti	Duchessa	Azione			
+182	it	Nuovi Orizzonti	Oro dello Stolto	Tesoro Reazione			
+183	it	Nuovi Orizzonti	Sviluppo	Azione			
+184	it	Nuovi Orizzonti	Oasi	Azione			
+185	it	Nuovi Orizzonti	Oracolo	Azione Attacco			
+186	it	Nuovi Orizzonti	Macchinazione	Azione			
+187	it	Nuovi Orizzonti	Galleria	Vittoria Reazione			
+188	it	Nuovi Orizzonti	Tuttofare	Azione			
+189	it	Nuovi Orizzonti	Ladro Gentiluomo	Azione Attacco			
+190	it	Nuovi Orizzonti	Campo Nomadi	Azione			
+191	it	Nuovi Orizzonti	Via della Seta	Vittoria			
+192	it	Nuovi Orizzonti	Mercante di Spezia	Azione			
+193	it	Nuovi Orizzonti	Commerciante	Azione Reazione			
+194	it	Nuovi Orizzonti	Forziere	Tesoro			
+195	it	Nuovi Orizzonti	Cartografo	Azione			
+196	it	Nuovi Orizzonti	Diplomatico	Azione			
+197	it	Nuovi Orizzonti	Contrattazione	Azione			
+198	it	Nuovi Orizzonti	Strada Maestra	Azione			
+199	it	Nuovi Orizzonti	Infame Profitto	Tesoro	Requires: Curse		
+200	it	Nuovi Orizzonti	Locanda	Azione			
+201	it	Nuovi Orizzonti	Mandarino	Azione			
+202	it	Nuovi Orizzonti	Margravio	Azione Attacco			
+203	it	Nuovi Orizzonti	Stalla	Azione			
+204	it	Nuovi Orizzonti	Villaggio di Frontiera	Azione			
+205	it	Nuovi Orizzonti	Terra Coltivata	Vittoria			

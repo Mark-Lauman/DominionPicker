@@ -1,14 +1,14 @@
-id	Set	Name	Type	Requires	Description
-154	Basiskarte	Weiler	Aktion		
-155	Basiskarte	Wahrsagerin	Aktion Angriff		
-156	Basiskarte	Menagerie	Aktion		
-157	Basiskarte	Bauerndorf	Aktion		
-158	Basiskarte	Pferdehändler	Aktion Reaktion		
-159	Basiskarte	Nachbau	Aktion		
-160	Basiskarte	Turnier	Aktion	Die Preise, Fluch	
-161	Basiskarte	Junge Hexe	Aktion Angriff	Fluch	
-162	Basiskarte	Ernte	Aktion		
-163	Basiskarte	Füllhorn	Geld		
-164	Basiskarte	Treibjagd	Aktion		
-165	Basiskarte	Harlekin	Aktion Angriff	Fluch	
-166	Basiskarte	Festplatz	Punkte		
+id	Set	Name	Type	Requires	Description	Details
+154	Basiskarte	Weiler	Aktion			
+155	Basiskarte	Wahrsagerin	Aktion Angriff			
+156	Basiskarte	Menagerie	Aktion			
+157	Basiskarte	Bauerndorf	Aktion			
+158	Basiskarte	Pferdehändler	Aktion Reaktion			
+159	Basiskarte	Nachbau	Aktion			
+160	Basiskarte	Turnier	Aktion	Benötigt: Die Preise, Fluch		
+161	Basiskarte	Junge Hexe	Aktion Angriff	Benötigt: Fluch		
+162	Basiskarte	Ernte	Aktion			
+163	Basiskarte	Füllhorn	Geld			
+164	Basiskarte	Treibjagd	Aktion			
+165	Basiskarte	Harlekin	Aktion Angriff	Benötigt: Fluch		
+166	Basiskarte	Festplatz	Punkte			

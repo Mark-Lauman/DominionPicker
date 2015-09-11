@@ -61,7 +61,7 @@ public class FragmentMarket extends Fragment
 
     /** The display language of the current choices.
      *  Checked each time this fragment is started to ensure it is current. */
-    private String language;
+    private String transId;
     /** The cursor containing current choices */
     private Cursor loaded = null;
 
@@ -94,8 +94,9 @@ public class FragmentMarket extends Fragment
     @Override
     public void onStart() {
         super.onStart();
+        App.updateInfo(getActivity());
         // Reload the cards if the display language has changed.
-        if(!App.transId.equals(language))
+        if(!App.transId.equals(transId))
             getActivity().getSupportLoaderManager()
                          .restartLoader(LoaderId.MARKET_SHOW, null, this);
     }
@@ -257,7 +258,7 @@ public class FragmentMarket extends Fragment
                 c.setUri(Provider.URI_CARD_ALL);
                 c.setProjection(AdapterCards.COLS_USED);
                 c.setSortOrder(App.sortOrder);
-                language = App.transId;
+                transId = App.transId;
 
                 // no choices, no cards
                 if(choices == null || choices.length == 0) {

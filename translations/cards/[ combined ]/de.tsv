@@ -1,207 +1,207 @@
-_id	language	set_name	name	type	requires	description
-1	de	Schwarzmarkt	Schwarzmarkt	Aktion		
-2	de	Geldversteck	Geldversteck	Geld		
-3	de	Gesandter	Gesandter	Aktion		
-4	de	Carcasonne	Carcasonne	Aktion		
-5	de	Gouverneur	Gouverneur	Aktion		
-6	de	Dominion	Keller	Aktion		
-7	de	Dominion	Kapelle	Aktion		
-8	de	Dominion	Burggraben	Aktion Reaktion		
-9	de	Dominion	Kanzler	Aktion		
-10	de	Dominion	Dorf	Aktion		
-11	de	Dominion	Holzfäller	Aktion		
-12	de	Dominion	Werkstatt	Aktion		
-13	de	Dominion	Bürokrat	Aktion Angriff		
-14	de	Dominion	Festmahl	Aktion		
-15	de	Dominion	Gärten	Punkte		
-16	de	Dominion	Miliz	Aktion Angriff		
-17	de	Dominion	Geldverleiher	Aktion		
-18	de	Dominion	Umbau	Aktion		
-19	de	Dominion	Schmiede	Aktion		
-20	de	Dominion	Spion	Aktion Angriff		
-21	de	Dominion	Dieb	Aktion Angriff		
-22	de	Dominion	Thronsaal	Aktion		
-23	de	Dominion	Ratsversammlun	Aktion		
-24	de	Dominion	Jahrmarkt	Aktion		
-25	de	Dominion	Laboratorium	Aktion		
-26	de	Dominion	Bibliothek	Aktion		
-27	de	Dominion	Markt	Aktion		
-28	de	Dominion	Mine	Aktion		
-29	de	Dominion	Hexe	Aktion Angriff	Fluch	
-30	de	Dominion	Abenteurer	Aktion		
-31	de	Alchemisten	Kräuterkundiger	Aktion		
-32	de	Alchemisten	Lehrling	Aktion		
-33	de	Alchemisten	Verwandlung	Aktion		
-34	de	Alchemisten	Weinberg	Punkte		
-35	de	Alchemisten	Apotheker	Aktion		
-36	de	Alchemisten	Vision	Aktion Angriff		
-37	de	Alchemisten	Universität	Aktion		
-38	de	Alchemisten	Alchemist	Aktion		
-39	de	Alchemisten	Vertrauter	Aktion Angriff	Fluch	
-40	de	Alchemisten	Stein der Weisen	Geld		
-41	de	Alchemisten	Golem	Aktion		
-42	de	Alchemisten	Besessenheit	Aktion		
-43	de	Die Intrige	Burghof	Aktion		
-44	de	Die Intrige	Handlanger	Aktion		
-45	de	Die Intrige	Geheimkammer	Aktion Reaktion		
-46	de	Die Intrige	Große Halle	Aktion Punkte		
-47	de	Die Intrige	Maskerade	Aktion		
-48	de	Die Intrige	Armenviertel	Aktion		
-49	de	Die Intrige	Verwalter	Aktion		
-50	de	Die Intrige	Trickser	Aktion Angriff		
-51	de	Die Intrige	Wunschbrunnen	Aktion		
-52	de	Die Intrige	Baron	Aktion		
-53	de	Die Intrige	Brücke	Aktion		
-54	de	Die Intrige	Verschwörer	Aktion		
-55	de	Die Intrige	Kupferschmied	Aktion		
-56	de	Die Intrige	Eisenhütte	Aktion		
-57	de	Die Intrige	Bergwerk	Aktion		
-58	de	Die Intrige	Späher	Aktion		
-59	de	Die Intrige	Herzog	Punkte		
-60	de	Die Intrige	Lakai	Aktion Angriff		
-61	de	Die Intrige	Saboteur	Aktion Angriff		
-62	de	Die Intrige	Kerkermeister	Aktion Angriff	Fluch	
-63	de	Die Intrige	Handelsposten	Aktion		
-64	de	Die Intrige	Tribut	Aktion		
-65	de	Die Intrige	Anbau	Aktion		
-66	de	Die Intrige	Harem	Geld Punkte		
-67	de	Die Intrige	Adlige	Aktion Punkte		
-68	de	Blütezeit	Lohn	Geld		
-69	de	Blütezeit	Handelsroute	Aktion	Münzechip, Tableau Handelsroute	
-70	de	Blütezeit	Wachturm	Aktion Reaktion		
-71	de	Blütezeit	Bischof	Aktion	Siegpunktchip	
-72	de	Blütezeit	Denkmal	Aktion	Siegpunktchip	
-73	de	Blütezeit	Steinbruch	Geld		
-74	de	Blütezeit	Talisman	Geld		
-75	de	Blütezeit	Arbeiterdorf	Aktion		
-76	de	Blütezeit	Stadt	Aktion		
-77	de	Blütezeit	Schmuggelware	Geld		
-78	de	Blütezeit	Leihhaus	Aktion		
-79	de	Blütezeit	Münzer	Aktion		
-80	de	Blütezeit	Quacksalber	Aktion Angriff	Fluch	
-81	de	Blütezeit	Gesindel	Aktion Angriff		
-82	de	Blütezeit	Königliches Siegel	Geld		
-83	de	Blütezeit	Gewölbe	Aktion		
-84	de	Blütezeit	Abenteuer	Geld		
-85	de	Blütezeit	Halsabschneider	Aktion Angriff	Siegpunktchip	
-86	de	Blütezeit	Großer Markt	Aktion		
-87	de	Blütezeit	Hort	Geld		
-88	de	Blütezeit	Bank	Geld		
-89	de	Blütezeit	Ausbau	Aktion		
-90	de	Blütezeit	Kunstschmiede	Aktion		
-91	de	Blütezeit	Königshof	Aktion		
-92	de	Blütezeit	Hausierer	Aktion		
-93	de	Seaside	Embargo	Aktion	Embargomarker, Fluch	
-94	de	Seaside	Hafen	Aktion Dauer		
-95	de	Seaside	Leuchtturm	Aktion Dauer		
-96	de	Seaside	Eingeborenendorf	Aktion		
-97	de	Seaside	Perlentaucher	Aktion		
-98	de	Seaside	Botschafter	Aktion Angriff		
-99	de	Seaside	Fischerdorf	Aktion Dauer		
-100	de	Seaside	Ausguck	Aktion		
-101	de	Seaside	Schmuggler	Aktion		
-102	de	Seaside	Lagerhaus	Aktion		
-103	de	Seaside	Karawane	Aktion Dauer		
-104	de	Seaside	Beutelschneider	Aktion Angriff		
-105	de	Seaside	Insel	Aktion Punkte	Tableau Insel 	
-106	de	Seaside	Navigator	Aktion		
-107	de	Seaside	Piratenschiff	Aktion Angriff	Münzechip, Tableau Piratenschiff	
-108	de	Seaside	Müllverwerter	Aktion		
-109	de	Seaside	Seehexe	Aktion Angriff	Fluch	
-110	de	Seaside	Schatzkarte	Aktion		
-111	de	Seaside	Bazar	Aktion		
-112	de	Seaside	Entdecker	Aktion		
-113	de	Seaside	Geisterschiff	Aktion Angriff		
-114	de	Seaside	Handelsschiff	Aktion Dauer		
-115	de	Seaside	Aussenposten	Aktion Dauer		
-116	de	Seaside	Taktiker	Aktion Dauer		
-117	de	Seaside	Schatzkammer	Aktion		
-118	de	Seaside	Werft	Aktion Dauer		
-119	de	Dark Ages	Armenhaus	Aktion		
-120	de	Dark Ages	Bettler	Aktion Reaktion		
-121	de	Dark Ages	Knappe	Aktion		
-122	de	Dark Ages	Landstreicher	Aktion		
-123	de	Dark Ages	Mundraub	Aktion		
-124	de	Dark Ages	Eremit	Aktion	Verrückter	
-125	de	Dark Ages	Marktplatz	Aktion Reaktion		
-126	de	Dark Ages	Weiser	Aktion		
-127	de	Dark Ages	Lagerraum	Aktion		
-128	de	Dark Ages	Gassenjunge	Aktion Angriff	Söldner	
-129	de	Dark Ages	Waffenkammer	Aktion		
-130	de	Dark Ages	Leichenkarren	Aktion Angriff	Ruine	
-131	de	Dark Ages	Lehen	Punkte		
-132	de	Dark Ages	Festung	Aktion		
-133	de	Dark Ages	Eisenhändler	Aktion Angriff		
-134	de	Dark Ages	Marodeur	Aktion Angriff Plündern	Beute, Ruine	
-135	de	Dark Ages	Prozession	Aktion		
-136	de	Dark Ages	Ratten	Aktion		
-137	de	Dark Ages	Lumpensammler	Aktion		
-138	de	Dark Ages	Barde	Aktion		
-139	de	Dark Ages	Vogelfreie	Aktion		
-140	de	Dark Ages	Banditenlager	Aktion	Beute	
-141	de	Dark Ages	Katakomben	Aktion		
-142	de	Dark Ages	Graf	Aktion		
-143	de	Dark Ages	Falschgeld	Geld		
-144	de	Dark Ages	Kultist	Aktion Angriff Plündern	Ruine	
-145	de	Dark Ages	Grabräuber	Aktion		
-146	de	Dark Ages	Schrotthändler	Aktion		
-147	de	Dark Ages	Ritter	Aktion Angriff Ritter		
-148	de	Dark Ages	Medium	Aktion		
-149	de	Dark Ages	Raubzug	Aktion Angriff	Beute	
-150	de	Dark Ages	Neubau	Aktion		
-151	de	Dark Ages	Schurke	Aktion		
-152	de	Dark Ages	Altar	Aktion		
-153	de	Dark Ages	Jagdgründe	Aktion		
-154	de	Basiskarte	Weiler	Aktion		
-155	de	Basiskarte	Wahrsagerin	Aktion Angriff		
-156	de	Basiskarte	Menagerie	Aktion		
-157	de	Basiskarte	Bauerndorf	Aktion		
-158	de	Basiskarte	Pferdehändler	Aktion Reaktion		
-159	de	Basiskarte	Nachbau	Aktion		
-160	de	Basiskarte	Turnier	Aktion	Die Preise, Fluch	
-161	de	Basiskarte	Junge Hexe	Aktion Angriff	Fluch	
-162	de	Basiskarte	Ernte	Aktion		
-163	de	Basiskarte	Füllhorn	Geld		
-164	de	Basiskarte	Treibjagd	Aktion		
-165	de	Basiskarte	Harlekin	Aktion Angriff	Fluch	
-166	de	Basiskarte	Festplatz	Punkte		
-167	de	Die Gilden	Leuchtenmacher	Aktion	Münzechip	
-168	de	Die Gilden	Steinmetz	Aktion		
-169	de	Die Gilden	Arzt	Aktion		
-170	de	Die Gilden	Meisterstück	Geld		
-171	de	Die Gilden	Berater	Aktion		
-172	de	Die Gilden	Platz	Aktion	Münzechip	
-173	de	Die Gilden	Steuereintreiber	Aktion Angriff		
-174	de	Die Gilden	Herold	Aktion		
-175	de	Die Gilden	Bäcker	Aktion	Münzechip	
-176	de	Die Gilden	Metzger	Aktion	Münzechip	
-177	de	Die Gilden	Wandergeselle	Aktion		
-178	de	Die Gilden	Kaufmannsgilde	Aktion	Münzechip	
-179	de	Die Gilden	Wahrsager	Aktion Angriff	Fluch	
-180	de	Hinterland	Wegkreuzung	Aktion		
-181	de	Hinterland	Herzogin	Aktion		
-182	de	Hinterland	Katzengold	Geld Reaktion		
-183	de	Hinterland	Aufbau	Aktion		
-184	de	Hinterland	Oase	Aktion		
-185	de	Hinterland	Orakel	Aktion Angriff		
-186	de	Hinterland	Komplott	Aktion		
-187	de	Hinterland	Tunnel	Punkte Reaktion		
-188	de	Hinterland	Lebenskünstler	Aktion		
-189	de	Hinterland	Edler Räuber	Aktion Angriff		
-190	de	Hinterland	Nomadencamp	Aktion		
-191	de	Hinterland	Seidenstraße	Punkte		
-192	de	Hinterland	Gewürzhändler	Aktion		
-193	de	Hinterland	Fahrender Händler	Aktion Reaktion		
-194	de	Hinterland	Schatztruhe	Geld		
-195	de	Hinterland	Kartograph	Aktion		
-196	de	Hinterland	Botschaft	Aktion		
-197	de	Hinterland	Feilscher	Aktion		
-198	de	Hinterland	Fernstraße	Aktion		
-199	de	Hinterland	Blutzoll	Geld	Fluch	
-200	de	Hinterland	Gasthaus	Aktion		
-201	de	Hinterland	Mandarin	Aktion		
-202	de	Hinterland	Markgraf	Aktion Angriff		
-203	de	Hinterland	Stallungen	Aktion		
-204	de	Hinterland	Grenzdorf	Aktion		
-205	de	Hinterland	Fruchtbares Land	Punkte		
-206	de	Prinz	Prinz	Aktion		
+_id	language	set_name	name	type	requires	description	details
+1	de	Schwarzmarkt	Schwarzmarkt	Aktion			
+2	de	Geldversteck	Geldversteck	Geld			
+3	de	Gesandter	Gesandter	Aktion			
+4	de	Carcasonne	Carcasonne	Aktion			
+5	de	Gouverneur	Gouverneur	Aktion			
+6	de	Dominion	Keller	Aktion			
+7	de	Dominion	Kapelle	Aktion			
+8	de	Dominion	Burggraben	Aktion Reaktion			
+9	de	Dominion	Kanzler	Aktion			
+10	de	Dominion	Dorf	Aktion			
+11	de	Dominion	Holzfäller	Aktion			
+12	de	Dominion	Werkstatt	Aktion			
+13	de	Dominion	Bürokrat	Aktion Angriff			
+14	de	Dominion	Festmahl	Aktion			
+15	de	Dominion	Gärten	Punkte			
+16	de	Dominion	Miliz	Aktion Angriff			
+17	de	Dominion	Geldverleiher	Aktion			
+18	de	Dominion	Umbau	Aktion			
+19	de	Dominion	Schmiede	Aktion			
+20	de	Dominion	Spion	Aktion Angriff			
+21	de	Dominion	Dieb	Aktion Angriff			
+22	de	Dominion	Thronsaal	Aktion			
+23	de	Dominion	Ratsversammlun	Aktion			
+24	de	Dominion	Jahrmarkt	Aktion			
+25	de	Dominion	Laboratorium	Aktion			
+26	de	Dominion	Bibliothek	Aktion			
+27	de	Dominion	Markt	Aktion			
+28	de	Dominion	Mine	Aktion			
+29	de	Dominion	Hexe	Aktion Angriff	Benötigt: Fluch		
+30	de	Dominion	Abenteurer	Aktion			
+31	de	Alchemisten	Kräuterkundiger	Aktion			
+32	de	Alchemisten	Lehrling	Aktion			
+33	de	Alchemisten	Verwandlung	Aktion			
+34	de	Alchemisten	Weinberg	Punkte			
+35	de	Alchemisten	Apotheker	Aktion			
+36	de	Alchemisten	Vision	Aktion Angriff			
+37	de	Alchemisten	Universität	Aktion			
+38	de	Alchemisten	Alchemist	Aktion			
+39	de	Alchemisten	Vertrauter	Aktion Angriff	Benötigt: Fluch		
+40	de	Alchemisten	Stein der Weisen	Geld			
+41	de	Alchemisten	Golem	Aktion			
+42	de	Alchemisten	Besessenheit	Aktion			
+43	de	Die Intrige	Burghof	Aktion			
+44	de	Die Intrige	Handlanger	Aktion			
+45	de	Die Intrige	Geheimkammer	Aktion Reaktion			
+46	de	Die Intrige	Große Halle	Aktion Punkte			
+47	de	Die Intrige	Maskerade	Aktion			
+48	de	Die Intrige	Armenviertel	Aktion			
+49	de	Die Intrige	Verwalter	Aktion			
+50	de	Die Intrige	Trickser	Aktion Angriff			
+51	de	Die Intrige	Wunschbrunnen	Aktion			
+52	de	Die Intrige	Baron	Aktion			
+53	de	Die Intrige	Brücke	Aktion			
+54	de	Die Intrige	Verschwörer	Aktion			
+55	de	Die Intrige	Kupferschmied	Aktion			
+56	de	Die Intrige	Eisenhütte	Aktion			
+57	de	Die Intrige	Bergwerk	Aktion			
+58	de	Die Intrige	Späher	Aktion			
+59	de	Die Intrige	Herzog	Punkte			
+60	de	Die Intrige	Lakai	Aktion Angriff			
+61	de	Die Intrige	Saboteur	Aktion Angriff			
+62	de	Die Intrige	Kerkermeister	Aktion Angriff	Benötigt: Fluch		
+63	de	Die Intrige	Handelsposten	Aktion			
+64	de	Die Intrige	Tribut	Aktion			
+65	de	Die Intrige	Anbau	Aktion			
+66	de	Die Intrige	Harem	Geld Punkte			
+67	de	Die Intrige	Adlige	Aktion Punkte			
+68	de	Blütezeit	Lohn	Geld			
+69	de	Blütezeit	Handelsroute	Aktion	Benötigt: Münzechip, Tableau Handelsroute		
+70	de	Blütezeit	Wachturm	Aktion Reaktion			
+71	de	Blütezeit	Bischof	Aktion	Benötigt: Siegpunktchip		
+72	de	Blütezeit	Denkmal	Aktion	Benötigt: Siegpunktchip		
+73	de	Blütezeit	Steinbruch	Geld			
+74	de	Blütezeit	Talisman	Geld			
+75	de	Blütezeit	Arbeiterdorf	Aktion			
+76	de	Blütezeit	Stadt	Aktion			
+77	de	Blütezeit	Schmuggelware	Geld			
+78	de	Blütezeit	Leihhaus	Aktion			
+79	de	Blütezeit	Münzer	Aktion			
+80	de	Blütezeit	Quacksalber	Aktion Angriff	Benötigt: Fluch		
+81	de	Blütezeit	Gesindel	Aktion Angriff			
+82	de	Blütezeit	Königliches Siegel	Geld			
+83	de	Blütezeit	Gewölbe	Aktion			
+84	de	Blütezeit	Abenteuer	Geld			
+85	de	Blütezeit	Halsabschneider	Aktion Angriff	Benötigt: Siegpunktchip		
+86	de	Blütezeit	Großer Markt	Aktion			
+87	de	Blütezeit	Hort	Geld			
+88	de	Blütezeit	Bank	Geld			
+89	de	Blütezeit	Ausbau	Aktion			
+90	de	Blütezeit	Kunstschmiede	Aktion			
+91	de	Blütezeit	Königshof	Aktion			
+92	de	Blütezeit	Hausierer	Aktion			
+93	de	Seaside	Embargo	Aktion	Benötigt: Embargomarker, Fluch		
+94	de	Seaside	Hafen	Aktion Dauer			
+95	de	Seaside	Leuchtturm	Aktion Dauer			
+96	de	Seaside	Eingeborenendorf	Aktion			
+97	de	Seaside	Perlentaucher	Aktion			
+98	de	Seaside	Botschafter	Aktion Angriff			
+99	de	Seaside	Fischerdorf	Aktion Dauer			
+100	de	Seaside	Ausguck	Aktion			
+101	de	Seaside	Schmuggler	Aktion			
+102	de	Seaside	Lagerhaus	Aktion			
+103	de	Seaside	Karawane	Aktion Dauer			
+104	de	Seaside	Beutelschneider	Aktion Angriff			
+105	de	Seaside	Insel	Aktion Punkte	Benötigt: Tableau Insel 		
+106	de	Seaside	Navigator	Aktion			
+107	de	Seaside	Piratenschiff	Aktion Angriff	Benötigt: Münzechip, Tableau Piratenschiff		
+108	de	Seaside	Müllverwerter	Aktion			
+109	de	Seaside	Seehexe	Aktion Angriff	Benötigt: Fluch		
+110	de	Seaside	Schatzkarte	Aktion			
+111	de	Seaside	Bazar	Aktion			
+112	de	Seaside	Entdecker	Aktion			
+113	de	Seaside	Geisterschiff	Aktion Angriff			
+114	de	Seaside	Handelsschiff	Aktion Dauer			
+115	de	Seaside	Aussenposten	Aktion Dauer			
+116	de	Seaside	Taktiker	Aktion Dauer			
+117	de	Seaside	Schatzkammer	Aktion			
+118	de	Seaside	Werft	Aktion Dauer			
+119	de	Dark Ages	Armenhaus	Aktion			
+120	de	Dark Ages	Bettler	Aktion Reaktion			
+121	de	Dark Ages	Knappe	Aktion			
+122	de	Dark Ages	Landstreicher	Aktion			
+123	de	Dark Ages	Mundraub	Aktion			
+124	de	Dark Ages	Eremit	Aktion	Benötigt: Verrückter		
+125	de	Dark Ages	Marktplatz	Aktion Reaktion			
+126	de	Dark Ages	Weiser	Aktion			
+127	de	Dark Ages	Lagerraum	Aktion			
+128	de	Dark Ages	Gassenjunge	Aktion Angriff	Benötigt: Söldner		
+129	de	Dark Ages	Waffenkammer	Aktion			
+130	de	Dark Ages	Leichenkarren	Aktion Angriff	Benötigt: Ruine		
+131	de	Dark Ages	Lehen	Punkte			
+132	de	Dark Ages	Festung	Aktion			
+133	de	Dark Ages	Eisenhändler	Aktion Angriff			
+134	de	Dark Ages	Marodeur	Aktion Angriff Plündern	Benötigt: Beute, Ruine		
+135	de	Dark Ages	Prozession	Aktion			
+136	de	Dark Ages	Ratten	Aktion			
+137	de	Dark Ages	Lumpensammler	Aktion			
+138	de	Dark Ages	Barde	Aktion			
+139	de	Dark Ages	Vogelfreie	Aktion			
+140	de	Dark Ages	Banditenlager	Aktion	Benötigt: Beute		
+141	de	Dark Ages	Katakomben	Aktion			
+142	de	Dark Ages	Graf	Aktion			
+143	de	Dark Ages	Falschgeld	Geld			
+144	de	Dark Ages	Kultist	Aktion Angriff Plündern	Benötigt: Ruine		
+145	de	Dark Ages	Grabräuber	Aktion			
+146	de	Dark Ages	Schrotthändler	Aktion			
+147	de	Dark Ages	Ritter	Aktion Angriff Ritter			
+148	de	Dark Ages	Medium	Aktion			
+149	de	Dark Ages	Raubzug	Aktion Angriff	Benötigt: Beute		
+150	de	Dark Ages	Neubau	Aktion			
+151	de	Dark Ages	Schurke	Aktion			
+152	de	Dark Ages	Altar	Aktion			
+153	de	Dark Ages	Jagdgründe	Aktion			
+154	de	Basiskarte	Weiler	Aktion			
+155	de	Basiskarte	Wahrsagerin	Aktion Angriff			
+156	de	Basiskarte	Menagerie	Aktion			
+157	de	Basiskarte	Bauerndorf	Aktion			
+158	de	Basiskarte	Pferdehändler	Aktion Reaktion			
+159	de	Basiskarte	Nachbau	Aktion			
+160	de	Basiskarte	Turnier	Aktion	Benötigt: Die Preise, Fluch		
+161	de	Basiskarte	Junge Hexe	Aktion Angriff	Benötigt: Fluch		
+162	de	Basiskarte	Ernte	Aktion			
+163	de	Basiskarte	Füllhorn	Geld			
+164	de	Basiskarte	Treibjagd	Aktion			
+165	de	Basiskarte	Harlekin	Aktion Angriff	Benötigt: Fluch		
+166	de	Basiskarte	Festplatz	Punkte			
+167	de	Die Gilden	Leuchtenmacher	Aktion	Benötigt: Münzechip		
+168	de	Die Gilden	Steinmetz	Aktion			
+169	de	Die Gilden	Arzt	Aktion			
+170	de	Die Gilden	Meisterstück	Geld			
+171	de	Die Gilden	Berater	Aktion			
+172	de	Die Gilden	Platz	Aktion	Benötigt: Münzechip		
+173	de	Die Gilden	Steuereintreiber	Aktion Angriff			
+174	de	Die Gilden	Herold	Aktion			
+175	de	Die Gilden	Bäcker	Aktion	Benötigt: Münzechip		
+176	de	Die Gilden	Metzger	Aktion	Benötigt: Münzechip		
+177	de	Die Gilden	Wandergeselle	Aktion			
+178	de	Die Gilden	Kaufmannsgilde	Aktion	Benötigt: Münzechip		
+179	de	Die Gilden	Wahrsager	Aktion Angriff	Benötigt: Fluch		
+180	de	Hinterland	Wegkreuzung	Aktion			
+181	de	Hinterland	Herzogin	Aktion			
+182	de	Hinterland	Katzengold	Geld Reaktion			
+183	de	Hinterland	Aufbau	Aktion			
+184	de	Hinterland	Oase	Aktion			
+185	de	Hinterland	Orakel	Aktion Angriff			
+186	de	Hinterland	Komplott	Aktion			
+187	de	Hinterland	Tunnel	Punkte Reaktion			
+188	de	Hinterland	Lebenskünstler	Aktion			
+189	de	Hinterland	Edler Räuber	Aktion Angriff			
+190	de	Hinterland	Nomadencamp	Aktion			
+191	de	Hinterland	Seidenstraße	Punkte			
+192	de	Hinterland	Gewürzhändler	Aktion			
+193	de	Hinterland	Fahrender Händler	Aktion Reaktion			
+194	de	Hinterland	Schatztruhe	Geld			
+195	de	Hinterland	Kartograph	Aktion			
+196	de	Hinterland	Botschaft	Aktion			
+197	de	Hinterland	Feilscher	Aktion			
+198	de	Hinterland	Fernstraße	Aktion			
+199	de	Hinterland	Blutzoll	Geld	Benötigt: Fluch		
+200	de	Hinterland	Gasthaus	Aktion			
+201	de	Hinterland	Mandarin	Aktion			
+202	de	Hinterland	Markgraf	Aktion Angriff			
+203	de	Hinterland	Stallungen	Aktion			
+204	de	Hinterland	Grenzdorf	Aktion			
+205	de	Hinterland	Fruchtbares Land	Punkte			
+206	de	Prinz	Prinz	Aktion			

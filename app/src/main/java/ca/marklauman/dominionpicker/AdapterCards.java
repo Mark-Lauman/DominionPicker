@@ -7,6 +7,7 @@ import ca.marklauman.tools.Utils;
 import android.content.Context;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
 import android.view.View;
@@ -14,6 +15,8 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
+
+import java.util.HashMap;
 
 /** Adapter used to display cards from the {@link CardDb}.
  *  @author Mark Lauman */
@@ -27,10 +30,18 @@ class AdapterCards extends CursorSelAdapter
 			= {CardDb._ID, CardDb._NAME, CardDb._SET_NAME, CardDb._TYPE,
                CardDb._DESC, CardDb._SET_ID, CardDb._COST, CardDb._POT,
                CardDb._BUY, CardDb._ACT, CardDb._CARD, CardDb._COIN,
-               CardDb._VICTORY, CardDb._REQ};
+               CardDb._VICTORY, CardDb._REQ, CardDb._LANG};
 	
 	/** Maps expansion names to expansion icons */
-	private static int[] exp_icons = null;
+	private final int[] exp_icons;
+    /** Maps language code to +X resource index. */
+    private final HashMap<String, Integer> mapLanguage;
+    /** Resource ids of the + action format strings */
+    private final int[] resAct;
+    /** Resource ids of the + buy format strings */
+    private final int[] resBuy;
+    /** Resource ids of the + card format strings */
+    private final int[] resCard;
 
     /** Resources used to format strings */
     private final Resources resources;
@@ -61,6 +72,8 @@ class AdapterCards extends CursorSelAdapter
     private int col_name = -1;
 	/** Index of the {@link CardDb#_REQ} column. */
 	private int col_req = -1;
+    /** Index of the {@link CardDb#_LANG} column. */
+    private int col_lang = -1;
 
 	/** The id of the young witch's bane card (-1 if no bane) */
 	private long yw_bane = -1;
@@ -75,21 +88,31 @@ class AdapterCards extends CursorSelAdapter
      *  @param showCardColor True if the background color of the card should be shown. */
 	public AdapterCards(Context context, boolean showCardColor) {
 		super(context, R.layout.list_item_card,
-                new String[]{CardDb._ID, CardDb._ID, CardDb._NAME, CardDb._COST, CardDb._POT,
-                        CardDb._SET_ID, CardDb._SET_NAME, CardDb._TYPE, CardDb._REQ,
-                        CardDb._COIN, CardDb._VICTORY, CardDb._BUY,
-                        CardDb._DESC},
-                new int[]{R.id.card_special, R.id.card_special_2, R.id.card_name, R.id.card_cost, R.id.card_potion,
-                        R.id.card_set, R.id.card_set, R.id.card_type, R.id.card_requires,
-                        R.id.card_res_gold, R.id.card_res_victory, R.id.card_res,
-                        R.id.card_desc});
+                new String[]{CardDb._ID, CardDb._ID, CardDb._NAME, CardDb._COST,
+                             CardDb._POT, CardDb._SET_ID, CardDb._SET_NAME, CardDb._TYPE,
+                             CardDb._REQ, CardDb._COIN, CardDb._VICTORY,
+                             CardDb._LANG, CardDb._DESC},
+                new int[]{R.id.card_special, R.id.card_special_2, R.id.card_name, R.id.card_cost,
+                          R.id.card_potion, R.id.card_set, R.id.card_set, R.id.card_type,
+                          R.id.card_requires, R.id.card_res_gold, R.id.card_res_victory,
+                          R.id.card_res, R.id.card_desc});
         this.setViewBinder(this);
         resources = context.getResources();
         setSelectionColor(ContextCompat.getColor(context, R.color.card_list_select));
 
-        // Load the expansion icons if they haven't been loaded.
-        if(exp_icons == null)
-			exp_icons = Utils.getDrawableResources(context, R.array.card_set_icons);
+        // Load the expansion icons.
+        exp_icons = Utils.getResourceArray(context, R.array.card_set_icons);
+
+        // Load the language map. Do not include "0" in the map.
+        String[] lang = resources.getStringArray(R.array.language_codes);
+        mapLanguage = new HashMap<>(lang.length);
+        for(int i=1; i<lang.length; i++)
+            mapLanguage.put(lang[i], i);
+
+        // Load the format strings for the +X values.
+        resAct = Utils.getResourceArray(context, R.array.format_act);
+        resBuy = Utils.getResourceArray(context, R.array.format_buy);
+        resCard = Utils.getResourceArray(context, R.array.format_card);
 	}
 	
 	
@@ -111,6 +134,7 @@ class AdapterCards extends CursorSelAdapter
 		col_plusAct = cursor.getColumnIndex(CardDb._ACT);
 		col_desc = cursor.getColumnIndex(CardDb._DESC);
         col_req = cursor.getColumnIndex(CardDb._REQ);
+        col_lang = cursor.getColumnIndex(CardDb._LANG);
 	}
 	
 	
@@ -155,31 +179,16 @@ class AdapterCards extends CursorSelAdapter
             return true;
 
         // All the resources after the icon bonuses
-        } else if (col_plusBuy == columnIndex) {
-            loopStr = "";
-            // + buy
-            loopInt = cursor.getInt(col_plusBuy);
-            if (loopInt != 0)
-                loopStr += ", "+resources.getQuantityString(R.plurals.format_buy, loopInt, loopInt);
-            // + card
-            loopInt = cursor.getInt(col_plusCard);
-            if (loopInt != 0)
-                loopStr += ", "+resources.getQuantityString(R.plurals.format_card, loopInt, loopInt);
-            // + action
-            loopInt = cursor.getInt(col_plusAct);
-            if (loopInt != 0)
-                loopStr += ", "+resources.getQuantityString(R.plurals.format_act, loopInt, loopInt);
-            // Only show the result if we have a result.
-            if (2 < loopStr.length()) {
-                // Trim off the first ", "
-                loopStr = loopStr.substring(2);
+        } else if (col_lang == columnIndex) {
+            loopStr = getPlusString(cursor, cursor.getString(col_lang));
+            if(! "".equals(loopStr)) {
                 view.setVisibility(View.VISIBLE);
                 ((TextView) view).setText(loopStr);
             } else view.setVisibility(View.GONE);
             return true;
 
         // Hide if empty.
-        } else if (col_desc == columnIndex) {
+        } else if (col_desc == columnIndex || col_req == columnIndex) {
             loopStr = cursor.getString(columnIndex);
             if (loopStr == null || "".equals(loopStr)) view.setVisibility(View.GONE);
             else view.setVisibility(View.VISIBLE);
@@ -190,15 +199,6 @@ class AdapterCards extends CursorSelAdapter
             if (yw_bane != cursor.getLong(col_id))
                 view.setVisibility(View.GONE);
             else view.setVisibility(View.VISIBLE);
-            return true;
-
-        // Hide if empty, use format string
-        } else if (col_req == columnIndex) {
-            loopStr = cursor.getString(columnIndex);
-            if (loopStr == null || "".equals(loopStr)) view.setVisibility(View.GONE);
-            else view.setVisibility(View.VISIBLE);
-            ((TextView) view).setText(String.format(mContext.getString(R.string.format_req),
-                                      loopStr));
             return true;
         }
 
@@ -222,10 +222,38 @@ class AdapterCards extends CursorSelAdapter
         selectItem(card_id);
 	}
 
+
     /** Get the name of the card at the given position */
     public String getName(int position) {
         if(mCursor == null || !mCursor.moveToPosition(position))
             return null;
         return mCursor.getString(col_name);
+    }
+
+
+    /** Create the display string for +X buy, +X action and +X cards
+     * @param cursor The cursor positioned at the current item
+     * @param lang The language that this card is in.
+     * @return A string containing the "+X Action, +X Buy, +X Cards" values of this card. */
+    private String getPlusString(@NonNull Cursor cursor, String lang) {
+        Integer langId = mapLanguage.get(lang);
+        if(langId == null) langId = 0;
+
+        String res = "";
+        res += getPlusCol(cursor, col_plusAct, resAct[langId]);
+        res += getPlusCol(cursor, col_plusBuy, resBuy[langId]);
+        res += getPlusCol(cursor, col_plusCard, resCard[langId]);
+
+        if(res.length() < 2) return res;
+        return res.substring(2);
+    }
+
+
+    private String getPlusCol(@NonNull Cursor cursor, int colIndex, int formatRes) {
+        loopStr = cursor.getString(colIndex);
+        try{ loopInt = Integer.parseInt(loopStr);
+        }catch(Exception e){ loopInt = 1; }
+        if(loopStr.length() == 0 || "0".equals(loopStr)) return "";
+        return ", " + resources.getQuantityString(formatRes, loopInt, loopStr);
     }
 }

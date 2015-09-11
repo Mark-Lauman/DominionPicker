@@ -37,19 +37,6 @@
     <string name="market_pass">Passa</string>
     <string name="market_sold_out">Esaurito!</string>
   
-  <plurals name="format_act">
-    <item quantity="one">+%1$s Azione</item>
-    <item quantity="other">+%1$s Azioni</item>
-  </plurals>
-  <plurals name="format_buy">
-    <item quantity="one">+%1$s Acquisto</item>
-    <item quantity="other">+%1$s Acquisti</item>
-  </plurals>
-  <plurals name="format_card">
-    <item quantity="one">+%1$s Carta</item>
-    <item quantity="other">+%1$s Carte</item>
-  </plurals>
-  
   <plurals name="hist_card">
     <item quantity="one">%d Carta</item>
     <item quantity="other">%d Carte</item>

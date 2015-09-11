@@ -1,26 +1,26 @@
-id	Set	Name	Type	Requires	Description
-6	Dominion	Keller	Aktion		
-7	Dominion	Kapelle	Aktion		
-8	Dominion	Burggraben	Aktion Reaktion		
-9	Dominion	Kanzler	Aktion		
-10	Dominion	Dorf	Aktion		
-11	Dominion	Holzfäller	Aktion		
-12	Dominion	Werkstatt	Aktion		
-13	Dominion	Bürokrat	Aktion Angriff		
-14	Dominion	Festmahl	Aktion		
-15	Dominion	Gärten	Punkte		
-16	Dominion	Miliz	Aktion Angriff		
-17	Dominion	Geldverleiher	Aktion		
-18	Dominion	Umbau	Aktion		
-19	Dominion	Schmiede	Aktion		
-20	Dominion	Spion	Aktion Angriff		
-21	Dominion	Dieb	Aktion Angriff		
-22	Dominion	Thronsaal	Aktion		
-23	Dominion	Ratsversammlun	Aktion		
-24	Dominion	Jahrmarkt	Aktion		
-25	Dominion	Laboratorium	Aktion		
-26	Dominion	Bibliothek	Aktion		
-27	Dominion	Markt	Aktion		
-28	Dominion	Mine	Aktion		
-29	Dominion	Hexe	Aktion Angriff	Fluch	
-30	Dominion	Abenteurer	Aktion		
+id	Set	Name	Type	Requires	Description	Details
+6	Dominion	Keller	Aktion			
+7	Dominion	Kapelle	Aktion			
+8	Dominion	Burggraben	Aktion Reaktion			
+9	Dominion	Kanzler	Aktion			
+10	Dominion	Dorf	Aktion			
+11	Dominion	Holzfäller	Aktion			
+12	Dominion	Werkstatt	Aktion			
+13	Dominion	Bürokrat	Aktion Angriff			
+14	Dominion	Festmahl	Aktion			
+15	Dominion	Gärten	Punkte			
+16	Dominion	Miliz	Aktion Angriff			
+17	Dominion	Geldverleiher	Aktion			
+18	Dominion	Umbau	Aktion			
+19	Dominion	Schmiede	Aktion			
+20	Dominion	Spion	Aktion Angriff			
+21	Dominion	Dieb	Aktion Angriff			
+22	Dominion	Thronsaal	Aktion			
+23	Dominion	Ratsversammlun	Aktion			
+24	Dominion	Jahrmarkt	Aktion			
+25	Dominion	Laboratorium	Aktion			
+26	Dominion	Bibliothek	Aktion			
+27	Dominion	Markt	Aktion			
+28	Dominion	Mine	Aktion			
+29	Dominion	Hexe	Aktion Angriff	Benötigt: Fluch		
+30	Dominion	Abenteurer	Aktion			

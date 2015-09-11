@@ -88,6 +88,7 @@ public class FragmentPicker extends Fragment
     public void onStart() {
         super.onStart();
         // Reload the cards if the display language has changed.
+        App.updateInfo(getActivity());
         if(filterChanged())
             getActivity().getSupportLoaderManager()
                          .restartLoader(LoaderId.PICKER, null, this);

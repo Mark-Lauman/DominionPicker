@@ -1,27 +1,27 @@
-id	Set	Name	Type	Requires	Description
-93	Seaside	Embargo	Azione	Embargo Token, Curse	
-94	Seaside	Rada	Azione Durata		
-95	Seaside	Faro	Azione Durata		
-96	Seaside	Villaggio Indigeno	Azione		
-97	Seaside	Pescatore di Perle	Azione		
-98	Seaside	Ambasciatore	Azione Attacco		
-99	Seaside	Villaggio di Pescatori	Azione Durata		
-100	Seaside	Vedetta	Azione		
-101	Seaside	Contrabbandieri	Azione		
-102	Seaside	Magazzino	Azione		
-103	Seaside	Carovana	Azione Durata		
-104	Seaside	Borseggiatore	Azione Attacco		
-105	Seaside	Isola	Azione Vittoria	Island Mat	
-106	Seaside	Navigatore	Azione		
-107	Seaside	Nave Pirata	Azione Attacco	Coin Token, Pirate Mat	
-108	Seaside	Recupero	Azione		
-109	Seaside	Megera dei Mari	Azione Attacco	Curse	
-110	Seaside	Mappa del Tesoro	Azione		
-111	Seaside	Bazaar	Azione		
-112	Seaside	Avventuriero	Azione		
-113	Seaside	Nave Fantasma	Azione Attacco		
-114	Seaside	Nave Mercantile	Azione Durata		
-115	Seaside	Avamposto	Azione Durata		
-116	Seaside	Stratega	Azione Durata		
-117	Seaside	Tesoro	Azione		
-118	Seaside	Molo	Azione Durata		
+id	Set	Name	Type	Requires	Description	Details
+93	Seaside	Embargo	Azione	Requires: Embargo Token, Curse		
+94	Seaside	Rada	Azione Durata			
+95	Seaside	Faro	Azione Durata			
+96	Seaside	Villaggio Indigeno	Azione			
+97	Seaside	Pescatore di Perle	Azione			
+98	Seaside	Ambasciatore	Azione Attacco			
+99	Seaside	Villaggio di Pescatori	Azione Durata			
+100	Seaside	Vedetta	Azione			
+101	Seaside	Contrabbandieri	Azione			
+102	Seaside	Magazzino	Azione			
+103	Seaside	Carovana	Azione Durata			
+104	Seaside	Borseggiatore	Azione Attacco			
+105	Seaside	Isola	Azione Vittoria	Requires: Island Mat		
+106	Seaside	Navigatore	Azione			
+107	Seaside	Nave Pirata	Azione Attacco	Requires: Coin Token, Pirate Mat		
+108	Seaside	Recupero	Azione			
+109	Seaside	Megera dei Mari	Azione Attacco	Requires: Curse		
+110	Seaside	Mappa del Tesoro	Azione			
+111	Seaside	Bazaar	Azione			
+112	Seaside	Avventuriero	Azione			
+113	Seaside	Nave Fantasma	Azione Attacco			
+114	Seaside	Nave Mercantile	Azione Durata			
+115	Seaside	Avamposto	Azione Durata			
+116	Seaside	Stratega	Azione Durata			
+117	Seaside	Tesoro	Azione			
+118	Seaside	Molo	Azione Durata			
