@@ -249,6 +249,7 @@ public class FragmentMarket extends Fragment
                     selArgs[i]=""+deck.get(i);
                 }
                 if(0 < sel.length()) sel = CardDb._ID+" IN ("+sel.substring(1)+")";
+                else sel = CardDb._ID+"=NULL";
                 c.setSelection(sel);
                 c.setSelectionArgs(selArgs);
                 c.setSortOrder("random()");

@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import ca.marklauman.dominionpicker.R;
-import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.tools.SlidingTabLayout;
 
 /** Governs the History screen, and all three of its panels.
@@ -65,18 +64,10 @@ public class FragmentHistory extends Fragment {
         public Fragment getItem(int position) {
             activeTab = position;
             FragmentHistoryPanel res = new FragmentHistoryPanel();
-            switch (position) {
-                case 0: res.loaderId = LoaderId.SAMPLE_SUPPLY;
-                        res.handler = new HandlerSamples(getActivity());
-                        return res;
-                case 1: res.loaderId = LoaderId.FAVORITES;
-                        res.handler = new HandlerHistory(getActivity(), true);
-                        return res;
-                case 2: res.loaderId = LoaderId.HISTORY;
-                        res.handler = new HandlerHistory(getActivity(), false);
-                        return res;
-                default: return null;
-            }
+            Bundle args = new Bundle();
+            args.putInt(FragmentHistoryPanel.PARAM_TYPE, position);
+            res.setArguments(args);
+            return res;
         }
 
         @Override

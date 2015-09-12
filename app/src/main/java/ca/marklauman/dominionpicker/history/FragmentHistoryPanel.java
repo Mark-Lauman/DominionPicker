@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import ca.marklauman.dominionpicker.ActivitySupply;
+import ca.marklauman.dominionpicker.App;
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.tools.CursorHandler;
@@ -24,11 +25,16 @@ import ca.marklauman.tools.CursorHandler;
 public class FragmentHistoryPanel extends Fragment
                                   implements LoaderCallbacks<Cursor>, ListView.OnItemClickListener {
 
+    /** Parameter indicating the type of panel to use. */
+    public static final String PARAM_TYPE = "type";
+
     // Variables that must be set externally before onCreate is called
     /** Loader id used to get the supply data. */
-    public int loaderId;
+    private int loaderId;
     /** The handler that loads the data and acts as adapter. */
-    public CursorHandler handler;
+    private CursorHandler handler;
+    /** THe translation currently in use to display the history */
+    private String trnasId;
 
     // Variables that are set internally.
     /** True if we are loading data */
@@ -40,18 +46,41 @@ public class FragmentHistoryPanel extends Fragment
     /** The view for if the list is loading. */
     private View load_view;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(handler == null) throw new IllegalArgumentException("handler not set!");
+
+        // Select the appropriate handler and loader id
+        Bundle args = getArguments();
+        int type = -1;
+        if(args != null) type = args.getInt(PARAM_TYPE, -1);
+        switch (type) {
+            case 0: loaderId = LoaderId.SAMPLE_SUPPLY;
+                    handler  = new HandlerSamples(getActivity());
+                    break;
+            case 1: loaderId = LoaderId.FAVORITES;
+                    handler  = new HandlerHistory(getActivity(), true);
+                    break;
+            case 2: loaderId = LoaderId.HISTORY;
+                    handler  = new HandlerHistory(getActivity(), false);
+                    break;
+            default: throw new IllegalArgumentException("panel type not set");
+        }
     }
+
 
     @Override
     public void onStart() {
         super.onStart();
+        App.updateInfo(getActivity());
         LoaderManager lm = getActivity().getSupportLoaderManager();
-        lm.initLoader(loaderId, null, this);
+        if(! App.transId.equals(trnasId)) {
+            trnasId = App.transId;
+            lm.restartLoader(loaderId, null, this);
+        } else lm.initLoader(loaderId, null, this);
     }
+
 
     /** Called to create this fragment's view for the first time.  */
     @Override
@@ -70,6 +99,7 @@ public class FragmentHistoryPanel extends Fragment
         return view;
     }
 
+
     /** Updates the empty list view to reflect if we are loading or not */
     private void updateEmpty() {
         if(listView == null || empty_view == null || load_view == null)
@@ -80,12 +110,14 @@ public class FragmentHistoryPanel extends Fragment
         else listView.setEmptyView(empty_view);
     }
 
+
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         loading = true;
         updateEmpty();
         return handler.onCreateLoader(id, args);
     }
+
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
@@ -94,10 +126,12 @@ public class FragmentHistoryPanel extends Fragment
         updateEmpty();
     }
 
+
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         handler.onLoaderReset(loader);
     }
+
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
