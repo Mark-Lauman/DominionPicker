@@ -27,8 +27,8 @@
             android:text="@string/options"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:drawableLeft="@drawable/ic_action_options"
-            android:drawableStart="@drawable/ic_action_options" />
+            android:drawableLeft="@drawable/ic_core_settings"
+            android:drawableStart="@drawable/ic_core_settings" />
 
         <View android:id="@+id/div"
             android:layout_width="match_parent"

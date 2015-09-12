@@ -32,7 +32,7 @@
         android:background="?attr/selectableItemBackground"
         app:key="filt_cost"
         app:name="@string/filter_cost"
-        app:image="@drawable/ic_coin_lg"
+        app:image="@drawable/ic_dom_coin_lg"
         app:entries="@array/filt_cost"
         app:summary="@string/filter_all"
         app:entryIcons="@array/filter_cost_icons"
@@ -49,7 +49,7 @@
         app:key="filt_curse"
         app:name="@string/filter_curse"
         app:summary="@string/filter_curse_desc"
-        app:image="@drawable/ic_curse" />
+        app:image="@drawable/ic_dom_curse" />
 
     <View android:layout_width="match_parent"
         android:layout_height="1px"

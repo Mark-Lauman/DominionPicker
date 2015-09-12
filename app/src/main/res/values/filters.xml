@@ -56,16 +56,16 @@
         <item>8*</item>
     </string-array>
     <array name="filter_cost_icons">
-        <item>@drawable/ic_potion_lg</item>
-        <item>@drawable/ic_coin_lg</item>
-        <item>@drawable/ic_coin_lg</item>
-        <item>@drawable/ic_coin_lg</item>
-        <item>@drawable/ic_coin_lg</item>
-        <item>@drawable/ic_coin_lg</item>
-        <item>@drawable/ic_coin_lg</item>
-        <item>@drawable/ic_coin_lg</item>
-        <item>@drawable/ic_coin_lg</item>
-        <item>@drawable/ic_coin_lg</item>
+        <item>@drawable/ic_dom_potion_lg</item>
+        <item>@drawable/ic_dom_coin_lg</item>
+        <item>@drawable/ic_dom_coin_lg</item>
+        <item>@drawable/ic_dom_coin_lg</item>
+        <item>@drawable/ic_dom_coin_lg</item>
+        <item>@drawable/ic_dom_coin_lg</item>
+        <item>@drawable/ic_dom_coin_lg</item>
+        <item>@drawable/ic_dom_coin_lg</item>
+        <item>@drawable/ic_dom_coin_lg</item>
+        <item>@drawable/ic_dom_coin_lg</item>
     </array>
     
     <string name="filter_curse">Cursers</string>

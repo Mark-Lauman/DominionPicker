@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.0"
+    buildToolsVersion "23.0.1"
     compileOptions {
         encoding "UTF-8"
     }
@@ -31,7 +31,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.0.0'
+    compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'ca.marklauman.tools:AndroidTools:2.3.4@aar'
     compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
 }

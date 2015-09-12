@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity
         ActionBar bar = getSupportActionBar();
         if(bar != null) {
             bar.setDisplayHomeAsUpEnabled(true);
-            bar.setHomeAsUpIndicator(R.drawable.ic_navdrawer);
+            bar.setHomeAsUpIndicator(R.drawable.ic_core_menu);
             bar.setHomeButtonEnabled(true);
         }
 
@@ -88,8 +88,8 @@ public class MainActivity extends AppCompatActivity
                .setOnClickListener(new OptionLauncher());
         String[] headers = getResources().getStringArray(R.array.navNames);
         navAdapt = new ExpandedArrayAdapter<>(this, android.R.layout.simple_list_item_1, headers);
-        navAdapt.setIcons(R.drawable.ic_action_send, R.drawable.ic_action_market,
-                          R.drawable.ic_action_time, R.drawable.ic_action_filter);
+        navAdapt.setIcons(R.drawable.ic_core_send, R.drawable.ic_action_market,
+                          R.drawable.ic_core_clock, R.drawable.ic_core_filter);
         navAdapt.setSelBack(R.color.nav_drawer_sel);
         ListView navList = (ListView) navView.findViewById(R.id.drawer_list);
         navList.setAdapter(navAdapt);
