@@ -1,89 +1,89 @@
-id	language	name
-1	en	First Game
-2	en	Big Money
-3	en	Interaction
-4	en	Size Distortion
-5	en	Village Square
-6	en	High Seas
-7	en	Buried Treasure
-8	en	Shipwrecks
-9	en	Reach for Tomorrow
-10	en	Repetition
-11	en	Give and Take
-12	en	Victory Dance
-13	en	Secret Schemes
-14	en	Best Wishes
-15	en	Deconstruction
-16	en	Hand Madness
-17	en	Underlings
-18	en	Introduction
-19	en	Fair Trades
-20	en	Bargains
-21	en	Gambits
-22	en	Highway Robbery
-23	en	Adventures Abroad
-24	en	Money for Nothing
-25	en	The Duke's Ball
-26	en	Travelers
-27	en	Diplomacy
-28	en	Schemas and Dreams
-29	en	Wine Country
-30	en	Instant Gratification
-31	en	Treasure Trove
-32	en	Blue Harvest
-33	en	Traveling Circus
-34	en	Beginners
-35	en	Friendly Interactive
-36	en	Big Actions
-37	en	Biggest Money
-38	en	The King's Army
-39	en	The Good Life
-40	en	Paths to Victory
-41	en	All Along the Watchtower
-42	en	Lucky Seven
-43	en	Forbidden Arts
-44	en	Potion Mixers
-45	en	Chemistry Lesson
-46	en	Servants
-47	en	Secret Research
-48	en	Pools, Tools, and Fools
-49	en	Bounty of the Hunt
-50	en	Bad Omens
-51	en	The Jester's Workshop
-52	en	Last Laughs
-53	en	The Spice of Life
-54	en	Small Victories
-55	en	Arts and Crafts
-56	en	Clean Living
-57	en	Gilding the Lily
-58	en	Name That Card
-59	en	Tricks of the Trade
-60	en	Decisions, Decisions
-61	en	Grim Parade
-62	en	Playing Chess With Death
-63	en	High and Low
-64	en	Chivalry and Revelry
-65	en	Prophecy
-66	en	Invasion
-67	en	Watery Graves
-68	en	Peasants
-69	en	Infestations
-70	en	Lamentations
-71	en	One Man's Trash
-72	en	Honor Among Thieves
-73	en	Dark Carnival
-74	en	To the Victor
-75	en	Far From Home
-76	en	Expeditions
-80	en	Prince of Orange
-81	en	Gifts and Mathoms
-82	en	Last Will and Monument
-83	en	Think Big
-84	en	The Hero's Return
-85	en	Seacraft and Witchcraft
-86	en	Traders and Raiders
-87	en	Journeys
-88	en	Cemetery Polka
-89	en	Groovy Decay
-90	en	Spendthrift
-91	en	Queen of Tan
+_id	language	set_name	name
+1	en	Base	First Game
+2	en	Base	Big Money
+3	en	Base	Interaction
+4	en	Base	Size Distortion
+5	en	Base	Village Square
+6	en	Intrigue	Victory Dance
+7	en	Intrigue	Secret Schemes
+8	en	Intrigue	Best Wishes
+9	en	Intrigue	Deconstruction
+10	en	Intrigue	Hand Madness
+11	en	Intrigue	Underlings
+12	en	Seaside	High Seas
+13	en	Seaside	Buried Treasure
+14	en	Seaside	Shipwrecks
+15	en	Seaside	Reach for Tomorrow
+16	en	Seaside	Repetition
+17	en	Seaside	Give and Take
+18	en	Alchemy	Forbidden Arts
+19	en	Alchemy	Potion Mixers
+20	en	Alchemy	Chemistry Lesson
+21	en	Alchemy	Servants
+22	en	Alchemy	Secret Research
+23	en	Alchemy	Pools, Tools, and Fools
+24	en	Prosperity	Beginners
+25	en	Prosperity	Friendly Interactive
+26	en	Prosperity	Big Actions
+27	en	Prosperity	Biggest Money
+28	en	Prosperity	The King's Army
+29	en	Prosperity	The Good Life
+30	en	Prosperity	Paths to Victory
+31	en	Prosperity	All Along the Watchtower
+32	en	Prosperity	Lucky Seven
+33	en	Cornucopia	Bounty of the Hunt
+34	en	Cornucopia	Bad Omens
+35	en	Cornucopia	The Jester's Workshop
+36	en	Cornucopia	Last Laughs
+37	en	Cornucopia	The Spice of Life
+38	en	Cornucopia	Small Victories
+39	en	Hinterlands	Introduction
+40	en	Hinterlands	Fair Trades
+41	en	Hinterlands	Bargains
+42	en	Hinterlands	Gambits
+43	en	Hinterlands	Highway Robbery
+44	en	Hinterlands	Adventures Abroad
+45	en	Hinterlands	Money for Nothing
+46	en	Hinterlands	The Duke's Ball
+47	en	Hinterlands	Travelers
+48	en	Hinterlands	Diplomacy
+49	en	Hinterlands	Schemas and Dreams
+50	en	Hinterlands	Wine Country
+51	en	Hinterlands	Instant Gratification
+52	en	Hinterlands	Treasure Trove
+53	en	Hinterlands	Blue Harvest
+54	en	Hinterlands	Traveling Circus
+55	en	Dark Ages	Grim Parade
+56	en	Dark Ages	Playing Chess With Death
+57	en	Dark Ages	High and Low
+58	en	Dark Ages	Chivalry and Revelry
+59	en	Dark Ages	Prophecy
+60	en	Dark Ages	Invasion
+61	en	Dark Ages	Watery Graves
+62	en	Dark Ages	Peasants
+63	en	Dark Ages	Infestations
+64	en	Dark Ages	Lamentations
+65	en	Dark Ages	One Man's Trash
+66	en	Dark Ages	Honor Among Thieves
+67	en	Dark Ages	Dark Carnival
+68	en	Dark Ages	To the Victor
+69	en	Dark Ages	Far From Home
+70	en	Dark Ages	Expeditions
+71	en	Guilds	Arts and Crafts
+72	en	Guilds	Clean Living
+73	en	Guilds	Gilding the Lily
+74	en	Guilds	Name That Card
+75	en	Guilds	Tricks of the Trade
+76	en	Guilds	Decisions, Decisions
+77	en	Adventures	Prince of Orange
+78	en	Adventures	Gifts and Mathoms
+79	en	Adventures	Last Will and Monument
+80	en	Adventures	Think Big
+81	en	Adventures	The Hero's Return
+82	en	Adventures	Seacraft and Witchcraft
+83	en	Adventures	Traders and Raiders
+84	en	Adventures	Journeys
+85	en	Adventures	Cemetery Polka
+86	en	Adventures	Groovy Decay
+87	en	Adventures	Spendthrift
+88	en	Adventures	Queen of Tan
