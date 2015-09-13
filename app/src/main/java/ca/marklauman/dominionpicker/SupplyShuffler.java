@@ -30,10 +30,10 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
      *  {@link #RES_MORE} or {@link #RES_MORE_K}.
      *  String formatted as "X/Y" cards.  */
     public static final String MSG_SHORT = "shortfall";
-    /** The extra containing the supply. Only available on {@link #RES_OK}. */
-    public static final String MSG_SUPPLY ="supply";
+    /** The extra containing the supply id. Only available on {@link #RES_OK}. */
+    public static final String MSG_SUPPLY_ID ="supply";
 
-    /** Shuffle succeeded. Supply available in {@link #MSG_SUPPLY} */
+    /** Shuffle succeeded. Supply available in {@link #MSG_SUPPLY_ID} */
     public static final int RES_OK = 0;
     /** Shuffle failed. Insufficient cards. Shortfall in {@link #MSG_SHORT}. */
     public static final int RES_MORE = 1;
@@ -74,7 +74,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
             s.time = Calendar.getInstance().getTimeInMillis();
             insertSupply(s);
             res.putExtra(MSG_RES, RES_OK);
-            res.putExtra(MSG_SUPPLY, s);
+            res.putExtra(MSG_SUPPLY_ID, s);
             return sendMsg(res);
         }
 
@@ -203,7 +203,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
 
         // Finish and return supply
         res.putExtra(MSG_RES, RES_OK);
-        res.putExtra(MSG_SUPPLY, supply);
+        res.putExtra(MSG_SUPPLY_ID, supply.time);
         return sendMsg(res);
     }
 

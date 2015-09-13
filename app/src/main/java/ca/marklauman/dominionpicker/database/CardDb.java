@@ -37,6 +37,8 @@ public class CardDb extends SQLiteAssetHelper {
     public static final String _REQ = "requires";
     /** Column for the description of a card. From the cardTrans table. */
     public static final String _DESC = "description";
+    /** Column for the details of a card. From the cardTrans table. */
+    public static final String _DETAILS = "details";
     /** Column for the language code of the card. From the cardTans table. */
     public static final String _LANG = App.COL_LANG;
 

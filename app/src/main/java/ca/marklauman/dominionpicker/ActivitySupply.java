@@ -31,9 +31,6 @@ import ca.marklauman.tools.Utils;
 /** Activity for displaying the supply piles for a new game.
  *  @author Mark Lauman */
 public class ActivitySupply extends AppCompatActivity {
-    /** Key used to pass the supply to this activity.
-     *  Alternative to {@link #PARAM_HISTORY_ID}. */
-    public static final String PARAM_SUPPLY_OBJ = "supply";
     /** Key used to pass a supply id to this activity.
      *  The supply will load from the supply table. */
     public static final String PARAM_SUPPLY_ID = "supplyId";
@@ -48,9 +45,6 @@ public class ActivitySupply extends AppCompatActivity {
     /** Displays the correct time for the supply */
     private final DateFormat formatter = DateFormat.getDateTimeInstance();
 
-
-    /** The language that this activity is using to display cards */
-    private String transId;
     /** The adapter used to display the supply cards. */
 	private AdapterCards adapter;
 	/** The TextView used to display the resource cards. */
@@ -66,7 +60,6 @@ public class ActivitySupply extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         App.updateInfo(this);
-        transId = App.transId;
 
 		setContentView(R.layout.activity_supply);
         ActionBar ab = getSupportActionBar();
@@ -84,21 +77,6 @@ public class ActivitySupply extends AppCompatActivity {
 		adapter = new AdapterCards(this, true);
 		adapter.changeCursor(null);
 		card_list.setAdapter(adapter);
-
-        // Try to get a full supply object (from restore or from params)
-        if(supply != null) return;
-        // First check the savedInstanceState
-        if(savedInstanceState != null)
-            supply = savedInstanceState.getParcelable(PARAM_SUPPLY_OBJ);
-        // Then check the passed parameters
-        else if(params != null)
-            supply = params.getParcelable(PARAM_SUPPLY_OBJ);
-
-        // If we have the supply, set it and return
-        if(supply != null) {
-            setSupply(supply);
-            return;
-        }
 
         // We have no supply, check for a history id
         if(params == null) return;
@@ -120,22 +98,6 @@ public class ActivitySupply extends AppCompatActivity {
             LoaderManager lm = getSupportLoaderManager();
             lm.initLoader(LoaderId.SUPPLY_OBJECT, args, supplyLoader);
         }
-	}
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check the language. If it has changed, reload the cards.
-        App.updateInfo(this);
-        if(supply != null && !App.transId.equals(transId))
-            getSupportLoaderManager().restartLoader(LoaderId.SUPPLY_CARDS, null, cardLoader);
-    }
-	
-	
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		outState.putParcelable(PARAM_SUPPLY_OBJ, supply);
 	}
 	
 	
@@ -227,7 +189,7 @@ public class ActivitySupply extends AppCompatActivity {
         sampleSupply = supply.sample;
 		// Start loading the supply
         getSupportLoaderManager()
-                .initLoader(LoaderId.SUPPLY_CARDS, null, cardLoader);
+                .restartLoader(LoaderId.SUPPLY_CARDS, null, cardLoader);
         // Now that we have a supply, redo the action bar
 		supportInvalidateOptionsMenu();
 	}
@@ -255,7 +217,6 @@ public class ActivitySupply extends AppCompatActivity {
             // Selection string (sql WHERE clause)
             // _id IN (1,2,3,4)
             String cards = CardDb._ID+" IN ("+ Utils.join(",",supply.cards)+")";
-            transId = App.transId;
             c.setSelection("("+cards+") AND "+App.transFilter);
 
             return c;
@@ -304,7 +265,6 @@ public class ActivitySupply extends AppCompatActivity {
 
             // Basic loader
             CursorLoader c = new CursorLoader(getActivity());
-            c.setSelection(SupplyDb._ID + "=?");
             c.setProjection(new String[]{SupplyDb._ID, SupplyDb._NAME, SupplyDb._BANE,
                                          SupplyDb._HIGH_COST, SupplyDb._SHELTERS, SupplyDb._CARDS});
             
@@ -312,13 +272,15 @@ public class ActivitySupply extends AppCompatActivity {
             long supply_id = args.getLong(PARAM_HISTORY_ID, -1);
             if(supply_id != -1) {
                 c.setUri(Provider.URI_HIST);
-                c.setSelectionArgs(new String[]{""+supply_id});
+                c.setSelection(SupplyDb._ID + "=?");
+                c.setSelectionArgs(new String[]{"" + supply_id});
                 return c;
             }
             // Load from the sample table
             supply_id = args.getLong(PARAM_SUPPLY_ID, -1);
             if(supply_id != -1) {
                 c.setUri(Provider.URI_SUPPLY);
+                c.setSelection(SupplyDb._ID+"=? AND "+App.transFilter);
                 c.setSelectionArgs(new String[]{""+supply_id});
                 return c;
             }
@@ -359,7 +321,6 @@ public class ActivitySupply extends AppCompatActivity {
             }
 
             // Finish up
-            data.close();
             setSupply(s);
         }
 

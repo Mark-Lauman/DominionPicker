@@ -281,9 +281,9 @@ public class MainActivity extends AppCompatActivity
             String msg;
             switch(res) {
                 case SupplyShuffler.RES_OK:
-                    Supply supply = intent.getParcelableExtra(SupplyShuffler.MSG_SUPPLY);
                     Intent showSupply = new Intent(getActivity(), ActivitySupply.class);
-                    showSupply.putExtra(ActivitySupply.PARAM_SUPPLY_OBJ, supply);
+                    showSupply.putExtra(ActivitySupply.PARAM_HISTORY_ID,
+                                        intent.getLongExtra(SupplyShuffler.MSG_SUPPLY_ID, -1));
                     startActivity(showSupply);
                     return;
                 case SupplyShuffler.RES_MORE:

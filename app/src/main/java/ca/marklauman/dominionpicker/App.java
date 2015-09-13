@@ -30,9 +30,14 @@ public abstract class App {
     /** Order used to sort cards before display. */
     public static final String sortOrder = CardDb._SET_NAME+", "+CardDb._NAME;
 
-    /** Updates the data in this class from the given context object.
-     *  Should be called in the onCreate() and onStart() method
-     *  of each entry point to the app where the data is needed. */
+    /** <p></p>Updates the data in this class from the given context object.</p>
+     *  This method should be called in the following circumstances:
+     *  <ul><li>In the onCreate() methods of Activities and Fragments
+     *  that use the App variables.</li>
+     *  <li>In the onStart() method of activities amd fragments if the
+     *  language preference could change before the activity is destroyed.
+     *  (Such as if the user switches to the settings screen then
+     *  switches back)</li></ul> */
     public static synchronized void updateInfo(Context c) {
         staticContext = c.getApplicationContext();
 

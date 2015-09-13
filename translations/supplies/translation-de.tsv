@@ -1,77 +1,77 @@
 _id	language	set_name	name
-1	de	Dominion	Erstes Spiel
-2	de	Dominion	Eine Menge Geld
+1	de	Dominion	Erste Spiel
+2	de	Dominion	Das große Geld
 3	de	Dominion	Interaktion
-4	de	Dominion	Größe Distortion
+4	de	Dominion	Größe Verzerrung
 5	de	Dominion	Dorfplatz
 6	de	Die Intrige	Siegestanz
-7	de	Die Intrige	Geheimpläne
+7	de	Die Intrige	Geheime Schemata
 8	de	Die Intrige	Besten Wünsche
 9	de	Die Intrige	Dekonstruktion
-10	de	Die Intrige	Hand Wahnsinn
+10	de	Die Intrige	Blatt Wahnsinn
 11	de	Die Intrige	Untergebenen
-12	de	Seaside	Hochsee
-13	de	Seaside	Vergrabener Schatz 
-14	de	Seaside	Schiffswracks 
+12	de	Seaside	Hoher See
+13	de	Seaside	Vergrabener Schatz
+14	de	Seaside	Schiffswracks
 15	de	Seaside	Erreichen für morgen
-16	de	Seaside	Wiederholung 
-17	de	Seaside	Geben und Nehmen 
-18	de	Alchemisten	Verbotene Kunst 
-19	de	Alchemisten	Mischer der Tränke 
-20	de	Alchemisten	Chemie-Lektion 
-21	de	Alchemisten	Dienerschaft 
-22	de	Alchemisten	geheime Forschungs 
-23	de	Alchemisten	Wasserbecken, Werkzeug, und Narren
-24	de	Blütezeit 	Anfänger
-25	de	Blütezeit 	Freundliche Interaktion 
-26	de	Blütezeit 	groß Aktionen
-27	de	Blütezeit 	größten Geld 
-28	de	Blütezeit 	Des Königs Armee 
-29	de	Blütezeit 	Das gute Leben 
-30	de	Blütezeit 	Wege zum Sieg 
-31	de	Blütezeit 	Am Wachturm entlang 
-32	de	Blütezeit 	Glück sieben
-33	de	Basiskarte	Bounty Hunting 
-34	de	Basiskarte	schlecht Omens
-35	de	Basiskarte	Spaßmacher Werkstatt
-36	de	Basiskarte	Letztes lacht 
-37	de	Basiskarte	Die Würze des Lebens 
-38	de	Basiskarte	kleine Siege 
-39	de	Hinterland	Einbringen 
-40	de	Hinterland	Fairer Handel 
-41	de	Hinterland	Schnäppchen 
-42	de	Hinterland	Gambits
-43	de	Hinterland	Straßenraub 
-44	de	Hinterland	Abenteuer im Ausland 
-45	de	Hinterland	Geld für nichts 
-46	de	Hinterland	Des Herzogs Kugel 
-47	de	Hinterland	Reisende 
-48	de	Hinterland	Diplomatie 
-49	de	Hinterland	Schemas und Träume 
-50	de	Hinterland	Weinland 
-51	de	Hinterland	sofortige Befriedigung 
-52	de	Hinterland	Fundgrube 
-53	de	Hinterland	Ernte der blauen 
-54	de	Hinterland	Circus
+16	de	Seaside	Wiederholung
+17	de	Seaside	Geben und Nehmen
+18	de	Alchemisten	Verbotenen Künste
+19	de	Alchemisten	Mischer der Tränke
+20	de	Alchemisten	Chemie-Lektion
+21	de	Alchemisten	Dienerschaft
+22	de	Alchemisten	Geheime Forschungs
+23	de	Alchemisten	Wasserbecken, Werkzeug und Narren
+24	de	Blütezeit	Anfänger
+25	de	Blütezeit	Freundliche Interaktion
+26	de	Blütezeit	Große Aktionen
+27	de	Blütezeit	Größten Geld
+28	de	Blütezeit	Armee des Königs
+29	de	Blütezeit	Das gute Leben
+30	de	Blütezeit	Wege zum Sieg
+31	de	Blütezeit	Am Wachturm entlang
+32	de	Blütezeit	Glück sieben
+33	de	Basiskarte	Kopfgeldjagd
+34	de	Basiskarte	Schlechte Omen
+35	de	Basiskarte	Der Narr Werkstatt
+36	de	Basiskarte	Zuletzt lacht
+37	de	Basiskarte	Die Würze des Lebens
+38	de	Basiskarte	Kleine Siege
+39	de	Hinterland	Einführung
+40	de	Hinterland	Fairer Handel
+41	de	Hinterland	Schnäppchen
+42	de	Hinterland	Opfer für die Verstärkung
+43	de	Hinterland	Straßenraub
+44	de	Hinterland	Abenteuer im Ausland
+45	de	Hinterland	Geld für nichts
+46	de	Hinterland	Des Herzogs Kugel
+47	de	Hinterland	Reisende
+48	de	Hinterland	Diplomatie
+49	de	Hinterland	Schemas und Träume
+50	de	Hinterland	Weinland
+51	de	Hinterland	Sofortige Befriedigung
+52	de	Hinterland	Fundgrube
+53	de	Hinterland	Ernte der blauen
+54	de	Hinterland	Wanderzirkus
 55	de	Dark Ages	Grim Parade
-56	de	Dark Ages	Spielt Schach mit Tod 
-57	de	Dark Ages	Hoch und Tief 
-58	de	Dark Ages	Ritterlichkeit und Revelry 
-59	de	Dark Ages	Weissagung 
-60	de	Dark Ages	Einfall 
-61	de	Dark Ages	Wässrige Graves 
-62	de	Dark Ages	Bauern 
-63	de	Dark Ages	Befall 
-64	de	Dark Ages	Klagelieder 
-65	de	Dark Ages	Eines Mannes Müll 
-66	de	Dark Ages	Ehre unter Dieben 
-67	de	Dark Ages	Dunkler Karneval
-68	de	Dark Ages	Victors Beute
-69	de	Dark Ages	Weit weg von zu Hause 
-70	de	Dark Ages	Expeditions 
-71	de	Die Gilden	Kunst und Handwerk 
-72	de	Die Gilden	sauberes Leben 
-73	de	Die Gilden	Vergoldung der Lilie 
-74	de	Die Gilden	Erraten Sie die Karte 
-75	de	Die Gilden	Schurkenhandel 
-76	de	Die Gilden	Entscheidungen, Entscheidungen 
+56	de	Dark Ages	Spielt Schach mit Tod
+57	de	Dark Ages	Hoch und Tief
+58	de	Dark Ages	Ritterlichkeit und Gelage
+59	de	Dark Ages	Prophezeiung
+60	de	Dark Ages	Invasion
+61	de	Dark Ages	Tränende Gräbern
+62	de	Dark Ages	Bauern
+63	de	Dark Ages	Befall
+64	de	Dark Ages	Wehklagen
+65	de	Dark Ages	Eines Mannes Müll
+66	de	Dark Ages	Ehre unter Dieben
+67	de	Dark Ages	Karneval der Finsternis
+68	de	Dark Ages	Siegerbelohnung
+69	de	Dark Ages	Weit weg von zu Hause
+70	de	Dark Ages	Expeditionen
+71	de	Die Gilden	Kunst und Handwerk
+72	de	Die Gilden	Sauberes Leben
+73	de	Die Gilden	Vergoldung der Lilie
+74	de	Die Gilden	Schätze die Karte
+75	de	Die Gilden	Schurkenhandel
+76	de	Die Gilden	Entscheidungen, Entscheidungen

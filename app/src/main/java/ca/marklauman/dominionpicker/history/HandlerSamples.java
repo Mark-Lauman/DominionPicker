@@ -29,6 +29,8 @@ class HandlerSamples extends SimpleCursorAdapter
 
     /** Column index for set id */
     private int _set_id;
+    /** Column index for set name */
+    private int _set_name;
     /** Column index for cards. */
     private int _cards;
     /** Column index for shelters. */
@@ -38,8 +40,8 @@ class HandlerSamples extends SimpleCursorAdapter
 
     public HandlerSamples(Context context) {
         super(context, R.layout.list_item_supply, null,
-                new String[]{SupplyDb._NAME, SupplyDb._SET_ID, SupplyDb._CARDS},
-                new int[]{R.id.name, R.id.set, R.id.desc},
+                new String[]{SupplyDb._NAME, SupplyDb._SET_ID, SupplyDb._SET_NAME, SupplyDb._CARDS},
+                new int[]{R.id.name, R.id.set, R.id.set, R.id.desc},
                 0);
         mContext = context;
         setViewBinder(this);
@@ -54,6 +56,7 @@ class HandlerSamples extends SimpleCursorAdapter
         _cards = c.getColumnIndex(SupplyDb._CARDS);
         _high_cost = c.getColumnIndex(SupplyDb._HIGH_COST);
         _shelters = c.getColumnIndex(SupplyDb._SHELTERS);
+        _set_name = c.getColumnIndex(SupplyDb._SET_NAME);
     }
 
     /** Used to map the set id and supply details to their views */
@@ -62,11 +65,15 @@ class HandlerSamples extends SimpleCursorAdapter
         if(columnIndex == _set_id) {
             // Map the set id to an image
             int setImg = 0;
-            try { setImg = exp_icons[cursor.getInt(_set_id)];
-            } catch(Exception ignored){}
+            try{ setImg = exp_icons[cursor.getInt(_set_id)];
+            } catch (Exception ignored) {}
             if (setImg == 0) setImg = R.drawable.ic_set_unknown;
             view.setVisibility(View.VISIBLE);
             ((ImageView)view).setImageResource(setImg);
+            return true;
+
+        } else if(columnIndex == _set_name) {
+            view.setContentDescription(cursor.getString(_set_name));
             return true;
 
         } else if(columnIndex == _cards) {
@@ -93,7 +100,8 @@ class HandlerSamples extends SimpleCursorAdapter
         // start the query going
         CursorLoader c = new CursorLoader(mContext);
         c.setProjection(new String[]{SupplyDb._ID, SupplyDb._NAME, SupplyDb._SET_ID,
-                                     SupplyDb._CARDS, SupplyDb._SHELTERS, SupplyDb._HIGH_COST});
+                                     SupplyDb._SET_NAME, SupplyDb._CARDS, SupplyDb._SHELTERS,
+                                     SupplyDb._HIGH_COST});
         c.setUri(Provider.URI_SUPPLY);
         c.setSortOrder(SupplyDb._ID);
         c.setSelection(App.transFilter);

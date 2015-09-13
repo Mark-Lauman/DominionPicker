@@ -24,6 +24,8 @@ public class SupplyDb extends SQLiteAssetHelper {
     public static final String _LANG = App.COL_LANG;
     /** The set that this supply came from. */
     public static final String _SET_ID = App.COL_SET_ID;
+    /** The name of the set this supply comes from. */
+    public static final String _SET_NAME = "set_name";
     /** Cards in this supply. */
     public static final String _CARDS = "cards";
     /** Column storing if this shuffle is a high cost game.
