@@ -43,4 +43,7 @@
 
     <string name="filter_cost">Costo della carta</string>
 
+    <string name="filter_curse">Maledizioni</string>
+    <string name="filter_curse_desc">Togli punti vittoria agli altri giocatori!</string>
+
 </resources>

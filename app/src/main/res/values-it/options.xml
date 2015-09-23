@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="options">Opzioni</string>
+
+    <string name="filt_lang">Lingua Carte</string>
+    <string name="filt_lang_desc">Scegli la lingua di ciascuna espansione.</string>
     <string name="system_default">Predefinita</string>
 
 </resources>

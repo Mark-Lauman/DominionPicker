@@ -43,7 +43,6 @@
         <item>@drawable/ic_set_adventures</item>
     </array>
 
-
     <!-- Default translation to use for each set. Sorted by set id. -->
     <string-array name="def_trans">
         <item>en</item>

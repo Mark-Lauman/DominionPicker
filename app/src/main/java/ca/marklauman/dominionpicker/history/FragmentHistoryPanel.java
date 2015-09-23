@@ -34,7 +34,7 @@ public class FragmentHistoryPanel extends Fragment
     /** The handler that loads the data and acts as adapter. */
     private CursorHandler handler;
     /** THe translation currently in use to display the history */
-    private String trnasId;
+    private String transId;
 
     // Variables that are set internally.
     /** True if we are loading data */
@@ -75,8 +75,8 @@ public class FragmentHistoryPanel extends Fragment
         super.onStart();
         App.updateInfo(getActivity());
         LoaderManager lm = getActivity().getSupportLoaderManager();
-        if(! App.transId.equals(trnasId)) {
-            trnasId = App.transId;
+        if(! App.transId.equals(transId)) {
+            transId = App.transId;
             lm.restartLoader(loaderId, null, this);
         } else lm.initLoader(loaderId, null, this);
     }
