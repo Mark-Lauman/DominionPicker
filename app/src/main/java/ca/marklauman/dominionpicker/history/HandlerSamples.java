@@ -85,7 +85,6 @@ class HandlerSamples extends SimpleCursorAdapter
             // Get the special conditions
             boolean high_cost = cursor.getInt(_high_cost) != 0;
             boolean shelters = cursor.getInt(_shelters) != 0;
-            if(!(high_cost || shelters)) desc += " | " + mContext.getString(R.string.hist_normal);
             if(high_cost)                desc += " | " + mContext.getString(R.string.hist_plat);
             if(shelters)                 desc += " | " + mContext.getString(R.string.hist_shelter);
 

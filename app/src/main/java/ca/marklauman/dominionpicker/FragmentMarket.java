@@ -31,6 +31,7 @@ import ca.marklauman.dominionpicker.database.Provider;
 public class FragmentMarket extends Fragment
                             implements LoaderCallbacks<Cursor>,
                                        OnItemClickListener {
+    // TODO: STRANGE BEHAVIOUR ON LOAD - MUST BE FIXED
 
     /** Key used to pass the supply pool to this fragment (optional) */
     public static final String PARAM_SUPPLY = "supply";

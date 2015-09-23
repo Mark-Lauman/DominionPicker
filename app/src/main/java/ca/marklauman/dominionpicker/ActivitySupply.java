@@ -239,10 +239,10 @@ public class ActivitySupply extends AppCompatActivity {
             if(supply.shelters)
                 output += "\n" + getString(R.string.supply_shelters);
             output = output.trim();
-            if("".equals(output))
-                output = getString(R.string.supply_normal);
-            resView.setText(output);
-            resView.setVisibility(View.VISIBLE);
+            if(! "".equals(output)) {
+                resView.setText(output);
+                resView.setVisibility(View.VISIBLE);
+            }
         }
 
 

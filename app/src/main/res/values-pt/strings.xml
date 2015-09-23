@@ -25,8 +25,7 @@
     <string name="change_fav">Mudar Favorito</string>
     <string name="name_me">Nomeie-me!</string>
     <string name="save">Salvar</string>
-    
-    <string name="supply_normal">Jogo Normal</string>
+
     <string name="supply_colonies">Usar Colonys &amp; Platinum</string>
     <string name="supply_shelters">Usar Shelters</string>
     <string name="young_witch_bane">Young Witch - Bane</string>
@@ -41,7 +40,6 @@
         <item quantity="one">%d Carta</item>
         <item quantity="other">%d Cartas</item>
     </plurals>
-    <string name="hist_normal">Jogo Normal</string>
     <string name="hist_plat">Platinum</string>
     <string name="hist_shelter">Shelters</string>
 </resources>

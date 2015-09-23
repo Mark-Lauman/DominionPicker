@@ -26,8 +26,7 @@
     <string name="change_fav">Cambia preferiti</string>
     <string name="name_me">Nome selezione</string>
     <string name="save">Salva</string>
-  
-    <string name="supply_normal">Gioco normale</string>
+
     <string name="supply_colonies">Usa Colonie &amp; Platino</string>
     <string name="supply_shelters">Usa le carte "Shelter"</string>
     <string name="young_witch_bane">Giovane strega - Scongiuro</string>
@@ -42,7 +41,6 @@
     <item quantity="one">%d Carta</item>
     <item quantity="other">%d Carte</item>
   </plurals>
-    <string name="hist_normal">Gioco normale</string>
     <string name="hist_plat">Platino</string>
     <string name="hist_shelter">Shelter</string>
 </resources>

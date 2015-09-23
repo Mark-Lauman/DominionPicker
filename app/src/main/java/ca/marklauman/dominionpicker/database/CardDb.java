@@ -69,6 +69,9 @@ public class CardDb extends SQLiteAssetHelper {
     /** Column representing if this is a reaction card.
      *  From the cardData table. */
     public static final String _TYPE_REACT = "typeReaction";
+    /** Column representing if this is a curse card.
+     *  From the cardData table. */
+    public static final String _TYPE_CURSE = "typeCurse";
     /** Column representing if this is a treasure card.
      *  From the cardData table. */
     public static final String _TYPE_TREAS = "typeTreasure";
