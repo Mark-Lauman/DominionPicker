@@ -4,13 +4,24 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical" >
+
+    <LinearLayout android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal" >
+
+        <ProgressBar android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
     
     <Button android:id="@+id/market_draw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/market_draw" />
+        android:text="@string/market_draw"
+        android:visibility="gone" />
     
     <LinearLayout android:id="@+id/market_choices"
     	android:layout_width="match_parent"

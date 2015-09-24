@@ -1,10 +1,8 @@
 package ca.marklauman.dominionpicker;
 
-import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
@@ -31,7 +29,6 @@ import ca.marklauman.dominionpicker.database.Provider;
 public class FragmentMarket extends Fragment
                             implements LoaderCallbacks<Cursor>,
                                        OnItemClickListener {
-    // TODO: STRANGE BEHAVIOUR ON LOAD - MUST BE FIXED
 
     /** Key used to pass the supply pool to this fragment (optional) */
     public static final String PARAM_SUPPLY = "supply";
@@ -41,20 +38,24 @@ public class FragmentMarket extends Fragment
     /** Key used to save current choices to savedInstanceState. */
     private static final String KEY_CHOICES = "choices";
 
-    /** The ListView used to display the cards */
-    private ListView card_view;
-    /** The button to show the next pick */
-    private View but_draw;
-    /** The list displaying the choices */
-    private View choice_panel;
-    /** The adapter used to display the choices. */
-    private AdapterCards adapter;
-    /** The notice for when there is no stock */
-    private View sold_out;
+    /** Index of the startup panel in {@link #vPanels}. */
+    private static final int PANEL_STARTUP = 0;
+    /** Index of the "draw card" panel in {@link #vPanels}. */
+    private static final int PANEL_DRAW = 1;
+    /** Index of the "choose card" panel in {@link #vPanels} */
+    private static final int PANEL_CHOOSE = 2;
+    /** Index of the "sold out" panel in {@link #vPanels} */
+    private static final int PANEL_SOLD_OUT = 3;
 
-    /** Stores the stock of the market. (in drawing order)
-     *  If null, the stock is being retrieved.
-     *  If empty then no stock is left.    */
+    /** The various panels displayed to the user. */
+    private View[] vPanels;
+    /** The currently visible panel in {@link #vPanels} */
+    private int activePanel;
+    /** Adapter used to display the list of cards. */
+    private AdapterCards adapter;
+
+    /** Stores the stock of the market. (in drawing order) If null, the stock is being retrieved.
+     *  If empty then no stock is left. */
     private LinkedList<Long> stock = null;
     /** The cards the user may choose from this round.
      *  Is null if the cards have not yet been drawn. */
@@ -63,13 +64,54 @@ public class FragmentMarket extends Fragment
     /** The display language of the current choices.
      *  Checked each time this fragment is started to ensure it is current. */
     private String transId;
-    /** The cursor containing current choices */
-    private Cursor loaded = null;
 
-
+    /** Called to create this fragment's view for the first time.
+     *  This is called first - before the fragment's state is restored.
+     *  So the default view created by this is one where the stock has not been loaded. */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.fragment_market, container, false);
+
+        // Setup the panels
+        activePanel = PANEL_STARTUP;
+        vPanels = new View[4];
+        vPanels[PANEL_STARTUP] = view.findViewById(R.id.loading);
+        vPanels[PANEL_DRAW] = view.findViewById(R.id.market_draw);
+        vPanels[PANEL_DRAW].setOnClickListener(new DrawListener());
+        vPanels[PANEL_CHOOSE] = view.findViewById(R.id.market_choices);
+        vPanels[PANEL_SOLD_OUT] = view.findViewById(R.id.market_sold_out);
+        View but_pass = view.findViewById(R.id.market_pass);
+        but_pass.setOnClickListener(new PassListener());
+
+        // Setup card list and its adapter
+        ListView card_list = (ListView) view.findViewById(R.id.card_list);
+        adapter = new AdapterCards(getActivity(), false);
+        card_list.setAdapter(adapter);
+        card_list.setOnItemClickListener(this);
+
+        return view;
+    }
+
+
+    /** Set the indicated panel as the active panel and display it.
+     *  @param panelIndex The index of the new active panel. Should be one of the
+     *                    static PANEL values provided by this class. */
+    private void setActivePanel(int panelIndex) {
+        if(activePanel == panelIndex) return;
+        if(vPanels == null || vPanels[0] == null) return;
+        vPanels[activePanel].setVisibility(View.GONE);
+        vPanels[panelIndex].setVisibility(View.VISIBLE);
+        activePanel = panelIndex;
+    }
+
+
+    /** Only called on fragment creation and reattachment - not on a restart.
+     *  Used to restore loaded information. */
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         // Restore to previous state, if available.
         if(savedInstanceState != null) {
             final long[] arrStock = savedInstanceState.getLongArray(KEY_STOCK);
@@ -80,103 +122,37 @@ public class FragmentMarket extends Fragment
         }
     }
 
-    @Override
-    public final void onAttach(Context context) {
-        super.onAttach(context);
-        /* First initialization of the loader must be called early,
-         * or the loader will not function. */
-        LoaderManager lm = ((FragmentActivity) context).getSupportLoaderManager();
-        lm.initLoader(LoaderId.MARKET_SHOW, null, this);
-        // Shuffle a new market if the stock wasn't restored
-        if(stock == null)
-            lm.restartLoader(LoaderId.MARKET_SHUFFLE, null, this);
-    }
 
+    /** Called just before the fragment is drawn to the screen.
+     *  Loaders are started/restarted here. */
     @Override
     public void onStart() {
         super.onStart();
         App.updateInfo(getActivity());
-        // Reload the cards if the display language has changed.
-        if(!App.transId.equals(transId))
-            getActivity().getSupportLoaderManager()
-                         .restartLoader(LoaderId.MARKET_SHOW, null, this);
-    }
+        LoaderManager lm = getActivity().getSupportLoaderManager();
 
-    /** Called to create this fragment's view for the first time.
-     *  We cannot guarantee that the cards have been loaded or shuffled. */
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        FragmentActivity act = getActivity();
-        View view = inflater.inflate(R.layout.fragment_market, container, false);
-
-        // Get View items
-        but_draw = view.findViewById(R.id.market_draw);
-        but_draw.setOnClickListener(new DrawListener());
-        View but_pass = view.findViewById(R.id.market_pass);
-        but_pass.setOnClickListener(new PassListener());
-        choice_panel = view.findViewById(R.id.market_choices);
-        sold_out = view.findViewById(R.id.market_sold_out);
-
-        // Setup the list & adapter
-        card_view = (ListView) view.findViewById(R.id.card_list);
-        adapter = new AdapterCards(act, false);
-        adapter.changeCursor(loaded);
-        if(stock != null) card_view.setAdapter(adapter);
-        card_view.setOnItemClickListener(this);
-
-        updateView();
-        return view;
-    }
-
-
-    /** Updates the view to reflect the current market state */
-    private void updateView() {
-        // No update if we don't have views or stock
-        if(but_draw == null || stock == null) return;
-
-        // Cursor changes happen first
-        adapter.changeCursor(loaded);
-        if(card_view.getAdapter() == null)
-            card_view.setAdapter(adapter);
-
-        // If no cards have been drawn
-        if(choices == null || choices.length == 0) {
-            // and we have stock
-            if(0 < stock.size()) {
-                but_draw.setVisibility(View.VISIBLE);
-                choice_panel.setVisibility(View.GONE);
-                sold_out.setVisibility(View.GONE);
-            // and we're out of stock
-            } else {
-                but_draw.setVisibility(View.GONE);
-                choice_panel.setVisibility(View.GONE);
-                sold_out.setVisibility(View.VISIBLE);
-            }
-        // cards have been drawn
+        // Restore current market state
+        if(stock == null) {
+            // If we have no market, shuffle up some stock
+            lm.restartLoader(LoaderId.MARKET_SHUFFLE, null, this);
+        } else if(choices == null) {
+            // We have a market, but no cards have been drawn
+            setActivePanel(PANEL_DRAW);
+        } else if(stock.size() == 0 && choices.length == 0) {
+            // We have a market, but it's sold out
+            setActivePanel(PANEL_SOLD_OUT);
+        } else if(!App.transId.equals(transId)) {
+            // We have a market and have drawn cards
+            // Force the cards to reload if the language has changed
+            lm.restartLoader(LoaderId.MARKET_SHOW, null, this);
         } else {
-            // and loaded
-            if(loaded != null) {
-                but_draw.setVisibility(View.GONE);
-                choice_panel.setVisibility(View.VISIBLE);
-                sold_out.setVisibility(View.GONE);
-            // but not loaded
-            } else {
-                but_draw.setVisibility(View.GONE);
-                choice_panel.setVisibility(View.GONE);
-                sold_out.setVisibility(View.GONE);
-                /* Start loading data. If the data is currently being loaded,
-                 * initLoader throws an exception. In this case, we just wait
-                 * for the load to finish.                                 */
-                try { getActivity().getSupportLoaderManager()
-                                   .initLoader(LoaderId.MARKET_SHOW, null, this);
-                } catch (Exception ignored) {}
-            }
+            // The language has not changed, just refresh the cursor
+            lm.initLoader(LoaderId.MARKET_SHOW, null, this);
         }
     }
 
 
+    /** Called before the fragment is destroyed if its state should be preserved */
     @Override
     public void onSaveInstanceState(Bundle outState) {
         long[] arrStock = new long[stock.size()];
@@ -191,37 +167,38 @@ public class FragmentMarket extends Fragment
     }
 
 
-    /** Selects which card was purchased.
-     *  Called when a card is clicked in the choice panel.
-     *  @param parent The AdapterView where the click happened.
-     *  @param view The view within the AdapterView that was
-     *  clicked (this will be a view provided by the adapter)
+    /** Selects which card was purchased. Called when a card is clicked in the choice panel.
      *  @param position The position of the view in the adapter.
-     *  @param id The row id of the item that was clicked.    */
+     *  @param id The row id of the item that was clicked. */
     @Override
     public void onItemClick(AdapterView<?> parent, View view,
                             int position, long id) {
         Toast.makeText(getActivity(), adapter.getName(position), Toast.LENGTH_SHORT)
-             .show();
+                .show();
         // Unused choices return to the stock bottom
-        for(long card : choices)
-            if(card != id)
-                stock.add(card);
+        for (long card : choices)
+            if (card != id) stock.add(card);
 
-        // clear the choices
-        choices = null;
-        loaded = null;
-        updateView();
+        // Clear the choices
+        adapter.changeCursor(null);
+        if (stock.size() == 0) {
+            // If we are out of stock, switch to the sold out panel
+            choices = new long[0];
+            setActivePanel(PANEL_SOLD_OUT);
+        } else {
+            // Otherwise, prepare to draw another card
+            setActivePanel(PANEL_DRAW);
+            choices = null;
+        }
     }
 
 
+    /** Start loading the shuffle or the choices */
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         CursorLoader c = new CursorLoader(getActivity());
         switch (id) {
             case LoaderId.MARKET_SHUFFLE:
-                c.setUri(Provider.URI_CARD_DATA);
-
                 // load the supply (if provided)
                 Bundle fragArgs = getArguments();
                 HashSet<Long> supply = new HashSet<>();
@@ -241,8 +218,7 @@ public class FragmentMarket extends Fragment
                             deck.add(card);
                 }
 
-                // Build the cursor loader from the deck
-                c.setProjection(new String[]{CardDb._ID});
+                // Turn the available cards into a select statement
                 String sel = "";
                 String[] selArgs = new String[deck.size()];
                 for(int i=0; i<deck.size(); i++) {
@@ -251,7 +227,12 @@ public class FragmentMarket extends Fragment
                 }
                 if(0 < sel.length()) sel = CardDb._ID+" IN ("+sel.substring(1)+")";
                 else sel = CardDb._ID+"=NULL";
-                c.setSelection(sel);
+
+                // Build the cursor loader
+                c.setUri(Provider.URI_CARD_DATA);
+                c.setProjection(new String[]{CardDb._ID});
+                // Forbid events and ruins, restrict to selections
+                c.setSelection(CardDb._TYPE_RUINS+"=0 AND "+CardDb._TYPE_EVENT+"=0 AND "+sel);
                 c.setSelectionArgs(selArgs);
                 c.setSortOrder("random()");
                 return c;
@@ -273,7 +254,6 @@ public class FragmentMarket extends Fragment
                 String cardSel = "";
                 for(long ignored : choices)
                     cardSel += ",?";
-                // remove the " OR " at the beginning
                 cardSel = CardDb._ID+" IN ("+cardSel.substring(1)+")";
                 c.setSelection("("+cardSel+") AND "+App.transFilter);
 
@@ -282,8 +262,6 @@ public class FragmentMarket extends Fragment
                 for(int i=0; i<choices.length; i++)
                     strChoices[i] = "" + choices[i];
                 c.setSelectionArgs(strChoices);
-
-                updateView();
                 return c;
         }
         return null;
@@ -301,13 +279,16 @@ public class FragmentMarket extends Fragment
                     stock.add(data.getLong(_id));
                 }
                 data.close();
-                FragmentActivity a = getActivity();
-                if(a != null) a.getSupportLoaderManager()
-                               .restartLoader(LoaderId.MARKET_SHOW, null, this);
+
+                if(stock.size() == 0) {
+                    choices = new long[0];
+                    setActivePanel(PANEL_SOLD_OUT);
+                } else setActivePanel(PANEL_DRAW);
                 break;
             case LoaderId.MARKET_SHOW:
-                loaded = data;
-                updateView();
+                adapter.changeCursor(data);
+                if(data.getCount() == 0) setActivePanel(PANEL_SOLD_OUT);
+                else setActivePanel(PANEL_CHOOSE);
                 break;
         }
     }
@@ -316,8 +297,8 @@ public class FragmentMarket extends Fragment
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         if(LoaderId.MARKET_SHOW != loader.getId()) return;
-        loaded = null;
-        updateView();
+        adapter.changeCursor(null);
+        setActivePanel(PANEL_STARTUP);
     }
 
     /** Used so subclasses can access this fragment */
@@ -341,7 +322,7 @@ public class FragmentMarket extends Fragment
             // update the view and start loading cards
             getActivity().getSupportLoaderManager()
                          .restartLoader(LoaderId.MARKET_SHOW, null, getFragment());
-            updateView();
+            setActivePanel(PANEL_STARTUP);
         }
     }
 
@@ -356,8 +337,8 @@ public class FragmentMarket extends Fragment
 
             // wipe the choice list
             choices = null;
-            loaded = null;
-            updateView();
+            adapter.changeCursor(null);
+            setActivePanel(PANEL_DRAW);
         }
     }
 }

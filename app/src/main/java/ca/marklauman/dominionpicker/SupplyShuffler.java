@@ -93,7 +93,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
             sel += ",?";
             selArgs[i] = ""+cardIds[i];
         }
-        if(0 < sel.length()) sel = CardDb._ID+" IN ("+sel.substring(1)+")";
+        sel = CardDb._TYPE_RUINS+"=0 AND "+CardDb._ID+" IN ("+sel.substring(1)+")";
 
         // Variables that must live through the try statement
         Supply supply = new Supply();

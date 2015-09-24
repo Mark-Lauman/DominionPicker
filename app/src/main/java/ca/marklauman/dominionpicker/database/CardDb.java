@@ -87,6 +87,9 @@ public class CardDb extends SQLiteAssetHelper {
     /** Column representing if this is a looter card.
      *  From the cardData table. */
     public static final String _TYPE_LOOT = "typeLooter";
+    /** Column representing if this is a ruins card.
+     *  From the cardData table. */
+    public static final String _TYPE_RUINS = "typeRuins";
     /** Column representing if this is a knight card.
      *  From the cardData table. */
     public static final String _TYPE_KNIGHT = "typeKnight";
@@ -106,11 +109,11 @@ public class CardDb extends SQLiteAssetHelper {
     
     /** The _ID value of the Black Market card. */
     public static final long ID_BLACK_MARKET = 1L;
-    /** The ID value of the Young Witch card */
+    /** The _ID value of the Young Witch card */
     public static final long ID_YOUNG_WITCH = 161L;
-    /** The _SET value of the prosperity set */
+    /** The _SET_ID value of the prosperity set */
     public static final int SET_PROSPERITY = 11;
-    /** The _SET value of the dark ages set */
+    /** The _SET_ID value of the dark ages set */
     public static final int SET_DARK_AGES = 4;
 
     public CardDb(Context c) {
