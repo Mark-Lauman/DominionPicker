@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="options">Op&#231;&#245;es</string>
+
+    <string name="filt_lang">Linguagem do Card</string>
+    <string name="filt_lang_desc">Escolha uma l&#237;ngua para cada expans&#227;o.</string>
     <string name="system_default">Predefini&#231;&#227;o</string>
 
 </resources>

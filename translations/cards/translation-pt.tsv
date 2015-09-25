@@ -22,5 +22,5 @@ _id	language	set_name	name	type	requires	description	details
 26	pt	Base	Biblioteca	Ação			
 27	pt	Base	Mercado	Ação			
 28	pt	Base	Mina	Ação			
-29	pt	Base	Bruxa	Ação Ataque	Requires: Curse		
+29	pt	Base	Bruxa	Ação Ataque	Requer: Maldição		
 30	pt	Base	Aventureiro	Ação			
