@@ -12,7 +12,7 @@ android {
         minSdkVersion 8
         targetSdkVersion 23
         resConfigs "en", "de", "it", "pt", "pt-rBR"
-        versionCode 18
+        versionCode 20
         versionName "1.9.0"
     }
 
