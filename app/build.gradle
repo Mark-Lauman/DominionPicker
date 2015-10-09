@@ -11,7 +11,7 @@ android {
         applicationId "ca.marklauman.dominionpicker"
         minSdkVersion 8
         targetSdkVersion 23
-        resConfigs "en", "de", "it", "pt", "pt-rBR"
+        resConfigs "en", "de", "it", "pt", "pt-rBR", "nl"
         versionCode 21
         versionName "1.9.1"
     }

@@ -7,6 +7,7 @@
         <item>@plurals/format_act_de</item>
         <item>@plurals/format_act_en</item>
         <item>@plurals/format_act_it</item>
+        <item>@plurals/format_act_nl</item>
         <item>@plurals/format_act_pt</item>
     </array>
     <plurals name="format_act_en" translatable="false">
@@ -21,6 +22,10 @@
         <item quantity="one">+%1$s Azione</item>
         <item quantity="other">+%1$s Azioni</item>
     </plurals>
+    <plurals name="format_act_nl" translatable="false">
+        <item quantity="one">+%1$s Actie</item>
+        <item quantity="other">+%1$s Acties</item>
+    </plurals>
     <plurals name="format_act_pt" translatable="false">
         <item quantity="one">+%1$s A&#231;&#227;o</item>
         <item quantity="other">+%1$s A&#231;&#245;es</item>
@@ -32,6 +37,7 @@
         <item>@plurals/format_buy_de</item>
         <item>@plurals/format_buy_en</item>
         <item>@plurals/format_buy_it</item>
+        <item>@plurals/format_buy_nl</item>
         <item>@plurals/format_buy_pt</item>
     </array>
     <plurals name="format_buy_en" translatable="false">
@@ -46,6 +52,10 @@
         <item quantity="one">+%1$s Acquisto</item>
         <item quantity="other">+%1$s Acquisti</item>
     </plurals>
+    <plurals name="format_buy_nl" translatable="false">
+        <item quantity="one">+%1$s Aanschaf</item>
+        <item quantity="other">+%1$s Aanschaffen</item>
+    </plurals>
     <plurals name="format_buy_pt" translatable="false">
         <item quantity="one">+%1$s Compra</item>
         <item quantity="other">+%1$s Compras</item>
@@ -57,6 +67,7 @@
         <item>@plurals/format_card_de</item>
         <item>@plurals/format_card_en</item>
         <item>@plurals/format_card_it</item>
+        <item>@plurals/format_card_nl</item>
         <item>@plurals/format_card_pt</item>
     </array>
     <plurals name="format_card_en" translatable="false">
@@ -70,6 +81,10 @@
     <plurals name="format_card_it" translatable="false">
         <item quantity="one">+%1$s Carta</item>
         <item quantity="other">+%1$s Carte</item>
+    </plurals>
+    <plurals name="format_card_nl" translatable="false">
+        <item quantity="one">+%1$s Kaart</item>
+        <item quantity="other">+%1$s Kaarten</item>
     </plurals>
     <plurals name="format_card_pt" translatable="false">
         <item quantity="one">+%1$s Carta</item>

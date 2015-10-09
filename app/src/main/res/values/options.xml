@@ -11,6 +11,7 @@
         <item>Deutsch</item>
         <item>English</item>
         <item>Italiano</item>
+        <item>Nederlands</item>
         <item>Portugu&#234;s</item>
     </string-array>
     <string-array name="language_codes" translatable="false">
@@ -18,6 +19,7 @@
         <item>de</item>
         <item>en</item>
         <item>it</item>
+        <item>nl</item>
         <item>pt</item>
     </string-array>
 

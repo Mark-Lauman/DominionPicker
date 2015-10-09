@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="set_base">Basisspel</string>
+    <string name="set_alchemy">De Alchemisten</string>
+    <string name="set_cornucopia">Overvloed</string>
+    <string name="set_dark_ages">De Donkere Middeleeuwen</string>
+    <string name="set_envoy">Gezant</string>
+    <string name="set_guilds">De Gilden</string>
+    <string name="set_hinterlands">Het Achterland</string>
+    <string name="set_intrigue">Intrige</string>
+    <string name="set_prince">Prins</string>
+    <string name="set_prosperity">Welvaart</string>
+    <string name="set_seaside">Hijs de Zeilen</string>
+    <string name="set_stash">Geldbuidel</string>
+
+    <!-- Default translation to use for each set. Sorted by set id. -->
+    <string-array name="def_trans">
+        <item>nl</item>
+        <item>nl</item>
+        <item>en</item>
+        <item>nl</item>
+        <item>nl</item>
+        <item>nl</item>
+        <item>en</item>
+        <item>nl</item>
+        <item>nl</item>
+        <item>nl</item>
+        <item>nl</item>
+        <item>nl</item>
+        <item>nl</item>
+        <item>nl</item>
+        <item>en</item>
+        <item>en</item>
+    </string-array>
+
+</resources>

@@ -6,6 +6,7 @@
         <item>@plurals/format_act_de</item>
         <item>@plurals/format_act_en</item>
         <item>@plurals/format_act_it</item>
+        <item>@plurals/format_act_nl</item>
         <item>@plurals/format_act_pt</item>
     </array>
     <array name="format_buy" translatable="true">
@@ -13,6 +14,7 @@
         <item>@plurals/format_buy_de</item>
         <item>@plurals/format_buy_en</item>
         <item>@plurals/format_buy_it</item>
+        <item>@plurals/format_buy_nl</item>
         <item>@plurals/format_buy_pt</item>
     </array>
     <array name="format_card" translatable="true">
@@ -20,6 +22,7 @@
         <item>@plurals/format_card_de</item>
         <item>@plurals/format_card_en</item>
         <item>@plurals/format_card_it</item>
+        <item>@plurals/format_card_nl</item>
         <item>@plurals/format_card_pt</item>
     </array>
 </resources>

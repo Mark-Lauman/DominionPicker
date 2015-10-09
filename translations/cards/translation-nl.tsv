@@ -1,0 +1,204 @@
+_id	language	set_name	name	type	requires	description	details
+2	nl	Geldbuidel	Geldbuidel	Geld		Als je je aflegstapel schudt om er een nieuwe trekstapel van te maken, mag je direct daarna de Geldbuidel naar een positie naar keuze in je trekstapel verplaatsen.	
+3	nl	Gezant	Gezant	Actie		Toon de bovenste 5 kaarten van je deck. De speler links van je kiest een kaart, die je moet afleggen. Neem de rest in je hand.	
+6	nl	Basisspel	Kelder	Actie			
+7	nl	Basisspel	Kapel	Actie			
+8	nl	Basisspel	Slotgracht	Actie Reactie			
+9	nl	Basisspel	Raadsheer	Actie			
+10	nl	Basisspel	Dorp	Actie			
+11	nl	Basisspel	Houthakker	Actie			
+12	nl	Basisspel	Werkplaats	Actie			
+13	nl	Basisspel	Bureaucraat	Actie Aanval			
+14	nl	Basisspel	Feest	Actie			
+15	nl	Basisspel	Tuinen	Overwinning			
+16	nl	Basisspel	Militie	Actie Aanval			
+17	nl	Basisspel	Geldschieter	Actie			
+18	nl	Basisspel	Verbouwing	Actie			
+19	nl	Basisspel	Smidse	Actie			
+20	nl	Basisspel	Spion	Actie Aanval			
+21	nl	Basisspel	Dief	Actie Aanval			
+22	nl	Basisspel	Troonzaal	Actie			
+23	nl	Basisspel	Raadszaal	Actie			
+24	nl	Basisspel	Festival	Actie			
+25	nl	Basisspel	Laboratorium	Actie			
+26	nl	Basisspel	Bibliotheek	Actie			
+27	nl	Basisspel	Markt	Actie			
+28	nl	Basisspel	Mijn	Actie			
+29	nl	Basisspel	Heks	Actie Aanval	Benodigd: Vloek		
+30	nl	Basisspel	Avonturier	Actie			
+31	nl	De Alchemisten	Kruidenexpert	Actie			
+32	nl	De Alchemisten	Leerling	Actie			
+33	nl	De Alchemisten	Transformatie	Actie			
+34	nl	De Alchemisten	Wijnberg	Overwinning			
+35	nl	De Alchemisten	Apotheker	Actie			
+36	nl	De Alchemisten	Visioen	Actie Aanval			
+37	nl	De Alchemisten	Universiteit	Actie			
+38	nl	De Alchemisten	Alchemist	Actie			
+39	nl	De Alchemisten	Oude Bekende	Actie Aanval	Benodigd: Vloek		
+40	nl	De Alchemisten	Steen Der Wijzen	Geld			
+41	nl	De Alchemisten	Golem	Actie			
+42	nl	De Alchemisten	Bezeten	Actie			
+43	nl	Intrige	Binnenplaats	Actie			
+44	nl	Intrige	Pion	Actie			
+45	nl	Intrige	Geheime Kamer	Actie Reactie			
+46	nl	Intrige	Grote Zaal	Actie Overwinning			
+47	nl	Intrige	Maskerade	Actie			
+48	nl	Intrige	Sloppenwijk	Actie			
+49	nl	Intrige	Lakei	Actie			
+50	nl	Intrige	Oplichter	Actie Aanval			
+51	nl	Intrige	Wensput	Actie			
+52	nl	Intrige	Baron	Actie			
+53	nl	Intrige	Brug	Actie			
+54	nl	Intrige	Samenzweerder	Actie			
+55	nl	Intrige	Kopersmid	Actie			
+56	nl	Intrige	Ijzergieterij	Actie			
+57	nl	Intrige	Mijndorp	Actie			
+58	nl	Intrige	Verkenner	Actie			
+59	nl	Intrige	Hertog	Overwinning			
+60	nl	Intrige	Dienaar	Actie Aanval			
+61	nl	Intrige	Saboteur	Actie Aanval			
+62	nl	Intrige	Folteraar	Actie Aanval	Benodigd: Vloek		
+63	nl	Intrige	Handelspost	Actie			
+64	nl	Intrige	Tolheffing	Actie			
+65	nl	Intrige	Opwaardering	Actie			
+66	nl	Intrige	Harem	Geld Overwinning			
+67	nl	Intrige	Adel	Actie Overwinning			
+68	nl	Welvaart	Lening	Geld			
+69	nl	Welvaart	Handelsroute	Actie	Benodigd: Muntenfiche, Handelsroutetableau		
+70	nl	Welvaart	Uitkijktoren	Actie Reactie			
+71	nl	Welvaart	Bisschop	Actie	Benodigd: Overwinningspuntenfiche		
+72	nl	Welvaart	Monument	Actie	Benodigd: Overwinningspuntenfiche		
+73	nl	Welvaart	Steengroeve	Geld			
+74	nl	Welvaart	Talisman	Geld			
+75	nl	Welvaart	Arbeidersdorp	Actie			
+76	nl	Welvaart	Stad	Actie			
+77	nl	Welvaart	Smokkelwaar	Geld			
+78	nl	Welvaart	Boekhouding	Actie			
+79	nl	Welvaart	Aanmunten	Actie			
+80	nl	Welvaart	Charlatan	Actie Aanval	Benodigd: Vloek		
+81	nl	Welvaart	Gespuis	Actie Aanval			
+82	nl	Welvaart	Koninklijk Zegel	Geld			
+83	nl	Welvaart	Schatkelder	Actie			
+84	nl	Welvaart	Waagstuk	Geld			
+85	nl	Welvaart	Domkoppen	Actie Aanval	Benodigd: Overwinningspuntenfiche		
+86	nl	Welvaart	Grote Markt	Actie			
+87	nl	Welvaart	Spaargeld	Geld			
+88	nl	Welvaart	Bank	Geld			
+89	nl	Welvaart	Uitbreiden	Actie			
+90	nl	Welvaart	Vervalsen	Actie			
+91	nl	Welvaart	Koningshof	Actie			
+92	nl	Welvaart	Venter	Actie			
+93	nl	Hijs de Zeilen	Embargo	Actie	Benodigd: Embargofiche, Vloek		
+94	nl	Hijs de Zeilen	Haven	Actie Duurzaam			
+95	nl	Hijs de Zeilen	Vuurtoren	Actie Duurzaam			
+96	nl	Hijs de Zeilen	Inheems Dorp	Actie			
+97	nl	Hijs de Zeilen	Parelduiker	Actie			
+98	nl	Hijs de Zeilen	Boodschapper	Actie Aanval			
+99	nl	Hijs de Zeilen	Vissersdorp	Actie Duurzaam			
+100	nl	Hijs de Zeilen	Uitkijk	Actie			
+101	nl	Hijs de Zeilen	Smokkelaar	Actie			
+102	nl	Hijs de Zeilen	Pakhuis	Actie			
+103	nl	Hijs de Zeilen	Karavaan	Actie Duurzaam			
+104	nl	Hijs de Zeilen	Beurzensnijder	Actie Aanval			
+105	nl	Hijs de Zeilen	Eiland	Actie Overwinning	Benodigd: Eiland tableau		
+106	nl	Hijs de Zeilen	Navigator	Actie			
+107	nl	Hijs de Zeilen	Piratenschip	Actie Aanval	Benodigd: Geldfiche, Piratenschip tableau		
+108	nl	Hijs de Zeilen	Afvalverwerker	Actie			
+109	nl	Hijs de Zeilen	Zeeheks	Actie Aanval	Benodigd: Vloek		
+110	nl	Hijs de Zeilen	Schatkaart	Actie			
+111	nl	Hijs de Zeilen	Bazaar	Actie			
+112	nl	Hijs de Zeilen	Ontdekkingsreiziger	Actie			
+113	nl	Hijs de Zeilen	De Vliegende Hollander	Actie Aanval			
+114	nl	Hijs de Zeilen	Handelsschip	Actie Duurzaam			
+115	nl	Hijs de Zeilen	Voorpost	Actie Duurzaam			
+116	nl	Hijs de Zeilen	Strateeg	Actie Duurzaam			
+117	nl	Hijs de Zeilen	Schatkamer	Actie			
+118	nl	Hijs de Zeilen	Scheepswerf	Actie Duurzaam			
+119	nl	De Donkere Middeleeuwen	Armenhuis	Actie			
+120	nl	De Donkere Middeleeuwen	Bedelaar	Actie Reactie			
+121	nl	De Donkere Middeleeuwen	Schildknaap	Actie			
+122	nl	De Donkere Middeleeuwen	Landloper	Actie			
+123	nl	De Donkere Middeleeuwen	Jager-Verzamelaar	Actie			
+124	nl	De Donkere Middeleeuwen	Kluizenaar	Actie	Benodigd: Krankzinnige		
+125	nl	De Donkere Middeleeuwen	Marktplein	Actie Reactie			
+126	nl	De Donkere Middeleeuwen	Wijsgeer	Actie			
+127	nl	De Donkere Middeleeuwen	Berghok	Actie			
+128	nl	De Donkere Middeleeuwen	Straatjongen	Actie Aanval	Benodigd: Huurling		
+129	nl	De Donkere Middeleeuwen	Wapenkamer	Actie			
+130	nl	De Donkere Middeleeuwen	Dodenkar	Actie Aanval	Benodigd: Ruïnes		
+131	nl	De Donkere Middeleeuwen	Feodum	Overwinning			
+132	nl	De Donkere Middeleeuwen	Vesting	Actie			
+133	nl	De Donkere Middeleeuwen	Metaalhandelaar	Actie Aanval			
+134	nl	De Donkere Middeleeuwen	Stroper	Actie Aanval Plunderaar	Benodigd: Buit, Ruïnes		
+135	nl	De Donkere Middeleeuwen	Optocht	Actie			
+136	nl	De Donkere Middeleeuwen	Ratten	Actie			
+137	nl	De Donkere Middeleeuwen	Ratten	Actie			
+138	nl	De Donkere Middeleeuwen	Reizende Minstreel	Actie			
+139	nl	De Donkere Middeleeuwen	Groep Mislukkelingen	Actie			
+140	nl	De Donkere Middeleeuwen	Bandietenkamp	Actie	Benodigd: Buit		
+141	nl	De Donkere Middeleeuwen	Gewelven	Actie			
+142	nl	De Donkere Middeleeuwen	Graaf	Actie			
+143	nl	De Donkere Middeleeuwen	Vals Geld	Geld			
+144	nl	De Donkere Middeleeuwen	Cultist	Actie Aanval Plunderaar	Benodigd: Ruïnes		
+145	nl	De Donkere Middeleeuwen	Grafrover	Actie			
+146	nl	De Donkere Middeleeuwen	Opkoper	Actie			
+147	nl	De Donkere Middeleeuwen	Ridders	Actie Aanval Ridder			
+148	nl	De Donkere Middeleeuwen	Toverfeeks	Actie			
+149	nl	De Donkere Middeleeuwen	Plundering	Actie Aanval	Benodigd: Buit		
+150	nl	De Donkere Middeleeuwen	Wederopbouw	Actie			
+151	nl	De Donkere Middeleeuwen	Schurk	Actie			
+152	nl	De Donkere Middeleeuwen	Altaar	Actie			
+153	nl	De Donkere Middeleeuwen	Jachtvelden	Actie			
+154	nl	Overvloed	Gehucht	Actie			
+155	nl	Overvloed	Waarzegster	Actie Aanval			
+156	nl	Overvloed	Menagerie	Actie			
+157	nl	Overvloed	Boerendorp	Actie			
+158	nl	Overvloed	Paardenhandelaars	Actie Reactie			
+159	nl	Overvloed	Nieuwe Versie	Actie			
+160	nl	Overvloed	Toernooi	Actie	Benodigd: Prijskaarten, Vloek		
+161	nl	Overvloed	Jonge Heks	Actie Aanval	Benodigd: Vloek		
+162	nl	Overvloed	Oogst	Actie			
+163	nl	Overvloed	Hoorn des Overvloeds	Geld			
+164	nl	Overvloed	Jachtgezelschap	Actie			
+165	nl	Overvloed	Nar	Actie Aanval	Benodigd: Vloek		
+166	nl	Overvloed	Kermisterrein	Overwinning			
+167	nl	De Gilden	Kandelaarmaker	Actie	Benodigd: Muntenfiche		
+168	nl	De Gilden	Steenhouwer	Actie		Overbetaal functionaliteit	
+169	nl	De Gilden	Arts	Actie		Overbetaal functionaliteit	
+170	nl	De Gilden	Meesterwerk	Geld		Overbetaal functionaliteit	
+171	nl	De Gilden	Adviseur	Actie			
+172	nl	De Gilden	Plaza	Actie	Benodigd: Muntenfiche		
+173	nl	De Gilden	Belastinginner	Actie Aanval			
+174	nl	De Gilden	Heraut	Actie		Overbetaal functionaliteit	
+175	nl	De Gilden	Bakker	Actie	Benodigd: Muntenfiche		
+176	nl	De Gilden	Slager	Actie	Benodigd: Muntenfiche		
+177	nl	De Gilden	Gezel	Actie			
+178	nl	De Gilden	Koopmansgilde	Actie	Benodigd: Muntenfiche		
+179	nl	De Gilden	Helderziende	Actie Aanval	Benodigd: Vloek		
+180	nl	Het Achterland	Splitsing	Actie			
+181	nl	Het Achterland	Hertogin	Actie			
+182	nl	Het Achterland	Klatergoud	Geld Reactie			
+183	nl	Het Achterland	Ontwikkelen	Actie			
+184	nl	Het Achterland	Oase	Actie			
+185	nl	Het Achterland	Orakel	Actie Aanval			
+186	nl	Het Achterland	Gekonkel	Actie			
+187	nl	Het Achterland	Tunnel	Overwinning Reactie			
+188	nl	Het Achterland	Manusje-van-Alles	Actie			
+189	nl	Het Achterland	Nobele Bandiet	Actie Aanval			
+190	nl	Het Achterland	Nomadenkamp	Actie			
+191	nl	Het Achterland	Zijderoute	Overwinning			
+192	nl	Het Achterland	Specerijenkoopman	Actie			
+193	nl	Het Achterland	Handelaar	Actie Reactie			
+194	nl	Het Achterland	Bewaarplaats	Geld			
+195	nl	Het Achterland	Cartograaf	Actie			
+196	nl	Het Achterland	Ambassade	Actie			
+197	nl	Het Achterland	Sjacheraar	Actie			
+198	nl	Het Achterland	Hoofdweg	Actie			
+199	nl	Het Achterland	Gestolen Goed	Geld	Benodigd: Vloek		
+200	nl	Het Achterland	Herberg	Actie			
+201	nl	Het Achterland	Mandarijn	Actie			
+202	nl	Het Achterland	Mandarijn	Actie Aanval			
+203	nl	Het Achterland	Stallen	Actie			
+204	nl	Het Achterland	Grensdorp	Actie			
+205	nl	Het Achterland	Landbouwgrond	Overwinning			
+206	nl	Prins	Prins	Actie		Kies een actiekaart die maximaal 4 kost. Je speelt deze kaart zonder kosten aan het begin van elke beurt. Leg de Prins aan de kant.	

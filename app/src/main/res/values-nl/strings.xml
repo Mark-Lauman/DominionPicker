@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dominion Picker</string>
+
+    <string name="menu_open">Open Menu</string>
+    <string name="menu_close">Sluit Menu</string>
+
+    <string name="picker">Selecteer</string>
+
+    <string name="picks">Jouw Selecties!</string>
+    <string name="toggle_all">Selectie omdraaien</string>
+    <string name="submit">Dien in</string>
+    <string name="more">Selecteer meer kaarten! (%1$s)</string>
+    <string name="more_k">Selecteer meer Koninkrijkkaarten! (%1$s)</string>
+    <string name="yw_no_bane">Jonge Heks - Geen bankaart!</string>
+    <string name="all_filtered">Geen enkele kaart/uitgave geselecteerd.</string>
+    
+    <string name="set">Uitgave</string>
+    <string name="potion">Toverdrank</string>
+
+    <string name="history">Geschiedenis</string>
+    <string name="hist_samples">Aanbevolen sets</string>
+    <string name="favorites">Favorieten</string>
+    <string name="no_hist">Jouw Selecties worden hier opgeslagen.</string>
+
+    <string name="change_fav">Verander Favoriet</string>
+    <string name="name_me">Ik wil een naam!</string>
+    <string name="save">Opslaan</string>
+
+    <string name="supply_colonies">Gebruik Kolonie &amp; Platina kaarten</string>
+    <string name="supply_shelters">Gebruik Onderdak kaarten</string>
+    <string name="young_witch_bane">Jonge Heks - Bankaart</string>
+    
+    <string name="market_title">@string/set_black_market</string>
+    <string name="market_begin">New market created from the picker</string>
+    <string name="market_draw">Draw</string>
+    <string name="market_pass">Pass</string>
+    <string name="market_sold_out">Sold Out!</string>
+
+    <plurals name="hist_card">
+        <item quantity="one">%d Kaart</item>
+        <item quantity="other">%d Kaarten</item>
+    </plurals>
+    <string name="hist_plat">Platina</string>
+    <string name="hist_shelter">Onderdak</string>
+</resources>

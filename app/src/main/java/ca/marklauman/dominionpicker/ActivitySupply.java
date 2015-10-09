@@ -170,7 +170,7 @@ public class ActivitySupply extends AppCompatActivity {
 
             // Save the wipe to the database
             ContentValues values = new ContentValues();
-            values.putNull(SupplyDb._ID);
+            values.putNull(SupplyDb._NAME);
             getContentResolver().update(Provider.URI_HIST, values,
                                         SupplyDb._ID + "=?",
                                         new String[]{"" + supply.time});

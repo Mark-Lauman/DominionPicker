@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="options">Opties</string>
+
+    <string name="filt_lang">Taal van de kaarten</string>
+    <string name="filt_lang_desc">Kies de taal van elke uitgave.</string>
+    <string name="system_default">Standaard</string>
+
+</resources>

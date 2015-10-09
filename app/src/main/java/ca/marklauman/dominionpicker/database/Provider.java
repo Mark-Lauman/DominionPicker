@@ -7,6 +7,7 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 
 import java.io.File;
 
@@ -72,9 +73,12 @@ public class Provider extends ContentProvider {
 
         // Remove old database files.
         Context c = getContext();
-        File[] dbListing = c.getDatabasePath(CardDb.FILE_NAME)
-                            .getParentFile()
-                            .listFiles();
+        File[] dbListing = null;
+        if(c != null)
+            dbListing = c.getDatabasePath(CardDb.FILE_NAME)
+                         .getParentFile()
+                         .listFiles();
+
         String name;
         if(dbListing != null) {
             for (File db : dbListing) {
@@ -95,7 +99,7 @@ public class Provider extends ContentProvider {
 
 
 	@Override
-	public String getType(Uri uri) {
+	public String getType(@NonNull Uri uri) {
         switch (matcher.match(uri)) {
             case ID_CARD_DATA:
             case ID_CARD_TRANS:
@@ -107,7 +111,7 @@ public class Provider extends ContentProvider {
 	}
 
 	@Override
-	public Cursor query(Uri uri, String[] projection,
+	public Cursor query(@NonNull Uri uri, String[] projection,
 				String selection, String[] selectionArgs,
 				String sortOrder) {
         SQLiteDatabase db;
@@ -136,13 +140,15 @@ public class Provider extends ContentProvider {
                 break;
             default: return null;
         }
-        res.setNotificationUri(getContext().getContentResolver(), uri);
+        Context c = getContext();
+        if(c == null) return res;
+        res.setNotificationUri(c.getContentResolver(), uri);
         return res;
 	}
 
 	
 	@Override
-	public Uri insert(Uri uri, ContentValues values) {
+	public Uri insert(@NonNull Uri uri, ContentValues values) {
         switch(matcher.match(uri)) {
             case ID_HIST:
                 long row;
@@ -165,7 +171,7 @@ public class Provider extends ContentProvider {
 
 
 	@Override
-	public int update(Uri uri, ContentValues values,
+	public int update(@NonNull Uri uri, ContentValues values,
                       String selection, String[] selectionArgs) {
         switch(matcher.match(uri)) {
             case ID_HIST:
@@ -179,7 +185,7 @@ public class Provider extends ContentProvider {
 	}
 	
 	@Override
-	public int delete(Uri uri, String selection, String[] selectionArgs) {
+	public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
         switch (matcher.match(uri)) {
             case ID_HIST:
                 int change = data_db.getReadableDatabase()
@@ -193,7 +199,9 @@ public class Provider extends ContentProvider {
 
     /** Notify all listening processes that the data at the uri has changed */
     private void notifyChange(Uri uri) {
-        getContext().getContentResolver()
-                    .notifyChange(uri, null);
+        Context c = getContext();
+        if(c == null) return;
+        c.getContentResolver()
+         .notifyChange(uri, null);
     }
 }
