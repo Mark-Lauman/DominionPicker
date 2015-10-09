@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="filters">Filters</string>
+    <string name="filter_all">Reject All</string>
+
+    <string name="filter_set">Card Sets</string>
+
+    <string name="filter_cost">Card Costs</string>
+
+    <string name="filter_curse">Cursers</string>
+    <string name="filter_curse_desc">Take Victory Points from other players!</string>
+    
+</resources>

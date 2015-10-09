@@ -43,7 +43,7 @@ public class DataDb extends SQLiteOpenHelper {
 
 
     public DataDb(Context c) {
-        super(c, FILE_NAME, null, c.getResources().getInteger(R.integer.db_version));
+        super(c, FILE_NAME, null, c.getResources().getInteger(R.integer.db_ver_data));
     }
 
 

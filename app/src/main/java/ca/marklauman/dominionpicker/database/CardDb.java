@@ -117,7 +117,8 @@ public class CardDb extends SQLiteAssetHelper {
     public static final int SET_DARK_AGES = 4;
 
     public CardDb(Context c) {
-        super(c, FILE_NAME, null, c.getResources().getInteger(R.integer.db_version));
+        super(c, FILE_NAME, null, c.getResources().getInteger(R.integer.db_ver_card));
+        setForcedUpgrade(c.getResources().getInteger(R.integer.db_ver_card));
     }
 
     /** Perform an sql query on this database */

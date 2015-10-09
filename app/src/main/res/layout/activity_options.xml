@@ -12,7 +12,7 @@
     <ca.marklauman.tools.preferences.IntentPreference
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeight"
-        app:image="@drawable/ic_pref_language"
+        app:image="@drawable/ic_core_language"
         app:name="@string/filt_lang"
         app:summary="@string/filt_lang_desc"
         android:background="?attr/selectableItemBackground"

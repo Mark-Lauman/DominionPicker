@@ -1,0 +1,10 @@
+Start your game of Dominion with this handy shuffler.
+&#8226; Includes all known cards as of April 2015 (Base, Adventures, Alchemy, Cornucopia, Dark Ages, Guilds, Hinterlands, Intrigue, Prosperity, Seaside and Promo sets).
+&#8226; Shuffles cards you choose to determine your supply.
+&#8226; Recommends if you should play with Platinum, Colonies or Shelters.
+&#8226; Includes a Black Market shuffler, for use with that promo card.
+&#8226; Remembers your shuffles and favourite games.
+&#8226; Ad free
+&#8226; Open source. Help the developer improve the app on the GitHub page!<br/>
+<b>This app is a work in progress. Please help improve it - post reviews!</b><br/>
+This app was not developed with either the knowledge or blessing or Rio Grande Games. If they request it to be removed, it shall be removed.

@@ -39,7 +39,8 @@ public class SupplyDb extends SQLiteAssetHelper {
     public static final String _BANE = "bane";
 
     public SupplyDb(Context c) {
-        super(c, FILE_NAME, null, c.getResources().getInteger(R.integer.db_version));
+        super(c, FILE_NAME, null, c.getResources().getInteger(R.integer.db_ver_supply));
+        setForcedUpgrade(c.getResources().getInteger(R.integer.db_ver_supply));
     }
 
     Cursor query(String[] projection, String selection, String[] selectionArgs, String sortOrder) {

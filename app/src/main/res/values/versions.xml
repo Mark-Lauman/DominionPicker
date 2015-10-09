@@ -2,6 +2,11 @@
 <resources>
     <!-- Current version of preferences -->
     <integer name="pref_version">4</integer>
-    <!-- Current version of the database. -->
-    <integer name="db_version">11</integer>
+
+    <!-- card.db version -->
+    <integer name="db_ver_card">11</integer>
+    <!-- supply.db version -->
+    <integer name="db_ver_supply">11</integer>
+    <!-- data.db version -->
+    <integer name="db_ver_data">11</integer>
 </resources>
