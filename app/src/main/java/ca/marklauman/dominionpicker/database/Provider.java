@@ -11,18 +11,20 @@ import android.support.annotation.NonNull;
 
 import java.io.File;
 
+import ca.marklauman.dominionpicker.BuildConfig;
+
 /** This content provider is where all database queries in this app end up.
  *  @author Mark Lauman */
 @SuppressWarnings("WeakerAccess")
 public class Provider extends ContentProvider {
 
     /** The authority this provider operates over */
-    public static final String AUTHORITY = "ca.marklauman.dominionpicker";
+    public static final String AUTHORITY = BuildConfig.APPLICATION_ID;
 
     /** MIME type for cards. */
-    public static final String MIME_CARD = "ca.marklauman.dominionpicker.card";
+    public static final String MIME_CARD = AUTHORITY+".card";
     /** Mime type for supplies. */
-    public static final String MIME_SUPPLY = "ca.marklauman.dominionpicker.supply";
+    public static final String MIME_SUPPLY = AUTHORITY+".supply";
     /** Mime type for translated supplies. */
     public static final String MIME_SUPPLY_TRANS = MIME_SUPPLY +".trans";
 
@@ -40,15 +42,15 @@ public class Provider extends ContentProvider {
     private static final int ID_HIST = 5;
 
     /** URI to access the card data table */
-    public static final Uri URI_CARD_DATA = Uri.parse("content://ca.marklauman.dominionpicker/cardData");
+    public static final Uri URI_CARD_DATA = Uri.parse("content://"+AUTHORITY+"/cardData");
     /** URI to access the card trans table */
-    public static final Uri URI_CARD_TRANS = Uri.parse("content://ca.marklauman.dominionpicker/cardTrans");
+    public static final Uri URI_CARD_TRANS = Uri.parse("content://"+AUTHORITY+"/cardTrans");
     /** URI to access the combination of all card tables */
-    public static final Uri URI_CARD_ALL = Uri.parse("content://ca.marklauman.dominionpicker/cardAll");
+    public static final Uri URI_CARD_ALL = Uri.parse("content://"+AUTHORITY+"/cardAll");
     /** URI to access the sample supply table */
-    public static final Uri URI_SUPPLY = Uri.parse("content://ca.marklauman.dominionpicker/supply");
+    public static final Uri URI_SUPPLY = Uri.parse("content://"+AUTHORITY+"/supply");
     /** URI to access the history table */
-    public static final Uri URI_HIST = Uri.parse("content://ca.marklauman.dominionpicker/history");
+    public static final Uri URI_HIST = Uri.parse("content://"+AUTHORITY+"/history");
 
     /** Used to match URIs to tables. */
     UriMatcher matcher;
@@ -69,7 +71,6 @@ public class Provider extends ContentProvider {
         matcher.addURI(AUTHORITY, "cardAll", ID_CARD_ALL);
         matcher.addURI(AUTHORITY, "supply", ID_SUPPLY);
         matcher.addURI(AUTHORITY, "history", ID_HIST);
-
 
         // Remove old database files.
         Context c = getContext();

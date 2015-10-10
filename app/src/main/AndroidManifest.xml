@@ -38,7 +38,7 @@
         <activity android:name="ca.marklauman.tools.SingleItemSelector" />
         
         <provider android:name=".database.Provider"
-            android:authorities="ca.marklauman.dominionpicker"
+            android:authorities="${applicationId}"
             android:enabled="true"
             android:exported="false" />
             
