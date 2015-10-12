@@ -132,7 +132,7 @@ _id	language	set_name	name	type	requires	description	details
 134	nl	De Donkere Middeleeuwen	Stroper	Actie Aanval Plunderaar	Benodigd: Buit, Ruïnes		
 135	nl	De Donkere Middeleeuwen	Optocht	Actie			
 136	nl	De Donkere Middeleeuwen	Ratten	Actie			
-137	nl	De Donkere Middeleeuwen	Ratten	Actie			
+137	nl	De Donkere Middeleeuwen	Scharrelaar	Actie			
 138	nl	De Donkere Middeleeuwen	Reizende Minstreel	Actie			
 139	nl	De Donkere Middeleeuwen	Groep Mislukkelingen	Actie			
 140	nl	De Donkere Middeleeuwen	Bandietenkamp	Actie	Benodigd: Buit		
@@ -202,3 +202,53 @@ _id	language	set_name	name	type	requires	description	details
 204	nl	Het Achterland	Grensdorp	Actie			
 205	nl	Het Achterland	Landbouwgrond	Overwinning			
 206	nl	Prins	Prins	Actie		Kies een actiekaart die maximaal 4 kost. Je speelt deze kaart zonder kosten aan het begin van elke beurt. Leg de Prins aan de kant.	
+207	nl	Avonturen	Koninklijke Munt	Geld Reserve			
+208	nl	Avonturen	Ridderset	Actie Reiziger	Benodigd: Opwaarderingen		
+209	nl	Avonturen	Volksset	Actie Reiziger	Benodigd: Opwaarderingen, alle +1 Fiches		
+210	nl	Avonturen	Rattenvanger	Actie Reserve			
+211	nl	Avonturen	Afbraak	Actie			
+212	nl	Avonturen	Amulet	Actie Duurzaam		Kies één van drie opties.	
+213	nl	Avonturen	Karavaanescorte	Actie Duurzaam Reactie			
+214	nl	Avonturen	Kerker	Actie Duurzaam			
+215	nl	Avonturen	Uitrusting	Actie Duurzaam			
+216	nl	Avonturen	Gids	Actie Reserve			
+217	nl	Avonturen	Duplicaat	Actie Reserve			
+218	nl	Avonturen	Ekster	Actie			
+219	nl	Avonturen	Koerier	Actie			
+220	nl	Avonturen	Vrek	Actie			
+221	nl	Avonturen	Zeehaven	Actie			
+222	nl	Avonturen	Woudloper	Actie	Benodigd: Reisfiche		
+223	nl	Avonturen	Metamorfose	Actie Reserve			
+224	nl	Avonturen	Kanonnengieter	Actie			
+225	nl	Avonturen	Brugtrol	Actie Aanval Duurzaam	Benodigd: -1 Munt Fiche		
+226	nl	Avonturen	Verre Landen	Actie Reserve Overwinning			
+227	nl	Avonturen	Reus	Actie Aanval	Benodigd: Reisfiche, Vloek		
+228	nl	Avonturen	Spookbos	Actie Aanval Duurzaam			
+229	nl	Avonturen	Verloren Stad	Actie			
+230	nl	Avonturen	Relikwie	Geld Aanval	Benodigd: -1 Munt Fiche		
+231	nl	Avonturen	Koninklijke Koets	Actie Reserve			
+232	nl	Avonturen	Verteller	Actie			
+233	nl	Avonturen	Heks Uit Het Moeras	Actie Aanval Duurzaam	Benodigd: Vloek		
+234	nl	Avonturen	Verborgen Schat	Geld			
+235	nl	Avonturen	Wijnhandelaar	Actie Reserve			
+236	nl	Avonturen	Huursoldaat	Actie Duurzaam		Deze kaart blijft in het spel	
+237	nl	Avonturen	Aalmoes	Gebeurtenis			
+238	nl	Avonturen	Lenen	Gebeurtenis	Benodigd: -1 Munt Fiche		
+239	nl	Avonturen	Queste	Gebeurtenis		Leg af voor goud	
+240	nl	Avonturen	Sparen	Gebeurtenis			
+241	nl	Avonturen	Verkennerseenheid	Gebeurtenis			
+242	nl	Avonturen	Kermis	Gebeurtenis			
+243	nl	Avonturen	Vreugdevuur	Gebeurtenis		Vernietig 2 kaarten	
+244	nl	Avonturen	Expeditie	Gebeurtenis		Trek 2 kaarten extra in je volgende beurt	
+245	nl	Avonturen	Veerboot	Gebeurtenis	Benodigd: -2 Kosten Fiche		
+246	nl	Avonturen	Plan	Gebeurtenis	Benodigd: Vernietigingfiche		
+247	nl	Avonturen	Missie	Gebeurtenis			
+248	nl	Avonturen	Bedevaart	Gebeurtenis	Benodigd: Reisfiche		
+249	nl	Avonturen	Bal	Gebeurtenis	Benodigd: -1 Munt Fiche		
+250	nl	Avonturen	Overval	Gebeurtenis	Benodigd: -1 Munt Fiche		
+251	nl	Avonturen	Zeeroute	Gebeurtenis	Benodigd: +1 Aanschaf Fiche		
+252	nl	Avonturen	Handel	Gebeurtenis		Vernietig voor zilver	
+253	nl	Avonturen	Verloren Kunst	Gebeurtenis	Benodigd: +1 Actie Fiche		
+254	nl	Avonturen	Training	Gebeurtenis	Benodigd: +1 Munt Fiche		
+255	nl	Avonturen	Erfenis	Gebeurtenis	Benodigd: Estate Token		
+256	nl	Avonturen	Woudlopen	Gebeurtenis	Benodigd: +1 Kaart Fiche		

@@ -9,11 +9,11 @@
 
     <string name="picks">Jouw Selecties!</string>
     <string name="toggle_all">Selectie omdraaien</string>
-    <string name="submit">Dien in</string>
+    <string name="submit">Kies</string>
     <string name="more">Selecteer meer kaarten! (%1$s)</string>
     <string name="more_k">Selecteer meer Koninkrijkkaarten! (%1$s)</string>
     <string name="yw_no_bane">Jonge Heks - Geen bankaart!</string>
-    <string name="all_filtered">Geen enkele kaart/uitgave geselecteerd.</string>
+    <string name="all_filtered">Geen selectie mogelijk.</string>
     
     <string name="set">Uitgave</string>
     <string name="potion">Toverdrank</string>
@@ -32,10 +32,10 @@
     <string name="young_witch_bane">Jonge Heks - Bankaart</string>
     
     <string name="market_title">@string/set_black_market</string>
-    <string name="market_begin">New market created from the picker</string>
-    <string name="market_draw">Draw</string>
-    <string name="market_pass">Pass</string>
-    <string name="market_sold_out">Sold Out!</string>
+    <string name="market_begin">Nieuwe markt gecreëerd.</string>
+    <string name="market_draw">Trek</string>
+    <string name="market_pass">Pas</string>
+    <string name="market_sold_out">Uitverkocht!</string>
 
     <plurals name="hist_card">
         <item quantity="one">%d Kaart</item>

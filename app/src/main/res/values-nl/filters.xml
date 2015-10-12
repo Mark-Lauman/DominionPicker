@@ -6,6 +6,7 @@
     <string name="filter_set">Uitgaven</string>
     <string-array name="filter_set">
         <item>@string/set_base</item>
+        <item>@string/set_adventures</item>
         <item>@string/set_alchemy</item>
         <item>@string/set_dark_ages</item>
         <item>@string/set_guilds</item>
@@ -17,13 +18,13 @@
         <item>@string/set_stash</item>
         <item>@string/set_envoy</item>
         <item>@string/set_prince</item>
-        <item>@string/set_adventures</item>
         <item>@string/set_black_market</item>
         <item>@string/set_governor</item>
         <item>@string/set_walled_village</item>
     </string-array>
     <integer-array name="filter_set_ids">
         <item>0</item>
+        <item>15</item>
         <item>1</item>
         <item>4</item>
         <item>7</item>
@@ -35,7 +36,6 @@
         <item>13</item>
         <item>5</item>
         <item>10</item>
-        <item>15</item>
         <item>2</item>
         <item>6</item>
         <item>14</item>

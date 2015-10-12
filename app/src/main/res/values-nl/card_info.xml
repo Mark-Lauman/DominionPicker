@@ -13,6 +13,7 @@
     <string name="set_prosperity">Welvaart</string>
     <string name="set_seaside">Hijs de Zeilen</string>
     <string name="set_stash">Geldbuidel</string>
+    <string name="set_adventures">Avonturen</string>
 
     <!-- Default translation to use for each set. Sorted by set id. -->
     <string-array name="def_trans">
@@ -31,7 +32,7 @@
         <item>nl</item>
         <item>nl</item>
         <item>en</item>
-        <item>en</item>
+        <item>nl</item>
     </string-array>
 
 </resources>
