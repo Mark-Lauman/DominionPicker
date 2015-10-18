@@ -91,7 +91,7 @@ _id	language	set_name	name	type	requires	description	details
 93	nl	Hijs de Zeilen	Embargo	Actie	Benodigd: Embargofiche, Vloek		
 94	nl	Hijs de Zeilen	Haven	Actie Duurzaam			
 95	nl	Hijs de Zeilen	Vuurtoren	Actie Duurzaam			
-96	nl	Hijs de Zeilen	Inheems Dorp	Actie			
+96	nl	Hijs de Zeilen	Inheems Dorp	Actie	Benodigd: Inheems Dorp tableau		
 97	nl	Hijs de Zeilen	Parelduiker	Actie			
 98	nl	Hijs de Zeilen	Boodschapper	Actie Aanval			
 99	nl	Hijs de Zeilen	Vissersdorp	Actie Duurzaam			

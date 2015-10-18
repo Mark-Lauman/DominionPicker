@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+	<!-- Names of the expansions. -->
     <string name="set_base">Basisspel</string>
     <string name="set_alchemy">De Alchemisten</string>
     <string name="set_cornucopia">Overvloed</string>

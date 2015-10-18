@@ -94,7 +94,7 @@ _id	language	set_name	name	type	requires	description	details
 93	de	Seaside	Embargo	Aktion	Benötigt: Embargomarker, Fluch		
 94	de	Seaside	Hafen	Aktion Dauer			
 95	de	Seaside	Leuchtturm	Aktion Dauer			
-96	de	Seaside	Eingeborenendorf	Aktion			
+96	de	Seaside	Eingeborenendorf	Aktion	Benötigt: Tableau Eingeborenendorf		
 97	de	Seaside	Perlentaucher	Aktion			
 98	de	Seaside	Botschafter	Aktion Angriff			
 99	de	Seaside	Fischerdorf	Aktion Dauer			

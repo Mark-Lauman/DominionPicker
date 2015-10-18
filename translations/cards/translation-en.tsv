@@ -94,7 +94,7 @@ _id	language	set_name	name	type	requires	description	details
 93	en	Seaside	Embargo	Action	Requires: Embargo Token, Curse		
 94	en	Seaside	Haven	Action Duration			
 95	en	Seaside	Lighthouse	Action Duration			
-96	en	Seaside	Native Village	Action			
+96	en	Seaside	Native Village	Action	Requires: Native Village Mat		
 97	en	Seaside	Pearl Diver	Action			
 98	en	Seaside	Ambassador	Action Attack			
 99	en	Seaside	Fishing Village	Action Duration			

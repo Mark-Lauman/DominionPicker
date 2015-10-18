@@ -91,7 +91,7 @@ _id	language	set_name	name	type	requires	description	details
 93	it	Seaside	Embargo	Azione	Richiede: Segnalini Embargo, Maledizione		
 94	it	Seaside	Rada	Azione Durata			
 95	it	Seaside	Faro	Azione Durata			
-96	it	Seaside	Villaggio Indigeno	Azione			
+96	it	Seaside	Villaggio Indigeno	Azione	Richiede: Tassello Villaggio Indigeno		
 97	it	Seaside	Pescatore di Perle	Azione			
 98	it	Seaside	Ambasciatore	Azione Attacco			
 99	it	Seaside	Villaggio di Pescatori	Azione Durata			

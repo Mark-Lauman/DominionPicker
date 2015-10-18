@@ -3,7 +3,7 @@
     <string name="filters">Filters</string>
     <string name="filter_all">Allemaal afgewezen</string>
 
-    <string name="filter_set">Uitgaven</string>
+    <string name="filter_set">Edities</string>
     <string-array name="filter_set">
         <item>@string/set_base</item>
         <item>@string/set_adventures</item>
@@ -41,9 +41,9 @@
         <item>14</item>
     </integer-array>
 
-    <string name="filter_cost">Kaard kosten</string>
+    <string name="filter_cost">Kaart kosten</string>
 
     <string name="filter_curse">Vloeken</string>
-    <string name="filter_curse_desc">Verminder het aantal Overwinningspunten vanandere spelers!</string>
+    <string name="filter_curse_desc">Verminder het aantal Overwinningspunten van andere spelers!</string>
 
 </resources>
