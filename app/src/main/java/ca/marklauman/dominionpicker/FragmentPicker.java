@@ -21,6 +21,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
+import ca.marklauman.dominionpicker.cardlist.AdapterSelCards;
 import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
@@ -36,7 +37,7 @@ public class FragmentPicker extends Fragment
     /** The view associated with the card list. */
     private ListView card_list;
     /** The adapter for the card list. */
-    private AdapterCards adapter = null;
+    private AdapterSelCards adapter = null;
     /** The view associated with an empty list */
     private View empty;
     /** The view associated with a loading list */
@@ -139,7 +140,7 @@ public class FragmentPicker extends Fragment
         // Basic setup
         CursorLoader c = new CursorLoader(getActivity());
         c.setUri(Provider.URI_CARD_ALL);
-        c.setProjection(AdapterCards.COLS_USED);
+        c.setProjection(AdapterSelCards.COLS_USED);
         c.setSortOrder(App.sortOrder);
         String sel = "";
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -199,15 +200,14 @@ public class FragmentPicker extends Fragment
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        adapter = new AdapterCards(getActivity(), false);
-        adapter.setChoiceMode(AdapterCards.CHOICE_MODE_MULTIPLE);
+        adapter = new AdapterSelCards(getActivity());
         adapter.changeCursor(data);
 
         // Load and apply the last selections (if any)
         // Default to all selected if there are no selections.
         Long[] selections = loadSelections(getActivity());
         if(selections != null)
-            adapter.setSelected(selections);
+            adapter.setSelections(selections);
         else adapter.selectAll();
 
         // display the loaded data
@@ -244,7 +244,7 @@ public class FragmentPicker extends Fragment
      *  Automatically triggered when this fragment is stopped. */
     public void saveSelections(Context c) {
         if(c == null || adapter == null) return;
-        long[] selections = adapter.getSelectedVerify();
+        Long[] selections = adapter.getSelections();
         StringBuilder str = new StringBuilder();
         for (long selection : selections)
             str.append(selection).append(",");

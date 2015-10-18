@@ -20,8 +20,6 @@ public class SupplyDb extends SQLiteAssetHelper {
     public static final String _ID = BaseColumns._ID;
     /** The name of the supply. */
     public static final String _NAME = "name";
-    /** What language the supply name is in. */
-    public static final String _LANG = App.COL_LANG;
     /** The set that this supply came from. */
     public static final String _SET_ID = App.COL_SET_ID;
     /** The name of the set this supply comes from. */

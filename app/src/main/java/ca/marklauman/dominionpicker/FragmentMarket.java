@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 
+import ca.marklauman.dominionpicker.cardlist.AdapterColorCards;
 import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
@@ -52,7 +53,7 @@ public class FragmentMarket extends Fragment
     /** The currently visible panel in {@link #vPanels} */
     private int activePanel;
     /** Adapter used to display the list of cards. */
-    private AdapterCards adapter;
+    private AdapterColorCards adapter;
 
     /** Stores the stock of the market. (in drawing order) If null, the stock is being retrieved.
      *  If empty then no stock is left. */
@@ -87,7 +88,7 @@ public class FragmentMarket extends Fragment
 
         // Setup card list and its adapter
         ListView card_list = (ListView) view.findViewById(R.id.card_list);
-        adapter = new AdapterCards(getActivity(), false);
+        adapter = new AdapterColorCards(getActivity());
         card_list.setAdapter(adapter);
         card_list.setOnItemClickListener(this);
 
@@ -239,7 +240,7 @@ public class FragmentMarket extends Fragment
 
             case LoaderId.MARKET_SHOW:
                 c.setUri(Provider.URI_CARD_ALL);
-                c.setProjection(AdapterCards.COLS_USED);
+                c.setProjection(AdapterColorCards.COLS_USED);
                 c.setSortOrder(App.sortOrder);
                 transId = App.transId;
 

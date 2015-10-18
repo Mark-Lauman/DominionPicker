@@ -8,4 +8,15 @@
     <color name="list_div">@color/colorPrimary</color>
     <color name="list_div_txt">#99333333</color>
     <color name="back_grey">#EEEEEE</color>
+
+    <color name="type_act">#EFECDD</color>
+    <color name="type_react">#7FABDC</color>
+    <color name="type_curse">#AD76B7</color>
+    <color name="type_treasure">#FCDE62</color>
+    <color name="type_victory">#8ED15D</color>
+    <color name="type_dur">#EE9F50</color>
+    <color name="type_ruins">#895A30</color>
+    <color name="type_reserve">#C5A050</color>
+    <color name="type_event">#BCBAC5</color>
+
 </resources>
