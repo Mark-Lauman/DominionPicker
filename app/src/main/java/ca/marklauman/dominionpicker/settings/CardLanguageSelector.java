@@ -164,7 +164,6 @@ public class CardLanguageSelector extends AppCompatActivity
 
         // Activate the adapter
         list.setAdapter(adapter);
-        data.close();
     }
 
 
