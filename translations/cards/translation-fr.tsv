@@ -1,0 +1,51 @@
+_id	language	set_name	name	type	requires	description	details
+6	fr	Base	Cave	Action		Défaussez autant de cartes que vous voulez. +1 Carte par carte défaussée.	
+7	fr	Base	Chapelle	Action		Écartez jusqu'à 4 cartes de votre main.	
+8	fr	Base	Douves	Action Réaction		Lorsqu'un adversaire joue une carte Attaque, vous pouvez dévoiler cette carte de votre main. Dans ce cas, l'Attaque n'a pas d'effet sur vous.	
+9	fr	Base	Chancelier	Action		Vous pouvez immédiatement défausser votre deck.	
+10	fr	Base	Village	Action			
+11	fr	Base	Bûcheron	Action			
+12	fr	Base	Atelier	Action		Recevez une carte coûtant jusqu'à 4.	
+13	fr	Base	Bureaucrate	Action Attaque		Recevez 1 carte Argent ; placez-la sur votre deck. Tous vos adversaires dévoilent 1 carte Victoire et la placent sur leur deck (sinon ils dévoilent leur main afin que vous puissiez voir qu'ils n'ont pas de cartes Victoire).	
+14	fr	Base	Festin	Action		Écartez cette carte. Recevez une carte coûtant jusqu'à 5.	
+15	fr	Base	Jardins	Victoire		Vaut 1 point de victoire pour chaque 10 cartes dans votre deck (arrondi à l'unité inférieure).	
+16	fr	Base	Milice	Action Attaque		Tous vos adversaires défaussent leurs cartes de façon à n'avoir que 3 cartes en main.	
+17	fr	Base	Prêteur sur gages	Action		Écartez une carte Cuivre de votre main. Dans ce cas, +3.	
+18	fr	Base	Rénovation	Action		Écartez une carte de votre main. Recevez une carte coûtant jusqu'à 2 de plus que la carte écartée.	
+19	fr	Base	Forgeron	Action			
+20	fr	Base	Espion	Action Attaque		Tous les joueurs (vous aussi) dévoilent la première carte de leur deck. Vous décidez ensuite si chaque carte dévoilée est défaussée ou replacée sur son deck.	
+21	fr	Base	Voleur	Action Attaque		Tous vos adversaires dévoilent les 2 premières cartes de leur deck. S'ils dévoilent des cartes Trésor, ils en écartent 1 de votre choix. Parmi ces cartes Trésor écartées, recevez celles de votre choix. Les autres cartes déveoilées sont défaussées.	
+22	fr	Base	Salle du Trône	Action		Choisissez 1 carte Action de votre main. Jouez-la deux fois.	
+23	fr	Base	Chambre du conseil	Action		Tous vos adversaires piochent 1 carte.	
+24	fr	Base	Festival	Action			
+25	fr	Base	Laboratoire	Action			
+26	fr	Base	Bibliothèque	Action		Piochez jusqu'à ce que vous ayez 7 cartes en main. Chaque carte Action piochée peut être mise de côté. Défaussez les cartes mises de côté lorsque vous avez terminé de piocher.	
+27	fr	Base	Marché	Action			
+28	fr	Base	Mine	Action		Écartez une carte Trésor de votre main. Recevez une carte Trésor coûtant jusqu'à 3 de plus ; ajoutez cette carte à votre main.	
+29	fr	Base	Sorcière	Action Attaque	Nécessite: Malédiction	Tous vos adversaires reçoivent une carte Malédiction.	
+30	fr	Base	Aventurier	Action		Dévoilez des cartes de votre deck jusqu'à ce que 2 cartes Trésor soient dévoilées. Ajoutez ces cartes Trésor à votre main et défaussez les autres cartes dévoilées.	
+43	fr	Intrigue	Cour	Action		Placez une carte de votre main sur le dessus de votre deck.	
+44	fr	Intrigue	Pion	Action		Choisissez deux options différentes : +1 Carte ; +1 Action ; +1 Achat ; +1	
+45	fr	Intrigue	Chambre secrète	Action Réaction		Défaussez autant de cartes que vous voulez. +1 par carte défaussée. Lorsqu'un adversaire joue une carte Attaque, vous pouvez dévoiler cette carte de votre main. Dans ce cas, +2 Cartes et placez ensuite sur votre deck 2 cartes de votre main.	
+46	fr	Intrigue	Grand Hall	Action Victoire			
+47	fr	Intrigue	Mascarade	Action		Chaque joueur passe simultanément une carte de sa main au joueur à sa gauche. Vous pouvez ensuite écarter une carte de votre main.	
+48	fr	Intrigue	Taudis	Action		Dévoilez votre main. Si vous n'avez aucune carte Action en main, +2 Cartes.	
+49	fr	Intrigue	Intendant	Action		Choisissez : +2 Cartes OU +2 OU écartez 2 cartes de votre main.	
+50	fr	Intrigue	Escroc	Action Attaque		Tous vos adversaires écartent la carte du dessus de leur deck et reçoivent une carte du même coût que vous choisissez.	
+51	fr	Intrigue	Puits aux souhaits	Action		Nommez une carte. Dévoilez la première carte de votre deck. Si c'est la carte nommée, prenez-la dans votre main.	
+52	fr	Intrigue	Baron	Action		Vous pouvez défausser une carte Domaine. Dans ce cas, obtenez +4. Sinon, recevez une carte Domaine.	
+53	fr	Intrigue	Pont	Action		Toutes les cartes (incluant celles dans la main des joueurs) coûtent 1 de moins pour le reste de votre tour. Les cartes ne peuvent pas coûter moins de 0.	
+54	fr	Intrigue	Conspirateur	Action		Si vous avez joué 3 cartes Action ou plus ce tour-ci (en comptant cette carte) : +1 Carte, +1 Action.	
+55	fr	Intrigue	Chaudronnier	Action		Les cartes Cuivre donnent 1 de plus ce tour-ci.	
+56	fr	Intrigue	Fonderie	Action		Recevez une carte coûtant jusqu'à 4. Si celle-ci est... une carte Action : +1 Action… une carte Trésor : +1… une carte Victoire : +1 Carte	
+57	fr	Intrigue	Village minier	Action		Vous pouvez écarter immédiatement cette carte. Si vous l'écartez, +2.	
+58	fr	Intrigue	Éclaireur	Action		Dévoilez les 4 premières cartes de votre deck. Placez les cartes Victoire dévoilées dans notre main. Placez les autres cartes sur le dessus de votre deck dans l'ordre de votre choix.	
+59	fr	Intrigue	Duc	Victoire		Vaut 1 point de victoire pour chaque Duché dans votre deck.	
+60	fr	Intrigue	Larbin	Action Attaque		Choisissez : +2 OU défaussez votre main, +4 Cartes, et tous les autres joueurs qui ont au moins 5 cartes en main défaussent leur main et piochent 4 cartes.	
+61	fr	Intrigue	Saboteur	Action Attaque		Tous vos adversaires dévoilent des cartes de leur deck jusqu'à ce qu'ils en dévoilent une coûtant 3 ou plus. Ils écartent cette carte et peuvent recevoir une carte coûtant au plus 2 de moins. Ils défaussent les autres cartes dévoilées.	
+62	fr	Intrigue	Bourreau	Action Attaque	Nécessite: Malédiction	Chacun de vos adversaires choisit : défausser 2 cartes OU recevoir une carte Malédiction qui est ajoutée à sa main.	
+63	fr	Intrigue	Comptoir	Action		Écartez 2 cartes de votre main. Dans ce cas, recevez une carte Argent ; ajoutez cette carte à votre main.	
+64	fr	Intrigue	Hommage	Action		Le joueur à votre gauche dévoile et défausse les 2 premières cartes de son deck. Pour chaque carte dévoilée ayant un nom différent, recevez… pour une carte Action : +2 Actions… pour une carte Trésor : +2… pour une carte Victoire : +2 Cartes	
+65	fr	Intrigue	Mise à niveau	Action		Écartez une carte de votre main. Recevez une carte coûtant exactement 1 de plus.	
+66	fr	Intrigue	Harem	Trésor Victoire			
+67	fr	Intrigue	Nobles	Action Victoire		Choisissez : +3 Cartes OU +2 Actions.	

@@ -97,32 +97,29 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
 
         // Variables that must live through the try statement
         Supply supply = new Supply();
-        boolean done = false;
         Cursor c = null;
         ArrayList<Long> kingdom = new ArrayList<>(minKingdom);
         ArrayList<Long> events = new ArrayList<>(maxEvent);
+        // State of the Young Witch card. 0 = not loaded, 1 = loaded waiting for bane, 2 = in supply
+        int yWitchState = 0;
 
         // The rest of this process can throw errors. So it must be tried.
         try {
             // Load the available cards
-            c = shuffleCards(new String[]{CardDb._ID, CardDb._TYPE_EVENT, CardDb._SET_ID},
+            c = shuffleCards(new String[]{CardDb._ID, CardDb._TYPE_EVENT, CardDb._SET_ID, CardDb._COST},
                     sel, selArgs);
-            int _id = c.getColumnIndex(CardDb._ID);
-            int _event = c.getColumnIndex(CardDb._TYPE_EVENT);
-            int _set = c.getColumnIndex(CardDb._SET_ID);
+            final int _id = c.getColumnIndex(CardDb._ID);
+            final int _event = c.getColumnIndex(CardDb._TYPE_EVENT);
+            final int _set = c.getColumnIndex(CardDb._SET_ID);
+            final int _cost = c.getColumnIndex(CardDb._COST);
 
             // Variables used in the main shuffle loop
-            // The id of the loaded card
-            long id;
-            // True if that card is a kingdom card
-            boolean isKingdomCard;
-            // True if the young witch is in this supply
-            boolean youngWitch = false;
-            // True if we need a bane card right now
-            boolean needBane = false;
+            boolean done = false;   // If the shuffle is complete
+            long id;                // The id of the loaded card
+            String cost;            // The cost of the loaded card
             // random cards chosen for the high cost & shelters variables
-            int costCard = (int)(Math.random() * minKingdom)+1;
-            int shelterCard = (int)(Math.random() * minKingdom)+1;
+            final int costCard = (int)(Math.random() * minKingdom)+1;
+            final int shelterCard = (int)(Math.random() * minKingdom)+1;
 
             // Main Shuffle loop
             c.moveToPosition(-1);
@@ -132,39 +129,55 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
                     res.putExtra(MSG_RES, RES_CANCEL);
                     return sendMsg(res);
                 }
+
                 // Load the card
                 id = c.getLong(_id);
-                isKingdomCard = (0 == c.getInt(_event));
-                if(isKingdomCard) {
+
+                // If this is the young witch
+                if (id == CardDb.ID_YOUNG_WITCH) {
+                    // Add it to the supply if a bane is available
+                    if(supply.bane != -1) {
+                        kingdom.add(id);
+                        minKingdom++;
+                        yWitchState = 2;
+                    // Otherwise, wait for a bane to be picked
+                    } else yWitchState = 1;
+
+                // If this is a kingdom card
+                } else if(0 == c.getInt(_event)) {
                     kingdom.add(id);
+
+                    // Check if this could be a bane card
+                    cost = c.getString(_cost);
+                    if("2".equals(cost) || "3".equals(cost)) {
+                        // Make it our bane card
+                        // (if Young Witch isn't picked, this will be cleared later)
+                        supply.bane = id;
+                        // Add the young witch if it was waiting for a bane
+                        if(yWitchState == 1) {
+                            kingdom.add(CardDb.ID_YOUNG_WITCH);
+                            minKingdom++;
+                            yWitchState = 2;
+                        }
+                    }
                     // Determine if high cost game
                     if(kingdom.size() == costCard)
                         supply.high_cost = (c.getInt(_set) == CardDb.SET_PROSPERITY);
                     // Determine if shelters game
                     if(kingdom.size() == shelterCard)
                         supply.shelters = (c.getInt(_set) == CardDb.SET_DARK_AGES);
-                    // If we need a bane, this is our bane
-                    if(needBane) {
-                        supply.bane = id;
-                        needBane = false;
-                    }
-                    // If this is the young witch, we need a bane card.
-                    if(id == CardDb.ID_YOUNG_WITCH) {
-                        needBane = true;
-                        youngWitch = true;
-                        minKingdom++;
-                    }
+
                 // If this is an event, add it if it is needed.
                 } else if(events.size() < maxEvent) events.add(id);
-                // We are done if we don't need a bane and have our required kingdom cards.
-                done = !needBane && (minKingdom <= kingdom.size());
+                // We are done if we have enough kingdom cards
+                done = minKingdom <= kingdom.size();
             }
 
             // The shuffle is complete - but did it complete successfully?
             // If we aren't done, we ran out of cards.
             if(!done) {
-                // Couldn't find a valid bane card before the end.
-                if(needBane || (youngWitch && kingdom.size() == minKingdom-1)) {
+                // Couldn't find a valid bane card and that's all we needed.
+                if(yWitchState == 1 && minKingdom-1 == kingdom.size()) {
                     res.putExtra(MSG_RES, RES_NO_YW);
                     return sendMsg(res);
                 // We just don't have enough kingdom cards
@@ -176,17 +189,12 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
             }
 
         } catch (Exception ignored){
+            // The try should only fail if there are problems accessing the context objects.
+            res.putExtra(MSG_RES, RES_CANCEL);
+            return sendMsg(res);
         } finally {
             try{ if (c != null) c.close();
             } catch(Exception ignored){}
-        }
-
-        // If the shuffle loop failed, it was due to a resource being removed.
-        // Which means the main activity doesn't exist anymore.
-        // We can consider ourselves cancelled.
-        if(!done) {
-            res.putExtra(MSG_RES, RES_CANCEL);
-            return sendMsg(res);
         }
 
         // The shuffle was a success. Gather all the cards.
@@ -196,6 +204,9 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
         for(int i=0; i<events.size(); i++)
             cards[i+kingdom.size()] = events.get(i);
         supply.cards = cards;
+
+        // Remove the bane if the Young Witch isn't in the supply
+        if(yWitchState != 2) supply.bane = -1;
 
         // Insert the supply into the history table
         supply.time = Calendar.getInstance().getTimeInMillis();

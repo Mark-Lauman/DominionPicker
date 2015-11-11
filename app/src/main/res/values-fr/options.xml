@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="options">Options</string>
+
+    <string name="filt_lang">Langue des cartes</string>
+    <string name="filt_lang_desc">Choisissez la langue de chaque bo&#238;te</string>
+    <string name="system_default">Par d&#233;faut</string>
+
+</resources>

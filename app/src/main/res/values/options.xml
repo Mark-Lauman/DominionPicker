@@ -10,6 +10,7 @@
         <item>@string/system_default</item>
         <item>Deutsch</item>
         <item>English</item>
+		<item>Fran&#231;ais</item>
         <item>Italiano</item>
         <item>Nederlands</item>
         <item>Portugu&#234;s</item>
@@ -18,6 +19,7 @@
         <item>0</item>
         <item>de</item>
         <item>en</item>
+		<item>fr</item>
         <item>it</item>
         <item>nl</item>
         <item>pt</item>

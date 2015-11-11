@@ -4,9 +4,9 @@
     <integer name="pref_version">4</integer>
 
     <!-- card.db version -->
-    <integer name="db_ver_card">12</integer>
+    <integer name="db_ver_card">13</integer>
     <!-- supply.db version -->
-    <integer name="db_ver_supply">12</integer>
+    <integer name="db_ver_supply">13</integer>
     <!-- data.db version -->
     <integer name="db_ver_data">11</integer>
 </resources>
