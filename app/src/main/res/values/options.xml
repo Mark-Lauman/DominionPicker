@@ -25,4 +25,18 @@
         <item>pt</item>
     </string-array>
 
+    <string name="sort_card">Card Order</string>
+    <string name="sort_card_desc">Sort your cards as you wish.</string>
+    <string name="drag_handle_desc">Drag me!</string>
+    <string-array name="sort_card_names">
+        <item>Expansion</item>
+        <item>Name</item>
+        <item>Release Date</item>
+        <item>Cost</item>
+        <item>Type</item>
+        <item>Language</item>
+        <item>Promos First</item>
+    </string-array>
+    <string name="sort_card_end">Sorting ends here</string>
+
 </resources>

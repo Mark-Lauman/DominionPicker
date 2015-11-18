@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:gravity="start|center_vertical"
+    android:orientation="horizontal" >
+
+    <ImageView android:id="@android:id/icon"
+        android:layout_width="26dp"
+        android:layout_height="match_parent"
+        android:paddingRight="6dp"
+        android:paddingEnd="6dp"
+        android:src="@drawable/ic_sort_handle"
+        android:contentDescription="@string/drag_handle_desc"
+        tools:ignore="RtlSymmetry" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="start|center_vertical"
+        android:layout_marginRight="26dp"
+        android:layout_marginEnd="26dp"
+        android:orientation="vertical" >
+
+        <TextView android:id="@android:id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/demo_sort_name"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView android:id="@android:id/text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_card_end" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -19,6 +19,8 @@ public abstract class Prefs {
     public static final String SELECTIONS = "selections";
     /** Key used to save the version of the preferences */
     public static final String VERSION = "version";
+    /** Key used to save the card sort order */
+    public static final String SORT_CARD = "sort_card";
     /** Key used to save the set filter to the preferences */
     public static final String FILT_SET = "filt_set";
     /** Key used to save the cost filter to the preferences */
@@ -61,6 +63,7 @@ public abstract class Prefs {
             case 1: update1(prefs);
             case 2: update2(prefs);
             case 3: // v3 -> v4 adds filt_lang. Setting default values is all that is needed.
+            case 4: // v4 -> v5 adds sort_card. Setting default values is all that is needed.
         }
         prefs.edit().putInt(VERSION, cur_ver).commit();
     }
@@ -79,6 +82,8 @@ public abstract class Prefs {
             edit.putBoolean(FILT_CURSE, res.getBoolean(R.bool.filt_curse_def));
         if(!prefs.contains(FILT_LANG))
             edit.putString(FILT_LANG, res.getString(R.string.filt_lang_def));
+        if(!prefs.contains(SORT_CARD))
+            edit.putString(SORT_CARD, res.getString(R.string.sort_card_def));
         edit.commit();
     }
 

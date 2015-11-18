@@ -36,6 +36,9 @@
             android:label="@string/filt_lang" />
 
         <activity android:name="ca.marklauman.tools.SingleItemSelector" />
+
+        <activity android:name=".settings.ActivityCardSort"
+            android:label="@string/sort_card" />
         
         <provider android:name=".database.Provider"
             android:authorities="${applicationId}"

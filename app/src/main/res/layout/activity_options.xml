@@ -3,15 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingTop="8dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="8dp" >
+    android:orientation="vertical" >
 
     <ca.marklauman.tools.preferences.IntentPreference
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeight"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         app:image="@drawable/ic_core_language"
         app:name="@string/filt_lang"
         app:summary="@string/filt_lang_desc"
@@ -21,5 +19,16 @@
     <View android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@android:drawable/divider_horizontal_bright" />
+
+    <ca.marklauman.tools.preferences.IntentPreference
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:image="@drawable/ic_core_sort"
+        app:name="@string/sort_card"
+        app:summary="@string/sort_card_desc"
+        android:background="?attr/selectableItemBackground"
+        app:intent="ca.marklauman.dominionpicker.settings.ActivityCardSort" />
 
 </LinearLayout>
