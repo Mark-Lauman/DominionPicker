@@ -32,8 +32,8 @@ public class Provider extends ContentProvider {
     private static final int ID_WTF = 0;
     /** Internal id for the cardData table's URI. */
     private static final int ID_CARD_DATA = 1;
-    /** Internal id for the cardTrans table's URI. */
-    private static final int ID_CARD_TRANS = 2;
+    /** Internal id for the cardSet table's URI. */
+    private static final int ID_CARD_SET = 2;
     /** Internal id for the combined card table's URI. */
     private static final int ID_CARD_ALL = 3;
     /** Internal id for the supply table's URI. */
@@ -44,7 +44,7 @@ public class Provider extends ContentProvider {
     /** URI to access the card data table */
     public static final Uri URI_CARD_DATA = Uri.parse("content://"+AUTHORITY+"/cardData");
     /** URI to access the card trans table */
-    public static final Uri URI_CARD_TRANS = Uri.parse("content://"+AUTHORITY+"/cardTrans");
+    public static final Uri URI_CARD_SET = Uri.parse("content://"+AUTHORITY+"/cardSet");
     /** URI to access the combination of all card tables */
     public static final Uri URI_CARD_ALL = Uri.parse("content://"+AUTHORITY+"/cardAll");
     /** URI to access the sample supply table */
@@ -54,10 +54,8 @@ public class Provider extends ContentProvider {
 
     /** Used to match URIs to tables. */
     UriMatcher matcher;
-    /** Handle to the card database. */
-	private CardDb card_db;
-    /** Handle to the supply database */
-    private SupplyDb supplyDb;
+    /** Handle to the core database. */
+	private CoreDb core_db;
     /** Handle to the data database */
     private DataDb data_db;
 
@@ -67,7 +65,7 @@ public class Provider extends ContentProvider {
         // setup the uri matcher
         matcher = new UriMatcher(ID_WTF);
         matcher.addURI(AUTHORITY, "cardData", ID_CARD_DATA);
-        matcher.addURI(AUTHORITY, "cardTrans", ID_CARD_TRANS);
+        matcher.addURI(AUTHORITY, "cardSet", ID_CARD_SET);
         matcher.addURI(AUTHORITY, "cardAll", ID_CARD_ALL);
         matcher.addURI(AUTHORITY, "supply", ID_SUPPLY);
         matcher.addURI(AUTHORITY, "history", ID_HIST);
@@ -76,7 +74,7 @@ public class Provider extends ContentProvider {
         Context c = getContext();
         File[] dbListing = null;
         if(c != null)
-            dbListing = c.getDatabasePath(CardDb.FILE_NAME)
+            dbListing = c.getDatabasePath(CoreDb.FILE_NAME)
                          .getParentFile()
                          .listFiles();
 
@@ -84,16 +82,14 @@ public class Provider extends ContentProvider {
         if(dbListing != null) {
             for (File db : dbListing) {
                 name = db.getName();
-                if (!(CardDb.FILE_NAME.equals(name) || SupplyDb.FILE_NAME.equals(name)
-                      || DataDb.FILE_NAME.equals(name)))
+                if (!(CoreDb.FILE_NAME.equals(name) || DataDb.FILE_NAME.equals(name)))
                     //noinspection ResultOfMethodCallIgnored
                     db.delete();
             }
         }
 
         // get the database files
-		card_db = new CardDb(c);
-        supplyDb = new SupplyDb(c);
+		core_db = new CoreDb(c);
         data_db = new DataDb(c);
 		return true;
 	}
@@ -103,7 +99,7 @@ public class Provider extends ContentProvider {
 	public String getType(@NonNull Uri uri) {
         switch (matcher.match(uri)) {
             case ID_CARD_DATA:
-            case ID_CARD_TRANS:
+            case ID_CARD_SET:
             case ID_CARD_ALL: return MIME_CARD;
             case ID_SUPPLY: return MIME_SUPPLY_TRANS;
             case ID_HIST: return MIME_SUPPLY;
@@ -119,19 +115,20 @@ public class Provider extends ContentProvider {
         Cursor res;
         switch(matcher.match(uri)) {
             case ID_CARD_DATA:
-                res = card_db.query(CardDb.TABLE_DATA, projection,
+                res = core_db.query(TableCard.TABLE_DATA, projection,
                                     selection, selectionArgs, sortOrder);
                 break;
-            case ID_CARD_TRANS:
-                res = card_db.query(CardDb.TABLE_TRANS, projection,
+            case ID_CARD_SET:
+                res = core_db.query(TableCard.TABLE_SET, projection,
                                     selection, selectionArgs, sortOrder);
                 break;
             case ID_CARD_ALL:
-                res = card_db.query(CardDb.VIEW_ALL, projection,
+                res = core_db.query(TableCard.VIEW_ALL, projection,
                                     selection, selectionArgs, sortOrder);
                 break;
             case ID_SUPPLY:
-                res = supplyDb.query(projection, selection, selectionArgs, sortOrder);
+                res = core_db.query(TableSupply.VIEW, projection,
+                                    selection, selectionArgs, sortOrder);
                 break;
             case ID_HIST:
                 db = data_db.getReadableDatabase();

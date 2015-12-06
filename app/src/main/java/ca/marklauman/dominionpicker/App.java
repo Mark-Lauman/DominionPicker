@@ -6,7 +6,6 @@ import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 
-import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.Utils;
 

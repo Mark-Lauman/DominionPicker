@@ -41,6 +41,7 @@
         <item>@drawable/ic_set_stash</item>
         <item>@drawable/ic_set_walled_village</item>
         <item>@drawable/ic_set_adventures</item>
+        <item>@drawable/ic_set_summon</item>
     </array>
 
     <!-- Default translation to use for each set. Sorted by set id. -->

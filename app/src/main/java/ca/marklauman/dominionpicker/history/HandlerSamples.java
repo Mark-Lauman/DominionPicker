@@ -13,14 +13,14 @@ import android.widget.TextView;
 import ca.marklauman.dominionpicker.App;
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.Provider;
-import ca.marklauman.dominionpicker.database.SupplyDb;
+import ca.marklauman.dominionpicker.database.TableSupply;
 import ca.marklauman.tools.CursorHandler;
 import ca.marklauman.tools.Utils;
 
-/** Handler for loading and displaying shuffles from the {@link SupplyDb}.
+/** Handler for loading and displaying shuffles from {@link TableSupply}.
  *  @author Mark Lauman */
 class HandlerSamples extends SimpleCursorAdapter
-                            implements CursorHandler {
+                     implements CursorHandler {
 
     /** The context this handler is in */
     private final Context mContext;
@@ -40,7 +40,7 @@ class HandlerSamples extends SimpleCursorAdapter
 
     public HandlerSamples(Context context) {
         super(context, R.layout.list_item_supply, null,
-                new String[]{SupplyDb._NAME, SupplyDb._SET_ID, SupplyDb._SET_NAME, SupplyDb._CARDS},
+                new String[]{TableSupply._NAME, TableSupply._SET_ID, TableSupply._SET_NAME, TableSupply._CARDS},
                 new int[]{R.id.name, R.id.set, R.id.set, R.id.desc},
                 0);
         mContext = context;
@@ -52,11 +52,11 @@ class HandlerSamples extends SimpleCursorAdapter
     public void changeCursor(Cursor c) {
         super.changeCursor(c);
         if(c == null) return;
-        _set_id = c.getColumnIndex(SupplyDb._SET_ID);
-        _cards = c.getColumnIndex(SupplyDb._CARDS);
-        _high_cost = c.getColumnIndex(SupplyDb._HIGH_COST);
-        _shelters = c.getColumnIndex(SupplyDb._SHELTERS);
-        _set_name = c.getColumnIndex(SupplyDb._SET_NAME);
+        _set_id = c.getColumnIndex(TableSupply._SET_ID);
+        _cards = c.getColumnIndex(TableSupply._CARDS);
+        _high_cost = c.getColumnIndex(TableSupply._HIGH_COST);
+        _shelters = c.getColumnIndex(TableSupply._SHELTERS);
+        _set_name = c.getColumnIndex(TableSupply._SET_NAME);
     }
 
     /** Used to map the set id and supply details to their views */
@@ -98,11 +98,11 @@ class HandlerSamples extends SimpleCursorAdapter
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         // start the query going
         CursorLoader c = new CursorLoader(mContext);
-        c.setProjection(new String[]{SupplyDb._ID, SupplyDb._NAME, SupplyDb._SET_ID,
-                                     SupplyDb._SET_NAME, SupplyDb._CARDS, SupplyDb._SHELTERS,
-                                     SupplyDb._HIGH_COST});
+        c.setProjection(new String[]{TableSupply._ID, TableSupply._NAME, TableSupply._SET_ID,
+                                     TableSupply._SET_NAME, TableSupply._CARDS, TableSupply._SHELTERS,
+                                     TableSupply._HIGH_COST});
         c.setUri(Provider.URI_SUPPLY);
-        c.setSortOrder(SupplyDb._ID);
+        c.setSortOrder(TableSupply._ID);
         c.setSelection(App.transFilter);
         return c;
     }

@@ -13,10 +13,10 @@ import android.widget.TextView;
 import java.util.HashMap;
 
 import ca.marklauman.dominionpicker.R;
-import ca.marklauman.dominionpicker.database.CardDb;
+import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.tools.Utils;
 
-/** Basic adapter used to display cards from the {@link CardDb}.
+/** Basic adapter used to display cards from {@link TableCard}.
  *  @author Mark Lauman */
 public class AdapterCards extends SimpleCursorAdapter
                           implements ViewBinder {
@@ -24,10 +24,10 @@ public class AdapterCards extends SimpleCursorAdapter
     /** The columns used by this adapter.
      *  Any other columns provided will be ignored. */
     public static final String[] COLS_USED
-            = {CardDb._ID, CardDb._NAME, CardDb._SET_NAME, CardDb._TYPE,
-               CardDb._DESC, CardDb._SET_ID, CardDb._COST, CardDb._POT,
-               CardDb._BUY, CardDb._ACT, CardDb._CARD, CardDb._COIN,
-               CardDb._VICTORY, CardDb._REQ, CardDb._LANG};
+            = {TableCard._ID, TableCard._NAME, TableCard._SET_NAME, TableCard._TYPE,
+               TableCard._DESC, TableCard._SET_ID, TableCard._COST, TableCard._POT,
+               TableCard._BUY, TableCard._ACT, TableCard._CARD, TableCard._COIN,
+               TableCard._VICTORY, TableCard._REQ, TableCard._LANG};
 
     // Internal ids used to identify cursor indexes.
     /** Internal id for a column this adapter does not handle */
@@ -126,21 +126,21 @@ public class AdapterCards extends SimpleCursorAdapter
         super.changeCursor(cursor);
         columnMap.clear();
         if (cursor == null) return;
-        columnMap.put(cursor.getColumnIndex(CardDb._NAME), ID_NAME);
-        columnMap.put(cursor.getColumnIndex(CardDb._COST), ID_COST);
-        columnMap.put(cursor.getColumnIndex(CardDb._POT), ID_POTION);
-        columnMap.put(cursor.getColumnIndex(CardDb._SET_ID), ID_SET_ID);
-        columnMap.put(cursor.getColumnIndex(CardDb._SET_NAME), ID_SET_NAME);
-        columnMap.put(cursor.getColumnIndex(CardDb._REQ), ID_REQ);
-        columnMap.put(cursor.getColumnIndex(CardDb._TYPE), ID_TYPE);
-        columnMap.put(cursor.getColumnIndex(CardDb._COIN), ID_PLUS_COIN);
-        columnMap.put(cursor.getColumnIndex(CardDb._VICTORY), ID_PLUS_VICTORY);
-        columnMap.put(cursor.getColumnIndex(CardDb._LANG), ID_LANG);
-        columnMap.put(cursor.getColumnIndex(CardDb._DESC), ID_DESC);
-        col_name = cursor.getColumnIndex(CardDb._NAME);
-        col_plusAct = cursor.getColumnIndex(CardDb._ACT);
-        col_plusBuy = cursor.getColumnIndex(CardDb._BUY);
-        col_plusCard = cursor.getColumnIndex(CardDb._CARD);
+        columnMap.put(cursor.getColumnIndex(TableCard._NAME), ID_NAME);
+        columnMap.put(cursor.getColumnIndex(TableCard._COST), ID_COST);
+        columnMap.put(cursor.getColumnIndex(TableCard._POT), ID_POTION);
+        columnMap.put(cursor.getColumnIndex(TableCard._SET_ID), ID_SET_ID);
+        columnMap.put(cursor.getColumnIndex(TableCard._SET_NAME), ID_SET_NAME);
+        columnMap.put(cursor.getColumnIndex(TableCard._REQ), ID_REQ);
+        columnMap.put(cursor.getColumnIndex(TableCard._TYPE), ID_TYPE);
+        columnMap.put(cursor.getColumnIndex(TableCard._COIN), ID_PLUS_COIN);
+        columnMap.put(cursor.getColumnIndex(TableCard._VICTORY), ID_PLUS_VICTORY);
+        columnMap.put(cursor.getColumnIndex(TableCard._LANG), ID_LANG);
+        columnMap.put(cursor.getColumnIndex(TableCard._DESC), ID_DESC);
+        col_name = cursor.getColumnIndex(TableCard._NAME);
+        col_plusAct = cursor.getColumnIndex(TableCard._ACT);
+        col_plusBuy = cursor.getColumnIndex(TableCard._BUY);
+        col_plusCard = cursor.getColumnIndex(TableCard._CARD);
     }
 
 

@@ -22,9 +22,9 @@ import java.util.Collections;
 import java.util.StringTokenizer;
 
 import ca.marklauman.dominionpicker.cardlist.AdapterSelCards;
-import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
+import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.preferences.MultiSelectPreference;
 
@@ -154,7 +154,7 @@ public class FragmentPicker extends Fragment
             Collections.addAll(sel_args, split_set);
             for (CharSequence ignored : split_set) curSel += ",?";
             if (0 < curSel.length())
-                sel += " AND "+CardDb._SET_ID+" NOT IN ("+curSel.substring(1)+")";
+                sel += " AND "+ TableCard._SET_ID+" NOT IN ("+curSel.substring(1)+")";
         }
 
         // Filter out potions
@@ -165,7 +165,7 @@ public class FragmentPicker extends Fragment
                         MultiSelectPreference.mapValues(filt_cost, null, costs)));
         String potion = getResources().getStringArray(R.array.filt_cost)[0];
         if(0 < split_cost.size() && potion.equals(split_cost.get(0))) {
-            sel += " AND " + CardDb._POT + "=?";
+            sel += " AND " + TableCard._POT + "=?";
             sel_args.add("0");
             split_cost.remove(0);
         }
@@ -176,12 +176,12 @@ public class FragmentPicker extends Fragment
             sel_args.add(s);
             curSel += ",?";
         }
-        if(0 < curSel.length()) sel += " AND "+CardDb._COST+" NOT IN ("+curSel.substring(1)+")";
+        if(0 < curSel.length()) sel += " AND "+ TableCard._COST+" NOT IN ("+curSel.substring(1)+")";
 
         // Filter out cursers
         filt_curse = pref.getBoolean("filt_curse", true);
         if(!filt_curse) {
-            sel += " AND " + CardDb._META_CURSER + "=?";
+            sel += " AND " + TableCard._META_CURSER + "=?";
             sel_args.add("0");
         }
 

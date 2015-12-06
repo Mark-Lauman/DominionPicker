@@ -1,26 +1,26 @@
-_id	language	set_name	name	type	requires	description	details
-6	pt	Base	Adega	Ação			
-7	pt	Base	Capela	Ação			
-8	pt	Base	Fosso	Ação Reação			
-9	pt	Base	Chanceler	Ação			
-10	pt	Base	Aldeia	Ação			
-11	pt	Base	Lenhador	Ação			
-12	pt	Base	Oficina	Ação			
-13	pt	Base	Burocrata	Ação Ataque			
-14	pt	Base	Banquete	Ação			
-15	pt	Base	Jardins	Vitória			
-16	pt	Base	Milícia	Ação Ataque			
-17	pt	Base	Agiota	Ação			
-18	pt	Base	Remodelar	Ação			
-19	pt	Base	Forja	Ação			
-20	pt	Base	Espião	Ação Ataque			
-21	pt	Base	Ladrão	Ação Ataque			
-22	pt	Base	Sala do Trono	Ação			
-23	pt	Base	Sala do Conselho	Ação			
-24	pt	Base	Festival	Ação			
-25	pt	Base	Laboratório	Ação			
-26	pt	Base	Biblioteca	Ação			
-27	pt	Base	Mercado	Ação			
-28	pt	Base	Mina	Ação			
-29	pt	Base	Bruxa	Ação Ataque	Requer: Maldição		
-30	pt	Base	Aventureiro	Ação			
+_id	language	name	type	requires	description	details
+6	pt	Adega	Ação			
+7	pt	Capela	Ação			
+8	pt	Fosso	Ação Reação			
+9	pt	Chanceler	Ação			
+10	pt	Aldeia	Ação			
+11	pt	Lenhador	Ação			
+12	pt	Oficina	Ação			
+13	pt	Burocrata	Ação Ataque			
+14	pt	Banquete	Ação			
+15	pt	Jardins	Vitória			
+16	pt	Milícia	Ação Ataque			
+17	pt	Agiota	Ação			
+18	pt	Remodelar	Ação			
+19	pt	Forja	Ação			
+20	pt	Espião	Ação Ataque			
+21	pt	Ladrão	Ação Ataque			
+22	pt	Sala do Trono	Ação			
+23	pt	Sala do Conselho	Ação			
+24	pt	Festival	Ação			
+25	pt	Laboratório	Ação			
+26	pt	Biblioteca	Ação			
+27	pt	Mercado	Ação			
+28	pt	Mina	Ação			
+29	pt	Bruxa	Ação Ataque	Requer: Maldição		
+30	pt	Aventureiro	Ação			

@@ -1,6 +1,6 @@
-_id	language	set_name	name
-1	pt	Base	Primeira Partida
-2	pt	Base	Endinheirado
-3	pt	Base	Interação
-4	pt	Base	Distorção de Tamanho
-5	pt	Base	Praça da vila
+_id	language	name
+1	pt	Primeira Partida
+2	pt	Endinheirado
+3	pt	Interação
+4	pt	Distorção de Tamanho
+5	pt	Praça da vila

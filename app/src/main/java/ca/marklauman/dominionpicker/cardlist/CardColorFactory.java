@@ -17,7 +17,7 @@ import android.view.View;
 import java.util.ArrayList;
 
 import ca.marklauman.dominionpicker.R;
-import ca.marklauman.dominionpicker.database.CardDb;
+import ca.marklauman.dominionpicker.database.TableCard;
 
 /** Builds the background drawables to show card color.
  *  @author Mark Lauman */
@@ -36,12 +36,10 @@ class CardColorFactory {
     private static final int _dur = 4;
     /** Reaction card id */
     private static final int _react = 5;
-    /** Ruins card id */
-    private static final int _ruins = 6;
     /** Curse card id */
-    private static final int _curse = 7;
+    private static final int _curse = 6;
     /** Event card id */
-    private static final int _event = 8;
+    private static final int _event = 7;
 
     /** 8dp in the current context */
     private final float dp8;
@@ -57,28 +55,26 @@ class CardColorFactory {
                                         res.getDisplayMetrics());
 
         // Card colors, sorted by priority
-        color = new int[9];
+        color = new int[8];
         color[_action] = res.getColor(R.color.type_act);
         color[_treasure] = res.getColor(R.color.type_treasure);
         color[_reserve] = res.getColor(R.color.type_reserve);
         color[_victory] = res.getColor(R.color.type_victory);
         color[_dur] = res.getColor(R.color.type_dur);
         color[_react] = res.getColor(R.color.type_react);
-        color[_ruins] = res.getColor(R.color.type_ruins);
         color[_curse] = res.getColor(R.color.type_curse);
         color[_event] = res.getColor(R.color.type_event);
 
         // Columns sorted by color priority
-        column = new int[9];
-        column[_action] = cardList.getColumnIndex(CardDb._TYPE_ACT);
-        column[_treasure] = cardList.getColumnIndex(CardDb._TYPE_TREAS);
-        column[_reserve] = cardList.getColumnIndex(CardDb._TYPE_RESERVE);
-        column[_victory] = cardList.getColumnIndex(CardDb._TYPE_VICTORY);
-        column[_dur] = cardList.getColumnIndex(CardDb._TYPE_DUR);
-        column[_react] = cardList.getColumnIndex(CardDb._TYPE_REACT);
-        column[_ruins] = cardList.getColumnIndex(CardDb._TYPE_RUINS);
-        column[_curse] = cardList.getColumnIndex(CardDb._TYPE_CURSE);
-        column[_event] = cardList.getColumnIndex(CardDb._TYPE_EVENT);
+        column = new int[8];
+        column[_action] = cardList.getColumnIndex(TableCard._TYPE_ACT);
+        column[_treasure] = cardList.getColumnIndex(TableCard._TYPE_TREAS);
+        column[_reserve] = cardList.getColumnIndex(TableCard._TYPE_RESERVE);
+        column[_victory] = cardList.getColumnIndex(TableCard._TYPE_VICTORY);
+        column[_dur] = cardList.getColumnIndex(TableCard._TYPE_DUR);
+        column[_react] = cardList.getColumnIndex(TableCard._TYPE_REACT);
+        column[_curse] = cardList.getColumnIndex(TableCard._TYPE_CURSE);
+        column[_event] = cardList.getColumnIndex(TableCard._TYPE_EVENT);
     }
 
 
@@ -103,9 +99,6 @@ class CardColorFactory {
             action = false;
         } if(cursor.getInt(column[_react])!=0) {
             curColors.add(color[_react]);
-            action = false;
-        } if(cursor.getInt(column[_ruins])!=0) {
-            curColors.add(color[_ruins]);
             action = false;
         } if(cursor.getInt(column[_curse])!=0)
             curColors.add(color[_curse]);

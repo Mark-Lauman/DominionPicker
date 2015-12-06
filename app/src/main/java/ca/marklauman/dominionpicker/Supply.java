@@ -5,7 +5,7 @@ import java.util.Arrays;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import ca.marklauman.dominionpicker.database.CardDb;
+import ca.marklauman.dominionpicker.database.TableCard;
 
 /** Contains all information about a supply set.
  *  @author Mark Lauman                       */
@@ -72,7 +72,7 @@ public class Supply implements Parcelable {
     public boolean blackMarket() {
         if(cards == null) return false;
         for(long card : cards)
-            if(card == CardDb.ID_BLACK_MARKET) return true;
+            if(card == TableCard.ID_BLACK_MARKET) return true;
         return false;
     }
 	

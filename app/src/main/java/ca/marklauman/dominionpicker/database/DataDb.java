@@ -20,26 +20,26 @@ public class DataDb extends SQLiteOpenHelper {
     /** Column storing the timestamp of the shuffle.
      *  Serves as the index of the table.<br/>
      *  History Table, Java Long */
-    public static final String _H_TIME = SupplyDb._ID;
+    public static final String _H_TIME = TableSupply._ID;
     /** Column storing the name of the shuffle. The name is optional.
      *  If non-null, the row is a favorite.<br/>
      *  History Table, Java String */
-    public static final String _H_NAME = SupplyDb._NAME;
+    public static final String _H_NAME = TableSupply._NAME;
     /** Column storing the cards found in this shuffle.
      *  This is stored as a string of card ids separated by commas.<br/>
      *  History Table, Java String */
-    public static final String _H_CARDS = SupplyDb._CARDS;
+    public static final String _H_CARDS = TableSupply._CARDS;
     /** Column storing if this shuffle is a high cost game.
      *  (with colonies and shelters).<br/>
      *  History Table, Java Boolean */
-    public static final String _H_HIGH_COST = SupplyDb._HIGH_COST;
+    public static final String _H_HIGH_COST = TableSupply._HIGH_COST;
     /** Column storing if this shuffle uses shelters.<br/>
      *  History Table, Java String */
-    public static final String _H_SHELTERS = SupplyDb._SHELTERS;
+    public static final String _H_SHELTERS = TableSupply._SHELTERS;
     /** Column storing the id of the bane card.
      *  The card is set to -1 if there is no bane card.<br/>
      *  History Table, Java Long */
-    public static final String _H_BANE = SupplyDb._BANE;
+    public static final String _H_BANE = TableSupply._BANE;
 
 
     public DataDb(Context c) {

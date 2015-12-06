@@ -25,12 +25,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import ca.marklauman.dominionpicker.R;
-import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
+import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.tools.SingleItemSelector;
 import ca.marklauman.tools.Utils;
 
+// TODO: Decouple from the array of set names
 /** Governs the Card Language setting screen.
  *  Allows users to set which languages each card set will use.
  *  @author Mark Lauman */
@@ -107,15 +108,15 @@ public class CardLanguageSelector extends AppCompatActivity
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         // Sort by set_id then language_codes order
-        String sort_by = CardDb._SET_ID+", CASE "+CardDb._LANG;
+        String sort_by = TableCard._SET_ID+", CASE "+ TableCard._LANG;
         for(int i=0;i<language_codes.length; i++)
             sort_by += " WHEN '"+language_codes[i]+"' THEN "+i;
         sort_by += " END";
         // Get all set_id and language combinations in the card table.
-        return new CursorLoader(this, Provider.URI_CARD_ALL,
-                                new String[]{CardDb._SET_ID, CardDb._LANG},
-                                CardDb._LANG+" NOT NULL GROUP BY "
-                                +CardDb._SET_ID+", "+CardDb._LANG, null, sort_by);
+        return new CursorLoader(this, Provider.URI_CARD_SET,
+                                new String[]{TableCard._SET_ID, TableCard._LANG},
+                                TableCard._LANG+" NOT NULL GROUP BY "
+                                + TableCard._SET_ID+", "+ TableCard._LANG, null, sort_by);
     }
 
 
@@ -127,8 +128,8 @@ public class CardLanguageSelector extends AppCompatActivity
         }
 
         // Loop setup
-        final int col_set_id = data.getColumnIndex(CardDb._SET_ID);
-        final int col_lang = data.getColumnIndex(CardDb._LANG);
+        final int col_set_id = data.getColumnIndex(TableCard._SET_ID);
+        final int col_lang = data.getColumnIndex(TableCard._LANG);
         int set_id;
         String[] options;
         ArrayList<String> available = new ArrayList<>(languages.size());

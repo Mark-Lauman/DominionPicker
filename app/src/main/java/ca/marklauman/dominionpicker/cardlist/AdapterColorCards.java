@@ -7,20 +7,20 @@ import android.util.TypedValue;
 import android.view.View;
 
 import ca.marklauman.dominionpicker.R;
-import ca.marklauman.dominionpicker.database.CardDb;
+import ca.marklauman.dominionpicker.database.TableCard;
 
 /** Adapter used to display lists of cards with color backgrounds and a bane.
  *  @author Mark Lauman */
 public class AdapterColorCards extends AdapterCards {
     /** Columns required for this adapter to work */
     public static final String[] COLS_USED
-            = {CardDb._ID, CardDb._NAME, CardDb._SET_NAME, CardDb._TYPE,
-               CardDb._DESC, CardDb._SET_ID, CardDb._COST, CardDb._POT,
-               CardDb._BUY, CardDb._ACT, CardDb._CARD, CardDb._COIN,
-               CardDb._VICTORY, CardDb._REQ, CardDb._LANG,
-               CardDb._TYPE_ACT, CardDb._TYPE_TREAS, CardDb._TYPE_VICTORY, // colorFactory required.
-               CardDb._TYPE_DUR, CardDb._TYPE_REACT, CardDb._TYPE_RESERVE,
-               CardDb._TYPE_RUINS, CardDb._TYPE_CURSE, CardDb._TYPE_EVENT};
+            = {TableCard._ID, TableCard._NAME, TableCard._SET_NAME, TableCard._TYPE,
+               TableCard._DESC, TableCard._SET_ID, TableCard._COST, TableCard._POT,
+               TableCard._BUY, TableCard._ACT, TableCard._CARD, TableCard._COIN,
+               TableCard._VICTORY, TableCard._REQ, TableCard._LANG,
+               TableCard._TYPE_ACT, TableCard._TYPE_TREAS, TableCard._TYPE_VICTORY, // colorFactory required.
+               TableCard._TYPE_DUR, TableCard._TYPE_REACT, TableCard._TYPE_RESERVE,
+               TableCard._TYPE_CURSE, TableCard._TYPE_EVENT};
 
     /** 2 dp in the current context */
     private final int dp2;
@@ -35,10 +35,10 @@ public class AdapterColorCards extends AdapterCards {
 
     public AdapterColorCards(Context context) {
         super(context, R.layout.list_item_card_bane,
-                new String[]{CardDb._NAME, CardDb._COST, CardDb._POT, CardDb._SET_ID,
-                             CardDb._SET_NAME, CardDb._REQ, CardDb._COIN, CardDb._TYPE,
-                             CardDb._VICTORY, CardDb._LANG, CardDb._DESC,
-                             CardDb._ID, CardDb._TYPE_ACT},
+                new String[]{TableCard._NAME, TableCard._COST, TableCard._POT, TableCard._SET_ID,
+                             TableCard._SET_NAME, TableCard._REQ, TableCard._COIN, TableCard._TYPE,
+                             TableCard._VICTORY, TableCard._LANG, TableCard._DESC,
+                             TableCard._ID, TableCard._TYPE_ACT},
                    new int[]{R.id.card_name, R.id.card_cost, R.id.card_potion, R.id.card_set,
                              R.id.card_set, R.id.card_requires, R.id.card_res_gold, R.id.card_type,
                              R.id.card_res_victory, R.id.card_res, R.id.card_desc,
@@ -53,7 +53,7 @@ public class AdapterColorCards extends AdapterCards {
         super.changeCursor(cursor);
         if(cursor == null) return;
         colorFactory = new CardColorFactory(resources, cursor);
-        col_id = cursor.getColumnIndex(CardDb._ID);
+        col_id = cursor.getColumnIndex(TableCard._ID);
     }
 
 

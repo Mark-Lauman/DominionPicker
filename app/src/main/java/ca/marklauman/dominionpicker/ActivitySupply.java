@@ -21,10 +21,10 @@ import java.text.DateFormat;
 import java.util.Date;
 
 import ca.marklauman.dominionpicker.cardlist.AdapterColorCards;
-import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
-import ca.marklauman.dominionpicker.database.SupplyDb;
+import ca.marklauman.dominionpicker.database.TableCard;
+import ca.marklauman.dominionpicker.database.TableSupply;
 import ca.marklauman.tools.QueryDialogBuilder;
 import ca.marklauman.tools.QueryDialogBuilder.QueryListener;
 import ca.marklauman.tools.Utils;
@@ -171,9 +171,9 @@ public class ActivitySupply extends AppCompatActivity {
 
             // Save the wipe to the database
             ContentValues values = new ContentValues();
-            values.putNull(SupplyDb._NAME);
+            values.putNull(TableSupply._NAME);
             getContentResolver().update(Provider.URI_HIST, values,
-                                        SupplyDb._ID + "=?",
+                                        TableSupply._ID + "=?",
                                         new String[]{"" + supply.time});
             return true;
         }
@@ -217,7 +217,7 @@ public class ActivitySupply extends AppCompatActivity {
 
             // Selection string (sql WHERE clause)
             // _id IN (1,2,3,4)
-            String cards = CardDb._ID+" IN ("+ Utils.join(",",supply.cards)+")";
+            String cards = TableCard._ID+" IN ("+ Utils.join(",",supply.cards)+")";
             c.setSelection("("+cards+") AND "+App.transFilter);
 
             return c;
@@ -266,14 +266,14 @@ public class ActivitySupply extends AppCompatActivity {
 
             // Basic loader
             CursorLoader c = new CursorLoader(getActivity());
-            c.setProjection(new String[]{SupplyDb._ID, SupplyDb._NAME, SupplyDb._BANE,
-                                         SupplyDb._HIGH_COST, SupplyDb._SHELTERS, SupplyDb._CARDS});
+            c.setProjection(new String[]{TableSupply._ID, TableSupply._NAME, TableSupply._BANE,
+                                         TableSupply._HIGH_COST, TableSupply._SHELTERS, TableSupply._CARDS});
             
             // Load from the history table
             long supply_id = args.getLong(PARAM_HISTORY_ID, -1);
             if(supply_id != -1) {
                 c.setUri(Provider.URI_HIST);
-                c.setSelection(SupplyDb._ID + "=?");
+                c.setSelection(TableSupply._ID + "=?");
                 c.setSelectionArgs(new String[]{"" + supply_id});
                 return c;
             }
@@ -281,7 +281,7 @@ public class ActivitySupply extends AppCompatActivity {
             supply_id = args.getLong(PARAM_SUPPLY_ID, -1);
             if(supply_id != -1) {
                 c.setUri(Provider.URI_SUPPLY);
-                c.setSelection(SupplyDb._ID+"=? AND "+App.transFilter);
+                c.setSelection(TableSupply._ID+"=? AND "+App.transFilter);
                 c.setSelectionArgs(new String[]{""+supply_id});
                 return c;
             }
@@ -293,12 +293,12 @@ public class ActivitySupply extends AppCompatActivity {
             if(data == null || data.getCount() < 1) return;
 
             // Column indexes
-            final int _time = data.getColumnIndex(SupplyDb._ID);
-            final int _name = data.getColumnIndex(SupplyDb._NAME);
-            final int _bane = data.getColumnIndex(SupplyDb._BANE);
-            final int _cost = data.getColumnIndex(SupplyDb._HIGH_COST);
-            final int _shelters = data.getColumnIndex(SupplyDb._SHELTERS);
-            final int _cards = data.getColumnIndex(SupplyDb._CARDS);
+            final int _time = data.getColumnIndex(TableSupply._ID);
+            final int _name = data.getColumnIndex(TableSupply._NAME);
+            final int _bane = data.getColumnIndex(TableSupply._BANE);
+            final int _cost = data.getColumnIndex(TableSupply._HIGH_COST);
+            final int _shelters = data.getColumnIndex(TableSupply._SHELTERS);
+            final int _cards = data.getColumnIndex(TableSupply._CARDS);
             data.moveToFirst();
 
             // Build the supply object
@@ -364,10 +364,10 @@ public class ActivitySupply extends AppCompatActivity {
 
             // Save the new name to the database.
             ContentValues values = new ContentValues();
-            values.put(SupplyDb._NAME, name);
+            values.put(TableSupply._NAME, name);
             mContext.getContentResolver()
                     .update(Provider.URI_HIST, values,
-                            SupplyDb._ID+"=?", new String[]{""+supply.time});
+                            TableSupply._ID+"=?", new String[]{""+supply.time});
         }
     }
 }

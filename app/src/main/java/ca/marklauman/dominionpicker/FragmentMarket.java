@@ -21,9 +21,9 @@ import java.util.HashSet;
 import java.util.LinkedList;
 
 import ca.marklauman.dominionpicker.cardlist.AdapterColorCards;
-import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
+import ca.marklauman.dominionpicker.database.TableCard;
 
 /** Governs all the Black Market shuffler screens.
  *  @author Mark Lauman */
@@ -215,7 +215,7 @@ public class FragmentMarket extends Fragment
                 if(deck_arr != null) {
                     deck = new ArrayList<>(deck_arr.length);
                     for (long card : deck_arr)
-                        if (card != CardDb.ID_BLACK_MARKET && !supply.contains(card))
+                        if (card != TableCard.ID_BLACK_MARKET && !supply.contains(card))
                             deck.add(card);
                 }
 
@@ -226,14 +226,14 @@ public class FragmentMarket extends Fragment
                     sel += ",?";
                     selArgs[i]=""+deck.get(i);
                 }
-                if(0 < sel.length()) sel = CardDb._ID+" IN ("+sel.substring(1)+")";
-                else sel = CardDb._ID+"=NULL";
+                if(0 < sel.length()) sel = TableCard._ID+" IN ("+sel.substring(1)+")";
+                else sel = TableCard._ID+"=NULL";
 
                 // Build the cursor loader
                 c.setUri(Provider.URI_CARD_DATA);
-                c.setProjection(new String[]{CardDb._ID});
+                c.setProjection(new String[]{TableCard._ID});
                 // Forbid events and ruins, restrict to selections
-                c.setSelection(CardDb._TYPE_RUINS+"=0 AND "+CardDb._TYPE_EVENT+"=0 AND "+sel);
+                c.setSelection(TableCard._TYPE_EVENT+"=0 AND "+sel);
                 c.setSelectionArgs(selArgs);
                 c.setSortOrder("random()");
                 return c;
@@ -246,7 +246,7 @@ public class FragmentMarket extends Fragment
 
                 // no choices, no cards
                 if(choices == null || choices.length == 0) {
-                    c.setSelection(CardDb._ID + "=?");
+                    c.setSelection(TableCard._ID + "=?");
                     c.setSelectionArgs(new String[]{"-1"});
                     return c;
                 }
@@ -255,7 +255,7 @@ public class FragmentMarket extends Fragment
                 String cardSel = "";
                 for(long ignored : choices)
                     cardSel += ",?";
-                cardSel = CardDb._ID+" IN ("+cardSel.substring(1)+")";
+                cardSel = TableCard._ID+" IN ("+cardSel.substring(1)+")";
                 c.setSelection("("+cardSel+") AND "+App.transFilter);
 
                 // selection args
@@ -274,7 +274,7 @@ public class FragmentMarket extends Fragment
         switch (loader.getId()) {
             case LoaderId.MARKET_SHUFFLE:
                 stock = new LinkedList<>();
-                int _id = data.getColumnIndex(CardDb._ID);
+                int _id = data.getColumnIndex(TableCard._ID);
                 data.moveToPosition(-1);
                 while(data.moveToNext()) {
                     stock.add(data.getLong(_id));

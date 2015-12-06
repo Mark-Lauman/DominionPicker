@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.HashSet;
 
 import ca.marklauman.dominionpicker.R;
-import ca.marklauman.dominionpicker.database.CardDb;
+import ca.marklauman.dominionpicker.database.TableCard;
 
 /** Adapter used to select cards.
  *  Does not use card color as background.
@@ -23,9 +23,9 @@ public class AdapterSelCards extends AdapterCards {
 
     public AdapterSelCards(Context context) {
         super(context, R.layout.list_item_card,
-                new String[]{CardDb._NAME, CardDb._COST, CardDb._POT, CardDb._SET_ID,
-                             CardDb._SET_NAME, CardDb._REQ, CardDb._COIN, CardDb._TYPE,
-                             CardDb._VICTORY, CardDb._LANG, CardDb._DESC, CardDb._ID},
+                new String[]{TableCard._NAME, TableCard._COST, TableCard._POT, TableCard._SET_ID,
+                             TableCard._SET_NAME, TableCard._REQ, TableCard._COIN, TableCard._TYPE,
+                             TableCard._VICTORY, TableCard._LANG, TableCard._DESC, TableCard._ID},
                    new int[]{R.id.card_name, R.id.card_cost, R.id.card_potion, R.id.card_set,
                              R.id.card_set, R.id.card_requires, R.id.card_res_gold, R.id.card_type,
                              R.id.card_res_victory, R.id.card_res, R.id.card_desc, R.id.card_back});
@@ -36,7 +36,7 @@ public class AdapterSelCards extends AdapterCards {
     public void changeCursor(Cursor cursor) {
         super.changeCursor(cursor);
         if(cursor == null) return;
-        col_id = cursor.getColumnIndex(CardDb._ID);
+        col_id = cursor.getColumnIndex(TableCard._ID);
     }
 
     /** Binds each column's value to its associated view.

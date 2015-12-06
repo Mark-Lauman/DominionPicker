@@ -9,9 +9,9 @@ import android.support.v4.content.LocalBroadcastManager;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import ca.marklauman.dominionpicker.database.CardDb;
 import ca.marklauman.dominionpicker.database.DataDb;
 import ca.marklauman.dominionpicker.database.Provider;
+import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.tools.Utils;
 
 /** Task for shuffling the supply. Assumes card ids
@@ -93,7 +93,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
             sel += ",?";
             selArgs[i] = ""+cardIds[i];
         }
-        sel = CardDb._TYPE_RUINS+"=0 AND "+CardDb._ID+" IN ("+sel.substring(1)+")";
+        sel = TableCard._ID+" IN ("+sel.substring(1)+")";
 
         // Variables that must live through the try statement
         Supply supply = new Supply();
@@ -106,12 +106,12 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
         // The rest of this process can throw errors. So it must be tried.
         try {
             // Load the available cards
-            c = shuffleCards(new String[]{CardDb._ID, CardDb._TYPE_EVENT, CardDb._SET_ID, CardDb._COST},
+            c = shuffleCards(new String[]{TableCard._ID, TableCard._TYPE_EVENT, TableCard._SET_ID, TableCard._COST},
                     sel, selArgs);
-            final int _id = c.getColumnIndex(CardDb._ID);
-            final int _event = c.getColumnIndex(CardDb._TYPE_EVENT);
-            final int _set = c.getColumnIndex(CardDb._SET_ID);
-            final int _cost = c.getColumnIndex(CardDb._COST);
+            final int _id = c.getColumnIndex(TableCard._ID);
+            final int _event = c.getColumnIndex(TableCard._TYPE_EVENT);
+            final int _set = c.getColumnIndex(TableCard._SET_ID);
+            final int _cost = c.getColumnIndex(TableCard._COST);
 
             // Variables used in the main shuffle loop
             boolean done = false;   // If the shuffle is complete
@@ -134,7 +134,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
                 id = c.getLong(_id);
 
                 // If this is the young witch
-                if (id == CardDb.ID_YOUNG_WITCH) {
+                if (id == TableCard.ID_YOUNG_WITCH) {
                     // Add it to the supply if a bane is available
                     if(supply.bane != -1) {
                         kingdom.add(id);
@@ -155,17 +155,17 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
                         supply.bane = id;
                         // Add the young witch if it was waiting for a bane
                         if(yWitchState == 1) {
-                            kingdom.add(CardDb.ID_YOUNG_WITCH);
+                            kingdom.add(TableCard.ID_YOUNG_WITCH);
                             minKingdom++;
                             yWitchState = 2;
                         }
                     }
                     // Determine if high cost game
                     if(kingdom.size() == costCard)
-                        supply.high_cost = (c.getInt(_set) == CardDb.SET_PROSPERITY);
+                        supply.high_cost = (c.getInt(_set) == TableCard.SET_PROSPERITY);
                     // Determine if shelters game
                     if(kingdom.size() == shelterCard)
-                        supply.shelters = (c.getInt(_set) == CardDb.SET_DARK_AGES);
+                        supply.shelters = (c.getInt(_set) == TableCard.SET_DARK_AGES);
 
                 // If this is an event, add it if it is needed.
                 } else if(events.size() < maxEvent) events.add(id);

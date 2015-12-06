@@ -1,12 +1,12 @@
-_id	language	set_name	name
-1	fr	Base	Les premières parties
-2	fr	Base	Richesses et trésors
-3	fr	Base	Interaction
-4	fr	Base	Changement de taille
-5	fr	Base	Place du Village
-6	fr	Intrigue	Danse de la victoire
-7	fr	Intrigue	Manigances
-8	fr	Intrigue	Meilleurs vœux
-9	fr	Intrigue	Déconstruction
-10	fr	Intrigue	La corruption du pouvoir
-11	fr	Intrigue	Subalternes
+_id	language	name
+1	fr	Les premières parties
+2	fr	Richesses et trésors
+3	fr	Interaction
+4	fr	Changement de taille
+5	fr	Place du Village
+6	fr	Danse de la victoire
+7	fr	Manigances
+8	fr	Meilleurs vœux
+9	fr	Déconstruction
+10	fr	La corruption du pouvoir
+11	fr	Subalternes

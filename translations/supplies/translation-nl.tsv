@@ -1,95 +1,95 @@
-_id	language	set_name	name
-1	nl	Basisspel	Eerste Spel
-2	nl	Basisspel	Veel Geld
-3	nl	Basisspel	Interactie
-4	nl	Basisspel	Vertekend Beeld
-5	nl	Basisspel	Dorpsplein
-6	nl	Intrige	Overwinningsdans
-7	nl	Intrige	Geheime Plannen
-8	nl	Intrige	Beste Wensen
-9	nl	Intrige	Destructie
-10	nl	Intrige	Handwerkgekte
-11	nl	Intrige	Onderdanen
-12	nl	Hijs de Zeilen	Op Volle Zee
-13	nl	Hijs de Zeilen	Verborgen Schatten
-14	nl	Hijs de Zeilen	Scheepswrakken
-15	nl	Hijs de Zeilen	Pad Naar De Sterren
-16	nl	Hijs de Zeilen	Herhalingen
-17	nl	Hijs de Zeilen	Geven En Nemen
-18	nl	De Alchemisten	Verboden Kunst
-19	nl	De Alchemisten	Toverdrankenmengers
-20	nl	De Alchemisten	Scheikundeles
-21	nl	De Alchemisten	Dienaren
-22	nl	De Alchemisten	Geheim Onderzoek
-23	nl	De Alchemisten	Gekke Trekken
-24	nl	Welvaart	Beginners
-25	nl	Welvaart	Vriendschappelijke Interactie
-26	nl	Welvaart	Grote Acties
-27	nl	Welvaart	Ontzettend Veel Geld
-28	nl	Welvaart	Het Leger Van De Koning
-29	nl	Welvaart	Een Goed Leven
-30	nl	Welvaart	Pad Naar De Zege
-31	nl	Welvaart	All Along the Watchtower
-32	nl	Welvaart	Geluksvogels
-33	nl	Overvloed	Opbrengst Van De Jacht
-34	nl	Overvloed	Slechte Omens
-35	nl	Overvloed	Het Werkterrein Van De Nar
-36	nl	Overvloed	Wie Het Laatst Lacht...
-37	nl	Overvloed	De Specerijen Van Het Leven
-38	nl	Overvloed	Kleine Zeges
-39	nl	Het Achterland	Introductie
-40	nl	Het Achterland	Eerlijke Handel
-41	nl	Het Achterland	Goede Deals
-42	nl	Het Achterland	Gambiet
-43	nl	Het Achterland	Hoofdwegoverval
-44	nl	Het Achterland	Buitenlandse Avonturen
-45	nl	Het Achterland	Money for Nothing
-46	nl	Het Achterland	Bal Van De Hertog
-47	nl	Het Achterland	Reizigers
-48	nl	Het Achterland	Diplomatie
-49	nl	Het Achterland	Plannen En Dromen
-50	nl	Het Achterland	Wijnland
-51	nl	Het Achterland	Direct Resultaat
-52	nl	Het Achterland	Verborgen Rijkdom
-53	nl	Het Achterland	Blauwe Oogst
-54	nl	Het Achterland	Rondreizend Circus
-55	nl	De Donkere Middeleeuwen	Grimmig Defilé
-56	nl	De Donkere Middeleeuwen	Schaken Met De Dood
-57	nl	De Donkere Middeleeuwen	Hoog En Laag
-58	nl	De Donkere Middeleeuwen	Ridderlijk En Vrolijk
-59	nl	De Donkere Middeleeuwen	Profetie
-60	nl	De Donkere Middeleeuwen	Invasie
-61	nl	De Donkere Middeleeuwen	Waterige Graven
-62	nl	De Donkere Middeleeuwen	Provincialen
-63	nl	De Donkere Middeleeuwen	Plagen
-64	nl	De Donkere Middeleeuwen	Gejammer
-65	nl	De Donkere Middeleeuwen	Eenmans Rommel
-66	nl	De Donkere Middeleeuwen	Eergevoel Onder Dieven
-67	nl	De Donkere Middeleeuwen	Duister Carnaval
-68	nl	De Donkere Middeleeuwen	Naar De Winnaar
-69	nl	De Donkere Middeleeuwen	Ver Van Huis
-70	nl	De Donkere Middeleeuwen	Expedities
-71	nl	De Gilden	Kunst En Ambacht
-72	nl	De Gilden	Gezond Leven
-73	nl	De Gilden	Overdreven Decoratie
-74	nl	De Gilden	Noem Die Kaart
-75	nl	De Gilden	De Kneepjes Van Het Handelsvak
-76	nl	De Gilden	Keuzes, Keuzes
-77	nl	Avonturen	Rustige Introductie
-78	nl	Avonturen	Introductie Voor Gevorderden
-79	nl	Avonturen	Nivelleren
-80	nl	Avonturen	Vertekend Beeld
-81	nl	Avonturen	Royaltyfabriek
-82	nl	Avonturen	Meesters Der Financiën
-83	nl	Avonturen	Prins Van Oranje
-84	nl	Avonturen	Geven En Nemen
-85	nl	Avonturen	Laatste Wens En Monument
-86	nl	Avonturen	Denk Groot
-87	nl	Avonturen	De Terugkeer Van De Held
-88	nl	Avonturen	Zeevaart En Hekserij
-89	nl	Avonturen	Kooplieden En Overvallers
-90	nl	Avonturen	Reizen
-91	nl	Avonturen	Grafpolka
-92	nl	Avonturen	Verloedering
-93	nl	Avonturen	Verkwisting
-94	nl	Avonturen	De Getinte Koningin
+_id	language	name
+1	nl	Eerste Spel
+2	nl	Veel Geld
+3	nl	Interactie
+4	nl	Vertekend Beeld
+5	nl	Dorpsplein
+6	nl	Overwinningsdans
+7	nl	Geheime Plannen
+8	nl	Beste Wensen
+9	nl	Destructie
+10	nl	Handwerkgekte
+11	nl	Onderdanen
+12	nl	Op Volle Zee
+13	nl	Verborgen Schatten
+14	nl	Scheepswrakken
+15	nl	Pad Naar De Sterren
+16	nl	Herhalingen
+17	nl	Geven En Nemen
+18	nl	Verboden Kunst
+19	nl	Toverdrankenmengers
+20	nl	Scheikundeles
+21	nl	Dienaren
+22	nl	Geheim Onderzoek
+23	nl	Gekke Trekken
+24	nl	Beginners
+25	nl	Vriendschappelijke Interactie
+26	nl	Grote Acties
+27	nl	Ontzettend Veel Geld
+28	nl	Het Leger Van De Koning
+29	nl	Een Goed Leven
+30	nl	Pad Naar De Zege
+31	nl	All Along the Watchtower
+32	nl	Geluksvogels
+33	nl	Opbrengst Van De Jacht
+34	nl	Slechte Omens
+35	nl	Het Werkterrein Van De Nar
+36	nl	Wie Het Laatst Lacht...
+37	nl	De Specerijen Van Het Leven
+38	nl	Kleine Zeges
+39	nl	Introductie
+40	nl	Eerlijke Handel
+41	nl	Goede Deals
+42	nl	Gambiet
+43	nl	Hoofdwegoverval
+44	nl	Buitenlandse Avonturen
+45	nl	Money for Nothing
+46	nl	Bal Van De Hertog
+47	nl	Reizigers
+48	nl	Diplomatie
+49	nl	Plannen En Dromen
+50	nl	Wijnland
+51	nl	Direct Resultaat
+52	nl	Verborgen Rijkdom
+53	nl	Blauwe Oogst
+54	nl	Rondreizend Circus
+55	nl	Grimmig Defilé
+56	nl	Schaken Met De Dood
+57	nl	Hoog En Laag
+58	nl	Ridderlijk En Vrolijk
+59	nl	Profetie
+60	nl	Invasie
+61	nl	Waterige Graven
+62	nl	Provincialen
+63	nl	Plagen
+64	nl	Gejammer
+65	nl	Eenmans Rommel
+66	nl	Eergevoel Onder Dieven
+67	nl	Duister Carnaval
+68	nl	Naar De Winnaar
+69	nl	Ver Van Huis
+70	nl	Expedities
+71	nl	Kunst En Ambacht
+72	nl	Gezond Leven
+73	nl	Overdreven Decoratie
+74	nl	Noem Die Kaart
+75	nl	De Kneepjes Van Het Handelsvak
+76	nl	Keuzes, Keuzes
+77	nl	Rustige Introductie
+78	nl	Introductie Voor Gevorderden
+79	nl	Nivelleren
+80	nl	Vertekend Beeld
+81	nl	Royaltyfabriek
+82	nl	Meesters Der Financiën
+83	nl	Prins Van Oranje
+84	nl	Geven En Nemen
+85	nl	Laatste Wens En Monument
+86	nl	Denk Groot
+87	nl	De Terugkeer Van De Held
+88	nl	Zeevaart En Hekserij
+89	nl	Kooplieden En Overvallers
+90	nl	Reizen
+91	nl	Grafpolka
+92	nl	Verloedering
+93	nl	Verkwisting
+94	nl	De Getinte Koningin

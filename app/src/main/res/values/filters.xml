@@ -22,6 +22,7 @@
         <item>@string/set_prince</item>
         <item>@string/set_stash</item>
         <item>@string/set_walled_village</item>
+        <item>Placeholder</item>
     </string-array>
     <integer-array name="filter_set_ids">
         <item>0</item>
@@ -40,6 +41,7 @@
         <item>10</item>
         <item>13</item>
         <item>14</item>
+        <item>16</item>
     </integer-array>
     
     <string name="filter_cost">Card Costs</string>

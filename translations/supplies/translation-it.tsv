@@ -1,55 +1,55 @@
-_id	language	set_name	name
-1	it	Base	Prima partita
-2	it	Base	Soldi facili
-3	it	Base	Interazione
-4	it	Base	Distorsione dimensionale
-5	it	Base	Piazza del villaggio
-6	it	Intrigo	Vittoria ballerina
-7	it	Intrigo	Trame segrete
-8	it	Intrigo	Cordiali saluti
-9	it	Intrigo	Demolizione
-10	it	Intrigo	Mani bucate
-11	it	Intrigo	Patrone e sotto
-12	it	Seaside	Alto mare
-13	it	Seaside	Tesori sepolti
-14	it	Seaside	Navi naufragate
-15	it	Seaside	Arrivare a domani
-16	it	Seaside	Ripetizione
-17	it	Seaside	Dai e prendi
-18	it	Alchimia	Arti proibite
-19	it	Alchimia	Mescolare Pozioni
-20	it	Alchimia	Lezioni di chimica
-21	it	Alchimia	Servitori
-22	it	Alchimia	Ricerche segrete
-23	it	Alchimia	Alambicchi e follia
-24	it	Prosperità	Principianti
-25	it	Prosperità	Interazioni amichevoli
-26	it	Prosperità	Grandi gesta
-27	it	Prosperità	Grandi affari
-28	it	Prosperità	L'esercito del re
-29	it	Prosperità	Bella vita
-30	it	Prosperità	La strada per il successo
-31	it	Prosperità	All Along the Watchtower
-32	it	Prosperità	Colpo fortunato
-33	it	Cornucopia	Caccia proficua
-34	it	Cornucopia	Foschi presagi
-35	it	Cornucopia	Trucchi da giullare
-36	it	Cornucopia	Ride bene chi ride ultimo
-37	it	Cornucopia	Il sale della vita
-38	it	Cornucopia	Piccole vittorie
-39	it	Nuovi Orizzonti	Introduzione
-40	it	Nuovi Orizzonti	Commercio equo
-41	it	Nuovi Orizzonti	Occasioni
-42	it	Nuovi Orizzonti	Stratagemmi
-43	it	Nuovi Orizzonti	Assalto alla diligenza
-44	it	Nuovi Orizzonti	Avventure all'estero
-45	it	Nuovi Orizzonti	Soldi facili
-46	it	Nuovi Orizzonti	Il ballo del duca
-47	it	Nuovi Orizzonti	Viaggiatori
-48	it	Nuovi Orizzonti	Diplomazia
-49	it	Nuovi Orizzonti	Schemi e sogni
-50	it	Nuovi Orizzonti	Terra dei vini
-51	it	Nuovi Orizzonti	Gratificazione immediata
-52	it	Nuovi Orizzonti	Tesoro
-53	it	Nuovi Orizzonti	Raccolto blu
-54	it	Nuovi Orizzonti	Circo itinerante
+_id	language	name
+1	it	Prima partita
+2	it	Soldi facili
+3	it	Interazione
+4	it	Distorsione dimensionale
+5	it	Piazza del villaggio
+6	it	Vittoria ballerina
+7	it	Trame segrete
+8	it	Cordiali saluti
+9	it	Demolizione
+10	it	Mani bucate
+11	it	Patrone e sotto
+12	it	Alto mare
+13	it	Tesori sepolti
+14	it	Navi naufragate
+15	it	Arrivare a domani
+16	it	Ripetizione
+17	it	Dai e prendi
+18	it	Arti proibite
+19	it	Mescolare Pozioni
+20	it	Lezioni di chimica
+21	it	Servitori
+22	it	Ricerche segrete
+23	it	Alambicchi e follia
+24	it	Principianti
+25	it	Interazioni amichevoli
+26	it	Grandi gesta
+27	it	Grandi affari
+28	it	L'esercito del re
+29	it	Bella vita
+30	it	La strada per il successo
+31	it	All Along the Watchtower
+32	it	Colpo fortunato
+33	it	Caccia proficua
+34	it	Foschi presagi
+35	it	Trucchi da giullare
+36	it	Ride bene chi ride ultimo
+37	it	Il sale della vita
+38	it	Piccole vittorie
+39	it	Introduzione
+40	it	Commercio equo
+41	it	Occasioni
+42	it	Stratagemmi
+43	it	Assalto alla diligenza
+44	it	Avventure all'estero
+45	it	Soldi facili
+46	it	Il ballo del duca
+47	it	Viaggiatori
+48	it	Diplomazia
+49	it	Schemi e sogni
+50	it	Terra dei vini
+51	it	Gratificazione immediata
+52	it	Tesoro
+53	it	Raccolto blu
+54	it	Circo itinerante

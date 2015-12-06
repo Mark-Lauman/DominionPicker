@@ -64,6 +64,7 @@ public abstract class Prefs {
             case 2: update2(prefs);
             case 3: // v3 -> v4 adds filt_lang. Setting default values is all that is needed.
             case 4: // v4 -> v5 adds sort_card. Setting default values is all that is needed.
+            case 5: update5(prefs);
         }
         prefs.edit().putInt(VERSION, cur_ver).commit();
     }
@@ -205,5 +206,11 @@ public abstract class Prefs {
         if(filter.length() < 1)
              prefs.edit().putString(FILT_SET, "15").commit();
         else prefs.edit().putString(FILT_SET, filter + ",15").commit();
+    }
+
+    /** Updates preferences from v5 to v6. Does not detect version number */
+    private static void update5(SharedPreferences prefs) {
+        String pref = prefs.getString(FILT_LANG, "");
+        prefs.edit().putString(FILT_LANG, pref+",0").commit();
     }
 }
