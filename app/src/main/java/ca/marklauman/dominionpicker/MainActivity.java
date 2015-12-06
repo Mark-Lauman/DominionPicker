@@ -1,6 +1,7 @@
 package ca.marklauman.dominionpicker;
 
 import ca.marklauman.dominionpicker.history.FragmentHistory;
+import ca.marklauman.dominionpicker.rules.ActivityRules;
 import ca.marklauman.dominionpicker.settings.ActivityFilters;
 import ca.marklauman.dominionpicker.settings.ActivityOptions;
 import ca.marklauman.dominionpicker.settings.Prefs;
@@ -215,7 +216,7 @@ public class MainActivity extends AppCompatActivity
             case 2: active = new FragmentHistory();
                     t.replace(R.id.content_frame, active);
                     break;
-            case 3: Intent filters = new Intent(this, ActivityFilters.class);
+            case 3: Intent filters = new Intent(this, ActivityRules.class);
                     startActivity(filters);
         }
         t.commit();

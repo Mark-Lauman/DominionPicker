@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:res="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout android:id="@+id/loading"
+        android:gravity="center_vertical|center"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/loaded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ca.marklauman.tools.preferences.SmallNumberPreference
+            android:id="@+id/supply_size"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:gravity="center_vertical"
+            res:text="@string/supply_size"
+            res:key="supply_size" />
+
+        <TextView style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/list_div_txt"
+            android:background="@color/list_div"
+            android:text="@string/rules_expansions" />
+
+        <LinearLayout android:id="@+id/list_expansion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="20dp"
+            android:orientation="vertical" />
+
+        <TextView style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/list_div_txt"
+            android:background="@color/list_div"
+            android:text="@string/rules_promo" />
+
+        <LinearLayout android:id="@+id/list_promo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="20dp"
+            android:orientation="vertical" />
+
+        <TextView style="?android:attr/listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/list_div_txt"
+            android:background="@color/list_div"
+            android:text="Other" />
+
+        <ca.marklauman.tools.preferences.SmallNumberPreference
+            android:id="@+id/event_limit"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:gravity="center_vertical"
+            res:text="@string/event_limit"
+            res:key="event_limit" />
+
+        <View android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:drawable/divider_horizontal_bright" />
+
+        <ca.marklauman.tools.preferences.CheckBoxPreference
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:background="?attr/selectableItemBackground"
+            res:key="filt_curse"
+            res:name="@string/filter_curse"
+            res:summary="@string/filter_curse_desc"
+            res:image="@drawable/ic_dom_curse" />
+
+    </LinearLayout>
+
+</LinearLayout>

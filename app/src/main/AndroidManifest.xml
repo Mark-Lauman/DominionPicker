@@ -39,6 +39,9 @@
 
         <activity android:name=".settings.ActivityCardSort"
             android:label="@string/sort_card" />
+
+        <activity android:name=".rules.ActivityRules"
+            android:label="@string/filters" />
         
         <provider android:name=".database.Provider"
             android:authorities="${applicationId}"

@@ -28,6 +28,7 @@
     <string name="sort_card">Card Order</string>
     <string name="sort_card_desc">Sort your cards as you wish.</string>
     <string name="drag_handle_desc">Drag me!</string>
+    <string name="sort_card_end">Sorting ends here</string>
     <string-array name="sort_card_names">
         <item>Expansion</item>
         <item>Name</item>
@@ -37,6 +38,14 @@
         <item>Language</item>
         <item>Promos First</item>
     </string-array>
-    <string name="sort_card_end">Sorting ends here</string>
+    <string-array name="sort_card_col" translatable="false">
+        <item>set_name</item>
+        <item>name</item>
+        <item>release_date</item>
+        <item>cost</item>
+        <item>type</item>
+        <item>language</item>
+        <item>promo DESC</item>
+    </string-array>
 
 </resources>
