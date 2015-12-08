@@ -25,8 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="?android:attr/listPreferredItemHeight"
             android:gravity="center_vertical"
-            res:text="@string/supply_size"
-            res:key="supply_size" />
+            res:text="@string/limit_supply"
+            res:key="limit_supply" />
 
         <TextView style="?android:attr/listSeparatorTextViewStyle"
             android:layout_width="match_parent"
@@ -66,8 +66,8 @@
             android:layout_width="match_parent"
             android:layout_height="?android:attr/listPreferredItemHeight"
             android:gravity="center_vertical"
-            res:text="@string/event_limit"
-            res:key="event_limit" />
+            res:text="@string/limit_event"
+            res:key="limit_event" />
 
         <View android:layout_width="match_parent"
             android:layout_height="1px"

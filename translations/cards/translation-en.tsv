@@ -236,7 +236,7 @@ _id	language	name	type	requires	description	details
 235	en	Wine Merchant	Action Reserve			
 236	en	Hireling	Action Duration		This stays in play	
 237	en	Alms	Event			
-238	en	Borrow	Event	Requires: -1 Coin Token		
+238	en	Borrow	Event	Requires: -1 Card Token		
 239	en	Quest	Event		Discard for gold	
 240	en	Save	Event			
 241	en	Scouting Party	Event			

@@ -19,6 +19,8 @@ public abstract class LoaderId {
     public static final int HISTORY = 7;
     /** The sample supply loader. */
     public static final int SAMPLE_SUPPLY = 8;
-    /** Language selector loader. */
-    public static final int LANGUAGE = 9;
+    /** Language selector expansion order. */
+    public static final int LANG_ORDER = 9;
+    /** Language selector translation loader */
+    public static final int LANG_CHOICES = 10;
 }

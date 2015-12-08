@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="rules">Rules</string>
-    <string name="supply_size">Supply Size</string>
+    <string name="limit_supply">Supply Size</string>
+    <integer name="limit_supply_def">10</integer>
 
     <string name="rules_expansions">Expansions</string>
     <string name="rules_promo">Promo Cards</string>
 
     <string name="rules_other">Other</string>
-    <string name="event_limit">Event Cards</string>
+    <string name="limit_event">Event Cards</string>
+    <integer name="limit_event_def">2</integer>
 
 </resources>

@@ -7,7 +7,7 @@
     <string name="filt_set_def">1,2,3,4,5,6,7,8,9,10,11,12,13,14,15</string>
     <string name="filt_cost_def" />
     <bool name="filt_curse_def">true</bool>
-    <string name="filt_lang_def">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</string>
+    <string name="filt_lang_def">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</string>
     <string name="sort_card_def">0,1,2,3,4,5,6</string>
 
     <!-- Dummy text used to make debugging views easier -->

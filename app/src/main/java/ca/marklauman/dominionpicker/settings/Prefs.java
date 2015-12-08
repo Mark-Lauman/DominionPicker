@@ -14,6 +14,11 @@ public abstract class Prefs {
     /** The old separator used in the deprecated MultiSelectImagePreference. */
     private static final String OLD_SEP = "\u0001\u0007\u001D\u0007\u0001";
 
+    /** Key used to save the supply size to the the preferences. */
+    public static final String LIMIT_SUPPLY = "limit_supply";
+    /** Key used to save the event limiter to the preferences. */
+    public static final String LIMIT_EVENTS = "limit_event";
+
 
     /** Key used to save picked cards to the preferences. */
     public static final String SELECTIONS = "selections";
@@ -85,6 +90,10 @@ public abstract class Prefs {
             edit.putString(FILT_LANG, res.getString(R.string.filt_lang_def));
         if(!prefs.contains(SORT_CARD))
             edit.putString(SORT_CARD, res.getString(R.string.sort_card_def));
+        if(!prefs.contains(LIMIT_SUPPLY))
+            edit.putInt(LIMIT_SUPPLY, res.getInteger(R.integer.limit_supply_def));
+        if(!prefs.contains(LIMIT_EVENTS))
+            edit.putInt(LIMIT_EVENTS, res.getInteger(R.integer.limit_event_def));
         edit.commit();
     }
 

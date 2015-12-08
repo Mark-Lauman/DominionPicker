@@ -205,4 +205,54 @@ _id	language	name	type	requires	description	details
 204	de	Grenzdorf	Aktion			
 205	de	Fruchtbares Land	Punkte			
 206	de	Prinz	Aktion			
+207	de	Koninklijke munt	Geld Reserve			
+208	de	Wapenknecht	Aktion Reisender	Benötigt: Eintausch-Karten		
+209	de	Kleinbauer	Aktion Reisender	Benötigt: Eintausch-Karten, Alle +1-Marker		
+210	de	Rattenfänger 	Aktion Reserve			
+211	de	Zerstörung 	Aktion			
+212	de	Amulett 	Aktion Dauer			
+213	de	Karawanenwächter 	Aktion Dauer Reaktion			
+214	de	Verlies 	Aktion Dauer			
+215	de	Ausrüstung 	Aktion Dauer			
+216	de	Kundschafter 	Aktion Reserve			
+217	de	Duplikat 	Aktion Reserve			
+218	de	Elster 	Aktion			
+219	de	Kurier 	Aktion			
+220	de	Geizhals 	Aktion			
+221	de	Hafenstadt 	Aktion			
+222	de	Wildhüter 	Aktion	Benötigt: Reise-Marker		
+223	de	Transformation 	Aktion Reserve			
+224	de	Kunsthandwerker 	Aktion			
+225	de	Brückentroll 	Aktion Angriff Dauer	Benötigt: -1 Münze-Marker		
+226	de	Ferne Lande 	Aktion Reserve Punkte			
+227	de	Riese 	Aktion Angriff	Benötigt: Reise-Marker, Fluch		
+228	de	Geisterwald 	Aktion Angriff Dauer			
+229	de	Verlorene Stadt 	Aktion			
+230	de	Relikt 	Geld Angriff	Benötigt: -1 Münze-Marker		
+231	de	Königliche Kutsche 	Aktion Reserve			
+232	de	Geschichtenerzähler 	Aktion			
+233	de	Sumpfhexe 	Aktion Angriff Dauer	Benötigt: Fluch		
+234	de	Schatz 	Geld			
+235	de	Weinhändler 	Aktion Reserve			
+236	de	Gefolgsmann 	Aktion Dauer			
+237	de	Almosen 	Ereignis			
+238	de	Leihgabe 	Ereignis	Benötigt: -1 Karte-Marker		
+239	de	Quest	Ereignis			
+240	de	Zuflucht 	Ereignis			
+241	de	Spähtrupp 	Ereignis			
+242	de	Wanderzirkus 	Ereignis			
+243	de	Freudenfeuer 	Ereignis			
+244	de	Expedition	Ereignis			
+245	de	Überfahrt 	Ereignis	Benötigt: -2 Kosten-Marker		
+246	de	Planung 	Ereignis	Benötigt: Entsorgungs-Marker		
+247	de	Mission	Ereignis			
+248	de	Pilgerfahrt 	Ereignis	Benötigt: Reise-Marker		
+249	de	Ball	Ereignis	Benötigt: -1 Münze-Marker		
+250	de	Überfall 	Ereignis	Benötigt: -1 Münze-Marker		
+251	de	Seeweg 	Ereignis	Benötigt: +1 Kauf-Marker		
+252	de	Handel 	Ereignis			
+253	de	Verlorene Kunst 	Ereignis	Benötigt: +1 Aktion-Marker		
+254	de	Training	Ereignis	Benötigt: +1 Münze-Marker		
+255	de	Erbschaft 	Ereignis	Benötigt: Anwesen-Marker		
+256	de	Wegsuche 	Ereignis	Benötigt: +1 Karte-Marker		
 257	de	Einladung	Ereignis		Nimm eine Aktionskarte, die bis zu 4 kostet und lege sie zur Seite. Spiele sie zu Beginn deines nächsten Zuges.	
