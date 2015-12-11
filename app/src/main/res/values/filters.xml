@@ -69,8 +69,7 @@
         <item>@drawable/ic_dom_coin_lg</item>
         <item>@drawable/ic_dom_coin_lg</item>
     </array>
-    
-    <string name="filter_curse">Cursers</string>
+
     <string name="filter_curse_desc">Take Victory Points from other players!</string>
     
 </resources>

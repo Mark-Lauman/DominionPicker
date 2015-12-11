@@ -9,6 +9,6 @@
         android:layout_height="wrap_content"
         android:padding="6dp"
         android:hint="@string/name_me"
-        android:background="@color/back_grey" />
+        android:background="@color/background_grey" />
 
 </LinearLayout>

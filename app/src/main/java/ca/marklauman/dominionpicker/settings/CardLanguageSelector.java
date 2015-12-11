@@ -252,7 +252,7 @@ public class CardLanguageSelector extends AppCompatActivity
         /** The current value */
         public String val;
         /** Available choices of val, mapped to their display counterparts. */
-        public HashMap<String, String> choices = new HashMap<>();
+        final public HashMap<String, String> choices = new HashMap<>();
     }
 
 

@@ -11,4 +11,6 @@
     <string name="limit_event">Event Cards</string>
     <integer name="limit_event_def">2</integer>
 
+    <string name="filter_curse">Curse Givers</string>
+
 </resources>

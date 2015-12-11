@@ -10,7 +10,7 @@ import ca.marklauman.dominionpicker.R;
 /** Handles connections to the core database.
  *  (The database containing publisher-provided information)
  *  @author Mark Lauman */
-public class CoreDb extends SQLiteAssetHelper {
+class CoreDb extends SQLiteAssetHelper {
     /** The file that the database is stored in. */
     static final String FILE_NAME = "core.db";
     /** The version of this database, set on first construction */

@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.preference.PreferenceManager;
 
 import ca.marklauman.dominionpicker.R;
+import ca.marklauman.tools.Utils;
 
 /** Used to set up the preferences and store the preference keys.
  *  @author Mark Lauman */
@@ -219,7 +220,16 @@ public abstract class Prefs {
 
     /** Updates preferences from v5 to v6. Does not detect version number */
     private static void update5(SharedPreferences prefs) {
+        // Add another language to FILT_LANG for the "Summon" card set
         String pref = prefs.getString(FILT_LANG, "");
         prefs.edit().putString(FILT_LANG, pref+",0").commit();
+
+        // Change filt_set over to the entry-based filter system
+        String[] filt_set = prefs.getString(FILT_SET, "").split(",");
+        String[] new_file_set = {"2","2","2","2","2","2","2","2","2",
+                                 "2","2","2","2","2","2","2","0"};
+        for(String s : filt_set)
+            new_file_set[Integer.parseInt(s)] = "0";
+        prefs.edit().putString(FILT_SET, Utils.join(",", new_file_set)).commit();
     }
 }

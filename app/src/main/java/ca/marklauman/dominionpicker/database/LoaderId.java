@@ -23,4 +23,6 @@ public abstract class LoaderId {
     public static final int LANG_ORDER = 9;
     /** Language selector translation loader */
     public static final int LANG_CHOICES = 10;
+    /** Expansion selector for the rules fragment */
+    public static final int RULES_EXP = 11;
 }

@@ -5,5 +5,10 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/accent</item>
         <item name="android:scrollbarSize">8dp</item>
+        <item name="android:windowBackground">@color/background_grey</item>
+        <item name="android:listViewStyle">@style/ListView</item>
+    </style>
+    <style name="ListView" parent="@android:style/Widget.ListView">
+        <item name="android:cacheColorHint">@color/background_grey</item>
     </style>
 </resources>

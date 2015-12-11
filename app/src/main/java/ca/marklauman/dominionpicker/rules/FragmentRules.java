@@ -1,59 +1,84 @@
 package ca.marklauman.dominionpicker.rules;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.LoaderManager.LoaderCallbacks;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckedTextView;
-import android.widget.LinearLayout;
+import android.widget.ListView;
 
+import ca.marklauman.dominionpicker.App;
 import ca.marklauman.dominionpicker.R;
+import ca.marklauman.dominionpicker.database.LoaderId;
+import ca.marklauman.dominionpicker.database.Provider;
+import ca.marklauman.dominionpicker.database.TableCard;
 
-/**
- *
- * Created by Mark on 2015-11-28.
- */
+/** The fragment governing the Rules screen.
+ *  @author Mark Lauman */
 public class FragmentRules extends Fragment {
+    /** Card sets available to be filtered */
+    private Cursor cardSets;
 
     /** View used to show this fragment is loading */
     private View viewLoading;
     /** Show this view when all data is loaded */
-    private View viewLoaded;
-    /** View holding a list of all sets */
-    private LinearLayout viewExp;
+    private ListView viewLoaded;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        FragmentActivity act = (FragmentActivity) context;
+        act.getSupportLoaderManager()
+           .initLoader(LoaderId.RULES_EXP, null, new SetLoader());
+    }
 
     /** Called to create this fragment's view for the first time.  */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_rules_simple, container, false);
+        View view = inflater.inflate(R.layout.fragment_rules, container, false);
         viewLoading = view.findViewById(R.id.loading);
-        viewLoaded = view.findViewById(R.id.loaded);
-        viewExp = (LinearLayout) view.findViewById(R.id.list_expansion);
+        viewLoaded = (ListView)view.findViewById(R.id.loaded);
         updateView();
         return view;
     }
 
+
     private void updateView() {
-        if(viewExp == null) return;
-
-        Context c = getActivity();
-        if(c == null) return;
-
-        CheckedTextView check = (CheckedTextView)View.inflate(c, R.layout.rule_checkbox, null);
-        check.setTag(1);
-        viewExp.addView(check);
-        Log.d("check1", "" + check.getTag());
-
-        check = (CheckedTextView)View.inflate(c, R.layout.rule_checkbox, null);
-        check.setTag(2);
-        viewExp.addView(check);
-        Log.d("check2", ""+check.getTag());
-
+        if(viewLoaded == null || cardSets == null) return;
+        RulesAdapter adapter = new RulesAdapter(getContext(), cardSets);
+        viewLoaded.setAdapter(adapter);
+        viewLoaded.setOnItemClickListener(adapter);
         viewLoading.setVisibility(View.GONE);
         viewLoaded.setVisibility(View.VISIBLE);
+    }
+
+
+    private class SetLoader implements LoaderCallbacks<Cursor> {
+        @Override
+        public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+            return new CursorLoader(getActivity(), Provider.URI_CARD_SET,
+                                    new String[]{TableCard._SET_ID, TableCard._SET_NAME,
+                                                 TableCard._PROMO},
+                                    App.transFilter, null,
+                                    TableCard._PROMO+", "+TableCard._SET_NAME);
+        }
+
+        @Override
+        public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+            cardSets = data;
+            updateView();
+        }
+
+        @Override
+        public void onLoaderReset(Loader<Cursor> loader) {
+            cardSets = null;
+        }
     }
 }
