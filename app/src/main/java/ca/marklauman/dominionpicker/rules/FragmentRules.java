@@ -13,15 +13,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import ca.marklauman.dominionpicker.App;
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
+import ca.marklauman.dominionpicker.settings.Prefs;
 
 /** The fragment governing the Rules screen.
  *  @author Mark Lauman */
-public class FragmentRules extends Fragment {
+public class FragmentRules extends Fragment
+                           implements Prefs.Listener {
+
+    /** Loader used to get the card sets */
+    private final SetLoader setLoader = new SetLoader();
+
     /** Card sets available to be filtered */
     private Cursor cardSets;
 
@@ -35,7 +40,7 @@ public class FragmentRules extends Fragment {
         super.onAttach(context);
         FragmentActivity act = (FragmentActivity) context;
         act.getSupportLoaderManager()
-           .initLoader(LoaderId.RULES_EXP, null, new SetLoader());
+           .initLoader(LoaderId.RULES_EXP, null, setLoader);
     }
 
     /** Called to create this fragment's view for the first time.  */
@@ -59,6 +64,16 @@ public class FragmentRules extends Fragment {
         viewLoaded.setVisibility(View.VISIBLE);
     }
 
+    @Override
+    public void prefChanged(String key) {
+        switch(key) {
+            case Prefs.FILT_LANG: case Prefs.SORT_CARD:
+                getActivity().getSupportLoaderManager()
+                             .restartLoader(LoaderId.RULES_EXP, null, setLoader);
+                break;
+        }
+    }
+
 
     private class SetLoader implements LoaderCallbacks<Cursor> {
         @Override
@@ -66,8 +81,8 @@ public class FragmentRules extends Fragment {
             return new CursorLoader(getActivity(), Provider.URI_CARD_SET,
                                     new String[]{TableCard._SET_ID, TableCard._SET_NAME,
                                                  TableCard._PROMO},
-                                    App.transFilter, null,
-                                    TableCard._PROMO+", "+TableCard._SET_NAME);
+                                    Prefs.filt_lang, null,
+                                    TableCard._PROMO+", "+Prefs.sort_set);
         }
 
         @Override

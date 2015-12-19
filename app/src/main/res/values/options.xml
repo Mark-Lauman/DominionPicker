@@ -42,10 +42,19 @@
         <item>set_name</item>
         <item>name</item>
         <item>release_date</item>
-        <item>cost</item>
+        <item>cost, potion</item>
         <item>type</item>
-        <item>language</item>
-        <item>promo DESC</item>
+        <item>CASE language WHEN \'en\' THEN 1 ELSE 0 END, language</item>
+        <item>promotional DESC</item>
+    </string-array>
+    <string-array name="sort_set_col" translatable="false">
+        <item>set_name</item>
+        <item />
+        <item>release_date</item>
+        <item />
+        <item />
+        <item>CASE language WHEN \'en\' THEN 1 ELSE 0 END, language</item>
+        <item />
     </string-array>
 
 </resources>

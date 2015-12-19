@@ -4,7 +4,7 @@
     <!-- Nothing in this file is shown to the user. It's just used for internal purposes. -->
 
     <!-- Default filter values -->
-    <string name="filt_set_def" translatable="false">2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</string>
+    <string name="filt_set_def" translatable="false">0</string>
     <string name="filt_cost_def" />
     <bool name="filt_curse_def">true</bool>
     <string name="filt_lang_def">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</string>

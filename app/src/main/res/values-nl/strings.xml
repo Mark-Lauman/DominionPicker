@@ -31,7 +31,7 @@
     <string name="supply_shelters">Gebruik Onderdak kaarten</string>
     <string name="young_witch_bane">Jonge Heks - Bankaart</string>
     
-    <string name="market_title">@string/set_black_market</string>
+    <string name="market_title">Black Market</string>
     <string name="market_begin">Nieuwe markt gecreëerd.</string>
     <string name="market_draw">Trek</string>
     <string name="market_pass">Pas</string>

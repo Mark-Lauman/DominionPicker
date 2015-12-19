@@ -55,6 +55,7 @@ public class CardLanguageSelector extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Prefs.setup(this);
         // View and action bar setup
         list = new ListView(this);
         list.setOnItemClickListener(this);
@@ -236,6 +237,7 @@ public class CardLanguageSelector extends AppCompatActivity
                          .edit()
                          .putString(Prefs.FILT_LANG, out)
                          .commit();
+        Prefs.notifyChange(this, Prefs.FILT_LANG);
     }
 
 

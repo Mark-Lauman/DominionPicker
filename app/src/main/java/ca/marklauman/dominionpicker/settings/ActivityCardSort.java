@@ -28,6 +28,7 @@ public class ActivityCardSort extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Prefs.setup(this);
         ActionBar ab = getSupportActionBar();
         if(ab != null) ab.setDisplayHomeAsUpEnabled(true);
 
@@ -102,6 +103,7 @@ public class ActivityCardSort extends AppCompatActivity {
                 prefs.edit()
                      .putString(Prefs.SORT_CARD, context.getString(R.string.sort_card_def))
                      .commit();
+                Prefs.notifyChange(context, Prefs.SORT_CARD);
                 loadSortOrder();
             }
         }
@@ -117,6 +119,7 @@ public class ActivityCardSort extends AppCompatActivity {
                              .edit()
                              .putString(Prefs.SORT_CARD, Utils.join(",", sortOrder))
                              .commit();
+            Prefs.notifyChange(context, Prefs.SORT_CARD);
         }
 
         @Override

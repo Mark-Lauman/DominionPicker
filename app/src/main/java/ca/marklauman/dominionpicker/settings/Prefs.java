@@ -5,24 +5,23 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+
 import ca.marklauman.dominionpicker.R;
+import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.tools.Utils;
 
 /** Used to set up the preferences and store the preference keys.
  *  @author Mark Lauman */
 @SuppressWarnings({"WeakerAccess", "UnusedDeclaration"})
 public abstract class Prefs {
-    /** The old separator used in the deprecated MultiSelectImagePreference. */
-    private static final String OLD_SEP = "\u0001\u0007\u001D\u0007\u0001";
-
+    /////////// Active preference keys \\\\\\\\\\\
     /** Key used to save the supply size to the the preferences. */
     public static final String LIMIT_SUPPLY = "limit_supply";
     /** Key used to save the event limiter to the preferences. */
     public static final String LIMIT_EVENTS = "limit_event";
-
-
-    /** Key used to save picked cards to the preferences. */
-    public static final String SELECTIONS = "selections";
     /** Key used to save the version of the preferences */
     public static final String VERSION = "version";
     /** Key used to save the card sort order */
@@ -33,17 +32,35 @@ public abstract class Prefs {
     public static final String FILT_COST = "filt_cost";
     /** Key used to save the curse filter to the preferences */
     public static final String FILT_CURSE = "filt_curse";
-
     /** Key used to save the current language filter */
     public static final String FILT_LANG = "filt_lang";
+    /** Key used to save cards deselected from the card list */
+    public static final String FILT_CARD = "filt_card";
 
-
+    /////////// Obsolete preference keys \\\\\\\\\\\
+    /** The old separator used in the deprecated MultiSelectImagePreference. */
+    private static final String OLD_SEP = "\u0001\u0007\u001D\u0007\u0001";
     /** Deprecated key used to identify the version 0 preferences. */
     @Deprecated
     public static final String FILT_SET_BASE = "filt_set_base";
     /** Old attempt to store preference version from v1. Never worked properly. */
     @Deprecated
     public static final String PREF_VERSION = "pref_version";
+    /** Selected cards - used in preferences before v6 */
+    @Deprecated
+    public static final String SELECTIONS = "selections";
+
+    /////////// Current preference/application state \\\\\\\\\\\
+    private static Context staticContext;
+    public static String filt_lang;
+    public static String sort_card;
+    public static String sort_set;
+
+
+    /////////// Other \\\\\\\\\\\
+    /** Set of all listeners currently active */
+    private static HashSet<Listener> listeners = new HashSet<>();
+
 
     /** Set default preference values and update old preference setups to newer versions.
      *  @param c A context within DominionPicker. */
@@ -73,7 +90,91 @@ public abstract class Prefs {
             case 5: update5(prefs);
         }
         prefs.edit().putInt(VERSION, cur_ver).commit();
+
+        // Load current configuration
+        staticContext = c.getApplicationContext();
+        parsePreference(c, FILT_LANG);
+        parsePreference(c, SORT_CARD);
     }
+
+    /** Register this listener to receive preference change notifications. */
+    public static synchronized void addListener(Listener listener) {
+        listeners.add(listener);
+    }
+
+    /** Unregister a listener. */
+    public static synchronized void removeListener(Listener listener) {
+        listeners.remove(listener);
+    }
+
+    /** Call this method when you change a preference.
+     *  All listeners will be notified of the change
+     *  @param key The key of the preference that was changed. */
+    public static synchronized void notifyChange(Context context, String key) {
+        parsePreference(context, key);
+        for(Listener listener : listeners) {
+            if(listener == null) listeners.remove(null);
+            else listener.prefChanged(key);
+        }
+    }
+
+
+    /** Parse a given preference into a usable sql filter
+     *  @param key key of the preference to parse
+     */
+    private static void parsePreference(Context c, String key) {
+        switch(key) {
+            case FILT_LANG:
+                // Load the default language and current filter
+                String[] def_lang = c.getResources().getStringArray(R.array.def_trans);
+                String[] pref_lang = PreferenceManager.getDefaultSharedPreferences(c)
+                                                .getString(key, c.getString(R.string.filt_lang_def))
+                                                .split(",");
+                // Replace "default" values with the default language for the set
+                for(int i=0; i< pref_lang.length; i++) {
+                    if(pref_lang[i].equals("0"))
+                        pref_lang[i] = def_lang[i];
+                }
+                // Group sets together by language code
+                HashMap<String, String> lang_map = new HashMap<>(2);
+                String language;
+                for (int set = 0; set < pref_lang.length; set++) {
+                    language = pref_lang[set];
+                    if (!lang_map.containsKey(language))
+                        lang_map.put(language, "");
+                    lang_map.put(language, lang_map.get(language)+","+set);
+                }
+                // Make an sql filter using the language preference
+                filt_lang = TableCard._LANG + "=NULL";
+                for (String lang : lang_map.keySet())
+                    filt_lang += " OR (" + TableCard._LANG + "='" + lang
+                               + "' AND " + TableCard._SET_ID + " IN ("
+                               + lang_map.get(lang).substring(1) + "))";
+                filt_lang = "("+filt_lang+")";
+                break;
+            case SORT_CARD:
+                String[] sort = PreferenceManager.getDefaultSharedPreferences(c)
+                                                 .getString(SORT_CARD, c.getString(R.string.sort_card_def))
+                                                 .split(",");
+                String[] sort_card_col = c.getResources().getStringArray(R.array.sort_card_col);
+                String[] sort_set_col = c.getResources().getStringArray(R.array.sort_set_col);
+                sort_card = "";
+                sort_set = "";
+
+                for(String s : sort) {
+                    int i = Integer.parseInt(s);
+                    if(i == 1) break;
+                    sort_card += sort_card_col[i]+", ";
+                    if(!sort_set_col[i].equals(""))
+                        sort_set += ", "+sort_set_col[i];
+                }
+                sort_card += sort_card_col[1];
+                if(sort_set.length() < 1)
+                    sort_set = sort_set_col[0];
+                else sort_set = sort_set.substring(2);
+        }
+    }
+
 
     /** Set the default preference values (current version) */
     private static void setDefaultValues(Context c) {
@@ -95,6 +196,8 @@ public abstract class Prefs {
             edit.putInt(LIMIT_SUPPLY, res.getInteger(R.integer.limit_supply_def));
         if(!prefs.contains(LIMIT_EVENTS))
             edit.putInt(LIMIT_EVENTS, res.getInteger(R.integer.limit_event_def));
+        if(!prefs.contains(FILT_CARD))
+            edit.putString(FILT_CARD, "");
         edit.commit();
     }
 
@@ -220,16 +323,40 @@ public abstract class Prefs {
 
     /** Updates preferences from v5 to v6. Does not detect version number */
     private static void update5(SharedPreferences prefs) {
+        SharedPreferences.Editor edit = prefs.edit();
+
         // Add another language to FILT_LANG for the "Summon" card set
         String pref = prefs.getString(FILT_LANG, "");
-        prefs.edit().putString(FILT_LANG, pref+",0").commit();
+        edit.putString(FILT_LANG, pref+",0");
 
-        // Change filt_set over to the entry-based filter system
+        // Change the set filter from a NOT IN filter to an IN filter.
         String[] filt_set = prefs.getString(FILT_SET, "").split(",");
-        String[] new_file_set = {"2","2","2","2","2","2","2","2","2",
-                                 "2","2","2","2","2","2","2","0"};
+        HashSet<Integer> not_filt_set = new HashSet<>(filt_set.length);
         for(String s : filt_set)
-            new_file_set[Integer.parseInt(s)] = "0";
-        prefs.edit().putString(FILT_SET, Utils.join(",", new_file_set)).commit();
+            not_filt_set.add(Integer.parseInt(s));
+        ArrayList<Integer> new_filt_set = new ArrayList<>(17 - filt_set.length);
+        for(int i=0; i<17; i++)
+            if(!not_filt_set.contains(i)) new_filt_set.add(i);
+        edit.putString(FILT_SET, Utils.join(",", new_filt_set));
+
+        // Remove all old selections
+        edit.remove(SELECTIONS);
+
+        edit.commit();
+    }
+
+
+    /** Listeners added to {@link Prefs} will be notified when it learns of preference changes. */
+    public interface Listener {
+        /** This method is called when a preference is changed.
+         *  @param key The key identifying the changed preference */
+        void prefChanged(String key);
+    }
+
+    /** Get the context of this application (not the display thread)
+     *  Warning: This context behaves differently that the display context.
+     *  Handle with extreme care. */
+    public static Context getStaticContext() {
+        return staticContext;
     }
 }

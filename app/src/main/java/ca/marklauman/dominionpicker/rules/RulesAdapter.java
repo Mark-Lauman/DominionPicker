@@ -16,25 +16,31 @@ import android.widget.CheckedTextView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.Utils;
+import ca.marklauman.tools.preferences.Preference.PreferenceListener;
 import ca.marklauman.tools.preferences.SmallNumberPreference;
 
 /** Adapter used to display the simple rules list.
  *  This adapter directly handles the setting of the {@link Prefs#FILT_CURSE} and
  *  {@link Prefs#FILT_SET} values as well. */
 class RulesAdapter extends ArrayAdapter<View>
-                   implements OnItemClickListener {
+                   implements OnItemClickListener, PreferenceListener {
+    /** Keys updated by this adapter. */
+    private static final String[] PREF_KEYS = {Prefs.LIMIT_SUPPLY, Prefs.FILT_SET,
+                                               Prefs.LIMIT_EVENTS, Prefs.FILT_CURSE};
+
     /** The views available for this adapter */
     final private ArrayList<View> views;
 
     /** SharedPreference object of this context */
     final private SharedPreferences prefs;
     /** The current value of filt_set */
-    final private String[] filt_set;
+    final private HashSet<Integer> filt_set;
 
     /** Position of the first expansion in the adapter */
     final private int setStart;
@@ -52,9 +58,12 @@ class RulesAdapter extends ArrayAdapter<View>
 
         // Load the preferences managed by this adapter
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        filt_set = prefs.getString(Prefs.FILT_SET,
-                                   context.getString(R.string.filt_set_def))
-                        .split(",");
+        String[] filt_set_arr = prefs.getString(Prefs.FILT_SET, context.getString(R.string.filt_set_def))
+                                     .split(",");
+        filt_set = new HashSet<>(filt_set_arr.length);
+        for(String s : filt_set_arr)
+            filt_set.add(Integer.parseInt(s));
+
         boolean filt_curse = prefs.getBoolean(Prefs.FILT_CURSE, true);
 
         // Get the preferred list item height
@@ -69,7 +78,7 @@ class RulesAdapter extends ArrayAdapter<View>
 
         // Start to build the list of views
         views = new ArrayList<>();
-        views.add(newNumPref(context, prefHeight, R.string.limit_supply, Prefs.LIMIT_SUPPLY));
+        views.add(newNumPref(context, 0, Prefs.LIMIT_SUPPLY, R.string.limit_supply, prefHeight));
 
         // Add the expansions
         views.add(newSeparator(context, R.string.rules_expansions));
@@ -82,7 +91,7 @@ class RulesAdapter extends ArrayAdapter<View>
         do {
             int id = cardSets.getInt(_id);
             view = newChecked(context, cardSets.getString(_name), icons[id]);
-            if(!filt_set[id].equals("0")) view.toggle();
+            if(filt_set.contains(id)) view.toggle();
             view.setTag(id);
             views.add(view);
         } while(cardSets.moveToNext() && cardSets.getInt(_promo) == 0);
@@ -94,7 +103,7 @@ class RulesAdapter extends ArrayAdapter<View>
         do {
             int id = cardSets.getInt(_id);
             view = newChecked(context, cardSets.getString(_name), icons[id]);
-            if(!filt_set[id].equals("0")) view.toggle();
+            if(filt_set.contains(id)) view.toggle();
             view.setTag(id);
             views.add(view);
         } while(cardSets.moveToNext());
@@ -102,7 +111,7 @@ class RulesAdapter extends ArrayAdapter<View>
 
         // Add the event filter
         views.add(newSeparator(context, R.string.rules_other));
-        views.add(newNumPref(context, prefHeight, R.string.limit_event, Prefs.LIMIT_EVENTS));
+        views.add(newNumPref(context, 2, Prefs.LIMIT_EVENTS, R.string.limit_event, prefHeight));
 
         // Add the curse filter
         view = newChecked(context, context.getString(R.string.filter_curse),
@@ -126,24 +135,25 @@ class RulesAdapter extends ArrayAdapter<View>
         return views.size();
     }
 
-    private static SmallNumberPreference newNumPref(Context c, int height,
-                                                    int textRes, String key) {
+    protected SmallNumberPreference newNumPref(Context c, int id, String key,
+                                               int textRes, int height) {
         SmallNumberPreference res = new SmallNumberPreference(c);
         res.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT,
                                                          height));
         res.setText(textRes);
         res.setKey(key);
+        res.setListener(this, id);
         return res;
     }
 
-    private static View newSeparator(Context c, int textRes) {
+    protected View newSeparator(Context c, int textRes) {
         View res = View.inflate(c, R.layout.list_item_seperator, null);
         TextView txt = (TextView)res.findViewById(android.R.id.text1);
         txt.setText(textRes);
         return res;
     }
 
-    private static CheckedTextView newChecked(Context c, String text, int imgRes) {
+    protected CheckedTextView newChecked(Context c, String text, int imgRes) {
         CheckedTextView res = (CheckedTextView)View.inflate(c, R.layout.rule_checkbox, null);
         res.setText(text);
         if(imgRes != 0)
@@ -159,6 +169,7 @@ class RulesAdapter extends ArrayAdapter<View>
             CheckedTextView check = (CheckedTextView) view;
             check.toggle();
             prefs.edit().putBoolean(Prefs.FILT_CURSE, check.isChecked()).commit();
+            Prefs.notifyChange(getContext(), Prefs.FILT_CURSE);
             notifyDataSetChanged();
         }
 
@@ -168,10 +179,16 @@ class RulesAdapter extends ArrayAdapter<View>
             CheckedTextView tv = (CheckedTextView) views.get(position);
             tv.toggle();
             int set_id = (Integer)tv.getTag();
-            if(tv.isChecked()) filt_set[set_id] = "2";
-            else filt_set[set_id] = "0";
+            if(tv.isChecked()) filt_set.add(set_id);
+            else filt_set.remove(set_id);
             prefs.edit().putString(Prefs.FILT_SET, Utils.join(",", filt_set)).commit();
+            Prefs.notifyChange(getContext(), Prefs.FILT_SET);
             notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void preferenceChanged(int id) {
+        Prefs.notifyChange(getContext(), PREF_KEYS[id]);
     }
 }

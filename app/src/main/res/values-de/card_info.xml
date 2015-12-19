@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Names of the expansions. -->
-    <string name="set_base">Dominion</string>
-    <string name="set_alchemy">Alchemisten</string>
-    <string name="set_black_market">Schwarzmarkt</string>
-    <string name="set_cornucopia">Basiskarte</string>
-    <string name="set_dark_ages">Dark Ages</string>
-    <string name="set_envoy">Gesandter</string>
-    <string name="set_governor">Gouverneur</string>
-    <string name="set_guilds">Die Gilden</string>
-    <string name="set_hinterlands">Hinterland</string>
-    <string name="set_intrigue">Die Intrige</string>
-    <string name="set_prince">Prinz</string>
-    <string name="set_prosperity">Bl&#252;tezeit</string>
-    <string name="set_seaside">Seaside</string>
-    <string name="set_stash">Geldversteck</string>
-    <string name="set_walled_village">Carcasonne</string>
-
     <!-- Default translation to use for each set. Sorted by set id. -->
     <string-array name="def_trans">
         <item>de</item>

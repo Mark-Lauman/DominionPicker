@@ -1,7 +1,6 @@
 package ca.marklauman.dominionpicker.database;
 
 import android.provider.BaseColumns;
-import ca.marklauman.dominionpicker.App;
 
 /** Describes the card tables that are accessible through the ContentProvider.
  *  @author Mark Lauman */
@@ -23,7 +22,7 @@ public abstract class TableCard {
     static final String VIEW_ALL = "cardAll";
 
     /** Unique identifier for an expansion. From the cardSet and cardData tables. */
-    public static final String _SET_ID = App.COL_SET_ID;
+    public static final String _SET_ID = "set_id";
     /** Column for expansion name. From the cardSet table. */
     public static final String _SET_NAME = "set_name";
     /** Column for release date. From the cardSet table */
@@ -45,7 +44,7 @@ public abstract class TableCard {
     /** Column for the details of a card. From the cardTrans table. */
     public static final String _DETAILS = "details";
     /** Column for the language code of the card. From the cardTans and cardSet tables. */
-    public static final String _LANG = App.COL_LANG;
+    public static final String _LANG = "language";
 
     /** Column for the cost of a card (in coins). From the cardData table. */
     public static final String _COST = "cost";

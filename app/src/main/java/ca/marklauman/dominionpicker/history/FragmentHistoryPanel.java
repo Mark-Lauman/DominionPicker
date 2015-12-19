@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
@@ -14,16 +13,17 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import ca.marklauman.dominionpicker.ActivitySupply;
-import ca.marklauman.dominionpicker.App;
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.LoaderId;
+import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.CursorHandler;
 
 /** Represents a single panel in the History screen.
  *  Different Handlers display different things.
  *  @author Mark Lauman */
 public class FragmentHistoryPanel extends Fragment
-                                  implements LoaderCallbacks<Cursor>, ListView.OnItemClickListener {
+                                  implements LoaderCallbacks<Cursor>, ListView.OnItemClickListener,
+                                             Prefs.Listener {
 
     /** Parameter indicating the type of panel to use. */
     public static final String PARAM_TYPE = "type";
@@ -33,8 +33,6 @@ public class FragmentHistoryPanel extends Fragment
     private int loaderId;
     /** The handler that loads the data and acts as adapter. */
     private CursorHandler handler;
-    /** THe translation currently in use to display the history */
-    private String transId;
 
     // Variables that are set internally.
     /** True if we are loading data */
@@ -50,6 +48,7 @@ public class FragmentHistoryPanel extends Fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Prefs.addListener(this);
 
         // Select the appropriate handler and loader id
         Bundle args = getArguments();
@@ -73,12 +72,8 @@ public class FragmentHistoryPanel extends Fragment
     @Override
     public void onStart() {
         super.onStart();
-        App.updateInfo(getActivity());
-        LoaderManager lm = getActivity().getSupportLoaderManager();
-        if(! App.transId.equals(transId)) {
-            transId = App.transId;
-            lm.restartLoader(loaderId, null, this);
-        } else lm.initLoader(loaderId, null, this);
+        getActivity().getSupportLoaderManager()
+                     .initLoader(loaderId, null, this);
     }
 
 
@@ -97,6 +92,13 @@ public class FragmentHistoryPanel extends Fragment
         listView.setOnItemClickListener(this);
         updateEmpty();
         return view;
+    }
+
+
+    @Override
+    public void onDestroy() {
+        Prefs.removeListener(this);
+        super.onDestroy();
     }
 
 
@@ -139,5 +141,13 @@ public class FragmentHistoryPanel extends Fragment
         if(loaderId == LoaderId.SAMPLE_SUPPLY) i.putExtra(ActivitySupply.PARAM_SUPPLY_ID, id);
         else i.putExtra(ActivitySupply.PARAM_HISTORY_ID, id);
         getActivity().startActivity(i);
+    }
+
+
+    @Override
+    public void prefChanged(String key) {
+        if(Prefs.FILT_LANG.equals(key))
+            getActivity().getSupportLoaderManager()
+                         .restartLoader(loaderId, null, this);
     }
 }

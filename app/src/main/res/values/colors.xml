@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#63CBC4</color>
     <color name="colorPrimaryDark">#42AAA3</color>
-    <color name="accent">#33B5E5</color>
+    <color name="accent">@color/colorPrimaryDark</color>
     <color name="nav_drawer_sel">#EDEDED</color>
     <color name="card_list_select">#CECECE</color>
     <color name="list_div">@color/colorPrimary</color>

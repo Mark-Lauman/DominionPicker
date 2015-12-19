@@ -5,24 +5,6 @@
     <!-- This file contains card info needed by the app to function.
          It does not populate the database, but should reflect it. -->
 
-    <!-- Names of the expansions. -->
-    <string name="set_base">Base</string>
-    <string name="set_alchemy">Alchemy</string>
-    <string name="set_black_market">Black Market</string>
-    <string name="set_cornucopia">Cornucopia</string>
-    <string name="set_dark_ages">Dark Ages</string>
-    <string name="set_envoy">Envoy</string>
-    <string name="set_governor">Governor</string>
-    <string name="set_guilds">Guilds</string>
-    <string name="set_hinterlands">Hinterlands</string>
-    <string name="set_intrigue">Intrigue</string>
-    <string name="set_prince">Prince</string>
-    <string name="set_prosperity">Prosperity</string>
-    <string name="set_seaside">Seaside</string>
-    <string name="set_stash">Stash</string>
-    <string name="set_walled_village">Walled Village</string>
-    <string name="set_adventures">Adventures</string>
-
     <!-- Icons for each expansion, sorted by id -->
     <array name="card_set_icons">
         <item>@drawable/ic_set_base</item>

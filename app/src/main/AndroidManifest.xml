@@ -26,9 +26,6 @@
         <activity android:name=".ActivityMarket"
             android:label="@string/market_title" />
 
-        <activity android:name=".settings.ActivityFilters"
-            android:label="@string/filters" />
-
         <activity android:name=".settings.ActivityOptions"
             android:label="@string/options" />
 
@@ -39,9 +36,6 @@
 
         <activity android:name=".settings.ActivityCardSort"
             android:label="@string/sort_card" />
-
-        <activity android:name=".rules.ActivityRules"
-            android:label="@string/filters" />
         
         <provider android:name=".database.Provider"
             android:authorities="${applicationId}"

@@ -1,7 +1,7 @@
 package ca.marklauman.dominionpicker;
 
 import ca.marklauman.dominionpicker.history.FragmentHistory;
-import ca.marklauman.dominionpicker.rules.ActivityRules;
+import ca.marklauman.dominionpicker.rules.FragmentRules;
 import ca.marklauman.dominionpicker.settings.ActivityOptions;
 import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.ExpandedArrayAdapter;
@@ -11,7 +11,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -61,7 +63,6 @@ public class MainActivity extends AppCompatActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         Prefs.setup(this);
-        App.updateInfo(this);
 
         shuffler = new ShuffleManager();
 		setContentView(R.layout.activity_main);
@@ -88,8 +89,8 @@ public class MainActivity extends AppCompatActivity
                .setOnClickListener(new OptionLauncher());
         String[] headers = getResources().getStringArray(R.array.navNames);
         navAdapt = new ExpandedArrayAdapter<>(this, android.R.layout.simple_list_item_1, headers);
-        navAdapt.setIcons(R.drawable.ic_core_send, R.drawable.ic_action_market,
-                          R.drawable.ic_core_clock, R.drawable.ic_core_filter);
+        navAdapt.setIcons(R.drawable.ic_core_filter, R.drawable.ic_core_send,
+                          R.drawable.ic_core_clock, R.drawable.ic_action_market);
         navAdapt.setSelBack(R.color.nav_drawer_sel);
         ListView navList = (ListView) navView.findViewById(R.id.drawer_list);
         navList.setAdapter(navAdapt);
@@ -99,10 +100,10 @@ public class MainActivity extends AppCompatActivity
         // setup the active fragment
         FragmentManager fm = getSupportFragmentManager();
         if(savedInstanceState == null) {
-            // For the first setup, FragmentPicker is selected
+            // For the first setup, FragmentRules is selected
             navAdapt.setSelection(0);
             getSupportActionBar().setTitle(navNames[0]);
-            active = new FragmentPicker();
+            active = new FragmentRules();
             fm.beginTransaction()
               .replace(R.id.content_frame, active)
               .commit();
@@ -115,11 +116,6 @@ public class MainActivity extends AppCompatActivity
         }
 	}
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        App.updateInfo(this);
-    }
 
     /** Save the current state of this activity. */
     @Override
@@ -146,14 +142,13 @@ public class MainActivity extends AppCompatActivity
      *  is displayed - including after each invalidation.
      *  Useful to hide/display menu items.             */
     public boolean onPrepareOptionsMenu(Menu menu) {
-        /* Only show items if the FragmentPicker is active and
-         * the navigation drawer is not open.       */
-        boolean picker_active = navAdapt != null && navAdapt.getSelection() == 0;
-        boolean show = picker_active && !navLayout.isDrawerOpen(navView);
+        int sel = (navAdapt == null) ? 0 : navAdapt.getSelection();
+        // show the toggle all button on the picker screen
         menu.findItem(R.id.action_toggle_all)
-            .setVisible(show);
+            .setVisible(sel == 1);
+        // show the submit button on the picker and rules screens.
         menu.findItem(R.id.action_submit)
-            .setVisible(show);
+            .setVisible(sel < 2);
         return super.onPrepareOptionsMenu(menu);
     }
 	
@@ -169,9 +164,8 @@ public class MainActivity extends AppCompatActivity
                 ((FragmentPicker)active).toggleAll();
                 return true;
             case R.id.action_submit:
-                FragmentPicker picker = (FragmentPicker) active;
-                picker.saveSelections(this);
-                shuffler.startShuffle(FragmentPicker.loadSelections(this));
+                // TODO: FIX THIS
+//                shuffler.startShuffle(FragmentPicker.loadBanned(this));
                 return true;
 		}
 
@@ -195,28 +189,22 @@ public class MainActivity extends AppCompatActivity
             return;
         }
 
-        // never select filters
-        if(position < 3) navAdapt.setSelection(position);
-
-        // save selections before swap
-        if(active instanceof FragmentPicker)
-            ((FragmentPicker)active).saveSelections(this);
+        navAdapt.setSelection(position);
 
         FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         switch(position) {
-            case 0: active = new FragmentPicker();
+            case 0: active = new FragmentRules();
                     t.replace(R.id.content_frame, active);
                     break;
-            case 1: Toast.makeText(this, R.string.market_begin,
-                                   Toast.LENGTH_LONG).show();
-                    active = new FragmentMarket();
+            case 1: active = new FragmentPicker();
                     t.replace(R.id.content_frame, active);
                     break;
             case 2: active = new FragmentHistory();
                     t.replace(R.id.content_frame, active);
                     break;
-            case 3: Intent filters = new Intent(this, ActivityRules.class);
-                    startActivity(filters);
+            case 3: active = new FragmentMarket();
+                    t.replace(R.id.content_frame, active);
+                    break;
         }
         t.commit();
 
@@ -311,7 +299,9 @@ public class MainActivity extends AppCompatActivity
         public void startShuffle(Long... cards) {
             if(cards == null) cards = new Long[0];
             cancelShuffle();
-            shuffler = new SupplyShuffler(10, 2);
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            shuffler = new SupplyShuffler(pref.getInt(Prefs.LIMIT_SUPPLY, 10),
+                                          pref.getInt(Prefs.LIMIT_EVENTS, 2));
             shuffler.execute(cards);
         }
 

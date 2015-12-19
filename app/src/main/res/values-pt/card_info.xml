@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Names of the expansions. -->
-    <string name="set_base">Base</string>
-
     <!-- Default translation to use for each set. Sorted by set id. -->
     <string-array name="def_trans">
         <item>pt</item>

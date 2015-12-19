@@ -12,6 +12,7 @@ import java.util.Calendar;
 import ca.marklauman.dominionpicker.database.DataDb;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
+import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.Utils;
 
 /** Task for shuffling the supply. Assumes card ids
@@ -223,7 +224,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
     @SuppressWarnings("SameReturnValue")
     private Void sendMsg(Intent msg) {
         try {
-            LocalBroadcastManager.getInstance(App.staticContext)
+            LocalBroadcastManager.getInstance(Prefs.getStaticContext())
                                  .sendBroadcast(msg);
         } catch(Exception ignored) {}
         return null;
@@ -235,10 +236,10 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
     private static Cursor shuffleCards(String[] projection,
                                        String selection, String[] selectionArgs) {
         // I retain nothing because I don't know if the contentResolver changes.
-        return App.staticContext
-                  .getContentResolver()
-                  .query(Provider.URI_CARD_DATA, projection,
-                         selection, selectionArgs, "random()");
+        return Prefs.getStaticContext()
+                    .getContentResolver()
+                    .query(Provider.URI_CARD_DATA, projection,
+                            selection, selectionArgs, "random()");
     }
 
 
@@ -252,9 +253,9 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
         values.put(DataDb._H_HIGH_COST, s.high_cost);
         values.put(DataDb._H_SHELTERS,  s.shelters);
 
-        try{ App.staticContext
-                .getContentResolver()
-                .insert(Provider.URI_HIST, values);
+        try{ Prefs.getStaticContext()
+                  .getContentResolver()
+                  .insert(Provider.URI_HIST, values);
         } catch(Exception ignored) {}
     }
 }

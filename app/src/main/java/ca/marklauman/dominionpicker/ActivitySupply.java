@@ -25,13 +25,15 @@ import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.dominionpicker.database.TableSupply;
+import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.QueryDialogBuilder;
 import ca.marklauman.tools.QueryDialogBuilder.QueryListener;
 import ca.marklauman.tools.Utils;
 
 /** Activity for displaying the supply piles for a new game.
  *  @author Mark Lauman */
-public class ActivitySupply extends AppCompatActivity {
+public class ActivitySupply extends AppCompatActivity
+                            implements Prefs.Listener {
     /** Key used to pass a supply id to this activity.
      *  The supply will load from the supply table. */
     public static final String PARAM_SUPPLY_ID = "supplyId";
@@ -60,7 +62,7 @@ public class ActivitySupply extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        App.updateInfo(this);
+        Prefs.setup(this);
 
 		setContentView(R.layout.activity_supply);
         ActionBar ab = getSupportActionBar();
@@ -201,6 +203,17 @@ public class ActivitySupply extends AppCompatActivity {
         return this;
     }
 
+
+    @Override
+    public void prefChanged(String key) {
+        switch(key) {
+            case Prefs.FILT_LANG: case Prefs.SORT_CARD:
+                getSupportLoaderManager().restartLoader(LoaderId.SUPPLY_CARDS, null, cardLoader);
+                break;
+        }
+    }
+
+
     /** Used to load the cards once the supply is loaded. */
     private class CardLoader implements LoaderCallbacks<Cursor> {
         @Override
@@ -213,12 +226,12 @@ public class ActivitySupply extends AppCompatActivity {
             CursorLoader c = new CursorLoader(getActivity());
             c.setUri(Provider.URI_CARD_ALL);
             c.setProjection(AdapterColorCards.COLS_USED);
-            c.setSortOrder(App.sortOrder);
+            c.setSortOrder(Prefs.sort_card);
 
             // Selection string (sql WHERE clause)
             // _id IN (1,2,3,4)
             String cards = TableCard._ID+" IN ("+ Utils.join(",",supply.cards)+")";
-            c.setSelection("("+cards+") AND "+App.transFilter);
+            c.setSelection("("+cards+") AND "+ Prefs.filt_lang);
 
             return c;
         }
@@ -281,7 +294,7 @@ public class ActivitySupply extends AppCompatActivity {
             supply_id = args.getLong(PARAM_SUPPLY_ID, -1);
             if(supply_id != -1) {
                 c.setUri(Provider.URI_SUPPLY);
-                c.setSelection(TableSupply._ID+"=? AND "+App.transFilter);
+                c.setSelection(TableSupply._ID+"=? AND "+Prefs.filt_lang);
                 c.setSelectionArgs(new String[]{""+supply_id});
                 return c;
             }

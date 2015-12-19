@@ -31,7 +31,7 @@
     <string name="supply_shelters">Verwenden Sie Unterschlupf</string>
     <string name="young_witch_bane">Junge Hexe – Fluch</string>
     
-    <string name="market_title">@string/set_black_market</string>
+    <string name="market_title">Schwarzmarkt</string>
     <string name="market_begin">New schwarzen Markt erstellt</string>
     <string name="market_draw">Ziehe eine Karte</string>
     <string name="market_pass">kaufen Sie nichts</string>
