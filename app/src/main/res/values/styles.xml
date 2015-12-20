@@ -10,5 +10,6 @@
     </style>
     <style name="ListView" parent="@android:style/Widget.ListView">
         <item name="android:cacheColorHint">@color/background_grey</item>
+        <item name="android:listSelector">?attr/selectableItemBackground</item>
     </style>
 </resources>

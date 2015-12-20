@@ -88,9 +88,9 @@ public class MainActivity extends AppCompatActivity
         navView.findViewById(R.id.options)
                .setOnClickListener(new OptionLauncher());
         String[] headers = getResources().getStringArray(R.array.navNames);
-        navAdapt = new ExpandedArrayAdapter<>(this, android.R.layout.simple_list_item_1, headers);
-        navAdapt.setIcons(R.drawable.ic_core_filter, R.drawable.ic_core_send,
-                          R.drawable.ic_core_clock, R.drawable.ic_action_market);
+        navAdapt = new ExpandedArrayAdapter<>(this, R.layout.nav_drawer_item, headers);
+        navAdapt.setIcons(R.drawable.ic_core_checkbox, R.drawable.ic_card,
+                          R.drawable.ic_cards, R.drawable.ic_action_market);
         navAdapt.setSelBack(R.color.nav_drawer_sel);
         ListView navList = (ListView) navView.findViewById(R.id.drawer_list);
         navList.setAdapter(navAdapt);
@@ -142,13 +142,14 @@ public class MainActivity extends AppCompatActivity
      *  is displayed - including after each invalidation.
      *  Useful to hide/display menu items.             */
     public boolean onPrepareOptionsMenu(Menu menu) {
+        boolean navHidden = navLayout != null && !navLayout.isDrawerOpen(navView);
         int sel = (navAdapt == null) ? 0 : navAdapt.getSelection();
         // show the toggle all button on the picker screen
         menu.findItem(R.id.action_toggle_all)
-            .setVisible(sel == 1);
+            .setVisible(navHidden && sel == 1);
         // show the submit button on the picker and rules screens.
         menu.findItem(R.id.action_submit)
-            .setVisible(sel < 2);
+            .setVisible(navHidden && sel < 2);
         return super.onPrepareOptionsMenu(menu);
     }
 	

@@ -15,14 +15,12 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import ca.marklauman.dominionpicker.cardlist.AdapterCardsFilter;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.dominionpicker.settings.Prefs;
-import ca.marklauman.tools.preferences.MultiSelectPreference;
 
 /** Fragment governing the card list screen.
  *  @author Mark Lauman */
@@ -44,14 +42,8 @@ public class FragmentPicker extends Fragment
         super.onCreate(savedInstanceState);
         Prefs.addListener(this);
         adapter = new AdapterCardsFilter(getContext());
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
         getActivity().getSupportLoaderManager()
-                     .initLoader(LoaderId.PICKER, null, this);
+                     .restartLoader(LoaderId.PICKER, null, this);
     }
 
 

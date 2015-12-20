@@ -18,9 +18,9 @@
     <string name="set">Selezione</string>
     <string name="potion">Pozione</string>
   
-    <string name="history">Cronologia</string>
-    <string name="hist_samples">Esempi</string>
-    <string name="favorites">Preferiti</string>
+    <string name="game_history">Cronologia</string>
+    <string name="sample_games">Esempi</string>
+    <string name="favorite_games">Preferiti</string>
     <string name="no_hist">Le selezioni sono memorizzate qui.</string>
   
     <string name="change_fav">Cambia preferiti</string>

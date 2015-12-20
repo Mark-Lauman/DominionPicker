@@ -18,9 +18,9 @@
     <string name="set">Erweiterungen</string>
     <string name="potion">Trank</string>
 
-    <string name="history">Geschichte</string>
-    <string name="hist_samples">Beispiel</string>
-    <string name="favorites">Lieblings</string>
+    <string name="game_history">Geschichte</string>
+    <string name="sample_games">Beispiel</string>
+    <string name="favorite_games">Lieblings</string>
     <string name="no_hist">Ihre Shuffles werden hier gespeichert.</string>
 
     <string name="change_fav">&#228;ndern Lieblings</string>

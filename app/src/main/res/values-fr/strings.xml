@@ -18,9 +18,9 @@
     <string name="set">Ensemble</string>
     <string name="potion">Potion</string>
 
-    <string name="history">Historique</string>
-    <string name="hist_samples">Exemples</string>
-    <string name="favorites">Favoris</string>
+    <string name="game_history">Historique</string>
+    <string name="sample_games">Exemples</string>
+    <string name="favorite_games">Favoris</string>
     <string name="no_hist">Vos m&#233;langes sont enregistr&#233;s ici.</string>
 
     <string name="change_fav">Favori ?</string>

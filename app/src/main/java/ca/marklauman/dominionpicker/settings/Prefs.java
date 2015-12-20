@@ -69,19 +69,14 @@ public abstract class Prefs {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
         int version = getVersion(prefs);
 
-        // Set values that are not set.
+        // Set the default value for any undefined preferences
         setDefaultValues(c);
 
-        // finish up a new preference setup
+        // Update the preferences to the current version.
         final int cur_ver = c.getResources()
                              .getInteger(R.integer.pref_version);
-        if(version == -1) {
-            prefs.edit().putInt(VERSION, cur_ver).commit();
-            return;
-        }
-
-        // do what updates are necessary.
         switch(version) {
+            case -1: break; // preferences have been set for the first time
             case 0: update0(prefs);
             case 1: update1(prefs);
             case 2: update2(prefs);

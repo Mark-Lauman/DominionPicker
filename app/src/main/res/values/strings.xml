@@ -5,7 +5,7 @@
     <string name="menu_open">Open Menu</string>
     <string name="menu_close">Close Menu</string>
 
-    <string name="picker">Picker</string>
+    <string name="picker">Cards</string>
 
     <string name="picks">Your Picks!</string>
     <string name="toggle_all">Toggle All</string>
@@ -18,9 +18,10 @@
     <string name="set">Set</string>
     <string name="potion">Potion</string>
 
-    <string name="history">History</string>
-    <string name="hist_samples">Samples</string>
-    <string name="favorites">Favorites</string>
+    <string name="games">Games</string>
+    <string name="sample_games">Sample</string>
+    <string name="favorite_games">Favorites</string>
+    <string name="game_history">History</string>
     <string name="no_hist">Your shuffles are stored here.</string>
 
     <string name="change_fav">Change Favorite</string>
@@ -47,13 +48,13 @@
     <string-array name="navNames">
         <item>@string/rules</item>
         <item>@string/picker</item>
-        <item>@string/history</item>
+        <item>@string/games</item>
         <item>@string/market_title</item>
     </string-array>
 
     <string-array name="historyTypes">
-        <item>@string/hist_samples</item>
-        <item>@string/favorites</item>
-        <item>@string/history</item>
+        <item>@string/sample_games</item>
+        <item>@string/favorite_games</item>
+        <item>@string/game_history</item>
     </string-array>
 </resources>
