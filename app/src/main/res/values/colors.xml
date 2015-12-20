@@ -7,6 +7,7 @@
     <color name="card_list_select">#CECECE</color>
     <color name="list_div">@color/colorPrimary</color>
     <color name="list_div_txt">#99333333</color>
+    <color name="required_card">#FF4562</color>
 
     <color name="type_act">#EFECDD</color>
     <color name="type_react">#7FABDC</color>

@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -25,22 +24,22 @@ import ca.marklauman.tools.Utils;
 /** Activity used to change the card sort order.
  *  @author Mark Lauman */
 public class ActivityCardSort extends AppCompatActivity {
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Prefs.setup(this);
+        setContentView(R.layout.activity_card_sort);
         ActionBar ab = getSupportActionBar();
         if(ab != null) ab.setDisplayHomeAsUpEnabled(true);
 
-        DragSortListView view = new DragSortListView(this, null);
+        DragSortListView view = (DragSortListView) findViewById(android.R.id.list);
         CardSortAdapter adapter = new CardSortAdapter(this);
         view.setAdapter(adapter);
-        DragSortController controller = new DragSortController(view, android.R.id.icon, 0, 0);
-        controller.setBackgroundColor(ContextCompat.getColor(this, R.color.background_grey));
+        view.setDropListener(adapter);
+        DragSortController controller = new DragSortController(view, android.R.id.background, 0, 0);
         view.setFloatViewManager(controller);
         view.setOnTouchListener(controller);
-        view.setDropListener(adapter);
-        setContentView(view);
     }
 
     @Override

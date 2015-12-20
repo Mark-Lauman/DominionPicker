@@ -77,6 +77,7 @@ public class FragmentPicker extends Fragment
         View view = inflater.inflate(R.layout.fragment_picker, container, false);
         card_list = (ListView) view.findViewById(R.id.card_list);
         card_list.setOnItemClickListener(adapter);
+        card_list.setOnItemLongClickListener(adapter);
         empty = view.findViewById(android.R.id.empty);
         loading = view.findViewById(android.R.id.progress);
 

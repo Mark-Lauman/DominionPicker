@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -19,12 +20,21 @@ import ca.marklauman.tools.Utils;
  *  Handles saving the filters to the preferences as well.
  *  @author Mark Lauman */
 public class AdapterCardsFilter extends AdapterCards
-                                implements ListView.OnItemClickListener {
+                                implements ListView.OnItemClickListener,
+                                           AdapterView.OnItemLongClickListener {
+
+    /** Integer used to identify the card filter preference */
+    private static final int PREF_FILT = 0;
+    /** Integer used to identify the required card preference */
+    private static final int PREF_REQ  = 1;
+
     private final Context mContext;
     /** Index of the "_id" column */
     private int col_id;
     /** Set of all cards that are NOT selected */
     private final HashSet<Long> deselected;
+    /** Set of all cards that are "hard" selected (must be in the supply */
+    private final HashSet<Long> hardSelected;
 
     public AdapterCardsFilter(Context context) {
         super(context, R.layout.list_item_card,
@@ -38,15 +48,20 @@ public class AdapterCardsFilter extends AdapterCards
 
         // Load the selections
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
-        String rawDeselect = pref.getString(Prefs.FILT_CARD, "");
-        if(rawDeselect.equals(""))
-            deselected = new HashSet<>();
-        else {
-            String[] toDeselect = rawDeselect.split(",");
-            deselected = new HashSet<>(toDeselect.length);
-            for(String card : toDeselect)
-                deselected.add(Long.parseLong(card));
-        }
+        deselected = parsePreference(pref, Prefs.FILT_CARD);
+        hardSelected = parsePreference(pref, Prefs.REQ_CARDS);
+    }
+
+
+    private HashSet<Long> parsePreference(SharedPreferences pref, String key) {
+        String rawPref = pref.getString(key, "");
+        if(rawPref.equals(""))
+            return new HashSet<>();
+        String[] split = rawPref.split(",");
+        HashSet<Long> res = new HashSet<>(split.length);
+        for(String card : split)
+            res.add(Long.parseLong(card));
+        return res;
     }
 
 
@@ -66,8 +81,11 @@ public class AdapterCardsFilter extends AdapterCards
     @Override
     public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
         if(columnIndex == col_id) {
-            if(deselected.contains(cursor.getLong(col_id)))
+            long id = cursor.getLong(col_id);
+            if(deselected.contains(id))
                 view.setBackgroundResource(android.R.color.transparent);
+            else if(hardSelected.contains(id))
+                view.setBackgroundResource(R.color.required_card);
             else view.setBackgroundResource(R.color.card_list_select);
             return true;
         }
@@ -78,7 +96,7 @@ public class AdapterCardsFilter extends AdapterCards
     /** Select all items in the cursor */
     private void selectAll() {
         deselected.clear();
-        saveUpdate(Prefs.FILT_CARD);
+        saveUpdate(PREF_FILT);
         notifyDataSetChanged();
     }
 
@@ -89,7 +107,7 @@ public class AdapterCardsFilter extends AdapterCards
         cursor.moveToPosition(-1);
         while(cursor.moveToNext())
             deselected.add(cursor.getLong(col_id));
-        saveUpdate(Prefs.FILT_CARD);
+        saveUpdate(PREF_FILT);
         notifyDataSetChanged();
     }
 
@@ -103,12 +121,32 @@ public class AdapterCardsFilter extends AdapterCards
 
     /** Select an item if its unselected. Deselect it if it is selected. */
     private void toggleItem(long cardId) {
-        if(deselected.contains(cardId))
-            deselected.remove(cardId);
-        else deselected.add(cardId);
-        saveUpdate(Prefs.FILT_CARD);
+        // Remove the card from the hard selection if needed
+        boolean hardSelect = hardSelected.remove(cardId);
+        if(hardSelect) saveUpdate(PREF_REQ);
+        // toggle the normal selection state
+        if(hardSelect || !deselected.remove(cardId))
+            deselected.add(cardId);
+        saveUpdate(PREF_FILT);
         notifyDataSetChanged();
     }
+
+
+    private void hardToggle(long cardId) {
+        // The card is not hard selected
+        if(!hardSelected.remove(cardId)) {
+            hardSelected.add(cardId);
+            if(deselected.remove(cardId))
+                saveUpdate(PREF_FILT);
+        // The card was hard selected
+        } else {
+            deselected.add(cardId);
+            saveUpdate(PREF_FILT);
+        }
+        saveUpdate(PREF_REQ);
+        notifyDataSetChanged();
+    }
+
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -116,14 +154,27 @@ public class AdapterCardsFilter extends AdapterCards
     }
 
 
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        hardToggle(id);
+        return true;
+    }
+
+
     /** Save an update to the given preference */
-    private void saveUpdate(String key) {
-        switch(key) {
-            case Prefs.FILT_CARD:
-                PreferenceManager.getDefaultSharedPreferences(mContext).edit()
-                                 .putString(Prefs.FILT_CARD, Utils.join(",", deselected))
-                                 .commit();
+    private void saveUpdate(int prefId) {
+        SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(mContext)
+                                                         .edit();
+        switch(prefId) {
+            case PREF_FILT:
+                edit.putString(Prefs.FILT_CARD, Utils.join(",", deselected))
+                    .commit();
                 Prefs.notifyChange(mContext, Prefs.FILT_CARD);
+                break;
+            case PREF_REQ:
+                edit.putString(Prefs.REQ_CARDS, Utils.join(",", hardSelected))
+                        .commit();
+                Prefs.notifyChange(mContext, Prefs.REQ_CARDS);
                 break;
         }
     }

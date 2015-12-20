@@ -36,6 +36,8 @@ public abstract class Prefs {
     public static final String FILT_LANG = "filt_lang";
     /** Key used to save cards deselected from the card list */
     public static final String FILT_CARD = "filt_card";
+    /** Key used to save forced cards that are selected in the card list */
+    public static final String REQ_CARDS = "req_cards";
 
     /////////// Obsolete preference keys \\\\\\\\\\\
     /** The old separator used in the deprecated MultiSelectImagePreference. */
@@ -193,6 +195,8 @@ public abstract class Prefs {
             edit.putInt(LIMIT_EVENTS, res.getInteger(R.integer.limit_event_def));
         if(!prefs.contains(FILT_CARD))
             edit.putString(FILT_CARD, "");
+        if(!prefs.contains(REQ_CARDS))
+            edit.putString(REQ_CARDS, "");
         edit.commit();
     }
 

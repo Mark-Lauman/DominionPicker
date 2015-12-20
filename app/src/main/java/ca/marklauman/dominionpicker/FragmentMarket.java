@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -161,7 +162,7 @@ public class FragmentMarket extends Fragment
     @Override
     public void prefChanged(String key) {
         switch(key) {
-            case Prefs.FILT_CURSE: case Prefs.FILT_SET:
+            case Prefs.FILT_CURSE: case Prefs.FILT_SET: case Prefs.REQ_CARDS:
                 setActivePanel(PANEL_STARTUP);
                 getActivity().getSupportLoaderManager()
                              .restartLoader(LoaderId.MARKET_SHUFFLE, null, this);
@@ -239,25 +240,35 @@ public class FragmentMarket extends Fragment
                 if(!pref.getBoolean(Prefs.FILT_CURSE, true))
                     sel += " AND "+TableCard._META_CURSER+"=0";
 
-                // Filter out cards not in the card list
-                HashSet<Long> exCards = new HashSet<>();
+                // Filter out cards excluded by the card list
                 String filt_card = pref.getString(Prefs.FILT_CARD, "");
-                if(0 < filt_card.length()) {
-                    String[] split_card = filt_card.split(",");
-                    for(String card : split_card)
-                        exCards.add(Long.parseLong(card));
-                }
 
-                // Filter out cards in the supply (if a supply is provided)
+                // Get the supply passed to this fragment
                 Bundle args = getArguments();
                 long[] supply_arr = (args == null) ? null : args.getLongArray(PARAM_SUPPLY);
-                if(supply_arr != null)
-                    for(long cardID : supply_arr)
-                        exCards.add(cardID);
+                if(supply_arr == null) supply_arr = new long[0];
 
-                // Add the excluded cards to the selection
-                if(0 < exCards.size())
-                    sel += " AND "+TableCard._ID+" NOT IN ("+Utils.join(",", exCards)+")";
+                // If supply cards have been provided, exclude them.
+                if(0 < supply_arr.length && 0 < filt_card.length())
+                    filt_card += ",";
+                if(0 < supply_arr.length)
+                    filt_card += Utils.join(",", supply_arr);
+
+                // If no supply cards are provided, filter out required cards.
+                // They are required to be in the supply
+                else {
+                    String req_cards = pref.getString(Prefs.REQ_CARDS, "");
+                    if(0 < req_cards.length() && 0 < filt_card.length())
+                        filt_card += ",";
+                    if(0 < req_cards.length())
+                        filt_card += req_cards;
+                }
+
+                // Add the card filter to the selection
+                if(0 < filt_card.length())
+                    sel += " AND "+TableCard._ID+" NOT IN ("+filt_card+")";
+
+                Log.d("filt_all", sel);
 
                 // Build the cursor loader
                 c.setUri(Provider.URI_CARD_DATA);

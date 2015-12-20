@@ -29,6 +29,7 @@
     <string name="sort_card_desc">Sort your cards as you wish.</string>
     <string name="drag_handle_desc">Drag me!</string>
     <string name="sort_card_end">Sorting ends here</string>
+    <string name="sort_card_notice">Drag items into place</string>
     <string-array name="sort_card_names">
         <item>Expansion</item>
         <item>Name</item>
