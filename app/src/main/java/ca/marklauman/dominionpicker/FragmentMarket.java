@@ -8,20 +8,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.HashSet;
 import java.util.LinkedList;
 
-import ca.marklauman.dominionpicker.cardlist.AdapterColorCards;
+import ca.marklauman.dominionpicker.cardadapters.AdapterCards;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
@@ -31,8 +27,8 @@ import ca.marklauman.tools.Utils;
 /** Governs all the Black Market shuffler screens.
  *  @author Mark Lauman */
 public class FragmentMarket extends Fragment
-                            implements LoaderCallbacks<Cursor>, OnItemClickListener,
-                                       Prefs.Listener{
+                            implements LoaderCallbacks<Cursor>, AdapterCards.Listener,
+                                       Prefs.Listener {
 
     /** Key used to pass the supply pool to this fragment (optional) */
     public static final String PARAM_SUPPLY = "supply";
@@ -58,7 +54,7 @@ public class FragmentMarket extends Fragment
     /** The currently visible panel in {@link #vPanels} */
     private int activePanel = PANEL_STARTUP;
     /** Adapter used to display the list of cards. */
-    private AdapterColorCards adapter;
+    private AdapterCards adapter;
 
     /** Stores the stock of the market. (in drawing order) If null, the stock is being retrieved.
      *  If empty then no stock is left. */
@@ -113,9 +109,9 @@ public class FragmentMarket extends Fragment
 
         // Setup card list and its adapter
         ListView card_list = (ListView) view.findViewById(R.id.card_list);
-        adapter = new AdapterColorCards(getActivity());
+        adapter = new AdapterCards(getActivity());
+        adapter.setListener(this);
         card_list.setAdapter(adapter);
-        card_list.setOnItemClickListener(this);
 
         return view;
     }
@@ -193,11 +189,9 @@ public class FragmentMarket extends Fragment
 
 
     /** Selects which card was purchased. Called when a card is clicked in the choice panel.
-     *  @param position The position of the view in the adapter.
      *  @param id The row id of the item that was clicked. */
     @Override
-    public void onItemClick(AdapterView<?> parent, View view,
-                            int position, long id) {
+    public void onItemClick(View view, int position, long id, boolean longClick) {
         Toast.makeText(getActivity(), adapter.getName(position), Toast.LENGTH_SHORT)
              .show();
         // Unused choices return to the stock bottom
@@ -268,8 +262,6 @@ public class FragmentMarket extends Fragment
                 if(0 < filt_card.length())
                     sel += " AND "+TableCard._ID+" NOT IN ("+filt_card+")";
 
-                Log.d("filt_all", sel);
-
                 // Build the cursor loader
                 c.setUri(Provider.URI_CARD_DATA);
                 c.setProjection(new String[]{TableCard._ID});
@@ -279,7 +271,7 @@ public class FragmentMarket extends Fragment
 
             case LoaderId.MARKET_SHOW:
                 c.setUri(Provider.URI_CARD_ALL);
-                c.setProjection(AdapterColorCards.COLS_USED);
+                c.setProjection(AdapterCards.COLS_USED);
                 c.setSortOrder(Prefs.sort_card);
 
                 // no choices, no cards

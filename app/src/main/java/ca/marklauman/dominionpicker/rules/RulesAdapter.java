@@ -3,6 +3,7 @@ package ca.marklauman.dominionpicker.rules;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -157,7 +158,16 @@ class RulesAdapter extends ArrayAdapter<View>
         CheckedTextView res = (CheckedTextView)View.inflate(c, R.layout.rule_checkbox, null);
         res.setText(text);
         if(imgRes != 0)
-            res.setCompoundDrawablesWithIntrinsicBounds(imgRes, 0, 0, 0);
+            Utils.setDrawables(res, imgRes, 0, 0, 0);
+        return res;
+    }
+
+
+    protected CheckedTextView newChecked(Context c, String text, Drawable drawable) {
+        CheckedTextView res = (CheckedTextView)View.inflate(c, R.layout.rule_checkbox, null);
+        res.setText(text);
+        if(drawable != null)
+            Utils.setDrawables(res, drawable, null, null, null);
         return res;
     }
 

@@ -2,13 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="6dp" >
+    android:gravity="center_vertical" >
 
-    <EditText android:id="@+id/name"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="6dp"
-        android:hint="@string/name_me"
-        android:background="@color/background" />
+        android:text="Detailed card information here"
+        android:gravity="center"/>
 
 </LinearLayout>

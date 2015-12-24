@@ -105,4 +105,39 @@
         <item quantity="one">+%1$s Carta</item>
         <item quantity="other">+%1$s Cartas</item>
     </plurals>
+
+
+    <array name="format_coin">
+        <item>@plurals/format_coin_en</item>
+        <item>@plurals/format_coin_de</item>
+        <item>@plurals/format_coin_en</item>
+        <item>@plurals/format_coin_fr</item>
+        <item>@plurals/format_coin_it</item>
+        <item>@plurals/format_coin_nl</item>
+        <item>@plurals/format_coin_pt</item>
+    </array>
+    <plurals name="format_coin_en" translatable="false">
+        <item quantity="one">%1$s Coin</item>
+        <item quantity="other">%1$s Coins</item>
+    </plurals>
+    <plurals name="format_coin_de" translatable="false">
+        <item quantity="one">%1$s Coin</item>
+        <item quantity="other">%1$s Coins</item>
+    </plurals>
+    <plurals name="format_coin_fr" translatable="false">
+        <item quantity="one">%1$s Coin</item>
+        <item quantity="other">%1$s Coins</item>
+    </plurals>
+    <plurals name="format_coin_it" translatable="false">
+        <item quantity="one">%1$s Coin</item>
+        <item quantity="other">%1$s Coins</item>
+    </plurals>
+    <plurals name="format_coin_nl" translatable="false">
+        <item quantity="one">%1$s Coin</item>
+        <item quantity="other">%1$s Coins</item>
+    </plurals>
+    <plurals name="format_coin_pt" translatable="false">
+        <item quantity="one">%1$s Coin</item>
+        <item quantity="other">%1$s Coins</item>
+    </plurals>
 </resources>

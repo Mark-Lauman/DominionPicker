@@ -16,7 +16,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import ca.marklauman.dominionpicker.cardlist.AdapterCardsFilter;
+import ca.marklauman.dominionpicker.cardadapters.AdapterCardsFilter;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
@@ -76,8 +76,6 @@ public class FragmentPicker extends Fragment
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_picker, container, false);
         card_list = (ListView) view.findViewById(R.id.card_list);
-        card_list.setOnItemClickListener(adapter);
-        card_list.setOnItemLongClickListener(adapter);
         empty = view.findViewById(android.R.id.empty);
         loading = view.findViewById(android.R.id.progress);
 

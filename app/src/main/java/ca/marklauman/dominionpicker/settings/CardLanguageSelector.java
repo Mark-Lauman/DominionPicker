@@ -283,7 +283,7 @@ public class CardLanguageSelector extends AppCompatActivity
             if(pref.val.startsWith("0")) {
                 lang = pref.def; back = android.R.color.transparent;
             } else {
-                lang = pref.val; back = R.color.card_list_select;
+                lang = pref.val; back = R.color.list_item_sel;
             }
             pref.name = pref.choices.get(lang);
 

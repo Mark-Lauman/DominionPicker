@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity
         navAdapt = new ExpandedArrayAdapter<>(this, R.layout.nav_drawer_item, headers);
         navAdapt.setIcons(R.drawable.ic_core_checkbox, R.drawable.ic_card,
                           R.drawable.ic_cards, R.drawable.ic_action_market);
-        navAdapt.setSelBack(R.color.nav_drawer_sel);
+        navAdapt.setSelBack(R.color.list_item_sel);
         ListView navList = (ListView) navView.findViewById(R.id.drawer_list);
         navList.setAdapter(navAdapt);
         navList.setOnItemClickListener(this);

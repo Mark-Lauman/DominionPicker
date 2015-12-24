@@ -20,7 +20,7 @@ import android.widget.TextView;
 import java.text.DateFormat;
 import java.util.Date;
 
-import ca.marklauman.dominionpicker.cardlist.AdapterColorCards;
+import ca.marklauman.dominionpicker.cardadapters.AdapterCardsSupply;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
@@ -49,7 +49,7 @@ public class ActivitySupply extends AppCompatActivity
     private final DateFormat formatter = DateFormat.getDateTimeInstance();
 
     /** The adapter used to display the supply cards. */
-	private AdapterColorCards adapter;
+	private AdapterCardsSupply adapter;
 	/** The TextView used to display the resource cards. */
 	private TextView resView;
     /** {@code true} if the supply is from the sample table */
@@ -77,7 +77,7 @@ public class ActivitySupply extends AppCompatActivity
 		resView.setVisibility(View.GONE);
 		
 		// Setup the adapter
-		adapter = new AdapterColorCards(this);
+		adapter = new AdapterCardsSupply(this);
 		adapter.changeCursor(null);
 		card_list.setAdapter(adapter);
 
@@ -225,7 +225,7 @@ public class ActivitySupply extends AppCompatActivity
             // Basic loader
             CursorLoader c = new CursorLoader(getActivity());
             c.setUri(Provider.URI_CARD_ALL);
-            c.setProjection(AdapterColorCards.COLS_USED);
+            c.setProjection(AdapterCardsSupply.COLS_USED);
             c.setSortOrder(Prefs.sort_card);
 
             // Selection string (sql WHERE clause)

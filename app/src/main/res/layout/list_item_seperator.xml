@@ -15,6 +15,6 @@
         android:paddingBottom="4dp"
         style="?android:attr/listSeparatorTextViewStyle"
         android:textColor="@color/colorPrimaryDark"
-        android:background="@color/background_grey" />
+        android:background="@color/background" />
 
 </LinearLayout>

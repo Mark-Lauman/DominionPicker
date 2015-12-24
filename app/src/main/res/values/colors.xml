@@ -3,11 +3,19 @@
     <color name="colorPrimary">#63CBC4</color>
     <color name="colorPrimaryDark">#42AAA3</color>
     <color name="accent">@color/colorPrimaryDark</color>
-    <color name="nav_drawer_sel">#EDEDED</color>
-    <color name="card_list_select">#CECECE</color>
+
+    <color name="background">@android:color/white</color>
+    <color name="list_item_sel">#DDD</color>
+    <color name="list_item_sel_hard">#F46</color>
+
     <color name="list_div">@color/colorPrimary</color>
-    <color name="list_div_txt">#99333333</color>
-    <color name="required_card">#FF4562</color>
+    <color name="list_div_txt">#9333</color>
+
+    <color name="card_image_back">#4000</color>
+    <color name="coin_back">@color/type_treasure</color>
+    <color name="coin_vp_edge">#888</color>
+    <color name="vp_plus">@color/type_victory</color>
+    <color name="vp_minus">@color/type_curse</color>
 
     <color name="type_act">#EFECDD</color>
     <color name="type_react">#7FABDC</color>
