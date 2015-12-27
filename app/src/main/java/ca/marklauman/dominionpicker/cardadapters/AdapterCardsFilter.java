@@ -112,6 +112,7 @@ public class AdapterCardsFilter extends AdapterCards
 
 
     private void deselectAll() {
+        hardSelected.clear();
         Cursor cursor = getCursor();
         if(cursor == null) return;
         cursor.moveToPosition(-1);
@@ -131,27 +132,27 @@ public class AdapterCardsFilter extends AdapterCards
 
     /** Select an item if its unselected. Deselect it if it is selected. */
     private void toggleItem(long cardId) {
-        // Remove the card from the hard selection if needed
-        boolean hardSelect = hardSelected.remove(cardId);
-        if(hardSelect) saveUpdate(PREF_REQ);
-        // toggle the normal selection state
-        if(hardSelect || !deselected.remove(cardId))
-            deselected.add(cardId);
-        saveUpdate(PREF_FILT);
+        // If this item is hard selected, it becomes selected
+        if(hardSelected.remove(cardId))
+            saveUpdate(PREF_REQ);
+        else {
+            // This item was not hard selected
+            // Toggle deselected state.
+            if (!deselected.remove(cardId))
+                deselected.add(cardId);
+            saveUpdate(PREF_FILT);
+        }
         notifyDataSetChanged();
     }
 
 
     private void hardToggle(long cardId) {
-        // The card is not hard selected
+        // If hard selected, revert to just selected
         if(!hardSelected.remove(cardId)) {
+            // If not hard selected
             hardSelected.add(cardId);
             if(deselected.remove(cardId))
                 saveUpdate(PREF_FILT);
-        // The card was hard selected
-        } else {
-            deselected.add(cardId);
-            saveUpdate(PREF_FILT);
         }
         saveUpdate(PREF_REQ);
         notifyDataSetChanged();
