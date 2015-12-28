@@ -143,8 +143,7 @@ public class AdapterCards extends SimpleCursorAdapter
      *  Android system will bind the value using its default methods. */
     @Override
     public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
-        Integer colId = columnMap.get(columnIndex);
-        if(colId == null) return false;
+        int colId = columnMap.get(columnIndex);
         switch(view.getId()) {
             case android.R.id.background:
                 if(colId != COL_ID) return false;
@@ -255,7 +254,7 @@ public class AdapterCards extends SimpleCursorAdapter
     }
 
 
-    public void launchDetails(long cardId) {
+    void launchDetails(long cardId) {
         Intent info = new Intent(mContext, ActivityCardInfo.class);
         info.putExtra(ActivityCardInfo.PARAM_ID, cardId);
         mContext.startActivity(info);

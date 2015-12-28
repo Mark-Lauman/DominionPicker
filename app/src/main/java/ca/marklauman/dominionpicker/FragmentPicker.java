@@ -105,7 +105,6 @@ public class FragmentPicker extends Fragment
         CursorLoader c = new CursorLoader(getActivity());
         c.setUri(Provider.URI_CARD_ALL);
         c.setProjection(AdapterCardsFilter.COLS_USED);
-        String sel = "";
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         ArrayList<CharSequence> sel_args = new ArrayList<>();
 
@@ -121,9 +120,9 @@ public class FragmentPicker extends Fragment
         c.setSortOrder(sort + sort_col[1]);
 
         // Filter out sets
-        String curSel = pref.getString("filt_set", "");
-        if(0 < curSel.length())
-            sel += " AND "+ TableCard._SET_ID+" IN ("+curSel+")";
+        String curSel = pref.getString(Prefs.FILT_SET, "");
+        String sel = (curSel.length()==0) ? TableCard._SET_ID+"=NULL"
+                                          : TableCard._SET_ID+" IN ("+curSel+")";
 
         // TODO: Cost filters
 //        // Filter out potions
@@ -148,14 +147,14 @@ public class FragmentPicker extends Fragment
 //        if(0 < curSel.length()) sel += " AND "+ TableCard._COST+" NOT IN ("+curSel.substring(1)+")";
 
         // Filter out cursers
-        boolean filt_curse = pref.getBoolean("filt_curse", true);
+        boolean filt_curse = pref.getBoolean(Prefs.FILT_CURSE, true);
         if(!filt_curse) {
             sel += " AND " + TableCard._META_CURSER + "=?";
             sel_args.add("0");
         }
 
         // Translation filter
-        sel = (sel+" AND "+Prefs.filt_lang).substring(5);
+        sel = sel+" AND "+Prefs.filt_lang;
 
         c.setSelection(sel);
         String[] sel_args_final = new String[sel_args.size()];

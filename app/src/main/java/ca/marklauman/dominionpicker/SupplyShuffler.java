@@ -2,8 +2,10 @@ package ca.marklauman.dominionpicker;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 
 import java.util.ArrayList;
@@ -15,11 +17,12 @@ import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.Utils;
 
-/** Task for shuffling the supply. Assumes card ids
- *  are valid, but does not assume a supply is possible
- *  with the provided cards.
+/** This task is used to shuffle new supplies.
+ *  It reads the current setting configuration when called, and attempts to create a supply
+ *  with the available cards.
+ *  The result of the shuffle is communicated to the main activity with broadcast intents.
  *  @author Mark Lauman */
-class SupplyShuffler extends AsyncTask<Long, Void, Void> {
+class SupplyShuffler extends AsyncTask<Void, Void, Void> {
 
     /** When the shuffler is done, an intent of this type broadcasts
      *  the results back to the activity.                         */
@@ -27,8 +30,7 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
     /** The extra in the result intent containing the result id.
      *  Will be a constant defined by this class starting with "RES_" */
     public static final String MSG_RES = "result";
-    /** Extra containing card shortfall in the event of
-     *  {@link #RES_MORE} or {@link #RES_MORE_K}.
+    /** Extra containing card shortfall in the event of {@link #RES_MORE}.
      *  String formatted as "X/Y" cards.  */
     public static final String MSG_SHORT = "shortfall";
     /** The extra containing the supply id. Only available on {@link #RES_OK}. */
@@ -36,187 +38,126 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
 
     /** Shuffle succeeded. Supply available in {@link #MSG_SUPPLY_ID} */
     public static final int RES_OK = 0;
-    /** Shuffle failed. Insufficient cards. Shortfall in {@link #MSG_SHORT}. */
-    public static final int RES_MORE = 1;
     /** Shuffle failed. No young witch targets. */
-    public static final int RES_NO_YW = 2;
+    public static final int RES_NO_YW = 1;
     /** Shuffle failed. Insufficient kingdom cards.
      *  Shortfall in {@link #MSG_SHORT}. */
-    public static final int RES_MORE_K = 3;
+    public static final int RES_MORE = 2;
     /** Shuffle cancelled by outside source. */
     @SuppressWarnings("WeakerAccess")
     public static final int RES_CANCEL = 100;
 
-    /** The number of kingdom cards in the supply. */
-    private int minKingdom;
-    /** The max number of event cards in the supply. */
-    private final int maxEvent;
 
-
-    /** @param kingdom The suggested number of kingdom cards in this game.
-     *  This number may be increased by some cards, such as Young Witch.
-     *  @param event The max number of events in this game.          */
-    public SupplyShuffler(int kingdom, int event) {
-        super();
-        minKingdom = kingdom;
-        if(event < 0) maxEvent = 0;
-        else maxEvent = event;
-    }
 
     @Override
-    protected Void doInBackground(Long... cardIds) {
-        // The result message we will send on finish
-        Intent res = new Intent(MSG_INTENT);
+    protected Void doInBackground(Void... ignored) {
+        // Create the supply we will populate, and do a check for minKingdoms == 0
+        ShuffleSupply supply = new ShuffleSupply();
+        if(!supply.needsKingdom())
+            return successfulResult(supply);
 
-        // If our supply consists of 0 cards, we can end early
-        if(minKingdom < 1) {
-            Supply s = new Supply();
-            s.cards = new long[0];
-            s.time = Calendar.getInstance().getTimeInMillis();
-            insertSupply(s);
-            res.putExtra(MSG_RES, RES_OK);
-            res.putExtra(MSG_SUPPLY_ID, s);
-            return sendMsg(res);
+        // load applicable filters.
+        SharedPreferences pref = getPreferences();
+        String filt_pre = loadFilter(pref);
+        String filt_req = pref.getString(Prefs.REQ_CARDS, "");
+        String filt_card = pref.getString(Prefs.FILT_CARD, "");
+
+        // Load the required cards into the supply
+        if(0 < filt_req.length())
+            loadCards(supply, filt_pre + TableCard._ID+" IN ("+filt_req+")", true);
+        if(isCancelled())
+            return cancelResult();
+        if (!supply.needsKingdom())
+            return successfulResult(supply);
+
+        // Filter out both required and excluded cards
+        String filt = filt_req+filt_card;
+        if(0 < filt_req.length() && 0 < filt_card.length())
+            filt = filt_req + "," + filt_card;
+        filt = (filt.length() == 0) ? "TRUE"
+                                    : TableCard._ID+" NOT IN ("+filt+")";
+
+        // Shuffle the remaining cards into the supply
+        if(filt.length() != 0)
+            loadCards(supply, filt_pre + filt, false);
+        if(isCancelled())
+            return cancelResult();
+        if (!supply.needsKingdom())
+            return successfulResult(supply);
+
+        // Shuffle has failed.
+        Intent msg = new Intent(MSG_INTENT);
+        int shortfall = supply.getShortfall();
+        // Shuffle failed because there were no bane cards for the young witch
+        if(supply.waitingForBane() && shortfall == 1) {
+            msg.putExtra(MSG_RES, RES_NO_YW);
+            return sendMsg(msg);
+        } else {
+            msg.putExtra(MSG_RES, RES_MORE);
+            msg.putExtra(MSG_SHORT, supply.minKingdom-shortfall+"/"+supply.minKingdom);
+            return sendMsg(msg);
+        }
+    }
+
+
+    /** Simple shorthand to get the preferences. */
+    private static SharedPreferences getPreferences() {
+        return PreferenceManager.getDefaultSharedPreferences(Prefs.getStaticContext());
+    }
+
+
+    /** Returns additional filters that should be used before _id IN (....) */
+    private String loadFilter(SharedPreferences pref) {
+        // Filter out sets
+        String filt_set = pref.getString(Prefs.FILT_SET, "");
+        String filter = (filt_set.length()==0) ? TableCard._SET_ID+"=NULL"
+                                               : TableCard._SET_ID+" IN ("+filt_set+")";
+
+        // Filter out curses
+        if(!pref.getBoolean(Prefs.FILT_CURSE, true)) {
+            if(filter.length() != 0) filter += " AND ";
+            filter += TableCard._META_CURSER+"=0";
         }
 
-        // If we don't have enough cards we can end early
-        if(cardIds.length < minKingdom) {
-            res.putExtra(MSG_RES, RES_MORE);
-            int size = cardIds.length;
-            res.putExtra(MSG_SHORT, size +"/"+ minKingdom);
-            return sendMsg(res);
-        }
+        return (filter.length() == 0) ? filter : filter+" AND ";
+    }
 
-        // Prepare the select statement
-        String sel="";
-        String[] selArgs = new String[cardIds.length];
-        for(int i=0; i<selArgs.length; i++) {
-            sel += ",?";
-            selArgs[i] = ""+cardIds[i];
-        }
-        sel = TableCard._ID+" IN ("+sel.substring(1)+")";
 
-        // Variables that must live through the try statement
-        Supply supply = new Supply();
-        Cursor c = null;
-        ArrayList<Long> kingdom = new ArrayList<>(minKingdom);
-        ArrayList<Long> events = new ArrayList<>(maxEvent);
-        // State of the Young Witch card. 0 = not loaded, 1 = loaded waiting for bane, 2 = in supply
-        int yWitchState = 0;
+    /** Load all cards matching the filter and add them to the supply.
+     *  @param s The supply object that you want to add to.
+     *  @param filter The filter for the cards you wish to add.
+     *  @param cardsRequired True if all matching cards must be in the supply.
+     *  If this is false, cards will be added to the supply until it has enough kingdom cards. */
+    private void loadCards(ShuffleSupply s, String filter, boolean cardsRequired) {
+        // Query the cards in the database
+        Cursor c = Prefs.getStaticContext()
+                        .getContentResolver()
+                        .query(Provider.URI_CARD_DATA,
+                                new String[]{TableCard._ID, TableCard._TYPE_EVENT,
+                                        TableCard._SET_ID, TableCard._COST},
+                                filter, null, "random()");
+        if(c == null) return;
 
-        // The rest of this process can throw errors. So it must be tried.
         try {
-            // Load the available cards
-            c = shuffleCards(new String[]{TableCard._ID, TableCard._TYPE_EVENT, TableCard._SET_ID, TableCard._COST},
-                    sel, selArgs);
-            final int _id = c.getColumnIndex(TableCard._ID);
-            final int _event = c.getColumnIndex(TableCard._TYPE_EVENT);
-            final int _set = c.getColumnIndex(TableCard._SET_ID);
-            final int _cost = c.getColumnIndex(TableCard._COST);
+            int _id = c.getColumnIndex(TableCard._ID);
+            int _event = c.getColumnIndex(TableCard._TYPE_EVENT);
+            int _cost = c.getColumnIndex(TableCard._COST);
+            int _set_id = c.getColumnIndex(TableCard._SET_ID);
 
-            // Variables used in the main shuffle loop
-            boolean done = false;   // If the shuffle is complete
-            long id;                // The id of the loaded card
-            String cost;            // The cost of the loaded card
-            // random cards chosen for the high cost & shelters variables
-            final int costCard = (int)(Math.random() * minKingdom)+1;
-            final int shelterCard = (int)(Math.random() * minKingdom)+1;
-
-            // Main Shuffle loop
             c.moveToPosition(-1);
-            while(!done && c.moveToNext()) {
-                // Stop on cancel
-                if (isCancelled()) {
-                    res.putExtra(MSG_RES, RES_CANCEL);
-                    return sendMsg(res);
-                }
+            while(c.moveToNext() && (cardsRequired || s.needsKingdom())) {
+                if(isCancelled())
+                    return;
 
-                // Load the card
-                id = c.getLong(_id);
-
-                // If this is the young witch
-                if (id == TableCard.ID_YOUNG_WITCH) {
-                    // Add it to the supply if a bane is available
-                    if(supply.bane != -1) {
-                        kingdom.add(id);
-                        minKingdom++;
-                        yWitchState = 2;
-                    // Otherwise, wait for a bane to be picked
-                    } else yWitchState = 1;
-
-                // If this is a kingdom card
-                } else if(0 == c.getInt(_event)) {
-                    kingdom.add(id);
-
-                    // Check if this could be a bane card
-                    cost = c.getString(_cost);
-                    if("2".equals(cost) || "3".equals(cost)) {
-                        // Make it our bane card
-                        // (if Young Witch isn't picked, this will be cleared later)
-                        supply.bane = id;
-                        // Add the young witch if it was waiting for a bane
-                        if(yWitchState == 1) {
-                            kingdom.add(TableCard.ID_YOUNG_WITCH);
-                            minKingdom++;
-                            yWitchState = 2;
-                        }
-                    }
-                    // Determine if high cost game
-                    if(kingdom.size() == costCard)
-                        supply.high_cost = (c.getInt(_set) == TableCard.SET_PROSPERITY);
-                    // Determine if shelters game
-                    if(kingdom.size() == shelterCard)
-                        supply.shelters = (c.getInt(_set) == TableCard.SET_DARK_AGES);
-
-                // If this is an event, add it if it is needed.
-                } else if(events.size() < maxEvent) events.add(id);
-                // We are done if we have enough kingdom cards
-                done = minKingdom <= kingdom.size();
+                // We handle events and kingdom cards differently (events first)
+                long id = c.getLong(_id);
+                if(c.getInt(_event) != 0)
+                    s.addEvent(id, cardsRequired);
+                else s.addKingdom(id, c.getString(_cost), c.getInt(_set_id), cardsRequired);
             }
-
-            // The shuffle is complete - but did it complete successfully?
-            // If we aren't done, we ran out of cards.
-            if(!done) {
-                // Couldn't find a valid bane card and that's all we needed.
-                if(yWitchState == 1 && minKingdom-1 == kingdom.size()) {
-                    res.putExtra(MSG_RES, RES_NO_YW);
-                    return sendMsg(res);
-                // We just don't have enough kingdom cards
-                } else {
-                    res.putExtra(MSG_RES, RES_MORE_K);
-                    res.putExtra(MSG_SHORT, kingdom.size() +"/"+ minKingdom);
-                    return sendMsg(res);
-                }
-            }
-
-        } catch (Exception ignored){
-            // The try should only fail if there are problems accessing the context objects.
-            res.putExtra(MSG_RES, RES_CANCEL);
-            return sendMsg(res);
         } finally {
-            try{ if (c != null) c.close();
-            } catch(Exception ignored){}
+            c.close();
         }
-
-        // The shuffle was a success. Gather all the cards.
-        long[] cards = new long[kingdom.size() + events.size()];
-        for(int i=0; i<kingdom.size(); i++)
-            cards[i] = kingdom.get(i);
-        for(int i=0; i<events.size(); i++)
-            cards[i+kingdom.size()] = events.get(i);
-        supply.cards = cards;
-
-        // Remove the bane if the Young Witch isn't in the supply
-        if(yWitchState != 2) supply.bane = -1;
-
-        // Insert the supply into the history table
-        supply.time = Calendar.getInstance().getTimeInMillis();
-        insertSupply(supply);
-
-        // Finish and return supply
-        res.putExtra(MSG_RES, RES_OK);
-        res.putExtra(MSG_SUPPLY_ID, supply.time);
-        return sendMsg(res);
     }
 
 
@@ -231,31 +172,163 @@ class SupplyShuffler extends AsyncTask<Long, Void, Void> {
     }
 
 
-    /** Get the selected cards from the cardData table in random order.
-     *  @return The result, or null if the query failed. */
-    private static Cursor shuffleCards(String[] projection,
-                                       String selection, String[] selectionArgs) {
-        // I retain nothing because I don't know if the contentResolver changes.
-        return Prefs.getStaticContext()
-                    .getContentResolver()
-                    .query(Provider.URI_CARD_DATA, projection,
-                            selection, selectionArgs, "random()");
+    /** The shuffle was cancelled prematurely. */
+    private Void cancelResult() {
+        Intent cancel = new Intent(MSG_INTENT);
+        cancel.putExtra(MSG_RES, RES_CANCEL);
+        return sendMsg(cancel);
     }
 
 
-    /** Insert a given supply into the history table */
-    private void insertSupply(Supply s) {
+    /** Generating the supply was successful.
+     *  Write the result into the history database and tell the app its id number */
+    private Void successfulResult(ShuffleSupply supply) {
+        // Insert the new supply
+        long time = Calendar.getInstance().getTimeInMillis();
         ContentValues values = new ContentValues();
-        values.put(DataDb._H_TIME,      s.time);
-        values.put(DataDb._H_NAME,      s.name);
-        values.put(DataDb._H_CARDS,     Utils.join(",", s.cards));
-        values.put(DataDb._H_BANE,      s.bane);
-        values.put(DataDb._H_HIGH_COST, s.high_cost);
-        values.put(DataDb._H_SHELTERS,  s.shelters);
+        values.putNull(DataDb._H_NAME);
+        values.put(DataDb._H_TIME,      time);
+        values.put(DataDb._H_CARDS,     Utils.join(",", supply.getCards()));
+        values.put(DataDb._H_BANE,      supply.getBane());
+        values.put(DataDb._H_HIGH_COST, supply.high_cost);
+        values.put(DataDb._H_SHELTERS,  supply.shelters);
+        Prefs.getStaticContext()
+             .getContentResolver()
+             .insert(Provider.URI_HIST, values);
 
-        try{ Prefs.getStaticContext()
-                  .getContentResolver()
-                  .insert(Provider.URI_HIST, values);
-        } catch(Exception ignored) {}
+        // let the listeners know the result
+        Intent msg = new Intent(MSG_INTENT);
+        msg.putExtra(MSG_RES, RES_OK);
+        msg.putExtra(MSG_SUPPLY_ID, time);
+        return sendMsg(msg);
+    }
+
+
+    /** Represents a supply in the process of being shuffled. */
+    private class ShuffleSupply {
+        /** Possible value of {@link #baneStatus}. There is no young witch in the supply. */
+        private static final int BANE_INACTIVE = 0;
+        /** Possible value of {@link #baneStatus}.
+         *  The young witch was drawn, but we haven't seen a bane yet */
+        private static final int BANE_WAITING = 1;
+        /** Possible value of {@link #baneStatus}. The bane and the young witch have been set */
+        private static final int BANE_ACTIVE = 2;
+
+        /** Minimum amount of kingdom cards needed for this supply to be complete. */
+        public int minKingdom;
+        /** Maximum amount of event cards allowed. */
+        public final int maxEvent;
+        /** If this is a high cost game or not. */
+        public boolean high_cost = false;
+        /** If this game uses shelters or not. */
+        public boolean shelters = false;
+
+        /** Position of the kingdom card that determines if this is a high cost game. */
+        private final int costCard;
+        /** Position of the kingdom card that determines if this game uses shelters. */
+        private final int shelterCard;
+
+        /** Kingdom cards in this supply */
+        private final ArrayList<Long> kingdom;
+        /** Event cards in this supply */
+        private final ArrayList<Long> events;
+        /** Current status of the bane card */
+        private int baneStatus = BANE_INACTIVE;
+        /** Id for a possible bane card */
+        private long bane = -1L;
+
+
+        public ShuffleSupply() {
+            SharedPreferences prefs = getPreferences();
+            minKingdom = prefs.getInt(Prefs.LIMIT_SUPPLY, 10);
+            maxEvent = prefs.getInt(Prefs.LIMIT_EVENTS, 2);
+            kingdom = new ArrayList<>(minKingdom);
+            events = new ArrayList<>(maxEvent);
+            costCard = (int)(Math.random() * minKingdom)+1;
+            shelterCard = (int)(Math.random() * minKingdom)+1;
+        }
+
+
+        /** Add an event to the supply */
+        public void addEvent(long id, boolean required) {
+            if(required) events.add(id);
+            else if(events.size() < maxEvent)
+                events.add(id);
+        }
+
+
+        /** Check if this shuffler needs a kingdom card */
+        public boolean needsKingdom() {
+            return kingdom.size() < minKingdom;
+        }
+
+
+        /** Add a kingdom card to the supply */
+        public void addKingdom(long id, String cost, int set_id, boolean required) {
+            if(!required && minKingdom <= kingdom.size())
+                return;
+
+            // Special handling for the young witch
+            if(id == TableCard.ID_YOUNG_WITCH) {
+                if(bane == -1L) {
+                    // Do not add the young witch, wait for a bane card first
+                    baneStatus = BANE_WAITING;
+                    return;
+                } else {
+                    // Add the young witch, we have a bane card
+                    baneStatus = BANE_ACTIVE;
+                    minKingdom++;
+                }
+            }
+
+            // Special handling for the young witch's bane
+            else if("2".equals(cost) || "3".equals(cost)) {
+                bane = id;
+                if(baneStatus == BANE_WAITING)
+                    addKingdom(TableCard.ID_YOUNG_WITCH, "4", 3, true);
+            }
+
+            kingdom.add(id);
+
+            // determine if this is a high cost/shelters game
+            if(kingdom.size() == costCard)
+                high_cost = set_id == TableCard.SET_PROSPERITY;
+            if(kingdom.size() == shelterCard)
+                shelters = set_id == TableCard.SET_DARK_AGES;
+        }
+
+
+        /** Get all cards in this supply */
+        public long[] getCards() {
+            long[] res = new long[kingdom.size() + events.size()];
+            int i = 0;
+            for(Long card : kingdom) {
+                res[i] = card;
+                i++;
+            }
+            for(Long card : events) {
+                res[i] = card;
+                i++;
+            }
+            return res;
+        }
+
+        /** Get the bane card of this supply */
+        public long getBane() {
+            if(baneStatus == BANE_ACTIVE) return bane;
+            else return -1L;
+        }
+
+
+        /** Get how many more kingdom cards we need */
+        public int getShortfall() {
+            return minKingdom - kingdom.size();
+        }
+
+
+        /** Check if the supply is waiting for a valid bane card. */
+        public boolean waitingForBane() {
+            return baneStatus == BANE_WAITING;
+        }
     }
 }

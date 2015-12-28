@@ -3,7 +3,6 @@ package ca.marklauman.dominionpicker.rules;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.graphics.drawable.Drawable;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -59,8 +58,10 @@ class RulesAdapter extends ArrayAdapter<View>
 
         // Load the preferences managed by this adapter
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String[] filt_set_arr = prefs.getString(Prefs.FILT_SET, context.getString(R.string.filt_set_def))
-                                     .split(",");
+        String filt_set_raw = prefs.getString(Prefs.FILT_SET,
+                                              context.getString(R.string.filt_set_def));
+        String[] filt_set_arr = (filt_set_raw.length()==0) ? new String[0]
+                                                           : filt_set_raw.split(",");
         filt_set = new HashSet<>(filt_set_arr.length);
         for(String s : filt_set_arr)
             filt_set.add(Integer.parseInt(s));
@@ -155,19 +156,10 @@ class RulesAdapter extends ArrayAdapter<View>
     }
 
     protected CheckedTextView newChecked(Context c, String text, int imgRes) {
-        CheckedTextView res = (CheckedTextView)View.inflate(c, R.layout.rule_checkbox, null);
+        CheckedTextView res = (CheckedTextView) View.inflate(c, R.layout.rule_checkbox, null);
         res.setText(text);
-        if(imgRes != 0)
+        if (imgRes != 0)
             Utils.setDrawables(res, imgRes, 0, 0, 0);
-        return res;
-    }
-
-
-    protected CheckedTextView newChecked(Context c, String text, Drawable drawable) {
-        CheckedTextView res = (CheckedTextView)View.inflate(c, R.layout.rule_checkbox, null);
-        res.setText(text);
-        if(drawable != null)
-            Utils.setDrawables(res, drawable, null, null, null);
         return res;
     }
 

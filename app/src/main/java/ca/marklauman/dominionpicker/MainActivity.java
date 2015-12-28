@@ -11,9 +11,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -166,7 +164,7 @@ public class MainActivity extends AppCompatActivity
                 return true;
             case R.id.action_submit:
                 // TODO: FIX THIS
-//                shuffler.startShuffle(FragmentPicker.loadBanned(this));
+                shuffler.startShuffle();
                 return true;
 		}
 
@@ -276,12 +274,6 @@ public class MainActivity extends AppCompatActivity
                     startActivity(showSupply);
                     return;
                 case SupplyShuffler.RES_MORE:
-                    msg = String.format(getString(R.string.more),
-                                        intent.getStringExtra(SupplyShuffler.MSG_SHORT));
-                    Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG)
-                         .show();
-                    return;
-                case SupplyShuffler.RES_MORE_K:
                     msg = String.format(getString(R.string.more_k),
                                         intent.getStringExtra(SupplyShuffler.MSG_SHORT));
                     Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG)
@@ -297,13 +289,10 @@ public class MainActivity extends AppCompatActivity
 
         /** Start a shuffle and register this receiver.
          *  Also cancels any shuffles in progress. */
-        public void startShuffle(Long... cards) {
-            if(cards == null) cards = new Long[0];
+        public void startShuffle() {
             cancelShuffle();
-            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-            shuffler = new SupplyShuffler(pref.getInt(Prefs.LIMIT_SUPPLY, 10),
-                                          pref.getInt(Prefs.LIMIT_EVENTS, 2));
-            shuffler.execute(cards);
+            shuffler = new SupplyShuffler();
+            shuffler.execute();
         }
 
         /** Stop a shuffle if it is in session. */
