@@ -8,33 +8,33 @@
     <string name="picker">Auswahl</string>
 
     <string name="picks">Ihre Karten!</string>
-    <string name="toggle_all">Ver&#228;nderung Auswahl</string>
-    <string name="submit">Shuffle</string>
-    <string name="more">Ben&#246;tigen Sie mehr Karten! (%1$s)</string>
-    <string name="more_k">Ben&#246;tigen Sie mehr K&#246;nigreichskarten! (%1$s)</string>
+    <string name="toggle_all">Alle markieren</string>
+    <string name="submit">Deck erstellen</string>
+    <string name="more">Sie ben&#246;tigen mehr Karten! (%1$s)</string>
+    <string name="more_k">Sie ben&#246;tigen mehr K&#246;nigreichskarten! (%1$s)</string>
     <string name="yw_no_bane">Junge Hexe – Kein Fluch</string>
-    <string name="all_filtered">Alle Karten herausgefiltert.</string>
-    
+    <string name="all_filtered">Alle Karten gefiltert.</string>
+
     <string name="set">Erweiterungen</string>
     <string name="potion">Trank</string>
 
-    <string name="game_history">Geschichte</string>
-    <string name="sample_games">Beispiel</string>
-    <string name="favorite_games">Lieblings</string>
-    <string name="no_hist">Ihre Shuffles werden hier gespeichert.</string>
+    <string name="game_history">Verlauf</string>
+    <string name="sample_games">Beispiele</string>
+    <string name="favorite_games">Favoriten</string>
+    <string name="no_hist">Ihre Decks werden hier gespeichert.</string>
 
-    <string name="change_fav">&#228;ndern Lieblings</string>
-    <string name="name_me">Benennen Sie die Shuffle</string>
+    <string name="change_fav">Favoriten bearbeiten</string>
+    <string name="name_me">Benennen Sie Ihre Decks</string>
     <string name="save">Speichern</string>
 
-    <string name="supply_colonies">Verwenden Kolonien u Platin</string>
+    <string name="supply_colonies">Verwenden Sie Kolonien und Platin</string>
     <string name="supply_shelters">Verwenden Sie Unterschlupf</string>
     <string name="young_witch_bane">Fluch</string>
-    
+
     <string name="market_title">Schwarzmarkt</string>
-    <string name="market_begin">New schwarzen Markt erstellt</string>
+    <string name="market_begin">Neuen Schwarzmarkt erstellt</string>
     <string name="market_draw">Ziehe eine Karte</string>
-    <string name="market_pass">kaufen Sie nichts</string>
+    <string name="market_pass">Karte nicht kaufen</string>
     <string name="market_sold_out">Ausverkauft!</string>
 
     <plurals name="hist_card">
