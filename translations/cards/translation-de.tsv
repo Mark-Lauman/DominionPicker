@@ -1,4 +1,4 @@
-_id	language	name	type	requires	description	details
+_id	language	name	type	requires	text	rules
 1	de	Schwarzmarkt	Aktion			
 2	de	Geldversteck	Geld			
 3	de	Gesandter	Aktion			

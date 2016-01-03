@@ -39,10 +39,10 @@ public abstract class TableCard {
     public static final String _TYPE = "type";
     /** Column for requirements of a card. From the cardTrans table. */
     public static final String _REQ = "requires";
-    /** Column for the description of a card. From the cardTrans table. */
-    public static final String _DESC = "description";
-    /** Column for the details of a card. From the cardTrans table. */
-    public static final String _DETAILS = "details";
+    /** Column for the text of a card. From the cardTrans table. */
+    public static final String _TEXT = "text";
+    /** Column for the rules attached to a card. From the cardTrans table. */
+    public static final String _RULES = "rules";
     /** Column for the language code of the card. From the cardTans and cardSet tables. */
     public static final String _LANG = "language";
 

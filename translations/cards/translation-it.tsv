@@ -1,4 +1,4 @@
-_id	language	name	type	requires	description	details
+_id	language	name	type	requires	text	rules
 2	it	Gruzzolo	Tesoro		Quando mischi il tuo scarto, puoi sistemare questa carta ovunque nel mazzo.	
 3	it	Inviato	Azione		Rivela le prime 5 carte del tuo mazzo. Il giocatore alla tua sinistra ne sceglie una per te da scartare. Pesca le rimanenti.	
 6	it	Sotterraneo	Azione			

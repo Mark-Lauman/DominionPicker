@@ -4,6 +4,7 @@
     <!-- Nothing in this file is shown to the user. It's just used for internal purposes. -->
 
     <!-- Default filter values -->
+    <integer name="def_tab">1</integer>
     <string name="filt_set_def" translatable="false">0</string>
     <string name="filt_cost_def" />
     <bool name="filt_curse_def">true</bool>

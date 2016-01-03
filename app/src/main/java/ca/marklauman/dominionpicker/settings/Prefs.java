@@ -18,6 +18,8 @@ import ca.marklauman.tools.Utils;
 @SuppressWarnings({"WeakerAccess", "UnusedDeclaration"})
 public abstract class Prefs {
     /////////// Active preference keys \\\\\\\\\\\
+    /** Key used to store the number of the active MainActivity tab */
+    public static final String ACTIVE_TAB = "active_tab";
     /** Key used to save the supply size to the the preferences. */
     public static final String LIMIT_SUPPLY = "limit_supply";
     /** Key used to save the event limiter to the preferences. */
@@ -197,6 +199,8 @@ public abstract class Prefs {
             edit.putString(FILT_CARD, "");
         if(!prefs.contains(REQ_CARDS))
             edit.putString(REQ_CARDS, "");
+        if(!prefs.contains(ACTIVE_TAB))
+            edit.putInt(ACTIVE_TAB, res.getInteger(R.integer.def_tab));
         edit.commit();
     }
 

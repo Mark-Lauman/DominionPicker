@@ -1,4 +1,4 @@
-_id	language	name	type	requires	description	details
+_id	language	name	type	requires	text	rules
 6	fr	Cave	Action		Défaussez autant de cartes que vous voulez. +1 Carte par carte défaussée.	
 7	fr	Chapelle	Action		Écartez jusqu'à 4 cartes de votre main.	
 8	fr	Douves	Action Réaction		Lorsqu'un adversaire joue une carte Attaque, vous pouvez dévoiler cette carte de votre main. Dans ce cas, l'Attaque n'a pas d'effet sur vous.	
