@@ -12,7 +12,7 @@ import android.widget.SimpleCursorAdapter.ViewBinder;
 
 import java.util.HashMap;
 
-import ca.marklauman.dominionpicker.ActivityCardInfo;
+import ca.marklauman.dominionpicker.cardinfo.ActivityCardInfo;
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.tools.Utils;
@@ -102,8 +102,9 @@ public class AdapterCards extends SimpleCursorAdapter
         super(context, viewResource, null, columnNames, viewIds);
         setViewBinder(this);
         mContext = context;
-        colorFactory = new CardColorFactory(context.getResources());
-        coinFactory = CoinFactory.getInstance(context.getResources());
+        Resources res = context.getResources();
+        colorFactory = new CardColorFactory(res);
+        coinFactory = new CoinFactory(res);
         columnMap = new SparseIntArray();
 
         // Load the resources

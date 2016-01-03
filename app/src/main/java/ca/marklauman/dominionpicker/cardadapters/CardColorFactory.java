@@ -19,7 +19,7 @@ import ca.marklauman.tools.Utils;
 
 /** Builds the background drawables to show card color.
  *  @author Mark Lauman */
-class CardColorFactory extends DrawableFactory<CardColorFactory.CardBackground> {
+class CardColorFactory extends DrawableFactory {
 
     // Cards types listed by color priority
     /** Action card id */
@@ -77,6 +77,10 @@ class CardColorFactory extends DrawableFactory<CardColorFactory.CardBackground> 
         column[_event] = cursor.getColumnIndex(TableCard._TYPE_EVENT);
     }
 
+    protected int defSize() {
+        return (int)(width+0.5f);
+    }
+
 
     public void updateBackground(@NonNull View view, @NonNull Cursor cursor) {
         if(column == null) {
@@ -113,15 +117,16 @@ class CardColorFactory extends DrawableFactory<CardColorFactory.CardBackground> 
         if(action) val = (val.length() == 0) ? ""+_action : _action+","+val;
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            view.setBackground(getDrawable(val, 0));
-        } else view.setBackgroundDrawable(getDrawable(val, 0));
+            view.setBackground(getDrawable(val));
+        } else view.setBackgroundDrawable(getDrawable(val));
 
     }
 
 
     @Override
-    protected CardBackground makeDrawable(String val) {
-        String[] split = val.split(",");
+    protected CardBackground makeDrawable(CharSequence val, int size) {
+        String str = ""+val;
+        String[] split = str.split(",");
         int[] res = new int[split.length];
         for(int i=0; i<split.length; i++)
             res[i] = color[Integer.parseInt(split[i])];
@@ -168,7 +173,7 @@ class CardColorFactory extends DrawableFactory<CardColorFactory.CardBackground> 
 
         @Override
         public int getOpacity() {
-            return PixelFormat.TRANSLUCENT;
+            return PixelFormat.OPAQUE;
         }
     }
 

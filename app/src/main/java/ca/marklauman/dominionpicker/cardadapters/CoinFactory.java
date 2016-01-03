@@ -14,27 +14,16 @@ import ca.marklauman.dominionpicker.R;
 
 /** Factory which provides {@link CoinDrawable}s to views that need them.
  *  @author Mark Lauman */
-public class CoinFactory extends DrawableFactory<CoinFactory.CoinDrawable> {
-    /** Only one CoinFactory is used across the app */
-    private static final CoinFactory factory = new CoinFactory();
-
+public class CoinFactory extends DrawableFactory {
     /** 1sp on this device */
-    private float sp1 = -1f;
+    private final float sp1;
     /** Background color for the coin */
-    private int coinBack;
+    private final int coinBack;
     /** Edge color for the coin */
-    private int coinEdge;
+    private final int coinEdge;
 
-    /** Cannot be instantiated outside of this class */
-    private CoinFactory(){}
-
-    /** Get a CoinFactory instance */
-    public static CoinFactory getInstance(Resources res) {
-        factory.updateResources(res);
-        return factory;
-    }
-
-    private void updateResources(Resources res) {
+    /** Create a CoinFactory from the given resources. */
+    public CoinFactory(Resources res){
         sp1 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 1,
                 res.getDisplayMetrics());
         coinBack = res.getColor(R.color.coin_back);
@@ -44,8 +33,14 @@ public class CoinFactory extends DrawableFactory<CoinFactory.CoinDrawable> {
 
     /** Get a CoinDrawable with the provided value.
      *  @param val The value to display on the coin. */
-    protected CoinDrawable makeDrawable(String val) {
-        return new CoinDrawable(val);
+    protected CoinDrawable makeDrawable(CharSequence val, int size) {
+        CoinDrawable res = new CoinDrawable(""+val);
+        res.setBounds(0, 0, size, size);
+        return res;
+    }
+
+    protected int defSize() {
+        return (int)(CoinDrawable.DEFAULT_SIZE*sp1+0.5f);
     }
 
 
@@ -82,13 +77,16 @@ public class CoinFactory extends DrawableFactory<CoinFactory.CoinDrawable> {
             size -= 2; // for anti-aliasing on the borders
 
             // Draw the coin
+            float coinSize = size/2f;
             paint.setColor(coinEdge);
-            canvas.drawCircle(x, y, size / 2f, paint);
+            canvas.drawCircle(x, y, coinSize, paint);
             paint.setColor(coinBack);
-            canvas.drawCircle(x, y, (size - 2 * sp1) / 2f, paint);
+            canvas.drawCircle(x, y, 0.9f*coinSize, paint);
 
             // Draw the text
-            paint.setTextSize(size - 6f * sp1);
+            float fontSize = (val.length() < 2) ? 0.7f*size
+                                                : 0.6f*size;
+            paint.setTextSize(fontSize);
             paint.setColor(Color.BLACK);
             paint.getTextBounds(val, 0, val.length(), textBounds);
             canvas.drawText(val, x-textBounds.exactCenterX(), y-textBounds.exactCenterY(), paint);
@@ -97,13 +95,13 @@ public class CoinFactory extends DrawableFactory<CoinFactory.CoinDrawable> {
 
         @Override
         public int getIntrinsicHeight() {
-            return (int)(DEFAULT_SIZE*sp1+0.5f);
+            return defSize();
         }
 
 
         @Override
         public int getIntrinsicWidth() {
-            return (int)(DEFAULT_SIZE*sp1+0.5f);
+            return defSize();
         }
 
 

@@ -4,10 +4,13 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical" >
 
-    <TextView
+    <ca.marklauman.dominionpicker.cardinfo.InfoTextView
+        android:id="@android:id/text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Detailed card information here"
-        android:gravity="center"/>
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:orientation="vertical"
+        android:gravity="center" />
 
 </LinearLayout>

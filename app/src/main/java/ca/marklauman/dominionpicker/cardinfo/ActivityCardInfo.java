@@ -1,9 +1,11 @@
-package ca.marklauman.dominionpicker;
+package ca.marklauman.dominionpicker.cardinfo;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+
+import ca.marklauman.dominionpicker.R;
 
 // TODO: Actually implement this class
 /** Activity used to display detailed card information.
@@ -21,6 +23,8 @@ public class ActivityCardInfo extends AppCompatActivity {
         if(ab != null) ab.setDisplayHomeAsUpEnabled(true);
 
         if(ab != null) ab.setTitle("Card Name");
+        InfoTextView txt = (InfoTextView)findViewById(android.R.id.text1);
+        txt.setText(R.string.demo_card_text);
     }
 
     @Override

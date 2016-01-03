@@ -16,38 +16,34 @@ import ca.marklauman.dominionpicker.R;
 
 /** Factory which provides {@link VPDrawable}s to views that need them.
  *  @author Mark Lauman */
-public class VPFactory extends DrawableFactory<VPFactory.VPDrawable> {
-    /** Only one VPFactory is used across the app */
-    private static final VPFactory factory = new VPFactory();
-
+public class VPFactory extends DrawableFactory {
     /** 1sp on this device */
-    private float sp1 = -1f;
+    private final float sp1;
     /** Border color used around the shield */
-    private int border;
+    private final int border;
     /** Background color of a positive victory point shield. */
-    private int vict;
+    private final int victory;
     /** Background color of a negative victory point shield. */
-    private int curse;
+    private final int curse;
 
-    private VPFactory(){}
-
-    public static VPFactory getInstance(Resources res) {
-        factory.updateResources(res);
-        return factory;
-    }
-
-
-    private void updateResources(Resources res) {
+    /** Create a CoinFactory from the given resources. */
+    public VPFactory(Resources res){
         sp1 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 1,
                 res.getDisplayMetrics());
         border = res.getColor(R.color.coin_vp_edge);
-        vict = res.getColor(R.color.vp_plus);
+        victory = res.getColor(R.color.vp_plus);
         curse = res.getColor(R.color.vp_minus);
     }
 
 
-    protected VPDrawable makeDrawable(String val) {
-        return new VPDrawable(val);
+    protected VPDrawable makeDrawable(CharSequence val, int size) {
+        VPDrawable res = new VPDrawable(""+val);
+        res.setBounds(0, 0, size, size);
+        return res;
+    }
+
+    protected int defSize() {
+        return (int)(VPDrawable.DEFAULT_SIZE*sp1+0.5f);
     }
 
 
@@ -93,26 +89,26 @@ public class VPFactory extends DrawableFactory<VPFactory.VPDrawable> {
         @Override
         public void draw(Canvas canvas) {
             // Provided width and height
-            float height = getBounds().height();
-            float width = getBounds().width();
+            final float height = getBounds().height();
+            final float width = getBounds().width();
 
             // x, y and drawing size
             float x = 0;
             float y = 0;
-            float size = (width < height) ? width : height;
+            final float size = (width < height) ? width : height;
             if(size == width) y = (height-size)/2f;
             else x = (width-size)/2f;
 
             // Draw the shield
             paint.setColor(border);
             drawPath(canvas, paint, shieldOuter, x, y, size);
-            if(positive) paint.setColor(vict);
+            if(positive) paint.setColor(victory);
             else paint.setColor(curse);
             drawPath(canvas, paint, shieldInner, x, y, size);
 
             // Draw the text
-            float fontSize = size -6f*sp1;
-            if(!positive) fontSize = 0.8f*fontSize;
+            float fontSize = (val.length() < 2) ? 0.7f*size
+                                                : 0.6f*size;
             paint.setTextSize(fontSize);
             paint.setColor(Color.BLACK);
             paint.getTextBounds(val, 0, val.length(), textBounds);
@@ -134,22 +130,20 @@ public class VPFactory extends DrawableFactory<VPFactory.VPDrawable> {
             canvas.drawPath(path, paint);
 
             // Restore the path to its original state
-            matrix.reset();
-            matrix.setScale(1f / scale, 1f / scale);
-            matrix.setTranslate(-x, -y);
+            matrix.invert(matrix);
             path.transform(matrix);
         }
 
 
         @Override
         public int getIntrinsicHeight() {
-            return (int)(DEFAULT_SIZE*sp1+0.5f);
+            return defSize();
         }
 
 
         @Override
         public int getIntrinsicWidth() {
-            return (int)(DEFAULT_SIZE*sp1+0.5f);
+            return defSize();
         }
 
         @Override

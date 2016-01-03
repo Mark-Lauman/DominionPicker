@@ -163,7 +163,6 @@ public class MainActivity extends AppCompatActivity
                 ((FragmentPicker)active).toggleAll();
                 return true;
             case R.id.action_submit:
-                // TODO: FIX THIS
                 shuffler.startShuffle();
                 return true;
 		}

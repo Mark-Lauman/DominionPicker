@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="card_color_width">10dp</dimen>
+    <dimen name="vp_size_small">14sp</dimen>
+    <dimen name="vp_size_large">48sp</dimen>
 </resources>

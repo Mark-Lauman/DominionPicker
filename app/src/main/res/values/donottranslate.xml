@@ -21,5 +21,6 @@
     <string name="demo_shuffle_name">This is a test name of the shuffle so you can see how it works.</string>
     <string name="demo_shuffle_desc">10 Cards | Platinum | Shelters</string>
     <string name="demo_sort_name">Card Name</string>
+    <string name="demo_card_text">Each other player reveals the top 2 cards of his deck, trashes one of them costing from &lt;c&gt;3&lt;/c&gt; to &lt;c&gt;6&lt;/c&gt;, and discards &lt;i&gt;the rest. &lt;b&gt;If&lt;/b&gt; a Knight is trashed&lt;/i&gt; by this, trash this card.&lt;hr/&gt;&lt;big&gt; &lt;vp&gt;2&lt;/vp&gt; &lt;c&gt;1&lt;/c&gt; &lt;/big&gt;</string>
 
 </resources>
