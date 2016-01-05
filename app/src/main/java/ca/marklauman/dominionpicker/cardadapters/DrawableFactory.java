@@ -79,7 +79,7 @@ public abstract class DrawableFactory {
         // Get an ImageSpan instance.
         ImageSpan result;
         if(available.size() <= spanId) {
-            result = new ImageSpan(getDrawable(val, size), ImageSpan.ALIGN_BASELINE);
+            result = new ImageSpan(getDrawable(val, size), ImageSpan.ALIGN_BOTTOM);
             available.add(result);
         } else result = available.get(spanId);
         spanId++;

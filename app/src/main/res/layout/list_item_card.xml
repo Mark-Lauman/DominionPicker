@@ -110,7 +110,7 @@
                 android:textColor="?android:attr/textColorSecondary"
                 android:textSize="14sp"
                 android:textStyle="normal"
-                android:text="@string/demo_card_cat" />
+                android:text="@string/demo_card_type" />
 
             <TextView android:id="@+id/card_requires"
                 android:layout_width="match_parent"

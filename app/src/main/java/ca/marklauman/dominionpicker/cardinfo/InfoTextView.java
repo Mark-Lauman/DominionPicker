@@ -54,6 +54,7 @@ public class InfoTextView extends XmlTextView {
         coins = new CoinFactory(res);
         vps = new VPFactory(res);
         setHrRes(R.layout.card_info_hr);
+        setTextViewRes(R.layout.card_info_txt);
         if (isInEditMode()) setText(R.string.demo_card_text);
     }
 
@@ -88,8 +89,10 @@ public class InfoTextView extends XmlTextView {
             end++;
         }
         Resources res = mContext.getResources();
-        int size = (tagActive("big")) ? res.getDimensionPixelSize(R.dimen.vp_size_large)
-                                      : res.getDimensionPixelSize(R.dimen.vp_size_small);
+        int size;
+        if(tagActive("big")) size = res.getDimensionPixelSize(R.dimen.vp_size_large);
+        else size = (tagActive("b")) ? res.getDimensionPixelSize(R.dimen.vp_size_med)
+                                     : res.getDimensionPixelSize(R.dimen.vp_size_small);
         txt.setSpan(factory.getSpan(content, size),
                     start, end, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
     }

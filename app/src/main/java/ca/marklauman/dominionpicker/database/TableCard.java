@@ -48,6 +48,8 @@ public abstract class TableCard {
 
     /** Column for the cost of a card (in coins). From the cardData table. */
     public static final String _COST = "cost";
+    /** Integer value of the card's cost. Removes any additional characters. */
+    public static final String _COST_VAL = "cost_val";
     /** Column for the potion cost of a card (# needed to buy). From the cardData table. */
     public static final String _POT = "potion";
     /** Column for +X buys this card provides. From the cardData table. */
@@ -88,4 +90,22 @@ public abstract class TableCard {
 
     /** Column indicating if this card is a curser meta type. From the cardData table. */
     public static final String _META_CURSER = "metaCurser";
+
+    /** Routine used to convert number-like values (like cost) into a numeric quantity. */
+    public static int parseVal(String value) {
+        // Just try parsing the value
+        try{ return Integer.parseInt(value); }
+        catch(NumberFormatException ignored) {}
+
+        // Parse everything but the last character
+        try { return Integer.parseInt(value.substring(0, value.length() - 1)); }
+        catch (NumberFormatException ignored) {}
+
+        // Parse everything but the first character
+        try{ return Integer.parseInt(value.substring(1)); }
+        catch (NumberFormatException ignored){}
+
+        // Return a value of 0 for unknown
+        return 0;
+    }
 }

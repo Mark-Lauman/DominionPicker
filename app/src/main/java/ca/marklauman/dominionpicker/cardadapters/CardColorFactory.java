@@ -19,7 +19,7 @@ import ca.marklauman.tools.Utils;
 
 /** Builds the background drawables to show card color.
  *  @author Mark Lauman */
-class CardColorFactory extends DrawableFactory {
+public class CardColorFactory extends DrawableFactory {
 
     // Cards types listed by color priority
     /** Action card id */
