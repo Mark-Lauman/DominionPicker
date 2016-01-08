@@ -12,7 +12,9 @@ import android.widget.SimpleCursorAdapter.ViewBinder;
 
 import java.util.HashMap;
 
-import ca.marklauman.dominionpicker.cardinfo.ActivityCardInfo;
+import ca.marklauman.dominionpicker.cardadapters.imagefactories.CardColorFactory;
+import ca.marklauman.dominionpicker.cardadapters.imagefactories.CoinFactory;
+import ca.marklauman.dominionpicker.ActivityCardInfo;
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.tools.Utils;

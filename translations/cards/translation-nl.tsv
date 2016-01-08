@@ -61,7 +61,7 @@ _id	language	name	type	requires	text	rules
 63	nl	Handelspost	Actie			
 64	nl	Tolheffing	Actie			
 65	nl	Opwaardering	Actie			
-66	nl	Harem	Geld Overwinning			
+66	nl	Harem	Geld Overwinning		<big> <c>2</c> <br/> <vp>2</vp> </big>	
 67	nl	Adel	Actie Overwinning			
 68	nl	Lening	Geld			
 69	nl	Handelsroute	Actie	Benodigd: Muntenfiche, Handelsroutetableau		

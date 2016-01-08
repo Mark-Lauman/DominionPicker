@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import ca.marklauman.dominionpicker.R;
+import ca.marklauman.dominionpicker.cardadapters.AdapterCards;
 import ca.marklauman.dominionpicker.database.TableCard;
 
 /** Card adapter designed to display a supply.

@@ -4,210 +4,210 @@ _id	language	name	type	requires	text	rules
 3	de	Gesandter	Aktion			
 4	de	Carcasonne	Aktion			
 5	de	Gouverneur	Aktion			
-6	de	Keller	Aktion			
-7	de	Kapelle	Aktion			
-8	de	Burggraben	Aktion Reaktion			
-9	de	Kanzler	Aktion			
-10	de	Dorf	Aktion			
-11	de	Holzfäller	Aktion			
-12	de	Werkstatt	Aktion			
-13	de	Bürokrat	Aktion Angriff			
-14	de	Festmahl	Aktion			
-15	de	Gärten	Punkte			
-16	de	Miliz	Aktion Angriff			
-17	de	Geldverleiher	Aktion			
-18	de	Umbau	Aktion			
-19	de	Schmiede	Aktion			
-20	de	Spion	Aktion Angriff			
-21	de	Dieb	Aktion Angriff			
-22	de	Thronsaal	Aktion			
-23	de	Ratsversammlun	Aktion			
-24	de	Jahrmarkt	Aktion			
-25	de	Laboratorium	Aktion			
-26	de	Bibliothek	Aktion			
-27	de	Markt	Aktion			
-28	de	Mine	Aktion			
-29	de	Hexe	Aktion Angriff	Benötigt: Fluch		
-30	de	Abenteurer	Aktion			
-31	de	Kräuterkundiger	Aktion			
-32	de	Lehrling	Aktion			
-33	de	Verwandlung	Aktion			
-34	de	Weinberg	Punkte			
-35	de	Apotheker	Aktion			
-36	de	Vision	Aktion Angriff			
-37	de	Universität	Aktion			
-38	de	Alchemist	Aktion			
-39	de	Vertrauter	Aktion Angriff	Benötigt: Fluch		
-40	de	Stein der Weisen	Geld			
-41	de	Golem	Aktion			
-42	de	Besessenheit	Aktion			
-43	de	Burghof	Aktion			
-44	de	Handlanger	Aktion			
-45	de	Geheimkammer	Aktion Reaktion			
-46	de	Große Halle	Aktion Punkte			
-47	de	Maskerade	Aktion			
-48	de	Armenviertel	Aktion			
-49	de	Verwalter	Aktion			
-50	de	Trickser	Aktion Angriff			
-51	de	Wunschbrunnen	Aktion			
-52	de	Baron	Aktion			
-53	de	Brücke	Aktion			
-54	de	Verschwörer	Aktion			
-55	de	Kupferschmied	Aktion			
-56	de	Eisenhütte	Aktion			
-57	de	Bergwerk	Aktion			
-58	de	Späher	Aktion			
-59	de	Herzog	Punkte			
-60	de	Lakai	Aktion Angriff			
-61	de	Saboteur	Aktion Angriff			
-62	de	Kerkermeister	Aktion Angriff	Benötigt: Fluch		
-63	de	Handelsposten	Aktion			
-64	de	Tribut	Aktion			
-65	de	Anbau	Aktion			
-66	de	Harem	Geld Punkte			
-67	de	Adlige	Aktion Punkte			
-68	de	Lohn	Geld			
-69	de	Handelsroute	Aktion	Benötigt: Münzechip, Tableau Handelsroute		
-70	de	Wachturm	Aktion Reaktion			
-71	de	Bischof	Aktion	Benötigt: Siegpunktchip		
-72	de	Denkmal	Aktion	Benötigt: Siegpunktchip		
-73	de	Steinbruch	Geld			
-74	de	Talisman	Geld			
-75	de	Arbeiterdorf	Aktion			
-76	de	Stadt	Aktion			
-77	de	Schmuggelware	Geld			
-78	de	Leihhaus	Aktion			
-79	de	Münzer	Aktion			
-80	de	Quacksalber	Aktion Angriff	Benötigt: Fluch		
-81	de	Gesindel	Aktion Angriff			
-82	de	Königliches Siegel	Geld			
-83	de	Gewölbe	Aktion			
-84	de	Abenteuer	Geld			
-85	de	Halsabschneider	Aktion Angriff	Benötigt: Siegpunktchip		
-86	de	Großer Markt	Aktion			
-87	de	Hort	Geld			
-88	de	Bank	Geld			
-89	de	Ausbau	Aktion			
-90	de	Kunstschmiede	Aktion			
-91	de	Königshof	Aktion			
-92	de	Hausierer	Aktion			
-93	de	Embargo	Aktion	Benötigt: Embargomarker, Fluch		
-94	de	Hafen	Aktion Dauer			
-95	de	Leuchtturm	Aktion Dauer			
-96	de	Eingeborenendorf	Aktion	Benötigt: Tableau Eingeborenendorf		
-97	de	Perlentaucher	Aktion			
-98	de	Botschafter	Aktion Angriff			
-99	de	Fischerdorf	Aktion Dauer			
-100	de	Ausguck	Aktion			
-101	de	Schmuggler	Aktion			
-102	de	Lagerhaus	Aktion			
-103	de	Karawane	Aktion Dauer			
-104	de	Beutelschneider	Aktion Angriff			
-105	de	Insel	Aktion Punkte	Benötigt: Tableau Insel 		
-106	de	Navigator	Aktion			
-107	de	Piratenschiff	Aktion Angriff	Benötigt: Münzechip, Tableau Piratenschiff		
-108	de	Müllverwerter	Aktion			
-109	de	Seehexe	Aktion Angriff	Benötigt: Fluch		
-110	de	Schatzkarte	Aktion			
-111	de	Bazar	Aktion			
-112	de	Entdecker	Aktion			
-113	de	Geisterschiff	Aktion Angriff			
-114	de	Handelsschiff	Aktion Dauer			
-115	de	Aussenposten	Aktion Dauer			
-116	de	Taktiker	Aktion Dauer			
-117	de	Schatzkammer	Aktion			
-118	de	Werft	Aktion Dauer			
-119	de	Armenhaus	Aktion			
-120	de	Bettler	Aktion Reaktion			
-121	de	Knappe	Aktion			
-122	de	Landstreicher	Aktion			
-123	de	Mundraub	Aktion			
-124	de	Eremit	Aktion	Benötigt: Verrückter		
-125	de	Marktplatz	Aktion Reaktion			
-126	de	Weiser	Aktion			
-127	de	Lagerraum	Aktion			
-128	de	Gassenjunge	Aktion Angriff	Benötigt: Söldner		
-129	de	Waffenkammer	Aktion			
-130	de	Leichenkarren	Aktion Angriff	Benötigt: Ruine		
-131	de	Lehen	Punkte			
-132	de	Festung	Aktion			
-133	de	Eisenhändler	Aktion Angriff			
-134	de	Marodeur	Aktion Angriff Plündern	Benötigt: Beute, Ruine		
-135	de	Prozession	Aktion			
-136	de	Ratten	Aktion			
-137	de	Lumpensammler	Aktion			
-138	de	Barde	Aktion			
-139	de	Vogelfreie	Aktion			
-140	de	Banditenlager	Aktion	Benötigt: Beute		
-141	de	Katakomben	Aktion			
-142	de	Graf	Aktion			
-143	de	Falschgeld	Geld			
-144	de	Kultist	Aktion Angriff Plündern	Benötigt: Ruine		
-145	de	Grabräuber	Aktion			
-146	de	Schrotthändler	Aktion			
-147	de	Ritter	Aktion Angriff Ritter			
-148	de	Medium	Aktion			
-149	de	Raubzug	Aktion Angriff	Benötigt: Beute		
-150	de	Neubau	Aktion			
-151	de	Schurke	Aktion			
-152	de	Altar	Aktion			
-153	de	Jagdgründe	Aktion			
-154	de	Weiler	Aktion			
-155	de	Wahrsagerin	Aktion Angriff			
-156	de	Menagerie	Aktion			
-157	de	Bauerndorf	Aktion			
-158	de	Pferdehändler	Aktion Reaktion			
-159	de	Nachbau	Aktion			
-160	de	Turnier	Aktion	Benötigt: Die Preise, Fluch		
-161	de	Junge Hexe	Aktion Angriff	Benötigt: Fluch		
-162	de	Ernte	Aktion			
-163	de	Füllhorn	Geld			
-164	de	Treibjagd	Aktion			
-165	de	Harlekin	Aktion Angriff	Benötigt: Fluch		
-166	de	Festplatz	Punkte			
-167	de	Leuchtenmacher	Aktion	Benötigt: Münzechip		
-168	de	Steinmetz	Aktion			
-169	de	Arzt	Aktion			
-170	de	Meisterstück	Geld			
-171	de	Berater	Aktion			
-172	de	Platz	Aktion	Benötigt: Münzechip		
-173	de	Steuereintreiber	Aktion Angriff			
-174	de	Herold	Aktion			
-175	de	Bäcker	Aktion	Benötigt: Münzechip		
-176	de	Metzger	Aktion	Benötigt: Münzechip		
-177	de	Wandergeselle	Aktion			
-178	de	Kaufmannsgilde	Aktion	Benötigt: Münzechip		
-179	de	Wahrsager	Aktion Angriff	Benötigt: Fluch		
-180	de	Wegkreuzung	Aktion			
-181	de	Herzogin	Aktion			
-182	de	Katzengold	Geld Reaktion			
-183	de	Aufbau	Aktion			
-184	de	Oase	Aktion			
-185	de	Orakel	Aktion Angriff			
-186	de	Komplott	Aktion			
-187	de	Tunnel	Punkte Reaktion			
-188	de	Lebenskünstler	Aktion			
-189	de	Edler Räuber	Aktion Angriff			
-190	de	Nomadencamp	Aktion			
-191	de	Seidenstraße	Punkte			
-192	de	Gewürzhändler	Aktion			
-193	de	Fahrender Händler	Aktion Reaktion			
-194	de	Schatztruhe	Geld			
-195	de	Kartograph	Aktion			
-196	de	Botschaft	Aktion			
-197	de	Feilscher	Aktion			
-198	de	Fernstraße	Aktion			
-199	de	Blutzoll	Geld	Benötigt: Fluch		
-200	de	Gasthaus	Aktion			
-201	de	Mandarin	Aktion			
-202	de	Markgraf	Aktion Angriff			
-203	de	Stallungen	Aktion			
-204	de	Grenzdorf	Aktion			
-205	de	Fruchtbares Land	Punkte			
+6	de	Keller	Aktion		+1 Aktion, Lege eine beliebige Anzahl Handkarten ab. Ziehe für jede abgelegte Karte eine Karte nach.	Der ausgespielte KELLER selbst darf nicht abgelegt werden, da er sich nicht mehr in deiner Hand befindet. Sage an, wie viele Karten du ablegst und lege diese auf deinen Ablagestapel. Danach ziehst du die gleiche Anzahl Karten vom Nachziehstapel. Sollte während dieses Vorgangs der Nachziehstapel aufgebraucht werden, wird dein Ablagestapel zusammen mit den soeben abgelegten Karten gemischt und als neuer Nachziehstapel bereitgelegt.
+7	de	Kapelle	Aktion		Entsorge bis zu vier Karten aus deiner Hand.	Die ausgespielte KAPELLE selbst darf nicht entsorgt werden, da sie sich nicht mehr auf der Hand befindet. Weitere KAPELLEN  auf der Hand dürfen entsorgt werden.
+8	de	Burggraben	Aktion Reaktion		+2 Karten. Wenn ein Mitspieler eine Angriffskarte ausspielt, kannst du diese Karte aus deiner Hand vorzeigen. Der Angriff hat dann keine Wirkung auf dich.	Spielt ein anderer Spieler eine Angriffskarte (mit der Aufschrift AKTION - ANGRIFF), kannst du die Karte BURGGRABEN vorzeigen, falls du sie in diesem Moment auf der Hand hast. In diesem Fall bist du von den Auswirkungen des Angriffs nicht betroffen, d.h. du musst bei der HEXE keine Fluchkarte nehmen usw. Haben mehrere Spieler einen BURGGRABEN auf der Hand, dürfen diese auch eingesetzt und vorgezeigt werden. Danach nehmen die Spieler ihre Karte zurück auf die Hand. Der Spieler, der den Angriff gespielt hat, darf unabhängig davon, ob ein oder mehrere BURGGRÄBEN gespielt werden, die weiteren Anweisungen seiner Aktionskarte ausführen. Der BURGGRABEN darf auch in der eigenen Aktionsphase gespielt werden - dann ziehst du 2 Karten nach. 
+9	de	Kanzler	Aktion		+2 Geld. Du kannst sofort deinen kompletten Nachziehstapel ablegen.	Legst du deinen Nachziehstapel auf deinen Ablagestapel, musst du dies tun, bevor du eine weitere Aktion ausspielst oder zur Kaufphase übergehst. Du darfst deinen Nachziehstapel nicht einsehen, bevor du ihn ablegst.
+10	de	Dorf	Aktion		+1 Karte. +2 Aktionen.	Spielst du mehrere DÖRFER hintereinander, zählst du am besten laut mit, wie viele Aktionen du noch ausspielen darfst, damit du den Überblick behältst.  
+11	de	Holzfäller	Aktion		+1 Kauf.  +2 Geld.	In der Kaufphase darfst du 1 zusätzliche Karte kaufen, also insgesamt 2 Käufe tätigen. Für deine Käufe stehen dir in diesem Zug insgesamt 2 Geld zusätzlich zur Verfügung.
+12	de	Werkstatt	Aktion		Nimm dir eine Karte, die bis zu vier kostet.	Nimm dir eine Karte aus dem Vorrat und lege diese sofort auf deinen Ablagestapel. Du kannst weder Geldkarten noch zusätzlich über Aktionskarten erhaltenes Geld oder Münzen (bei Erweiterungen mit Münzen) einsetzen, um den angegebenen Betrag auf der Karte zu erhöhen.
+13	de	Bürokrat	Aktion Angriff		Nimm dir ein Silber und lege es verdeckt auf deinen Nachziehstapel. Jeder Mitspieler deckt eine Punktekarte aus seiner Hand auf und legt sie verdeckt auf seinen Nachziehstapel. Hat ein Spieler keine Punktekarte auf der Hand, muss er seine Kartenhand vorzeigen.	Ist dein Nachziehstapel aufgebraucht, wenn du diese Karte spielst, legst du die Silberkarte verdeckt ab. Sie bildet dann deinen Nachziehstapel. Das Gleiche gilt für alle Mitspieler, die eine Punktekarte verdeckt auf den eigenen Nachziehstapel legen müssen.
+14	de	Festmahl	Aktion		Entsorge diese Karte. Nimm dir eine Karte, die bis zu 5 kostet.	Du nimmst dir eine beliebige Karte aus dem Vorrat, die höchstens kostet  und legst sie sofort auf deinen Ablagestapel. Du darfst den Betrag weder durch weitere Geldkarten, Münzen oder zusätzliches Geld von anderen Aktionskarten erhöhen. Spielst du das FESTMAHL  direkt nach dem THRONSAAL , erhältst du 2 Karten, obwohl du das FESTMAHL  nur einmal entsorgen kannst. 
+15	de	Gärten	Punkte		Ein Siegpunkt für je zehn Karten im eigenen Kartensatz (abgerundet).	Diese Karte ist die einzige Punktekarte unter den Königreichkarten. Sie hat bis zum Ende des Spiels keine Funktion. Bei der Wertung des Spiels erhält der Spieler, der diese Karte in seinem Kartensatz (Nachziehstapel, Handkarten und Ablagestapel) hat, für jeweils 10 Karten einen Siegpunkt. Es wird immer abgerundet, d. h. 39 Karten ergeben 3 Siegpunkte, ebenso wie 31 Karten 3 Siegpunkte ergeben. Wer mehrere GÄRTEN  besitzt, erhält für jeden GARTEN  die entsprechende Anzahl an Siegpunkten.
+16	de	Miliz	Aktion Angriff		+2 Geld. Jeder Mitspieler legt Karten ab, bis er nur noch drei Karten auf der Hand hat.	Deine Mitspieler müssen Karten aus ihrer Hand ablegen, bis sie nur noch 3 Karten auf der Hand haben. Spieler, die zum Zeitpunkt des Angriffs bereits 3 oder weniger Karten auf der Hand haben, müssen keine weiteren Karten ablegen.
+17	de	Geldverleiher	Aktion		Entsorge ein Kupfer aus deiner Hand. Wenn du das machst, +3 Geld.	Wenn du kein Kupfer zum Entsorgen auf der Hand hast, erhältst du kein zusätzliches Geld für die Kaufphase.
+18	de	Umbau	Aktion		Entsorge eine Karte aus deiner Hand. Nimm dir eine Karte, die bis zu zwei mehr kostet als die entsorgte Karte.	Der ausgespielte UMBAU selbst darf nicht entsorgt werden, da er sich nicht mehr in deiner Hand befindet. Weitere UMBAU-Karten in deiner Hand dürfen entsorgt werden. Wenn du keine Karte zum Entsorgen auf der Hand hast, darfst du dir auch keine neue Karte nehmen. Die neue Karte, die du dir nimmst, darf maximal bis zu mehr als die entsorgte Karte kosten. Der Betrag darf weder durch weitere Geldkarten, Münzen oder zusätzliches Geld von anderen Aktionskarten erhöht werden. Die neue Karte kann die gleiche Karte sein wie die, die du entsorgt hast. Lege die neue Karte auf deinen Ablagestapel.
+19	de	Schmiede	Aktion		+3 Karten.	Schmiede:  Du musst 3 Karten von deinem Nachziehstapel ziehen und auf die Hand nehmen.
+20	de	Spion	Aktion Angriff		+1 Karte. +1 Aktion. Jeder Spieler (auch du selbst) deckt die oberste Karte seines Nachziehstapels auf. Du entscheidest, ob er sie ablegt oder zurück auf seinen Nachziehstapel legt.	Zuerst musst du eine Karte vom Nachziehstapel auf die Hand nehmen. Dann muss  jeder Spieler (auch du) die oberste Karte seines Nachziehstapels aufdecken. Du entscheidest für jeden Spieler, ob die aufgedeckte Karte auf den Nachziehstapel zurück- oder auf den Ablagestapel abgelegt werden soll. Spieler, deren Nachziehstapel aufgebraucht ist, mischen ihren Ablagestapel und legen ihn als neuen Nachziehstapel bereit. Nur wer weder einen Nachzieh- noch einen Ablagestapel hat, braucht keine Karte aufzudecken. Ist den Mitspielern die Reihenfolge des Aufdeckens wichtig, deckst du zuerst auf - die anderen Spieler folgen im Uhrzeigersinn. 
+21	de	Dieb	Aktion Angriff		Jeder Mitspieler deckt die obersten beiden Karten seines Nachziehstapels auf. Haben die Mitspieler eine oder mehrere Geldkarten aufgedeckt, muss jeder eine davon (nach deiner Wahl) entsorgen. Du kannst eine beliebige Zahl der entsorgten Karten bei dir ablegen. Die übrigen aufgedeckten Karten legen die Spieler bei sich ab.	Jeder Mitspieler legt die beiden aufgedeckten Karten zunächst offen vor sich ab. Wer nur noch 1 Karte im Nachziehstapel hat, legt diese vor sich ab und mischt erst dann seinen Ablagestapel. Hat ein Spieler nach dem Mischen noch immer nicht genug Karten, deckt er nur so viele auf wie möglich. Hat ein Spieler 2 Geldkarten offen liegen, wählst du eine davon aus, die der Spieler entsorgen muss. Die andere Karte legt er auf seinen Ablagestapel. Hat ein Spieler 1 Geldkarte offen liegen, muss er diese entsorgen. Hat ein Spieler keine Geldkarte aufgedeckt, muss er keine Karte entsorgen. Von den auf diese Weise entsorgten Karten darfst du eine beliebige Anzahl nehmen.
+22	de	Thronsaal	Aktion		Wähle eine Aktionskarte aus deiner Hand. Spiele diese Aktionskarte zweimal aus.	"Wähle eine Aktionskarte aus deiner Hand und spiele sie zweimal aus, d. h. du legst die Aktionskarte aus, führst die Anweisungen der Karte komplett aus, nimmst die Karte zurück auf die Hand, legst sie noch einmal aus und führst die Anweisungen erneut aus. Für das doppelte Ausspielen dieser Aktionskarte muss der Spieler keine zusätzlichen Aktionen (+1 Aktion) zur Verfügung haben - sie ist sozusagen ""kostenlos"". Legst du zwei THRONSAAL- Karten aus, darfst du zuerst eine Aktion doppelt ausführen und dann eine andere Aktion ebenfalls doppelt ausführen. Du darfst aber nicht ein und dieselbe Aktion viermal ausführen. Erlaubt die doppelt ausgespielte Karte +1 Aktion (z. B. der MARKT ), hast du nach der vollständigen Ausführung des THRONSAALS  zwei weitere Aktionen zur Verfügung. Hät - test du zwei MARKT- Karten regulär hintereinander ausgespielt, bliebe dir nur noch eine zusätzliche Aktion zur Verfügung, da das Ausspielen der zweiten Marktkarte schon die zusätzliche Aktion der ersten Karte aufgebraucht hätte. Beim THRONSAAL  ist es be - sonders wichtig, laut die verbleibende Anzahl an Aktionen mitzuzählen. Du darfst keine weitere Aktion ausspielen, bevor der THRONSAAL komplett abgearbeitet ist."
+23	de	Ratsversammlun	Aktion		+4 Karten. +1 Kauf. Jeder Mitspieler zieht sofort eine Karte nach.	Die Mitspieler müssen eine Karte nachziehen, auch wenn sie nicht wollen.
+24	de	Jahrmarkt	Aktion		+2 Aktionen. +1 Kauf. +2 Geld.	Spielst du mehrere JAHRMÄRKTE hintereinander, zählst du am besten laut mit, wie viele Aktionen du noch ausspielen darfst, damit du den Überblick behältst.
+25	de	Laboratorium	Aktion		+2 Karten. +1 Aktion.	Du musst  zuerst zwei Karten vom Nachziehstapel auf die Hand nehmen. Dann darfst du eine weitere Aktionskarte ausspielen. 
+26	de	Bibliothek	Aktion		Ziehe solange Karten nach, bis du sieben Karten auf der Hand hast. Aktionskarten kannst du zur Seite legen, sobald du sie ziehst. Die zur Seite gelegten Karten werden am Ende der Aktion abgelegt.	Aktionskarten darfst du zur Seite legen, sobald du sie ziehst, musst dies aber nicht tun. Hast du bereits 7 oder mehr Karten auf der Hand, wenn du die BIBLIOTHEK  ausspielst, ziehst du keine Karten nach. Wenn dein Nachziehstapel während des Ziehens aufgebraucht ist, mischst du den Ablagestapel, mischst aber die zur Seite gelegten Aktionskarten nicht mit ein. Diese werden erst auf den Ablagestapel gelegt, sobald du 7 Karten auf der Hand hast. Sollten die Karten nicht reichen, ziehst du nur so viele Karten wie möglich. 
+27	de	Markt	Aktion		+1 Karte. +1 Aktion. +1 Kauf. +1 Geld.	Du musst eine Karte vom Nachziehstapel auf die Hand nehmen. Du darfst in der Aktionsphase eine weitere Aktionskarte ausspielen. Du darfst in der Kaufphase einen zusätzlichen Kauf tätigen und hast dafür ein zusätzliches Geld zur Verfügung.
+28	de	Mine	Aktion		Entsorge eine Geldkarte aus deiner Hand. Nimm dir eine Geldkarte, die bis zu drei mehr kostet. Nimm diese Geldkarte sofort auf die Hand.	Normalerweise entsorgst du ein Kupfer und nimmst dir dafür ein Silber, oder du entsorgst ein Silber und nimmst dir ein Gold. Du kannst dir aber auch eine gleichwertige oder billigere Karte nehmen. Die neue Karte nimmst du sofort auf die Hand und darfst sie noch während deines Zuges einsetzen. Wer keine Geldkarte zum Entsorgen hat, erhält keine neue Karte.
+29	de	Hexe	Aktion Angriff	Benötigt: Fluch	+2 Karten. Jeder Mitspieler muss sich eine Fluchkarte nehmen.	Wenn du die HEXE spielst und nicht mehr genügend Fluchkarten vorrätig sind, werden diese im Uhrzeigersinn (beginnend mit deinem linken Nachbarn) verteilt. Die Mitspieler legen die Fluchkarten sofort auf ihren Ablagestapel. Du ziehst immer 2 Karten von deinem Nachziehstapel, auch wenn keine Fluchkarten mehr im Vorrat sind. 
+30	de	Abenteurer	Aktion		Decke Karten vom Nachziehstapel auf, bis zwei Schatzkarten offenliegen. Nimm die Schatzkarten auf die Hand, lege die übrigen aufgedeckten Karten ab.	Sollte dein Nachziehstapel während des Aufdeckens aufgebraucht werden, mische deinen Ablagestapel. Die bereits aufgedeckten Karten werden nicht mit gemischt, sondern bleiben zunächst offen liegen. Solltest du auch mit Hilfe des neuen Nachziehstapels nicht genügend Geldkarten aufdecken, bekommst du nur diejenigen Geldkarten, die du aufgedeckt hast.
+31	de	Kräuterkundiger	Aktion		+1 Kauf, + 1 Geld.  Wenn diese Karte im Spiel ist und du sie ablegst, darfst du eine deiner Geldkarten im Spiel verdeckt oben auf deinen Nachziehstapel legen. 	
+32	de	Lehrling	Aktion		+1 Aktion. Entsorge eine Karte aus deiner Hand. +1 Karte pro 1 Geld das die Karte kostet und zusätzlich +2 Karten wenn sie Trank kostet.	
+33	de	Verwandlung	Aktion		Entsorge eine Karte aus deiner Hand. Ist es eine? Aktionskarte: Nimm dir ein Herzogtum   Geldkarte: Nimm dir eine Verwandlung   Punktekarte: Nimm dir ein Gold 	
+34	de	Weinberg	Punkte		Wert 1 Punkt für je 3 Aktionskarten im eigenen Kartensatz (abgerundet).	
+35	de	Apotheker	Aktion		+1 Karte, +1 Aktion, Decke die obersten 4 Karten von deinem Nachziehstapel auf. Nimm alle aufgedeckten Kupfer und Tränke auf die Hand. Lege die übrigen Karten in beliebiger Reihenfolge verdeckt zurück auf deinen Nachziehstapel.	
+36	de	Vision	Aktion Angriff		+1 Aktion. Jeder Spieler (auch du selbst) muss die oberste Karte von seinem Nachziehstapel aufdecken. Du entscheidest, ob er sie ablegen oder auf seinen Nachziehstapel zurücklegen muss. Dann deckst du solange Karten von deinem Nachziehstapel auf, bis du eine Karte aufdeckst, die keine Aktionskarte ist. Nimm alle aufgedeckten Karten auf die Hand. 	
+37	de	Universität	Aktion		+2 Aktionen. Du darfst dir eine Aktionskarte nehmen, die bis zu 5 kostet. 	
+38	de	Alchemist	Aktion		+2 Karten, +1 Aktion. Wenn diese Karte und ein Trank im Spiel sind und du den Alchemisten ablegst, darfst du diesen verdeckt oben auf deinen Nachziehstapel legen. 	
+39	de	Vertrauter	Aktion Angriff	Benötigt: Fluch	+1 Karte, +1 Aktion. Jeder Mitspieler muss sich eine Fluchkarte nehmen. 	
+40	de	Stein der Weisen	Geld		Zähle die Karten in deinem Nachziehstapel und die Karten in deinem Ablagestapel. Wert 1 für je 5 Karten der Summe beider Stapel (abgerundet). 	
+41	de	Golem	Aktion		Decke solange Karten von deinem Nachziehstapel auf, bis 2 Aktionskarten (ausser Golem-Karten) offen liegen. Lege sofort alle übrigen aufgedeckten Karten ab und spiele die beiden Aktionskarten in beliebiger Reihenfolge.	
+42	de	Besessenheit	Aktion		Der Spieler links von dir führt einen Extra-Zug direkt nach diesem aus. Dabei siehst du alle Karten, die auch er sieht und du fällst alle Entscheidungen für ihn. Alle Karten, die er nimmt oder kauft, legst du auf einen Ablagestapel. Alle Karten, die er in diesem Zug entsorgt, werden zur Seite gelegt und am Ende des Zuges auf seinen Ablagestapel gelegt. 	
+43	de	Burghof	Aktion		+ 3 Karten, Lege eine Karte aus deiner Hand verdeckt auf deinen Nachziehstapel.	
+44	de	Handlanger	Aktion		Wähle zwei verschiedene: + 1 Aktion, + 1 Karte, + 1 Kauf, + 1 Geld	
+45	de	Geheimkammer	Aktion Reaktion		Lege eine beliebige Anzahl Karten aus deiner Hand ab: + 1 Geld für jede abgelegte Karte.	
+46	de	Große Halle	Aktion Punkte		+ 1 Karte, + 1 Aktion, 1 Siegpunkt	
+47	de	Maskerade	Aktion		+ 2 Karten, Alle Spieler (auch du selbst) müssen gleichzeitig eine Karte aus ihrer Hand an ihren linken Nachbarn weiter geben. Danach darfst du eine Karte aus deiner Hand entsorgen.	
+48	de	Armenviertel	Aktion		+2 Aktionen. Decke deine Kartenhand auf. Wenn du keine Aktionskarte auf der Hand hast: +2 Karten.	
+49	de	Verwalter	Aktion		Wähle eins: + 2 Karten oder + 2 Geld oder entsorge genau 2 Karten aus deiner Hand.	
+50	de	Trickser	Aktion Angriff		+2 Geld. Jeder Mitspieler muss die oberste Karte seines Nachziehstapels entsorgen. Der aktive Spieler wählt dafür jeweils eine andere Karte mit gleichem Kartenwert aus, die die Mitspieler dann dafür erhalten.	
+51	de	Wunschbrunnen	Aktion		+ 1 Karte, + 1 Aktion, Benenne eine Karte. Decke die oberste Karte von deinem Nachziehstapel auf. Wenn es die benannte Karte ist, nimm sie auf die Hand.	
+52	de	Baron	Aktion		+1 Kauf. Der Baron kann ein Anwesen ablegen und erhält dann dafür vier Geld. Kann oder will er kein Anwesen ablegen, muss er eines vom Vorrat ziehen.	
+53	de	Brücke	Aktion		+ 1 Kauf, + 1 Geld, Alle Karten (auch die Karten die die Spieler auf der Hand halten) kosten in diesem Zug 1 weniger, niemals jedoch weniger als 0.	
+54	de	Verschwörer	Aktion		+2 Geld. Wenn du in diesem Zug 3 oder mehr Aktionskarten ausgespielt hast (diese eingeschlossen): +1 Karte, +1 Aktion	
+55	de	Kupferschmied	Aktion		Kupfer produziert in diesem Zug 1 mehr.	
+56	de	Eisenhütte	Aktion		Nimm dir eine Karte, die bis zu 4 kostet. Ist es eine?   Aktionskarte : + 1 Aktion; Geldkarte: + 1 Geld; Punktekarte: + 1 Karte	
+57	de	Bergwerk	Aktion		+ 1 Karte, + 2 Aktionen, Du darfst diese Karte sofort entsorgen. Wenn du das machst: + 2 Geld	
+58	de	Späher	Aktion		Decke die obersten 4 Karten von deinem Nachziehstapel auf. Nimm alle aufgedeckten Punktekarten auf die Hand. Lege die übrigen Karten in beliebiger Reihenfolge verdeckt zurück auf deinen Nachziehstapel.	
+59	de	Herzog	Punkte		Wert 1 Siegpunkt pro Herzogtum im eigenen Kartensatz.	
+60	de	Lakai	Aktion Angriff		+ 1 Aktion, Wähle eins: + 2 Geld ; Oder lege alle deine Handkarten ab: + 4 Karten. Jeder Mitspieler, der mindestens 5 Karten auf der Hand hat, muss alle seine Handkarten ablegen und 4 Karten nachziehen.	
+61	de	Saboteur	Aktion Angriff		Jeder Mitspieler muss solange Karten von seinem Nachziehstapel aufdecken, bis er eine Karte aufdeckt, die 3 oder mehr kostet. Er muss diese Karte entsorgen und darf sich eine Karte nehmen, die mindestens 2 weniger kostet. Die übrigen aufgedeckten Karten legt er ab.	
+62	de	Kerkermeister	Aktion Angriff	Benötigt: Fluch	+ 3 Karten, Jeder Spieler muss eins wählen: 2 Karten ablegen oder eine Fluchkarte auf die Hand nehmen.	
+63	de	Handelsposten	Aktion		Entsorge 2 Karten aus deiner Hand. Wenn du das machst: Nimm dir ein Silber auf die Hand.	
+64	de	Tribut	Aktion		Dein linker Nachbar muss die beiden obersten Karten von seinem Nachziehstapel aufdecken und diese ablegen. Für jede Karte mit unterschiedlichem Namen erhältst du etwas. Bei einer? Aktionskarte: + 2 Aktionen; Geldkarte: + 2 Geld; Punktekarte: + 2 Karten	
+65	de	Anbau	Aktion		+ 1 Aktion, + 1 Karte, Entsorge eine Karte aus deiner Hand. Nimm dir eine Karte, die genau 1 mehr kostet als die entsorgte Karte.	
+66	de	Harem	Geld Punkte		<big> <c>2</c> <br/> <vp>2</vp> </big>	
+67	de	Adlige	Aktion Punkte		Wähle eins: + 3 Karten oder + 2 Aktionen. 2 Siegpunkte	
+68	de	Lohn	Geld		1 Geld. Wenn du diese Karte ausspielst, decke solange Karten von deinem Nachziehstapel auf, bis eine Geldkarte offen liegt. Entsorge die Geldkarte oder lege sie ab. Lege die übrigen aufgedeckten Karten ab. 	
+69	de	Handelsroute	Aktion	Benötigt: Münzechip, Tableau Handelsroute	+1 Kauf, + 1 Geld pro Marker auf dem Tableau Handelsroute. Entsorge eine Karte aus deiner Hand. 	
+70	de	Wachturm	Aktion Reaktion		Ziehe solange Karten nach, bis du 6 Karten auf der Hand hast.   Wenn du eine Karte nimmst oder kaufst, darfst du den Wachturm aus deiner Hand aufdecken. Wenn du das machst: Entsorge die neue Karte oder  Lege sie sofort auf deinen Nachziehstapel. 	
+71	de	Bischof	Aktion	Benötigt: Siegpunktchip	+ 1 Geld,  + 1 Punkt. Entsorge eine Karte aus deiner Hand. Wenn du das machst: + Punkte entsprechend der Hälfte der Geld-Kosten der entsorgten Karte (abgerundet). Jeder Mitspieler darf sofort eine Karte seiner Hand entsorgen.	
+72	de	Denkmal	Aktion	Benötigt: Siegpunktchip	+2 Geld, +1 Punkt	
+73	de	Steinbruch	Geld		1 Geld. Wenn diese Karte im Spiel ist, kostet jede Aktionskarte 2 weniger, niemals jedoch weniger als 0 . 	
+74	de	Talisman	Geld		1 Geld. Wenn diese Karte im Spiel ist und du eine Karte kaufst, die 4 oder weniger kostet und keine Punktekarte ist, nimm dir eine weitere Karte mit gleichem Namen. 	
+75	de	Arbeiterdorf	Aktion		+1 Karte, +2 Aktionen, +1 Kauf	
+76	de	Stadt	Aktion		+ 1 Karte, +2 Aktionen. Wenn im Vorrat genau 1 Stapel leer ist: +1 Karte. Oder, wenn 2 oder mehr Stapel leer sind: +1 Karte, + 1 Geld, +1 Kauf.	
+77	de	Schmuggelware	Geld		3 Geld. +1 Kauf. Wenn du diese Karte auslegst, benennt der Spieler links von dir eine Karte. Du darfst diese Karte nicht kaufen. 	
+78	de	Leihhaus	Aktion		Sieh deinen Ablagestapel durch, decke eine beliebige Anzahl Kupfer daraus auf und nimm diese auf die Hand. 	
+79	de	Münzer	Aktion		Du darfst eine Geldkarte aus deiner Hand aufdecken. Nimm dir eine  Geldkarte mit gleichem Namen. Wenn du den Münzer kaufst, entsorge alle Geldkarten, die du im Spiel hast. 	
+80	de	Quacksalber	Aktion Angriff	Benötigt: Fluch	+ 2 Geld. Jeder Mitspieler darf eine Fluchkarte aus seiner Hand ablegen. Wenn er das nicht macht, muss er sich einen Fluch und ein Kupfer nehmen. 	
+81	de	Gesindel	Aktion Angriff		+3 Karten. Jeder Mitspieler deckt die obersten 3 Karten von seinem Nachziehstapel auf. Er muss alle aufgedeckten Aktionsund Geldkarten ablegen. Die übrigen aufgedeckten Karten legt er in beliebiger  Reihenfolge zurück auf seinen Nachziehstapel. 	
+82	de	Königliches Siegel	Geld		2 Geld. Wenn diese Karte im Spiel ist und du eine Karte nimmst oder kaufst, darfst du die neue Karte sofort auf deinen Nachziehstapel legen. 	
+83	de	Gewölbe	Aktion		+2 Karten. Lege eine beliebige Anzahl Karten aus deiner Hand ab: + 1 für jede abgelegte Karte. Jeder Mitspieler darf 2 Karten aus seiner Hand ablegen. Wenn er genau 2 Karten ablegt, zieht er eine Karte nach. 	
+84	de	Abenteuer	Geld		1 Geld.  Wenn du diese Karte ausspielst, decke solange Karten von deinem Nachziehstapel auf, bis eine Geldkarte offen liegt. Lege diese Geldkarte aus. Lege die übrigen aufgedeckten Karten ab. 	
+85	de	Halsabschneider	Aktion Angriff	Benötigt: Siegpunktchip	+1 Kauf, + 2 Geld. Jeder Mitspieler muss solange Karten ablegen, bis er nur noch 3 Karten auf der Hand hat. Wenn diese Karte im Spiel ist und du eine Karte kaufst: +1 Punkt. 	
+86	de	Großer Markt	Aktion		+1 Karte, +1 Aktion, +1 Kauf, +2 Geld. Du darfst diese Karte nicht kaufen, wenn du Kupfer im Spiel hast. 	
+87	de	Hort	Geld		2 Geld. Wenn diese Karte im Spiel ist und du eine Punktekarte kaufst: Nimm dir ein Gold. 	
+88	de	Bank	Geld		Wert 1 Geld für jede Geldkarte, die im Spiel ist (diese eingeschlossen).	
+89	de	Ausbau	Aktion		Entsorge eine Karte aus deiner Hand. Nimm dir eine Karte, die bis zu 3 Geld mehr kostet, als die entsorgte Karte. 	
+90	de	Kunstschmiede	Aktion		Entsorge eine beliebige Anzahl Karten aus deiner Hand. Nimm dir eine Karte mit genau den gleichen Geld-Kosten, wie die entsorgten Karten zusammen gekostet haben. 	
+91	de	Königshof	Aktion		Du darfst eine Aktionskarte aus deiner Hand wählen. Spiele diese Aktionskarte dreimal aus. 	
+92	de	Hausierer	Aktion		+1 Karte, +1 Aktion, +1 Geld. Diese Karte kostet in der Kaufphase 2 Geld weniger für jede Aktionskarte, die du im Spiel hast, niemals jedoch weniger als 0 . 	
+93	de	Embargo	Aktion	Benötigt: Embargomarker, Fluch	+ 2 Geld - Entsorge diese Karte. Lege einen Embargomarker auf einen Stapel im Vorrat.  - Wenn ein Spieler eine Karte von diesem Stapel kauft, muss er sich für jeden Embargomarker einen Fluch nehmen.	
+94	de	Hafen	Aktion Dauer		+1 Karte, +1 Aktion, Lege eine Karte aus deiner Hand  verdeckt zur Seite. Bei Beginn deines nächsten Zuges:  Nimm die zur Seite gelegte Karte auf die Hand.	
+95	de	Leuchtturm	Aktion Dauer		+1 Aktion, +1 Geld, - Bei Beginn deines nächsten Zuges: +1 Geld - Solange diese Karte im Spiel ist, bist du von Angriffen deiner Mitspieler nicht betroffen.	
+96	de	Eingeborenendorf	Aktion	Benötigt: Tableau Eingeborenendorf	+2 Aktionen. Wähle eins: Lege die oberste Karte von deinem Nachziehstapel verdeckt zur Seite auf dein Tableau Eingeborenendorf oder nimm alle Karten von deinem Tableau Eingeborenendorf auf die Hand. 	
+97	de	Perlentaucher	Aktion		+1 Karte, +1 Aktion. Sieh dir die unterste Karte von deinem Nachziehstapel an. Du darfst diese Karte verdeckt auf deinen Nachziehstapel legen. 	
+98	de	Botschafter	Aktion Angriff		Decke eine Karte aus deiner Hand auf. Lege bis zu 2 dieser Karten aus deiner Hand zurück in den Vorrat. Jeder Mitspieler muss sich eine solche Karte vom Vorrat nehmen.	
+99	de	Fischerdorf	Aktion Dauer		+2 Aktionen, +1 Geld  - Bei Beginn deines nächsten Zuges: +1 Aktion, + 1 Geld	
+100	de	Ausguck	Aktion		+1 Aktion, Sieh dir die obersten 3 Karten von deinem Nachziehstapel an. Entsorge eine davon. Lege eine davon ab. Lege eine davon verdeckt zurück auf deinen Nachziehstapel.	
+101	de	Schmuggler	Aktion		Nimm dir eine Karte, die der Spieler rechts von dir in seinem letzten Zug genommen oder gekauft hat und die bis zu 6 kostet. 	
+102	de	Lagerhaus	Aktion		+3 Karten, +1 Aktion. Lege 3 Karten aus deiner Hand ab. 	
+103	de	Karawane	Aktion Dauer		+1 Karte +1 Aktion  -  Bei Beginn deines nächsten Zuges: +1 Karte 	
+104	de	Beutelschneider	Aktion Angriff		+ 2 Geld - Jeder Mitspieler muss ein Kupfer aus seiner Hand ablegen. Hat ein Spieler kein Kupfer auf der Hand, muss er seine Kartenhand vorzeigen.	
+105	de	Insel	Aktion Punkte	Benötigt: Tableau Insel 	Lege diese Karte und eine andere Karte aus deiner Hand offen zur Seite auf dein Tableau Insel. Nimm die Karten am Ende des Spiels zurück in deinen Kartenstapel.  2 Punkte	
+106	de	Navigator	Aktion		+ 2 Geld. Sieh dir die obersten 5 Karten von deinem Nachziehstapel an. Lege entweder alle diese Karten ab oder lege sie in beliebiger Reihenfolge verdeckt zurück auf deinen Nachziehstapel.	
+107	de	Piratenschiff	Aktion Angriff	Benötigt: Münzechip, Tableau Piratenschiff	Wähle eins: Jeder Mitspieler muss die obersten beiden Karten von seinem Nachziehstapel aufdecken. Haben die Mitspieler eine oder mehrere Geldkarten aufgedeckt, muss jeder eine davon (nach deiner Wahl) entsorgen. Wenn auf diese Weise mindestens 1 Geldkarte entsorgt wird, erhältst du 1 Geldmarker auf dein Tableau Piratenschiff. Die übrigen aufgedeckten Karten legen die Spieler bei sich ab. Oder: + 1 für jeden deiner Geldmarker auf deinem Tableau Piratenschiff. 	
+108	de	Müllverwerter	Aktion		+1 Kauf. Entsorge eine Karte aus deiner Hand. + X entsprechend den Kosten der entsorgten Karte.	
+109	de	Seehexe	Aktion Angriff	Benötigt: Fluch	Jeder Mitspieler muss die oberste Karte seines Nachziehstapels ablegen und sich dann einen Fluch nehmen, den er verdeckt auf seinen Nachziehstapel legt. 	
+110	de	Schatzkarte	Aktion		Entsorge diese und eine weitere Schatzkarte aus deiner Hand. Wenn du das machst: Nimm dir 4 Gold und lege diese verdeckt auf deinen Nachziehstapel. 	
+111	de	Bazar	Aktion		+1 Karte +2 Aktionen + 1 Geld	
+112	de	Entdecker	Aktion		Du darfst eine Provinz aus deiner Hand aufdecken. Wenn du das machst: Nimm dir ein Gold auf die Hand. Ansonsten: Nimm dir ein Silber auf die Hand.	
+113	de	Geisterschiff	Aktion Angriff		+2 Karten. Jeder Mitspieler, der mindestens 4 Karten auf der Hand hat, muss solange Karten aus seiner Hand verdeckt auf seinen Nachziehstapel legen, bis er nur noch 3 Karten auf der Hand hat.	
+114	de	Handelsschiff	Aktion Dauer		+ 2 Geld  -  Bei Beginn deines nächsten Zuges:  + 2 Geld	
+115	de	Aussenposten	Aktion Dauer		Ziehe in der folgenden Aufräumphase nur 3 Karten nach. Führe danach sofort einen weiteren Zug aus. Du kannst auf diese Weise nur einen weiteren Zug ausführen. 	
+116	de	Taktiker	Aktion Dauer		Lege deine übrigen Handkarten ab. - Wenn du auf diese Weise mindestens eine Karte abgelegt hast: Bei Beginn deines nächsten Zuges: +5 Karten, +1 Aktion, +1 Kauf	
+117	de	Schatzkammer	Aktion		+1 Karte, +1 Aktion, +1 Geld. Wenn du in diesem Zug keine Punktekarte gekauft hast und diese Karte im Spiel ist, darfst du diese Karte verdeckt auf deinen Nachziehstapel legen, anstatt sie abzulegen. 	
+118	de	Werft	Aktion Dauer		+2 Karten, +1 Kauf.  Bei Beginn deines nächsten Zuges: +2 Karten, +1 Kauf. 	
+119	de	Armenhaus	Aktion		+ 4 Geld.  Decke deine Handkarten auf. - 1 für jede Geldkarte, auf deiner Hand (niemals jedoch weniger als 0 ). 	
+120	de	Bettler	Aktion Reaktion		Nimm dir 3 Kupfer. Nimm diese sofort auf die Hand. Wenn ein Mitspieler eine Angriffskarte ausspielt, darfst du diese Karte ablegen. Wenn du das machst: Nimm dir 2 Silber. Lege eines davon sofort auf deinen Nachziehstapel. 	
+121	de	Knappe	Aktion		1 Geld.  Wähle eins: +2 Aktionen oder +2 Käufe oder nimm dir ein Silber.  Wenn du diese Karte entsorgst: Nimm dir eine Angriffskarte. 	
+122	de	Landstreicher	Aktion		+1 Karte, +1 Aktion. Decke die oberste Karte von deinem Nachziehstapel auf. Wenn es ein Fluch, eine Ruine, ein Unterschlupf oder eine Punktekarte ist: Nimm die aufgedeckte Karte auf die Hand. 	
+123	de	Mundraub	Aktion		+1 Aktion, +1 Kauf. Entsorge eine Karte aus deiner Hand. + 1 Geld pro Geldkarte mit unterschiedlichem Namen im Müllstapel. 	
+124	de	Eremit	Aktion	Benötigt: Verrückter	Sieh deinen Ablagestapel durch. Du darfst eine Karte, die keine Geldkarte ist, aus deinem Ablagestapel oder aus deiner Hand entsorgen. Nimm dir eine Karte, die bis zu 3 Geld kostet.     Wenn du diese Karte aus dem Spiel ablegst ablegst und in diesem Zug keine Karte gekauft hast, entsorge diese Karte und nimm dir einen Verrückten. 	
+125	de	Marktplatz	Aktion Reaktion		+1 Karte, +1 Aktion, +1 Kauf.   Wenn du eine Karte entsorgst, darfst du diesen Marktplatz aus deiner Hand ablegen. Wenn du das machst: Nimm dir ein Gold.	
+126	de	Weiser	Aktion		+ 1 Aktion. Decke so lange Karten von deinem Nachziehstapel auf, bis eine Karte offen liegt, die mindestens 3 Geld kostet. Nimm diese Karte auf die Hand. Lege die übrigen aufgedeckten Karten ab. 	
+127	de	Lagerraum	Aktion		+1 Kauf. Lege eine beliebige Anzahl Karten aus deiner Hand ab. +1 Karte pro abgelegter Karte. Lege eine beliebige Anzahl Karten aus deiner Hand ab. + 1 pro nun abgelegter Karte. 	
+128	de	Gassenjunge	Aktion Angriff	Benötigt: Söldner	+1 Karte, +1 Aktion.  Jeder Mitspieler muss Karten ablegen, bis er nur noch 4 Karten auf der Hand hat. Wenn diese Karte im Spiel ist und du eine andere Angriffskarte auslegst, darfst du diesen Gassenjungen entsorgen. Wenn du das machst: Nimm dir einen Söldner.	
+129	de	Waffenkammer	Aktion		Nimm dir eine Karte, die bis zu 4 kostet. Lege diese Karte sofort auf deinen Nachziehstapel. 	
+130	de	Leichenkarren	Aktion Angriff	Benötigt: Ruine	+ 5 Geld. Du darfst eine Aktionskarte aus deiner Hand entsorgen. Wenn du das nicht machst: Entsorge diese Karte. Wenn du diese Karte nimmst, nimm dir 2 Ruinen-Karten. 	
+131	de	Lehen	Punkte		Wert 1 Punkt für je 3 Silber im eigenen Kartensatz (abgerundet).  Wenn du diese Karte entsorgst: Nimm dir 3 Silber. 	
+132	de	Festung	Aktion		+1 Karte, +2 Aktionen. Wenn du diese Karte entsorgst, nimm sie zurück auf die Hand. 	
+133	de	Eisenhändler	Aktion Angriff		+1 Karte, +1 Aktion. Decke die oberste Karte von deinem Nachziehstapel auf. Ist es eine ? Aktionskarte: +1 Aktion ...Geldkarte: + 1 Geld...Punktekarte: +1 Karte. Lege die aufgedeckte Karte ab oder zurück auf deinen Nachziehstapel. 	
+134	de	Marodeur	Aktion Angriff Plündern	Benötigt: Beute, Ruine	Nimm dir eine Karte vom Beute-Stapel. Jeder Mitspieler muss sich eine Ruinen-Karte nehmen. 	
+135	de	Prozession	Aktion		Du darfst eine Aktionskarte aus deiner  Hand zweimal ausspielen. Entsorge die ausgespielte Karte und nimm dir eine Aktionskarte, die genau 1 Geld mehr kostet. 	
+136	de	Ratten	Aktion		+1 Karte, +1 Aktion. Nimm dir eine Ratten-Karte. Entsorge eine Karte aus deiner Hand, die keine Ratten-Karte ist. (Decke deine Handkarten auf, wenn du nur Ratten auf der Hand hast). Wenn du diese Karte entsorgst: +1 Karte.	
+137	de	Lumpensammler	Aktion		+ 2 Geld. Du darfst sofort deinen kompletten Nachziehstapel ablegen. Sieh dir deinen Ablagestapel durch und lege eine Karte daraus verdeckt oben auf deinen Nachziehstapel. 	
+138	de	Barde	Aktion		+1 Karte, +2 Aktionen.  Decke die obersten 3 Karten von deinem Nachziehstapel auf. Lege aufgedeckte Aktionskarten in beliebiger Reihenfolge zurück auf den Nachziehstapel. Lege die übrigen aufgedeckten Karten ab. 	
+139	de	Vogelfreie	Aktion		Wähle eine Aktionskarte aus dem Vorrat, die weniger kostet als diese Vogelfreien. Führe die gewählte Karte aus, so als hättest du sie ausgespielt. Solange diese Vogelfreien im Spiel sind, gelten sie als die gewählte Karte. 	
+140	de	Banditenlager	Aktion	Benötigt: Beute	+1 Karte, +2 Aktionen. Nimm dir eine Karte vom Beute-Stapel 	
+141	de	Katakomben	Aktion		Sieh dir die obersten 3 Karten von deinem Nachziehstapel an. Wähle eins: Nimm die Karten auf die Hand oder lege die Karten ab und +3 Karten. Wenn du diese Karte entsorgst: Nimm dir eine Karte, die weniger kostet. 	
+142	de	Graf	Aktion		Wähle eins: Lege 2 Karten aus deiner Hand ab oder lege eine Karte aus deiner Hand auf den Nachziehstapel oder nimm dir ein Kupfer. Wähle eins: + 3 Geld oder entsorge alle deine Handkarten oder nimm dir ein Herzogtum. 	
+143	de	Falschgeld	Geld		1 Geld, +1 Kauf. Wenn du diese Karte ausspielst, darfst du eine Geldkarte aus deiner Hand wählen und zweimal ausspielen. Wenn du das machst: Entsorge die gewählte Geldkarte. 	
+144	de	Kultist	Aktion Angriff Plündern	Benötigt: Ruine	+2 Karten. Jeder Mitspieler muss sich eine Ruinen-Karte nehmen. Du darfst einen weiteren Kultisten aus deiner Hand ausspielen. Wenn du diese Karte entsorgst: +3 Karten. 	
+145	de	Grabräuber	Aktion		Wähle eins: Nimm dir eine Karte vom Müll-Stapel die 3 bis 6 Geld kostet. Lege die so genommene Karte sofort auf deinen Nachziehstapel oder Entsorge eine Aktionskarte aus deiner Hand und nimm dir eine Karte, die bis zu 3 Geld mehr kostet.  	
+146	de	Schrotthändler	Aktion		+1 Karte, +1 Aktion, + 1 Geld.  Entsorge eine Karte aus deiner Hand. 	
+147	de	Ritter	Aktion Angriff Ritter		Werden die Ritter im Spiel verwendet, werden alle Ritter-Karten gemischt und als verdeckter Stapel in den Vorrat gelegt. Die oberste Karte wird aufgedeckt. Nur die oberste Karte kann gekauft oder genommen werden. 	
+148	de	Medium	Aktion		+1 Aktion, + 2 Geld. Benenne eine Karte. Decke die oberste Karte von deinem Nachziehstapel auf. Wenn es die benannte Karte ist, nimm sie auf die Hand. 	
+149	de	Raubzug	Aktion Angriff	Benötigt: Beute	Entsorge diese Karte. Jeder Mitspieler, der 5 oder mehr Karten auf der Hand hat, muss seine Handkarten aufdecken. Du wählst von jedem Mitspieler eine Karte aus, die er ablegen muss. Nimm dir 2 Karten vom Beute-Stapel. 	
+150	de	Neubau	Aktion		+ 1 Aktion. Benenne eine Karte. Decke so lange Karten von deinem Nachziehstapel auf, bis eine Punktekarte, die nicht die benannte Karte ist, offen liegt. Entsorge diese Punktekarte und nimm dir eine Punktekarte, die bis zu 3 Geld mehr kostet. Lege die übrigen aufgedeckten Karten ab. 	
+151	de	Schurke	Aktion		+ 2 Geld. Wenn im Müll-Stapel eine oder mehrere Karten sind, die 3 bis 6 Geld kosten, nimm dir eine davon. Wenn das nicht der Fall ist, muss jeder Mitspieler die obersten beiden Karten von seinem Nachziehstapel aufdecken und eine solche Karte entsorgen.  Lege die übrigen aufgedeckten Karten ab. 	
+152	de	Altar	Aktion		Entsorge eine Karte aus deiner Hand. Nimm dir eine Karte, die bis zu 5 Geld kostet. 	
+153	de	Jagdgründe	Aktion		+4 Karten. Wenn du diese Karte entsorgst: Nimm dir ein Herzogtum oder 3 Anwesen. 	
+154	de	Weiler	Aktion		+1 Karte, +1 Aktion. Du darfst eine Karte aus deiner Hand ablegen. Wenn du das machst: +1 Aktion   Du darfst eine Karte aus deiner Hand ablegen. Wenn du das machst: +1 Kauf 	
+155	de	Wahrsagerin	Aktion Angriff		+ 2 Geld. Jeder Mitspieler muss solange Karten von seinem Nachziehstapel aufdecken, bis entweder eine Punktekarte oder eine Fluchkarte offen liegt. Diese aufgedeckte Karte muss er auf seinen Nachziehstapel legen. Die übrigen aufgedeckten Karten legt er ab. 	
+156	de	Menagerie	Aktion		+1 Aktion.  Decke deine Handkarten auf. Hast du keine Karte mit gleichem Namen auf der Hand: +3 Karten Ansonsten: +1 Karte 	
+157	de	Bauerndorf	Aktion		+2 Aktionen. Decke solange Karten vom Nachziehstapel auf, bis entweder eine Aktionskarte oder eine Geldkarte offen liegt. Nimm diese Karte auf die Hand, lege die übrigen aufgedeckten Karten ab. 	
+158	de	Pferdehändler	Aktion Reaktion		+1 Kauf, + 3 Geld. Lege 2 Karten aus deiner Hand ab. Wenn ein Mitspieler eine Angriffskarte ausspielt, darfst du diese Karte aus deiner Hand zur Seite legen. Wenn du das machst: Bei Beginn deines nächsten  Zuges +1 Karte und nimm diese Karte wieder auf die Hand. 	
+159	de	Nachbau	Aktion		Mache dies zweimal: Entsorge eine Karte aus deiner Hand. Dann nimm dir eine Karte, die genau 1 mehr kostet, als die entsorgte Karte. 	
+160	de	Turnier	Aktion	Benötigt: Die Preise, Fluch	+1 Aktion. Du darfst eine Provinz aus deiner Hand ablegen. Wenn du das machst: Nimm dir einen Preis vom Preisstapel oder ein Herzogtum. Lege die neue Karte sofort auf deinen Nachziehstapel. Jeder  Mitspieler darf eine Provinz aus seiner Hand aufdecken. Wenn das keiner macht: +1 Karte, + 1 Geld. 	
+161	de	Junge Hexe	Aktion Angriff	Benötigt: Fluch	+2 Karten. Lege 2 Karten aus deiner Hand ab. Jeder Mitspieler darf eine Bannkarte aus seiner Hand aufdecken. Wenn er das nicht macht, muss er sich einen Fluch nehmen. 	
+162	de	Ernte	Aktion		Decke die obersten 4 Karten von deinem Nachziehstapel auf. + 1 Geld pro aufgedeckter Karte mit unterschiedlichem Namen. Lege die aufgedeckten Karten ab. 	
+163	de	Füllhorn	Geld		0 Geld. Nimm dir eine Karte, die bis zu 1 Geld pro Karte mit unterschiedlichem Namen im Spiel kostet (diese eingeschlossen). Wenn du dir eine Punktekarte nimmst: Entsorge das Füllhorn. 	
+164	de	Treibjagd	Aktion		+1 Karte, +1 Aktion. Decke deine Handkarten auf. Decke solange Karten von deinem Nachziehstapel auf, bis eine Karte mit anderem Namen als deine Handkarten offen liegt. Nimm diese aufgedeckte Karte und deine Handkarten zurück auf die Hand. Lege die übrigen aufgedeckten Karten ab. 	
+165	de	Harlekin	Aktion Angriff	Benötigt: Fluch	+ 2 Geld. Jeder Mitspieler muss die oberste Karte seines Nachziehstapels ablegen. Ist es eine Punktekarte, muss er sich einen Fluch nehmen. Ansonsten muss sich entweder er oder du eine Karte mit gleichem Namen nehmen (Du entscheidest). 	
+166	de	Festplatz	Punkte		Wert 2 Punkte für je 5 Karten mit unterschiedlichem Namen im eigenen Kartensatz (abgerundet). 	
+167	de	Leuchtenmacher	Aktion	Benötigt: Münzechip	+ 1 Aktion,  + 1 Kauf. Nimm eine Münze. 	Du darfst in der Aktionsphase eine weitere Aktionskarte ausspielen. Du darfst in der Kaufphase einen zusätzlichen Kauf tätigen. Nimm dir eine Münze. 
+168	de	Steinmetz	Aktion		Entsorge eine Karte aus deiner Hand. Nimm 2 Karten, die jeweils weniger als die entsorgte Karte kosten.     Wenn du diese Karte kaufst, darfst du mehr dafür zahlen. Falls du das tust, nimmst du 2 Aktionskarten,  die jeweils so viel kosten, wie du zusätzlich bezahlt hast.	 Wenn du die Karte STEINMETZ  kaufst, darfst du mehr dafür bezahlen.  Wenn du das tust, nimmst du dir zwei Aktionskarten, die beide jeweils genau so viel  kosten, wie du überzahlt hast. Du kannst dir zweimal  die gleiche oder zwei verschiedene  Karten nehmen. Wenn du zum Beispiel den  STEINMETZ für 6 Geld kaufst, könntest du dir zwei HEROLDE nehmen. Die Aktionskarten stammen aus dem Vorrat und werden auf deinen Ablagestapel gelegt. Sollten keine Karten mit den entsprechenden Kosten im Vorrat sein, bekommst du keine. Wenn du mit einem TRANK (Die Alchemisten) überzahlst, bekommst du Karten im Wert des TRANKS. Karten, die mehreren Kartentypen angehören, von denen einer AKTION ist (wie die GROSSE HALLE aus Die Intrige), sind Aktionskarten. Wenn du beschließt, nicht mehr als die normalen Kosten zu zahlen, bekommst du keine Karten. Es ist nicht möglich, dann Aktionskarten zu nehmen, die 0 Geld kosten. Wenn du diese Karte spielst, entsorgst du eine Karte aus deiner Hand und nimmst dir zwei Karten, die jeweils weniger kosten als die Karte, die du entsorgt hast. Wenn du keine Karte zum Entsorgen mehr auf der Hand hast, bekommst du keine Karten. Du kannst dir zweimal die gleiche oder zwei verschiedene Karten aus dem Vorrat nehmen. Diese werden auf deinen Ablagestapel gelegt. Falls es keine preiswerteren Karten im Vorrat gibt (weil du beispielsweise ein Kupfer entsorgst), bekommst du keine Karten. Wenn es im Vorrat nur noch eine einzige Karte gibt, die preiswerter ist als die entsorgte Karte, nimmst du dir diese. Du nimmst dir die Karten einzeln nacheinander; das kann bei Karten eine Rolle spielen, die beim nehmen eine Auswirkung haben (wie das GASTHAUS aus Hinterland).
+169	de	Arzt	Aktion		Nenne eine Karte, dann decke die 3 obersten Karten vom Nachziehstapel auf. Übereinstimmungen werden entsorgt. Der Rest wird in beliebiger Reihenfolge wieder auf den Nachziehstapel gelegt.   Wenn du diese Karte kaufst, darfst du mehr dafür zahlen. Pro, das du zusätzlich zahlst, darfst du dir die oberste Karte vom Nachziehstapel ansehen und sie entsorgen, ablegen oder zurücklegen. 	"Wenn du diese Karte kaufst, darfst du mehr dafür zahlen. Pro 1 Geld, das du zusätzlich zahlst (d.h. ""überzahlst""), darfst du dir die oberste Karte deines Nachziehstapels ansehen und sie entsorgen, ablegen oder auf den Nachziehstapel zurücklegen. Wenn dein Nachziehstapel aufgebraucht ist, mischst du deinen Ablagestapel und machst ihn zum neuen Nachziehstapel. Wenn dann noch immer nicht genügend Karten im Nachziehstapel sind, siehst du dir keine Karten an. Auch wenn du mehr als 1 Geld überzahlst, wird jede oberste Karte vom Nachziehstapel einzeln komplett abgehandelt, bevor du die nächste Karte ziehst. Wenn du diese Karte in der Aktionsphase spielst, nennst du den Namen einer beliebigen Karte, deckst die obersten drei Karten deines Nachziehstapels auf und entsorgst jede Karte mit dem von dir genannten Namen. Die übrigen Karten legst du in beliebiger Reihenfolge wieder oben auf deinen Nachziehstapel. Du musst keine Karte nennen, die in diesem Spiel verwendet wird. Wenn dein Nachziehstapel keine drei Karten ehr umfasst, deckst du die darin noch enthaltenen Karten auf, mischst dann deinen Ablagestapel (der die bereits aufgedeckten Karten nicht umfasst) und machst ihn zum neuen Nachziehstapel, von dem du die noch fehlenden Karten aufdeckst. Sind dann noch immer nicht genügend Karten aufgedeckt, belässt du es bei den bereits aufgedeckten Karten. "
+170	de	Meisterstück	Geld		1 Geld. Wenn du diese Karte kaufst, darfst du mehr dafür zahlen.  Pro 1 Geld, das du zusätzlich zahlst, nimmst du dir ein Silber.	 Dies ist eine Geldkarte mit dem Wert 1, wie Kupfer. Wenn du sie kaufst, nimmst du dir ein Silber pro 1 Geld, das du überzahlst. Falls du zum Beispiel 6 Geld für das MEISTERSTÜCK zahlst, erhältst du drei Silber. Das MEISTERSTÜCK ist eine Geldkarte und wird regeltechnisch auch so behandelt. 
+171	de	Berater	Aktion		+ 1 Aktion. Decke die 3 obersten Karten vom Nachziehstapel auf. Dein linker Nachbar wählt eine davon aus, die du dann ablegst. Die anderen Karten nimmst du auf die Hand. 	Wenn dein Nachziehstapel keine drei Karten mehr umfasst, deckst du die darin noch enthaltenen Karten auf, mischst dann deinen Ablagestapel und machst ihn zum neuen Nachziehstapel, von dem du die noch fehlenden Karten aufdeckst. Sind dann noch immer nicht genügend Karten aufgedeckt, belässt du es bei den bereits aufgedeckten Karten. Unabhängig davon, wie viele Karten du aufgedeckt hast, wählt dein linker Nachbar eine davon aus, die du ablegst. Die verbleibenden Karten nimmst du auf die Hand.
+172	de	Platz	Aktion	Benötigt: Münzechip	+ 1 Karte, + 2 Aktionen. Du darfst eine Geldkarte ablegen. Falls du das tust, nimm dir eine Münze.	Zuerst ziehst du eine Karte. Du erhältst zwei weitere Aktionen, die du spielen darfst, nachdem du alle Anweisungen dieser Karte (soweit möglich) erfüllt hast. Dann darfst du eine Geldkarte (auch ein MEISTERSTÜCK) ablegen. Du kannst die Karte ablegen, die du eben gezogen hast, falls es sich um eine Geldkarte handelt. Wenn du eine Geldkarte abgelegt hast, nimmst du dir eine Münze. Karten, die mehreren Kartentypen angehören, von denen einer GELD ist (wie der HAREM aus Die Intrige), sind Geldkarten.
+173	de	Steuereintreiber	Aktion Angriff		Du darfst eine Geldkarte aus deiner Hand entsorgen. Jeder Mitspieler mit 5 oder mehr Karten auf der Hand muss die gleiche Karte ablegen (oder zeigt seine Handkarten ohne die entsprechende Karte). Nimm dir eine Geldkarte, die bis zu 3 Geld mehr kostet als die entsorgte Karte und lege sie auf deinen Nachziehstapel.	Du darfst eine Geldkarte aus deiner Hand entsorgen. Karten, die mehreren Kartentypen angehören, von denen einer GELD ist (wie der HAREM aus Die Intrige), sind Geldkarten. Wenn du eine Geldkarte entsorgst, muss jeder Mitspieler, der mindestens fünf Karten in der Hand hat, die gleiche Karte aus seiner Hand auf seinen Ablagestapel legen oder seine Handkarten vorzeigen, damit die anderen Spieler sehen, dass er diese Karte nicht auf der Hand hat. Nimm dir für die entsorgte Karte eine Geldkarte, die bis zu 3 Geld mehr kostet als die entsorgte Geldkarte, und lege sie oben auf deinen Nachziehstapel. Wenn dein Nachziehstapel aufgebraucht ist, wird dies die einzige Karte deines Nachziehstapels. Du musst dir keine teurere Geldkarte nehmen, sondern darfst dir auch eine gleich teure oder preiswertere Geldkarte nehmen.
+174	de	Herold	Aktion		+ 1 Karte, + 1 Aktion. Decke die oberste Karte vom Nachziehstapel auf. Falls es sich um eine Aktion handelt, spielst du sie. Wenn du diese Karte kaufst, darfst du mehr dafür zahlen.  Pro 1 Geld, das du zusätzlich zahlst, darfst du den Ablagestapel durchsehen und eine beliebige Karte davon oben auf den Nachziehstapel legen.	Wenn du diese Karte kaufst, darfst du mehr dafür zahlen. Wenn du das tust  legst du pro 1 Geld, das du überzahlst, eine beliebige Karte deines Ablagestapels oben auf deinen Nachziehstapel. Du darfst dir dafür die Karten deines Ablagestapels ansehen, was normalerweise nicht möglich ist. Allerdings darfst du nicht zuerst deinen Ablagestapel durchsehen, um zu entscheiden, wie viel du überzahlen willst. Sobald du überzahlt hast, musst du die entsprechende Anzahl an Karten in beliebiger Reihenfolge oben auf deinen Nachziehstapel legen, sofern möglich. Wenn du so viel überzahlst, dass du mehr Karten auf deinen Nachziehstapel legen müsstest, als sich in deinem Ablagestapel befinden, legst du einfach alle Karten deines Ablagestapels in beliebiger Reihenfolge auf deinen Nachziehstapel. Falls du den HEROLD kaufst, ohne zu überzahlen, darfst du deinen Ablagestapel nicht durchsehen.  Wenn du diese Karte in der Aktionsphase spielst, ziehst du zuerst eine Karte. Du erhältst dann eine weitere Aktion, die du spielen darfst, nachdem du alle Anweisungen dieser Karte (soweit möglich) erfüllt hast. Dann deckst du die oberste Karte deines Nachziehstapels auf. Wenn es sich um eine Aktionskarte handelt, musst du sie spielen. Die Karte zu spielen, verbraucht keine Aktion. Karten, die mehreren Kartentypen angehören, von denen einer AKTION ist (z.B. GROSSE HALLE aus Die Intrige), sind Aktionskarten. Alle anderen Kartentypen werden auf den Nachziehstapel zurückgelegt, ohne sie zu spielen.  Hinweis: Wenn durch den  HEROLD eine Dauer-Karte (aus Seaside) ausgespielt wird, wird der HEROLD dennoch am Ende der Runde wie gewohnt abgelegt, da er nicht gebraucht wird, um an etwas zu erinnern.
+175	de	Bäcker	Aktion	Benötigt: Münzechip	+ 1 Karte, + 1 Aktion. Nimm eine Münze.   Spielvorbereitung: Zu Spielbeginn erhält jeder Spieler eine Münze.	 Wenn du diese Karte spielst, ziehst du eine Karte, darfst eine weitere Aktionskarte ausspielen und nimmst dir eine Münze. Wird ein Spiel mit dieser Karte gespielt, erhält jeder Spieler zu Beginn des Spiels eine Münze. Das gilt auch für Partien mit dem SCHWARZMARKT, bei denen der BÄCKER sich im SCHWARZMARKT-Stapel befindet.
+176	de	Metzger	Aktion	Benötigt: Münzechip	Nimm 2 Münzen. Du darfst eine Karte aus deiner Hand entsorgen und eine beliebige Anzahl Münzen zahlen. Wenn du eine Karte entsorgt hast, nimmst du dir eine Karte, deren Kosten maximal so hoch sein dürfen wie die Summe aus den Kosten der entsorgten Karte und der Anzahl der gezahlten Münzen. 	Zuerst nimmst du dir 2 Münzen. Dann darfst du eine Karte aus deiner Hand entsorgen und eine beliebige Anzahl an Münzen einsetzen (auch 0 Münzen). Da du den Metzger nicht mehr auf der Hand hast, kannst du diese Karte nicht entsorgen. Allerdings kannst du eine andere Metzger -Karte entsorgen. Wenn du eine Karte entsorgt hast, nimmst du dir eine Karte, deren Kosten höchstens der Summe aus den Kosten der entsorgten Karte und der Anzahl der eingesetzten Münzen entsprechen darf. So könntest du beispielsweise ein Anwesen entsorgen und sechs Münzen zahlen, um dir eine Provinz zu nehmen; oder du könntest einen weiteren Metzger entsorgen und null Münzen zahlen, um dir ein Herzogtum zu nehmen. Die Münzen, die du einsetzt, werden in den Vorrat zurückgelegt und dürfen in der Kaufphase nicht mehr benutzt werden, um andere Karten zu kaufen. 
+177	de	Wandergeselle	Aktion		Nenne eine Karte, dann decke solange Karten vom Nachziehstapel auf, bis du 3 Karten aufgedeckt hast, die nicht der genannten Karte  entsprechen. Nimm diese Karten auf die Hand und lege die restlichen ab. 	Zunächst nennst du eine Karte. Dabei muss es sich nicht um den Namen einer Karte handeln, die in diesem Spiel verwendet wird. Dann deckst du solange Karten vom Nachziehstapel auf, bis du drei Karten aufgedeckt hast, die nicht dem von dir genannten Namen entsprechen. Nimm diese Karten auf die Hand und lege die anderen ab. Sollte dabei der Nachziehstapel aufgebraucht werden, bevor du auf drei entsprechende Karten gestoßen bist, mischst du deinen Ablagestapel und nutzt ihn als neuen Nachziehstapel. Wenn du beim weiteren Aufdecken noch immer nicht auf drei Karten mit einem anderen als dem genannten Namen kommst, beendest du das Aufdecken. Nimm die gefundenen Karten anderen Namens auf die Hand und lege den Rest auf deinen Ablagestapel. 
+178	de	Kaufmannsgilde	Aktion	Benötigt: Münzechip	+ 1 Kauf, + 1 Geld. Wenn diese Karte im Spiel ist, nimm für jede Karte, die du kaufst, jeweils eine Münze. 	Wenn diese Karte im Spiel ist (d.h. du hast sie in der Aktionsphase gespielt), darfst du eine weitere Karte kaufen und hast  zusätzlich zur Verfügung. Jedes Mal, wenn du eine Karte kaufst, nimmst du dir eine Münze (1 Münze, wenn du eine Karte kaufst; 2 Münzen, wenn du zwei Karten kaufst etc.). Denke daran, dass du Münzen nur einsetzen kannst, bevor du Karten kaufst: Du darfst also diese Münze nicht sofort aufwenden. Diese Anweisung ist kumulativ: Wenn du zwei KAUFMANNSGILDEN ausgespielt hast, bringt dir jede Karte, die du kaufst, zwei Münzen ein. Wenn du jedoch eine KAUFMANNSGILDE mehrfach spielst, aber nur eine im Spiel hast - wie beim THRONSAAL (DOMINION) oder KöNIGSHOF (Blütezeit) -, bekommst du beim Kauf einer Karte nur eine Münze.
+179	de	Wahrsager	Aktion Angriff	Benötigt: Fluch	Nimm dir ein Gold. Jeder Mitspieler nimmt sich eine Fluchkarte. Wer eine Fluchkarte nimmt, zieht eine Karte vom Nachziehstapel. 	Das Gold und die Fluchkarten stammen aus dem Vorrat und werden auf den Ablagestapel gelegt. Wenn kein Gold mehr vorhanden ist, erhältst du keins. Sind nicht mehr genügend Fluchkarten da, teilst du sie reihum aus, beginnend mit deinem linken Nachbarn. Jeder Spieler, der eine Fluchkarte erhalten hat, muss eine Karte vom Nachziehstapel ziehen. Falls ein Spieler keine Fluchkarte bekommen hat - weil nicht genügend Fluchkarten da waren oder aus einem anderen Grund -, zieht er keine Karte. Nutzt ein Spieler den Wachturm (Blütezeit), um den Fluch zu entsorgen, hat er dennoch eine Fluchkarte erhalten und zieht deshalb eine Karte. Nutzt ein Spieler den Fahrenden Händler (Hinterland), um stattdessen ein Silber zu nehmen, hat er keine Fluchkarte erhalten und zieht infolgedessen auch keine Karte. 
+180	de	Wegkreuzung	Aktion		Decke deine Kartenhand auf. +1 Karte pro aufgedeckter Punktekarte. Wenn du zum ersten Mal in diesem Zug eine Wegkreuzung ausspielst: +3 Aktionen 	
+181	de	Herzogin	Aktion		+ 2 Geld. Jeder Spieler (auch du selbst) sieht sich die oberste Karte von seinem Nachziehstapel an und entscheidet, ob er die Karte ablegt oder zurück auf den Nachziestapel legt.   Wird die Herzogin im Spiel verwendet, darfst du dir immer, wenn du ein Herzogtum nimmst, eine Herzogin nehmen. 	
+182	de	Katzengold	Geld Reaktion		Wenn du Katzengold zum ersten Mal in diesem Zug ausspielst, ist es 1 Geld wert, ansonsten ist es 4 Geld wert. Wenn ein Mitspieler eine Provinz nimmt, darfst du diese Karte aus deiner Hand entsorgen. Wenn du das machst: Nimm dir ein Gold und lege es auf deinen Nachziehstapel. 	
+183	de	Aufbau	Aktion		Entsorge eine Karte aus deiner Hand. Nimm dir eine Karte, die genau 1 Geld mehr kostet als die entsorgte Karte und nimm dir eine Karte, die genau 1 Geld weniger kostet als die entsorgte Karte. Du entscheidest,  in welcher Reihenfolge du diese beiden Karten nimmst. Lege beide Karten sofort auf deinen Nachziehstapel. 	
+184	de	Oase	Aktion		+1 Karte, +1 Aktion, + 1 Geld. Lege eine Karte aus deiner Hand ab. 	
+185	de	Orakel	Aktion Angriff		Jeder Spieler (auch du selbst) muss die obersten 2 Karten von seinem Nachziehstapel aufdecken. Du entscheidest, ob er beide Karten ablegen oder (in der von ihm bestimmten Reihenfolge) zurück auf seinen Nachziehstapel legen muss. +2 Karten. 	
+186	de	Komplott	Aktion		+1 Karte, +1 Aktion. Zu Beginn deiner Aufräumphase darfst du eine deiner ausgespielten Aktionskarten wählen. Wenn du die gewählte Karte in dieser Aufräumphase ablegen würdest, darfst du sie stattdessen auf deinen Nachziehstapel legen. 	
+187	de	Tunnel	Punkte Reaktion		2 Punkte. Wenn du diese Karte außerhalb der Aufräumphase ablegst, darfst du sie aufdecken. Wenn du das machst: Nimm dir ein Gold. 	
+188	de	Lebenskünstler	Aktion		Nimm dir ein Silber. Sieh dir die oberste Karte von deinem Nachziehstapel an und entscheide, ob du die Karte ablegst oder zurück auf deinen Nachziehstapel legst. Ziehe so lange Karten nach, bis du 5 Karten auf  der Hand hast. Du darfst eine Karte aus deiner Hand entsorgen, die keine Geldkarte ist. 	
+189	de	Edler Räuber	Aktion Angriff		+ 1 Geld. Wenn du diese Karte kaufst oder ausspielst, muss jeder Mitspieler die obersten 2 Karten von seinem Nachziehstapel aufdecken. Hat er ein Gold oder ein Silber aufgedeckt, muss er dieses entsorgen. Hat der Spieler beides aufgedeckt, entscheidest du, welche er entsorgen muss. Hat der Spieler keine Geldkarte aufgedeckt, muss er sich ein Kupfer nehmen. Die übrigen aufgedeckten Karten muss der Spieler  ablegen. Du musst alle entsorgten Karten nehmen. 	
+190	de	Nomadencamp	Aktion		+1 Kauf, +2 Geld.  Wenn du das Nomadencamp nimmst, lege es sofort auf deinen Nachziehstapel. 	
+191	de	Seidenstraße	Punkte		Wert 1 Punkt für je 4 Punktekarten im eigenen Kartensatz (abgerundet). 	
+192	de	Gewürzhändler	Aktion		Du darfst eine Geldkarte aus deiner Hand entsorgen. Wenn du das machst, wähle eins: +2 Karten und +1 Aktion oder + 2 und +1 Kauf. 	
+193	de	Fahrender Händler	Aktion Reaktion		Entsorge eine Karte aus deiner Hand. Nimm dir so viele Silber, wie die x-Kosten der entsorgten Karte.  Wenn du eine Karte nehmen würdest, darfst du den Fahrenden Händler aus deiner Hand aufdecken. Wenn  du das machst: Nimm dir statt der anderen Karte ein Silber. 	
+194	de	Schatztruhe	Geld		3 Geld. Wenn du die Schatztruhe nimmst, nimm dir 2 Kupfer.	
+195	de	Kartograph	Aktion		+1 Karte, +1 Aktion. Sieh dir die obersten 4 Karten von deinem Nachziehstapel an. Lege beliebig viele davon ab. Lege den Rest davon in beliebiger Reihenfolge zurück auf deinen Nachziehstapel. 	
+196	de	Botschaft	Aktion		+5 Karten. Lege 3 Karten auf deiner Hand ab. Wenn du die Botschaft nimmst, muss sich jeder Mitspieler ein Silber nehmen. 	
+197	de	Feilscher	Aktion		+2 Geld.   Wenn du eine Karte kaufst und der Feilscher im Spiel ist: Nimm dir eine Karte, die weniger kostet als die gerade gekaufte und die keine Punktekarte ist. 	
+198	de	Fernstraße	Aktion		+1 Karte, +1 Aktion.  Wenn diese Karte im Spiel ist, kosten alle Karten 1 weniger, niemals jedoch weniger als 0 . 	
+199	de	Blutzoll	Geld	Benötigt: Fluch	1 Geld. Wenn du den Blutzoll ausspielst, darfst du dir ein Kupfer nehmen. Nimm dieses Kupfer sofort auf die Hand.  Wenn du den Blutzoll nimmst, muss sich jeder Mitspieler einen Fluch nehmen. 	
+200	de	Gasthaus	Aktion		+2 Karten, +2 Aktionen. Lege 2 Karten aus deiner Hand ab. Wenn du das Gasthaus nimmst, sieh dir deinen Ablagestapel durch, decke beliebig viele Aktionskarten (auch dieses Gasthaus) daraus auf und mische die aufgedeckten Karten in deinen Nachziehstapel. 	
+201	de	Mandarin	Aktion		+ 3 Geld. Lege eine Karte aus deiner Hand zurück auf deinen Nachziehstapel. Wenn du den Mandarin nimmst, lege alle Geldkarten, die du im Spiel hast, in beliebiger Reihenfolge zurück auf deinen Nachziehstapel. 	
+202	de	Markgraf	Aktion Angriff		+3 Karten, +1 Kauf. Jeder Mitspieler muss 1 Karte nachziehen und dann Karten ablegen, bis er nur noch 3 Karten auf der Hand hat. 	
+203	de	Stallungen	Aktion		Du darfst eine Geldkarte aus deiner Hand ablegen. Wenn du das machst: +3 Karten, +1 Aktion. 	
+204	de	Grenzdorf	Aktion		+1 Karte, +2 Aktionen. Wenn du das Grenzdorf nimmst, nimm dir eine Karte, die weniger kostet als das Grenzdorf. 	
+205	de	Fruchtbares Land	Punkte		2 Punkte.  Wenn du das Fruchtbare Land kaufst, entsorge eine Karte aus deiner Hand. Nimm dir eine Karte, die genau 2 mehr kostet als die entsorgte Karte. 	
 206	de	Prinz	Aktion			
 207	de	Koninklijke munt	Geld Reserve			
 208	de	Wapenknecht	Aktion Reisender	Benötigt: Eintausch-Karten		
-209	de	Kleinbauer	Aktion Reisender	Benötigt: Eintausch-Karten, Alle +1-Marker		
+209	de	Kleinbauer	Aktion Reisender	Benötigt: Eintausch-Karten, Alle +1-Marker	+ 1 Kauf, +1 Geld.     Ist diese Karte im Spiel, darfst du sie gegen einen Soldaten eintauschen anstatt sie abzulegen. 	Der KLEINBAUER ist eine Königreichkarte und kann wie jede andere Königreichkarte gekauft oder genommen werden. Der KLEINBAUER ist  außerdem ein Reisender, der im Spielverlauf in einen SOLDATEN eingetauscht werden kann. Wenn du den KLEINBAUERN ausspielst, erhältst du + 1 Kauf sowie + 1 Geld. In der Aufräumphase darfst du entscheiden, ob du den KLEINBAUERN ablegst oder zurück auf den Vorratsstapel legst. Wenn du das tust, erhältst du einen SOLDATEN und legst ihn ab. Die angegebenen Kosten werden nicht bezahlt. 
 210	de	Rattenfänger 	Aktion Reserve			
 211	de	Zerstörung 	Aktion			
 212	de	Amulett 	Aktion Dauer			
@@ -255,4 +255,4 @@ _id	language	name	type	requires	text	rules
 254	de	Training	Ereignis	Benötigt: +1 Münze-Marker		
 255	de	Erbschaft 	Ereignis	Benötigt: Anwesen-Marker		
 256	de	Wegsuche 	Ereignis	Benötigt: +1 Karte-Marker		
-257	de	Einladung	Ereignis		Nimm eine Aktionskarte, die bis zu 4 kostet und lege sie zur Seite. Spiele sie zu Beginn deines nächsten Zuges.	
+257	de	Einladung	Ereignis		Nimm eine Aktionskarte, die bis zu <c>4</c> kostet und lege sie zur Seite. Spiele sie zu Beginn deines nächsten Zuges.	

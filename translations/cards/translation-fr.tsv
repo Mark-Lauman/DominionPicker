@@ -47,5 +47,5 @@ _id	language	name	type	requires	text	rules
 63	fr	Comptoir	Action		Écartez 2 cartes de votre main. Dans ce cas, recevez une carte Argent ; ajoutez cette carte à votre main.	
 64	fr	Hommage	Action		Le joueur à votre gauche dévoile et défausse les 2 premières cartes de son deck. Pour chaque carte dévoilée ayant un nom différent, recevez… pour une carte Action : +2 Actions… pour une carte Trésor : +2… pour une carte Victoire : +2 Cartes	
 65	fr	Mise à niveau	Action		Écartez une carte de votre main. Recevez une carte coûtant exactement 1 de plus.	
-66	fr	Harem	Trésor Victoire			
+66	fr	Harem	Trésor Victoire		<big> <c>2</c> <br/> <vp>2</vp> </big>	
 67	fr	Nobles	Action Victoire		Choisissez : +3 Cartes OU +2 Actions.	
