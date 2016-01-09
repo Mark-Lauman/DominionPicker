@@ -19,7 +19,7 @@ public class AdapterCardsSupply extends AdapterCards implements AdapterCards.Lis
     private int col_id = -1;
 
     public AdapterCardsSupply(Context context) {
-        super(context, R.layout.list_item_card,
+        super(context,
                 new String[]{TableCard._NAME, TableCard._COST, TableCard._POT, TableCard._SET_ID,
                           TableCard._SET_NAME, TableCard._REQ, TableCard._ID,
                           TableCard._ID, TableCard._ID, TableCard._TYPE, TableCard._TYPE,
@@ -66,7 +66,7 @@ public class AdapterCardsSupply extends AdapterCards implements AdapterCards.Lis
     }
 
     @Override
-    public void onItemClick(View view, int position, long id, boolean longClick) {
+    public void onItemClick(int position, long id, boolean longClick) {
         launchDetails(id);
     }
 }

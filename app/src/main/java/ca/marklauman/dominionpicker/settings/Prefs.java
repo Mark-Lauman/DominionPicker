@@ -56,6 +56,7 @@ public abstract class Prefs {
 
     /////////// Current preference/application state \\\\\\\\\\\
     private static Context staticContext;
+    private static String activeLocale = null;
     public static String filt_lang;
     public static String sort_card;
     public static String sort_set;
@@ -94,6 +95,12 @@ public abstract class Prefs {
         staticContext = c.getApplicationContext();
         parsePreference(c, FILT_LANG);
         parsePreference(c, SORT_CARD);
+
+        // Check if the system language has changed, notify listeners of change
+        String locale = c.getResources().getConfiguration().locale.toString();
+        if(activeLocale != null && !activeLocale.equals(locale))
+            notifyChange(c, FILT_LANG);
+        activeLocale = locale;
     }
 
     /** Register this listener to receive preference change notifications. */

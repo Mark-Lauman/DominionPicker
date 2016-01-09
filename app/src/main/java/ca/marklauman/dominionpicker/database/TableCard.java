@@ -49,7 +49,7 @@ public abstract class TableCard {
     /** Column for the cost of a card (in coins). From the cardData table. */
     public static final String _COST = "cost";
     /** Integer value of the card's cost. Removes any additional characters. */
-    public static final String _COST_VAL = "cost_val";
+    public static final String _COST_VAL = "costVal";
     /** Column for the potion cost of a card (# needed to buy). From the cardData table. */
     public static final String _POT = "potion";
     /** Column for +X buys this card provides. From the cardData table. */

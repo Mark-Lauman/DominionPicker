@@ -34,7 +34,7 @@ public class AdapterCardsFilter extends AdapterCards
 
 
     public AdapterCardsFilter(Context context) {
-        super(context, R.layout.list_item_card,
+        super(context,
               new String[]{TableCard._NAME, TableCard._COST, TableCard._POT, TableCard._SET_ID,
                            TableCard._SET_NAME, TableCard._REQ, TableCard._ID,
                            TableCard._ID, TableCard._ID, TableCard._TYPE, TableCard._TYPE,
@@ -160,7 +160,7 @@ public class AdapterCardsFilter extends AdapterCards
 
 
     @Override
-    public void onItemClick(View view, int position, long id, boolean longClick) {
+    public void onItemClick(int position, long id, boolean longClick) {
         if(longClick) hardToggle(id);
         else toggleItem(id);
     }

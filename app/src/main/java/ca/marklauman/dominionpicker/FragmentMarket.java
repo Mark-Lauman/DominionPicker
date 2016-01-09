@@ -191,7 +191,7 @@ public class FragmentMarket extends Fragment
     /** Selects which card was purchased. Called when a card is clicked in the choice panel.
      *  @param id The row id of the item that was clicked. */
     @Override
-    public void onItemClick(View view, int position, long id, boolean longClick) {
+    public void onItemClick(int position, long id, boolean longClick) {
         Toast.makeText(getActivity(), adapter.getName(position), Toast.LENGTH_SHORT)
              .show();
         // Unused choices return to the stock bottom

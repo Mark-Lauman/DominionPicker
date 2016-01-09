@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.ImageView;
@@ -54,7 +55,9 @@ public class AdapterCards extends SimpleCursorAdapter
     /** The context provided in this adapter's constructor. */
     private final Context mContext;
     /** Maps expansion names to expansion icons */
-    private final int[] exp_icons;
+    private final Drawable[] exp_icons;
+    /** Icon used for a non-existent expansion */
+    private final Drawable exp_none;
     /** Maps card language to the correct coin description */
     private final HashMap<String, Integer> coinDesc;
     /** Constructs drawables reflecting the card's background color */
@@ -85,11 +88,11 @@ public class AdapterCards extends SimpleCursorAdapter
     /** Default constructor.
      *  @param context The context of the display thread. */
     public AdapterCards(Context context) {
-        this(context, R.layout.list_item_card,
+        this(context,
              new String[]{TableCard._NAME, TableCard._COST, TableCard._POT, TableCard._SET_ID,
                           TableCard._SET_NAME, TableCard._REQ, TableCard._ID,
                           TableCard._ID, TableCard._ID, TableCard._TYPE, TableCard._TYPE},
-                new int[]{R.id.card_name, R.id.card_cost, R.id.card_potion, R.id.card_set,
+             new int[]   {R.id.card_name, R.id.card_cost, R.id.card_potion, R.id.card_set,
                           R.id.card_set, R.id.card_requires, android.R.id.background,
                           R.id.card_image, R.id.image_overlay, R.id.card_type, R.id.card_color});
     }
@@ -97,11 +100,10 @@ public class AdapterCards extends SimpleCursorAdapter
 
     /** Used by subclasses so they can bind their own columns.
      *  @param context The context of the display thread.
-     *  @param viewResource Id of the view resource used for this adapter's views.
      *  @param columnNames The names of the columns to bind to views.
      *  @param viewIds The view ids bound to those names. */
-    AdapterCards(Context context, int viewResource, String[] columnNames, int[] viewIds) {
-        super(context, viewResource, null, columnNames, viewIds);
+    AdapterCards(Context context, String[] columnNames, int[] viewIds) {
+        super(context, R.layout.list_item_card, null, columnNames, viewIds);
         setViewBinder(this);
         mContext = context;
         Resources res = context.getResources();
@@ -110,7 +112,8 @@ public class AdapterCards extends SimpleCursorAdapter
         columnMap = new SparseIntArray();
 
         // Load the resources
-        exp_icons = Utils.getResourceArray(context, R.array.card_set_icons);
+        exp_none = res.getDrawable(R.drawable.ic_set_unknown);
+        exp_icons = Utils.getDrawableArray(context, R.array.card_set_icons);
         int[] form_coin = Utils.getResourceArray(context, R.array.format_coin);
         String[] lang = context.getResources().getStringArray(R.array.language_codes);
         coinDesc = new HashMap<>(lang.length);
@@ -162,12 +165,10 @@ public class AdapterCards extends SimpleCursorAdapter
             case R.id.card_cost:
                 if(colId != COL_COST) return false;
                 String cost = cursor.getString(columnIndex);
-                Integer qty = parseValue(cost);
-                if(qty != null && qty == 0)
-                    view.setVisibility(View.GONE);
+                Integer qty = TableCard.parseVal(cost);
+                if(qty == 0) view.setVisibility(View.GONE);
                 else {
                     Resources res = mContext.getResources();
-                    if(qty == null) qty = 0;
                     String lang = cursor.getString(col_lang);
                     view.setVisibility(View.VISIBLE);
                     view.setContentDescription(res.getQuantityString(coinDesc.get(lang), qty, cost));
@@ -187,11 +188,10 @@ public class AdapterCards extends SimpleCursorAdapter
                 switch(colId) {
                     case COL_SET_ID:
                         // Match the id to a set icon
-                        int setIcon = 0;
+                        Drawable setIcon = exp_none;
                         try { setIcon = exp_icons[cursor.getInt(columnIndex)];
                         } catch(Exception ignored){}
-                        if(setIcon == 0) setIcon = R.drawable.ic_set_unknown;
-                        ((ImageView)view).setImageResource(setIcon);
+                        ((ImageView)view).setImageDrawable(setIcon);
                         return true;
 
                     case COL_SET_NAME:
@@ -226,22 +226,6 @@ public class AdapterCards extends SimpleCursorAdapter
     }
 
 
-    /** Parse a string and determine its value.
-     *  @param s The string to interpret
-     *  @return The value of that string, or null if the value could not be determined */
-    private Integer parseValue(String s) {
-        // "" and null
-        if(s == null || s.length() == 0) return null;
-        // "1235"
-        try{ return Integer.parseInt(s);
-        } catch (NumberFormatException ignored){}
-        // "5*"
-        try{ return Integer.parseInt(s.substring(0, s.length() - 1));
-        } catch (NumberFormatException ignored){}
-        // "X"
-        return null;
-    }
-
     /** Get the name of the card at the given position */
     public String getName(int position) {
         Cursor cursor = getCursor();
@@ -267,25 +251,25 @@ public class AdapterCards extends SimpleCursorAdapter
     private class InternalClickListener implements View.OnClickListener, View.OnLongClickListener {
         @Override
         public void onClick(View v) {
-            callExt(v, (String)v.getTag(), false);
+            callExt((String)v.getTag(), false);
         }
 
         @Override
         public boolean onLongClick(View v) {
-            callExt(v, (String)v.getTag(), true);
+            callExt((String)v.getTag(), true);
             return true;
         }
 
-        private void callExt(View v, String tag, boolean longClick) {
+        private void callExt(String tag, boolean longClick) {
             if(extListen == null) return;
             int sep = tag.indexOf(',');
-            extListen.onItemClick(v, Integer.parseInt(tag.substring(0, sep)),
-                                     Long.parseLong(tag.substring(sep+1, tag.length())),
-                                     longClick);
+            extListen.onItemClick(Integer.parseInt(tag.substring(0, sep)),
+                                  Long.parseLong(tag.substring(sep+1, tag.length())),
+                                  longClick);
         }
     }
 
     public interface Listener {
-        void onItemClick(View view, int position, long id, boolean longClick);
+        void onItemClick(int position, long id, boolean longClick);
     }
 }

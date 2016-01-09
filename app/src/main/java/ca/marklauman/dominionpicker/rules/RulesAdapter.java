@@ -111,11 +111,14 @@ class RulesAdapter extends ArrayAdapter<View>
         } while(cardSets.moveToNext());
         promoEnd = views.size()-1;
 
-        // Add the event filter
-        views.add(newSeparator(context, R.string.rules_other));
-        views.add(newNumPref(context, 2, Prefs.LIMIT_EVENTS, R.string.limit_event, prefHeight));
+        // TODO: Add to advanced rules adapter
+//        // Add the event filter
+//        views.add(newNumPref(context, 2, Prefs.LIMIT_EVENTS, R.string.limit_event, prefHeight));
+
+        // TODO: Add costs filters
 
         // Add the curse filter
+        views.add(newSeparator(context, R.string.rules_other));
         view = newChecked(context, context.getString(R.string.filter_curse),
                           R.drawable.ic_dom_curse);
         if(filt_curse) view.toggle();
