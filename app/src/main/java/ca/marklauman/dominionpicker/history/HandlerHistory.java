@@ -9,12 +9,10 @@ import android.support.v4.content.Loader;
 import android.view.View;
 import android.widget.TextView;
 
-import java.text.DateFormat;
-import java.util.Date;
-
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.DataDb;
 import ca.marklauman.dominionpicker.database.Provider;
+import ca.marklauman.dominionpicker.database.TimestampFormatter;
 import ca.marklauman.tools.CursorHandler;
 import ca.marklauman.tools.CursorSelAdapter;
 import ca.marklauman.tools.Utils;
@@ -23,8 +21,8 @@ import ca.marklauman.tools.Utils;
  *  @author Mark Lauman */
 class HandlerHistory extends CursorSelAdapter
                             implements CursorHandler {
-    /** Formatter used to display shuffle times. */
-    private final DateFormat tFormat;
+    /** Used to format the supply times */
+    private final TimestampFormatter tFormat;
     /** True if only favorites are to be displayed */
     private final boolean onlyFav;
 
@@ -48,7 +46,7 @@ class HandlerHistory extends CursorSelAdapter
                 new int[]{R.id.name, R.id.desc});
         setChoiceMode(CHOICE_MODE_NONE);
         setViewBinder(this);
-        tFormat = DateFormat.getDateTimeInstance();
+        tFormat = new TimestampFormatter(context);
         onlyFav = onlyFavorites;
     }
 
@@ -76,8 +74,8 @@ class HandlerHistory extends CursorSelAdapter
                 txt.setText(name);
                 txt.setTypeface(Typeface.create(type, Typeface.BOLD));
             } else {
-                // Not Favorite, display normal name
-                txt.setText(tFormat.format(new Date(cursor.getLong(_time))));
+                // Not Favorite, display timestamp as name
+                txt.setText(tFormat.format(cursor.getLong(_time)));
                 txt.setTypeface(Typeface.create(type, Typeface.NORMAL));
             }
             return true;

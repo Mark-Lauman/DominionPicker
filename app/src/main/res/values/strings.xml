@@ -14,6 +14,9 @@
     <string name="more_k">Need More Kingdom Cards! (%1$s)</string>
     <string name="yw_no_bane">Young Witch - No Bane</string>
     <string name="all_filtered">All cards filtered out.</string>
+
+    <string name="email_mark">Email Mark</string>
+    <string name="no_email">You haven\'t set up email on this device.</string>
     
     <string name="set">Set</string>
     <string name="potion">Potion</string>

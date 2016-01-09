@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingTranslation" >
+<resources>
+    <!-- This file contains values that are used to display cards. -->
 
-    <!-- This file contains card info needed by the app to function.
-         It does not populate the database, but should reflect it. -->
-
-    <!-- Icons for each expansion, sorted by id -->
+    <!-- Icons for each expansion, sorted by set_id -->
     <array name="card_set_icons">
         <item>@drawable/ic_set_base</item>
         <item>@drawable/ic_set_alchemy</item>
@@ -26,7 +23,7 @@
         <item>@drawable/ic_set_summon</item>
     </array>
 
-    <!-- Default translation to use for each set. Sorted by set id. -->
+    <!-- Default translation to use for each set. Sorted by set_id. -->
     <string-array name="def_trans">
         <item>en</item>
         <item>en</item>
@@ -46,5 +43,13 @@
         <item>en</item>
         <item>en</item>
     </string-array>
+
+    <plurals name="format_coin_def">
+        <item quantity="one">%1$s Coin</item>
+        <item quantity="other">%1$s Coins</item>
+    </plurals>
+
+    <string name="card_no_info">This card hasn\'t been translated into English.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</string>
+    <string name="card_mail_subject">Dominion Card #%1$d (%2$s)</string>
 
 </resources>

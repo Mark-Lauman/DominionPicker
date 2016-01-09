@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import ca.marklauman.dominionpicker.R;
-import ca.marklauman.dominionpicker.cardadapters.AdapterCards;
 import ca.marklauman.dominionpicker.database.TableCard;
 
 /** Card adapter designed to display a supply.
@@ -47,13 +46,21 @@ public class AdapterCardsSupply extends AdapterCards implements AdapterCards.Lis
 
     @Override
     public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
-        if(view.getId() == R.id.card_extra && columnIndex == col_id) {
-            TextView txt = (TextView)view;
-            if(bane == cursor.getLong(columnIndex)) {
-                txt.setText(R.string.young_witch_bane);
-                txt.setVisibility(View.VISIBLE);
-            } else txt.setVisibility(View.GONE);
-            return true;
+        switch(view.getId()) {
+            case R.id.card_extra:
+                if(columnIndex != col_id) break;
+                if(bane == cursor.getLong(columnIndex)) {
+                    ((TextView)view).setText(R.string.young_witch_bane);
+                    view.setVisibility(View.VISIBLE);
+                } else view.setVisibility(View.GONE);
+                return true;
+            case android.R.id.background:
+                super.setViewValue(view, cursor, columnIndex);
+                if(columnIndex != col_id) break;
+                if(bane == cursor.getLong(columnIndex))
+                    view.setBackgroundResource(R.color.type_curse);
+                else view.setBackgroundResource(R.color.background);
+                return true;
         }
         return super.setViewValue(view, cursor, columnIndex);
     }

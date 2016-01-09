@@ -1,10 +1,8 @@
 package ca.marklauman.dominionpicker.rules;
 
-import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -36,11 +34,17 @@ public class FragmentRules extends Fragment
     private ListView viewLoaded;
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        FragmentActivity act = (FragmentActivity) context;
-        act.getSupportLoaderManager()
-           .initLoader(LoaderId.RULES_EXP, null, setLoader);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Prefs.addListener(this);
+        getActivity().getSupportLoaderManager()
+                     .restartLoader(LoaderId.RULES_EXP, null, setLoader);
+    }
+
+    @Override
+    public void onDestroy() {
+        Prefs.removeListener(this);
+        super.onDestroy();
     }
 
     /** Called to create this fragment's view for the first time.  */

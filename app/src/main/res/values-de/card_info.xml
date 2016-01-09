@@ -22,4 +22,13 @@
         <item>de</item>
     </string-array>
 
+    <plurals name="format_coin_def">
+        <item quantity="one">%1$s M&#252;nze</item>
+        <item quantity="other">%1$s M&#252;nzen</item>
+    </plurals>
+
+    <string name="card_no_info">Diese Karte wurde nicht ins Deutsche &#252;bersetzt worden.\n\nHaben Sie diese Karte besitzen? Wenn ja, mailen Sie bitte eine &#220;bersetzung an Mark so kann er es in die App hinzuzuf&#252;gen.</string>
+    <string name="email_mark">E-Mail Mark</string>
+    <string name="card_mail_subject">Dominion Karte # %1$d (%2$s)</string>
+
 </resources>

@@ -36,10 +36,6 @@ public class CoinFactory implements ImageFactory {
         coinEdge = res.getColor(R.color.coin_vp_edge);
     }
 
-    protected int defSize() {
-        return (int)(CoinDrawable.DEFAULT_SIZE*sp1+0.5f);
-    }
-
     @Override
     public Drawable getDrawable(CharSequence value, int size) {
         Drawable res = lib.getDrawable(value, size);
@@ -124,13 +120,13 @@ public class CoinFactory implements ImageFactory {
 
         @Override
         public int getIntrinsicHeight() {
-            return defSize();
+            return (int)(DEFAULT_SIZE*sp1+0.5f);
         }
 
 
         @Override
         public int getIntrinsicWidth() {
-            return defSize();
+            return (int)(DEFAULT_SIZE*sp1+0.5f);
         }
 
 

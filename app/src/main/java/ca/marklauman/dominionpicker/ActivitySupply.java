@@ -17,14 +17,12 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.text.DateFormat;
-import java.util.Date;
-
 import ca.marklauman.dominionpicker.cardadapters.AdapterCardsSupply;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.dominionpicker.database.TableSupply;
+import ca.marklauman.dominionpicker.database.TimestampFormatter;
 import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.QueryDialogBuilder;
 import ca.marklauman.tools.QueryDialogBuilder.QueryListener;
@@ -45,8 +43,8 @@ public class ActivitySupply extends AppCompatActivity
     private final SupplyLoader supplyLoader = new SupplyLoader();
     /** The loader that gets the cards when the supply is loaded */
     private final CardLoader cardLoader = new CardLoader();
-    /** Displays the correct time for the supply */
-    private final DateFormat formatter = DateFormat.getDateTimeInstance();
+    /** Formatter used to make strings out of timestamps */
+    private TimestampFormatter tFormat;
 
     /** The adapter used to display the supply cards. */
 	private AdapterCardsSupply adapter;
@@ -75,6 +73,11 @@ public class ActivitySupply extends AppCompatActivity
 		card_list.setEmptyView(loading);
 		resView = (TextView) findViewById(R.id.resources);
 		resView.setVisibility(View.GONE);
+        View timeFrame = findViewById(R.id.time_frame);
+        TextView timeView = (TextView)findViewById(R.id.time);
+
+        // Time formatter
+        tFormat = new TimestampFormatter(this);
 		
 		// Setup the adapter
 		adapter = new AdapterCardsSupply(this);
@@ -85,6 +88,7 @@ public class ActivitySupply extends AppCompatActivity
         if(params == null) return;
         long supplyId = params.getLong(PARAM_HISTORY_ID, -1);
         if(supplyId != -1) {
+            timeView.setText(tFormat.formatShort(supplyId));
             Bundle args = new Bundle();
             args.putLong(PARAM_HISTORY_ID, supplyId);
             LoaderManager lm = getSupportLoaderManager();
@@ -95,6 +99,7 @@ public class ActivitySupply extends AppCompatActivity
         // We still have no supply, check for a sample supply id.
         supplyId = params.getLong(PARAM_SUPPLY_ID, -1);
         if(supplyId != -1) {
+            timeFrame.setVisibility(View.GONE);
             sampleSupply = true;
             Bundle args = new Bundle();
             args.putLong(PARAM_SUPPLY_ID, supplyId);
@@ -168,7 +173,7 @@ public class ActivitySupply extends AppCompatActivity
             // Wipe the supply name
             supply.name = null;
             ActionBar ab = getSupportActionBar();
-            if(ab != null) ab.setTitle(formatter.format(new Date(supply.time)));
+            if(ab != null) ab.setTitle(R.string.picks);
             invalidateOptionsMenu();
 
             // Save the wipe to the database
@@ -305,34 +310,15 @@ public class ActivitySupply extends AppCompatActivity
         public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
             if(data == null || data.getCount() < 1) return;
 
-            // Column indexes
-            final int _time = data.getColumnIndex(TableSupply._ID);
-            final int _name = data.getColumnIndex(TableSupply._NAME);
-            final int _bane = data.getColumnIndex(TableSupply._BANE);
-            final int _cost = data.getColumnIndex(TableSupply._HIGH_COST);
-            final int _shelters = data.getColumnIndex(TableSupply._SHELTERS);
-            final int _cards = data.getColumnIndex(TableSupply._CARDS);
-            data.moveToFirst();
-
             // Build the supply object
-            Supply s = new Supply();
-            s.time = data.getLong(_time);
-            s.name = data.getString(_name);
-            s.bane = data.getLong(_bane);
-            s.high_cost = data.getInt(_cost) != 0;
-            s.shelters = data.getInt(_shelters) != 0;
+            data.moveToFirst();
+            Supply s = new Supply(data);
             s.sample = sampleSupply;
-            String[] cardList = data.getString(_cards).split(",");
-            s.cards = new long[cardList.length];
-            for(int i=0; i<cardList.length; i++)
-                s.cards[i] = Long.parseLong(cardList[i]);
 
             // Display the appropriate title
             ActionBar bar = getSupportActionBar();
-            if(bar != null) {
-                if (s.name != null) bar.setTitle(s.name);
-                else bar.setTitle(formatter.format(new Date(s.time)));
-            }
+            if(bar != null && s.name != null)
+                bar.setTitle(s.name);
 
             // Finish up
             setSupply(s);
@@ -367,7 +353,7 @@ public class ActivitySupply extends AppCompatActivity
             // Get the name, default to a time if blank
             String name = "" + txt.getText();
             if(name.length() < 1)
-                name = formatter.format(new Date(supply.time));
+                name = tFormat.formatLong(supply.time);
 
             // Display the new name, switch display to favorite.
             supply.name = name;

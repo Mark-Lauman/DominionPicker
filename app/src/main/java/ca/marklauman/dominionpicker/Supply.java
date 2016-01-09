@@ -2,10 +2,12 @@ package ca.marklauman.dominionpicker;
 
 import java.util.Arrays;
 
+import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import ca.marklauman.dominionpicker.database.TableCard;
+import ca.marklauman.dominionpicker.database.TableSupply;
 
 /** Contains all information about a supply set.
  *  @author Mark Lauman                       */
@@ -38,6 +40,20 @@ public class Supply implements Parcelable {
         sample = false;
 		bane = -1L;
 	}
+
+
+    public Supply(Cursor c) {
+        time  = c.getLong(  c.getColumnIndex(TableSupply._ID));
+        name  = c.getString(c.getColumnIndex(TableSupply._NAME));
+        bane = c.getLong(c.getColumnIndex(TableSupply._BANE));
+        high_cost = c.getInt(c.getColumnIndex(TableSupply._HIGH_COST)) != 0;
+        shelters = c.getInt(c.getColumnIndex(TableSupply._SHELTERS)) != 0;
+        String[] cardList = c.getString(c.getColumnIndex(TableSupply._CARDS))
+                             .split(",");
+        cards = new long[cardList.length];
+        for(int i=0; i<cardList.length; i++)
+            cards[i] = Long.parseLong(cardList[i]);
+    }
 	
 	
 	/** Constructor for unpacking a parcel into a {@code Supply} */

@@ -16,10 +16,10 @@ import android.widget.TextView;
 
 import java.util.HashMap;
 
-import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.cardadapters.InfoTextView;
 import ca.marklauman.dominionpicker.cardadapters.imagefactories.CardColorFactory;
 import ca.marklauman.dominionpicker.cardadapters.imagefactories.CoinFactory;
+import ca.marklauman.dominionpicker.community.EmailButton;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
@@ -61,6 +61,7 @@ public class ActivityCardInfo extends AppCompatActivity
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Prefs.setup(this);
 
         // Set up the view
         setContentView(R.layout.activity_card_info);
@@ -124,14 +125,27 @@ public class ActivityCardInfo extends AppCompatActivity
             return;
         }
         data.moveToFirst();
+        Resources res = getResources();
 
-        // Basic text mapping (2 rows of code per map)
+        // Basic text mapping
         ActionBar ab = getSupportActionBar();
         if(ab != null) ab.setTitle(data.getString(data.getColumnIndex(TableCard._NAME)));
-        InfoTextView info = (InfoTextView)findViewById(android.R.id.text1);
-        info.setText(data.getString(data.getColumnIndex(TableCard._TEXT)));
         TextView txtView = (TextView)findViewById(R.id.card_type);
         txtView.setText(data.getString(data.getColumnIndex(TableCard._TYPE)));
+
+        // Text info
+        InfoTextView info = (InfoTextView)findViewById(android.R.id.text1);
+        String txt = data.getString(data.getColumnIndex(TableCard._TEXT));
+        // Apply the descriptive text if its there
+        if(txt != null && !"".equals(txt))
+            info.setText(data.getString(data.getColumnIndex(TableCard._TEXT)));
+        else {
+            // It isn't there, show the "no info" panel
+            info.setVisibility(View.GONE);
+            setupEmail(findViewById(R.id.card_no_info), res,
+                       data.getLong(data.getColumnIndex(TableCard._ID)),
+                       data.getString(data.getColumnIndex(TableCard._LANG)));
+        }
 
         // Potion cost
         ImageView imgView = (ImageView)findViewById(R.id.card_potion);
@@ -148,14 +162,14 @@ public class ActivityCardInfo extends AppCompatActivity
         } else {
             imgView.setVisibility(View.VISIBLE);
             imgView.setImageDrawable(coinFactory.getDrawable(cost,
-                    getResources().getDimensionPixelSize(R.dimen.card_info_bottom)));
+                    res.getDimensionPixelSize(R.dimen.card_info_bottom)));
         }
 
         // Cost Description
         int descRes = coinDesc.get(data.getString(data.getColumnIndex(TableCard._LANG)));
-        imgView.setContentDescription(getResources().getQuantityString(descRes,
-                                                                       TableCard.parseVal(cost),
-                                                                       cost));
+        imgView.setContentDescription(res.getQuantityString(descRes,
+                                                            TableCard.parseVal(cost),
+                                                            cost));
 
         // Card color
         colorFactory.changeCursor(data);
@@ -177,6 +191,24 @@ public class ActivityCardInfo extends AppCompatActivity
         // Show the card
         loading.setVisibility(View.GONE);
         loaded.setVisibility(View.VISIBLE);
+    }
+
+    /** Configure the email panel */
+    private void setupEmail(View vNoInfo, Resources res, long cardId, String lang) {
+        // Ge the id of the current language
+        int langId = 0;
+        String[] langCodes = res.getStringArray(R.array.language_codes);
+        while(! lang.equals(langCodes[langId]))
+            langId++;
+
+        vNoInfo.setVisibility(View.VISIBLE);
+        String str = res.getStringArray(R.array.card_no_info)[langId];
+        ((TextView)vNoInfo.findViewById(R.id.card_no_info_msg))
+                          .setText(str);
+
+        EmailButton button = (EmailButton)vNoInfo.findViewById(R.id.email);
+        button.setSubject(String.format(res.getStringArray(R.array.card_mail_subject)[langId],
+                                        cardId, lang));
     }
 
 

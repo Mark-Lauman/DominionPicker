@@ -113,6 +113,34 @@
             android:layout_toEndOf="@id/card_color"
             android:layout_above="@id/bottomDiv" />
 
+        <LinearLayout android:id="@+id/card_no_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:gravity="center"
+            android:layout_toRightOf="@id/card_color"
+            android:layout_toEndOf="@id/card_color"
+            android:layout_above="@id/bottomDiv"
+            android:visibility="gone">
+
+            <TextView android:id="@+id/card_no_info_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/card_no_info"
+                android:textSize="16sp"
+                android:paddingBottom="16sp" />
+
+            <ca.marklauman.dominionpicker.community.EmailButton
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email_mark" />
+
+        </LinearLayout>
+
     </RelativeLayout>
 
 </LinearLayout>

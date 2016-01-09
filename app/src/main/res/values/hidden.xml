@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation"
+    translatable="false" >
+    <!-- This file contains resources that the user never sees, and is the same in all locales -->
 
-    <!-- Nothing in this file is shown to the user. It's just used for internal purposes. -->
+    <!-- Current version of preferences -->
+    <integer name="pref_version">6</integer>
+    <!-- core.db version -->
+    <integer name="db_ver_core">1</integer>
+    <!-- data.db version -->
+    <integer name="db_ver_data">11</integer>
 
     <!-- Default filter values -->
     <integer name="def_tab">1</integer>
-    <string name="filt_set_def" translatable="false">0</string>
+    <string name="filt_set_def">0</string>
     <string name="filt_cost_def" />
     <bool name="filt_curse_def">true</bool>
     <string name="filt_lang_def">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</string>
@@ -20,5 +28,6 @@
     <string name="demo_shuffle_desc">10 Cards | Platinum | Shelters</string>
     <string name="demo_sort_name">Card Name</string>
     <string name="demo_card_text">Each other player reveals the top 2 cards of his deck, trashes one of them costing from &lt;c&gt;3&lt;/c&gt; to &lt;c&gt;6&lt;/c&gt;, and discards the rest. If a Knight is trashed by this, trash this card.&lt;hr/&gt;&lt;big&gt; &lt;vp&gt;2&lt;/vp&gt; &lt;c&gt;1&lt;/c&gt; &lt;/big&gt;</string>
+    <string name="demo_supply_time">Jan, 8 2016</string>
 
 </resources>
