@@ -58,7 +58,7 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
 
         // load applicable filters.
         SharedPreferences pref = getPreferences();
-        String filt_pre = loadFilter(pref);
+        String filt_pre = FragmentPicker.getFilter(pref);
         String filt_req = pref.getString(Prefs.REQ_CARDS, "");
         String filt_card = pref.getString(Prefs.FILT_CARD, "");
 
@@ -130,20 +130,6 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
     /** Simple shorthand to get the preferences. */
     private static SharedPreferences getPreferences() {
         return PreferenceManager.getDefaultSharedPreferences(Prefs.getStaticContext());
-    }
-
-
-    /** Returns additional filters that should be used before _id IN (....) */
-    private String loadFilter(SharedPreferences pref) {
-        // Filter out sets
-        String filt_set = pref.getString(Prefs.FILT_SET, "");
-        filt_set = (0<filt_set.length()) ? TableCard._SET_ID+" IN ("+filt_set+")"
-                                         : TableCard._SET_ID+"=NULL";
-
-        // Filter out curses
-        boolean filt_curse = pref.getBoolean(Prefs.FILT_CURSE, true);
-        return (filt_curse) ? filt_set
-                            : filt_set+" AND "+TableCard._META_CURSER+"=0";
     }
 
 

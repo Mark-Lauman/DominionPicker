@@ -32,6 +32,8 @@ public abstract class Prefs {
     public static final String FILT_SET = "filt_set";
     /** Key used to save the cost filter to the preferences */
     public static final String FILT_COST = "filt_cost";
+    /** Key used to save the potion filter */
+    public static final String FILT_POTION = "filt_potion";
     /** Key used to save the curse filter to the preferences */
     public static final String FILT_CURSE = "filt_curse";
     /** Key used to save the current language filter */
@@ -190,7 +192,9 @@ public abstract class Prefs {
 
         if(!prefs.contains(FILT_SET))
             edit.putString(FILT_SET, res.getString(R.string.filt_set_def));
-        if(!prefs.contains(FILT_COST))
+        if(!prefs.contains(FILT_POTION))
+            edit.putBoolean(FILT_POTION, res.getBoolean(R.bool.filt_pot_def));
+        if (!prefs.contains(FILT_COST))
             edit.putString(FILT_COST, res.getString(R.string.filt_cost_def));
         if(!prefs.contains(FILT_CURSE))
             edit.putBoolean(FILT_CURSE, res.getBoolean(R.bool.filt_curse_def));
@@ -348,6 +352,9 @@ public abstract class Prefs {
         for(int i=0; i<17; i++)
             if(!not_filt_set.contains(i)) new_filt_set.add(i);
         edit.putString(FILT_SET, Utils.join(",", new_filt_set));
+
+        // Clear the cost filter
+        edit.putString(FILT_COST, "");
 
         // Remove all old selections
         edit.remove(SELECTIONS);

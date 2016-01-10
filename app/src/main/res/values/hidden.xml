@@ -14,6 +14,7 @@
     <!-- Default filter values -->
     <integer name="def_tab">1</integer>
     <string name="filt_set_def">0</string>
+    <bool name="filt_pot_def">true</bool>
     <string name="filt_cost_def" />
     <bool name="filt_curse_def">true</bool>
     <string name="filt_lang_def">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</string>

@@ -11,7 +11,6 @@ import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
-import android.util.TypedValue;
 
 import ca.marklauman.dominionpicker.R;
 
@@ -21,8 +20,8 @@ public class VPFactory implements ImageFactory {
 
     private static final ImageLibrary lib = new ImageLibrary();
 
-    /** 1sp on this device */
-    private final float sp1;
+    /** Default image size */
+    private final int defSize;
     /** Border color used around the shield */
     private final int border;
     /** Background color of a positive victory point shield. */
@@ -34,8 +33,7 @@ public class VPFactory implements ImageFactory {
 
     /** Create a CoinFactory from the given resources. */
     public VPFactory(Resources res){
-        sp1 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 1,
-                res.getDisplayMetrics());
+        defSize = res.getDimensionPixelSize(R.dimen.vp_size_small);
         border = res.getColor(R.color.coin_vp_edge);
         victory = res.getColor(R.color.vp_plus);
         curse = res.getColor(R.color.vp_minus);
@@ -164,13 +162,13 @@ public class VPFactory implements ImageFactory {
 
         @Override
         public int getIntrinsicHeight() {
-            return (int)(VPDrawable.DEFAULT_SIZE*sp1+0.5f);
+            return defSize;
         }
 
 
         @Override
         public int getIntrinsicWidth() {
-            return (int)(VPDrawable.DEFAULT_SIZE*sp1+0.5f);
+            return defSize;
         }
 
         @Override

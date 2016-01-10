@@ -2,5 +2,7 @@
 <resources>
     <string name="rules_expansions">Edities</string>
 
-    <string name="filter_curse">Vloeken</string>
+    <string name="rules_cost">Kaart kosten</string>
+
+    <string name="rules_curse">Vloeken</string>
 </resources>

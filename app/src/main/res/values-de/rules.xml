@@ -2,5 +2,7 @@
 <resources>
     <string name="rules_expansions">Erweiterung</string>
 
-    <string name="filter_curse">Fluch</string>
+    <string name="rules_cost">Karte Kosten</string>
+
+    <string name="rules_curse">Fluch</string>
 </resources>

@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity
         if(active == null) {
             onItemClick(null, null, sel, 0);
             navToggle.onDrawerClosed(null);
-        }
+        } else navAdapt.setSelection(sel);
 	}
 
     @Override

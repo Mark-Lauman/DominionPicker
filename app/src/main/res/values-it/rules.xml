@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="rules_expansions">Espansioni e promo</string>
-    <string name="filter_curse">Maledizioni</string>
+
+    <string name="rules_cost">Costo della carta</string>
+
+    <string name="rules_curse">Maledizioni</string>
 </resources>

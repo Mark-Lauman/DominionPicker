@@ -25,6 +25,8 @@ public abstract class LoaderId {
     public static final int LANG_CHOICES = 10;
     /** Expansion selector for the rules fragment */
     public static final int RULES_EXP = 11;
+    /** Cost selector for the rules fragment */
+    public static final int RULES_COST = 12;
     /** The card info screen's loader */
-    public static final int INFO_CARD = 12;
+    public static final int INFO_CARD = 13;
 }

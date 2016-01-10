@@ -9,7 +9,6 @@ import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
-import android.util.TypedValue;
 
 import ca.marklauman.dominionpicker.R;
 
@@ -19,8 +18,8 @@ public class CoinFactory implements ImageFactory {
 
     private static final ImageLibrary lib = new ImageLibrary();
 
-    /** 1sp on this device */
-    private final float sp1;
+    /** Default image size */
+    private final int def_size;
     /** Background color for the coin */
     private final int coinBack;
     /** Edge color for the coin */
@@ -30,8 +29,7 @@ public class CoinFactory implements ImageFactory {
 
     /** Create a CoinFactory from the given resources. */
     public CoinFactory(Resources res){
-        sp1 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 1,
-                res.getDisplayMetrics());
+        def_size = res.getDimensionPixelSize(R.dimen.vp_size_small);
         coinBack = res.getColor(R.color.coin_back);
         coinEdge = res.getColor(R.color.coin_vp_edge);
     }
@@ -70,9 +68,6 @@ public class CoinFactory implements ImageFactory {
 
 
     public class CoinDrawable extends Drawable {
-        /** Default size of this drawable in sp */
-        private static final int DEFAULT_SIZE = 19;
-
         /** Value to display in this coin */
         private final String val;
         /** Paint object used by this drawable */
@@ -120,13 +115,13 @@ public class CoinFactory implements ImageFactory {
 
         @Override
         public int getIntrinsicHeight() {
-            return (int)(DEFAULT_SIZE*sp1+0.5f);
+            return def_size;
         }
 
 
         @Override
         public int getIntrinsicWidth() {
-            return (int)(DEFAULT_SIZE*sp1+0.5f);
+            return def_size;
         }
 
 

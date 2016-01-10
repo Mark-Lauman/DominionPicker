@@ -32,17 +32,21 @@ public class Provider extends ContentProvider {
     private static final int ID_WTF = 0;
     /** Internal id for the cardData table's URI. */
     private static final int ID_CARD_DATA = 1;
+    /** Internal id for the cardData table's unique URI. */
+    private static final int ID_CARD_DATA_U = 2;
     /** Internal id for the cardSet table's URI. */
-    private static final int ID_CARD_SET = 2;
+    private static final int ID_CARD_SET = 3;
     /** Internal id for the combined card table's URI. */
-    private static final int ID_CARD_ALL = 3;
+    private static final int ID_CARD_ALL = 4;
     /** Internal id for the supply table's URI. */
-    private static final int ID_SUPPLY = 4;
+    private static final int ID_SUPPLY = 5;
     /** Internal id for the history table's URI. */
-    private static final int ID_HIST = 5;
+    private static final int ID_HIST = 6;
 
     /** URI to access the card data table */
     public static final Uri URI_CARD_DATA = Uri.parse("content://"+AUTHORITY+"/cardData");
+    /** URI to access the card data table with a unique row constraint */
+    public static final Uri URI_CARD_DATA_U = Uri.parse("content://"+AUTHORITY+"/cardDataUnique");
     /** URI to access the card trans table */
     public static final Uri URI_CARD_SET = Uri.parse("content://"+AUTHORITY+"/cardSet");
     /** URI to access the combination of all card tables */
@@ -65,6 +69,7 @@ public class Provider extends ContentProvider {
         // setup the uri matcher
         matcher = new UriMatcher(ID_WTF);
         matcher.addURI(AUTHORITY, "cardData", ID_CARD_DATA);
+        matcher.addURI(AUTHORITY, "cardDataUnique", ID_CARD_DATA_U);
         matcher.addURI(AUTHORITY, "cardSet", ID_CARD_SET);
         matcher.addURI(AUTHORITY, "cardAll", ID_CARD_ALL);
         matcher.addURI(AUTHORITY, "supply", ID_SUPPLY);
@@ -99,6 +104,7 @@ public class Provider extends ContentProvider {
 	public String getType(@NonNull Uri uri) {
         switch (matcher.match(uri)) {
             case ID_CARD_DATA:
+            case ID_CARD_DATA_U:
             case ID_CARD_SET:
             case ID_CARD_ALL: return MIME_CARD;
             case ID_SUPPLY: return MIME_SUPPLY_TRANS;
@@ -116,19 +122,23 @@ public class Provider extends ContentProvider {
         switch(matcher.match(uri)) {
             case ID_CARD_DATA:
                 res = core_db.query(TableCard.TABLE_DATA, projection,
-                                    selection, selectionArgs, sortOrder);
+                                    selection, selectionArgs, sortOrder, false);
+                break;
+            case ID_CARD_DATA_U:
+                res = core_db.query(TableCard.TABLE_DATA, projection,
+                                    selection, selectionArgs, sortOrder, true);
                 break;
             case ID_CARD_SET:
                 res = core_db.query(TableCard.TABLE_SET, projection,
-                                    selection, selectionArgs, sortOrder);
+                                    selection, selectionArgs, sortOrder, false);
                 break;
             case ID_CARD_ALL:
                 res = core_db.query(TableCard.VIEW_ALL, projection,
-                                    selection, selectionArgs, sortOrder);
+                                    selection, selectionArgs, sortOrder, false);
                 break;
             case ID_SUPPLY:
                 res = core_db.query(TableSupply.VIEW, projection,
-                                    selection, selectionArgs, sortOrder);
+                                    selection, selectionArgs, sortOrder, false);
                 break;
             case ID_HIST:
                 db = data_db.getReadableDatabase();
