@@ -28,7 +28,6 @@ public class Supply implements Parcelable {
 	/** The id of the bane card, or -1 if there isn't one. */
 	long bane;
 
-	
 
 	/** Basic constructor */
 	public Supply() {

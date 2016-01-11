@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
-import android.util.SparseIntArray;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SimpleCursorAdapter;
@@ -34,25 +33,7 @@ public class AdapterCards extends SimpleCursorAdapter
                TableCard._TYPE_DUR, TableCard._TYPE_REACT, TableCard._TYPE_RESERVE, // required
                TableCard._TYPE_CURSE, TableCard._TYPE_EVENT};                       // rows
 
-    // Internal ids used to identify cursor indexes.
-    /** Internal id for the _id column. */
-    private static final int COL_ID = 0;
-    /** Internal id for the name column */
-    private static final int COL_NAME = 1;
-    /** Internal id for the cost column */
-    private static final int COL_COST = 2;
-    /** Internal id for the potion column */
-    private static final int COL_POTION = 3;
-    /** Internal id for the set_id column */
-    private static final int COL_SET_ID = 4;
-    /** Internal id for the set_name column */
-    private static final int COL_SET_NAME = 5;
-    /** Internal id for the requires column */
-    private static final int COL_REQ = 6;
-    /** Internal id for the type column */
-    private static final int COL_TYPE = 7;
-
-    /** The context provided in this adapter's constructor. */
+    /** Context object used to construct this adapter */
     private final Context mContext;
     /** Maps expansion names to expansion icons */
     private final Drawable[] exp_icons;
@@ -64,13 +45,15 @@ public class AdapterCards extends SimpleCursorAdapter
     private final CardColorFactory colorFactory;
     /** Constructs drawables for coins */
     private final CoinFactory coinFactory;
+    /** Format string for the card icon's description */
+    private final String imgDesc;
 
-    /** Maps column indexes to column ids */
-    private final SparseIntArray columnMap;
     /** Column index of the card's name */
-    private int col_name;
+    private int _name;
     /** Column index of the card's language */
-    private int col_lang;
+    private int _lang;
+    /** Column index of the card's set name */
+    private int _set_name;
 
 
     /** Internal listener used to listen to clicks on the card image. */
@@ -90,11 +73,11 @@ public class AdapterCards extends SimpleCursorAdapter
     public AdapterCards(Context context) {
         this(context,
              new String[]{TableCard._NAME, TableCard._COST, TableCard._POT, TableCard._SET_ID,
-                          TableCard._SET_NAME, TableCard._REQ, TableCard._ID,
-                          TableCard._ID, TableCard._ID, TableCard._TYPE, TableCard._TYPE},
+                          TableCard._REQ, TableCard._ID, TableCard._ID,
+                          TableCard._ID, TableCard._TYPE, TableCard._TYPE},
              new int[]   {R.id.card_name, R.id.card_cost, R.id.card_potion, R.id.card_set,
-                          R.id.card_set, R.id.card_requires, android.R.id.background,
-                          R.id.card_image, R.id.image_overlay, R.id.card_type, R.id.card_color});
+                          R.id.card_requires, android.R.id.background, R.id.card_image,
+                          R.id.image_overlay, R.id.card_type, R.id.card_color});
     }
 
 
@@ -104,18 +87,18 @@ public class AdapterCards extends SimpleCursorAdapter
      *  @param viewIds The view ids bound to those names. */
     AdapterCards(Context context, String[] columnNames, int[] viewIds) {
         super(context, R.layout.list_item_card, null, columnNames, viewIds);
-        setViewBinder(this);
         mContext = context;
+        setViewBinder(this);
         Resources res = context.getResources();
         colorFactory = new CardColorFactory(res);
         coinFactory = new CoinFactory(res);
-        columnMap = new SparseIntArray();
 
         // Load the resources
         exp_none = res.getDrawable(R.drawable.ic_set_unknown);
         exp_icons = Utils.getDrawableArray(context, R.array.card_set_icons);
         int[] form_coin = Utils.getResourceArray(context, R.array.format_coin);
         String[] lang = context.getResources().getStringArray(R.array.language_codes);
+        imgDesc = res.getString(R.string.card_details);
         coinDesc = new HashMap<>(lang.length);
         for(int i=0; i<lang.length; i++)
             coinDesc.put(lang[i], form_coin[i]);
@@ -127,17 +110,9 @@ public class AdapterCards extends SimpleCursorAdapter
         super.changeCursor(cursor);
         if (cursor == null) return;
         colorFactory.changeCursor(cursor);
-        col_name = cursor.getColumnIndex(TableCard._NAME);
-        col_lang = cursor.getColumnIndex(TableCard._LANG);
-        columnMap.clear();
-        columnMap.put(col_name, COL_NAME);
-        columnMap.put(cursor.getColumnIndex(TableCard._COST), COL_COST);
-        columnMap.put(cursor.getColumnIndex(TableCard._POT), COL_POTION);
-        columnMap.put(cursor.getColumnIndex(TableCard._SET_ID), COL_SET_ID);
-        columnMap.put(cursor.getColumnIndex(TableCard._SET_NAME), COL_SET_NAME);
-        columnMap.put(cursor.getColumnIndex(TableCard._REQ), COL_REQ);
-        columnMap.put(cursor.getColumnIndex(TableCard._TYPE), COL_TYPE);
-        columnMap.put(cursor.getColumnIndex(TableCard._ID), COL_ID);
+        _name = cursor.getColumnIndex(TableCard._NAME);
+        _lang = cursor.getColumnIndex(TableCard._LANG);
+        _set_name = cursor.getColumnIndex(TableCard._SET_NAME);
     }
 
 
@@ -149,10 +124,21 @@ public class AdapterCards extends SimpleCursorAdapter
      *  Android system will bind the value using its default methods. */
     @Override
     public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
-        int colId = columnMap.get(columnIndex);
         switch(view.getId()) {
+            case R.id.card_cost:
+                String cost = cursor.getString(columnIndex);
+                Integer qty = TableCard.parseVal(cost);
+                if(qty != 0) {
+                    Resources res = mContext.getResources();
+                    String lang = cursor.getString(_lang);
+                    view.setVisibility(View.VISIBLE);
+                    view.setContentDescription(res.getQuantityString(coinDesc.get(lang), qty, cost));
+                    ((ImageView)view).setImageDrawable(coinFactory.getDrawable(cost, 0));
+                } else view.setVisibility(View.GONE);
+                return true;
+
+
             case android.R.id.background:
-                if(colId != COL_ID) return false;
                 view.setTag(cursor.getPosition() + "," + cursor.getString(columnIndex));
                 view.setOnClickListener(clickListen);
                 view.setOnLongClickListener(clickListen);
@@ -162,22 +148,7 @@ public class AdapterCards extends SimpleCursorAdapter
                 colorFactory.updateBackground(view, cursor);
                 return true;
 
-            case R.id.card_cost:
-                if(colId != COL_COST) return false;
-                String cost = cursor.getString(columnIndex);
-                Integer qty = TableCard.parseVal(cost);
-                if(qty == 0) view.setVisibility(View.GONE);
-                else {
-                    Resources res = mContext.getResources();
-                    String lang = cursor.getString(col_lang);
-                    view.setVisibility(View.VISIBLE);
-                    view.setContentDescription(res.getQuantityString(coinDesc.get(lang), qty, cost));
-                    ((ImageView)view).setImageDrawable(coinFactory.getDrawable(cost, 0));
-                }
-                return true;
-
             case R.id.card_potion:
-                if(colId != COL_POTION) return false;
                 // Hide icon if equal to "0", show icon otherwise
                 if (cursor.getInt(columnIndex) != 0)
                     view.setVisibility(View.VISIBLE);
@@ -185,35 +156,27 @@ public class AdapterCards extends SimpleCursorAdapter
                 return true;
 
             case R.id.card_set:
-                switch(colId) {
-                    case COL_SET_ID:
-                        // Match the id to a set icon
-                        Drawable setIcon = exp_none;
-                        try { setIcon = exp_icons[cursor.getInt(columnIndex)];
-                        } catch(Exception ignored){}
-                        ((ImageView)view).setImageDrawable(setIcon);
-                        return true;
+                // Match the id to a set icon
+                Drawable setIcon = exp_none;
+                try { setIcon = exp_icons[cursor.getInt(columnIndex)];
+                } catch(Exception ignored){}
+                ((ImageView)view).setImageDrawable(setIcon);
 
-                    case COL_SET_NAME:
-                        // Label the set icon with the set name
-                        view.setContentDescription(cursor.getString(columnIndex));
-                        return true;
-                }
-                return false;
+                // Label the set icon with the set name
+                view.setContentDescription(cursor.getString(_set_name));
+                return true;
 
             case R.id.image_overlay:
-                if(colId != COL_ID) return false;
                 long id = cursor.getLong(columnIndex);
                 view.setTag(id);
                 view.setOnClickListener(imgListen);
+                view.setContentDescription(String.format(imgDesc, cursor.getString(_name)));
 
             case R.id.card_image:
-                if(colId != COL_ID) return false;
                 // TODO: Bind image to this view
                 return true;
 
             case R.id.card_requires:
-                if(colId != COL_REQ) return false;
                 // Default binding, but hide if equal to "" or null
                 String req = cursor.getString(columnIndex);
                 if(cursor.isNull(columnIndex) || "".equals(req))
@@ -231,7 +194,7 @@ public class AdapterCards extends SimpleCursorAdapter
         Cursor cursor = getCursor();
         if(cursor == null || !cursor.moveToPosition(position))
             return null;
-        return cursor.getString(col_name);
+        return cursor.getString(_name);
     }
 
 

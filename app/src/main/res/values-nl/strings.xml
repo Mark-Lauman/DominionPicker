@@ -9,13 +9,12 @@
 
     <string name="picks">Jouw Selecties!</string>
     <string name="toggle_all">Selectie omdraaien</string>
-    <string name="submit">Kies</string>
+    <string name="shuffle">Kies</string>
     <string name="more_k">Selecteer meer Koninkrijkkaarten! (%1$s)</string>
     <string name="yw_no_bane">Jonge Heks - Geen bankaart!</string>
     <string name="all_filtered">Geen selectie mogelijk.</string>
     
     <string name="set">Editie</string>
-    <string name="potion">Toverdrank</string>
 
     <string name="game_history">Geschiedenis</string>
     <string name="sample_games">Aanbevolen sets</string>

@@ -22,4 +22,6 @@
         <item>en</item>
     </string-array>
 
+    <string name="potion">Potion</string>
+
 </resources>

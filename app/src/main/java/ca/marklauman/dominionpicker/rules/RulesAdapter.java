@@ -252,7 +252,7 @@ class RulesAdapter extends ArrayAdapter<View>
                 while (data.moveToNext()){
                     int cost = data.getInt(_cost);
                     view = newChecked(context,
-                            res.getQuantityString(R.plurals.format_coin_def,
+                            res.getQuantityString(R.plurals.format_coin,
                                     cost, "" + cost),
                             coins.getDrawable("" + cost, coinSize));
                     if(!filt_cost.contains(cost))

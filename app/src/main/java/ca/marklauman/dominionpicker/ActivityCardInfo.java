@@ -138,7 +138,8 @@ public class ActivityCardInfo extends AppCompatActivity
         String txt = data.getString(data.getColumnIndex(TableCard._TEXT));
         // Apply the descriptive text if its there
         if(txt != null && !"".equals(txt))
-            info.setText(data.getString(data.getColumnIndex(TableCard._TEXT)));
+            info.setText(data.getString(data.getColumnIndex(TableCard._TEXT)),
+                         data.getString(data.getColumnIndex(TableCard._LANG)));
         else {
             // It isn't there, show the "no info" panel
             info.setVisibility(View.GONE);
@@ -207,7 +208,7 @@ public class ActivityCardInfo extends AppCompatActivity
                           .setText(str);
 
         EmailButton button = (EmailButton)vNoInfo.findViewById(R.id.email);
-        button.setSubject(String.format(res.getStringArray(R.array.card_mail_subject)[langId],
+        button.setSubject(String.format(res.getString(R.string.card_mail_subject),
                                         cardId, lang));
     }
 

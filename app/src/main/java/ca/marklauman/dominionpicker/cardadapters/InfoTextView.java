@@ -7,6 +7,8 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ImageSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.util.AttributeSet;
@@ -15,6 +17,8 @@ import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.cardadapters.imagefactories.CoinFactory;
 import ca.marklauman.dominionpicker.cardadapters.imagefactories.ImageFactory;
 import ca.marklauman.dominionpicker.cardadapters.imagefactories.VPFactory;
+import ca.marklauman.dominionpicker.database.TableCard;
+import ca.marklauman.tools.Utils;
 import ca.marklauman.tools.XmlTextView;
 
 /** A TextView that displays card info, stored as an xml string.
@@ -23,8 +27,25 @@ import ca.marklauman.tools.XmlTextView;
  *  Created by Mark on 2015-12-27.
  *  @author Mark Lauman */
 public class InfoTextView extends XmlTextView {
+    /** Factory used to build the coin icons */
     private CoinFactory coins;
+    /** Factory used to build the victory point icons */
     private VPFactory vps;
+
+
+    /** String used for empty coin icons */
+    private String coinStr;
+    /** Plural resource used for full coin icons */
+    private int coinPlural;
+    /** String used for empty vp icons */
+    private String vpStr;
+    /** Plural resource used for full vp icons */
+    private int vpPlural;
+    /** String used for empty potion icons */
+    private String potStr;
+    /** Plural resource used for full potion icons */
+    private int potPlural;
+
 
     public InfoTextView(Context context) {
         super(context);
@@ -48,6 +69,39 @@ public class InfoTextView extends XmlTextView {
         setup(context);
     }
 
+    /** Deprecated in favor of {@link #setText(String, String)}. */
+    @Override
+    @Deprecated
+    public void setText(String text) {
+        throw new UnsupportedOperationException("Please use setText with a language parameter");
+    }
+
+
+    /** Set the string on display, and the language used to display it. */
+    public void setText(String text, String language) {
+        Context c = getContext();
+        Resources res = getResources();
+
+        int langId = -1;
+        String[] langCodes = res.getStringArray(R.array.language_codes);
+        for(int i=0; i<langCodes.length; i++) {
+            if(langCodes[i].equals(language)) {
+                langId = i; break;
+            }
+        }
+        if(langId == -1) return;
+
+
+        coinStr    = res.getStringArray(R.array.coin)[langId];
+        coinPlural = Utils.getResourceArray(c, R.array.format_coin)[langId];
+        vpStr      = res.getStringArray(R.array.vp)[langId];
+        vpPlural   = Utils.getResourceArray(c, R.array.format_vp)[langId];
+        potStr     = res.getStringArray(R.array.potion)[langId];
+        potPlural  = Utils.getResourceArray(c, R.array.format_potion)[langId];
+
+        super.setText(text);
+    }
+
 
     private void setup(Context context) {
         Resources res = context.getResources();
@@ -69,9 +123,12 @@ public class InfoTextView extends XmlTextView {
     @Override
     protected void tagCompleted(SpannableStringBuilder txt, String tag, int start, int end) {
         switch (tag) {
-            case "vp":  inlineDrawable(txt, vps, start, end);   break;
-            case "c":   inlineDrawable(txt, coins, start, end); break;
-            case "pot": /* TODO: Write section. Potion */ break;
+            case "vp":  inlineDrawable(txt, start, end, vps,
+                                       vpPlural, vpStr);   break;
+            case "c":   inlineDrawable(txt, start, end, coins,
+                                       coinPlural, coinStr); break;
+            case "pot": inlineDrawable(txt, start, end, R.drawable.ic_dom_potion,
+                                       potPlural, potStr); break;
             case "big": txt.setSpan(new RelativeSizeSpan(3f), start, end,
                                     Spannable.SPAN_INCLUSIVE_EXCLUSIVE);   break;
             case "br":  txt.insert(start, "\n"); break;
@@ -82,19 +139,45 @@ public class InfoTextView extends XmlTextView {
         }
     }
 
-    private void inlineDrawable(SpannableStringBuilder txt, ImageFactory factory,
-                                     int start, int end) {
+
+    /** Apply an ImageSpan from the given factory to the txt */
+    private void inlineDrawable(SpannableStringBuilder txt, int start, int end,
+                                ImageFactory factory, int pluralRes, String single) {
         CharSequence content = txt.subSequence(start, end);
-        if(content.length() == 0) {
-            txt.insert(start, "_");
-            end++;
-        }
         Resources res = mContext.getResources();
         int size;
         if(tagActive("big")) size = res.getDimensionPixelSize(R.dimen.vp_size_large);
         else size = (tagActive("b")) ? res.getDimensionPixelSize(R.dimen.vp_size_med)
                                      : res.getDimensionPixelSize(R.dimen.vp_size_small);
-        txt.setSpan(factory.getSpan(content, size),
-                    start, end, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+        inlineDrawable(txt, start, end,
+                       factory.getSpan(content, size), pluralRes, single);
+    }
+
+
+    /** Apply an ImageSpan from a given drawable resource to the txt */
+    private void inlineDrawable(SpannableStringBuilder txt, int start, int end,
+                                int drawRes, int pluralRes, String single) {
+        Resources res = getResources();
+        ImageSpan span = new ImageSpan(getContext(), drawRes);
+        int size;
+        if(tagActive("big")) size = res.getDimensionPixelSize(R.dimen.vp_size_large);
+        else size = (tagActive("b")) ? res.getDimensionPixelSize(R.dimen.vp_size_med)
+                                     : res.getDimensionPixelSize(R.dimen.vp_size_small);
+        span.getDrawable().setBounds(0, 0, size, size);
+        inlineDrawable(txt, start, end, span, pluralRes, single);
+    }
+
+
+    /** Apply an ImageSpan to the txt */
+    private void inlineDrawable(SpannableStringBuilder txt, int start, int end,
+                                ImageSpan span, int pluralRes, String single) {
+        Resources res = getResources();
+        CharSequence content = txt.subSequence(start, end);
+        String newContent = (content.length()==0)
+                ? single
+                : res.getQuantityString(pluralRes, TableCard.parseVal(""+content), content);
+        if(newContent.length() == 0) newContent = "_";
+        txt.replace(start, end, newContent);
+        txt.setSpan(span, start, start+newContent.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
     }
 }

@@ -22,4 +22,10 @@
         <item>en</item>
     </string-array>
 
+    <string name="potion">Pozione</string>
+    <plurals name="format_potion">
+        <item quantity="one">%1$s Pozione</item>
+        <item quantity="other">%1$s Pozioni</item>
+    </plurals>
+
 </resources>

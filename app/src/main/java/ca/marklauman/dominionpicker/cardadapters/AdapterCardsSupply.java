@@ -21,12 +21,12 @@ public class AdapterCardsSupply extends AdapterCards implements AdapterCards.Lis
     public AdapterCardsSupply(Context context) {
         super(context,
                 new String[]{TableCard._NAME, TableCard._COST, TableCard._POT, TableCard._SET_ID,
-                          TableCard._SET_NAME, TableCard._REQ, TableCard._ID,
-                          TableCard._ID, TableCard._ID, TableCard._TYPE, TableCard._TYPE,
-                          TableCard._ID},
+                             TableCard._REQ, TableCard._ID, TableCard._ID,
+                             TableCard._ID, TableCard._TYPE, TableCard._TYPE,
+                             TableCard._ID},
                 new int[]{R.id.card_name, R.id.card_cost, R.id.card_potion, R.id.card_set,
-                          R.id.card_set, R.id.card_requires, android.R.id.background,
-                          R.id.card_image, R.id.image_overlay, R.id.card_type, R.id.card_color,
+                          R.id.card_requires, android.R.id.background, R.id.card_image,
+                          R.id.image_overlay, R.id.card_type, R.id.card_color,
                           R.id.card_extra});
         setListener(this);
     }
