@@ -10,7 +10,7 @@
 
     <color name="card_image_back">#4000</color>
     <color name="coin_back">@color/type_treasure</color>
-    <color name="coin_vp_edge">#888</color>
+    <color name="drawable_edge">#888</color>
     <color name="vp_plus">@color/type_victory</color>
     <color name="vp_minus">@color/type_curse</color>
 

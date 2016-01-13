@@ -36,15 +36,15 @@ public class InfoTextView extends XmlTextView {
     /** String used for empty coin icons */
     private String coinStr;
     /** Plural resource used for full coin icons */
-    private int coinPlural;
+    private int coinPlural = 0;
     /** String used for empty vp icons */
     private String vpStr;
     /** Plural resource used for full vp icons */
-    private int vpPlural;
+    private int vpPlural = 0;
     /** String used for empty potion icons */
     private String potStr;
     /** Plural resource used for full potion icons */
-    private int potPlural;
+    private int potPlural = 0;
 
 
     public InfoTextView(Context context) {
@@ -91,13 +91,15 @@ public class InfoTextView extends XmlTextView {
         }
         if(langId == -1) return;
 
-
-        coinStr    = res.getStringArray(R.array.coin)[langId];
-        coinPlural = Utils.getResourceArray(c, R.array.format_coin)[langId];
-        vpStr      = res.getStringArray(R.array.vp)[langId];
-        vpPlural   = Utils.getResourceArray(c, R.array.format_vp)[langId];
-        potStr     = res.getStringArray(R.array.potion)[langId];
-        potPlural  = Utils.getResourceArray(c, R.array.format_potion)[langId];
+        // Utils.getResourceArray does not work in edit mode
+        if(!isInEditMode()) {
+            coinStr    = res.getStringArray(R.array.coin)[langId];
+            coinPlural = Utils.getResourceArray(c, R.array.format_coin)[langId];
+            vpStr      = res.getStringArray(R.array.vp)[langId];
+            vpPlural   = Utils.getResourceArray(c, R.array.format_vp)[langId];
+            potStr     = res.getStringArray(R.array.potion)[langId];
+            potPlural  = Utils.getResourceArray(c, R.array.format_potion)[langId];
+        }
 
         super.setText(text);
     }
@@ -109,7 +111,8 @@ public class InfoTextView extends XmlTextView {
         vps = new VPFactory(res);
         setHrRes(R.layout.card_info_hr);
         setTextViewRes(R.layout.card_info_txt);
-        if (isInEditMode()) setText(R.string.demo_card_text);
+        if (isInEditMode()) setText(context.getString(R.string.demo_card_text),
+                                    "en");
     }
 
 
@@ -144,11 +147,11 @@ public class InfoTextView extends XmlTextView {
     private void inlineDrawable(SpannableStringBuilder txt, int start, int end,
                                 ImageFactory factory, int pluralRes, String single) {
         CharSequence content = txt.subSequence(start, end);
-        Resources res = mContext.getResources();
+        Resources res = getResources();
         int size;
-        if(tagActive("big")) size = res.getDimensionPixelSize(R.dimen.vp_size_large);
-        else size = (tagActive("b")) ? res.getDimensionPixelSize(R.dimen.vp_size_med)
-                                     : res.getDimensionPixelSize(R.dimen.vp_size_small);
+        if(tagActive("big")) size = res.getDimensionPixelSize(R.dimen.drawable_size_large);
+        else size = (tagActive("b")) ? res.getDimensionPixelSize(R.dimen.drawable_size_med)
+                                     : res.getDimensionPixelSize(R.dimen.drawable_size_small);
         inlineDrawable(txt, start, end,
                        factory.getSpan(content, size), pluralRes, single);
     }
@@ -160,9 +163,9 @@ public class InfoTextView extends XmlTextView {
         Resources res = getResources();
         ImageSpan span = new ImageSpan(getContext(), drawRes);
         int size;
-        if(tagActive("big")) size = res.getDimensionPixelSize(R.dimen.vp_size_large);
-        else size = (tagActive("b")) ? res.getDimensionPixelSize(R.dimen.vp_size_med)
-                                     : res.getDimensionPixelSize(R.dimen.vp_size_small);
+        if(tagActive("big")) size = res.getDimensionPixelSize(R.dimen.drawable_size_large);
+        else size = (tagActive("b")) ? res.getDimensionPixelSize(R.dimen.drawable_size_med)
+                                     : res.getDimensionPixelSize(R.dimen.drawable_size_small);
         span.getDrawable().setBounds(0, 0, size, size);
         inlineDrawable(txt, start, end, span, pluralRes, single);
     }
@@ -173,9 +176,12 @@ public class InfoTextView extends XmlTextView {
                                 ImageSpan span, int pluralRes, String single) {
         Resources res = getResources();
         CharSequence content = txt.subSequence(start, end);
-        String newContent = (content.length()==0)
-                ? single
-                : res.getQuantityString(pluralRes, TableCard.parseVal(""+content), content);
+        String newContent = ""+content;
+        if(pluralRes != 0 && single != null) {
+            newContent = (content.length()==0)
+                    ? single
+                    : res.getQuantityString(pluralRes, TableCard.parseVal(""+content), content);
+        }
         if(newContent.length() == 0) newContent = "_";
         txt.replace(start, end, newContent);
         txt.setSpan(span, start, start+newContent.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);

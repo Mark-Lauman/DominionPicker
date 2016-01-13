@@ -33,8 +33,8 @@ public class VPFactory implements ImageFactory {
 
     /** Create a CoinFactory from the given resources. */
     public VPFactory(Resources res){
-        defSize = res.getDimensionPixelSize(R.dimen.vp_size_small);
-        border = res.getColor(R.color.coin_vp_edge);
+        defSize = res.getDimensionPixelSize(R.dimen.drawable_size_small);
+        border = res.getColor(R.color.drawable_edge);
         victory = res.getColor(R.color.vp_plus);
         curse = res.getColor(R.color.vp_minus);
     }

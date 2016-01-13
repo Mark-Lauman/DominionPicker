@@ -7,8 +7,9 @@
 
     <string name="picker">Cards</string>
     <string name="req_card">Required</string>
+    <string name="card_details">Card Details</string>
     <!-- read by blind assistant as "Alchemist Card Details Button" -->
-    <string name="card_details">%1$s Card Details</string>
+    <string name="card_details_button">%1$s Card Details</string>
 
     <string name="picks">Your Picks!</string>
     <string name="toggle_all">Toggle All</string>
@@ -16,9 +17,6 @@
     <string name="more_k">Need More Kingdom Cards! (%1$s)</string>
     <string name="yw_no_bane">Young Witch - No Bane</string>
     <string name="all_filtered">All cards filtered out.</string>
-
-    <string name="email_mark">Email Mark</string>
-    <string name="no_email">Send an email to android@marklauman.ca</string>
     
     <string name="set">Set</string>
 

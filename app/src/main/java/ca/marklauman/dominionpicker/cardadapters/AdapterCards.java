@@ -98,7 +98,7 @@ public class AdapterCards extends SimpleCursorAdapter
         exp_icons = Utils.getDrawableArray(context, R.array.card_set_icons);
         int[] form_coin = Utils.getResourceArray(context, R.array.format_coin);
         String[] lang = context.getResources().getStringArray(R.array.language_codes);
-        imgDesc = res.getString(R.string.card_details);
+        imgDesc = res.getString(R.string.card_details_button);
         coinDesc = new HashMap<>(lang.length);
         for(int i=0; i<lang.length; i++)
             coinDesc.put(lang[i], form_coin[i]);

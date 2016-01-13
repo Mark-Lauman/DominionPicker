@@ -32,12 +32,17 @@
         <activity android:name=".settings.CardLanguageSelector"
             android:label="@string/filt_lang" />
 
-        <activity android:name="ca.marklauman.tools.SingleItemSelector" />
+        <activity android:name="ca.marklauman.tools.SingleItemSelector"
+            android:label="@string/filt_lang" />
 
         <activity android:name=".settings.ActivityCardSort"
             android:label="@string/sort_card" />
 
-        <activity android:name=".ActivityCardInfo" />
+        <activity android:name=".ActivityCardInfo"
+            android:label="@string/card_details" />
+
+        <activity android:name=".community.ActivityComm"
+            android:label="@string/community" />
         
         <provider android:name=".database.Provider"
             android:authorities="${applicationId}"

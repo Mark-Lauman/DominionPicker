@@ -246,7 +246,7 @@ class RulesAdapter extends ArrayAdapter<View>
 
                 Resources res = context.getResources();
                 posCost.start = views.size();
-                int coinSize = res.getDimensionPixelSize(R.dimen.vp_size_small);
+                int coinSize = res.getDimensionPixelSize(R.dimen.drawable_size_small);
                 int _cost = data.getColumnIndex(TableCard._COST_VAL);
                 data.moveToPosition(-1);
                 while (data.moveToNext()){

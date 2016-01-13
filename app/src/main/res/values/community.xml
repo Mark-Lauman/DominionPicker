@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="community">Community</string>
+    <string name="community_info">Improve this app</string>
+
+    <string name="email_mark">Email Mark</string>
+    <string name="email_info">He makes the app</string>
+    <string name="no_email">Send an email to android@marklauman.ca</string>
+
+    <string name="github">Visit GitHub</string>
+    <string name="github_info">See planned features</string>
+    <string name="github_url">https://github.com/Mark-Lauman/DominionPicker/issues</string>
+
+    <string name="contrib">Contributors</string>
+    <string name="contrib_info">Making the app better</string>
+    <string name="thanks">Dominion Picker could not have become what it is without your help. Thank You.</string>
+    <!-- TODO: Determine who wants to be in the credits -->
+    <string name="credits"><![CDATA[
+        <b>TODO</b>
+    ]]></string>
+
+    <string name="open_source">Open Source Credits</string>
+    <string name="open_source_info">Programming projects that helped</string>
+    <string name="apache_txt"><![CDATA[
+        All projects were licensed under the <a href="">Apache License,</a> Version 2.0
+    ]]></string>
+    <string name="apache_url">http://www.apache.org/licenses/LICENSE-2.0</string>
+    <string name="open_sql"><![CDATA[
+        <b>Android SQLiteAssetHelper</b><br>
+        &#169;2011 readyState Software Ltd
+    ]]></string>
+    <string name="open_sql_url">https://github.com/jgilfelt/android-sqlite-asset-helper</string>
+    <string name="open_list"><![CDATA[
+        <b>DragSortListView</b><br/>
+        &#169;2012 Carl Bauer
+    ]]></string>
+    <string name="open_list_url">https://github.com/bauerca/drag-sort-listview</string>
+    <string name="open_picasso"><![CDATA[ <b>Picasso</b><br/>&#169;2013 Square, Inc. ]]></string>
+    <string name="open_picasso_url">http://square.github.io/picasso/</string>
+
+</resources>

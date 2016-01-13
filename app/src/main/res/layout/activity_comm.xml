@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ca.marklauman.tools.preferences.IntentPreference android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        app:image="@drawable/ic_core_email"
+        app:name="@string/email_mark"
+        app:summary="@string/email_info"
+        android:background="?attr/selectableItemBackground"
+        app:intent="ca.marklauman.dominionpicker.community.ActivityComm"
+        app:extra="@string/email_mark" />
+
+    <View android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:drawable/divider_horizontal_bright" />
+
+    <ca.marklauman.tools.preferences.IntentPreference android:id="@+id/github"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:image="@drawable/ic_github"
+        app:name="@string/github"
+        app:summary="@string/github_info"
+        android:background="?attr/selectableItemBackground"
+        app:intent="ca.marklauman.dominionpicker.community.ActivityComm"
+        app:extra="@string/github" />
+
+    <View android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:drawable/divider_horizontal_bright" />
+
+    <ca.marklauman.tools.preferences.IntentPreference
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:image="@drawable/ic_core_people"
+        app:name="@string/contrib"
+        app:summary="@string/contrib_info"
+        android:background="?attr/selectableItemBackground"
+        app:intent="ca.marklauman.dominionpicker.community.ActivityComm"
+        app:extra="@string/contrib" />
+
+    <View android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:drawable/divider_horizontal_bright" />
+
+    <ca.marklauman.tools.preferences.IntentPreference
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:image="@drawable/ic_core_code"
+        app:name="@string/open_source"
+        app:summary="@string/open_source_info"
+        android:background="?attr/selectableItemBackground"
+        app:intent="ca.marklauman.dominionpicker.community.ActivityComm"
+        app:extra="@string/open_source" />
+
+    <View android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:drawable/divider_horizontal_bright" />
+
+</LinearLayout>

@@ -29,9 +29,9 @@ public class CoinFactory implements ImageFactory {
 
     /** Create a CoinFactory from the given resources. */
     public CoinFactory(Resources res){
-        def_size = res.getDimensionPixelSize(R.dimen.vp_size_small);
+        def_size = res.getDimensionPixelSize(R.dimen.drawable_size_small);
         coinBack = res.getColor(R.color.coin_back);
-        coinEdge = res.getColor(R.color.coin_vp_edge);
+        coinEdge = res.getColor(R.color.drawable_edge);
     }
 
     @Override
