@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.SimpleCursorAdapter.ViewBinder;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.HashMap;
 
 import ca.marklauman.dominionpicker.cardadapters.imagefactories.CardColorFactory;
@@ -47,6 +49,8 @@ public class AdapterCards extends SimpleCursorAdapter
     private final CoinFactory coinFactory;
     /** Format string for the card icon's description */
     private final String imgDesc;
+    /** Size of the card icon */
+    private final int imgSize;
 
     /** Column index of the card's name */
     private int _name;
@@ -92,6 +96,7 @@ public class AdapterCards extends SimpleCursorAdapter
         Resources res = context.getResources();
         colorFactory = new CardColorFactory(res);
         coinFactory = new CoinFactory(res);
+        imgSize = res.getDimensionPixelSize(R.dimen.card_thumb_size);
 
         // Load the resources
         exp_none = res.getDrawable(R.drawable.ic_set_unknown);
@@ -171,9 +176,15 @@ public class AdapterCards extends SimpleCursorAdapter
                 view.setTag(id);
                 view.setOnClickListener(imgListen);
                 view.setContentDescription(String.format(imgDesc, cursor.getString(_name)));
+                return true;
 
             case R.id.card_image:
-                // TODO: Bind image to this view
+                Picasso.with(mContext)
+                       .load("file:///android_asset/card_images/"
+                              + String.format("%03d", cursor.getLong(columnIndex))
+                              + ".jpg")
+                       .resize(imgSize, imgSize)
+                       .into((ImageView)view);
                 return true;
 
             case R.id.card_requires:

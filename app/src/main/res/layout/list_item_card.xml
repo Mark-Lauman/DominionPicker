@@ -15,14 +15,14 @@
         android:background="@color/background" >
 
         <ImageView android:id="@+id/card_image"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/card_thumb_size"
+            android:layout_height="@dimen/card_thumb_size"
             android:background="@color/card_image_back"
             tools:ignore="ContentDescription" />
 
         <ImageView android:id="@+id/image_overlay"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/card_thumb_size"
+            android:layout_height="@dimen/card_thumb_size"
             android:background="?selectableItemBackground"
             android:src="@drawable/ic_image_clickable"
             tools:ignore="ContentDescription" />
@@ -30,7 +30,7 @@
         <RelativeLayout android:background="?selectableItemBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="60dp"
+            android:minHeight="@dimen/card_thumb_size"
             android:layout_toRightOf="@id/card_image"
             android:layout_toEndOf="@id/card_image"
             android:gravity="center_vertical"
