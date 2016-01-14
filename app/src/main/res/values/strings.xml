@@ -35,7 +35,7 @@
     <string name="young_witch_bane">Bane</string>
     
     <string name="market_title">Black Market</string>
-    <string name="market_begin">New market created from the picker</string>
+    <string name="market_begin">New market created from the card list.</string>
     <string name="market_draw">Draw</string>
     <string name="market_pass">Pass</string>
     <string name="market_sold_out">Sold Out!</string>
