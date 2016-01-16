@@ -22,7 +22,7 @@ android {
             shrinkResources true
             zipAlignEnabled true
             //noinspection GroovyAssignabilityCheck
-            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             applicationIdSuffix ".debug"

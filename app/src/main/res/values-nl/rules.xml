@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="rules">Rules</string>
+    <string name="limit_supply">Supply Size</string>
+
     <string name="rules_expansions">Edities</string>
+    <string name="rules_promo">Promo</string>
 
     <string name="rules_cost">Kaart kosten</string>
 
+    <string name="rules_other">Other</string>
     <string name="rules_curse">Vloeken</string>
 </resources>

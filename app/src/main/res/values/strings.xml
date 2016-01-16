@@ -6,46 +6,41 @@
     <string name="menu_close">Close Menu</string>
 
     <string name="picker">Cards</string>
-    <string name="req_card">Required</string>
-    <string name="card_details">Card Details</string>
-    <!-- read by blind assistant as "Alchemist Card Details Button" -->
-    <string name="card_details_button">%1$s Card Details</string>
-
-    <string name="picks">Your Picks!</string>
     <string name="toggle_all">Toggle All</string>
     <string name="shuffle">Shuffle</string>
-    <string name="more_k">Need More Kingdom Cards! (%1$s)</string>
+    <string name="req_card">Required</string>
+    <string name="card_details">Card Details</string>
+    <!-- read by blind assistant as "Alchemist card details button" -->
+    <string name="card_details_button">%1$s card details</string>
+    <string name="more_k">Need more Kingdom cards! (%1$s)</string>
     <string name="yw_no_bane">Young Witch - No Bane</string>
     <string name="all_filtered">All cards filtered out.</string>
-    
-    <string name="set">Set</string>
 
     <string name="games">Games</string>
     <string name="sample_games">Sample</string>
     <string name="favorite_games">Favorites</string>
     <string name="game_history">History</string>
     <string name="no_hist">Your shuffles are stored here.</string>
-
-    <string name="change_fav">Change Favorite</string>
-    <string name="name_me">Name me!</string>
-    <string name="save">Save</string>
-
-    <string name="supply_colonies">Use Colonies &amp; Platinum</string>
-    <string name="supply_shelters">Use Shelters</string>
-    <string name="young_witch_bane">Bane</string>
-    
-    <string name="market_title">Black Market</string>
-    <string name="market_begin">New market created from the card list.</string>
-    <string name="market_draw">Draw</string>
-    <string name="market_pass">Pass</string>
-    <string name="market_sold_out">Sold Out!</string>
-
     <plurals name="hist_card">
         <item quantity="one">%d Card</item>
         <item quantity="other">%d Cards</item>
     </plurals>
     <string name="hist_plat">Platinum</string>
     <string name="hist_shelter">Shelters</string>
+
+    <string name="market_title">Black Market</string>
+    <string name="market_begin">New market created from the card list.</string>
+    <string name="market_draw">Draw</string>
+    <string name="market_pass">Pass</string>
+    <string name="market_sold_out">Sold Out!</string>
+
+    <string name="supply_no_name">Your Picks!</string>
+    <string name="supply_colonies">Use Colonies &amp; Platinum</string>
+    <string name="supply_shelters">Use Shelters</string>
+    <string name="young_witch_bane">Bane</string>
+    <string name="change_fav">Change Favorite</string>
+    <string name="name_me">Name me!</string>
+    <string name="save">Save</string>
 
     <string-array name="navNames">
         <item>@string/rules</item>

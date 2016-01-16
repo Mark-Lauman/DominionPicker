@@ -21,7 +21,7 @@
         </activity>
         
         <activity android:name=".ActivitySupply"
-            android:label="@string/picks" />
+            android:label="@string/supply_no_name" />
         
         <activity android:name=".ActivityMarket"
             android:label="@string/market_title" />

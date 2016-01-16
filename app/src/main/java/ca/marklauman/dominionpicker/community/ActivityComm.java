@@ -22,8 +22,8 @@ public class ActivityComm extends AppCompatActivity {
         if(ab != null) ab.setDisplayHomeAsUpEnabled(true);
 
         switch(getIntent().getIntExtra(IntentPreference.EXTRA, 0)) {
-            case R.string.contrib:
-                setTitle(R.string.contrib);
+            case R.string.contribute:
+                setTitle(R.string.contribute);
                 setContentView(R.layout.activity_comm_contrib);
                 break;
             case R.string.open_source:

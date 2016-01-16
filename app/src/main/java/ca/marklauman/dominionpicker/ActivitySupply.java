@@ -173,7 +173,7 @@ public class ActivitySupply extends AppCompatActivity
             // Wipe the supply name
             supply.name = null;
             ActionBar ab = getSupportActionBar();
-            if(ab != null) ab.setTitle(R.string.picks);
+            if(ab != null) ab.setTitle(R.string.supply_no_name);
             invalidateOptionsMenu();
 
             // Save the wipe to the database

@@ -62,7 +62,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginEnd="8dp"
                 android:src="@drawable/ic_set_base"
-                android:contentDescription="@string/set" />
+                tools:ignore="ContentDescription" />
 
             <TextView android:id="@+id/card_name"
                 android:layout_width="match_parent"

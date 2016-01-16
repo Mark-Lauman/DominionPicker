@@ -44,11 +44,11 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         app:image="@drawable/ic_core_people"
-        app:name="@string/contrib"
-        app:summary="@string/contrib_info"
+        app:name="@string/contribute"
+        app:summary="@string/contribute_info"
         android:background="?attr/selectableItemBackground"
         app:intent="ca.marklauman.dominionpicker.community.ActivityComm"
-        app:extra="@string/contrib" />
+        app:extra="@string/contribute" />
 
     <View android:layout_width="match_parent"
         android:layout_height="1px"

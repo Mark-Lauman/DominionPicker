@@ -6,39 +6,43 @@
     <string name="menu_close">Chiudi Menu</string>
   
     <string name="picker">Scegli carte</string>
-  
-    <string name="picks">Carte scelte!</string>
     <string name="toggle_all">Seleziona Tutto</string>
     <string name="shuffle">Invia</string>
+    <string name="req_card">Required</string>
+    <string name="card_details">Card Details</string>
+    <!-- read by blind assistant as "Alchemist card details button" -->
+    <string name="card_details_button">%1$s card details</string>
     <string name="more_k">Seleziona altre carte regno! (%1$s)</string>
     <string name="yw_no_bane">Giovane strega - No Scongiuro</string>
     <string name="all_filtered">Tutte le carte filtrate.</string>
-  
-    <string name="set">Selezione</string>
-  
-    <string name="game_history">Cronologia</string>
+
+    <string name="games">Games</string>
     <string name="sample_games">Esempi</string>
     <string name="favorite_games">Preferiti</string>
+    <string name="game_history">Cronologia</string>
     <string name="no_hist">Le selezioni sono memorizzate qui.</string>
-  
-    <string name="change_fav">Cambia preferiti</string>
-    <string name="name_me">Nome selezione</string>
-    <string name="save">Salva</string>
+    <plurals name="hist_card">
+        <item quantity="one">%d Carta</item>
+        <item quantity="other">%d Carte</item>
+    </plurals>
+    <string name="hist_plat">Platino</string>
+    <string name="hist_shelter">Shelter</string>
 
-    <string name="supply_colonies">Usa Colonie &amp; Platino</string>
-    <string name="supply_shelters">Usa le carte "Shelter"</string>
-    <string name="young_witch_bane">Scongiuro</string>
-  
     <string name="market_title">Black Market</string>
     <string name="market_begin">Nuovo mercato nero creato dal selettore</string>
     <string name="market_draw">Pesca</string>
     <string name="market_pass">Passa</string>
     <string name="market_sold_out">Esaurito!</string>
+
+    <string name="supply_no_name">Carte scelte!</string>
+    <string name="supply_colonies">Usa Colonie &amp; Platino</string>
+    <string name="supply_shelters">Usa le carte "Shelter"</string>
+    <string name="young_witch_bane">Scongiuro</string>
+    <string name="change_fav">Cambia preferiti</string>
+    <string name="name_me">Nome selezione</string>
+    <string name="save">Salva</string>
+
+
   
-  <plurals name="hist_card">
-    <item quantity="one">%d Carta</item>
-    <item quantity="other">%d Carte</item>
-  </plurals>
-    <string name="hist_plat">Platino</string>
-    <string name="hist_shelter">Shelter</string>
+
 </resources>
