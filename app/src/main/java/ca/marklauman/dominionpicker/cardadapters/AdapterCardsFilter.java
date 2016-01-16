@@ -34,14 +34,14 @@ public class AdapterCardsFilter extends AdapterCards
 
 
     public AdapterCardsFilter(Context context) {
-        super(context, R.layout.list_item_card,
+        super(context,
               new String[]{TableCard._NAME, TableCard._COST, TableCard._POT, TableCard._SET_ID,
-                           TableCard._SET_NAME, TableCard._REQ, TableCard._ID,
-                           TableCard._ID, TableCard._ID, TableCard._TYPE, TableCard._TYPE,
+                           TableCard._REQ, TableCard._ID, TableCard._ID,
+                           TableCard._ID, TableCard._TYPE, TableCard._TYPE,
                            TableCard._ID},
               new int[]{R.id.card_name, R.id.card_cost, R.id.card_potion, R.id.card_set,
-                        R.id.card_set, R.id.card_requires, android.R.id.background,
-                        R.id.card_image, R.id.image_overlay, R.id.card_type, R.id.card_color,
+                        R.id.card_requires, android.R.id.background, R.id.card_image,
+                        R.id.image_overlay, R.id.card_type, R.id.card_color,
                         R.id.card_extra});
         setListener(this);
         mContext = context;
@@ -89,7 +89,7 @@ public class AdapterCardsFilter extends AdapterCards
                 return true;
 
             case android.R.id.background:
-                if(columnIndex != col_id) return false;
+                if(columnIndex != col_id) return super.setViewValue(view, cursor, columnIndex);
                 id = cursor.getLong(col_id);
 
                 if(deselected.contains(id))
@@ -160,7 +160,7 @@ public class AdapterCardsFilter extends AdapterCards
 
 
     @Override
-    public void onItemClick(View view, int position, long id, boolean longClick) {
+    public void onItemClick(int position, long id, boolean longClick) {
         if(longClick) hardToggle(id);
         else toggleItem(id);
     }

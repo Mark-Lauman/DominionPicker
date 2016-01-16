@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="rules">Rules</string>
+    <string name="limit_supply">Supply Size</string>
+
     <string name="rules_expansions">Edi&#231;&#245;es</string>
-    <string name="filter_curse">Amaldi&#231;oadores</string>
+    <string name="rules_promo">Promo</string>
+
+    <string name="rules_cost">Custo das Cartas</string>
+
+    <string name="rules_other">Other</string>
+    <string name="rules_curse">Amaldi&#231;oadores</string>
 </resources>

@@ -58,13 +58,13 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
 
         // load applicable filters.
         SharedPreferences pref = getPreferences();
-        String filt_pre = loadFilter(pref);
+        String filt_pre = FragmentPicker.getFilter(pref);
         String filt_req = pref.getString(Prefs.REQ_CARDS, "");
         String filt_card = pref.getString(Prefs.FILT_CARD, "");
 
         // Load the required cards into the supply
         if(0 < filt_req.length())
-            loadCards(supply, filt_pre + TableCard._ID+" IN ("+filt_req+")", true);
+            loadCards(supply, joinFilters(filt_pre, TableCard._ID+" IN ("+filt_req+")"), true);
         if(isCancelled())
             return cancelResult();
         if (!supply.needsKingdom())
@@ -73,13 +73,12 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
         // Filter out both required and excluded cards
         String filt = filt_req+filt_card;
         if(0 < filt_req.length() && 0 < filt_card.length())
-            filt = filt_req + "," + filt_card;
-        filt = (filt.length() == 0) ? "TRUE"
-                                    : TableCard._ID+" NOT IN ("+filt+")";
+            filt = filt_req+","+filt_card;
+        if(0 < filt.length())
+            filt = TableCard._ID+" NOT IN ("+filt+")";
 
         // Shuffle the remaining cards into the supply
-        if(filt.length() != 0)
-            loadCards(supply, filt_pre + filt, false);
+        loadCards(supply, joinFilters(filt_pre, filt), false);
         if(isCancelled())
             return cancelResult();
         if (!supply.needsKingdom())
@@ -100,26 +99,37 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
     }
 
 
-    /** Simple shorthand to get the preferences. */
-    private static SharedPreferences getPreferences() {
-        return PreferenceManager.getDefaultSharedPreferences(Prefs.getStaticContext());
+    /** Joins a collection of filters together with AND statements */
+    private static String joinFilters(String... filters) {
+        if(filters.length == 0) return "";
+        if(filters.length == 1) return filters[0];
+
+        // Find the first non-null string in the filter list
+        int i =0;
+        while(filters[i] == null || "".equals(filters[i])) {
+            if(i == filters.length) return "";
+            i++;
+        }
+
+        // Start of the joined filter
+        StringBuilder res = new StringBuilder(filters[i].length());
+        res.append(filters[i]);
+        i++;
+
+        // Add any remaining non-null filters
+        for(;i<filters.length; i++) {
+            if(filters[i] != null && !"".equals(filters[i])) {
+                res.append(" AND ");
+                res.append(filters[i]);
+            }
+        }
+        return res.toString();
     }
 
 
-    /** Returns additional filters that should be used before _id IN (....) */
-    private String loadFilter(SharedPreferences pref) {
-        // Filter out sets
-        String filt_set = pref.getString(Prefs.FILT_SET, "");
-        String filter = (filt_set.length()==0) ? TableCard._SET_ID+"=NULL"
-                                               : TableCard._SET_ID+" IN ("+filt_set+")";
-
-        // Filter out curses
-        if(!pref.getBoolean(Prefs.FILT_CURSE, true)) {
-            if(filter.length() != 0) filter += " AND ";
-            filter += TableCard._META_CURSER+"=0";
-        }
-
-        return (filter.length() == 0) ? filter : filter+" AND ";
+    /** Simple shorthand to get the preferences. */
+    private static SharedPreferences getPreferences() {
+        return PreferenceManager.getDefaultSharedPreferences(Prefs.getStaticContext());
     }
 
 

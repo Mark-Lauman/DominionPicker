@@ -20,11 +20,30 @@
         android:textSize="18sp"
         android:textColor="?android:attr/textColorPrimary" />
     
-    <ListView
-        android:id="@+id/card_list"
+    <ListView android:id="@+id/card_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/resources"
         android:layout_alignWithParentIfMissing="true" />
+
+    <FrameLayout android:id="@+id/time_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/list_item_sel"
+        android:padding="1px" >
+
+        <TextView android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:background="@android:color/white"
+            android:gravity="end"
+            android:text="@string/demo_supply_time" />
+
+    </FrameLayout>
     
 </RelativeLayout>

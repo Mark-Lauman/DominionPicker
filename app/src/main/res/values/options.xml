@@ -6,30 +6,12 @@
     <string name="filt_lang">Card Language</string>
     <string name="filt_lang_desc">Choose the language of each set.</string>
     <string name="system_default">Default</string>
-    <string-array name="language_names" translatable="false">
-        <item>@string/system_default</item>
-        <item>Deutsch</item>
-        <item>English</item>
-		<item>Fran&#231;ais</item>
-        <item>Italiano</item>
-        <item>Nederlands</item>
-        <item>Portugu&#234;s</item>
-    </string-array>
-    <string-array name="language_codes" translatable="false">
-        <item>0</item>
-        <item>de</item>
-        <item>en</item>
-		<item>fr</item>
-        <item>it</item>
-        <item>nl</item>
-        <item>pt</item>
-    </string-array>
 
     <string name="sort_card">Card Order</string>
     <string name="sort_card_desc">Sort your cards as you wish.</string>
     <string name="drag_handle_desc">Drag me!</string>
     <string name="sort_card_end">Sorting ends here</string>
-    <string name="sort_card_notice">Drag items into place</string>
+    <string name="sort_card_notice">Drag items into place.</string>
     <string-array name="sort_card_names">
         <item>Expansion</item>
         <item>Name</item>

@@ -15,14 +15,14 @@
         android:background="@color/background" >
 
         <ImageView android:id="@+id/card_image"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/card_thumb_size"
+            android:layout_height="@dimen/card_thumb_size"
             android:background="@color/card_image_back"
             tools:ignore="ContentDescription" />
 
         <ImageView android:id="@+id/image_overlay"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/card_thumb_size"
+            android:layout_height="@dimen/card_thumb_size"
             android:background="?selectableItemBackground"
             android:src="@drawable/ic_image_clickable"
             tools:ignore="ContentDescription" />
@@ -30,7 +30,7 @@
         <RelativeLayout android:background="?selectableItemBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="60dp"
+            android:minHeight="@dimen/card_thumb_size"
             android:layout_toRightOf="@id/card_image"
             android:layout_toEndOf="@id/card_image"
             android:gravity="center_vertical"
@@ -62,7 +62,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginEnd="8dp"
                 android:src="@drawable/ic_set_base"
-                android:contentDescription="@string/set" />
+                tools:ignore="ContentDescription" />
 
             <TextView android:id="@+id/card_name"
                 android:layout_width="match_parent"
@@ -86,7 +86,7 @@
                 android:layout_marginEnd="4dp"
                 android:layout_below="@id/card_set"
                 android:src="@color/coin_back"
-                tools:ignore="ContentDescription" />
+                android:contentDescription="@string/coin" />
 
             <ImageView android:id="@+id/card_potion"
                 android:layout_width="15sp"
@@ -110,7 +110,7 @@
                 android:textColor="?android:attr/textColorSecondary"
                 android:textSize="14sp"
                 android:textStyle="normal"
-                android:text="@string/demo_card_cat" />
+                android:text="@string/demo_card_type" />
 
             <TextView android:id="@+id/card_requires"
                 android:layout_width="match_parent"

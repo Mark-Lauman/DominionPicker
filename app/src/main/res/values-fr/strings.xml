@@ -6,41 +6,40 @@
     <string name="menu_close">Fermer le menu</string>
 
     <string name="picker">M&#233;langeur</string>
-
-    <string name="picks">Vos m&#233;langes!</string>
     <string name="toggle_all">Tout inverser</string>
-    <string name="submit">Envoyer</string>
-    <string name="more">Il faut plus de cartes! (%1$s)</string>
+    <string name="shuffle">Envoyer</string>
+    <string name="req_card">Required</string>
+    <string name="card_details">Card Details</string>
+    <!-- read by blind assistant as "Alchemist card details button" -->
+    <string name="card_details_button">%1$s card details</string>
     <string name="more_k">Il faut plus de cartes royaume! (%1$s)</string>
     <string name="yw_no_bane">Jeune sorci&#232;re - Pas de fl&#233;eau</string>
     <string name="all_filtered">Toutes les cartes sont filtr&#233;es.</string>
-    
-    <string name="set">Ensemble</string>
-    <string name="potion">Potion</string>
 
-    <string name="game_history">Historique</string>
+    <string name="games">Games</string>
     <string name="sample_games">Exemples</string>
     <string name="favorite_games">Favoris</string>
+    <string name="game_history">Historique</string>
     <string name="no_hist">Vos m&#233;langes sont enregistr&#233;s ici.</string>
-
-    <string name="change_fav">Favori ?</string>
-    <string name="name_me">Nom ?</string>
-    <string name="save">Enregistrer</string>
-
-    <string name="supply_colonies">Utiliser Colonies &amp; Platinum</string>
-    <string name="supply_shelters">Utiliser Shelters</string>
-    <string name="young_witch_bane">Fl&#233;au</string>
-    
-    <string name="market_title">Black Market</string>
-    <string name="market_begin">Nouveau march&#233; cr&#233;&#233; par le m&#233;langeur</string>
-    <string name="market_draw">Tirer</string>
-    <string name="market_pass">Passer</string>
-    <string name="market_sold_out">&#201;puis&#233; !</string>
-
     <plurals name="hist_card">
         <item quantity="one">%d Carte</item>
         <item quantity="other">%d Cartes</item>
     </plurals>
     <string name="hist_plat">Platinum</string>
     <string name="hist_shelter">Shelters</string>
+
+    <string name="market_title">Black Market</string>
+    <string name="market_begin">Nouveau march&#233; cr&#233;&#233; par le m&#233;langeur</string>
+    <string name="market_draw">Tirer</string>
+    <string name="market_pass">Passer</string>
+    <string name="market_sold_out">&#201;puis&#233; !</string>
+
+    <string name="supply_no_name">Vos m&#233;langes!</string>
+    <string name="supply_colonies">Utiliser Colonies &amp; Platinum</string>
+    <string name="supply_shelters">Utiliser Shelters</string>
+    <string name="young_witch_bane">Fl&#233;au</string>
+    <string name="change_fav">Favori ?</string>
+    <string name="name_me">Nom ?</string>
+    <string name="save">Enregistrer</string>
+
 </resources>

@@ -7,4 +7,19 @@
     <string name="filt_lang_desc">Wählen Sie die Sprache der jeweiligen Erweiterung.</string>
     <string name="system_default">Standard</string>
 
+    <string name="sort_card">Organisieren Karten</string>
+    <string name="sort_card_desc">Ihre Karten zu sortieren, wie Sie möchten.</string>
+    <string name="drag_handle_desc">Zieh mich!</string>
+    <string name="sort_card_end">Sortierung endet hier.</string>
+    <string name="sort_card_notice">Ziehen Sie Elemente einrasten.</string>
+    <string-array name="sort_card_names">
+        <item>Erweiterung</item>
+        <item>Kartenname</item>
+        <item>Veröffentlichungsdatum</item>
+        <item>Kosten</item>
+        <item>Karten-Typ</item>
+        <item>Sprache</item>
+        <item>Werbekarten zuerst</item>
+    </string-array>
+
 </resources>

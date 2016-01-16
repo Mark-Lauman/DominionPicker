@@ -1,13 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical" >
+    android:gravity="center_horizontal|center_vertical"
+    android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="match_parent"
+    <ProgressBar android:id="@+id/loading"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Detailed card information here"
-        android:gravity="center"/>
+        android:visibility="gone" />
+
+    <RelativeLayout android:id="@+id/loaded"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical" >
+
+        <View android:id="@+id/card_color"
+            android:layout_width="@dimen/card_color_width"
+            android:layout_height="match_parent"
+            android:background="@color/type_victory" />
+
+
+        <ImageView android:id="@+id/card_set"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/card_info_bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_set_prosperity"
+            tools:ignore="ContentDescription" />
+
+        <TextView android:id="@+id/card_set_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@id/card_set"
+            android:layout_toStartOf="@id/card_set"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:gravity="end"
+            android:textSize="@dimen/card_info_bottom"
+            android:text="@string/demo_card_set" />
+
+        <View android:id="@+id/spacer"
+            android:layout_width="4dp"
+            android:layout_height="0px"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/card_color"
+            android:layout_toEndOf="@id/card_color" />
+
+        <ImageView android:id="@+id/card_cost"
+            android:layout_width="@dimen/card_info_bottom"
+            android:layout_height="@dimen/card_info_bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/spacer"
+            android:layout_toEndOf="@id/spacer"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:src="@color/coin_back"
+            tools:ignore="ContentDescription" />
+
+        <ImageView android:id="@+id/card_potion"
+            android:layout_width="@dimen/card_info_bottom"
+            android:layout_height="@dimen/card_info_bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:src="@drawable/ic_dom_potion"
+            android:layout_toRightOf="@id/card_cost"
+            android:layout_toEndOf="@id/card_cost"
+            android:contentDescription="@string/potion" />
+
+        <TextView android:id="@+id/card_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_toRightOf="@id/card_potion"
+            android:layout_toEndOf="@id/card_potion"
+            android:layout_toLeftOf="@id/card_set_name"
+            android:layout_toStartOf="@id/card_set_name"
+            android:textSize="@dimen/card_info_bottom"
+            android:text="@string/demo_card_type" />
+
+        <View android:id="@+id/bottomDiv"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/list_item_sel"
+            android:layout_toRightOf="@id/card_color"
+            android:layout_toEndOf="@id/card_color"
+            android:layout_above="@id/card_type" />
+
+        <ca.marklauman.dominionpicker.cardadapters.InfoTextView
+            android:id="@android:id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:gravity="center"
+            android:layout_toRightOf="@id/card_color"
+            android:layout_toEndOf="@id/card_color"
+            android:layout_above="@id/bottomDiv" />
+
+        <LinearLayout android:id="@+id/card_no_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:gravity="center"
+            android:layout_toRightOf="@id/card_color"
+            android:layout_toEndOf="@id/card_color"
+            android:layout_above="@id/bottomDiv"
+            android:visibility="gone">
+
+            <TextView android:id="@+id/card_no_info_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/card_no_info"
+                android:textSize="16sp"
+                android:paddingBottom="16sp" />
+
+            <ca.marklauman.dominionpicker.community.EmailButton
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email_mark" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

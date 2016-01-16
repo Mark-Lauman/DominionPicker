@@ -1,4 +1,4 @@
-_id	language	name	type	requires	description	details
+_id	language	name	type	requires	text	rules
 6	pt	Adega	Ação			
 7	pt	Capela	Ação			
 8	pt	Fosso	Ação Reação			

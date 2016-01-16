@@ -18,6 +18,8 @@ import ca.marklauman.tools.Utils;
 @SuppressWarnings({"WeakerAccess", "UnusedDeclaration"})
 public abstract class Prefs {
     /////////// Active preference keys \\\\\\\\\\\
+    /** Key used to store the number of the active MainActivity tab */
+    public static final String ACTIVE_TAB = "active_tab";
     /** Key used to save the supply size to the the preferences. */
     public static final String LIMIT_SUPPLY = "limit_supply";
     /** Key used to save the event limiter to the preferences. */
@@ -30,6 +32,8 @@ public abstract class Prefs {
     public static final String FILT_SET = "filt_set";
     /** Key used to save the cost filter to the preferences */
     public static final String FILT_COST = "filt_cost";
+    /** Key used to save the potion filter */
+    public static final String FILT_POTION = "filt_potion";
     /** Key used to save the curse filter to the preferences */
     public static final String FILT_CURSE = "filt_curse";
     /** Key used to save the current language filter */
@@ -54,6 +58,7 @@ public abstract class Prefs {
 
     /////////// Current preference/application state \\\\\\\\\\\
     private static Context staticContext;
+    private static String activeLocale = null;
     public static String filt_lang;
     public static String sort_card;
     public static String sort_set;
@@ -92,6 +97,12 @@ public abstract class Prefs {
         staticContext = c.getApplicationContext();
         parsePreference(c, FILT_LANG);
         parsePreference(c, SORT_CARD);
+
+        // Check if the system language has changed, notify listeners of change
+        String locale = c.getResources().getConfiguration().locale.toString();
+        if(activeLocale != null && !activeLocale.equals(locale))
+            notifyChange(c, FILT_LANG);
+        activeLocale = locale;
     }
 
     /** Register this listener to receive preference change notifications. */
@@ -181,7 +192,9 @@ public abstract class Prefs {
 
         if(!prefs.contains(FILT_SET))
             edit.putString(FILT_SET, res.getString(R.string.filt_set_def));
-        if(!prefs.contains(FILT_COST))
+        if(!prefs.contains(FILT_POTION))
+            edit.putBoolean(FILT_POTION, res.getBoolean(R.bool.filt_pot_def));
+        if (!prefs.contains(FILT_COST))
             edit.putString(FILT_COST, res.getString(R.string.filt_cost_def));
         if(!prefs.contains(FILT_CURSE))
             edit.putBoolean(FILT_CURSE, res.getBoolean(R.bool.filt_curse_def));
@@ -197,6 +210,8 @@ public abstract class Prefs {
             edit.putString(FILT_CARD, "");
         if(!prefs.contains(REQ_CARDS))
             edit.putString(REQ_CARDS, "");
+        if(!prefs.contains(ACTIVE_TAB))
+            edit.putInt(ACTIVE_TAB, res.getInteger(R.integer.def_tab));
         edit.commit();
     }
 
@@ -337,6 +352,9 @@ public abstract class Prefs {
         for(int i=0; i<17; i++)
             if(!not_filt_set.contains(i)) new_filt_set.add(i);
         edit.putString(FILT_SET, Utils.join(",", new_filt_set));
+
+        // Clear the cost filter
+        edit.putString(FILT_COST, "");
 
         // Remove all old selections
         edit.remove(SELECTIONS);

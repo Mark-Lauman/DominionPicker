@@ -6,11 +6,11 @@
 
     <string name="rules_expansions">Expansions</string>
     <string name="rules_promo">Promo Cards</string>
+    <string name="rules_cost">Card Cost</string>
 
     <string name="rules_other">Other</string>
-    <string name="limit_event">Event Cards</string>
-    <integer name="limit_event_def">2</integer>
+    <string name="rules_curse">Curse Givers</string>
 
-    <string name="filter_curse">Curse Givers</string>
+    <integer name="limit_event_def">2</integer>
 
 </resources>

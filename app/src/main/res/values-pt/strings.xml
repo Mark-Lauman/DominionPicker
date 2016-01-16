@@ -6,41 +6,40 @@
     <string name="menu_close">Fechar Menu</string>
 
     <string name="picker">Picker</string>
-
-    <string name="picks">Seu Pick!</string>
     <string name="toggle_all">Marcar Todos</string>
-    <string name="submit">Sortear</string>
-    <string name="more">Precisa de Mais Cards(%1$s)</string>
+    <string name="shuffle">Sortear</string>
+    <string name="req_card">Required</string>
+    <string name="card_details">Card Details</string>
+    <!-- read by blind assistant as "Alchemist card details button" -->
+    <string name="card_details_button">%1$s card details</string>
     <string name="more_k">Precisa de Mais cartas de Reino!(%1$s)</string>
     <string name="yw_no_bane">Young Witch - Sem Bane</string>
     <string name="all_filtered">Todas as cartas fora do filtro.</string>
-    
-    <string name="set">Edi&#231;&#227;o</string>
-    <string name="potion">Potion</string>
 
-    <string name="game_history">Hist&#243;rico</string>
+    <string name="games">Games</string>
     <string name="sample_games">Predefinidos</string>
     <string name="favorite_games">Favoritos</string>
+    <string name="game_history">Hist&#243;rico</string>
     <string name="no_hist">Suas embaralhadas est&#227;o guardadas aqui</string>
-
-    <string name="change_fav">Mudar Favorito</string>
-    <string name="name_me">Nomeie-me!</string>
-    <string name="save">Salvar</string>
-
-    <string name="supply_colonies">Usar Colonys &amp; Platinum</string>
-    <string name="supply_shelters">Usar Shelters</string>
-    <string name="young_witch_bane">Bane</string>
-    
-    <string name="market_title">Black Market</string>
-    <string name="market_begin">Novo Mercado criado do Picker</string>
-    <string name="market_draw">Comprar</string>
-    <string name="market_pass">Passar</string>
-    <string name="market_sold_out">Tudo Vendido!</string>
-
     <plurals name="hist_card">
         <item quantity="one">%d Carta</item>
         <item quantity="other">%d Cartas</item>
     </plurals>
     <string name="hist_plat">Platinum</string>
     <string name="hist_shelter">Shelters</string>
+
+    <string name="market_title">Black Market</string>
+    <string name="market_begin">Novo Mercado criado do Picker</string>
+    <string name="market_draw">Comprar</string>
+    <string name="market_pass">Passar</string>
+    <string name="market_sold_out">Tudo Vendido!</string>
+
+    <string name="supply_no_name">Seu Pick!</string>
+    <string name="supply_colonies">Usar Colonys &amp; Platinum</string>
+    <string name="supply_shelters">Usar Shelters</string>
+    <string name="young_witch_bane">Bane</string>
+    <string name="change_fav">Mudar Favorito</string>
+    <string name="name_me">Nomeie-me!</string>
+    <string name="save">Salvar</string>
+
 </resources>

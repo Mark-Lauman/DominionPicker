@@ -11,6 +11,21 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingTop="8dp"
+        app:image="@drawable/ic_core_people"
+        app:name="@string/community"
+        app:summary="@string/community_info"
+        android:background="?attr/selectableItemBackground"
+        app:intent="ca.marklauman.dominionpicker.community.ActivityComm" />
+
+    <View android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:drawable/divider_horizontal_bright" />
+
+    <ca.marklauman.tools.preferences.IntentPreference
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         app:image="@drawable/ic_core_language"
         app:name="@string/filt_lang"
         app:summary="@string/filt_lang_desc"
@@ -31,5 +46,9 @@
         app:summary="@string/sort_card_desc"
         android:background="?attr/selectableItemBackground"
         app:intent="ca.marklauman.dominionpicker.settings.ActivityCardSort" />
+
+    <View android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:drawable/divider_horizontal_bright" />
 
 </LinearLayout>

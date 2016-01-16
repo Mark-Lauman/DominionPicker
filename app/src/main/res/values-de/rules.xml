@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="rules_expansions">Erweiterung</string>
+    <string name="rules">Regeln</string>
+    <string name="limit_supply">Versorgung Größe</string>
 
-    <string name="filter_curse">Fluch</string>
+    <string name="rules_expansions">Erweiterungen</string>
+    <string name="rules_promo">Werbekarten</string>
+
+    <string name="rules_cost">Karte Kosten</string>
+
+    <string name="rules_other">Andere</string>
+    <string name="rules_curse">Fluch Geber</string>
 </resources>

@@ -1,4 +1,4 @@
-_id	language	name	type	requires	description	details
+_id	language	name	type	requires	text	rules
 2	nl	Geldbuidel	Geld		Als je je aflegstapel schudt om er een nieuwe trekstapel van te maken, mag je direct daarna de Geldbuidel naar een positie naar keuze in je trekstapel verplaatsen.	
 3	nl	Gezant	Actie		Toon de bovenste 5 kaarten van je deck. De speler links van je kiest een kaart, die je moet afleggen. Neem de rest in je hand.	
 6	nl	Kelder	Actie			
@@ -61,7 +61,7 @@ _id	language	name	type	requires	description	details
 63	nl	Handelspost	Actie			
 64	nl	Tolheffing	Actie			
 65	nl	Opwaardering	Actie			
-66	nl	Harem	Geld Overwinning			
+66	nl	Harem	Geld Overwinning		<big> <c>2</c> <br/> <vp>2</vp> </big>	
 67	nl	Adel	Actie Overwinning			
 68	nl	Lening	Geld			
 69	nl	Handelsroute	Actie	Benodigd: Muntenfiche, Handelsroutetableau		

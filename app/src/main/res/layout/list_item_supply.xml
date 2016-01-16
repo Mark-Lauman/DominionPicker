@@ -27,8 +27,7 @@
         android:paddingRight="6dp"
         android:paddingEnd="6dp"
         android:src="@drawable/ic_set_base"
-        android:contentDescription="@string/set"
-        tools:ignore="RtlSymmetry" />
+        tools:ignore="ContentDescription,RtlSymmetry" />
 
     <TextView android:id="@+id/desc"
         android:layout_width="match_parent"

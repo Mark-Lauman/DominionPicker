@@ -72,8 +72,11 @@ public class FragmentHistoryPanel extends Fragment
     @Override
     public void onStart() {
         super.onStart();
-        getActivity().getSupportLoaderManager()
-                     .initLoader(loaderId, null, this);
+        if(loaderId == LoaderId.SAMPLE_SUPPLY)
+             getActivity().getSupportLoaderManager()
+                          .restartLoader(loaderId, null, this);
+        else getActivity().getSupportLoaderManager()
+                          .initLoader(loaderId, null, this);
     }
 
 

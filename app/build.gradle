@@ -22,7 +22,7 @@ android {
             shrinkResources true
             zipAlignEnabled true
             //noinspection GroovyAssignabilityCheck
-            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             applicationIdSuffix ".debug"
@@ -31,8 +31,8 @@ android {
 }
 
 dependencies {
-    compile project(':lib')
     compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'ca.marklauman.tools:AndroidTools:2.3.25@aar'
+    compile 'ca.marklauman.tools:AndroidTools:2.4.5@aar'
     compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }

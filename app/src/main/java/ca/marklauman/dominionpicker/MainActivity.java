@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -33,9 +34,6 @@ import android.widget.Toast;
  *  @author Mark Lauman */
 public class MainActivity extends AppCompatActivity
                           implements ListView.OnItemClickListener {
-
-    /** Key used to save the id of the selected fragment to savedInstanceState. */
-    private static final String KEY_ACTIVE = "active";
 
     /** The name of the app */
     private String app_name;
@@ -97,30 +95,14 @@ public class MainActivity extends AppCompatActivity
 
         // setup the active fragment
         FragmentManager fm = getSupportFragmentManager();
-        if(savedInstanceState == null) {
-            // For the first setup, FragmentRules is selected
-            navAdapt.setSelection(0);
-            getSupportActionBar().setTitle(navNames[0]);
-            active = new FragmentRules();
-            fm.beginTransaction()
-              .replace(R.id.content_frame, active)
-              .commit();
-        } else {
-            // subsequent setups use the stored fragment
-            int sel = savedInstanceState.getInt(KEY_ACTIVE, 0);
-            navAdapt.setSelection(sel);
-            getSupportActionBar().setTitle(navNames[sel]);
-            active = fm.findFragmentById(R.id.content_frame);
-        }
+        int sel = PreferenceManager.getDefaultSharedPreferences(this)
+                                   .getInt(Prefs.ACTIVE_TAB, getResources().getInteger(R.integer.def_tab));
+        active = fm.findFragmentById(R.id.content_frame);
+        if(active == null) {
+            onItemClick(null, null, sel, 0);
+            navToggle.onDrawerClosed(null);
+        } else navAdapt.setSelection(sel);
 	}
-
-
-    /** Save the current state of this activity. */
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        outState.putInt(KEY_ACTIVE, navAdapt.getSelection());
-        super.onSaveInstanceState(outState);
-    }
 
     @Override
     public void onDestroy() {
@@ -163,7 +145,6 @@ public class MainActivity extends AppCompatActivity
                 ((FragmentPicker)active).toggleAll();
                 return true;
             case R.id.action_submit:
-                // TODO: FIX THIS
                 shuffler.startShuffle();
                 return true;
 		}
@@ -189,6 +170,9 @@ public class MainActivity extends AppCompatActivity
         }
 
         navAdapt.setSelection(position);
+        PreferenceManager.getDefaultSharedPreferences(this).edit()
+                         .putInt(Prefs.ACTIVE_TAB, position)
+                         .commit();
 
         FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         switch(position) {

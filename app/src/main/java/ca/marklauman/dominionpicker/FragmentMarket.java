@@ -158,7 +158,8 @@ public class FragmentMarket extends Fragment
     @Override
     public void prefChanged(String key) {
         switch(key) {
-            case Prefs.FILT_CURSE: case Prefs.FILT_SET: case Prefs.REQ_CARDS:
+            case Prefs.FILT_SET: case Prefs.FILT_COST: case Prefs.FILT_POTION:
+            case Prefs.FILT_CURSE: case Prefs.REQ_CARDS: case Prefs.FILT_CARD:
                 setActivePanel(PANEL_STARTUP);
                 getActivity().getSupportLoaderManager()
                              .restartLoader(LoaderId.MARKET_SHUFFLE, null, this);
@@ -191,7 +192,7 @@ public class FragmentMarket extends Fragment
     /** Selects which card was purchased. Called when a card is clicked in the choice panel.
      *  @param id The row id of the item that was clicked. */
     @Override
-    public void onItemClick(View view, int position, long id, boolean longClick) {
+    public void onItemClick(int position, long id, boolean longClick) {
         Toast.makeText(getActivity(), adapter.getName(position), Toast.LENGTH_SHORT)
              .show();
         // Unused choices return to the stock bottom
@@ -221,18 +222,10 @@ public class FragmentMarket extends Fragment
                 // Announce the new market
                 hasNewStock = true;
 
-                // Filter out sets
-                String sel = TableCard._SET_ID;
+                // Filter out cards not visible in the picker, and event cards
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
-                String curSel = pref.getString(Prefs.FILT_SET, getString(R.string.filt_set_def));
-                if(0 < curSel.length())
-                    sel += " IN ("+curSel+")";
-                else sel += "=NULL";
-
-                // Filter out types
-                sel += " AND "+TableCard._TYPE_EVENT+"=0";
-                if(!pref.getBoolean(Prefs.FILT_CURSE, true))
-                    sel += " AND "+TableCard._META_CURSER+"=0";
+                String sel = FragmentPicker.getFilter(pref)
+                             +" AND "+TableCard._TYPE_EVENT+"=0";
 
                 // Filter out cards excluded by the card list
                 String filt_card = pref.getString(Prefs.FILT_CARD, "");

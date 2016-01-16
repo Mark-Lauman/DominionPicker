@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ca.marklauman.tools.HtmlTextView
+        android:id="@+id/open_apache"
+        android:layout_width="match_parent"
+        android:layout_height="?listPreferredItemHeight"
+        android:background="?selectableItemBackground"
+        android:gravity="center_vertical"
+        android:paddingTop="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/apache_txt" />
+
+    <View android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:drawable/divider_horizontal_bright" />
+
+    <ca.marklauman.tools.HtmlTextView
+        android:id="@+id/open_sql"
+        android:layout_width="match_parent"
+        android:layout_height="?listPreferredItemHeight"
+        android:background="?selectableItemBackground"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/open_sql" />
+
+    <View android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:drawable/divider_horizontal_bright" />
+
+    <ca.marklauman.tools.HtmlTextView
+        android:id="@+id/open_list"
+        android:layout_width="match_parent"
+        android:layout_height="?listPreferredItemHeight"
+        android:background="?selectableItemBackground"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/open_list" />
+
+    <View android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:drawable/divider_horizontal_bright" />
+
+    <ca.marklauman.tools.HtmlTextView
+        android:id="@+id/open_picasso"
+        android:layout_width="match_parent"
+        android:layout_height="?listPreferredItemHeight"
+        android:background="?selectableItemBackground"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/open_picasso" />
+
+    <View android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:drawable/divider_horizontal_bright" />
+
+</LinearLayout>

@@ -14,8 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-
 import ca.marklauman.dominionpicker.cardadapters.AdapterCardsFilter;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
@@ -59,8 +57,8 @@ public class FragmentPicker extends Fragment
     public void prefChanged(String key) {
         switch(key) {
             // These preferences affect the picker
-            case Prefs.FILT_SET:  case Prefs.FILT_COST:
-            case Prefs.FILT_LANG: case Prefs.SORT_CARD:
+            case Prefs.FILT_SET:  case Prefs.FILT_COST: case Prefs.FILT_POTION:
+            case Prefs.FILT_CURSE: case Prefs.SORT_CARD: case Prefs.FILT_LANG:
                 FragmentActivity act = getActivity();
                 if(act == null) return;
                 act.getSupportLoaderManager()
@@ -105,8 +103,12 @@ public class FragmentPicker extends Fragment
         CursorLoader c = new CursorLoader(getActivity());
         c.setUri(Provider.URI_CARD_ALL);
         c.setProjection(AdapterCardsFilter.COLS_USED);
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        ArrayList<CharSequence> sel_args = new ArrayList<>();
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        // Selection
+        String sel = getFilter(pref);
+        sel += " AND "+Prefs.filt_lang;
+        c.setSelection(sel);
 
         // Sort order
         String[] sort_col = getResources().getStringArray(R.array.sort_card_col);
@@ -119,51 +121,38 @@ public class FragmentPicker extends Fragment
         }
         c.setSortOrder(sort + sort_col[1]);
 
-        // Filter out sets
+        return c;
+    }
+
+
+    /** Get the filter used by the picker to hide cards that will never be in the supply.
+     *  This does not include individual deselected or required cards.
+     *  @param pref The preferences used to retrieve filter values.
+     *  @return The SQL selection statement that FragmentPicker uses to hide cards.
+     *  This statement is never null or the empty string. There will be something in here. */
+    public static String getFilter(SharedPreferences pref) {
+        // Filter out sets (the set filter is always present)
         String curSel = pref.getString(Prefs.FILT_SET, "");
         String sel = (curSel.length()==0) ? TableCard._SET_ID+"=NULL"
                                           : TableCard._SET_ID+" IN ("+curSel+")";
 
-        // TODO: Cost filters
-//        // Filter out potions
-//        String[] costs = getActivity().getResources()
-//                                      .getStringArray(R.array.filt_cost);
-//        String filt_cost = pref.getString("filt_cost", "");
-//        ArrayList<CharSequence> split_cost = new ArrayList<>(Arrays.asList(
-//                        MultiSelectPreference.mapValues(filt_cost, null, costs)));
-//        String potion = getResources().getStringArray(R.array.filt_cost)[0];
-//        if(0 < split_cost.size() && potion.equals(split_cost.get(0))) {
-//            sel += " AND " + TableCard._POT + "=?";
-//            sel_args.add("0");
-//            split_cost.remove(0);
-//        }
-//
-//        // Filter out costs
-//        curSel = "";
-//        for(CharSequence s : split_cost) {
-//            sel_args.add(s);
-//            curSel += ",?";
-//        }
-//        if(0 < curSel.length()) sel += " AND "+ TableCard._COST+" NOT IN ("+curSel.substring(1)+")";
+        // Filter out potions
+        if(!pref.getBoolean(Prefs.FILT_POTION, true))
+            sel += " AND "+TableCard._POT+"=0";
+
+        // Filter out coins
+        curSel = pref.getString(Prefs.FILT_COST, "");
+        if(0 < curSel.length())
+            sel += " AND "+TableCard._COST_VAL+" NOT IN ("+curSel+")";
 
         // Filter out cursers
         boolean filt_curse = pref.getBoolean(Prefs.FILT_CURSE, true);
-        if(!filt_curse) {
-            sel += " AND " + TableCard._META_CURSER + "=?";
-            sel_args.add("0");
-        }
+        if(!filt_curse)
+            sel += " AND " + TableCard._META_CURSER + "=0";
 
-        // Translation filter
-        sel = sel+" AND "+Prefs.filt_lang;
-
-        c.setSelection(sel);
-        String[] sel_args_final = new String[sel_args.size()];
-        for(int i=0; i<sel_args.size(); i++)
-            sel_args_final[i] = sel_args.get(i).toString();
-        c.setSelectionArgs(sel_args_final);
-
-        return c;
+        return sel;
     }
+
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {

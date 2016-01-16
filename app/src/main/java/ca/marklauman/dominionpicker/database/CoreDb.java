@@ -33,8 +33,9 @@ class CoreDb extends SQLiteAssetHelper {
     /** Perform an sql query on this database */
     Cursor query(String table, String[] projection,
                  String selection, String[] selectionArgs,
-                 String sortOrder) {
+                 String sortOrder, boolean distinct) {
         return getReadableDatabase()
-                .query(table, projection, selection, selectionArgs, null, null, sortOrder);
+                .query(distinct, table, projection, selection, selectionArgs, null, null, sortOrder, null);
     }
+
 }

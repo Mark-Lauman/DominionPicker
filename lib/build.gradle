@@ -1,2 +1,0 @@
-configurations.create("default")
-artifacts.add("default", file('DragSortListView-0.6.1.aar'))

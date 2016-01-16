@@ -21,4 +21,25 @@
         <item>en</item>
     </string-array>
 
+    <string name="coin">Coin</string>
+    <plurals name="format_coin">
+        <item quantity="one">%1$s Coin</item>
+        <item quantity="other">%1$s Coins</item>
+    </plurals>
+
+    <string name="potion">Potion</string>
+    <plurals name="format_potion">
+        <item quantity="one">%1$s Potion</item>
+        <item quantity="other">%1$s Potions</item>
+    </plurals>
+
+    <string name="vp">Victory Point</string>
+    <plurals name="format_vp">
+        <item quantity="one">%1$s Victory Point</item>
+        <item quantity="other">%1$s Victory Points</item>
+    </plurals>
+
+    <string name="card_no_info">This card hasn\'t been translated into French.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</string>
+    <string name="card_mail_subject">Dominion Card #%1$d (%2$s)</string>
+
 </resources>
