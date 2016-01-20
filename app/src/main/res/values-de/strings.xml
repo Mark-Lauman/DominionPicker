@@ -6,21 +6,21 @@
     <string name="menu_close">Men&#252; schlie&#223;en</string>
 
     <string name="picker">Karten</string>
-    <string name="toggle_all">Alle markieren</string>
+    <string name="toggle_all">Alle ausw&#228;hlen</string>
     <string name="shuffle">Deck erstellen</string>
     <string name="req_card">Erforderlich</string>
     <string name="card_details">Informationen</string>
     <!-- Read as "Alchemist-Informationen" or "Stein der Weisen-Informationen" -->
     <string name="card_details_button">%1$s-Informationen</string>
-    <string name="more_k">Sie ben&#246;tigen mehr K&#246;nigreichskarten! (%1$s)</string>
+    <string name="more_k">W&#228;hle mehr K&#246;nigreichskarten aus! (%1$s)</string>
     <string name="yw_no_bane">Junge Hexe – Kein Fluch</string>
-    <string name="all_filtered">Alle Karten gefiltert.</string>
+    <string name="all_filtered">Alle Karten aussortiert.</string>
 
     <string name="games">Spiele</string>
     <string name="sample_games">Beispiele</string>
     <string name="favorite_games">Favoriten</string>
     <string name="game_history">Verlauf</string>
-    <string name="no_hist">Ihre Decks werden hier gespeichert.</string>
+    <string name="no_hist">Die Decks werden hier gespeichert.</string>
     <plurals name="hist_card">
         <item quantity="one">1 Karte</item>
         <item quantity="other">%d Karten</item>
@@ -34,12 +34,12 @@
     <string name="market_pass">Karte nicht kaufen</string>
     <string name="market_sold_out">Ausverkauft!</string>
 
-    <string name="supply_no_name">Ihre Karten!</string>
-    <string name="supply_colonies">Verwenden Sie Kolonien und Platin</string>
-    <string name="supply_shelters">Verwenden Sie Unterschlupf</string>
+    <string name="supply_no_name">Deine Karten!</string>
+    <string name="supply_colonies">Verwende Kolonien und Platin</string>
+    <string name="supply_shelters">Verwende den Unterschlupf</string>
     <string name="young_witch_bane">Fluch</string>
     <string name="change_fav">Favoriten bearbeiten</string>
-    <string name="name_me">Benennen Sie Ihre Decks</string>
+    <string name="name_me">Benenne die Decks</string>
     <string name="save">Speichern</string>
 
 </resources>

@@ -3,15 +3,15 @@
 
     <string name="options">Optionen</string>
 
-    <string name="filt_lang">Karte Sprache</string>
-    <string name="filt_lang_desc">Wählen Sie die Sprache der jeweiligen Erweiterung.</string>
+    <string name="filt_lang">Karten Sprachen</string>
+    <string name="filt_lang_desc">Wähle die Sprache, in der die jeweilige Erweiterung angezeigt werden soll.</string>
     <string name="system_default">Standard</string>
 
-    <string name="sort_card">Organisieren Karten</string>
-    <string name="sort_card_desc">Ihre Karten zu sortieren, wie Sie möchten.</string>
+    <string name="sort_card">Kartensortierung</string>
+    <string name="sort_card_desc">Wie sollen die Karten sortiert werden.</string>
     <string name="drag_handle_desc">Zieh mich!</string>
-    <string name="sort_card_end">Sortierung endet hier.</string>
-    <string name="sort_card_notice">Ziehen Sie Elemente einrasten.</string>
+    <string name="sort_card_end">Alles unterhalb dieser Option wird ignoriert.</string>
+    <string name="sort_card_notice">Reihenfolge durch Ziehen verändern.</string>
     <string-array name="sort_card_names">
         <item>Erweiterung</item>
         <item>Kartenname</item>
@@ -19,7 +19,7 @@
         <item>Kosten</item>
         <item>Karten-Typ</item>
         <item>Sprache</item>
-        <item>Werbekarten zuerst</item>
+        <item>Promokarten zuerst</item>
     </string-array>
 
 </resources>

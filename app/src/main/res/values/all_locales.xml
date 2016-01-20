@@ -165,7 +165,7 @@
     <!-- String used to ask for card info -->
     <string-array name="card_no_info">
         <item>@string/card_no_info</item>
-        <item>Diese Karte wurde nicht ins Deutsche &#252;bersetzt worden.\n\nHaben Sie diese Karte besitzen? Wenn ja, mailen Sie bitte eine &#220;bersetzung an Mark so kann er es in die App hinzuzuf&#252;gen.</item>
+        <item>Diese Karte wurde nicht ins Deutsche &#252;bersetzt.\n\nBesitzt du diese Karte? Wenn ja, maile den Kartentext bitte an Mark so kann er ihn hinzufügen.</item>
         <item>This card hasn\'t been translated into English.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>
         <item>This card hasn\'t been translated into French.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>
         <item>This card hasn\'t been translated into Italian.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>

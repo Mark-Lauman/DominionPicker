@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="community">Gemeinschaft</string>
-    <string name="community_info">Verbessern Sie diese App.</string>
+    <string name="community">Community</string>
+    <string name="community_info">Hilf mit diese App zu verbessern.</string>
 
-    <string name="email_mark">E-Mail Mark</string>
-    <string name="email_info">Er macht die App.</string>
-    <string name="no_email">Senden Sie eine Email an android@marklauman.ca</string>
+    <string name="email_mark">E-Mail an Mark</string>
+    <string name="email_info">App Entwickler.</string>
+    <string name="no_email">Sende eine Email an android@marklauman.ca</string>
 
-    <string name="github">Besuchen GitHub</string>
-    <string name="github_info">Siehe geplanten Features.</string>
+    <string name="github">Projekt auf GitHub</string>
+    <string name="github_info">Liste der geplanten Features.</string>
     <string name="github_url">https://github.com/Mark-Lauman/DominionPicker/issues</string>
 
     <string name="contribute">Mitwirkende</string>
-    <string name="contribute_info">So dass die App zu verbessern.</string>
-    <string name="thanks">Dominion Auswahl konnte nicht geworden, was sie ist, ohne Ihre Hilfe. Vielen Dank.</string>
+    <string name="contribute_info">Haben dabei geholfen die APP besser zu machen.</string>
+    <string name="thanks">Dominion Auswahl hätte ohne diese Mithilfe nicht zu dem werden können, was es ist. Vielen Dank.</string>
     <!-- TODO: Determine who wants to be in the credits -->
     <string name="credits"><![CDATA[
         <b>TODO</b>
@@ -22,7 +22,7 @@
 
 
     <string name="open_source">Open Source Credits</string>
-    <string name="open_source_info">Programmierprojekte, die dazu beigetragen.</string>
+    <string name="open_source_info">Verwendete OpenSource Projekte.</string>
     <string name="apache_txt"><![CDATA[
         Alle Projekte wurden unter der <a href="">Apache License,</a> Version 2.0 lizenziert.
     ]]></string>
