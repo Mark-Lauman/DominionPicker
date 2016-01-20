@@ -7,19 +7,19 @@
     <string name="filt_lang_desc">Scegli la lingua di ciascuna espansione.</string>
     <string name="system_default">Predefinita</string>
 
-    <string name="sort_card">Card Order</string>
-    <string name="sort_card_desc">Sort your cards as you wish.</string>
-    <string name="drag_handle_desc">Drag me!</string>
-    <string name="sort_card_end">Sorting ends here.</string>
-    <string name="sort_card_notice">Drag items into place.</string>
+    <string name="sort_card">Ordinamento carte</string>
+    <string name="sort_card_desc">Ordina le carte come vuoi.</string>
+    <string name="drag_handle_desc">Trascinami!</string>
+    <string name="sort_card_end">L\'ordinamento finisce qui.</string>
+    <string name="sort_card_notice">Trascina qui gli elementi.</string>
     <string-array name="sort_card_names">
-        <item>Expansion</item>
-        <item>Name</item>
-        <item>Release Date</item>
-        <item>Cost</item>
-        <item>Type</item>
-        <item>Language</item>
-        <item>Promos First</item>
+        <item>Espansione</item>
+        <item>Nome</item>
+        <item>Data di rilascio</item>
+        <item>Costo</item>
+        <item>Tipo</item>
+        <item>Lingua</item>
+        <item>Prima le promo</item>
     </string-array>
 
 </resources>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="rules">Rules</string>
-    <string name="limit_supply">Supply Size</string>
+    <string name="rules">Regole gioco</string>
+    <string name="limit_supply">Dimensione riserva</string>
 
     <string name="rules_expansions">Espansioni</string>
     <string name="rules_promo">Promo</string>
 
     <string name="rules_cost">Costo della carta</string>
 
-    <string name="rules_other">Other</string>
+    <string name="rules_other">Altro</string>
     <string name="rules_curse">Maledizioni</string>
 </resources>

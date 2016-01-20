@@ -2,29 +2,29 @@
 <resources>
 
     <string name="community">Community</string>
-    <string name="community_info">Improve this app.</string>
+    <string name="community_info">Migliora questa app.</string>
 
-    <string name="email_mark">Email Mark</string>
-    <string name="email_info">He makes the app.</string>
-    <string name="no_email">Send an email to android@marklauman.ca</string>
+    <string name="email_mark">Invia una email a Mark</string>
+    <string name="email_info">L\'autore dell\'app.</string>
+    <string name="no_email">Invia una email a android@marklauman.ca</string>
 
-    <string name="github">Visit GitHub</string>
-    <string name="github_info">See planned features.</string>
+    <string name="github">Visita GitHub</string>
+    <string name="github_info">Bug e funzionalità previste.</string>
     <string name="github_url">https://github.com/Mark-Lauman/DominionPicker/issues</string>
 
-    <string name="contribute">Contributors</string>
-    <string name="contribute_info">Making the app better.</string>
-    <string name="thanks">Dominion Picker could not have become what it is without your help. Thank you.</string>
+    <string name="contribute">Collaboratori</string>
+    <string name="contribute_info">Per un\'app migliore.</string>
+    <string name="thanks">Il Selettore Carte Dominion non potrebbe essere così senza l\'aiuto dei collaboratori. Grazie.</string>
     <!-- TODO: Determine who wants to be in the credits -->
     <string name="credits"><![CDATA[
         <b>TODO</b>
     ]]></string>
 
 
-    <string name="open_source">Open Source Credits</string>
-    <string name="open_source_info">Programming projects that helped.</string>
+    <string name="open_source">Open Source</string>
+    <string name="open_source_info">Progetti e software utilizzati.</string>
     <string name="apache_txt"><![CDATA[
-        All projects were licensed under the <a href="">Apache License,</a> Version 2.0
+        Tutti i progetti sono rilasciati con <a href="">Licenza Apache,</a> Versione 2.0
     ]]></string>
     <string name="apache_url">http://www.apache.org/licenses/LICENSE-2.0</string>
 

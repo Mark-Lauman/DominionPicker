@@ -22,10 +22,10 @@
         <item>en</item>
     </string-array>
 
-    <string name="coin">Coin</string>
+    <string name="coin">Moneta</string>
     <plurals name="format_coin">
-        <item quantity="one">%1$s Coin</item>
-        <item quantity="other">%1$s Coins</item>
+        <item quantity="one">%1$s Moneta</item>
+        <item quantity="other">%1$s Monete</item>
     </plurals>
 
     <string name="potion">Pozione</string>
@@ -34,13 +34,13 @@
         <item quantity="other">%1$s Pozioni</item>
     </plurals>
 
-    <string name="vp">Victory Point</string>
+    <string name="vp">Punti Vittoria</string>
     <plurals name="format_vp">
-        <item quantity="one">%1$s Victory Point</item>
-        <item quantity="other">%1$s Victory Points</item>
+        <item quantity="one">%1$s Punto Vittoria</item>
+        <item quantity="other">%1$s Punti Vittoria</item>
     </plurals>
 
-    <string name="card_no_info">This card hasn\'t been translated into Italian.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</string>
+    <string name="card_no_info">Questa carta non è stata tradotta in italiano.\n\nHai questa carta? Se vuoi puoi mandare una traduzione a Mark per aggiornare l\'app.</string>
     <string name="card_mail_subject">Dominion Card #%1$d (%2$s)</string>
 
 </resources>

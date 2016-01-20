@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Selettore Carte Dominion</string>
-  
+
     <string name="menu_open">Apri Menu</string>
     <string name="menu_close">Chiudi Menu</string>
-  
+
     <string name="picker">Scegli carte</string>
     <string name="toggle_all">Seleziona Tutto</string>
     <string name="shuffle">Invia</string>
-    <string name="req_card">Required</string>
-    <string name="card_details">Card Details</string>
+    <string name="req_card">Richiesto</string>
+    <string name="card_details">Dettaglio carta</string>
     <!-- read by blind assistant as "Alchemist card details button" -->
-    <string name="card_details_button">%1$s card details</string>
+    <string name="card_details_button">dettaglio carta %1$s</string>
     <string name="more_k">Seleziona altre carte regno! (%1$s)</string>
     <string name="yw_no_bane">Giovane strega - No Scongiuro</string>
     <string name="all_filtered">Tutte le carte filtrate.</string>
 
-    <string name="games">Games</string>
+    <string name="games">Gruppi di carte</string>
     <string name="sample_games">Esempi</string>
     <string name="favorite_games">Preferiti</string>
     <string name="game_history">Cronologia</string>
@@ -41,8 +41,5 @@
     <string name="change_fav">Cambia preferiti</string>
     <string name="name_me">Nome selezione</string>
     <string name="save">Salva</string>
-
-
-  
 
 </resources>
