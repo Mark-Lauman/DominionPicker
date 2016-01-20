@@ -1,6 +1,7 @@
 package ca.marklauman.dominionpicker.community;
 
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -8,7 +9,6 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import ca.marklauman.dominionpicker.R;
 
@@ -53,8 +53,10 @@ public class EmailButton extends Button implements View.OnClickListener {
         try {
             c.startActivity(Intent.createChooser(intent, getText()));
         } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(c, error_msg, Toast.LENGTH_LONG)
-                 .show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+            builder.setTitle(getText());
+            builder.setMessage(error_msg);
+            builder.create().show();
         }
     }
 

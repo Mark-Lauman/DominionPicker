@@ -1,5 +1,6 @@
 package ca.marklauman.dominionpicker.community;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -48,6 +49,10 @@ public class ActivityComm extends AppCompatActivity {
         }
     }
 
+    private ActivityComm getActivity() {
+        return this;
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -66,24 +71,41 @@ public class ActivityComm extends AppCompatActivity {
             intent.setType("message/rfc822");
             intent.setData(Uri.parse("mailto:" + Uri.encode("android@marklauman.ca")
                     + "?subject=" + Uri.encode(getString(R.string.app_name))));
-            startActivity(Intent.createChooser(intent, getString(R.string.email_mark)));
+            try {
+                startActivity(Intent.createChooser(intent, getString(R.string.email_mark)));
+            } catch(android.content.ActivityNotFoundException ex) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle(R.string.email_mark);
+                builder.setMessage(R.string.no_email);
+                builder.create().show();
+            }
+
         }
     }
 
 
     /** Opens the web browser to the given url */
     private class WebListener implements View.OnClickListener {
-        private Uri uri;
+        private String uri;
 
         WebListener(int urlRes) {
-            uri = Uri.parse(getString(urlRes));
+            uri = getString(urlRes);
         }
 
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(uri);
-            startActivity(Intent.createChooser(intent, getString(R.string.email_mark)));
+            intent.setData(Uri.parse(uri));
+            String title = getString(R.string.visit_website);
+            try {
+                startActivity(Intent.createChooser(intent, title));
+            } catch(android.content.ActivityNotFoundException ex) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle(title);
+                String msg = String.format(getString(R.string.no_browser), uri);
+                builder.setMessage(msg);
+                builder.create().show();
+            }
         }
     }
 }

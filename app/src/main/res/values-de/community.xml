@@ -8,6 +8,9 @@
     <string name="email_info">App Entwickler.</string>
     <string name="no_email">Sende eine Email an android@marklauman.ca</string>
 
+    <string name="visit_website">Besuche die Website</string>
+    <string name="no_browser">Sie können dies auf\n%1$s\nzu finden.</string>
+
     <string name="github">Projekt auf GitHub</string>
     <string name="github_info">Liste der geplanten Features.</string>
     <string name="github_url">https://github.com/Mark-Lauman/DominionPicker/issues</string>

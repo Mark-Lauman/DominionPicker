@@ -8,6 +8,9 @@
     <string name="email_info">He makes the app.</string>
     <string name="no_email">Send an email to android@marklauman.ca</string>
 
+    <string name="visit_website">Visit website</string>
+    <string name="no_browser">You can find this at\n%1$s</string>
+
     <string name="github">Visit GitHub</string>
     <string name="github_info">See planned features.</string>
     <string name="github_url">https://github.com/Mark-Lauman/DominionPicker/issues</string>
