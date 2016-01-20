@@ -1,51 +1,256 @@
 _id	language	name	type	requires	text	rules
-6	fr	Cave	Action		DÃ©faussez autant de cartes que vous voulez. +1 Carte par carte dÃ©faussÃ©e.	
-7	fr	Chapelle	Action		Ã‰cartez jusqu'Ã  4 cartes de votre main.	
-8	fr	Douves	Action RÃ©action		Lorsqu'un adversaire joue une carte Attaque, vous pouvez dÃ©voiler cette carte de votre main. Dans ce cas, l'Attaque n'a pas d'effet sur vous.	
-9	fr	Chancelier	Action		Vous pouvez immÃ©diatement dÃ©fausser votre deck.	
+1	fr	Marché Noir	Action			
+2	fr	Cachette	Trésor			
+3	fr	Délégué	Action			
+4	fr	Ville fortifiée	Action			
+5	fr	Gouverneur	Action			
+6	fr	Cave	Action			
+7	fr	Chapelle	Action			
+8	fr	Douves	Action Reaction			
+9	fr	Chancelier	Action			
 10	fr	Village	Action			
-11	fr	BÃ»cheron	Action			
-12	fr	Atelier	Action		Recevez une carte coÃ»tant jusqu'Ã  4.	
-13	fr	Bureaucrate	Action Attaque		Recevez 1 carte ArgentÂ ; placez-la sur votre deck. Tous vos adversaires dÃ©voilent 1 carte Victoire et la placent sur leur deck (sinon ils dÃ©voilent leur main afin que vous puissiez voir qu'ils n'ont pas de cartes Victoire).	
-14	fr	Festin	Action		Ã‰cartez cette carte. Recevez une carte coÃ»tant jusqu'Ã  5.	
-15	fr	Jardins	Victoire		Vaut 1 point de victoire pour chaque 10 cartes dans votre deck (arrondi Ã  l'unitÃ© infÃ©rieure).	
-16	fr	Milice	Action Attaque		Tous vos adversaires dÃ©faussent leurs cartes de faÃ§on Ã  n'avoir que 3 cartes en main.	
-17	fr	PrÃªteur sur gages	Action		Ã‰cartez une carte Cuivre de votre main. Dans ce cas, +3.	
-18	fr	RÃ©novation	Action		Ã‰cartez une carte de votre main. Recevez une carte coÃ»tant jusqu'Ã  2 de plus que la carte Ã©cartÃ©e.	
+11	fr	Bucheron	Action			
+12	fr	Atelier	Action			
+13	fr	Bureaucrate	Action Attaque			
+14	fr	Festin	Action			
+15	fr	Jardins	Victoire			
+16	fr	Milice	Action Attaque			
+17	fr	Preteur sur gages	Action			
+18	fr	Rénovation	Action			
 19	fr	Forgeron	Action			
-20	fr	Espion	Action Attaque		Tous les joueurs (vous aussi) dÃ©voilent la premiÃ¨re carte de leur deck. Vous dÃ©cidez ensuite si chaque carte dÃ©voilÃ©e est dÃ©faussÃ©e ou replacÃ©e sur son deck.	
-21	fr	Voleur	Action Attaque		Tous vos adversaires dÃ©voilent les 2 premiÃ¨res cartes de leur deck. S'ils dÃ©voilent des cartes TrÃ©sor, ils en Ã©cartent 1 de votre choix. Parmi ces cartes TrÃ©sor Ã©cartÃ©es, recevez celles de votre choix. Les autres cartes dÃ©veoilÃ©es sont dÃ©faussÃ©es.	
-22	fr	Salle du TrÃ´ne	Action		Choisissez 1 carte Action de votre main. Jouez-la deux fois.	
-23	fr	Chambre du conseil	Action		Tous vos adversaires piochent 1 carte.	
+20	fr	Espion	Action Attaque			
+21	fr	Voleur	Action Attaque			
+22	fr	Salle du Trone	Action			
+23	fr	Chambre du conseil	Action			
 24	fr	Festival	Action			
 25	fr	Laboratoire	Action			
-26	fr	BibliothÃ¨que	Action		Piochez jusqu'Ã  ce que vous ayez 7 cartes en main. Chaque carte Action piochÃ©e peut Ãªtre mise de cÃ´tÃ©. DÃ©faussez les cartes mises de cÃ´tÃ© lorsque vous avez terminÃ© de piocher.	
-27	fr	MarchÃ©	Action			
-28	fr	Mine	Action		Ã‰cartez une carte TrÃ©sor de votre main. Recevez une carte TrÃ©sor coÃ»tant jusqu'Ã  3 de plusÂ ; ajoutez cette carte Ã  votre main.	
-29	fr	SorciÃ¨re	Action Attaque	NÃ©cessite: MalÃ©diction	Tous vos adversaires reÃ§oivent une carte MalÃ©diction.	
-30	fr	Aventurier	Action		DÃ©voilez des cartes de votre deck jusqu'Ã  ce que 2 cartes TrÃ©sor soient dÃ©voilÃ©es. Ajoutez ces cartes TrÃ©sor Ã  votre main et dÃ©faussez les autres cartes dÃ©voilÃ©es.	
-43	fr	Cour	Action		Placez une carte de votre main sur le dessus de votre deck.	
-44	fr	Pion	Action		Choisissez deux options diffÃ©rentesÂ : +1 CarteÂ ; +1 ActionÂ ; +1 AchatÂ ; +1	
-45	fr	Chambre secrÃ¨te	Action RÃ©action		DÃ©faussez autant de cartes que vous voulez. +1 par carte dÃ©faussÃ©e. Lorsqu'un adversaire joue une carte Attaque, vous pouvez dÃ©voiler cette carte de votre main. Dans ce cas, +2 Cartes et placez ensuite sur votre deck 2 cartes de votre main.	
+26	fr	Bibliotheque	Action			
+27	fr	Marché	Action			
+28	fr	Mine	Action			
+29	fr	Sorciere	Action Attaque	Nécessite: Malédiction		
+30	fr	Aventurier	Action			
+31	fr	Herboriste	Action			
+32	fr	Apprenti	Action			
+33	fr	Transmutation	Action			
+34	fr	Vignoble	Victoire			
+35	fr	Apothicaire	Action			
+36	fr	Bassin divinatoire	Action Attaque			
+37	fr	Université	Action			
+38	fr	Alchimiste	Action			
+39	fr	Familier	Action Attaque	Nécessite: Malédiction		
+40	fr	Pierre philosophale	Trésor			
+41	fr	Golem	Action			
+42	fr	Possession	Action			
+43	fr	Cour	Action			
+44	fr	Pion	Action			
+45	fr	Chambre secrete	Action Reaction			
 46	fr	Grand Hall	Action Victoire			
-47	fr	Mascarade	Action		Chaque joueur passe simultanÃ©ment une carte de sa main au joueur Ã  sa gauche. Vous pouvez ensuite Ã©carter une carte de votre main.	
-48	fr	Taudis	Action		DÃ©voilez votre main. Si vous n'avez aucune carte Action en main, +2 Cartes.	
-49	fr	Intendant	Action		ChoisissezÂ : +2 Cartes OU +2 OU Ã©cartez 2 cartes de votre main.	
-50	fr	Escroc	Action Attaque		Tous vos adversaires Ã©cartent la carte du dessus de leur deck et reÃ§oivent une carte du mÃªme coÃ»t que vous choisissez.	
-51	fr	Puits aux souhaits	Action		Nommez une carte. DÃ©voilez la premiÃ¨re carte de votre deck. Si c'est la carte nommÃ©e, prenez-la dans votre main.	
-52	fr	Baron	Action		Vous pouvez dÃ©fausser une carte Domaine. Dans ce cas, obtenez +4. Sinon, recevez une carte Domaine.	
-53	fr	Pont	Action		Toutes les cartes (incluant celles dans la main des joueurs) coÃ»tent 1 de moins pour le reste de votre tour. Les cartes ne peuvent pas coÃ»ter moins de 0.	
-54	fr	Conspirateur	Action		Si vous avez jouÃ© 3 cartes Action ou plus ce tour-ci (en comptant cette carte)Â : +1 Carte, +1 Action.	
-55	fr	Chaudronnier	Action		Les cartes Cuivre donnent 1 de plus ce tour-ci.	
-56	fr	Fonderie	Action		Recevez une carte coÃ»tant jusqu'Ã  4. Si celle-ci est... une carte ActionÂ : +1 Actionâ€¦ une carte TrÃ©sorÂ : +1â€¦ une carte VictoireÂ : +1 Carte	
-57	fr	Village minier	Action		Vous pouvez Ã©carter immÃ©diatement cette carte. Si vous l'Ã©cartez, +2.	
-58	fr	Ã‰claireur	Action		DÃ©voilez les 4 premiÃ¨res cartes de votre deck. Placez les cartes Victoire dÃ©voilÃ©es dans notre main. Placez les autres cartes sur le dessus de votre deck dans l'ordre de votre choix.	
-59	fr	Duc	Victoire		Vaut 1 point de victoire pour chaque DuchÃ© dans votre deck.	
-60	fr	Larbin	Action Attaque		ChoisissezÂ : +2 OU dÃ©faussez votre main, +4 Cartes, et tous les autres joueurs qui ont au moins 5 cartes en main dÃ©faussent leur main et piochent 4 cartes.	
-61	fr	Saboteur	Action Attaque		Tous vos adversaires dÃ©voilent des cartes de leur deck jusqu'Ã  ce qu'ils en dÃ©voilent une coÃ»tant 3 ou plus. Ils Ã©cartent cette carte et peuvent recevoir une carte coÃ»tant au plus 2 de moins. Ils dÃ©faussent les autres cartes dÃ©voilÃ©es.	
-62	fr	Bourreau	Action Attaque	NÃ©cessite: MalÃ©diction	Chacun de vos adversaires choisitÂ : dÃ©fausser 2 cartes OU recevoir une carte MalÃ©diction qui est ajoutÃ©e Ã  sa main.	
-63	fr	Comptoir	Action		Ã‰cartez 2 cartes de votre main. Dans ce cas, recevez une carte ArgentÂ ; ajoutez cette carte Ã  votre main.	
-64	fr	Hommage	Action		Le joueur Ã  votre gauche dÃ©voile et dÃ©fausse les 2 premiÃ¨res cartes de son deck. Pour chaque carte dÃ©voilÃ©e ayant un nom diffÃ©rent, recevezâ€¦ pour une carte ActionÂ : +2 Actionsâ€¦ pour une carte TrÃ©sorÂ : +2â€¦ pour une carte VictoireÂ : +2 Cartes	
-65	fr	Mise Ã  niveau	Action		Ã‰cartez une carte de votre main. Recevez une carte coÃ»tant exactement 1 de plus.	
-66	fr	Harem	TrÃ©sor Victoire		<big> <c>2</c> <br/> <vp>2</vp> </big>	
-67	fr	Nobles	Action Victoire		ChoisissezÂ : +3 Cartes OU +2 Actions.	
+47	fr	Mascarade	Action			
+48	fr	Taudis	Action			
+49	fr	Intendant	Action			
+50	fr	Escroc	Action Attaque			
+51	fr	Puits aux souhaits	Action			
+52	fr	Baron	Action			
+53	fr	Pont	Action			
+54	fr	Conspirateur	Action			
+55	fr	Chaudronnier	Action			
+56	fr	Fonderie	Action			
+57	fr	Village minier	Action			
+58	fr	Eclaireur	Action			
+59	fr	Duc	Victoire			
+60	fr	Larbin	Action Attaque			
+61	fr	Saboteur	Action Attaque			
+62	fr	Bourreau	Action Attaque	Nécessite: Malédiction		
+63	fr	Comptoir	Action			
+64	fr	Hommage	Action			
+65	fr	Mise a niveau	Action			
+66	fr	Harem	Trésor Victoire			
+67	fr	Nobles	Action Victoire			
+68	fr	Prêt	Trésor			
+69	fr	Route commerciale	Action	Nécessite: Jeton Pièce, Le Plateau Route Commerciale.		
+70	fr	Mirador	Action Reaction			
+71	fr	Évêque	Action	Nécessite: Jeton Victoire		
+72	fr	Monument	Action	Nécessite: Jeton Victoire		
+73	fr	Carrière	Trésor			
+74	fr	Talisman	Trésor			
+75	fr	Village ouvrier	Action			
+76	fr	Ville	Action			
+77	fr	Contrebande	Trésor			
+78	fr	Bureau de comptabilité	Action			
+79	fr	Hôtel de la Monnaie	Action			
+80	fr	Charlatan	Action Attaque	Nécessite: Malédiction		
+81	fr	Foule	Action Attaque			
+82	fr	Sceau royal	Trésor			
+83	fr	Chambre forte	Action			
+84	fr	Entreprise risquée	Trésor			
+85	fr	Fiers-à-bras	Action Attaque	Nécessite: Jeton Victoire		
+86	fr	Grand marché	Action			
+87	fr	Magot	Trésor			
+88	fr	Banque	Trésor			
+89	fr	Agrandissement	Action			
+90	fr	Forge	Action			
+91	fr	Cour du Roi	Action			
+92	fr	Colporteur	Action			
+93	fr	Embargo	Action	Nécessite: Jeton Embargo, Malédiction		
+94	fr	Havre	Action Durée			
+95	fr	Phare	Action Durée			
+96	fr	Village indigène	Action	Nécessite: Le Plateau Village indigêne		
+97	fr	Plongeur de perles	Action			
+98	fr	Ambassadeur	Action Attaque			
+99	fr	Village de pêcheurs	Action Durée			
+100	fr	Vigie	Action			
+101	fr	Contrebandiers	Action			
+102	fr	Entrepôt	Action			
+103	fr	Caravane	Action Durée			
+104	fr	Coupeur de bourses	Action Attaque			
+105	fr	Île	Action Victoire	Nécessite: Le Plateau Île		
+106	fr	Nagivateur	Action			
+107	fr	Bateau pirate	Action Attaque	Nécessite: Jeton Pièce, Le Plateau Pirate		
+108	fr	Sauveteur	Action			
+109	fr	Sorcière de mer	Action Attaque	Nécessite: Malédiction		
+110	fr	Carte aux trésors	Action			
+111	fr	Bazar	Action			
+112	fr	Explorateur	Action			
+113	fr	Vaisseau fantôme	Action Attaque			
+114	fr	Navire marchand	Action Durée			
+115	fr	Avant-poste	Action Durée			
+116	fr	Tacticien	Action Durée			
+117	fr	Trésorerie	Action			
+118	fr	Quai	Action Durée			
+119	fr	Hospice	Action			
+120	fr	Mendiant	Action Reaction			
+121	fr	Écuyer	Action			
+122	fr	Vagabond	Action			
+123	fr	Cueilleur	Action			
+124	fr	Ermite	Action	Nécessite: Fou		
+125	fr	Place du marché	Action Reaction			
+126	fr	Sage	Action			
+127	fr	Salle d'entreposage	Action			
+128	fr	Orphelin	Action Attaque	Nécessite: Mercenaire		
+129	fr	Armurerie	Action			
+130	fr	Charrette de cadavres	Action Attaque	Nécessite: Ruins		
+131	fr	Fief	Victoire			
+132	fr	Forteresse	Action			
+133	fr	Ferronnier	Action Attaque			
+134	fr	Maraudeur	Action Attaque Pillard	Nécessite: Ruins, Butin		
+135	fr	Procession	Action			
+136	fr	Rats	Action			
+137	fr	Pilleur	Action			
+138	fr	Ménestrel errant	Action			
+139	fr	Malfaiteurs	Action			
+140	fr	Camp de bandits	Action	Nécessite: Butin		
+141	fr	Catacombes	Action			
+142	fr	Comte	Action			
+143	fr	Contrefaçon	Trésor			
+144	fr	Cultiste	Action Attaque Pillard	Nécessite: Ruins		
+145	fr	Pilleur de tombes	Action			
+146	fr	Brocanteur	Action			
+147	fr	Chevalier	Action Attaque chevalier			
+148	fr	Mystique	Action			
+149	fr	Pillage	Action Attaque	Nécessite: Butin		
+150	fr	Reconstruction	Action			
+151	fr	Bandit	Action			
+152	fr	Autel	Action			
+153	fr	Territoire de chasse	Action			
+154	fr	Hameau	Action			
+155	fr	Diseuse de bonne aventure	Action Attaque			
+156	fr	Ménagerie	Action			
+157	fr	Village agricole	Action			
+158	fr	Maquignons	Action Reaction			
+159	fr	Renouvellement	Action			
+160	fr	Tournoi	Action	Nécessite: Prix, Malédiction		
+161	fr	Jeune sorcière	Action Attaque	Nécessite: Malédiction		
+162	fr	Récolte	Action			
+163	fr	Corne d'abondance	Trésor			
+164	fr	Chasseurs	Action			
+165	fr	Bouffon	Action Attaque	Nécessite: Malédiction		
+166	fr	Champ de foire	Victoire			
+167	fr	Cirier	Action	Nécessite: Jeton Pièce		
+168	fr	Tailleur de pierre	Action			
+169	fr	Médecin	Action			
+170	fr	Chef-d'œuvre	Trésor			
+171	fr	Conseiller	Action			
+172	fr	Place du village	Action	Nécessite: Jeton Pièce		
+173	fr	Percepteur	Action Attaque			
+174	fr	Héraut	Action			
+175	fr	Boulanger	Action	Nécessite: Jeton Pièce		
+176	fr	Boucher	Action	Nécessite: Jeton Pièce		
+177	fr	Compagnon	Action			
+178	fr	Guilde des Marchands	Action	Nécessite: Jeton Pièce		
+179	fr	Devin	Action Attaque	Nécessite: Malédiction		
+180	fr	Carrefour	Action			
+181	fr	Duchesse	Action			
+182	fr	Or des fous	Trésor Reaction			
+183	fr	Développement	Action			
+184	fr	Oasis	Action			
+185	fr	Oracle	Action Attaque			
+186	fr	Complot	Action			
+187	fr	Tunnel	Victoire Reaction			
+188	fr	Touche-à-tout	Action			
+189	fr	Noble brigand	Action Attaque			
+190	fr	Campement nomade	Action			
+191	fr	Route de la soie	Victoire			
+192	fr	Marchand d'épices	Action			
+193	fr	Troqueuse	Action Reaction			
+194	fr	Cache	Trésor			
+195	fr	Cartographe	Action			
+196	fr	Ambassade	Action			
+197	fr	Marchandeur	Action			
+198	fr	Route	Action			
+199	fr	Argent noir	Trésor	Nécessite: Malédiction		
+200	fr	Auberge	Action			
+201	fr	Mandarin	Action			
+202	fr	Margrave	Action Attaque			
+203	fr	Écuries	Action			
+204	fr	Village frontalier	Action			
+205	fr	Terre agricole	Victoire			
+207	fr	Monnaie Royale	Trésor Taverne			
+208	fr	Page	Action Itinerant	Nécessite: Mises à niveau		
+209	fr	Paysan	Action Itinerant	Nécessite: Mises à niveau, Tous +1 Jetons 		
+210	fr	Chasseur de rats	Action Taverne			
+211	fr	Démolition	Action			
+212	fr	Amulette	Action Duree			
+213	fr	Escorte	Action Durée Reaction			
+214	fr	Donjon	Action Durée			
+215	fr	Équipement	Action Durée			
+216	fr	Guide	Action Taverne			
+217	fr	Copie	Action Taverne			
+218	fr	Pie Voleuse	Action			
+219	fr	Courrier	Action			
+220	fr	Miséreux	Action			
+221	fr	Ville portuaire	Action			
+222	fr	Forestier 	Action	Nécessite: Jeton Voyage		
+223	fr	Transfiguration	Action Taverne			
+224	fr	Maitre-Artisan	Action			
+225	fr	Pont aux Trolls	Action Attaque Durée	Nécessite: -1 Pièce Jeton		
+226	fr	Terres lointaines	Action Taverne Victoire			
+227	fr	Géant	Action Attaque	Nécessite: Jeton Voyage, Malédiction		
+228	fr	Bois hantés	Action Attaque Durée			
+229	fr	Cité Perdue	Action			
+230	fr	Relique	Trésor Attaque	Nécessite: -1 Pièce Jeton		
+231	fr	Cortège royal	Action Taverne			
+232	fr	Conteuse	Action			
+233	fr	Sorcière des marais	Action Attaque Durée	Nécessite: Malédiction		
+234	fr	Pierres précieuses	Trésor			
+235	fr	Marchand de Vin	Action Taverne			
+236	fr	Recrue	Action Durée			
+237	fr	Aumône	Evenement			
+238	fr	Emprunt	Evenement	Nécessite: Jeton de -1 Carte		
+239	fr	Quête	Evenement			
+240	fr	Resserre	Evenement			
+241	fr	Pistage	Evenement			
+242	fr	Forains	Evenement			
+243	fr	Feu de joie	Evenement			
+244	fr	Expédition	Evenement			
+245	fr	Bac	Evenement	Nécessite: -2 Jeton de coût		
+246	fr	Plan de Bataille	Evenement	Nécessite: Poubelle Jeton		
+247	fr	Mission	Evenement			
+248	fr	Pèlerinage	Evenement	Nécessite: Jeton Voyage		
+249	fr	Bal	Evenement	Nécessite: -1 Pièce Jeton		
+250	fr	Raid	Evenement	Nécessite: -1 Pièce Jeton		
+251	fr	Route Maritime	Evenement	Nécessite: +1 Acheter Jeton		
+252	fr	Commerce	Evenement			
+253	fr	Arts anciens	Evenement	Requires: +1 Action Jeton		
+254	fr	Entraînement	Evenement	Nécessite: +1 Pièce Jeton		
+255	fr	Héritage	Evenement	Nécessite: Biens Jeton		
+256	fr	Reconnaissance	Evenement	Nécessite:+1 Carte Jeton		
