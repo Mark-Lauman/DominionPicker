@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -169,12 +168,14 @@ public abstract class Prefs {
                 sort_card = "";
                 sort_set = "";
 
-                for(String s : sort) {
-                    int i = Integer.parseInt(s);
-                    if(i == 1) break;
-                    sort_card += sort_card_col[i]+", ";
-                    if(!sort_set_col[i].equals(""))
-                        sort_set += ", "+sort_set_col[i];
+                if(sort.length != 0 && !"".equals(sort[0])) {
+                    for(String s : sort) {
+                        int i = Integer.parseInt(s);
+                        if(i == 1) break;
+                        sort_card += sort_card_col[i]+", ";
+                        if(!sort_set_col[i].equals(""))
+                            sort_set += ", "+sort_set_col[i];
+                    }
                 }
                 sort_card += sort_card_col[1];
                 if(sort_set.length() < 1)
@@ -343,23 +344,91 @@ public abstract class Prefs {
         String pref = prefs.getString(FILT_LANG, "");
         edit.putString(FILT_LANG, pref+",0");
 
-        // Change the set filter from a NOT IN filter to an IN filter.
+        // Change the set filter from a NOT IN filter to a IN filter.
         String[] filt_set = prefs.getString(FILT_SET, "").split(",");
         HashSet<Integer> not_filt_set = new HashSet<>(filt_set.length);
-        for(String s : filt_set)
-            not_filt_set.add(Integer.parseInt(s));
-        ArrayList<Integer> new_filt_set = new ArrayList<>(17 - filt_set.length);
-        for(int i=0; i<17; i++)
+        for (String s : filt_set) {
+            try{ not_filt_set.add(Integer.parseInt(s));
+            } catch (NumberFormatException ignored){}
+        }
+        HashSet<Integer> new_filt_set = new HashSet<>(16 - filt_set.length);
+        for(int i=0; i<16; i++)
             if(!not_filt_set.contains(i)) new_filt_set.add(i);
         edit.putString(FILT_SET, Utils.join(",", new_filt_set));
 
-        // Clear the cost filter
-        edit.putString(FILT_COST, "");
+        // Update the cost & potions filter
+        String filt_cost = prefs.getString(FILT_COST, "");
+        edit.putBoolean(FILT_POTION, !filt_cost.contains("0"));
+        HashSet<Integer> new_filt_cost = new HashSet<>();
+        for(String s : filt_cost.split(",")) {
+            try {
+                int val = Integer.parseInt(s);
+                if(val == 9)      new_filt_cost.add(8);
+                else if(val != 0) new_filt_cost.add(val);
+            } catch (NumberFormatException ignored){}
+        }
+        edit.putString(FILT_COST, Utils.join(",", new_filt_cost));
 
-        // Remove all old selections
+        // create a filt_set_arr so access is quicker
+        boolean[] filt_set_arr = new boolean[16];
+        for(int i=0; i<filt_set_arr.length; i++)
+            filt_set_arr[i] = new_filt_set.contains(i);
+
+        // Change the card filter from a IN filter to a NOT IN filter.
+        String[] filt_sel_split = prefs.getString(SELECTIONS, "").split(",");
+        HashSet<Integer> filt_card = new HashSet<>();
+        // Get the selected cards
+        HashSet<Integer> filt_sel = new HashSet<>(filt_sel_split.length);
+        for(String card : filt_sel_split) {
+            try{ filt_sel.add(Integer.parseInt(card));
+            } catch (NumberFormatException ignored){}
+        }
+        // Invert the selection. Unselected sets are not added to filt_card.
+        for(int i=1; i<257; i++) {
+            if(within(i, 6, 30) && !filt_set_arr[0])
+                i= 30;  // Base set
+            else if(within(i, 31, 42) && !filt_set_arr[1])
+                i= 42;  // Alchemy
+            else if(within(i, 43, 67) && !filt_set_arr[9])
+                i= 67;  // Intrigue
+            else if(within(i, 68, 92) && !filt_set_arr[11])
+                i= 92;  // Prosperity
+            else if(within(i, 93, 118) && !filt_set_arr[12])
+                i=118;  // Seaside
+            else if(within(i, 119, 153) && !filt_set_arr[4])
+                i=153;  // Dark Ages
+            else if(within(i, 154, 166) && !filt_set_arr[3])
+                i=166;  // Cornucopia
+            else if(within(i, 167, 179) && !filt_set_arr[7])
+                i=179;  // Guilds
+            else if(within(i, 180, 205) && !filt_set_arr[8])
+                i=205;  // Hinterlands
+            else if(within(i, 207, 256) && !filt_set_arr[15])
+                i=256;  // Adventures
+            else if(i==1 && !filt_set_arr[2])
+                i=1;  // Black Market
+            else if(i==2 && !filt_set_arr[13])
+                i=2;  // Stash
+            else if(i==3 && !filt_set_arr[5])
+                i=3;  // Envoy
+            else if(i==4 && !filt_set_arr[14])
+                i=4;  // Walled Village
+            else if(i==5 && !filt_set_arr[6])
+                i=5;  // Governor
+            else if(i==206 && !filt_set_arr[10])
+                i=206;  // Prince
+            else if(!filt_sel.contains(i)) // Add the card if needed - it's set is not filtered
+                filt_card.add(i);
+        }
+        edit.putString(FILT_CARD, Utils.join(",", filt_card));
         edit.remove(SELECTIONS);
 
         edit.commit();
+    }
+
+    /** Check if a value is within a given range */
+    private static boolean within(int val, int startRange, int endRange) {
+        return startRange <= val && val <= endRange;
     }
 
 
