@@ -16,7 +16,7 @@
     <string name="yw_no_bane">Jeune sorci&#232;re - Pas de fl&#233;eau</string>
     <string name="all_filtered">Toutes les cartes sont filtr&#233;es.</string>
 
-    <string name="games">Games</string>
+    <string name="games">Parties</string>
     <string name="sample_games">Exemples</string>
     <string name="favorite_games">Favoris</string>
     <string name="game_history">Historique</string>
@@ -28,7 +28,7 @@
     <string name="hist_plat">Platinum</string>
     <string name="hist_shelter">Shelters</string>
 
-    <string name="market_title">Black Market</string>
+    <string name="market_title">Marché Noir</string>
     <string name="market_begin">Nouveau march&#233; cr&#233;&#233; par le m&#233;langeur</string>
     <string name="market_draw">Tirer</string>
     <string name="market_pass">Passer</string>

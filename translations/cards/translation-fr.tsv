@@ -1,256 +1,256 @@
 _id	language	name	type	requires	text	rules
-1	fr	Marché Noir	Action			
-2	fr	Cachette	Trésor			
-3	fr	Délégué	Action			
-4	fr	Ville fortifiée	Action			
-5	fr	Gouverneur	Action			
-6	fr	Cave	Action			
-7	fr	Chapelle	Action			
-8	fr	Douves	Action Reaction			
-9	fr	Chancelier	Action			
-10	fr	Village	Action			
-11	fr	Bucheron	Action			
-12	fr	Atelier	Action			
-13	fr	Bureaucrate	Action Attaque			
-14	fr	Festin	Action			
-15	fr	Jardins	Victoire			
-16	fr	Milice	Action Attaque			
-17	fr	Preteur sur gages	Action			
-18	fr	Rénovation	Action			
-19	fr	Forgeron	Action			
-20	fr	Espion	Action Attaque			
-21	fr	Voleur	Action Attaque			
-22	fr	Salle du Trone	Action			
-23	fr	Chambre du conseil	Action			
-24	fr	Festival	Action			
-25	fr	Laboratoire	Action			
-26	fr	Bibliotheque	Action			
-27	fr	Marché	Action			
-28	fr	Mine	Action			
-29	fr	Sorciere	Action Attaque	Nécessite: Malédiction		
-30	fr	Aventurier	Action			
-31	fr	Herboriste	Action			
-32	fr	Apprenti	Action			
-33	fr	Transmutation	Action			
-34	fr	Vignoble	Victoire			
-35	fr	Apothicaire	Action			
-36	fr	Bassin divinatoire	Action Attaque			
-37	fr	Université	Action			
-38	fr	Alchimiste	Action			
-39	fr	Familier	Action Attaque	Nécessite: Malédiction		
-40	fr	Pierre philosophale	Trésor			
-41	fr	Golem	Action			
-42	fr	Possession	Action			
-43	fr	Cour	Action			
-44	fr	Pion	Action			
-45	fr	Chambre secrete	Action Reaction			
-46	fr	Grand Hall	Action Victoire			
-47	fr	Mascarade	Action			
-48	fr	Taudis	Action			
-49	fr	Intendant	Action			
-50	fr	Escroc	Action Attaque			
-51	fr	Puits aux souhaits	Action			
-52	fr	Baron	Action			
-53	fr	Pont	Action			
-54	fr	Conspirateur	Action			
-55	fr	Chaudronnier	Action			
-56	fr	Fonderie	Action			
-57	fr	Village minier	Action			
-58	fr	Eclaireur	Action			
-59	fr	Duc	Victoire			
-60	fr	Larbin	Action Attaque			
-61	fr	Saboteur	Action Attaque			
-62	fr	Bourreau	Action Attaque	Nécessite: Malédiction		
-63	fr	Comptoir	Action			
-64	fr	Hommage	Action			
-65	fr	Mise a niveau	Action			
-66	fr	Harem	Trésor Victoire			
-67	fr	Nobles	Action Victoire			
-68	fr	Prêt	Trésor			
-69	fr	Route commerciale	Action	Nécessite: Jeton Pièce, Le Plateau Route Commerciale.		
-70	fr	Mirador	Action Reaction			
-71	fr	Évêque	Action	Nécessite: Jeton Victoire		
-72	fr	Monument	Action	Nécessite: Jeton Victoire		
-73	fr	Carrière	Trésor			
-74	fr	Talisman	Trésor			
-75	fr	Village ouvrier	Action			
-76	fr	Ville	Action			
-77	fr	Contrebande	Trésor			
-78	fr	Bureau de comptabilité	Action			
-79	fr	Hôtel de la Monnaie	Action			
-80	fr	Charlatan	Action Attaque	Nécessite: Malédiction		
-81	fr	Foule	Action Attaque			
-82	fr	Sceau royal	Trésor			
-83	fr	Chambre forte	Action			
-84	fr	Entreprise risquée	Trésor			
-85	fr	Fiers-à-bras	Action Attaque	Nécessite: Jeton Victoire		
-86	fr	Grand marché	Action			
-87	fr	Magot	Trésor			
-88	fr	Banque	Trésor			
-89	fr	Agrandissement	Action			
-90	fr	Forge	Action			
-91	fr	Cour du Roi	Action			
-92	fr	Colporteur	Action			
-93	fr	Embargo	Action	Nécessite: Jeton Embargo, Malédiction		
-94	fr	Havre	Action Durée			
-95	fr	Phare	Action Durée			
-96	fr	Village indigène	Action	Nécessite: Le Plateau Village indigêne		
-97	fr	Plongeur de perles	Action			
-98	fr	Ambassadeur	Action Attaque			
-99	fr	Village de pêcheurs	Action Durée			
-100	fr	Vigie	Action			
-101	fr	Contrebandiers	Action			
-102	fr	Entrepôt	Action			
-103	fr	Caravane	Action Durée			
-104	fr	Coupeur de bourses	Action Attaque			
-105	fr	Île	Action Victoire	Nécessite: Le Plateau Île		
-106	fr	Nagivateur	Action			
-107	fr	Bateau pirate	Action Attaque	Nécessite: Jeton Pièce, Le Plateau Pirate		
-108	fr	Sauveteur	Action			
-109	fr	Sorcière de mer	Action Attaque	Nécessite: Malédiction		
-110	fr	Carte aux trésors	Action			
-111	fr	Bazar	Action			
-112	fr	Explorateur	Action			
-113	fr	Vaisseau fantôme	Action Attaque			
-114	fr	Navire marchand	Action Durée			
-115	fr	Avant-poste	Action Durée			
-116	fr	Tacticien	Action Durée			
-117	fr	Trésorerie	Action			
-118	fr	Quai	Action Durée			
-119	fr	Hospice	Action			
-120	fr	Mendiant	Action Reaction			
-121	fr	Écuyer	Action			
-122	fr	Vagabond	Action			
-123	fr	Cueilleur	Action			
-124	fr	Ermite	Action	Nécessite: Fou		
-125	fr	Place du marché	Action Reaction			
-126	fr	Sage	Action			
-127	fr	Salle d'entreposage	Action			
-128	fr	Orphelin	Action Attaque	Nécessite: Mercenaire		
-129	fr	Armurerie	Action			
-130	fr	Charrette de cadavres	Action Attaque	Nécessite: Ruins		
-131	fr	Fief	Victoire			
-132	fr	Forteresse	Action			
-133	fr	Ferronnier	Action Attaque			
-134	fr	Maraudeur	Action Attaque Pillard	Nécessite: Ruins, Butin		
-135	fr	Procession	Action			
-136	fr	Rats	Action			
-137	fr	Pilleur	Action			
-138	fr	Ménestrel errant	Action			
-139	fr	Malfaiteurs	Action			
-140	fr	Camp de bandits	Action	Nécessite: Butin		
-141	fr	Catacombes	Action			
-142	fr	Comte	Action			
-143	fr	Contrefaçon	Trésor			
-144	fr	Cultiste	Action Attaque Pillard	Nécessite: Ruins		
-145	fr	Pilleur de tombes	Action			
-146	fr	Brocanteur	Action			
-147	fr	Chevalier	Action Attaque chevalier			
-148	fr	Mystique	Action			
-149	fr	Pillage	Action Attaque	Nécessite: Butin		
-150	fr	Reconstruction	Action			
-151	fr	Bandit	Action			
-152	fr	Autel	Action			
-153	fr	Territoire de chasse	Action			
-154	fr	Hameau	Action			
-155	fr	Diseuse de bonne aventure	Action Attaque			
-156	fr	Ménagerie	Action			
-157	fr	Village agricole	Action			
-158	fr	Maquignons	Action Reaction			
-159	fr	Renouvellement	Action			
-160	fr	Tournoi	Action	Nécessite: Prix, Malédiction		
-161	fr	Jeune sorcière	Action Attaque	Nécessite: Malédiction		
-162	fr	Récolte	Action			
-163	fr	Corne d'abondance	Trésor			
-164	fr	Chasseurs	Action			
-165	fr	Bouffon	Action Attaque	Nécessite: Malédiction		
-166	fr	Champ de foire	Victoire			
-167	fr	Cirier	Action	Nécessite: Jeton Pièce		
-168	fr	Tailleur de pierre	Action			
-169	fr	Médecin	Action			
-170	fr	Chef-d'œuvre	Trésor			
-171	fr	Conseiller	Action			
-172	fr	Place du village	Action	Nécessite: Jeton Pièce		
-173	fr	Percepteur	Action Attaque			
-174	fr	Héraut	Action			
-175	fr	Boulanger	Action	Nécessite: Jeton Pièce		
-176	fr	Boucher	Action	Nécessite: Jeton Pièce		
-177	fr	Compagnon	Action			
-178	fr	Guilde des Marchands	Action	Nécessite: Jeton Pièce		
-179	fr	Devin	Action Attaque	Nécessite: Malédiction		
-180	fr	Carrefour	Action			
-181	fr	Duchesse	Action			
-182	fr	Or des fous	Trésor Reaction			
-183	fr	Développement	Action			
-184	fr	Oasis	Action			
-185	fr	Oracle	Action Attaque			
-186	fr	Complot	Action			
-187	fr	Tunnel	Victoire Reaction			
-188	fr	Touche-à-tout	Action			
-189	fr	Noble brigand	Action Attaque			
-190	fr	Campement nomade	Action			
-191	fr	Route de la soie	Victoire			
-192	fr	Marchand d'épices	Action			
-193	fr	Troqueuse	Action Reaction			
-194	fr	Cache	Trésor			
-195	fr	Cartographe	Action			
-196	fr	Ambassade	Action			
-197	fr	Marchandeur	Action			
-198	fr	Route	Action			
-199	fr	Argent noir	Trésor	Nécessite: Malédiction		
-200	fr	Auberge	Action			
-201	fr	Mandarin	Action			
-202	fr	Margrave	Action Attaque			
-203	fr	Écuries	Action			
-204	fr	Village frontalier	Action			
-205	fr	Terre agricole	Victoire			
-207	fr	Monnaie Royale	Trésor Taverne			
-208	fr	Page	Action Itinerant	Nécessite: Mises à niveau		
-209	fr	Paysan	Action Itinerant	Nécessite: Mises à niveau, Tous +1 Jetons 		
-210	fr	Chasseur de rats	Action Taverne			
-211	fr	Démolition	Action			
-212	fr	Amulette	Action Duree			
-213	fr	Escorte	Action Durée Reaction			
-214	fr	Donjon	Action Durée			
-215	fr	Équipement	Action Durée			
-216	fr	Guide	Action Taverne			
-217	fr	Copie	Action Taverne			
-218	fr	Pie Voleuse	Action			
-219	fr	Courrier	Action			
-220	fr	Miséreux	Action			
-221	fr	Ville portuaire	Action			
-222	fr	Forestier 	Action	Nécessite: Jeton Voyage		
-223	fr	Transfiguration	Action Taverne			
-224	fr	Maitre-Artisan	Action			
-225	fr	Pont aux Trolls	Action Attaque Durée	Nécessite: -1 Pièce Jeton		
-226	fr	Terres lointaines	Action Taverne Victoire			
-227	fr	Géant	Action Attaque	Nécessite: Jeton Voyage, Malédiction		
-228	fr	Bois hantés	Action Attaque Durée			
-229	fr	Cité Perdue	Action			
-230	fr	Relique	Trésor Attaque	Nécessite: -1 Pièce Jeton		
-231	fr	Cortège royal	Action Taverne			
-232	fr	Conteuse	Action			
-233	fr	Sorcière des marais	Action Attaque Durée	Nécessite: Malédiction		
-234	fr	Pierres précieuses	Trésor			
-235	fr	Marchand de Vin	Action Taverne			
-236	fr	Recrue	Action Durée			
-237	fr	Aumône	Evenement			
-238	fr	Emprunt	Evenement	Nécessite: Jeton de -1 Carte		
-239	fr	Quête	Evenement			
-240	fr	Resserre	Evenement			
-241	fr	Pistage	Evenement			
-242	fr	Forains	Evenement			
-243	fr	Feu de joie	Evenement			
-244	fr	Expédition	Evenement			
-245	fr	Bac	Evenement	Nécessite: -2 Jeton de coût		
-246	fr	Plan de Bataille	Evenement	Nécessite: Poubelle Jeton		
-247	fr	Mission	Evenement			
-248	fr	Pèlerinage	Evenement	Nécessite: Jeton Voyage		
-249	fr	Bal	Evenement	Nécessite: -1 Pièce Jeton		
-250	fr	Raid	Evenement	Nécessite: -1 Pièce Jeton		
-251	fr	Route Maritime	Evenement	Nécessite: +1 Acheter Jeton		
-252	fr	Commerce	Evenement			
-253	fr	Arts anciens	Evenement	Requires: +1 Action Jeton		
-254	fr	Entraînement	Evenement	Nécessite: +1 Pièce Jeton		
-255	fr	Héritage	Evenement	Nécessite: Biens Jeton		
-256	fr	Reconnaissance	Evenement	Nécessite:+1 Carte Jeton		
+1	fr	Marché Noir	Action		<b>+<c>2</c><br/><br/>Dévoilez les 3 premières cartes du Deck Marché noir. Vous pouvez immédiatement acheter une de ces cartes. Placez les cartes non achetées dans l'ordre de votre choix sous le deck Marché noir.<br/><br/> (Avant la partie, constituez un deck Marché noir avec un exemplaire de la carte Royaume qui n'est pas dans la réserve.)	
+2	fr	Cachette	Trésor		<big><c>2</c></big><hr/>Lorsque vous mélangez, vous pouvez placer cette carte où vous voulez dans votre deck.	
+3	fr	Délégué	Action		Dévoilez les 5 premières cartes de votre deck. Le joueur à votre gauche choisit une de ces cartes que vous devez défausser. Piochez les autres cartes,	
+4	fr	Ville fortifiée	Action		<b>+1 Carte<br/>+2 Actions</b><hr/>Au début de la phase Ajustement, si vous avez cette carte et pas plus d'une autre carte <i>Action</i> devant vous, vous pouvez poser cette carte sur le dessus de votre deck.	
+5	fr	Gouverneur	Action		<b>+1 Action</b><br/><br/>Choisissez entre ces trois options (vous obtenez la valeur entre parenthèses) : chaque joueur reçoit +1 (+3) Cartes ; Chaque joueur reçoit un <i>Argent</i> (<i>Or</i>) ; ou chaque joueur peut écarter une carte de sa main et recevoir une carte coûtant exactement <c>1</c> (<c>2</c>) de plus.	
+6	fr	Cave	Action		<b>+1 Action</b><br/><br/>Défaussez autant de cartes que vous voulez.<br/><b>+1 Carte</b> par carte défaussée. 	
+7	fr	Chapelle	Action		Écartez jusqu'à 4 cartes de votre main.	
+8	fr	Douves	Action Reaction		<b>+2 Cartes</b><hr/>Lorsqu'un adversaire joue une carte <i>Attaque</i>, vous pouvez dévoiler cette carte de votre main. Dans ce cas, l'Attaque n'a pas d'effet sur vous.	
+9	fr	Chancelier	Action		<b>+<c>2</c></b><br/><br/>Vous pouvez immédiatement défausser votre deck.	
+10	fr	Village	Action		<b>+1 Carte<br/>+2 Actions</b>	
+11	fr	Bucheron	Action		<b>+1 Achat<br/>+<c>2</c></b>	
+12	fr	Atelier	Action		Recevez une carte coûtant jusqu'à <c>4</c>.	
+13	fr	Bureaucrate	Action Attaque		Recevez 1 carte <i>Argent</i>;<br/>placez-la sur votre deck.<br/>Tous vos adversaires dévoilent 1 carte <i>Victoire</i> et la placent sur leur deck (sinon ils dévoilent leur main afin que vous puissiez voir qu'ils n'ont pas de cartes <i>Victoire</i>).	
+14	fr	Festin	Action		Écartez cette carte.<br/>Recevez une carte coûtant jusqu'à <c>5</c>.	
+15	fr	Jardins	Victoire		Vaut <vp>1</vp> pour chaque 10 cartes dans votre deck (arrondi à l'unité inférieure).	
+16	fr	Milice	Action Attaque		<b>+<c>2</c></b><br/><br/>Tous vos adversaires défaussent leurs cartes de façon à n'avoir que 3 cartes en main.	
+17	fr	Preteur sur gages	Action		Écartez une carte <i>Cuivre</i> de votre main et recevez +<c>3</c>.	
+18	fr	Rénovation	Action		Écartez une carte de votre main.<br/>Recevez une carte coûtant jusqu'à <c>2</c> de plus que la carte écartée.	
+19	fr	Forgeron	Action		<b>+3 Cartes</b>	
+20	fr	Espion	Action Attaque		<b>+1 Carte<br/>+1 Action</b><br/><br/>Tous les joueurs(vous aussi)dévoilent la première carte de leur deck. Vous décidez ensuite si chaque carte dévoilée est défaussée ou replacée sur son deck.	
+21	fr	Voleur	Action Attaque		Tous vos adversaires dévoilent les 2 premières cartes de leur deck.<br/>S'ils dévoilent des cartes <i><i>Trésor</i></i>, ils en écartent 1 de votre choix. Parmi ces cartes <i><i>Trésor</i></i> écartées, recevez celles de votre choix. Les autres cartes dévoilées sont défaussées.	
+22	fr	Salle du Trone	Action		Choisissez 1 carte <i>Action</i> de votre main.<br/>Jouez-la deux fois.	
+23	fr	Chambre du conseil	Action		<b>+4 Cartes<br/>+1 Achat</b><br/><br/>Tous vos adversaires piochent 1 carte.	
+24	fr	Festival	Action		<b>+2 Actions<br/>+1 Achat<br/>+<c>2</c></b>	
+25	fr	Laboratoire	Action		<b>+2 Cartes<br/>+1 Action</b>	
+26	fr	Bibliotheque	Action		Piochez jusqu'à ce que vous ayez 7 cartes en main. Chaque Action piochée peut être mise de côté.<br/>Défaussez les cartes mises de côté lorsque vous avez terminé de piocher.	
+27	fr	Marché	Action		<b>+1 Carte<br/>+1 Action<br/>+1 Achat<br/>+<c>1</c></b>	
+28	fr	Mine	Action		Écartez une carte <i><i>Trésor</i></i> de votre main. <br/> Recevez une carte <i><i>Trésor</i></i> coûtant jusqu'à <c>3</c> de plus;<br/>ajoutez cette carte à votre main.	
+29	fr	Sorciere	Action Attaque	Nécessite: Malédiction	<b>+2 Cartes</b><br/><br/>Tous vos adversaires recoivent une carte <i>Malédiction</i>.	
+30	fr	Aventurier	Action		Dévoilez des cartes de votre deck jusqu'à ce que 2 cartes <i>Trésor</i> soient dévoilées. Ajoutez ces cartes <i>Trésor</i> à votre Main et défaussez les autres cartes dévoilées.	
+31	fr	Herboriste	Action		<b>+1 Achat<br/>+<c>1</c></b><hr/>Lorsque vous défaussez cette carte de votre zone de jeu, vous pouvez placer sur le dessus de votre deck une de vos cartes <i>Trésor</i> qui est en jeu.	
+32	fr	Apprenti	Action		<b>+1 Action</b><br/><br/>Écartez une carte de votre main.<br/>+1 Carte par <c/> qu'elle coûte. <br/>+2 Cartes supplémentaires si elle a <pot/> dans son coût.	
+33	fr	Transmutation	Action		Écartez une carte de votre main.<br/> Si c'est...<br/>une carte <i>Action</i>, recevez un <i>Duché</i>;<br/>une carte <i>Trésor</i>, recevez une Transmutation;<br/>une carte <i>Victoire</i>, recevez un <i>Or</i>.	
+34	fr	Vignoble	Victoire		Vaut <vp>1</vp> pour chaque 3 cartes Action dans votre deck (arrondi à l'uniyé inférieure).	
+35	fr	Apothicaire	Action		<b>+1 Carte<br/>+1 Action</b><br/><br/>Dévoilez les 4 premières cartes de votre deck. Placez les cartes <i>Cuivre</i> et Potion ainsi dévoilées dans votre main. <br/>Placez les autres cartes sur le dessus de votre deck dans l'ordre de votre choix.	
+36	fr	Bassin divinatoire	Action Attaque		<b>+1 Action</b><br/>Tous les joueurs (vous aussi) dévoilent la première carte de leur deck. Décidez ensuite pour chaque carte dévoilée si elle est défaussée ou replacée sur son deck. <br/>Après, dévoilez des cartes de votre deck jusqu'à ce que vous dévoiliez une carte qui n'est pas une carte <i>Action</i>. Ajoutez toutes les cartes dévoilées à votre main.	
+37	fr	Université	Action		<b>+2 Actions</b><br/><br/>Vous pouvez recevoir une carte <i>Action</i> coûtant jusqu'à <c>5</c>.	
+38	fr	Alchimiste	Action		<b>+2 Cartes<br/>+1 Action</b><hr/>Lorsque vous défaussez cette carte de votre zone de jeu, vous pouvez la placer sur le dessus de votre deck si vous avez une potion en jeu.	
+39	fr	Familier	Action Attaque	Nécessite: Malédiction	<b>+1 Carte<br/>+1 Action</b><br/><br/>Tous vos adversaires reçoivent une carte Malédicition.	
+40	fr	Pierre philosophale	Trésor		Lorsque vous jouez cette carte, comptez le nombre de cartes de votre deck et de votre défausse.<br/>Vaut <c>1</c> par tranche de 5 cartes qu'il y a au total <br/>(arrondi à l'unité inférieure).	
+41	fr	Golem	Action		Dévoilez des cartes de votre deck jusqu'à ce que vous ayez dévoilé 2 cartes Actions qui ne sont pas Golem.<br/>Défaussez les autres cartes et jouez ensuite les cartes Action ainsi dévoilées, dans l'ordre de votre choix.	
+42	fr	Possession	Action		Après votre tour, le joueur de votre gauche joue un tour supplémentaire lors duquel vous pouvez voir toutes ses cartes et vous prenez toutes les décisions pour lui.<br/>Vous obtenez à sa place toutes les cartes qu'il obtient lors de ce tour. Les cartes écartées sont mises de côté et placées dans sa défausse à la fin du tour.	
+43	fr	Cour	Action		<b>+3 Cartes</b><br/><br/>Placez une carte de votre main sur le dessus de votre deck.	
+44	fr	Pion	Action		Choisissez deux options différentes:<br/>+1 Carte;<br/>+1 Action;<br/>+1 Achat;<br/>+<c>1</c>.	
+45	fr	Chambre secrete	Action Reaction		Défaussez autant de cartes que vous voulez. +<c>1</c> par carte défaussée.<hr/>Lorsqu'un adversaire joue une carte <i>Attaque</i>, vous pouvez dévoiler cette carte de votre main. Dans ce cas, +2 Cartes et placez ensuite sur votre deck 2 cartes de votre main.	
+46	fr	Grand Hall	Action Victoire		<b>+1 Carte<br/>+1 Action</b><hr/><big> <vp>1</vp> </big>	
+47	fr	Mascarade	Action		<b>+2 Cartes</b><br/><br/>Chaque joueur passe simultanément une carte de sa main au joueur de sa gauche.<br/>Vous pouvez ensuite écarter une carte de votre main.	
+48	fr	Taudis	Action		<b>+2 Action</b><br/><br/>Dévoilez votre main.<br/>Si vous n'avez aucune carte <i>Action</i> en main, +2 Cartes.	
+49	fr	Intendant	Action		Choisissez: +2 Cartes <b>OU</b> +<c>2</c> <b>OU</b> écartez 2 cartes de votre main.	
+50	fr	Escroc	Action Attaque		<b>+<c>2</c></b><br/><br/>Tous vos adversaires écartent la carte au dessus de leur deck et reçoivent une carte du même coût que vous choisissez.	
+51	fr	Puits aux souhaits	Action		<b>+1 Carte<br/>+1 Action</b><br/><br/>Nommez une carte.<br/>Dévoilez la première carte de votre deck. Si c'est la carte nommée, prenez la dans votre main.	
+52	fr	Baron	Action		<b>+1 Carte</b><br/><br/>Vous pouvez défaussez une carte <i>Domaine</i>. Dans ce cas, obtenez +<c>4</c>. Sinon, recevez une carte <i>Domaine</i>.	
+53	fr	Pont	Action		<b>+1 Achat<br/>+<c>1</c></b><br/><br/>Toutes les cartes (incluant celles dans la main des joueurs) coûtent <c>1</c> de moins pour le reste de votre tour. Les cartes ne peuvent pas coûter moins de <c>0</c>.	
+54	fr	Conspirateur	Action		<b>+<c>2</c></b><br/><br/>Si vous avez joué 3 cartes Action ou plus ce tour-ci (en comptant cette carte) : +1 Carte, +1 Action.	
+55	fr	Chaudronnier	Action		Les cartes <i>Cuivre</i> donnent <c>1</c> de plus ce tour-ci.	
+56	fr	Fonderie	Action		Recevez une carte coûtant jusqu'à <c>4</c>.<br/><br/>Si celle-ci est une...<br/>carte <i>Action</i>: +1 Action<br/>carte <i>Trésor</i>: +<c>1</c><br/>carte <i>Victoire</i>: +1 Carte	
+57	fr	Village minier	Action		<b>+1 Carte<br/>+2 Actions</b><br/><br/>Vous pouvez écarter immédiatement cette carte.<br/>Si vous l'écartez, +<c>2</c>.	
+58	fr	Eclaireur	Action		<b>+1 Action</b><br/><br/>Dévoilez les 4 premières cartes de votre deck. Placez les cartes <i>Victoire</i> dévoilées dans votre main. Placez les autres cartes sur le dessus de votre deck dans l'ordre de votre choix.	
+59	fr	Duc	Victoire		Vaut <vp>1</vp> pour chaque <i>Duché</i> dans votre deck.	
+60	fr	Larbin	Action Attaque		<b>+1 Action</b><br/><br/>Choisissez: +<c>2</c> <b>OU</b> défaussez votre main, +4 Cartes, et tous les autres joueurs qui ont au moins 5 cartes en main défaussent leur main et piochent 4 cartes.	
+61	fr	Saboteur	Action Attaque		Tous vos adversaires dévoilent des cartes de leur deck jusqu'à ce qu'ils en dévoilent une coûtant <c>3</c> ou plus. Ils écartent cette carte et peuvent recevoir une carte coûtant au plus <c>2</c> de moins.<br/>Ils défaussent les autres cartes dévoilées.	
+62	fr	Bourreau	Action Attaque	Nécessite: Malédiction	<b>+3 Cartes</b><br/><br/>Chacun de vos adversaires choisit:<br/>defausser 2 cartes <b>OU</b> recevoir une carte <i>Malédiction</i> qui est ajoutée à sa main.	
+63	fr	Comptoir	Action		Écartez 2 cartes de votre main. Dans ce cas, recevez une carte <i>Argent</i>; ajoutez cette carte à votre main.	
+64	fr	Hommage	Action		Le joueur de votre gauche dévoile et défausse les 2 premières cartes de son deck. Pour chaque carte dévoilée ayant un nom différent, recevez pour une...<br/>carte <i>Action</i>: +2 Actions<br/>carte <i>Trésor</i>: +<c>2</c><br/>carte <i>Victoire</i>: +2 Cartes	
+65	fr	Mise a niveau	Action		<b>+1 Carte<br/>+1 Action</b><br/><br/>Écartez une carte de votre main.<br/>Recevez une carte coûtant exactement <c>1</c> de plus.	
+66	fr	Harem	Trésor Victoire		<big> <c>2</c> <br/> <vp>2</vp> </big>	
+67	fr	Nobles	Action Victoire		Choisissez: +3 Cartes <b>OU</b> +2 Actions.<hr/><big> <vp>2</vp> </big>	
+68	fr	Prêt	Trésor		<big> <c>1</c> </big><br/><br/>Lorsque vous jouez cette carte, dévoilez des cartes de votre deck jusqu'à ce que vous dévoiliez une carte <i>Trésor</i>. Défaussez ou écartez-la.<br/>Défaussez les autres cartes.	
+69	fr	Route commerciale	Action	Nécessite: Jeton Pièce, Le Plateau Route Commerciale.	<b>+1 Achat</b><br/>+<c>1</c> par jeton Pièce sur le plateau Route commerciale.<br/>Écartez une carte de votre main.<hr/>Avant la partie, placez un jeton sur chaque pile de cartes <i>Victoire</i>. Lorsqu'une carte de cette pile est reçue, déplacez le jeton sur le plateau Route Commerciale.	
+70	fr	Mirador	Action Reaction		Piochez jusqu'à ce que vous ayiez 6 cartes en main.<hr/>Lorsque vous recevez une carte, vous pouvez dévoiler cette carte de votre main. Dans ce cas, vous pouvez écarter la carte reçue ou la mettre sur le dessus de votre deck.	
+71	fr	Évêque	Action	Nécessite: Jeton Victoire	<b>+<c>1</c><br/>+<vp>1</vp></b><br/>Écartez une carte de votre main.<br/>+<vp/> égal à la moitié de son coût en pièces, arrondi à l'unité inférieure.<br/>Tous vos adversaires peuvent écarter une carte de leur main.	
+72	fr	Monument	Action	Nécessite: Jeton Victoire	<b>+<c>2</c><br/>+<vp>1</vp></b>	
+73	fr	Carrière	Trésor		<big> <c>1</c> </big><hr/>Lorsque cette carte est en jeu, les autres cartes Action coûtent <c>2</c>de moins, mais pas moins de <c>0</c>.	
+74	fr	Talisman	Trésor		<big> <c>1</c> </big><hr/>Lorsque cette carte est en jeu et que vous achetez une carte coûtant <c>4</c> ou moins qui n'est pas une carte <i>Victoire</i>, recevez-en un exemplaire de plus.	
+75	fr	Village ouvrier	Action		<b>+1 Carte<br/>+2 Actions<br/>+1 Achat</b>	
+76	fr	Ville	Action		<b>+1 Carte<br/>+2 Actions</b><br/><br/>S'il y a une pile ou plus de vide dans la réserve, +1 Carte. S'il y a deux piles vides ou plus, +<c>1</c> et +1 Achat.	
+77	fr	Contrebande	Trésor		<big> <c>3</c> </big><br/>+1 Achat</b><br/>Lorsque vous jouez cette carte, le joueur à votre gauche nomme une carte. Vous ne pouvez pas acheter cette carte ce tour-ci.	
+78	fr	Bureau de comptabilité	Action		Regardez dans votre défausse et dévoilez autant de cartes <i>Cuivre</i> que vous souhaitez de cet endroit.<br/>Prenez ces cartes dans votre main.	
+79	fr	Hôtel de la Monnaie	Action		Vous pouvez dévoiler une carte <i>Trésor</i> de votre main. Recevez un exemplaire de cette carte.<hr/>Lorsque vous achetez cette carte, écartez toutes vos cartes <i>Trésor</i> en jeu.	
+80	fr	Charlatan	Action Attaque	Nécessite: Malédiction	+<c>2</c><br/><br/>Tous vos adversaires peuvent défausser une carte Malédicition. Ceux qui ne le font pas recoivent une carte Malédicition et une carte <i>Cuivre</i>.	
+81	fr	Foule	Action Attaque		<b>+3 Cartes</b><br/><br/>Tous vos adversaires dévoilent les 3 premières cartes de leur deck. Ils défaussent alors les cartes Action et <i>Trésor</i> ainsi dévoilées et replacent les autres sur leur deck, dans l'ordre de leur choix.	
+82	fr	Sceau royal	Trésor		<big> <c>2</c> </big><hr/>Lorsque cette carte est en jeu, les cartes que vous recevez peuvent être placées sur votre deck.	
+83	fr	Chambre forte	Action		<b>+2 Cartes</b><br/><br/>Défaussez autant de cartes que vous voulez. +<c>1</c> par carte défaussée.<br/>Tous vos adversaires peuvent défausser 2 cartes. Ceux qui défaussent peuvent piocher 1 carte.	
+84	fr	Entreprise risquée	Trésor		<b><c>1</c></b><br/><br/>Lorsque vous jouez cette carte, dévoilez des cartes de votre deck jusqu'à ce que vous dévoiliez une carte <i>Trésor</i>.<br/>Défaussez les autres cartes.<br/>Jouez cette carte <i>Trésor</i>.	
+85	fr	Fiers-à-bras	Action Attaque	Nécessite: Jeton Victoire	<b>+1 Achat<br/>+<c>2</c></b>Tous vos adversaires défaussent des cartes pour n'avoir que 3 cartes en main.<hr/>Lorsque cette carte est en jeu, +<vp>1</vp> à l'achat d'une carte.	
+86	fr	Grand marché	Action		<b>+1 Carte<br/>+1 Action<br/>+1 Achat<br/>+<c>2</c></b><hr/>Vous ne pouvez acheter cette carte que si vous avez des <i>Cuivre</i> en jeu.	
+87	fr	Magot	Trésor		<big> <c>2</c> </big><hr/>Lorsque cette carte est en jeu, vous recevez une carte <i>Or</i> à l'achat d'une carte <i>Victoire</i>.	
+88	fr	Banque	Trésor		Lorsque vous jouez cette carte, elle vaut <c>1</c> par carte <i>Trésor</i> que vous avez en jeu (incluant celle-ci).	
+89	fr	Agrandissement	Action		Écartez une carte de votre main.<br/>Recevez une carte coûtant jusqu'à <c>3</c> de plus que la carte écartée.	
+90	fr	Forge	Action		Écartez autant de cartes que vous voulez de votre main. Recevez une carte coûtant exactement le coût total en pièces de toutes les cartes écartées.	
+91	fr	Cour du Roi	Action		Vous pouvez choisir une carte <i>Action</i> de votre main. Jouez-la trois fois.	
+92	fr	Colporteur	Action		<b>+1 Carte<br/>+1 Action<br/>+<c>1</c></b><hr/>Lors de votre phase Achat, cette carte coûte <c>2</c> de moins par carte <i>Action</i> que vous avez en jeu, au minimum <c>0</c>.	
+93	fr	Embargo	Action	Nécessite: Jeton Embargo, Malédiction	<b>+<c>2</c></b><br/>Écartez cette carte. Placez un jeton Embargo sur une pioche de la réserve.<hr/>Lorsqu'un joueur achète une carte, il reçoit une carte <i>Malédiction</i> par jeton Embargo sur cette pille.	
+94	fr	Havre	Action Durée		<b>+1 Carte<br/>+1 Action</b><br/><br/>Mettez de côté une carte de votre main, face cachée. Au début de votre prochain tour, ajoutez cette carte à votre main.	
+95	fr	Phare	Action Durée		<b>+1 Action<br/>Maintenant et au début de votre prochain tour: +<c>1</c>.</b><hr/>Lorsque cette carte est en jeu, les cartes Attaque jouées par vos adversaires ne vous affectent pas.	
+96	fr	Village indigène	Action	Nécessite: Le Plateau Village indigêne	<b>+2 Actions</b><br/>Choisissez: Mettez de côté la première carte de votre deck, face cachée, sur votre plateau Village indigène <b>OU</b> prenez dans votre main toutes les cartes placées sur votre plateau. <br/>Vous pouvez consulter les cartes placées sur votre plateau en tout temps. Replacez-les dans votre deck à la fin de la partie.	
+97	fr	Plongeur de perles	Action		<b>+1 Carte<br/>+1 Action</b><br/><br/>Consultez la carte du dessous de votre deck. Vous pouvez la placer sur le dessus.	
+98	fr	Ambassadeur	Action Attaque		Dévoilez une carte de votre main.<br/>Replacez, de votre main à la réserve, jusqu'à 2 exemplaires de cette carte. Ensuite, tous vos adversaires reçoivent un exemplaire de cette carte.	
+99	fr	Village de pêcheurs	Action Durée		<b>+2 Actions<br/>+<c>1</c></b><br/>Au début de votre prochain tour:<br/><b>+1 Action<br/>+<c>1</c></b>	
+100	fr	Vigie	Action		<b>+1 Action</b><br/><br/>Cosultez les 3 premières cartes de votre deck. Écartez-en une.<br/>Défaussez-en une. Placez l'autre sur le dessus de votre deck.	
+101	fr	Contrebandiers	Action		Recevez un exemplaire d'une carte coûtant jusqu'à <c>6</c> que le joueur de votre droite a obtenue à son dernier tour.	
+102	fr	Entrepôt	Action		<b>+3 Cartes<br/>+1 Action</b><br/><br/>Défaussez 3 cartes.	
+103	fr	Caravane	Action Durée		<b>+1 Carte<br/>+1 Action</b><br/><br/>Au début de votre prochain tour:<br/><b>+1 Carte</b>	
+104	fr	Coupeur de bourses	Action Attaque		<b>+<c>2</c></b><br/><br/>Tous vos adversaires défaussent une carte <i>Cuivre</i> (sinon ils dévoilent leur main afin que vous puissiez voir qu'ils n'ont pas de carte <i>Cuivre</i>).	
+105	fr	Île	Action Victoire	Nécessite: Le Plateau Île	Mettez de côté cette carte et une autre carte de votre main. Remettez-les dans votre deck à la fin de la partie.<hr/><big> <vp>2</vp> </big>	
+106	fr	Nagivateur	Action		<b>+<c>2</c></b><br/><br/>Consultez les 5 premières cartes de votre deck. Vous pouvez toutes les défaussez <b>OU</b> toutes les remettres sur le dessus de votre deck dans l'ordre de votre choix.	
+107	fr	Bateau pirate	Action Attaque	Nécessite: Jeton Pièce, Le Plateau Pirate	Choisissez: Tous vos adversaires dévoilent les 2 premières cartes de leur deck, écartent une carte <i>Trésor</i> dévoilée de votre choix, défaussent le reste et vous prenez un jeton Pièce s'il y a eu au moins une carte <i>Trésor</i> écartée <b>OU</b> +<c>1</c> pour chaque jeton Pièce que vous avez obtenu avec les Bateau Pirate.	
+108	fr	Sauveteur	Action		<b>+1 Achat</b><br/><br/>Écartez une carte de votre main.<br/>+</c> égal au coût de la carte écartée.	
+109	fr	Sorcière de mer	Action Attaque	Nécessite: Malédiction	Tous vos adversaires défaussent la première carte de leur deck et recoivent ensuite une carte <i>Malédiction</i> qu'ils placent sur le dessus de leur deck.	
+110	fr	Carte aux Trésors	Action		Écartez cette carte ainsi qu'un autre exemplaire de Carte aux <i>Trésor</i>s de votre main. Si vous écartez deux Carte aux <i>Trésor</i>s, recevez 4 cartes <i>Or</i> que vous placez sur le dessus de votre deck.	
+111	fr	Bazar	Action		<b>+1 Carte<br/>+2 Actions<br/>+<c>1</c></b>	
+112	fr	Explorateur	Action		Vous pouvez dévoiler une carte <i>Province</i> de votre main. Dans ce cas, recevez une carte <i>Or</i> et ajoutez cette carte à votre main. Sinon, recevez une carte <i>Argent</i> et ajoutez cette carte à votre main.	
+113	fr	Vaisseau fantôme	Action Attaque		<b>+2 Cartes</b><br/><br/>Tous vos adversaires ayant 4 cartes ou plus en main placent des cartes de leur main sur leur deck jusqu'à ce qu'ils aient 3 cartes en main.	
+114	fr	Navire marchand	Action Durée		Maintenant et au début de votre prochain tour: +<c>2</c>.	
+115	fr	Avant-poste	Action Durée		Vous ne piochez que 3 cartes (plutôt que 5) lors de la phase Ajustement de ce tour. Vous jouez un tour supplémentaire après celui-ci.<br/>Ceci ne vous permet pas de jouer plus de deux tours consécutifs.	
+116	fr	Tacticien	Action Durée		Défaussez votre main.<br/>Si vous avez défaussé au moins une carte de cette façon, au début de votre prochain tour vous obtenez : +5 Cartes, +1 Achat et +1 Action.	
+117	fr	Trésorerie	Action		<b>+1 Carte<br/>+1 Action<br/>+<c>1</c></b><hr/>Lorsque vous défaussez cette carte de votre zone de jeu, vous pouvez la placer sur le dessus de votre deck si vous n'avez pas acheté de carte <i>Victoire</i> ce tour-ci.	
+118	fr	Quai	Action Durée		Maintenant et au début de votre prochain tour:<br/><br/><b>+2 Cartes<br/>+1 Achat</b>	
+119	fr	Hospice	Action		<b>+<c>4</c></b><br/><br/>Dévoilez votre main.<br/>-<c>1</c> par carte <i>Trésor</i> dans votre main, jusqu'à un minimum de <c>0</c>.	
+120	fr	Mendiant	Action Reaction		Recevez 3 cartes <i>Cuivre</i> que vous ajoutez à votre main.<hr/> Lorsqu'un adversaire joue une carte <i>Attaque</i>, vous pouvez défausser cette carte. Dans ce cas, recevez 2 cartes <i>Argent</i> et placez-en une sur votre deck.	
+121	fr	Écuyer	Action		<b>+<c>1</c></b><br/>Choisissez: +2 Actions, <b>OU</b> +2 Achats, <b>OU</b> recevez un <i>Argent</i>.<hr/>Lorsque vous écartez cette carte, recevez une carte <i>Attaque</i>.	
+122	fr	Vagabond	Action		<b>+1 Carte<br/>+1 Action</b><br/><br/>Dévoilez la première carte de votre deck. S'il s'agit d'une carte Malédicition, Ruines, Refuge ou <i>Victoire</i>, ajoutez-la à votre main.	
+123	fr	Cueilleur	Action		<b>+1 Action<br/>+1 Achat</b><br/><br/>Écartez une carte de votre main. +<c>1</c> par carte <i>Trésor</i> ayant un nom différent dans le Rebut.	
+124	fr	Ermite	Action	Nécessite: Fou	Consultez votre défausse.<br/>Vous pouvez écarter une carte non-<i>Trésor</i> de votre défausse ou de votre main.<br/>Recevez une carte coûtant jusqu'à <c>3</c>. <hr/> Lorsque vous défaussez cette carte de votre zone de jeu, si vous n'avez pas acheté de carte ce tour-ci, écartez cette carte et recevez un Fou de la pile.	
+125	fr	Place du marché	Action Reaction		<b>+1 Carte<br/>+1 Action<br/>+1 Achat</b><hr/>Lorsqu'une de vos cartes est écartée, vous pouvez défausser cette carte de votre main. Dans ce cas, recevez une carte <i>Or</i>.	
+126	fr	Sage	Action		<b>+1 Action</b><br/>Déviolez des cartes de dessus de votre deck jusqu'à ce que vous dévoiliez une carte coûtant <c>3</c> ou plus. Prenez cette carte en main et défaussez le reste.	
+127	fr	Salle d'entreposage	Action		<b>+1 Achat</b><br/>Défaussez le nombre de cartes que vous voulez.<br/>+1 Carte par carte défaussée.<br/>Défaussez le nombre de cartes que vous voulez.<br/>+<c>1</c> par carte défaussée la seconde fois.	
+128	fr	Orphelin	Action Attaque	Nécessite: Mercenaire	<b>+1 Carte<br/>+1 Action</b><br/>Tous vos adversaires défaussent pour n'avoir que 4 cartes en main.<hr/> Lorsque vous jouez une autre carte <i>Attaque</i> et que cette carte Orphelin est en jeu, vous pouvez écarter cette dernière. Dans ce cas, recevez un Mercenaire de la pile.	
+129	fr	Armurerie	Action		Recevez une carte coûtant jusqu'à <c>4</c> et placez-la sur votre deck.	
+130	fr	Charrette de cadavres	Action Attaque	Nécessite: Ruins	<b>+<c>5</c></b><br/>Vous pouvez écarter une carte <i>Action</i> de votre main. Si vous ne le faites pas, écartez cette carte-ci.<hr/>Lorsque vous recevez cette carte, recevez 2 cartes Ruine.	
+131	fr	Fief	Victoire		Vaut <vp>1</vp> pour chaque tranche de 3 cartes <i>Argent</i> dans votre deck <br/>(arrondie à l'unité inférieure).<hr/>Lorsque vous écartez cette carte, recevez 3 cartes <i>Argent</i>.	
+132	fr	Forteresse	Action		<b>+1 Carte<br/>+2 Actions</b><hr/>Lorsque vous écartez cette carte, reprenez-la dans votre main.	
+133	fr	Ferronnier	Action Attaque		<b>+1 Carte<br/>+1 Action</b><br/>Dévoilez la première carte de votre deck; vous pouvez la défausser. Dans tous les cas, si c'est une...<br/>carte <i>Action</i>: +1 Action<br/>carte <i>Trésor</i>: +<c>1</c><br/>carte <i>Victoire</i>: +1 Carte	
+134	fr	Maraudeur	Action Attaque Pillard	Nécessite: Ruins, Butin	Recevez une carte Butin de la pile. Tous vos adversaires recoivent une carte Ruines.	
+135	fr	Procession	Action		Vous pouvez jouer une carte <i>Action</i> de votre main deux fois. Écartez-la. <br/>Recevez une carte <i>Action</i> coûtant exactement <c>1</c> de plus que cette carte.	
+136	fr	Rats	Action		<b>+1 Carte<br/>+1 Action</b><br/>Recevez une carte Rats. Exartez une carte de votre main, qui n'est pas une carte Rats (ou dévoilez une main de Rats). <hr/>Lorsque vous écartez cette carte, +1 Carte.	
+137	fr	Pilleur	Action		<b>+<c>2</c></b><br/><br/>Vous pouvez mettre votre deck dans votre défausse. Consultez votre défausse et placez une de ces cartes sur le dessus de votre deck.	
+138	fr	Ménestrel errant	Action		<b>+1 Carte<br/>+2 Actions</b><br/><br/>Dévoilez les 3 premières cartes de votre deck. Replacez les cartes Action sur le dessus, dans l'ordre de votre choix, et défaussez le reste.	
+139	fr	Malfaiteurs	Action		Lorsque vous jouez cette carte, choisissez dans la réserve une carte <i>Action</i> moins coûteuse. Jusqu'à ce que cette carte Malfaiteurs ne soit plus en jeu, elle agit comme la carte choisie.	
+140	fr	Camp de bandits	Action	Nécessite: Butin	<b>+1 Carte<br/>+2 Actions</b><br/><br/>Recevez une carte Butin de la pile Butin.	
+141	fr	Catacombes	Action		Consultez les 3 premières cartes de votre deck.<br/> Choisissez: Ajoutez-les à votre main <b>OU</b> défaussez-les et +3 Cartes.<hr/>Lorsque vous écartez cette carte, recevez une carte moins coûteuse.	
+142	fr	Comte	Action		Choisissez: Défaussez 2 cartes, <b>OU</b> placez une carte de votre main sur le dessus de votre deck, <b>OU</b> recevez un <i>Cuivre</i>.<br/><br/>Choisissez: +<c>3</c>, <b>OU</b> écartez votre main, <b>OU</b> recevez un <i>Duché</i>.	
+143	fr	Contrefaçon	Trésor		<big> <c>1</c> </big><br/><br/><b>+1 Achat</b><br/>Lorsque vous jouez cette carte-ci, vous pouvez jouer une carte <i>Trésor</i> de votre main deux fois. Dans ce cas, écartez cette dernière.	
+144	fr	Cultiste	Action Attaque Pillard	Nécessite: Ruins	<b>+2 Cartes</b><br/><br/>Tous vos adversaires reçoivent une carte Ruines. Vous pouvez jouer un cultiste de votre main.<hr/>Lorsque vous écartez cette carte, +3 Cartes.	
+145	fr	Pilleur de tombes	Action		Choisissez: Recevez une carte du Rebut coûtant de <c>3</c> à <c>6</c> et placez-la sur votre deck, <b>OU</b> écartez une carte <i>Action</i> de votre main et recevez une carte coûtant jusqu'à <c>3</c> de plus que cette dernière.	
+146	fr	Brocanteur	Action		<b>+1 Carte<br/>+1 Action<br/>Écartez une carte de votre main.</b>	
+147	fr	Chevalier	Action Attaque chevalier		Au début de chaque partie avec les cartes Chevalier, mélangez la pile Chevalier. Gardez cette pile cachée, à l'exception de la première carte qui est la seule carte pouvant être achetée ou reçue.	
+148	fr	Mystique	Action		<b>+1 Action<br/>+<c>2</c></b><br/><br/>Nommez une carte.<br/>Dévoilez la première carte de votre deck. Si c'est la carte nommée, prenez-la dans votre main.	
+149	fr	Pillage	Action Attaque	Nécessite: Butin	Écartez cette carte. Tous vos adversaires qui ont 5 cartes ou plus dévoilent leur main et défausse une carte de votre choix.<br/>Recevez 2 cartes Buton de la pile.	
+150	fr	Reconstruction	Action		<b>+1 Action</b><br/>Nommez une carte. Dévoilez des cartes du dessus de votre deck jusqu'à ce que vous dévoiliez une carte <i>Victoire</i> qui n'es pas la carte nommée. Défaussez les autres cartes. Écartez cette carte <i>Victoire</i> et recevez une carte <i>Victoire</i> coûtant jusqu'à <c>3</c> de plus que celle écartée.	
+151	fr	Bandit	Action		<b>+<c>2</c></b><br/>S'il y a une ou des cartes dans le Rebut coûtant de <c>3</c> à <c>6</c>, recevez une de ces cartes. Sinon, chacun de vos adversaires dévoile les 2 premières cartes de son deck, écarte une carte coûtant de <c>3</c> à <c>6</c> et défausse le reste.	
+152	fr	Autel	Action		Écartez une carte de votre main.<br/>Recevez une carte coûtant jusqu'à <c>5</c>.	
+153	fr	Territoire de chasse	Action		<b>+4 Cartes</b><hr/>Lorsque cette carte est écartée, recevez 1 <i>Duché</i> ou 3 <i>Domaines</i>.	
+154	fr	Hameau	Action		<b>+1 Carte<br/>+1 Action</b><br/>Vous pouvez défausser cette carte; dans ce cas, +1 Action. <br/>Vous pouvez défausser une carte; dans ce cas, +1 Achat.	
+155	fr	Diseuse de bonne aventure	Action Attaque		<b>+<c>2</c></b><br/>Tous vos adversaires dévoilent des cartes de leur deck jusqu'à ce qu'ils dévoilent une carte <i>Victoire</i> ou <i>Malédiction</i>. Ils replacent cette carte sur leur deck et défaussent les autres cartes.	
+156	fr	Ménagerie	Action		<b>+1 Action</b><br/><br/>Dévoilez votre main.<br/>S'il n'y a pas de carte en double, +3 Cartes.<br/>Sinon, +1 Carte.	
+157	fr	Village agricole	Action		<b>+2 Actions</b><br/><br/>Dévoilez des cartes de votre deck jusqu'à ce que vous dévoiliez une carte <i>Action</i> ou <i>Trésor</i>. Ajoutez cette carte à votre main et défaussez les autres.	
+158	fr	Maquignons	Action Reaction		<b>+1 Achat<br/>+<c>3</c><br/>Défaussez 2 cartes</b><hr/>Lorsqu'un adversaire joue une carte <i>Attaque</i>, vous pouvez mettre cette carte de côté. Dans ce cas, au début de votre prochain tour, +1 Carte et reprenez cette carte dans votre main.	
+159	fr	Renouvellement	Action		Faites ceci deux fois: Écartez une carte de votre main et recevez une carte coûtant exactement <c>1</c> de plus que la carte écartée.	
+160	fr	Tournoi	Action	Nécessite: Prix, Malédiction	<b>+1 Action</b><br/>Chaque joueur peut dévoiler une  carte <i>Province</i> de sa main.<br/>Si vous le faites, défausszez la et recevez une carte Prix (de la pile Prix) ou <i>Duché</i>, que vous placez sur votre deck. Si personne d'autre ne le fait: +1 Carte et +<c>1</c>.	
+161	fr	Jeune sorcière	Action Attaque	Nécessite: Malédiction	<b>+2 Cartes</b><br/>Défaussez 2 cartes. Tous vos adversaires peuvent dévoiler une carte Fléau de leur main. Ceux qui ne le font pas reçoivent une carte <i>Malédiction</i>.<hr/>Avant la partie, ajoutez une pile d'une carte Royaume coûtant <c>2</c> ou <c>3</c>.<br/>Ce sont les cartes Fléau.	
+162	fr	Récolte	Action		Dévoilez les 4 premières cartes de votre deck et défaussez-les.<br/>+<c>1</c>pour chaque carte dévoilée ayant un nom différent.	
+163	fr	Corne d'abondance	Trésor		<b><c>0</c></b><br/>Lorsque vous jouez cette carte, recevez une carte coûtant jusqu'à <c>1</c> pour chacune de vos cartes en jeu ayant un nom différent, incluant cette carte. Si vous recevez une carte <i>Victoire</i>, écartez cette carte.	
+164	fr	Chasseurs	Action		<b>+1 Carte<br/>+1 Action</b><br/>Dévoilez votre main. Dévoilez des cartes de votre deck jusqu'à ce que vous dévoiliez une carte qui n'est pas un double d'une carte de votre main. Ajoutez-là à votre main et défaussez les autres cartes.	
+165	fr	Bouffon	Action Attaque	Nécessite: Malédiction	<b>+<c>2</c></b><br/>Chacun de vos adversaires défausse lapremière carte de son deck. Si c'est une carte <i>Victoire</i>, le joueur reçoit une carte <i>Malédiction</i>. Sinon, décidez qui reçoit un exemplaire de la carte défaussée entre vous et le joueur.	
+166	fr	Champ de foire	Victoire		Vaut <vp>2<vp/> pour chaque tranche de 5 cartes ayant un nom différent dans votre deck (arrondie à l'unité inférieure).	
+167	fr	Cirier	Action	Nécessite: Jeton Pièce	<b>+1 Action<br/>+1 Achat</b><br/>Prenez un jeton Pièce.	
+168	fr	Tailleur de pierre	Action		Écartez une carte de votre main. Gagnez deux cartes coûtant chacune moins que la carte écartée. <hr/>Lorsque vous achetez cette carte, vous pouvez surpayer, si vous le faites gagnez deux cartes action chacune coûtant la somme que vous avez ainsi surpayé.	
+169	fr	Médecin	Action		Nommez une carte. Dévoilez les 3 premières cartes de votre deck. Trash the matches.<br/>Écartez les cartes ayant le même nom que le carte nommée.Remettez le reste dans l'ordre que vous souhaitez.<hr/>Lorsque vous achetez cette carte, vous pouvez surpayer. Pour chaque <c>1</c>  surpayé, regardez la carte du dessus de votre deck ; écartez-là, défaussez-là ou replacez là.	
+170	fr	Chef-d'½uvre	Trésor		<big> <c>1</c> </big><hr/>Lorsque vous achetez cette carte, vous pouvez surpayer. Si vous le faites, gagnez une carte <i>Argent</i> par <c>1</c> ainsi surpayé.	
+171	fr	Conseiller	Action		<b>+1 Action</b><br/><br/>Dévoilez les 3 premières cartes de votre deck. Le joueur à votre gauche choisit l'une d'entre elles. Défaussez cette carte. Prenez les autres cartes en main.	
+172	fr	Place du village	Action	Nécessite: Jeton Pièce	<b>+1 Carte <br/>+2 Actions</b><br/>Vous pouvez défausser une carte <i>Trésor</i> de votre main. Si vous le faites, prenez un jeton Pièce.	
+173	fr	Percepteur	Action Attaque		Vous pouvez écarter une carte <i>Trésor</i> de votre main. Rous les autres joueurs avec 5 cartes ou plus en main défaussent une carte similaire (ou dévoilent leur main s'ils n'en ont pas). <br/>Recevez une carte <i>Trésor</i> coûtant jusqu'à <c>3</c> de plus et placez-la sur le dessus de votre deck.	
+174	fr	Héraut	Action		<b>+1 Carte<br/>+1 Action</b><br/>Dévoilez la première carte de votre deck. Si c'est une action, jouez-là.<hr/>Lorsque vous achetez cette carte, vous pouvez surpayer. Pour chaque <c>1</c> surpayé, prenez une carte de votre défausse et placez-là sur le dessus de votre deck.	
+175	fr	Boulanger	Action	Nécessite: Jeton Pièce	<b>+1 Carte<br/>+1 Action</b><br/>Prenez un jeton Pièce. <hr/>Mise en place: chaque joueur prend un jeton Pièce.	
+176	fr	Boucher	Action	Nécessite: Jeton Pièce	Prenez deux jetons Pièces. Vous pouvez écarter une carte de votre main puis payer des jetons Pièce de votre réserve. Si vous avez écarté une carte, recevez une carte coûtant jusqu'à la valeur de la carte écarté plus les jetons Pièce dépensés.	
+177	fr	Compagnon	Action		Nommez une carte. Dévoilez des cartes de votre deck jusqu'à ce que vous dévoilez 3 cartes qui ne sont pas la carte nommée. Prenez-les en main et défaussez le reste.	
+178	fr	Guilde des Marchands	Action	Nécessite: Jeton Pièce	<b>+1 Achat <br/>+<c>1</c></b><hr/>Lorsque cette carte est en jeu, quand vous achetez une carte, prenez un jeton Pièce.	
+179	fr	Devin	Action Attaque	Nécessite: Malédiction	Recevez un <i>Or</i>. Tous les autres joueurs reçoivent une <i>Malédiction</i>. Chaque joueur ayant reçu une <i>Malédiction</i> pioche une carte.	
+180	fr	Carrefour	Action		Dévoilez votre main.<br/>+1 Carte par carte <i>Victoire</i> dévoilée.<br/>Si c'est la première fois que vous jouez une carte Carrefour ce tour-ci, +3 Actions.	
+181	fr	Duchesse	Action		<b>+<c>2</c></b><br/>Tous les joueurs(vous aussi) consultent la première carte de leur deck et la défaussent ou la remplacent.<hr/>Dans une partie avec cette carte, vous pouvez recevoir une Duchesse lorsque que vous recevez un <i>Duché</i>.	
+182	fr	Or des fous	Trésor Reaction		Si c'est la première carte Or des fous que vous jouez ce tour-ci, elle vaut <c>1</c>, sinon elle vaut <c>4</c>.<hr/>Lorsqu'un joueur reçoit une carte <i>Province</i>, vous pouvez écarter cette carte de votre main. Dans ce cas, recevez une carte Or que vous placez sur votre deck.	
+183	fr	Développement	Action		Écartez une carte de votre main.<br/>Recevez une carte coûtant exactement <c>1</c> de plus que la carte écartée et une carte coûtant exatement <c>1</c> de moins. Placez les cartes reçues sur votre deck dans l'ordre de votre choix.	
+184	fr	Oasis	Action		<b>+1 Carte<br/>+1 Action<br/>+<c>1</c></b><br/>Défaussez une carte	
+185	fr	Oracle	Action Attaque		Tous les joueurs (vous aussi) dévoilent les 2 premières cartes de leur deck et vous choisissez pour chacun: soit il les défausse, soit il les remet sur le dessus de son deck dans l'ordre de son choix.<br/><br/><b>+2 Cartes</b>	
+186	fr	Complot	Action		<b>+1 Carte<br/>+1 Action</b><br/>Au début de la phase Ajustement de ce tour, vous pouvez choisir une carte <i>Action</i> que vous avez en jeu. <br/>Si vous la défaussez de votre zone de jeu ce tour-ci, placez-la sur votre deck.	
+187	fr	Tunnel	Victoire Reaction		<big> <vp>2</vp> </big><hr/>Lorsque vous défaussez cette carte à un autre moment que votre phase Ajustement, vous pouvez la dévoiler.<br/> Dans ce cas, recevez un <i>Or</i>.	
+188	fr	Touche-à-tout	Action		Recevez une carte <i>Argent</i>. <br/>Consultez la première carte de votre deck; defaussez-la ou remplacez-la. <br/>Piochez pour avoir 5 cartes en main. <br/>Vous pouvez écarter une carte de votre main qui n'est pas une carte <i>Trésor</i>.	
+189	fr	Noble brigand	Action Attaque		<b>+<c>1</c></b><br/>Lorsque vous achetez ou jouez cette carte, tous vos adversaires dévoilent les 2 premières cartes de leur deck. Si une carte <i>Or</i> ou <i>Argent</i> est dévoilée, ils en écartent une, et défaussent l'autre. Ceux qui n'ont pas dévoilé de <i>Trésor</i> reçoivent un <i>Cuivre</i>.<br/>Vous recevez les cartes écartées.	
+190	fr	Campement nomade	Action		<b>+1 Achat<br/>+<c>2</c></b><hr/>Lorsque vous recevez cette carte, placez-la sur votre deck.	
+191	fr	Route de la soie	Victoire		Vaut <vp>1</vp> pour chaque tranche de 4 cartes <i>Victoire</i> dans votre deck (arrondi à l'unité inférieure).	
+192	fr	Marchand d'épices	Action		Vous pouvez écarter une carte <i>Trésor</i> de votre main.<br/>Dans ce cas, choisissez:<br/>+2 Cartes et +1 Action;<br/>ou +<c>2</c> et +1 Achat.	
+193	fr	Troqueuse	Action Reaction		Écartez une carte de votre main.<br/>Recevez un nombre de cartes <i>Argent</i> équivalent au nombre de pièces que coûte cette carte.<hr/>Lorsque vous recevez cette carte, vous pouvez dévoiler cette carte de votre main. Dans ce cas, recevez une carte <i>Argent</i> à la place de l'autre carte.	
+194	fr	Cache	Trésor		<big> <c>3</c> </big><hr/>Lorsque vous recevez cette carte, recevez 2 cartes <i>Cuivre</i>.	
+195	fr	Cartographe	Action		<b>+1 Carte<br/>+1 Action</b><br/><br/>Consultez les 4 premières cartes de votre deck. Défaussez celles de votre choix. Replacez les autres sur votre deck dans l'ordre de votre choix.	
+196	fr	Ambassade	Action		<b>+5 Cartes <br/>Défaussez 3 cartes</b><hr/>Lorsque vous recevez cette carte, tous vos adversaires recoivent une carte <i>Argent</i>.	
+197	fr	Marchandeur	Action		<b>+<c>2</c></b><hr/>Lorsque cette carte est en jeu et que vous achetez une carte, vous recevez une carte coûtant moins que la carte achetée. La carte reçue ne peut pas être carte <i>Victoire</i>.	
+198	fr	Route	Action		<b>+1 Carte<br/>+1 Action</b><hr/>Lorsque cette carte est en jeu, les cartes coûtent <c>1</c> de moins, au minimum <c>0</c>.	
+199	fr	Argent noir	Trésor	Nécessite: Malédiction	<b><c>1</c></b><br/>Lorsque vous jouez cette carte, vous pouvez recevoir une carte <i>Cuivre</i> que vous ajoutez à votre main.<hr/>Lorsque vous recevez cette carte, tous vos adversaires reçoivent une <i>Malédiction</i>.	
+200	fr	Auberge	Action		<b>+2 Cartes<br/>+2 Actions<br/>Défaussez 2 cartes</b><hr/>Lorsque vous recevez cette carte, consultez votre défausse(incluant cette carte), dévoilez autant de cartes Action que vous voulez de votre défausse et mélangez-les dans votre deck.	
+201	fr	Mandarin	Action		<b>+<c>3</c></b><br/>Placez une carte de votre main sur le dessus de votre deck.<hr/>Lorsque vous recevez cette carte, placez toutes vos cartes <i>Trésor</i> en jeu sur le dessus de votre deck, dans l'ordre de votre choix.	
+202	fr	Margrave	Action Attaque		<b>+3 Cartes<br/>+1 Achat</b><br/><br/>Tous vos adversaires piochent une carte. Ensuite, ils défaussent pour n'avoir que 3 cartes en main.	
+203	fr	Écuries	Action		Vous pouvez défausser une carte <i>Trésor</i>.<br/>Dans ce cas, +3 Cartes et +1 Action.	
+204	fr	Village frontalier	Action		<b>+1 Carte<br/>+2 Actions</b><hr/>Lorsque vous recevez cette carte, recevez aussi une carte moins coûteuse.	
+205	fr	Terre agricole	Victoire		<big> <vp>2</vp> </big><hr/>Lorsque vous achetez cette carte, écartez une carte de votre main.<br/>Recevez une carte coûtant exactement <c>2</c> de plus que la carte écartée.	
+207	fr	Monnaie Royale	Trésor Taverne		<big> <c>1</c> </big><br/>Lorsque vous jouez cette carte, placez-la dans votre <i>Taverne</i>.<hr/>Après avoir résolu une Action, vous pouvez recourir à la Monnaie Royale pour +2 Action.	
+208	fr	Page	Action Itinerant	Nécessite: Mises à niveau	<b>+1 Carte<br/>+1 Action</b><hr/>Lorsque vous défaussez cette carte de votre zone de jeu, vous pouvez l'échanger contre carte Chasseuse de <i>Trésor</i>s.	
+209	fr	Paysan	Action Itinerant	Nécessite: Mises à niveau, Tous +1 Jetons 	<b>+1 Carte<br/>+<c>1</c></b><hr/>Lorsque vous défaussez cette carte de votre zone de jeu, vous pouvez l'échanger contre une carte Soldat.	
+210	fr	Chasseur de rats	Action Taverne		<b>+1 Carte<br/>+1 Action</b><br/>Placez cette carte dans votre <i>Taverne</i>. <hr/>Au début de votre tour, vous pouvez recourir à ce Chasseur de Rats pour écarter une carte de votre main.	
+211	fr	Démolition	Action		<b>+1 Action</b><br/><br/>Écartez soit cette carte, soit une carte de votre main. Consultez un nombre de carte du dessus de votre deck égal au coût en <c/> de la carte écartée. Conservez-en une en main et défaussez les autres.	
+212	fr	Amulette	Action Durée		Maintenant et au début de votre prochain tour, choisissez: +<c>1</c> <b>OU</b> écartez une carte de votre main <b>OU</b> recevez une carte <i>Argent</i>.	
+213	fr	Escorte	Action Durée Reaction		<b>+1 Carte<br/>+1 Action</b><br/>A votre prochain tour, +<c>1</c><hr/> Lorsqu'un adversaire joue une carte <i>Attaque</i>, vous pouvez jouer cette carte de votre main. (+1 Action n'a pas d'effet en dehors de votre tour)	
+214	fr	Donjon	Action Durée		<b>+1 Action</b><br/><br/>Maintenant et au début de votre prochain tour: +2 Cartes, puis défaussez 2 cartes.	
+215	fr	Équipement	Action Durée		<b>+2 Cartes</b><br/><br/>Mettez de côté jusqu'à 2 cartes de votre main fache cachée.<br/>Au début de votre prochain tour, prenez-les en main.	
+216	fr	Guide	Action Taverne		<b>+1 Carte<br/>+1 Action<br/>Placez cette carte dans votre <i>Taverne</i></b><hr/>Au début de votre tour, vous pouvez recourir à ce Guide pour défausser votre main et piocher 5 nouvelles cartes.	
+217	fr	Copie	Action Taverne		Placez cette carte dans votre <i>Taverne</i>.<hr/>Lorsque vous recevez une carte coûtant jusqu'à <c>6</c>, vous pouvez recourir à cette Copie pour recevoir un autre exemplaire de la carte reçue.	
+218	fr	Pie Voleuse	Action		<b>+1 Carte<br/>+1 Action</b><br/><br/>Dévoilez la première carte de votre deck.Si c'est une carte <i>Trésor</i>, prenez-la en main.<br/>Si c'est une carte <i>Action</i> ou une carte <i>Victoire</i>, recevez une Pie Voleuse.	
+219	fr	Courrier	Action		<b>+1 Achat<br/>+<c>2</c></b><br/>Vous pouvez placer votre deck dans votre défausse. <hr/>Si cette carte est votre premier achat du tour, recevez une carte co^^utant jusqu'à <c>4</c>, chaque adversaire en reçoit également un exemplaire.	
+220	fr	Miséreux	Action		Choisissez: placez une carte <i>Cuivre</i> de votre main dans votre <i>Taverne</i>; <b>OU</b> +<c>1</c> par carte <i>Cuivre</i> dans votre <i>Taverne</i>.	
+221	fr	Ville portuaire	Action		<b>+1 Carte<br/>+2 Actions</b><hr/>Lorsque vous achetez cette carte, recevez une autre carte Ville Portuaire.	
+222	fr	Forestier 	Action	Nécessite: Jeton Voyage	"<b>+1 Achat</b><br/>Retournez votre jeton ""Voyage""(face visible en début de partie).<br/>S'il se retrouve face visible, +5 Cartes."	
+223	fr	Transfiguration	Action Taverne		<b>+1 Action</b><br/>Placez cette carte dans votre <i>Taverne</i>.<hr/>Au début de votre tour, vous pouvez recourir à cette Transfiguration pour écarter une carte de votre main. <br/>Dans ce cas, reservez une carte coûtant jusqu'à <c>1</c> de plus que cette carte écartée; ajoutez cette carte à votre main.	
+224	fr	Maitre-Artisan	Action		<b>+1 Carte <br/>+1 Action<br/>+<c>1</c></b> <br/><br/>Défaussez autant de cartes que vous voulez. Vous pouvez recevoir une carte coûtant exactement <c>1</c> par carte défaussée et la placer sur le dessus de votre deck.	
+225	fr	Pont aux Trolls	Action Attaque Durée	Nécessite: -1 Pièce Jeton	"Vos adversaires placent un jeton ""-<c/>"" sur leur deck. Maintenant et au début de votre prochain tour: +1 Achat <hr/>Tant que cette carte est en jeu, les cartes coûtent <c>1</c> de moins pendant vos tours, mais jamais moins de <c>0</c>."	
+226	fr	Terres lointaines	Action Taverne Victoire		Placez cette carte dans votre <i>Taverne</i>.<hr/>Vaut <vp>4</vp> si cette carte est dans votre <i>Taverne</i> à la fin de la partie (sinon, vaut <vp>0</vp>).	
+227	fr	Géant	Action Attaque	Nécessite: Jeton Voyage, Malédiction	"Retournez votre jeton ""Voyage""(face visible en début de partie).<br/>S'il se retrouve face cachée, +<c>1</c>. S'il se retrouve face visible, +<c>5</c> et tous vos adversaire dévoilent la première carte de leur deck, l'écartent si elle coûte de <c>3</c> à <c>6</c>, sinon la défaussent et reçoivent une carte <i>Malédiction</i>."	
+228	fr	Bois hantés	Action Attaque Durée		Jusqu'à votre prochain tour, quand un adversaire achète une carte, il place sa main restante sur le dessus de son deck dans l'ordre de son choix.<br/>Au début de votre prochain tour: +3 Cartes.	
+229	fr	Cité Perdue	Action		<b>+2 Cartes<br/>+2 Action</b><hr/> Quand vous recevez cette carte, chaque adversaire pioche une carte.	
+230	fr	Relique	Trésor Attaque	Nécessite: -1 Pièce Jeton	"<big> <c>2</c> </big><br/><br/>Lorsque vous jouez cette carte, chaque adversaire place son jeton ""-1 Carte"" sur son deck."	
+231	fr	Cortège royal	Action Taverne		<b>+1 Action</b><br/>Placez cette carte dans votre <i>Taverne</i>.<hr/> Après avoir résolu une carte <i>Action</i>, si elle est encore présente dans votre zone de jeu, vous pouvez recourir à ce Cortège Royal pour rejouer la carte <i>Action</i>.	
+232	fr	Conteuse	Action		<b>+1 Action<br/>+<c>1</c></b><br/>Jouez jusqu'à 3 cartes <i>Trésor</i> de votre main. Dépensez toutes les <c/> alors présentes devant vous pour obtenir +1 Carte par <c>1</c> payée.	
+233	fr	Sorcière des marais	Action Attaque Durée	Nécessite: Malédiction	Jusqu'à votre prochain tour, lorsqu'un adversaire achète une carte, il gagne une <i>Malédiction</i>.<br/>Au début de votre prochain tour: +<c>3</c>.	
+234	fr	Pierres précieuses	Trésor		<big> <c>2</c> </big><br/>Lorsque vous jouez cette carte, recevez une carte <i>Or</i> et une carte <i>Cuivre</i>.	
+235	fr	Marchand de Vin	Action Taverne		<b>+1 Achat<br/>+<c>4</c><br/>Placez cette carte dans votre <i>Taverne</i></b><hr/>A la fin de votre phase d'achat, si vous avez encore au moins <c>2</c> en main, vous pouvez défausser ce Marchand de vin de la <i>Taverne</i>.	
+236	fr	Recrue	Action Durée		Au début de chacun de vos tours (et pour le reste de la partie): <b>+1 Carte</b><br/>(Une fois jouée, cette carte reste définitivement en jeu.)	
+237	fr	Aumône	Evenement		<b>Une fois par tour:</b> si vous n'avez aucune carte <i>Trésor</i> en jeu, recevez une carte coûtant jusqu'à <c>4</c>.	
+238	fr	Emprunt	Evenement	Nécessite: Jeton de -1 Carte	"<b>Une fois par tour: +1 Achat</b> Si vous n'avez pas le jeton ""-1 Carte"", placez-le sur votre deck et +<c>1</c>."	
+239	fr	Quête	Evenement		Vous pouvez défausser une carte <i>Attaque</i>, deux cartes <i>Malédictions</i> ou six cartes quelconques. Dans ce cas, recevez une carte <i>Or</i>.	
+240	fr	Resserre	Evenement		<b>Une fois par tour: +1 Achat;</b> mettez de côté une carte de votre main et récupérez-la en fin de tour(après avoir pioché).	
+241	fr	Pistage	Evenement		<b>+1 Achat</b><br/>Consultez les 5 premières cartes de votre deck. Défaussez-en 3 et placez les autres cartes sur le dessus de votre deck dans l'ordre de votre choix.	
+242	fr	Forains	Evenement		<b>+1 Achat</b><br/>Consultez les 5 premières cartes de votre deck. Défaussez-en 3 et placez les autres cartes sur le dessus de votre deck dans l'ordre de votre choix.	
+243	fr	Feu de joie	Evenement		Écartez jusqu'à 2 cartes de votre zone de jeu.	
+244	fr	Expédition	Evenement		Lors de la phase d'ajustement, piochez 2 cartes de plus pour former votre nouvelle main.	
+245	fr	Bac	Evenement	Nécessite: -2 Jeton de coût	"Placez votre jeton ""-<c>2</c>"" sur une pile de cartes Action de la réserve<br/>(désormais, pendant vos tours, les cartes de cette pile coûtent <c>2</c> de moins, mais jamais moins que <c>0</c>)."	
+246	fr	Plan de Bataille	Evenement	Nécessite: Poubelle Jeton	"Placez votre jeton ""Ecart"" sur une pile de cartes Action de la réserve (désormais, dès que vous achetez une carte de cette pile, vous pouvez écarter une carte de votre main)."	
+247	fr	Mission	Evenement		<b>Une fois par tour et si le tour précédent n'était pas déjà le votre:</b><br/>jouez un tour supplémentaire pendant lequel vous ne pourrez pas acheter de cartes.	
+248	fr	Pèlerinage	Evenement	Nécessite: Jeton Voyage	"<b>Une fois par tour:</b> retournez votre jeton ""Voyage""(face visible en début de partie); si ce jeton se retrouve face visible, choisissez jusqu'à 3 cartes de votre zone de jeu avec des noms différents et recevez un exemplaire de chacune."	
+249	fr	Bal	Evenement	Nécessite: -1 Pièce Jeton	"Prenez devant vous votre jeton ""-<c>1</c>"" (-1 sur votre prochain gain de pièces)."	Recevez 2 cartescoûtant chacune jusqu'à <c>4</c>.
+250	fr	Raid	Evenement	Nécessite: -1 Pièce Jeton	"Recevez une carte <i>Argent</i> par <i>Argent</i> dans votre zone de jeu. Tous vos adversaires placent leur jeton ""-1 Carte"" sur leur deck."	
+251	fr	Route Maritime	Evenement	Nécessite: +1 Acheter Jeton	"Recevez une carte <i>Action</i> coûtant jusqu'à <c>4</c>. <br/>Placez le jeton ""+1 Achat"" sur la pile de cette carte <i>Action</i> (désormais, dès que vous jouez une carte de cette pile: +1 Achat)."	
+252	fr	Commerce	Evenement		Écartez jusqu'à 2 cartes de votre main. <br/>Recevez une carte <i>Argent</i> par carte écartée de cette manière.	
+253	fr	Arts anciens	Evenement	Requires: +1 Action Jeton	"Placez votre jeton ""+1 Action"" sur une pile de cartes Action de la réserve.<br/>(désormais, dès que vous jouez une carte de cette pile : +1 Action)."	
+254	fr	Entraînement	Evenement	Nécessite: +1 Pièce Jeton	"Placez votre jeton ""+<c>1</c>"" sur une pile de cartes Action de la réserve (désormais, dès que vous jouez une carte de cette pile, +<c>1</c>)."	
+255	fr	Héritage	Evenement	Nécessite: Biens Jeton	<b>Une fois par partie:</b> mettez de côté une carte <i>Action</i>(mais pas <i>Victoire</i>) de la réserve coûtant jusqu'à <c>4</c>, placez votre jeton <i>Domaine</i> dessus (désormais, tous vos <i>Domaines</i> ont les pouvoirs et les types de la carte choisie).	
+256	fr	Reconnaissance	Evenement	Nécessite:+1 Carte Jeton	"Placez votre jeton ""+1 Carte"" sur une pile de cartes Action de la réserve.<br/>(désormais, dès que vous jouez une carte de cette pile: +1 Carte)."	

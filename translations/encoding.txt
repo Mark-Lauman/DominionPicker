@@ -1,0 +1,6 @@
+English    UTF-8
+French     ISO-8859-15
+Dutch      ISO-8859-15
+Portuguese ISO-8859-15
+German	   ISO-8859-15
+Italian	   UTF-8

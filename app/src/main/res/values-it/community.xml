@@ -9,6 +9,8 @@
     <string name="no_email">Invia una email a android@marklauman.ca</string>
 
     <string name="visit_website">Visit website</string>
+    <!-- "You can find this at
+               _url_"          -->
     <string name="no_browser">You can find this at\n%1$s</string>
 
     <string name="github">Visita GitHub</string>

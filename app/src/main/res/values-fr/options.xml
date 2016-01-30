@@ -7,19 +7,19 @@
     <string name="filt_lang_desc">Choisissez la langue de chaque bo&#238;te</string>
     <string name="system_default">Par d&#233;faut</string>
 
-    <string name="sort_card">Card Order</string>
-    <string name="sort_card_desc">Sort your cards as you wish.</string>
+    <string name="sort_card">Ordre des cartes</string>
+    <string name="sort_card_desc">Classez vos cartes comme vous le voulez.</string>
     <string name="drag_handle_desc">Drag me!</string>
-    <string name="sort_card_end">Sorting ends here.</string>
-    <string name="sort_card_notice">Drag items into place.</string>
+    <string name="sort_card_end">Le classement s\'arrête ici.</string>
+    <string name="sort_card_notice">Glissez les objets dans l\'ordre.</string>
     <string-array name="sort_card_names">
         <item>Ensemble</item>
         <item>Nom</item>
-        <item>Release Date</item>
-        <item>Cost</item>
+        <item>Date de Sortie</item>
+        <item>Coût</item>
         <item>Type</item>
-        <item>Language</item>
-        <item>Promos First</item>
+        <item>Langue</item>
+        <item>Cartes de Promos avant</item>
     </string-array>
 
 </resources>

@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="community">Community</string>
-    <string name="community_info">Improve this app.</string>
+    <string name="community">Communauté</string>
+    <string name="community_info">Améliorez cette app.</string>
 
-    <string name="email_mark">Email Mark</string>
-    <string name="email_info">He makes the app.</string>
+    <string name="email_mark">Contactez Mark</string>
+    <string name="email_info">Il conçoit l\'app.</string>
     <string name="no_email">Send an email to android@marklauman.ca</string>
 
     <string name="visit_website">Visit website</string>
     <string name="no_browser">You can find this at\n%1$s</string>
 
-    <string name="github">Visit GitHub</string>
-    <string name="github_info">See planned features.</string>
+    <string name="github">Visitez GitHub</string>
+    <string name="github_info">Voir les améliorations prévues.</string>
     <string name="github_url">https://github.com/Mark-Lauman/DominionPicker/issues</string>
 
-    <string name="contribute">Contributors</string>
-    <string name="contribute_info">Making the app better.</string>
-    <string name="thanks">Dominion Picker could not have become what it is without your help. Thank you.</string>
+    <string name="contribute">Contributeurs</string>
+    <string name="contribute_info">Rendant l\'app meilleure.</string>
+    <string name="thanks">Dominion n\'aurait pas pu devenir ce qu\'elle est sans votre aide. Merci.</string>
     <!-- TODO: Determine who wants to be in the credits -->
     <string name="credits"><![CDATA[
         <b>TODO</b>
     ]]></string>
 
 
-    <string name="open_source">Open Source Credits</string>
-    <string name="open_source_info">Programming projects that helped.</string>
+    <string name="open_source">Remerciements Open Source</string>
+    <string name="open_source_info">Les programmes qui ont aidé.</string>
     <string name="apache_txt"><![CDATA[
-        All projects were licensed under the <a href="">Apache License,</a> Version 2.0
+        Tous les projets sont licenciés sous <a href="">Apache License,</a> Version 2.0
     ]]></string>
     <string name="apache_url">http://www.apache.org/licenses/LICENSE-2.0</string>
 

@@ -21,10 +21,10 @@
         <item>en</item>
     </string-array>
 
-    <string name="coin">Coin</string>
+    <string name="coin">Pièce</string>
     <plurals name="format_coin">
-        <item quantity="one">%1$s Coin</item>
-        <item quantity="other">%1$s Coins</item>
+        <item quantity="one">%1$s Pièce</item>
+        <item quantity="other">%1$s Pièces</item>
     </plurals>
 
     <string name="potion">Potion</string>
