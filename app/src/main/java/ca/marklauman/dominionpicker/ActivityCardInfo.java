@@ -121,7 +121,7 @@ public class ActivityCardInfo extends AppCompatActivity
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         if(data == null || data.getCount() == 0) {
             Log.wtf("ca.marklauman.dominionpicker.ActivityCardInfo",
-                    "No card found that matches criteria");
+                    "There is no card "+getIntent().getLongExtra(PARAM_ID, -1));
             return;
         }
         data.moveToFirst();

@@ -111,7 +111,8 @@
             android:gravity="center"
             android:layout_toRightOf="@id/card_color"
             android:layout_toEndOf="@id/card_color"
-            android:layout_above="@id/bottomDiv" />
+            android:layout_above="@id/bottomDiv"
+            android:focusable="true" />
 
         <LinearLayout android:id="@+id/card_no_info"
             android:layout_width="match_parent"
