@@ -33,13 +33,13 @@
         <item quantity="other">%1$s Potions</item>
     </plurals>
 
-    <string name="vp">Victory Point</string>
+    <string name="vp">Point de Victoire</string>
     <plurals name="format_vp">
-        <item quantity="one">%1$s Victory Point</item>
-        <item quantity="other">%1$s Victory Points</item>
+        <item quantity="one">%1$s Point de Victoire</item>
+        <item quantity="other">%1$s Points de Victoire</item>
     </plurals>
 
-    <string name="card_no_info">This card hasn\'t been translated into French.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</string>
-    <string name="card_mail_subject">Dominion Card #%1$d (%2$s)</string>
+    <string name="card_no_info">Cette carte n\'a pas encore été traduite en Français.\n\nPossédez-vous cette carte? Si c\'est le cas, envoyez une traduction à Mark pour qu\'il puisse l\'ajouter.</string>
+    <string name="card_mail_subject">Carte Dominion #%1$d (%2$s)</string>
 
 </resources>

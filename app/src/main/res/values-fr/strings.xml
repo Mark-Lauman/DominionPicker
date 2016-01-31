@@ -8,10 +8,10 @@
     <string name="picker">M&#233;langeur</string>
     <string name="toggle_all">Tout inverser</string>
     <string name="shuffle">Envoyer</string>
-    <string name="req_card">Required</string>
-    <string name="card_details">Card Details</string>
+    <string name="req_card">Requis</string>
+    <string name="card_details">Détails de la Carte</string>
     <!-- read by blind assistant as "Alchemist card details button" -->
-    <string name="card_details_button">%1$s card details</string>
+    <string name="card_details_button">%1$s détails de la carte</string>
     <string name="more_k">Il faut plus de cartes royaume! (%1$s)</string>
     <string name="yw_no_bane">Jeune sorci&#232;re - Pas de fl&#233;eau</string>
     <string name="all_filtered">Toutes les cartes sont filtr&#233;es.</string>
@@ -25,8 +25,8 @@
         <item quantity="one">%d Carte</item>
         <item quantity="other">%d Cartes</item>
     </plurals>
-    <string name="hist_plat">Platinum</string>
-    <string name="hist_shelter">Shelters</string>
+    <string name="hist_plat">Platines</string>
+    <string name="hist_shelter">Refuges</string>
 
     <string name="market_title">Marché Noir</string>
     <string name="market_begin">Nouveau march&#233; cr&#233;&#233; par le m&#233;langeur</string>
@@ -35,8 +35,8 @@
     <string name="market_sold_out">&#201;puis&#233; !</string>
 
     <string name="supply_no_name">Vos m&#233;langes!</string>
-    <string name="supply_colonies">Utiliser Colonies &amp; Platinum</string>
-    <string name="supply_shelters">Utiliser Shelters</string>
+    <string name="supply_colonies">Utiliser Colonies &amp; Platine</string>
+    <string name="supply_shelters">Utiliser Refuges</string>
     <string name="young_witch_bane">Fl&#233;au</string>
     <string name="change_fav">Favori ?</string>
     <string name="name_me">Nom ?</string>

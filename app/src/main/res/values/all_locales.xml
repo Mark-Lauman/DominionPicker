@@ -32,7 +32,7 @@
         <item>@string/coin</item>
         <item>M&#252;nze</item>
         <item>Coin</item>
-        <item>coin_fr</item>
+        <item>Pièce</item>
         <item>Moneta</item>
         <item>coin_nl</item>
         <item>coin_pt</item>
@@ -55,8 +55,8 @@
         <item quantity="other">%1$s M&#252;nzen</item>
     </plurals>
     <plurals name="format_coin_fr">
-        <item quantity="one">%1$s ____</item>
-        <item quantity="other">%1$s ____</item>
+        <item quantity="one">%1$s Pièce</item>
+        <item quantity="other">%1$s Pièces</item>
     </plurals>
     <plurals name="format_coin_it">
         <item quantity="one">%1$s Moneta</item>
@@ -122,7 +122,7 @@
         <item>@string/vp</item>
         <item>M&#252;nze</item>
         <item>Coin</item>
-        <item>coin_fr</item>
+        <item>Point de Victoire</item>
         <item>Punti Vittoria</item>
         <item>coin_nl</item>
         <item>coin_pt</item>
@@ -145,8 +145,8 @@
         <item quantity="other">%1$s Siegpunkte</item>
     </plurals>
     <plurals name="format_vp_fr">
-        <item quantity="one">%1$s ____</item>
-        <item quantity="other">%1$s ____</item>
+        <item quantity="one">%1$s Point de Victoire</item>
+        <item quantity="other">%1$s Points de Victoire</item>
     </plurals>
     <plurals name="format_vp_it">
         <item quantity="one">%1$s Punto Vittoria</item>
@@ -167,7 +167,7 @@
         <item>@string/card_no_info</item>
         <item>Diese Karte wurde nicht ins Deutsche &#252;bersetzt.\n\nBesitzt du diese Karte? Wenn ja, maile den Kartentext bitte an Mark so kann er ihn hinzufügen.</item>
         <item>This card hasn\'t been translated into English.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>
-        <item>This card hasn\'t been translated into French.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>
+        <item>Cette carte n\'a pas encore été traduite en Français.\n\nPossédez-vous cette carte? Si c\'est le cas, envoyez une traduction à Mark pour qu\'il puisse l\'ajouter.</item>
         <item>Questa carta non è stata tradotta in italiano.\n\nHai questa carta? Se vuoi puoi mandare una traduzione a Mark per aggiornare l\'app.</item>
         <item>This card hasn\'t been translated into Dutch.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>
         <item>This card hasn\'t been translated into Portuguese.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>
