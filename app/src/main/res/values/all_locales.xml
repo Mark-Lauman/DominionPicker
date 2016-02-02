@@ -158,7 +158,7 @@
     </plurals>
     <plurals name="format_vp_pt">
         <item quantity="one">%1$s Ponto de Vit&#243;ria</item>
-        <item quantity="other">%1$s Pontos de Vitoria</item>
+        <item quantity="other">%1$s Pontos de Vit&#243;ria</item>
     </plurals>
 
 

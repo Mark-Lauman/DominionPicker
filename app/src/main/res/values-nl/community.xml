@@ -18,9 +18,30 @@
     <string name="contribute">Contributors</string>
     <string name="contribute_info">Making the app better.</string>
     <string name="thanks">Dominion Picker could not have become what it is without your help. Thank you.</string>
-    <!-- TODO: Determine who wants to be in the credits -->
     <string name="credits"><![CDATA[
-        <b>TODO</b>
+        <b>Inspiration & Testing</b><br/>
+        \t\tAlison Lauman<br/>
+        \t\tAdam Shambrook<br/>
+        <br/>
+        <b>Italian Translation & Ideas</b><br/>
+        \t\tLeonardo Finetti<br/><br/>
+        <b>Portuguese Translation</b><br/>
+        \t\tLeonardo Costa<br/>
+        <br/>
+        <b>Games Database</b><br/>
+        \t\tDerek Kniffin<br/>
+        <br/>
+        <b>Dutch Translation</b><br/>
+        \t\tHans Hoogers<br/>
+        \t\tMark Lauman<br/>
+        <br/>
+        <b>French Translation</b><br/>
+        \t\tSébastien Montagne<br/>
+        \t\tNolween Lopez<br/>
+        \t\tSébastien Bougie<br/>
+        <br/>
+        <b>German Translation</b><br/>
+        \t\tAlexander Rothe
     ]]></string>
 
 

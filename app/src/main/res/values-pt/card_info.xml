@@ -37,7 +37,7 @@
     <string name="vp">Ponto de Vit&#243;ria</string>
     <plurals name="format_vp">
         <item quantity="one">%1$s Ponto de Vit&#243;ria</item>
-        <item quantity="other">%1$s Pontos de Vitoria</item>
+        <item quantity="other">%1$s Pontos de Vit&#243;ria</item>
     </plurals>
 
     <string name="card_no_info">Essa carta n&#227;o foi traduzida para o portugu&#234;s-brasileiro.\n\nVoc&#234; tem esta carta? Se sim, por favor envie a tradu&#231;&#227;o para Mark para que ele possa adicionar.</string>
