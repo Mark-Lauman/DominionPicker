@@ -22,25 +22,25 @@
         <item>en</item>
     </string-array>
 
-    <string name="coin">Coin</string>
+    <string name="coin">Munt</string>
     <plurals name="format_coin">
-        <item quantity="one">%1$s Coin</item>
-        <item quantity="other">%1$s Coins</item>
+        <item quantity="one">%1$s Munt</item>
+        <item quantity="other">%1$s Munten</item>
     </plurals>
 
     <string name="potion">Toverdrank</string>
     <plurals name="format_potion">
-        <item quantity="one">%1$s Potion</item>
-        <item quantity="other">%1$s Potions</item>
+        <item quantity="one">%1$s Toverdrank</item>
+        <item quantity="other">%1$s Toverdrankjes</item>
     </plurals>
 
-    <string name="vp">Victory Point</string>
+    <string name="vp">Winstpunt</string>
     <plurals name="format_vp">
-        <item quantity="one">%1$s Victory Point</item>
-        <item quantity="other">%1$s Victory Points</item>
+        <item quantity="one">%1$s Winstpunt</item>
+        <item quantity="other">%1$s Winstpunten</item>
     </plurals>
 
-    <string name="card_no_info">This card hasn\'t been translated into Dutch.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</string>
-    <string name="card_mail_subject">Dominion Card #%1$d (%2$s)</string>
+    <string name="card_no_info">Deze kaart is niet in het Nederlands vertaald. Heeft u deze kaart in uw bezit? Als dat zo is, stuur dan een vertaling naar Mark, zodat hij het kan opnemen.</string>
+    <string name="card_mail_subject">Dominion kaart #%1$d (%2$s)</string>
 
 </resources>

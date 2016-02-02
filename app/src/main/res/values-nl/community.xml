@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="community">Community</string>
-    <string name="community_info">Improve this app.</string>
+    <string name="community">Gemeenschap</string>
+    <string name="community_info">Het verbeteren van deze app.</string>
 
-    <string name="email_mark">Email Mark</string>
-    <string name="email_info">He makes the app.</string>
-    <string name="no_email">Send an email to android@marklauman.ca</string>
+    <string name="email_mark">E-mail naar Mark</string>
+    <string name="email_info">Hij maakt de app.</string>
+    <string name="no_email">Stuur een mail naar android@marklauman.ca</string>
 
-    <string name="visit_website">Visit website</string>
-    <string name="no_browser">You can find this at\n%1$s</string>
+    <string name="visit_website">Bezoek de website</string>
+    <string name="no_browser">U kunt deze vinden op\n%1$s</string>
 
-    <string name="github">Visit GitHub</string>
-    <string name="github_info">See planned features.</string>
+    <string name="github">Project op GitHub</string>
+    <string name="github_info">Lijst van geplande functies.</string>
     <string name="github_url">https://github.com/Mark-Lauman/DominionPicker/issues</string>
 
-    <string name="contribute">Contributors</string>
-    <string name="contribute_info">Making the app better.</string>
-    <string name="thanks">Dominion Picker could not have become what it is without your help. Thank you.</string>
+    <string name="contribute">Medewerkers</string>
+    <string name="contribute_info">Het maken van de app beter.</string>
+    <string name="thanks">Dominion Picker kon niet zijn geworden wat het is zonder uw hulp. Dank je.</string>
     <string name="credits"><![CDATA[
-        <b>Inspiration & Testing</b><br/>
+        <b>Inspiratie en testen</b><br/>
         \t\tAlison Lauman<br/>
         \t\tAdam Shambrook<br/>
         <br/>
-        <b>Italian Translation & Ideas</b><br/>
+        <b>Italiaanse vertaling & ideeën</b><br/>
         \t\tLeonardo Finetti<br/><br/>
-        <b>Portuguese Translation</b><br/>
+        <b>Portugees vertaling</b><br/>
         \t\tLeonardo Costa<br/>
         <br/>
-        <b>Games Database</b><br/>
+        <b>Spelletjes databank</b><br/>
         \t\tDerek Kniffin<br/>
         <br/>
-        <b>Dutch Translation</b><br/>
+        <b>Nederlandse vertaling</b><br/>
         \t\tHans Hoogers<br/>
         \t\tMark Lauman<br/>
         <br/>
-        <b>French Translation</b><br/>
+        <b>Franse vertaling</b><br/>
         \t\tSébastien Montagne<br/>
         \t\tNolween Lopez<br/>
         \t\tSébastien Bougie<br/>
         <br/>
-        <b>German Translation</b><br/>
+        <b>Duitse vertaling</b><br/>
         \t\tAlexander Rothe
     ]]></string>
 
 
     <string name="open_source">Open Source Credits</string>
-    <string name="open_source_info">Programming projects that helped.</string>
+    <string name="open_source_info">Open source projecten gebruikt.</string>
     <string name="apache_txt"><![CDATA[
-        All projects were licensed under the <a href="">Apache License,</a> Version 2.0
+        Alle projecten zijn gelicentieerd onder de <a href="">Apache-licentie,</a> versie 2.0
     ]]></string>
     <string name="apache_url">http://www.apache.org/licenses/LICENSE-2.0</string>
 

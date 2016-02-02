@@ -34,7 +34,7 @@
         <item>Coin</item>
         <item>Pièce</item>
         <item>Moneta</item>
-        <item>coin_nl</item>
+        <item>Munt</item>
         <item>Moeda</item>
     </array>
     <array name="format_coin">
@@ -63,8 +63,8 @@
         <item quantity="other">%1$s Monete</item>
     </plurals>
     <plurals name="format_coin_nl">
-        <item quantity="one">%1$s ____</item>
-        <item quantity="other">%1$s ____</item>
+        <item quantity="one">%1$s Munt</item>
+        <item quantity="other">%1$s Munten</item>
     </plurals>
     <plurals name="format_coin_pt">
         <item quantity="one">%1$s Moeda</item>
@@ -108,8 +108,8 @@
         <item quantity="other">%1$s Pozioni</item>
     </plurals>
     <plurals name="format_potion_nl">
-        <item quantity="one">%1$s ____</item>
-        <item quantity="other">%1$s ____</item>
+        <item quantity="one">%1$s Toverdrank</item>
+        <item quantity="other">%1$s Toverdrankjes</item>
     </plurals>
     <plurals name="format_potion_pt">
         <item quantity="one">%1$s Po&#231;&#227;o</item>
@@ -124,7 +124,7 @@
         <item>Coin</item>
         <item>Point de Victoire</item>
         <item>Punti Vittoria</item>
-        <item>coin_nl</item>
+        <item>Winstpunt</item>
         <item>Ponto de Vit&#243;ria</item>
     </array>
     <array name="format_vp">
@@ -153,8 +153,8 @@
         <item quantity="other">%1$s Punti Vittoria</item>
     </plurals>
     <plurals name="format_vp_nl">
-        <item quantity="one">%1$s ____</item>
-        <item quantity="other">%1$s ____</item>
+        <item quantity="one">%1$s Winstpunt</item>
+        <item quantity="other">%1$s Winstpunten</item>
     </plurals>
     <plurals name="format_vp_pt">
         <item quantity="one">%1$s Ponto de Vit&#243;ria</item>
@@ -169,7 +169,7 @@
         <item>This card hasn\'t been translated into English.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>
         <item>Cette carte n\'a pas encore été traduite en Français.\n\nPossédez-vous cette carte? Si c\'est le cas, envoyez une traduction à Mark pour qu\'il puisse l\'ajouter.</item>
         <item>Questa carta non è stata tradotta in italiano.\n\nHai questa carta? Se vuoi puoi mandare una traduzione a Mark per aggiornare l\'app.</item>
-        <item>This card hasn\'t been translated into Dutch.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>
+        <item>Deze kaart is niet in het Nederlands vertaald. Heeft u deze kaart in uw bezit? Als dat zo is, stuur dan een vertaling naar Mark, zodat hij het kan opnemen.</item>
         <item>Essa carta n&#227;o foi traduzida para o portugu&#234;s-brasileiro.\n\nVoc&#234; tem esta carta? Se sim, por favor envie a tradu&#231;&#227;o para Mark para que ele possa adicionar.</item>
     </string-array>
 

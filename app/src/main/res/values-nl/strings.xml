@@ -8,15 +8,15 @@
     <string name="picker">Selecteer</string>
     <string name="toggle_all">Selectie omdraaien</string>
     <string name="shuffle">Kies</string>
-    <string name="req_card">Required</string>
-    <string name="card_details">Card Details</string>
+    <string name="req_card">Verplicht</string>
+    <string name="card_details">Kaartgegevens</string>
     <!-- read by blind assistant as "Alchemist card details button" -->
-    <string name="card_details_button">%1$s card details</string>
+    <string name="card_details_button">%1$s kaartgegevens</string>
     <string name="more_k">Selecteer meer Koninkrijkkaarten! (%1$s)</string>
     <string name="yw_no_bane">Jonge Heks - Geen bankaart!</string>
     <string name="all_filtered">Geen selectie mogelijk.</string>
 
-    <string name="games">Games</string>
+    <string name="games">Spellen</string>
     <string name="sample_games">Aanbevolen sets</string>
     <string name="favorite_games">Favorieten</string>
     <string name="game_history">Geschiedenis</string>
