@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="rules">Filters</string>
-    <string name="limit_supply">Stapel Anzahl</string>
+    <string name="limit_supply">Stapel aantal</string>
 
     <string name="rules_expansions">Edities</string>
     <string name="rules_promo">Promokaarten</string>
 
-    <string name="rules_cost">Kaart kosten</string>
+    <string name="rules_cost">Kaartkosten</string>
 
-    <string name="rules_other">Ander</string>
+    <string name="rules_other">Anders</string>
     <string name="rules_curse">Vloeken</string>
 </resources>

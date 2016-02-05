@@ -8,8 +8,8 @@
     <string name="system_default">Standaard</string>
 
     <string name="sort_card">Card Sorting</string>
-    <string name="sort_card_desc">Sorteer uw kaarten als u wilt.</string>
-    <string name="drag_handle_desc">lepen me!</string>
+    <string name="sort_card_desc">Sorteer uw kaarten zoals je wilt.</string>
+    <string name="drag_handle_desc">Sleep me!</string>
     <string name="sort_card_end">Sorteren eindigt hier.</string>
     <string name="sort_card_notice">Sleep items op hun plaats.</string>
     <string-array name="sort_card_names">
@@ -19,7 +19,7 @@
         <item>Kosten</item>
         <item>Type</item>
         <item>Taal</item>
-        <item>Promokaarten eerste</item>
+        <item>Promokaarten eerst</item>
     </string-array>
 
 </resources>

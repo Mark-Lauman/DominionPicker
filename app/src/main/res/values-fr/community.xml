@@ -21,28 +21,27 @@
     <string name="contribute_info">Rendant l\'app meilleure.</string>
     <string name="thanks">Dominion n\'aurait pas pu devenir ce qu\'elle est sans votre aide. Merci.</string>
     <string name="credits"><![CDATA[
-        <b>Inspiration & Testing</b><br/>
+        <b>Inspiration & Tests</b><br/>
         \t\tAlison Lauman<br/>
         \t\tAdam Shambrook<br/>
         <br/>
-        <b>Italian Translation & Ideas</b><br/>
+        <b>Traductions italiennes et idées</b><br/>
         \t\tLeonardo Finetti<br/><br/>
-        <b>Portuguese Translation</b><br/>
+        <b>Traductions portuguaises</b><br/>
         \t\tLeonardo Costa<br/>
         <br/>
-        <b>Games Database</b><br/>
+        <b>Bases de données du jeu</b><br/>
         \t\tDerek Kniffin<br/>
         <br/>
-        <b>Dutch Translation</b><br/>
+        <b>Traductions hollandaises</b><br/>
         \t\tHans Hoogers<br/>
-        \t\tMark Lauman<br/>
         <br/>
-        <b>French Translation</b><br/>
+        <b>Traductions françaises</b><br/>
         \t\tSébastien Montagne<br/>
         \t\tNolween Lopez<br/>
         \t\tSébastien Bougie<br/>
         <br/>
-        <b>German Translation</b><br/>
+        <b>Traductions allemandes</b><br/>
         \t\tAlexander Rothe
     ]]></string>
 

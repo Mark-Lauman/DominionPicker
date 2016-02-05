@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="community">Gemeenschap</string>
+    <string name="community">Community</string>
     <string name="community_info">Het verbeteren van deze app.</string>
 
-    <string name="email_mark">E-mail naar Mark</string>
-    <string name="email_info">Hij maakt de app.</string>
+    <string name="email_mark">E-mail Mark</string>
+    <string name="email_info">Hij is de maker van deze app.</string>
     <string name="no_email">Stuur een mail naar android@marklauman.ca</string>
 
     <string name="visit_website">Bezoek de website</string>
     <string name="no_browser">U kunt deze vinden op\n%1$s</string>
 
     <string name="github">Project op GitHub</string>
-    <string name="github_info">Lijst van geplande functies.</string>
+    <string name="github_info">Geplande functies.</string>
     <string name="github_url">https://github.com/Mark-Lauman/DominionPicker/issues</string>
 
     <string name="contribute">Medewerkers</string>
     <string name="contribute_info">Het maken van de app beter.</string>
-    <string name="thanks">Dominion Picker kon niet zijn geworden wat het is zonder uw hulp. Dank je.</string>
+    <string name="thanks">Dominion Picker kon nooit zijn geworden wat het nu is zonder jouw hulp. Dank je.</string>
     <string name="credits"><![CDATA[
         <b>Inspiratie en testen</b><br/>
         \t\tAlison Lauman<br/>
@@ -33,7 +33,6 @@
         <br/>
         <b>Nederlandse vertaling</b><br/>
         \t\tHans Hoogers<br/>
-        \t\tMark Lauman<br/>
         <br/>
         <b>Franse vertaling</b><br/>
         \t\tSébastien Montagne<br/>
@@ -46,7 +45,7 @@
 
 
     <string name="open_source">Open Source Credits</string>
-    <string name="open_source_info">Open source projecten gebruikt.</string>
+    <string name="open_source_info">Gebruikte Open Source projecten.</string>
     <string name="apache_txt"><![CDATA[
         Alle projecten zijn gelicentieerd onder de <a href="">Apache-licentie,</a> versie 2.0
     ]]></string>

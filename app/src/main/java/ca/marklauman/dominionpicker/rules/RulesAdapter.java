@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -157,20 +158,28 @@ class RulesAdapter extends ArrayAdapter<View>
         return res;
     }
 
-    protected CheckedTextView newChecked(Context c, String text, int imgRes) {
-        CheckedTextView res = (CheckedTextView) View.inflate(c, R.layout.rule_checkbox, null);
-        res.setText(text);
-        if (imgRes != 0)
-            Utils.setDrawables(res, imgRes, 0, 0, 0);
+    protected View newChecked(Context c, boolean isChecked, String text, int imgRes) {
+        View res = View.inflate(c, R.layout.rule_checkbox, null);
+        CheckedTextView vTxt = (CheckedTextView) res.findViewById(android.R.id.checkbox);
+        if(isChecked) vTxt.toggle();
+        ImageView vImg = (ImageView) res.findViewById(android.R.id.icon);
+        vTxt.setText(text);
+        if(imgRes != 0)
+            vImg.setImageResource(imgRes);
+        else vImg.setVisibility(View.GONE);
         return res;
     }
 
 
-    protected CheckedTextView newChecked(Context c, String text, Drawable drawable) {
-        CheckedTextView res = (CheckedTextView) View.inflate(c, R.layout.rule_checkbox, null);
-        res.setText(text);
+    protected View newChecked(Context c, boolean isChecked, String text, Drawable drawable) {
+        View res = View.inflate(c, R.layout.rule_checkbox, null);
+        CheckedTextView vTxt = (CheckedTextView) res.findViewById(android.R.id.checkbox);
+        if(isChecked) vTxt.toggle();
+        ImageView vImg = (ImageView) res.findViewById(android.R.id.icon);
+        vTxt.setText(text);
         if (drawable != null)
-            Utils.setDrawables(res, drawable, null, null, null);
+            vImg.setImageDrawable(drawable);
+        else vImg.setVisibility(View.GONE);
         return res;
     }
 
@@ -193,7 +202,7 @@ class RulesAdapter extends ArrayAdapter<View>
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         Context context = getContext();
-        CheckedTextView view;
+        View view;
         switch(loader.getId()) {
             case LoaderId.RULES_EXP:
                 // Get the expansion icons
@@ -208,8 +217,8 @@ class RulesAdapter extends ArrayAdapter<View>
                 data.moveToPosition(-1);
                 while(data.moveToNext() && data.getInt(_promo)==0) {
                     int id = data.getInt(_id);
-                    view = newChecked(context, data.getString(_name), icons[id]);
-                    if(filt_set.contains(id)) view.toggle();
+                    view = newChecked(context, filt_set.contains(id),
+                                      data.getString(_name), icons[id]);
                     view.setTag(id);
                     views.add(view);
                 }
@@ -220,8 +229,8 @@ class RulesAdapter extends ArrayAdapter<View>
                 posPromo.start = views.size();
                 do {
                     int id = data.getInt(_id);
-                    view = newChecked(context, data.getString(_name), icons[id]);
-                    if(filt_set.contains(id)) view.toggle();
+                    view = newChecked(context, filt_set.contains(id),
+                                      data.getString(_name), icons[id]);
                     view.setTag(id);
                     views.add(view);
                 } while(data.moveToNext());
@@ -237,10 +246,8 @@ class RulesAdapter extends ArrayAdapter<View>
 
                 // Add the potion checkbox
                 posPotion = views.size();
-                view = newChecked(context, context.getString(R.string.potion),
-                                     R.drawable.ic_dom_potion);
-                if(prefs.getBoolean(Prefs.FILT_POTION, true))
-                    view.toggle();
+                view = newChecked(context, prefs.getBoolean(Prefs.FILT_POTION, true),
+                                  context.getString(R.string.potion), R.drawable.ic_dom_potion);
                 views.add(view);
 
 
@@ -251,12 +258,9 @@ class RulesAdapter extends ArrayAdapter<View>
                 data.moveToPosition(-1);
                 while (data.moveToNext()){
                     int cost = data.getInt(_cost);
-                    view = newChecked(context,
-                            res.getQuantityString(R.plurals.format_coin,
-                                    cost, "" + cost),
-                            coins.getDrawable("" + cost, coinSize));
-                    if(!filt_cost.contains(cost))
-                        view.toggle();
+                    view = newChecked(context, !filt_cost.contains(cost),
+                                      res.getQuantityString(R.plurals.format_coin, cost, ""+cost),
+                                      coins.getDrawable("" + cost, coinSize));
                     view.setTag(cost);
                     views.add(view);
                 }
@@ -265,9 +269,9 @@ class RulesAdapter extends ArrayAdapter<View>
                 // Add the curse filter
                 views.add(newSeparator(context, R.string.rules_other));
                 posCurse = views.size();
-                view = newChecked(context, context.getString(R.string.rules_curse),
-                        R.drawable.ic_dom_curse);
-                if(prefs.getBoolean(Prefs.FILT_CURSE, true)) view.toggle();
+                view = newChecked(context, prefs.getBoolean(Prefs.FILT_CURSE, true),
+                                  context.getString(R.string.rules_curse),
+                                  R.drawable.ic_dom_curse);
                 views.add(view);
 
                 // Remove the loading icon - we're done that.
@@ -287,34 +291,36 @@ class RulesAdapter extends ArrayAdapter<View>
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         // If its the curse giver's checkbox
         if(position == posCurse)
-            toggleCheckbox((CheckedTextView)view, Prefs.FILT_CURSE);
+            toggleCheckbox(view, Prefs.FILT_CURSE);
 
         // If its the potion filter checkbox
         else if(position == posPotion)
-            toggleCheckbox((CheckedTextView)view, Prefs.FILT_POTION);
+            toggleCheckbox(view, Prefs.FILT_POTION);
 
         // If its a card set checkbox
         else if((posExp.start <= position && position <= posExp.end)
                 || (posPromo.start <= position && position <= posPromo.end))
-            toggleCheckbox((CheckedTextView)view, Prefs.FILT_SET, filt_set, false);
+            toggleCheckbox(view, Prefs.FILT_SET, filt_set, false);
 
         // If its a cost checkbox
         else if(posCost.start <= position && position <= posCost.end)
-            toggleCheckbox((CheckedTextView)view, Prefs.FILT_COST, filt_cost, true);
+            toggleCheckbox(view, Prefs.FILT_COST, filt_cost, true);
     }
 
 
-    private void toggleCheckbox(CheckedTextView check, String key) {
+    private void toggleCheckbox(View view, String key) {
+        CheckedTextView check = (CheckedTextView)view.findViewById(android.R.id.checkbox);
         check.toggle();
         prefs.edit().putBoolean(key, check.isChecked()).commit();
         Prefs.notifyChange(getContext(), key);
         notifyDataSetChanged();
     }
 
-    private void toggleCheckbox(CheckedTextView check, String key,
+    private void toggleCheckbox(View view, String key,
                                 HashSet<Integer> value, boolean invertSel) {
+        CheckedTextView check = (CheckedTextView)view.findViewById(android.R.id.checkbox);
         check.toggle();
-        int set_id = (Integer)check.getTag();
+        int set_id = (Integer)view.getTag();
         // invertSel XOR check.isChecked()
         if(invertSel ^ check.isChecked()) value.add(set_id);
         else value.remove(set_id);

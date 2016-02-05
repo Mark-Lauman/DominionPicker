@@ -20,7 +20,7 @@
     <string name="sample_games">Aanbevolen sets</string>
     <string name="favorite_games">Favorieten</string>
     <string name="game_history">Geschiedenis</string>
-    <string name="no_hist">Jouw Selecties worden hier opgeslagen.</string>
+    <string name="no_hist">Jouw selecties worden hier opgeslagen.</string>
     <plurals name="hist_card">
         <item quantity="one">%d Kaart</item>
         <item quantity="other">%d Kaarten</item>
@@ -38,8 +38,8 @@
     <string name="supply_colonies">Gebruik Kolonie &amp; Platina kaarten</string>
     <string name="supply_shelters">Gebruik Onderdak kaarten</string>
     <string name="young_witch_bane">Bankaart</string>
-    <string name="change_fav">Verander Favoriet</string>
-    <string name="name_me">Ik wil een naam!</string>
+    <string name="change_fav">Verander favoriet</string>
+    <string name="name_me">Geef me een naam!</string>
     <string name="save">Opslaan</string>
 
 </resources>

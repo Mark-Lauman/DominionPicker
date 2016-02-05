@@ -8,10 +8,10 @@
     <string name="email_info">L\'autore dell\'app.</string>
     <string name="no_email">Invia una email a android@marklauman.ca</string>
 
-    <string name="visit_website">Visit website</string>
+    <string name="visit_website">Visita sito web</string>
     <!-- "You can find this at
                _url_"          -->
-    <string name="no_browser">You can find this at\n%1$s</string>
+    <string name="no_browser">Puoi trovarlo su\n%1$s</string>
 
     <string name="github">Visita GitHub</string>
     <string name="github_info">Bug e funzionalità previste.</string>
@@ -21,29 +21,27 @@
     <string name="contribute_info">Per un\'app migliore.</string>
     <string name="thanks">Il Selettore Carte Dominion non potrebbe essere così senza l\'aiuto dei collaboratori. Grazie.</string>
     <string name="credits"><![CDATA[
-        <string name="credits"><![CDATA[
-        <b>Inspiration & Testing</b><br/>
+        <b>Ispirazione & Testing</b><br/>
         \t\tAlison Lauman<br/>
         \t\tAdam Shambrook<br/>
         <br/>
-        <b>Italian Translation & Ideas</b><br/>
+        <b>Traduzione Italiana & Consigli</b><br/>
         \t\tLeonardo Finetti<br/><br/>
-        <b>Portuguese Translation</b><br/>
+        <b>Traduzione Portogheze</b><br/>
         \t\tLeonardo Costa<br/>
         <br/>
-        <b>Games Database</b><br/>
+        <b>Database del gioco</b><br/>
         \t\tDerek Kniffin<br/>
         <br/>
-        <b>Dutch Translation</b><br/>
+        <b>Traduzione Olandese</b><br/>
         \t\tHans Hoogers<br/>
-        \t\tMark Lauman<br/>
         <br/>
-        <b>French Translation</b><br/>
+        <b>Traduzione Francese</b><br/>
         \t\tSébastien Montagne<br/>
         \t\tNolween Lopez<br/>
         \t\tSébastien Bougie<br/>
         <br/>
-        <b>German Translation</b><br/>
+        <b>Traduzione Tedesco</b><br/>
         \t\tAlexander Rothe
     ]]></string>
 
