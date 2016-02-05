@@ -8,15 +8,15 @@
     <string name="picker">Sorteador</string>
     <string name="toggle_all">Marcar Todos</string>
     <string name="shuffle">Sortear</string>
-    <string name="req_card">Required</string>
-    <string name="card_details">Card Details</string>
+    <string name="req_card">Requeridos</string>
+    <string name="card_details">Detalhes do cartão</string>
     <!-- read by blind assistant as "Alchemist card details button" -->
-    <string name="card_details_button">%1$s card details</string>
+    <string name="card_details_button">Detalhes do cartão de %1$s</string>
     <string name="more_k">Precisa de Mais cartas de Reino!(%1$s)</string>
     <string name="yw_no_bane">Young Witch - Sem Bane</string>
     <string name="all_filtered">Todas as cartas fora do filtro.</string>
 
-    <string name="games">Games</string>
+    <string name="games">Jogos</string>
     <string name="sample_games">Predefinidos</string>
     <string name="favorite_games">Favoritos</string>
     <string name="game_history">Hist&#243;rico</string>

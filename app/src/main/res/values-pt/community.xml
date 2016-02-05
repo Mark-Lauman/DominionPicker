@@ -19,27 +19,27 @@
     <string name="contribute_info">Fazendo o app melhor.</string>
     <string name="thanks">O Sorteador Dominion n&#227;o poderia ser o que &#233; sem voc&#234;s. Obrigado.</string>
     <string name="credits"><![CDATA[
-        <b>Inspiration & Testing</b><br/>
+        <b>Inspiração e testes</b><br/>
         \t\tAlison Lauman<br/>
         \t\tAdam Shambrook<br/>
         <br/>
-        <b>Italian Translation & Ideas</b><br/>
+        <b>Tradução italiana e idéias</b><br/>
         \t\tLeonardo Finetti<br/><br/>
-        <b>Portuguese Translation</b><br/>
+        <b>Tradução em português</b><br/>
         \t\tLeonardo Costa<br/>
         <br/>
-        <b>Games Database</b><br/>
+        <b>Banco de dados de jogos</b><br/>
         \t\tDerek Kniffin<br/>
         <br/>
-        <b>Dutch Translation</b><br/>
+        <b>Tradução Holandês</b><br/>
         \t\tHans Hoogers<br/>
         <br/>
-        <b>French Translation</b><br/>
+        <b>Tradução francesa</b><br/>
         \t\tSébastien Montagne<br/>
         \t\tNolween Lopez<br/>
         \t\tSébastien Bougie<br/>
         <br/>
-        <b>German Translation</b><br/>
+        <b>Tradução Alemão</b><br/>
         \t\tAlexander Rothe
     ]]></string>
 
@@ -47,7 +47,7 @@
     <string name="open_source">Creditos Opens Source</string>
     <string name="open_source_info">Projetos de Programa&#231;&#227;o que ajudaram.</string>
     <string name="apache_txt"><![CDATA[
-        All projects were licensed under the <a href="">Apache License,</a> Version 2.0
+        Todos os projetos foram licenciado sob a <a href="">Licen&#231;a Apache,</a> vers&#227;o 2.0
     ]]></string>
     <string name="apache_url">http://www.apache.org/licenses/LICENSE-2.0</string>
 

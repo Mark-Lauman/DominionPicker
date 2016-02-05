@@ -46,7 +46,7 @@ public class FragmentRules extends Fragment
     public void prefChanged(String key) {
         switch(key) {
             case Prefs.FILT_LANG: case Prefs.SORT_CARD:
-                adapter.rebuild();
+                if(adapter != null) adapter.rebuild();
                 break;
         }
     }
