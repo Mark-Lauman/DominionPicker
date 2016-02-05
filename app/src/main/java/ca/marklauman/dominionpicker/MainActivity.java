@@ -104,6 +104,16 @@ public class MainActivity extends AppCompatActivity
         } else navAdapt.setSelection(sel);
 	}
 
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        ActionBar bar = getSupportActionBar();
+        if(bar != null && !navLayout.isDrawerOpen(GravityCompat.START))
+            bar.setTitle(navNames[navAdapt.getSelection()]);
+    }
+
+
     @Override
     public void onDestroy() {
         shuffler.unregister();
