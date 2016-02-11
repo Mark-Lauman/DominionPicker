@@ -343,6 +343,10 @@ public abstract class Prefs {
         // Add another language to FILT_LANG for the "Summon" card set
         String pref = prefs.getString(FILT_LANG, "");
         edit.putString(FILT_LANG, pref+",0");
+        // Set the sort order to mirror previous versions
+        edit.putString(SORT_CARD, "0,1,2,3,4,5,6");
+        // Set the active tab to be the cards tab
+        edit.putInt(ACTIVE_TAB, 1);
 
         // Change the set filter from a NOT IN filter to a IN filter.
         String[] filt_set = prefs.getString(FILT_SET, "").split(",");
