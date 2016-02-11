@@ -7,11 +7,11 @@
     <string name="filt_lang_desc">Escolha uma l&#237;ngua para cada expans&#227;o.</string>
     <string name="system_default">Predefini&#231;&#227;o</string>
 
-    <string name="sort_card">Ordem das Cartas</string>
+    <string name="sort_card">Ordenamento das Cartas</string>
     <string name="sort_card_desc">Sorteie as cortas como desejar.</string>
     <string name="drag_handle_desc">Me Arraste!</string>
     <string name="sort_card_end">Sorteio termina aqui.</string>
-    <string name="sort_card_notice">Arraste as cartas no local.</string>
+    <string name="sort_card_notice">Arraste para ordenar.</string>
     <string-array name="sort_card_names">
         <item>Edi&#231;&#227;o</item>
         <item>Nome</item>
