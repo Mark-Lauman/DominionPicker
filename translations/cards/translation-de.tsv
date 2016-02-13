@@ -205,54 +205,54 @@ _id	language	name	type	requires	text	rules
 204	de	Grenzdorf	Aktion		+1 Karte, +2 Aktionen. Wenn du das Grenzdorf nimmst, nimm dir eine Karte, die weniger kostet als das Grenzdorf. 	
 205	de	Fruchtbares Land	Punkte		2 Punkte.  Wenn du das Fruchtbare Land kaufst, entsorge eine Karte aus deiner Hand. Nimm dir eine Karte, die genau 2 mehr kostet als die entsorgte Karte. 	
 206	de	Prinz	Aktion			
-207	de	Koninklijke munt	Geld Reserve			
+207	de	Königliche Münzen	Geld Reserve		<big> <c>1</c> </big><br/>Wenn du diese Karte ausspielst, lege sie auf dein wirtshaustableau.<hr/>Sofort nachdem du eine Aktionskarte ausgeführt hast, darfst du diese Karte von deinem Tableau aufrufen. Wenn du das tust: <b>+2 Aktionen</b>.	
 208	de	Wapenknecht	Aktion Reisender	Benötigt: Eintausch-Karten		
 209	de	Kleinbauer	Aktion Reisender	Benötigt: Eintausch-Karten, Alle +1-Marker	+ 1 Kauf, +1 Geld.     Ist diese Karte im Spiel, darfst du sie gegen einen Soldaten eintauschen anstatt sie abzulegen. 	Der KLEINBAUER ist eine Königreichkarte und kann wie jede andere Königreichkarte gekauft oder genommen werden. Der KLEINBAUER ist  außerdem ein Reisender, der im Spielverlauf in einen SOLDATEN eingetauscht werden kann. Wenn du den KLEINBAUERN ausspielst, erhältst du + 1 Kauf sowie + 1 Geld. In der Aufräumphase darfst du entscheiden, ob du den KLEINBAUERN ablegst oder zurück auf den Vorratsstapel legst. Wenn du das tust, erhältst du einen SOLDATEN und legst ihn ab. Die angegebenen Kosten werden nicht bezahlt. 
 210	de	Rattenfänger 	Aktion Reserve			
 211	de	Zerstörung 	Aktion			
-212	de	Amulett 	Aktion Dauer			
-213	de	Karawanenwächter 	Aktion Dauer Reaktion			
+212	de	Amulett 	Aktion Dauer		Jetzt und zu Beginn deines näcshten Zuges, wähle jeweils eins:<br/>+<c>1</c><br/>oder<br/>entsorge 1 handkarte<br/>oder<br/>nimm dir 1 Silber.	
+213	de	Karawanenwächter 	Aktion Dauer Reaktion		<b>+1 Karte<br/>+1 Aktion</b><br/>Zu Beginn deines nächsten Zuges : +<c>1</c>.<hr/>Wenn ein Mitspieler eine Angriffskarte ausspielt, darfst du diese Karte aus deiner Hand ausspielen. (<b>+1 Aktion</b> hat dann keinen Effekt)	
 214	de	Verlies 	Aktion Dauer			
-215	de	Ausrüstung 	Aktion Dauer			
-216	de	Kundschafter 	Aktion Reserve			
-217	de	Duplikat 	Aktion Reserve			
-218	de	Elster 	Aktion			
-219	de	Kurier 	Aktion			
-220	de	Geizhals 	Aktion			
-221	de	Hafenstadt 	Aktion			
+215	de	Ausrüstung 	Aktion Dauer		Lege bis zu 2 handkarten verdeckt zur Seite.<br/><br/>Zu Beginn deines nächsten Zuges:<br/>Nimm die zur Seite gelegten Karten in die Hand.	
+216	de	Kundschafter 	Aktion Reserve		<b>+1 Karte<br/>+1 Aktion</b><br/><br/>Lege diese Karte auf dein wirtshaustableau.<hr/>Zu Beginn deines nächsten zuges darfst du diese Karte von deinem Tableau aufrufen. Wenn du das tust : lege alle Handkarten ab und ziehe 5 karten.	
+217	de	Duplikat 	Aktion Reserve		lege diese Karte auf dein Wirtshaustableau.<hr/>Wenn du eine Karte nimmst, die bis zu <c>6</c> kostet, darfst du diese Karte von deinem Tableau aufrufen. Wenn du das tust, nimm dir eine Karte mit gleichem Namen.	
+218	de	Elster 	Aktion		<b>+1 Karte<br/>+1 Aktion</b><br/><br/>Decke die oberste Karte deines Nachziehstapels auf. Ist es eine Geldkarte: Nimm sie auf die Hand.<br/>Ist es eine Aktions- oder Punktekarte: Nimm dir eine Elster.	
+219	de	Kurier 	Aktion		<b>+1 Kauf<br/>+<c>2</c></b><br/>Du darfst deinen Nachziestapel auf deinen Ablagestapel legen.<hr/>Wenn du diese Karte kaufst und dies der 1. Kauf deines Zuges ist: nimm dir eine Karte, die bis zu <c>4</c> kostet. Jeder Mitspieler nimmt sich eine Karte mit gleichem Namen.	
+220	de	Geizhals 	Aktion		Wähle eins:<br/>Lege ein Kupfer aus deiner Hand auf dein Wirtshaustableau oder<br/>+<c>1</c> pro kupfer auf deinem Wirtshaudtableau	
+221	de	Hafenstadt 	Aktion		<b>+1 Karte<br/>+1 Aktion</b><br/><br/>Wenn du diese karte kaufst, nimm dir eine weitere Hafenstadt.	
 222	de	Wildhüter 	Aktion	Benötigt: Reise-Marker		
 223	de	Transformation 	Aktion Reserve			
-224	de	Kunsthandwerker 	Aktion			
-225	de	Brückentroll 	Aktion Angriff Dauer	Benötigt: -1 Münze-Marker		
-226	de	Ferne Lande 	Aktion Reserve Punkte			
+224	de	Kunsthandwerker 	Aktion		<b>+1 Karte<br/>+1 Aktion<br/>+<c>1</c></b><br/><br/>Lege beliebig viele Handkarten ab. Du darfst dir eine Karte nehmen, die genau <c>1</c> pro abgelegter Karte kostet. Lege die Karte verdeckt auf deinen Nachziestapel.	
+225	de	Brückentroll 	Aktion Angriff Dauer	Benötigt: -1 Geld Marker	Alle Mitspieler nehmen ihren -<c>1</c> marker.<br/><br/>Jetzt und zu Beginn deines nächsten Zuges: +1 Kauf<hr/>Solange diese Karte im Spiel ist, kostet jede Karte in deinem Zug <c>1</c> weniger, allerdings nie weniger als <c>0</c>.	
+226	de	Ferne Lande 	Aktion Reserve Punkte		Lege diese karte auf ein wirtshaustableau<hr/>Wert <vp>4</vp>, falls diese Karte bei Spielende auf deinem Wirtshaustableau liegt.	
 227	de	Riese 	Aktion Angriff	Benötigt: Reise-Marker, Fluch		
-228	de	Geisterwald 	Aktion Angriff Dauer			
+228	de	Geisterwald 	Aktion Angriff Dauer		Bis zu deinem nächsten Zug:<br/><br/>Jeder Mitspieler muss, sobald er eine Karte kauft, seine restlichen Handkarten in beliebiger Reihenfolge auf seinen Nachziehstapel legen.<br/><br/>Zu Beginn deines Nächsten Zuges:<br/><b>+3 Karten</b>	
 229	de	Verlorene Stadt 	Aktion			
-230	de	Relikt 	Geld Angriff	Benötigt: -1 Münze-Marker		
-231	de	Königliche Kutsche 	Aktion Reserve			
-232	de	Geschichtenerzähler 	Aktion			
+230	de	Relikt 	Geld Angriff	Benötigt: -1 Geld Marker		
+231	de	Königliche Kutsche 	Aktion Reserve		<b>+1 Aktion</b><br/><br/>Lege diese Karte auf dein Wirtshaustableau<hr/>Sofort nachdem du eine Aktionskarte ausgeführt hast, die danach noch im Spiel ist, darfst du diese Karte von deinem Tableau aufrufen. Wenn du das tust: führe die Aktion noch einmal aus.	
+232	de	Geschichtenerzähler 	Aktion		<b>+1 Aktion<br/>+<c>1</c></b><br/>Spiele bis zu 3 Geldkarten aus deiner Hand aus. Zahle alle <c/> und du erhältst: <br/><b>+1 Karte</b> pro gezahltem <c/>.<br/>(Du hast jetzt <c>0</c>.)	
 233	de	Sumpfhexe 	Aktion Angriff Dauer	Benötigt: Fluch		
 234	de	Schatz 	Geld			
 235	de	Weinhändler 	Aktion Reserve			
-236	de	Gefolgsmann 	Aktion Dauer			
+236	de	Gefolgsmann 	Aktion Dauer		Immer zu Beginn deines zuges:<br/><b>+1 Karte</b><br/><br/>(Diese karte bleibt bis zum Spielende im Spiel.)	
 237	de	Almosen 	Ereignis			
 238	de	Leihgabe 	Ereignis	Benötigt: -1 Karte-Marker		
 239	de	Quest	Ereignis			
 240	de	Zuflucht 	Ereignis			
 241	de	Spähtrupp 	Ereignis			
 242	de	Wanderzirkus 	Ereignis			
-243	de	Freudenfeuer 	Ereignis			
-244	de	Expedition	Ereignis			
+243	de	Freudenfeuer 	Ereignis		Entsorge bis zu 2 karten, die du im Spiel hast.	
+244	de	Expedition	Ereignis		Ziehe in der Aufräumphase 2 zusätzliche Karten.	
 245	de	Überfahrt 	Ereignis	Benötigt: -2 Kosten-Marker		
 246	de	Planung 	Ereignis	Benötigt: Entsorgungs-Marker		
 247	de	Mission	Ereignis			
 248	de	Pilgerfahrt 	Ereignis	Benötigt: Reise-Marker		
-249	de	Ball	Ereignis	Benötigt: -1 Münze-Marker		
-250	de	Überfall 	Ereignis	Benötigt: -1 Münze-Marker		
+249	de	Ball	Ereignis	Benötigt: -1 Geld Marker	Nimm deinen -1 Geld Marker. Nimm 2 Karten, die jede bis zu 4 kostet.	
+250	de	Überfall 	Ereignis	Benötigt: -1 Geld Marker		
 251	de	Seeweg 	Ereignis	Benötigt: +1 Kauf-Marker		
-252	de	Handel 	Ereignis			
+252	de	Handel 	Ereignis		Entsorge bis zu 2 Handkarten. Nimm dir für jede entsorgte Karte ein silber. 	
 253	de	Verlorene Kunst 	Ereignis	Benötigt: +1 Aktion-Marker		
-254	de	Training	Ereignis	Benötigt: +1 Münze-Marker		
-255	de	Erbschaft 	Ereignis	Benötigt: Anwesen-Marker		
+254	de	Training	Ereignis	Benötigt: +1 Geld Marker		
+255	de	Erbschaft 	Ereignis	Benötigt: Anwesen-Marker	Einmal pro Spiel: Lege eine beliebige aktionskarte vom Vorrat, die keine Punktekarte ist und bis zu <c>4</c> kostet, zur Seite. Lege deinen Anwesen-Marker darauf. (deine anwesen übernehmen ab Sofort anweisungen und typ dieser Karte.)	
 256	de	Wegsuche 	Ereignis	Benötigt: +1 Karte-Marker		
 257	de	Einladung	Ereignis		Nimm eine Aktionskarte, die bis zu <c>4</c> kostet und lege sie zur Seite. Spiele sie zu Beginn deines nächsten Zuges.	

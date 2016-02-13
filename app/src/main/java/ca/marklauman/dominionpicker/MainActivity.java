@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity
     private View navView;
     /** The adapter for the navigation drawer's ListView */
     private ExpandedArrayAdapter<String> navAdapt;
+    /** The button used to submit a shuffle */
+    private FloatingActionButton vSubmit;
 
     /** The current active fragment. */
     private Fragment active;
@@ -64,6 +67,8 @@ public class MainActivity extends AppCompatActivity
 		setContentView(R.layout.activity_main);
         navLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navView = findViewById(R.id.left_drawer);
+        vSubmit = (FloatingActionButton)findViewById(R.id.action_submit);
+        vSubmit.setOnClickListener(shuffler);
 
         // Get the strings for the nav drawer
         app_name = getString(R.string.app_name);
@@ -97,6 +102,7 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fm = getSupportFragmentManager();
         int sel = PreferenceManager.getDefaultSharedPreferences(this)
                                    .getInt(Prefs.ACTIVE_TAB, getResources().getInteger(R.integer.def_tab));
+        if(1 < sel) vSubmit.hide();
         active = fm.findFragmentById(R.id.content_frame);
         if(active == null) {
             onItemClick(null, null, sel, 0);
@@ -137,25 +143,21 @@ public class MainActivity extends AppCompatActivity
         // show the toggle all button on the picker screen
         menu.findItem(R.id.action_toggle_all)
             .setVisible(navHidden && sel == 1);
-        // show the submit button on the picker and rules screens.
-        menu.findItem(R.id.action_submit)
-            .setVisible(navHidden && sel < 2);
         return super.onPrepareOptionsMenu(menu);
     }
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
         // Handle navigation bar requests first
-        if(navToggle.onOptionsItemSelected(item))
+        if(navToggle.onOptionsItemSelected(item)) {
+            vSubmit.hide();
             return true;
+        }
 
         // Then handle our menu items
 		switch(item.getItemId()) {
             case R.id.action_toggle_all:
                 ((FragmentPicker)active).toggleAll();
-                return true;
-            case R.id.action_submit:
-                shuffler.startShuffle();
                 return true;
 		}
 
@@ -188,9 +190,11 @@ public class MainActivity extends AppCompatActivity
         switch(position) {
             case 0: active = new FragmentRules();
                     t.replace(R.id.content_frame, active);
+                    vSubmit.show();
                     break;
             case 1: active = new FragmentPicker();
                     t.replace(R.id.content_frame, active);
+                    vSubmit.show();
                     break;
             case 2: active = new FragmentHistory();
                     t.replace(R.id.content_frame, active);
@@ -220,14 +224,19 @@ public class MainActivity extends AppCompatActivity
     private class NavToggle extends ActionBarDrawerToggle {
         public NavToggle(Activity activity, DrawerLayout drawerLayout) {
             super(activity, drawerLayout,
-                  R.string.menu_open, R.string.menu_close);
+                    R.string.menu_open, R.string.menu_close);
         }
 
         /** Called when a drawer has settled in a completely closed state. */
         public void onDrawerClosed(View view) {
             // make the current selection the active title
             ActionBar ab = getSupportActionBar();
-            if(ab != null) ab.setTitle(navNames[navAdapt.getSelection()]);
+            int sel = 500;
+            if(ab != null) {
+                sel = navAdapt.getSelection();
+                ab.setTitle(navNames[sel]);
+            }
+            if(sel < 2) vSubmit.show();
             invalidateOptionsMenu();
             super.onDrawerClosed(view);
         }
@@ -244,7 +253,8 @@ public class MainActivity extends AppCompatActivity
 
 
     /** Allows this activity to request shuffles and get the results */
-    private class ShuffleManager extends BroadcastReceiver {
+    private class ShuffleManager extends BroadcastReceiver
+                                 implements View.OnClickListener {
         /** The shuffler */
         private SupplyShuffler shuffler;
 
@@ -253,6 +263,11 @@ public class MainActivity extends AppCompatActivity
             shuffler = null;
             LocalBroadcastManager.getInstance(getActivity())
                     .registerReceiver(this, new IntentFilter(SupplyShuffler.MSG_INTENT));
+        }
+
+        @Override
+        public void onClick(View v) {
+            startShuffle();
         }
 
         @Override

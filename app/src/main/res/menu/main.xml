@@ -7,11 +7,5 @@
         app:showAsAction="ifRoom"
         android:title="@string/toggle_all"
         android:icon="@drawable/ic_core_select_all" />
-    
-    <item
-        android:id="@+id/action_submit"
-        app:showAsAction="always"
-        android:title="@string/shuffle"
-        android:icon="@drawable/ic_core_send" />
 
 </menu>

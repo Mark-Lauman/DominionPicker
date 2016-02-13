@@ -34,7 +34,6 @@ public class FragmentPicker extends Fragment
     /** The view associated with a loading list */
     private View loading;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

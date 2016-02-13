@@ -35,7 +35,7 @@ public class FragmentRules extends Fragment
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rules, container, false);
         ListView listView = (ListView)view.findViewById(R.id.loaded);
-        adapter = new RulesAdapter(getContext(), listView);
+        adapter = new RulesAdapter(getContext());
         listView.setOnItemClickListener(adapter);
         listView.setAdapter(adapter);
         return view;

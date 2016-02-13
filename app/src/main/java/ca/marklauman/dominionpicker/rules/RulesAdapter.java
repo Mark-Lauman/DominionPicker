@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager;
@@ -21,7 +22,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -46,10 +46,13 @@ class RulesAdapter extends ArrayAdapter<View>
     /** Keys updated by this adapter. */
     private static final String[] PREF_KEYS = {Prefs.LIMIT_SUPPLY, Prefs.FILT_SET, Prefs.FILT_CURSE};
 
-    /** ListView paired to this adapter; */
-    private final ListView listView;
-    /** View used to show that this list is still loading */
-    private final View footerView;
+    /** Footer views used to display that the view is loading and to add padding to the end.
+     *  vFooter[0] = padding at the end of the list
+     *  vFooter[1] = loading icon */
+    private final View vFooter;
+    /** True if we are currently loading data */
+    private boolean loading = true;
+
     /** Preferred list item height */
     private final int prefHeight;
     /** 8dp in px */
@@ -79,11 +82,9 @@ class RulesAdapter extends ArrayAdapter<View>
     /** Position of the filt_curse checkbox */
     private int posCurse = -1;
 
-    public RulesAdapter(Context context, ListView list) {
+    public RulesAdapter(Context context) {
         super(context, R.layout.fragment_rules);
-        listView = list;
-        footerView = View.inflate(context, R.layout.list_item_loading, null);
-        listView.addFooterView(footerView);
+        vFooter = View.inflate(context, R.layout.list_item_loading, null);
         lm = ((AppCompatActivity)context).getSupportLoaderManager();
         coins = new CoinFactory(context.getResources());
 
@@ -132,12 +133,26 @@ class RulesAdapter extends ArrayAdapter<View>
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        if(position == views.size())
+            return vFooter;
         return views.get(position);
     }
 
     @Override
     public int getCount() {
-        return views.size();
+        return (loading) ? views.size()+1 : views.size();
+    }
+
+    /** Show the loading icon */
+    protected void showLoading() {
+        loading = true;
+        notifyDataSetChanged();
+    }
+
+    /** Hide the loading icon */
+    protected void hideLoading() {
+        loading = false;
+        notifyDataSetChanged();
     }
 
     protected SmallNumberPreference newNumPref(Context c, int id, String key,
@@ -186,6 +201,7 @@ class RulesAdapter extends ArrayAdapter<View>
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        showLoading();
         switch(id) {
             case LoaderId.RULES_EXP:
                 return new CursorLoader(getContext(), Provider.URI_CARD_SET,
@@ -272,11 +288,11 @@ class RulesAdapter extends ArrayAdapter<View>
                 view = newChecked(context, prefs.getBoolean(Prefs.FILT_CURSE, true),
                                   context.getString(R.string.rules_curse),
                                   R.drawable.ic_dom_curse);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+                    view.setPaddingRelative(0,dp8/2,8*dp8,dp8/2);
+                else view.setPadding(0,dp8/4,8*dp8,dp8/4);
                 views.add(view);
-
-                // Remove the loading icon - we're done that.
-                if(listView != null)
-                    listView.removeFooterView(footerView);
+                hideLoading();
                 break;
 
         }
