@@ -7,7 +7,7 @@
     <!-- Current version of preferences -->
     <integer name="pref_version">6</integer>
     <!-- core.db version -->
-    <integer name="db_ver_core">2</integer>
+    <integer name="db_ver_core">3</integer>
     <!-- data.db version -->
     <integer name="db_ver_data">11</integer>
 

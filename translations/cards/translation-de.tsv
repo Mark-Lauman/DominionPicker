@@ -225,7 +225,7 @@ _id	language	name	type	requires	text	rules
 224	de	Kunsthandwerker 	Aktion		<b>+1 Karte<br/>+1 Aktion<br/>+<c>1</c></b><br/><br/>Lege beliebig viele Handkarten ab. Du darfst dir eine Karte nehmen, die genau <c>1</c> pro abgelegter Karte kostet. Lege die Karte verdeckt auf deinen Nachziestapel.	
 225	de	Brückentroll 	Aktion Angriff Dauer	Benötigt: -1 Geld Marker	Alle Mitspieler nehmen ihren -<c>1</c> marker.<br/><br/>Jetzt und zu Beginn deines nächsten Zuges: +1 Kauf<hr/>Solange diese Karte im Spiel ist, kostet jede Karte in deinem Zug <c>1</c> weniger, allerdings nie weniger als <c>0</c>.	
 226	de	Ferne Lande 	Aktion Reserve Punkte		Lege diese karte auf ein wirtshaustableau<hr/>Wert <vp>4</vp>, falls diese Karte bei Spielende auf deinem Wirtshaustableau liegt.	
-227	de	Riese 	Aktion Angriff	Benötigt: Reise-Marker, Fluch		
+227	de	Riese 	Aktion Angriff	Benötigt: Reise-Marker, Fluch	Drehe deinen Reise-Marker um.<br/>Liegt die Rückseite oben: +<c>1</c>.<br/>Liegt die Vorderseite oben: +<c>5</c> und jeder Mitspieler deckt die oberste Karte seines Nachziehstapels auf. Kostet diese <c>3</c>-<c>6</c>, muss er sie entsorgen. Ansonsten legt er sie ab und nimmt sich einen Fluch.	
 228	de	Geisterwald 	Aktion Angriff Dauer		Bis zu deinem nächsten Zug:<br/><br/>Jeder Mitspieler muss, sobald er eine Karte kauft, seine restlichen Handkarten in beliebiger Reihenfolge auf seinen Nachziehstapel legen.<br/><br/>Zu Beginn deines Nächsten Zuges:<br/><b>+3 Karten</b>	
 229	de	Verlorene Stadt 	Aktion			
 230	de	Relikt 	Geld Angriff	Benötigt: -1 Geld Marker		

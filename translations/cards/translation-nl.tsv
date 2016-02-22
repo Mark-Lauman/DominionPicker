@@ -8,7 +8,7 @@ _id	language	name	type	requires	text	rules
 10	nl	Dorp	Actie			
 11	nl	Houthakker	Actie			
 12	nl	Werkplaats	Actie			
-13	nl	Bureaucraat	Actie Aanval			
+13	nl	Bureaucraat	Actie Aanval		Leg uit de algemene voorraad een zilverkaart op je trekstapel. <br />Iedere andere speler legt een overwinningskaart uit zijn hand op zijn trekstapel. (of laat zien dat hij deze niet heeft)	
 14	nl	Feest	Actie			
 15	nl	Tuinen	Overwinning			
 16	nl	Militie	Actie Aanval			
@@ -21,24 +21,24 @@ _id	language	name	type	requires	text	rules
 23	nl	Raadszaal	Actie			
 24	nl	Festival	Actie			
 25	nl	Laboratorium	Actie			
-26	nl	Bibliotheek	Actie			
+26	nl	Bibliotheek	Actie		Vul je hand aan tot 7 kaarten.<br />Getrokken actiekaarten mag je houden of apart bewaren en vervangen door nieuwe kaarten.<br />Als je hand is aangevuld leg je de apart bewaarde actiekaarten af.	
 27	nl	Markt	Actie			
 28	nl	Mijn	Actie			
 29	nl	Heks	Actie Aanval	Benodigd: Vloek		
-30	nl	Avonturier	Actie			
+30	nl	Avonturier	Actie		Draai achtereenvolgens de bovenste kaarten van je trekstapel om totdat je in totaal 2 geldkaarten hebt. Neem ze op handen. Leg de overige omgedraaide kaarten op je aflegstapel.	
 31	nl	Kruidenexpert	Actie			
 32	nl	Leerling	Actie			
 33	nl	Transformatie	Actie			
 34	nl	Wijnberg	Overwinning			
-35	nl	Apotheker	Actie			
+35	nl	Apotheker	Actie		<b>+1 Kaart<br />+1 Actie</b><br /><br />Toon de bovenste 4 kaarten van je trekstapel. Neem koperkaarten en toverdranken in je hand. Leg de resterende getoonde kaarten naar believen gedekt terug op je trekstapel.	
 36	nl	Visioen	Actie Aanval			
 37	nl	Universiteit	Actie			
-38	nl	Alchemist	Actie			
+38	nl	Alchemist	Actie		<b>+2 Kaarten<br />+1 Actie</b><hr />Als je aan het begin van de opschoonfase deze kaart en ten minste één toverdrank in het spel hebt, mag je deze kaart gedekt op je trekstapel leggen.	
 39	nl	Oude Bekende	Actie Aanval	Benodigd: Vloek		
 40	nl	Steen Der Wijzen	Geld			
 41	nl	Golem	Actie			
-42	nl	Bezeten	Actie			
-43	nl	Binnenplaats	Actie			
+42	nl	Bezeten	Actie		De speler links van je voert direct nadat jij je beurt hebt beëindigd, een extra beurt uit. Daarbij mag jij alle kaarten zien die hij ook ziet, en maak jij alle beslissingen voor hem. Alle kaarten die hij pakt of koopt, leg je op jouw aflegstapel. Alle kaarten die hij vernietigt, legt hij opzij en legt hij aan het einde van de beurt op zijn aflegstapel. 	
+43	nl	Binnenplaats	Actie		<b>+3 Kaarten</b><br /><br />Leg een kaart naar keuze uit je hand gedekt op je trekstapel.	
 44	nl	Pion	Actie			
 45	nl	Geheime Kamer	Actie Reactie			
 46	nl	Grote Zaal	Actie Overwinning			
@@ -47,8 +47,8 @@ _id	language	name	type	requires	text	rules
 49	nl	Lakei	Actie			
 50	nl	Oplichter	Actie Aanval			
 51	nl	Wensput	Actie			
-52	nl	Baron	Actie			
-53	nl	Brug	Actie			
+52	nl	Baron	Actie		<b>+1 Aanschaf</b><br /><br />Je mag een landgoedkaart afleggen. <br />Als je dat doet: +<c>4</c>.<br />Zo niet, pak een landgoedkaart.	
+53	nl	Brug	Actie		<b>+1 Aanschaf<br />+<c>1</c></b><br /><br />Alle kaarten (ook die in je hand) kosten deze beurt <c>1</c> minder, maar nooit minder dan <c>0</c>.	
 54	nl	Samenzweerder	Actie			
 55	nl	Kopersmid	Actie			
 56	nl	Ijzergieterij	Actie			
@@ -62,20 +62,20 @@ _id	language	name	type	requires	text	rules
 64	nl	Tolheffing	Actie			
 65	nl	Opwaardering	Actie			
 66	nl	Harem	Geld Overwinning		<big> <c>2</c> <br/> <vp>2</vp> </big>	
-67	nl	Adel	Actie Overwinning			
+67	nl	Adel	Actie Overwinning		Kies één van de volgende opties: +3 kaarten; of +2 acties.<hr /><big> <vp>2</vp> </big>	
 68	nl	Lening	Geld			
 69	nl	Handelsroute	Actie	Benodigd: Muntenfiche, Handelsroutetableau		
 70	nl	Uitkijktoren	Actie Reactie			
-71	nl	Bisschop	Actie	Benodigd: Overwinningspuntenfiche		
+71	nl	Bisschop	Actie	Benodigd: Overwinningspuntenfiche	<b>+<c>1</c><br />+<vp>1</vp></b><br />Vernietig een kaart uit je hand. +<vp /> gelijk aan de helft van de waarde van de vernietigde kaart (naar beneden afronden).<br />Iedere andere speler mag een kaart uit zijn hand vernietigen.	
 72	nl	Monument	Actie	Benodigd: Overwinningspuntenfiche		
 73	nl	Steengroeve	Geld			
 74	nl	Talisman	Geld			
-75	nl	Arbeidersdorp	Actie			
+75	nl	Arbeidersdorp	Actie		<b>+1 Kaart<br />+2 Acties<br />+1 Aanschaf</b>	
 76	nl	Stad	Actie			
 77	nl	Smokkelwaar	Geld			
-78	nl	Boekhouding	Actie			
-79	nl	Aanmunten	Actie			
-80	nl	Charlatan	Actie Aanval	Benodigd: Vloek		
+78	nl	Boekhouding	Actie		Bekijk je aflegstapel, toon daaruit zoveel koperkaarten als je wilt en neem deze in je hand.	
+79	nl	Aanmunten	Actie		Je mag een geldkaart uit je hand tonen. Pak een gelijk exemplaar uit de voorraad.<hr />Als je deze kaart koopt, vernietig alle geldkaarten die je in het spel hebt.	
+80	nl	Charlatan	Actie Aanval	Benodigd: Vloek	<b>+<c>2</c></b><br /><br /><br />Iedere andere speler mag een vloekkaart afleggen.<br />Als hij dat niet doet, pakt hij een vloekkaart en een koperkaart.	
 81	nl	Gespuis	Actie Aanval			
 82	nl	Koninklijk Zegel	Geld			
 83	nl	Schatkelder	Actie			
@@ -83,7 +83,7 @@ _id	language	name	type	requires	text	rules
 85	nl	Domkoppen	Actie Aanval	Benodigd: Overwinningspuntenfiche		
 86	nl	Grote Markt	Actie			
 87	nl	Spaargeld	Geld			
-88	nl	Bank	Geld			
+88	nl	Bank	Geld		Deze kaart is bij het spelen ervan <c>1</c> waard per geldkaart die je in het spel hebt. <br />Deze kaart telt daarbij mee.	
 89	nl	Uitbreiden	Actie			
 90	nl	Vervalsen	Actie			
 91	nl	Koningshof	Actie			
@@ -93,36 +93,36 @@ _id	language	name	type	requires	text	rules
 95	nl	Vuurtoren	Actie Duurzaam			
 96	nl	Inheems Dorp	Actie	Benodigd: Inheems Dorp tableau		
 97	nl	Parelduiker	Actie			
-98	nl	Boodschapper	Actie Aanval			
+98	nl	Boodschapper	Actie Aanval		Toon een kaart uit je hand.<br />Leg maximaal 2 van deze kaarten terug in de voorraad. Iedere andere speler moet één zo'n kaart pakken.	
 99	nl	Vissersdorp	Actie Duurzaam			
 100	nl	Uitkijk	Actie			
 101	nl	Smokkelaar	Actie			
 102	nl	Pakhuis	Actie			
 103	nl	Karavaan	Actie Duurzaam			
-104	nl	Beurzensnijder	Actie Aanval			
+104	nl	Beurzensnijder	Actie Aanval		<b>+<c>2</c></b><br /><br />Iedere andere speler moet één koperkaart uit zijn hand afleggen. Heeft een speler geen koperkaart in zijn hand, dan moet hij zijn handkaarten aan de andere spelers laten zien.	
 105	nl	Eiland	Actie Overwinning	Benodigd: Eiland tableau		
 106	nl	Navigator	Actie			
 107	nl	Piratenschip	Actie Aanval	Benodigd: Geldfiche, Piratenschip tableau		
-108	nl	Afvalverwerker	Actie			
+108	nl	Afvalverwerker	Actie		<b>+1 Aanschaf</b><br /><br />Vernietig één kaart uit je hand.<br />+<c>X</c> gelijk aan de waarde van de vernietigde kaart.	
 109	nl	Zeeheks	Actie Aanval	Benodigd: Vloek		
 110	nl	Schatkaart	Actie			
-111	nl	Bazaar	Actie			
+111	nl	Bazaar	Actie		<b>+1 Kaart<br />+2 Acties<br />+<c>1</c></b>	
 112	nl	Ontdekkingsreiziger	Actie			
-113	nl	De Vliegende Hollander	Actie Aanval			
+113	nl	De Vliegende Hollander	Actie Aanval		<b>+2 Kaarten</b><br /><br />Iedere andere speler die tenminste 4 kaarten in zijn hand heeft, moet net zolang kaarten uit zijn hand op zijn trekstapel leggen totdat hij 3 kaarten in zijn hand heeft.	
 114	nl	Handelsschip	Actie Duurzaam			
 115	nl	Voorpost	Actie Duurzaam			
 116	nl	Strateeg	Actie Duurzaam			
 117	nl	Schatkamer	Actie			
 118	nl	Scheepswerf	Actie Duurzaam			
-119	nl	Armenhuis	Actie			
-120	nl	Bedelaar	Actie Reactie			
+119	nl	Armenhuis	Actie		<b>+<c>4</c></b><br />Toon je hand. -<c>1</c> per geldkaart in je hand met een minimum van <c>0</c>.	
+120	nl	Bedelaar	Actie Reactie		Pak 3 Koper en neem deze in je hand.<hr />Speelt een andere speler een aanvalskaart, dan mag je deze kaart afleggen. Doe je dat, dan pak je 2 Zilver, waarvan je er 1 op je trekstapel legt.	
 121	nl	Schildknaap	Actie			
 122	nl	Landloper	Actie			
 123	nl	Jager-Verzamelaar	Actie			
 124	nl	Kluizenaar	Actie	Benodigd: Krankzinnige		
 125	nl	Marktplein	Actie Reactie			
 126	nl	Wijsgeer	Actie			
-127	nl	Berghok	Actie			
+127	nl	Berghok	Actie		<b>+1 Aanschaf</b><br /><br />Leg een aantal kaarten uit je hand af: <br />+1 Kaart per afgelegde kaart.<br />Leg (opnieuw) een aantal kaarten af:<br /> +<c>1</c> per afgelegde kaart.	
 128	nl	Straatjongen	Actie Aanval	Benodigd: Huurling		
 129	nl	Wapenkamer	Actie			
 130	nl	Dodenkar	Actie Aanval	Benodigd: Ruïnes		
@@ -135,11 +135,11 @@ _id	language	name	type	requires	text	rules
 137	nl	Scharrelaar	Actie			
 138	nl	Reizende Minstreel	Actie			
 139	nl	Groep Mislukkelingen	Actie			
-140	nl	Bandietenkamp	Actie	Benodigd: Buit		
+140	nl	Bandietenkamp	Actie	Benodigd: Buit	<b>+1 Kaart<br />+2 Acties</b><br /><br />Pak een buitkaart van de buitstapel.	
 141	nl	Gewelven	Actie			
 142	nl	Graaf	Actie			
 143	nl	Vals Geld	Geld			
-144	nl	Cultist	Actie Aanval Plunderaar	Benodigd: Ruïnes		
+144	nl	Cultist	Actie Aanval Plunderaar	Benodigd: Ruïnes	<b>+2 Kaarten</b><br /><br />Iedere andere speler pakt een Ruïne. Jij mag een Cultist uit je hand spelen.<hr />Als je deze kaart vernietigt: +3 Kaarten.	
 145	nl	Grafrover	Actie			
 146	nl	Opkoper	Actie			
 147	nl	Ridders	Actie Aanval Ridder			
@@ -147,12 +147,12 @@ _id	language	name	type	requires	text	rules
 149	nl	Plundering	Actie Aanval	Benodigd: Buit		
 150	nl	Wederopbouw	Actie			
 151	nl	Schurk	Actie			
-152	nl	Altaar	Actie			
+152	nl	Altaar	Actie		Vernietig een kaart uit je hand.<br />Pak een kaart met een waarde van ten hoogste <c>5</c>.	
 153	nl	Jachtvelden	Actie			
 154	nl	Gehucht	Actie			
 155	nl	Waarzegster	Actie Aanval			
 156	nl	Menagerie	Actie			
-157	nl	Boerendorp	Actie			
+157	nl	Boerendorp	Actie		<b>+2 Acties</b><br /><br />Toon kaarten van je trekstapel totdat je een actiekaart of een geldkaart toont. Neem deze kaart in je hand en leg de andere getoonde kaarten af.	
 158	nl	Paardenhandelaars	Actie Reactie			
 159	nl	Nieuwe Versie	Actie			
 160	nl	Toernooi	Actie	Benodigd: Prijskaarten, Vloek		
@@ -164,13 +164,13 @@ _id	language	name	type	requires	text	rules
 166	nl	Kermisterrein	Overwinning			
 167	nl	Kandelaarmaker	Actie	Benodigd: Muntenfiche		
 168	nl	Steenhouwer	Actie		Overbetaal functionaliteit	
-169	nl	Arts	Actie		Overbetaal functionaliteit	
+169	nl	Arts	Actie		Noem een kaart. Toon de bovenste 3 kaarten van je trekstapel en vernietig genoemde kaarten. Leg andere kaarten naar believen op je trekstapel terug.<hr />Als je deze kaart koopt, mag ervoor overbetalen. Voor elke <c>1</c> die je méér betaalt, bekijk je de bovenste kaart van je trekstapel: leg deze af, vernietig hem of leg hem op je trekstapel terug.	
 170	nl	Meesterwerk	Geld		Overbetaal functionaliteit	
-171	nl	Adviseur	Actie			
+171	nl	Adviseur	Actie		<b>+1 Actie</b><br /><br />Toon de bovenste 3 kaarten van  je trekstapel. Je linkerbuurman kiest er één van. Leg die kaart af. Neem de andere kaarten in je hand.	
 172	nl	Plaza	Actie	Benodigd: Muntenfiche		
-173	nl	Belastinginner	Actie Aanval			
+173	nl	Belastinginner	Actie Aanval		Je mag een geldkaart uit je hand vernietigen. Iedere andere speler met een hand van 5 of meer kaarten legt 1 exemplaar van de vernietigde kaart af (of laat zien dat hij deze niet heeft). Pak een geldkaart die maximaal <c>3</c> meer waard is dan de vernietigde kaart en leg deze op je trekstapel.	
 174	nl	Heraut	Actie		Overbetaal functionaliteit	
-175	nl	Bakker	Actie	Benodigd: Muntenfiche		
+175	nl	Bakker	Actie	Benodigd: Muntenfiche	<b>+1 Kaart<br />+1 Actie</b><br/>Neem 1 munt.<hr /><b>Voorbereiding:</b> iedere speler krijgt 1 munt.	
 176	nl	Slager	Actie	Benodigd: Muntenfiche		
 177	nl	Gezel	Actie			
 178	nl	Koopmansgilde	Actie	Benodigd: Muntenfiche		
@@ -189,9 +189,9 @@ _id	language	name	type	requires	text	rules
 191	nl	Zijderoute	Overwinning			
 192	nl	Specerijenkoopman	Actie			
 193	nl	Handelaar	Actie Reactie			
-194	nl	Bewaarplaats	Geld			
-195	nl	Cartograaf	Actie			
-196	nl	Ambassade	Actie			
+194	nl	Bewaarplaats	Geld		<big><c>3</c></big><hr />Als je deze kaart pakt,<br />pak dan ook direct 2 Koper.	
+195	nl	Cartograaf	Actie		<b>+1 Kaart<br />+1 Actie</b><br /><br />Bekijk de bovenste 4 kaarten van je trekstapel. Leg er zoveel af als je wilt. Leg de overige kaarten op je trekstapel terug in een volgorde naar keuze.	
+196	nl	Ambassade	Actie		<b>+5 Kaarten</b><br />Leg 3 kaarten af.<hr />Als je deze kaart pakt, pakt iedere andere speler 1 zilver.	
 197	nl	Sjacheraar	Actie			
 198	nl	Hoofdweg	Actie			
 199	nl	Gestolen Goed	Geld	Benodigd: Vloek		
@@ -206,8 +206,8 @@ _id	language	name	type	requires	text	rules
 208	nl	Ridderset	Actie Reiziger	Benodigd: Opwaarderingen		
 209	nl	Volksset	Actie Reiziger	Benodigd: Opwaarderingen, alle +1 Fiches		
 210	nl	Rattenvanger	Actie Reserve			
-211	nl	Afbraak	Actie			
-212	nl	Amulet	Actie Duurzaam		Kies één van drie opties.	
+211	nl	Afbraak	Actie		<b>+1 Actie</b><br /><br />Vernietig deze kaart of een kaart uit je hand. Bekijk zoveel kaarten van je gedekte stapel (trek steeds de bovenste) als de waarde in <c/> van de vernietigde kaart. Neem er 1 in je hand en  leg de rest af.	
+212	nl	Amulet	Actie Duurzaam		Kies nu en aan het begin van je volgende beurt één van de volgende: +<c>1</c>; of vernietig 1 kaart uit je hand; of pak 1 Zilver.	
 213	nl	Karavaanescorte	Actie Duurzaam Reactie			
 214	nl	Kerker	Actie Duurzaam			
 215	nl	Uitrusting	Actie Duurzaam			
@@ -220,7 +220,7 @@ _id	language	name	type	requires	text	rules
 222	nl	Woudloper	Actie	Benodigd: Reisfiche		
 223	nl	Metamorfose	Actie Reserve			
 224	nl	Kanonnengieter	Actie			
-225	nl	Brugtrol	Actie Aanval Duurzaam	Benodigd: -1 Munt Fiche		
+225	nl	Brugtrol	Actie Aanval Duurzaam	Benodigd: -1 Munt Fiche	Iedere andere speler neemt zijn +<c>1</c> fiche.<br />Nu en aan het begin van je volgende beurt:<br /><b>+1 Aanschaf</b><hr />Zolang deze kaart in het spel is, kosten kaarten je in jouw beurt <c>1</c> minder, maar nooit minder dan <c>0</c>.	
 226	nl	Verre Landen	Actie Reserve Overwinning			
 227	nl	Reus	Actie Aanval	Benodigd: Reisfiche, Vloek		
 228	nl	Spookbos	Actie Aanval Duurzaam			
