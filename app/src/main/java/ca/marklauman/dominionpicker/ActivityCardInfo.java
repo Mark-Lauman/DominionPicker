@@ -40,7 +40,7 @@ public class ActivityCardInfo extends AppCompatActivity
                TableCard._LANG,
                TableCard._TYPE_ACT, TableCard._TYPE_TREAS, TableCard._TYPE_VICTORY, // colorFactory
                TableCard._TYPE_DUR, TableCard._TYPE_REACT, TableCard._TYPE_RESERVE, // required
-               TableCard._TYPE_CURSE, TableCard._TYPE_EVENT};                       // rows
+               TableCard._TYPE_CURSE, TableCard._TYPE_EVENT, TableCard._TYPE_ATK};  // rows
 
 
     /** Icons used for the individual expansions. */

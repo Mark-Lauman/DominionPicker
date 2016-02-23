@@ -39,6 +39,8 @@ public class CardColorFactory implements ImageFactory {
     private static final int _curse = 6;
     /** Event card id */
     private static final int _event = 7;
+    /** Attack card id */
+    private static final int _atk = 8;
 
     private static final ImageLibrary lib = new ImageLibrary();
 
@@ -57,7 +59,7 @@ public class CardColorFactory implements ImageFactory {
         width = res.getDimension(R.dimen.card_color_width);
 
         // Card colors, sorted by priority
-        color = new int[8];
+        color = new int[9];
         color[_action] = res.getColor(R.color.type_act);
         color[_treasure] = res.getColor(R.color.type_treasure);
         color[_reserve] = res.getColor(R.color.type_reserve);
@@ -65,13 +67,14 @@ public class CardColorFactory implements ImageFactory {
         color[_dur] = res.getColor(R.color.type_dur);
         color[_react] = res.getColor(R.color.type_react);
         color[_curse] = res.getColor(R.color.type_curse);
-        color[_event] = res.getColor(R.color.type_event);
+        color[_event] = res.getColor(R.color.type_react);
+        color[_atk] = res.getColor(R.color.type_atk);
     }
 
 
     public void changeCursor(Cursor cursor) {
         // Columns sorted by color priority
-        column = new int[8];
+        column = new int[9];
         column[_action] = cursor.getColumnIndex(TableCard._TYPE_ACT);
         column[_treasure] = cursor.getColumnIndex(TableCard._TYPE_TREAS);
         column[_reserve] = cursor.getColumnIndex(TableCard._TYPE_RESERVE);
@@ -80,6 +83,7 @@ public class CardColorFactory implements ImageFactory {
         column[_react] = cursor.getColumnIndex(TableCard._TYPE_REACT);
         column[_curse] = cursor.getColumnIndex(TableCard._TYPE_CURSE);
         column[_event] = cursor.getColumnIndex(TableCard._TYPE_EVENT);
+        column[_atk] = cursor.getColumnIndex(TableCard._TYPE_ATK);
     }
 
 
@@ -113,6 +117,10 @@ public class CardColorFactory implements ImageFactory {
             curColors.add(_curse);
         if(cursor.getInt(column[_event])!=0)
             curColors.add(_event);
+        if(cursor.getInt(column[_atk])!=0) {
+            curColors.add(_atk);
+            action = false;
+        }
 
         String val = Utils.join(",", curColors);
         if(action) val = (val.length() == 0) ? ""+_action : _action+","+val;
