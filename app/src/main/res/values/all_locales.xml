@@ -11,6 +11,7 @@
         <item>@string/system_default</item>
         <item>Deutsch</item>
         <item>English</item>
+        <item>Espa&#241;ol</item>
         <item>Fran&#231;ais</item>
         <item>Italiano</item>
         <item>Nederlands</item>
@@ -20,6 +21,7 @@
         <item>0</item>
         <item>de</item>
         <item>en</item>
+        <item>es</item>
         <item>fr</item>
         <item>it</item>
         <item>nl</item>
@@ -32,6 +34,7 @@
         <item>@string/coin</item>
         <item>M&#252;nze</item>
         <item>Coin</item>
+        <item>Moneda</item>
         <item>Pièce</item>
         <item>Moneta</item>
         <item>Munt</item>
@@ -41,6 +44,7 @@
         <item>@plurals/format_coin</item>
         <item>@plurals/format_coin_de</item>
         <item>@plurals/format_coin_en</item>
+        <item>@plurals/format_coin_es</item>
         <item>@plurals/format_coin_fr</item>
         <item>@plurals/format_coin_it</item>
         <item>@plurals/format_coin_nl</item>
@@ -49,6 +53,10 @@
     <plurals name="format_coin_en">
         <item quantity="one">%1$s Coin</item>
         <item quantity="other">%1$s Coins</item>
+    </plurals>
+    <plurals name="format_coin_es">
+        <item quantity="one">%1$s Moneda</item>
+        <item quantity="other">%1$s Monedas</item>
     </plurals>
     <plurals name="format_coin_de">
         <item quantity="one">%1$s M&#252;nze</item>
@@ -77,6 +85,7 @@
         <item>@string/potion</item>
         <item>Trank</item>
         <item>Potion</item>
+        <item>Poci&#243;n</item>
         <item>Potion</item>
         <item>Pozione</item>
         <item>Toverdrank</item>
@@ -86,6 +95,7 @@
         <item>@plurals/format_potion</item>
         <item>@plurals/format_potion_de</item>
         <item>@plurals/format_potion_en</item>
+        <item>@plurals/format_potion_es</item>
         <item>@plurals/format_potion_fr</item>
         <item>@plurals/format_potion_it</item>
         <item>@plurals/format_potion_nl</item>
@@ -94,6 +104,10 @@
     <plurals name="format_potion_en">
         <item quantity="one">%1$s Potion</item>
         <item quantity="other">%1$s Potions</item>
+    </plurals>
+    <plurals name="format_potion_es">
+        <item quantity="one">%1$s Poci&#243;n</item>
+        <item quantity="other">%1$s Pociones</item>
     </plurals>
     <plurals name="format_potion_de">
         <item quantity="one">%1$s Trank</item>
@@ -122,6 +136,7 @@
         <item>@string/vp</item>
         <item>M&#252;nze</item>
         <item>Coin</item>
+        <item>Punto de Victoria</item>
         <item>Point de Victoire</item>
         <item>Punti Vittoria</item>
         <item>Winstpunt</item>
@@ -131,6 +146,7 @@
         <item>@plurals/format_vp</item>
         <item>@plurals/format_vp_de</item>
         <item>@plurals/format_vp_en</item>
+        <item>@plurals/format_vp_es</item>
         <item>@plurals/format_vp_fr</item>
         <item>@plurals/format_vp_it</item>
         <item>@plurals/format_vp_nl</item>
@@ -139,6 +155,10 @@
     <plurals name="format_vp_en">
         <item quantity="one">%1$s Victory Point</item>
         <item quantity="other">%1$s Victory Points</item>
+    </plurals>
+    <plurals name="format_vp_es">
+        <item quantity="one">%1$s Punto de Victoria</item>
+        <item quantity="other">%1$s Puntos de Victoria</item>
     </plurals>
     <plurals name="format_vp_de">
         <item quantity="one">%1$s Siegpunkt</item>
@@ -167,6 +187,7 @@
         <item>@string/card_no_info</item>
         <item>Diese Karte wurde nicht ins Deutsche &#252;bersetzt.\n\nBesitzt du diese Karte? Wenn ja, maile den Kartentext bitte an Mark so kann er ihn hinzufügen.</item>
         <item>This card hasn\'t been translated into English.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>
+        <item>Esta carta no ha sido traducida al Espa&241;ol. ¿Tienes esta carta?. Si es tu caso, env&#237;a una traducci&#243; a Mark para que pueda a&#241;adirla. Gracias.</item>
         <item>Cette carte n\'a pas encore été traduite en Français.\n\nPossédez-vous cette carte? Si c\'est le cas, envoyez une traduction à Mark pour qu\'il puisse l\'ajouter.</item>
         <item>Questa carta non è stata tradotta in italiano.\n\nHai questa carta? Se vuoi puoi mandare una traduzione a Mark per aggiornare l\'app.</item>
         <item>Deze kaart is niet in het Nederlands vertaald. Heeft u deze kaart in uw bezit? Als dat zo is, stuur dan een vertaling naar Mark, zodat hij het kan opnemen.</item>
