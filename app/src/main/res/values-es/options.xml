@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="options">Opciones</string>
+
+    <string name="filt_lang">Idioma de las cartas</string>
+    <string name="filt_lang_desc">Selecciona el idioma de cada colecci&#243;n.</string>
+    <string name="system_default">Por defecto</string>
+
+    <string name="sort_card">Orden de las cartas</string>
+    <string name="sort_card_desc">Ordena las cartas a tu antojo.</string>
+    <string name="drag_handle_desc">¡Arrastrame!</string>
+    <string name="sort_card_end">Ordena hasta aqu&#237;.</string>
+    <string name="sort_card_notice">Arrastra las opciones para establecer el orden de las cartas.</string>
+    <string-array name="sort_card_names">
+        <item>Expansi&#243;n</item>
+        <item>Nombre</item>
+        <item>Fecha de lanzamiento</item>
+        <item>Coste</item>
+        <item>Tipo</item>
+        <item>Idioma</item>
+        <item>Promos Primero</item>
+    </string-array>
+    <string-array name="sort_card_col" translatable="false">
+        <item>set_name</item>
+        <item>name</item>
+        <item>release_date</item>
+        <item>cost, potion</item>
+        <item>type</item>
+        <item>CASE language WHEN \'en\' THEN 1 ELSE 0 END, language</item>
+        <item>promotional DESC</item>
+    </string-array>
+    <string-array name="sort_set_col" translatable="false">
+        <item>set_name</item>
+        <item />
+        <item>release_date</item>
+        <item />
+        <item />
+        <item>CASE language WHEN \'en\' THEN 1 ELSE 0 END, language</item>
+        <item />
+    </string-array>
+
+</resources>

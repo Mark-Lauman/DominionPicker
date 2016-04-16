@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dominion Picker</string>
+
+    <string name="menu_open">Abrir Men&#250;</string>
+    <string name="menu_close">Cerrar Men&#250;</string>
+
+    <string name="picker">Cartas</string>
+    <string name="toggle_all">Alternar</string>
+    <string name="shuffle">Barajar</string>
+    <string name="req_card">Requeridas</string>
+    <string name="card_details">Detalle de la carta</string>
+    <!-- read by blind assistant as "Alchemist card details button" -->
+    <string name="card_details_button">%1$s detalle de la carta</string>
+    <string name="more_k">¡Son necesarias m&#225;s cartas de reino! (%1$s)</string>
+    <string name="yw_no_bane">Bruja Joven - No hay Maldici&#243;n</string>
+    <string name="all_filtered">Se filtr&#243; todas las cartas.</string>
+
+    <string name="games">Selecci&#243;n de partidas</string>
+    <string name="sample_games">De ejemplo</string>
+    <string name="favorite_games">Favoritas</string>
+    <string name="game_history">Historial</string>
+    <string name="no_hist">Tu historial se guardar&#225; aqu&#237; cuando juegues alguna partida.</string>
+    <plurals name="hist_card">
+        <item quantity="one">%d Carta</item>
+        <item quantity="other">%d Cartas</item>
+    </plurals>
+    <string name="hist_plat">Platinum</string>
+    <string name="hist_shelter">Refugios</string>
+
+    <string name="market_title">Mercado Negro</string>
+    <string name="market_begin">Nuevo mercado creado desde la lista de cartas.</string>
+    <string name="market_draw">Robar</string>
+    <string name="market_pass">Pasar</string>
+    <string name="market_sold_out">¡Agotada!</string>
+
+    <string name="supply_no_name">¡Tu selecci&#243;n!</string>
+    <string name="supply_colonies">Usa Colonias y Platinum</string>
+    <string name="supply_shelters">Usa Refugios</string>
+    <string name="young_witch_bane">Maldici&#243;n</string>
+    <string name="change_fav">Cambia Favorito</string>
+    <string name="name_me">¡Ponme un nombre!</string>
+    <string name="save">Guardar</string>
+
+    <string-array name="navNames">
+        <item>@string/rules</item>
+        <item>@string/picker</item>
+        <item>@string/games</item>
+        <item>@string/market_title</item>
+    </string-array>
+
+    <string-array name="historyTypes">
+        <item>@string/sample_games</item>
+        <item>@string/favorite_games</item>
+        <item>@string/game_history</item>
+    </string-array>
+</resources>

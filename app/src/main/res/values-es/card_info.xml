@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- This file contains values that are used to display cards. -->
+
+    <!-- Icons for each expansion, sorted by set_id -->
+    <array name="card_set_icons">
+        <item>@drawable/ic_set_base</item>
+        <item>@drawable/ic_set_alchemy</item>
+        <item>@drawable/ic_set_black_market</item>
+        <item>@drawable/ic_set_cornucopia</item>
+        <item>@drawable/ic_set_dark_ages</item>
+        <item>@drawable/ic_set_envoy</item>
+        <item>@drawable/ic_set_governor</item>
+        <item>@drawable/ic_set_guilds</item>
+        <item>@drawable/ic_set_hinterlands</item>
+        <item>@drawable/ic_set_intrigue</item>
+        <item>@drawable/ic_set_prince</item>
+        <item>@drawable/ic_set_prosperity</item>
+        <item>@drawable/ic_set_seaside</item>
+        <item>@drawable/ic_set_stash</item>
+        <item>@drawable/ic_set_walled_village</item>
+        <item>@drawable/ic_set_adventures</item>
+        <item>@drawable/ic_set_summon</item>
+    </array>
+
+    <!-- Default translation to use for each set. Sorted by set_id. -->
+    <string-array name="def_trans">
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+        <item>es</item>
+    </string-array>
+
+    <string name="coin">Moneda</string>
+    <plurals name="format_coin">
+        <item quantity="one">%1$s Moneda</item>
+        <item quantity="other">%1$s Monedas</item>
+    </plurals>
+
+    <string name="potion">Poci&#243;n</string>
+    <plurals name="format_potion">
+        <item quantity="one">%1$s Poci&#243;n</item>
+        <item quantity="other">%1$s Pociones</item>
+    </plurals>
+
+    <string name="vp">Punto de Victoria</string>
+    <plurals name="format_vp">
+        <item quantity="one">%1$s Punto de Victoria</item>
+        <item quantity="other">%1$s Puntos de Victoria</item>
+    </plurals>
+
+    <string name="card_no_info">Esta carta no ha sido traducida al Espa&241;ol. ¿Tienes esta carta?. Si es tu caso, env&#237;a una traducci&#243; a Mark para que pueda a&#241;adirla. Gracias.</string>
+    <string name="card_mail_subject">Dominion Card #%1$d (%2$s)</string>
+
+</resources>
