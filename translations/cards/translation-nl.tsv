@@ -1,30 +1,30 @@
 _id	language	name	type	requires	text	rules
 2	nl	Geldbuidel	Geld		Als je je aflegstapel schudt om er een nieuwe trekstapel van te maken, mag je direct daarna de Geldbuidel naar een positie naar keuze in je trekstapel verplaatsen.	
 3	nl	Gezant	Actie		Toon de bovenste 5 kaarten van je deck. De speler links van je kiest een kaart, die je moet afleggen. Neem de rest in je hand.	
-6	nl	Kelder	Actie			
-7	nl	Kapel	Actie			
-8	nl	Slotgracht	Actie Reactie			
-9	nl	Raadsheer	Actie			
-10	nl	Dorp	Actie			
-11	nl	Houthakker	Actie			
-12	nl	Werkplaats	Actie			
-13	nl	Bureaucraat	Actie Aanval		Leg uit de algemene voorraad een zilverkaart op je trekstapel. <br />Iedere andere speler legt een overwinningskaart uit zijn hand op zijn trekstapel. (of laat zien dat hij deze niet heeft)	
-14	nl	Feest	Actie			
-15	nl	Tuinen	Overwinning			
-16	nl	Militie	Actie Aanval			
-17	nl	Geldschieter	Actie			
-18	nl	Verbouwing	Actie			
-19	nl	Smidse	Actie			
-20	nl	Spion	Actie Aanval			
-21	nl	Dief	Actie Aanval			
-22	nl	Troonzaal	Actie			
-23	nl	Raadszaal	Actie			
-24	nl	Festival	Actie			
-25	nl	Laboratorium	Actie			
+6	nl	Kelder	Actie		<b>+1 Actie</b><br/><br/>Leg een aantal kaarten naar keuze af.<br/>+1 kaart per afgelegde kaart.	
+7	nl	Kapel	Actie		Vernietig 4 of minder kaarten uit je hand.	
+8	nl	Slotgracht	Actie Reactie		<b>+2 Kaarten</b><hr/>Als een andere speler een aanvalskaart speelt, mag je de Slotgracht tonen. In dat geval heeft de aanval op jou geen effect.	
+9	nl	Raadsheer	Actie		<b>+<c>2</c></b><br/><br/>Je mag je trekstapel direct op je aflegstapel leggen.	
+10	nl	Dorp	Actie		<b>+1 Kaart<br/>+2 Acties</b>	
+11	nl	Houthakker	Actie		<b>+1 Aanschaf<br/>+<c>2</c></b>	
+12	nl	Werkplaats	Actie		Pak een kaart die maximaal <c>4</c> kost.	
+13	nl	Bureaucraat	Actie Aanval		Leg uit de algemene voorraad een zilverkaart op je trekstapel.<br />Iedere andere speler legt een overwinningskaart uit zijn hand op zijn trekstapel. (of laat zien dat hij deze niet heeft)	
+14	nl	Feest	Actie		Vernietig deze kaart. Pak een kaart met een waarde van <c>5</c> of minder.	
+15	nl	Tuinen	Overwinning		Elke 10 kaarten in je stapel zijn aan het einde van het spel <vp>1</vp> waard (naar beneden afronden).	
+16	nl	Militie	Actie Aanval		<b>+<c>2</c></b><br/><br/>Iedere andere speler legt naar zijn keuze kaarten af totdat hij er 3 op handen heeft.	
+17	nl	Geldschieter	Actie		Je mag een koperkaart vernietigen. als je dat doet, heb je deze beurt +<c>3</c>.	
+18	nl	Verbouwing	Actie		Vernietig een kaart uit je hand. Pak een kaart die ten hoogste <c>2</c> meer waard is dan de vernietigde kaart.	
+19	nl	Smidse	Actie		<b>+3 Kaarten</b>	
+20	nl	Spion	Actie Aanval		<b>+1 Kaart<br/>+1 Actie</b><br/><br/>Alle spelers tonen de bovenste kaart van hun trekstapel.<br/>De spion bepaalt of ze blijven liggen of worden afgelegd.	
+21	nl	Dief	Actie Aanval		Iedere andere speler toont de bovenste 2 kaarten van zijn trekstapel. Als een speler geldkaarten toont, moet hij er één naar jouw keuze vernietigen. Je mag een of meer van deze vernietigde kaarten pakken en afleggen. De andere spelers leggen andere getoonde kaarten op hun aflegstapel.	
+22	nl	Troonzaal	Actie		Kies een actiekaart uit je hand.<br/>Speel deze tweemaal.	
+23	nl	Raadszaal	Actie		<b>+4 Kaarten<br/>+1 Aanschaf</b><br/><br/>Iedere andere speler trekt 1 kaart.	
+24	nl	Festival	Actie		<b>+2 Acties<br/>+1 Aanschaf<br/>+<c>2</c></b>	
+25	nl	Laboratorium	Actie		<b>+2 Kaarten<br/>+1 Actie</b>	
 26	nl	Bibliotheek	Actie		Vul je hand aan tot 7 kaarten.<br />Getrokken actiekaarten mag je houden of apart bewaren en vervangen door nieuwe kaarten.<br />Als je hand is aangevuld leg je de apart bewaarde actiekaarten af.	
-27	nl	Markt	Actie			
-28	nl	Mijn	Actie			
-29	nl	Heks	Actie Aanval	Benodigd: Vloek		
+27	nl	Markt	Actie		<b>+1 Kaart<br/>+1 Actie<br/>+1 Aanschaf<br/>+<c>1</c></b>	
+28	nl	Mijn	Actie		Vernietig een geldkaart uit je hand.<br/>Neem een geldkaart die ten hoogste <c>3</c> meer waard is en neem deze op handen.	
+29	nl	Heks	Actie Aanval	Benodigd: Vloek	<b>+2 Kaarten</b><br/><br/>Iedere andere speler pakt 1 vloekkaart.	
 30	nl	Avonturier	Actie		Draai achtereenvolgens de bovenste kaarten van je trekstapel om totdat je in totaal 2 geldkaarten hebt. Neem ze op handen. Leg de overige omgedraaide kaarten op je aflegstapel.	
 31	nl	Kruidenexpert	Actie			
 32	nl	Leerling	Actie			

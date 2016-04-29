@@ -19,7 +19,6 @@ class CoreDb extends SQLiteAssetHelper {
     public CoreDb(Context c) {
         super(c, FILE_NAME, null, checkVersion(c));
         setForcedUpgrade(version);
-
     }
 
     /** Check what version this database is on and update {@link #version}
