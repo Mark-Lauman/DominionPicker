@@ -35,7 +35,7 @@
         <activity android:name="ca.marklauman.tools.SingleItemSelector"
             android:label="@string/filt_lang" />
 
-        <activity android:name=".settings.ActivityCardSort"
+        <activity android:name=".settings.ActivitySortCard"
             android:label="@string/sort_card" />
 
         <activity android:name=".ActivityCardInfo"

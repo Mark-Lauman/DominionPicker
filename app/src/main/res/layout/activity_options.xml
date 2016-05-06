@@ -45,7 +45,7 @@
         app:name="@string/sort_card"
         app:summary="@string/sort_card_desc"
         android:background="?attr/selectableItemBackground"
-        app:intent="ca.marklauman.dominionpicker.settings.ActivityCardSort" />
+        app:intent="ca.marklauman.dominionpicker.settings.ActivitySortCard" />
 
     <View android:layout_width="match_parent"
         android:layout_height="1px"

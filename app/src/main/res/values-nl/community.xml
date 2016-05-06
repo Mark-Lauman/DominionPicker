@@ -58,12 +58,6 @@
     ]]></string>
     <string name="open_sql_url">https://github.com/jgilfelt/android-sqlite-asset-helper</string>
 
-    <string name="open_list"><![CDATA[
-        <b>DragSortListView</b><br>
-        &#169;2012 Carl Bauer
-    ]]></string>
-    <string name="open_list_url">https://github.com/bauerca/drag-sort-listview</string>
-
     <string name="open_picasso"><![CDATA[ <b>Picasso</b><br>&#169;2013 Square, Inc. ]]></string>
     <string name="open_picasso_url">http://square.github.io/picasso/</string>
 

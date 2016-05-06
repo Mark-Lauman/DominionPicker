@@ -14,7 +14,7 @@ import ca.marklauman.tools.Utils;
 
 /** Used to set up the preferences and store the preference keys.
  *  @author Mark Lauman */
-@SuppressWarnings({"WeakerAccess", "UnusedDeclaration"})
+@SuppressWarnings({"WeakerAccess", "UnusedDeclaration", "deprecation"})
 public abstract class Prefs {
     /////////// Active preference keys \\\\\\\\\\\
     /** Key used to store the number of the active MainActivity tab */
@@ -448,5 +448,16 @@ public abstract class Prefs {
      *  Handle with extreme care. */
     public static Context getStaticContext() {
         return staticContext;
+    }
+
+
+    /** Get the preferences for this app. */
+    public static SharedPreferences get(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context);
+    }
+
+    /** Edit the preferences for this app. */
+    public static SharedPreferences.Editor edit(Context context) {
+        return get(context).edit();
     }
 }

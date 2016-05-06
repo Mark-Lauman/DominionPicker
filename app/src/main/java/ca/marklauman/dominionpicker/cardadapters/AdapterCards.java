@@ -13,6 +13,7 @@ import android.widget.SimpleCursorAdapter.ViewBinder;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
+import java.util.Locale;
 
 import ca.marklauman.dominionpicker.cardadapters.imagefactories.CardColorFactory;
 import ca.marklauman.dominionpicker.cardadapters.imagefactories.CoinFactory;
@@ -181,7 +182,7 @@ public class AdapterCards extends SimpleCursorAdapter
             case R.id.card_image:
                 Picasso.with(mContext)
                        .load("file:///android_asset/card_images/"
-                              + String.format("%03d", cursor.getLong(columnIndex))
+                              + String.format(Locale.US, "%03d", cursor.getLong(columnIndex))
                               + ".jpg")
                        .resize(imgSize, imgSize)
                        .into((ImageView)view);

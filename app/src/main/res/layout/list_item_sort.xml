@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@android:id/background"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
@@ -8,20 +7,19 @@
     android:orientation="horizontal" >
 
     <ImageView android:id="@android:id/icon"
-        android:layout_width="26dp"
-        android:layout_height="match_parent"
-        android:paddingRight="6dp"
-        android:paddingEnd="6dp"
-        android:src="@drawable/ic_sort_handle"
-        android:contentDescription="@string/drag_handle_desc"
-        tools:ignore="RtlSymmetry" />
+        android:layout_width="wrap_content"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:src="@drawable/ic_core_reorder"
+        android:contentDescription="@string/drag_handle_desc" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="start|center_vertical"
-        android:layout_marginRight="26dp"
-        android:layout_marginEnd="26dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
         android:orientation="vertical" >
 
         <TextView android:id="@android:id/text1"
