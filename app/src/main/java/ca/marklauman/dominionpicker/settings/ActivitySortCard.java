@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 
 import ca.marklauman.dominionpicker.R;
-import ca.marklauman.dominionpicker.recyclerview.AdapterSortCard;
+import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterSortCard;
 import ca.marklauman.tools.Utils;
 import ca.marklauman.tools.recyclerview.ListDivider;
 

@@ -16,9 +16,9 @@ import android.widget.TextView;
 
 import java.util.HashMap;
 
-import ca.marklauman.dominionpicker.cardadapters.InfoTextView;
-import ca.marklauman.dominionpicker.cardadapters.imagefactories.CardColorFactory;
-import ca.marklauman.dominionpicker.cardadapters.imagefactories.CoinFactory;
+import ca.marklauman.dominionpicker.userinterface.InfoTextView;
+import ca.marklauman.dominionpicker.userinterface.imagefactories.CardColorFactory;
+import ca.marklauman.dominionpicker.userinterface.imagefactories.CoinFactory;
 import ca.marklauman.dominionpicker.community.EmailButton;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;

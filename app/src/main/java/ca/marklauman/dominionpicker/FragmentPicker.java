@@ -9,36 +9,45 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.ItemAnimator;
+import android.support.v7.widget.SimpleItemAnimator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
-import ca.marklauman.dominionpicker.cardadapters.AdapterCardsFilter;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
+import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterCardsFilter;
 import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.tools.recyclerview.ListDivider;
 
 /** Fragment governing the card list screen.
  *  @author Mark Lauman */
 public class FragmentPicker extends Fragment
                             implements LoaderCallbacks<Cursor>, Prefs.Listener {
 
-    /** The view associated with the card list. */
-    private ListView card_list;
+    /** The list of cards. */
+    @BindView(android.R.id.list)     RecyclerView card_list;
+    /** The loading screen. */
+    @BindView(android.R.id.progress) View loading;
+    /** The screen that is displayed when no cards are available. */
+    @BindView(android.R.id.empty)    View empty;
+
     /** The adapter for the card list. */
     private AdapterCardsFilter adapter;
-    /** The view associated with an empty list */
-    private View empty;
-    /** The view associated with a loading list */
-    private View loading;
+    /** The cursor containing the cards on display right now. */
+    public Cursor mCursor = null;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Prefs.addListener(this);
-        adapter = new AdapterCardsFilter(getContext());
         getActivity().getSupportLoaderManager()
                      .restartLoader(LoaderId.PICKER, null, this);
     }
@@ -72,14 +81,51 @@ public class FragmentPicker extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_picker, container, false);
-        card_list = (ListView) view.findViewById(R.id.card_list);
-        empty = view.findViewById(android.R.id.empty);
-        loading = view.findViewById(android.R.id.progress);
+        ButterKnife.bind(this, view);
+        card_list.setLayoutManager(new LinearLayoutManager(getContext()));
+        card_list.addItemDecoration(new ListDivider(getContext()));
 
-        if(adapter.getCursor() != null)
-            card_list.setEmptyView(empty);
-        else card_list.setEmptyView(loading);
+        // Disable flicker animation when an item changes
+        // (otherwise items will flicker when selection state changes)
+        ItemAnimator animator = card_list.getItemAnimator();
+        if (animator instanceof SimpleItemAnimator)
+            ((SimpleItemAnimator) animator).setSupportsChangeAnimations(false);
+
+        final SharedPreferences pref = Prefs.get(getContext());
+        adapter = new AdapterCardsFilter(card_list, pref.getString(Prefs.FILT_CARD, ""),
+                                                    pref.getString(Prefs.REQ_CARDS, ""));
+        card_list.setAdapter(adapter);
+        updateView();
         return view;
+    }
+
+
+    private void updateView() {
+        if(adapter == null) return;
+        adapter.changeCursor(mCursor);
+
+        // Determine the active view: 1-Loading, 2-Empty, 3-List
+        int activeView = 1;
+        if(mCursor != null) {
+            activeView++;
+            if(mCursor.moveToFirst()) activeView++;
+        }
+
+        // Apply the active view
+        loading.setVisibility(  activeView == 1 ? View.VISIBLE : View.GONE);
+        empty.setVisibility(    activeView == 2 ? View.VISIBLE : View.GONE);
+        card_list.setVisibility(activeView == 3 ? View.VISIBLE : View.GONE);
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        Prefs.edit(getContext())
+             .putString(Prefs.FILT_CARD, adapter.getFilter())
+             .putString(Prefs.REQ_CARDS, adapter.getRequired())
+             .commit();
+        adapter = null;
+        super.onDestroyView();
     }
 
 
@@ -91,12 +137,10 @@ public class FragmentPicker extends Fragment
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         // Show the loading icon if we have views
-        if(card_list != null) {
-            empty.setVisibility(View.GONE);
-            loading.setVisibility(View.GONE);
-            card_list.setEmptyView(loading);
-        }
-        adapter.changeCursor(null);
+        mCursor = null;
+        updateView();
+
+
 
         // Basic setup
         CursorLoader c = new CursorLoader(getActivity());
@@ -155,24 +199,13 @@ public class FragmentPicker extends Fragment
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        adapter.changeCursor(data);
-
-        // display the loaded data
-        if(card_list != null) {
-            card_list.setAdapter(adapter);
-            empty.setVisibility(View.GONE);
-            loading.setVisibility(View.GONE);
-            card_list.setEmptyView(empty);
-        }
+        mCursor = data;
+        updateView();
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-        if(card_list != null) {
-            empty.setVisibility(View.GONE);
-            loading.setVisibility(View.GONE);
-            card_list.setEmptyView(loading);
-        }
-        adapter.changeCursor(null);
+        mCursor = null;
+        updateView();
     }
 }

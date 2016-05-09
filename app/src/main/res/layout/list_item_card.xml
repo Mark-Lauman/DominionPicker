@@ -7,6 +7,7 @@
     android:background="@color/type_victory"
     android:paddingLeft="@dimen/card_color_width"
     android:paddingStart="@dimen/card_color_width"
+    android:layout_marginTop="1dp"
     tools:ignore="RtlSymmetry" >
 
     <RelativeLayout android:id="@android:id/background"
@@ -20,14 +21,14 @@
             android:background="@color/card_image_back"
             tools:ignore="ContentDescription" />
 
-        <ImageView android:id="@+id/image_overlay"
+        <ImageView android:id="@+id/card_details"
             android:layout_width="@dimen/card_thumb_size"
             android:layout_height="@dimen/card_thumb_size"
             android:background="?selectableItemBackground"
             android:src="@drawable/ic_image_clickable"
-            tools:ignore="ContentDescription" />
+            android:contentDescription="@null" />
 
-        <LinearLayout
+        <LinearLayout android:id="@+id/click_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/card_thumb_size"

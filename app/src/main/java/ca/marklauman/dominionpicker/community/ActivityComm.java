@@ -34,6 +34,8 @@ public class ActivityComm extends AppCompatActivity {
                         .setOnClickListener(new WebListener(R.string.apache_url));
                 findViewById(R.id.open_sql)
                         .setOnClickListener(new WebListener(R.string.open_sql_url));
+                findViewById(R.id.open_butterknife)
+                        .setOnClickListener(new WebListener(R.string.open_butterknife_url));
                 findViewById(R.id.open_picasso)
                         .setOnClickListener(new WebListener(R.string.open_picasso_url));
                 break;

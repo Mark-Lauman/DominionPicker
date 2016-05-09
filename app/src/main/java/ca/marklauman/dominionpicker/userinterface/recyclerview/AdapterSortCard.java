@@ -1,4 +1,4 @@
-package ca.marklauman.dominionpicker.recyclerview;
+package ca.marklauman.dominionpicker.userinterface.recyclerview;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -14,6 +14,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.recyclerview.dragdrop.BasicTouchAdapter;
@@ -91,15 +93,13 @@ public class AdapterSortCard extends BasicTouchAdapter<AdapterSortCard.ViewHolde
 
     public class ViewHolder extends RecyclerView.ViewHolder
                             implements View.OnTouchListener {
-        public final TextView text1;
-        public final TextView text2;
-        public final ImageView drag;
+        @BindView(android.R.id.text1) public TextView text1;
+        @BindView(android.R.id.text2) public TextView text2;
+        @BindView(android.R.id.icon)  public ImageView drag;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            drag = (ImageView) itemView.findViewById(android.R.id.icon);
-            text1 = (TextView) itemView.findViewById(android.R.id.text1);
-            text2 = (TextView) itemView.findViewById(android.R.id.text2);
+            ButterKnife.bind(this, itemView);
             drag.setOnTouchListener(this);
         }
 

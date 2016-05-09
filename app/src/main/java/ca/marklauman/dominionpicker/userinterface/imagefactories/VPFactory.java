@@ -1,4 +1,4 @@
-package ca.marklauman.dominionpicker.cardadapters.imagefactories;
+package ca.marklauman.dominionpicker.userinterface.imagefactories;
 
 import android.content.res.Resources;
 import android.graphics.Canvas;

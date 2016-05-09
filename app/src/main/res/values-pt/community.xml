@@ -58,6 +58,12 @@
     ]]></string>
     <string name="open_sql_url">https://github.com/jgilfelt/android-sqlite-asset-helper</string>
 
+    <string name="open_butterknife"><![CDATA[
+        <b>Butterknife</b><br>
+        &#169;2013 Jake Wharton
+    ]]></string>
+    <string name="open_butterknife_url">http://jakewharton.github.io/butterknife/</string>
+
     <string name="open_picasso"><![CDATA[ <b>Picasso</b><br>&#169;2013 Square, Inc. ]]></string>
     <string name="open_picasso_url">http://square.github.io/picasso/</string>
 

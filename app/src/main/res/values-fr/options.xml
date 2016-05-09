@@ -11,7 +11,6 @@
     <string name="sort_card_desc">Classez vos cartes comme vous le voulez.</string>
     <string name="drag_handle_desc">Glissez moi!</string>
     <string name="sort_card_end">Le classement s\'arrête ici.</string>
-    <string name="sort_card_notice">Glissez les objets dans l\'ordre.</string>
     <string-array name="sort_card_names">
         <item>Ensemble</item>
         <item>Nom</item>

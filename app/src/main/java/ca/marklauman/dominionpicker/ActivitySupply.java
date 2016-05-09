@@ -11,27 +11,33 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import ca.marklauman.dominionpicker.cardadapters.AdapterCardsSupply;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.dominionpicker.database.TableSupply;
 import ca.marklauman.dominionpicker.database.TimestampFormatter;
 import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterCards.ViewHolder;
 import ca.marklauman.tools.QueryDialogBuilder;
 import ca.marklauman.tools.QueryDialogBuilder.QueryListener;
 import ca.marklauman.tools.Utils;
+import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterCardsDismiss;
+import ca.marklauman.tools.recyclerview.ListDivider;
 
 /** Activity for displaying the supply piles for a new game.
  *  @author Mark Lauman */
 public class ActivitySupply extends AppCompatActivity
-                            implements Prefs.Listener {
+                            implements Prefs.Listener, AdapterCardsDismiss.Listener {
+
     /** Key used to pass a supply id to this activity.
      *  The supply will load from the supply table. */
     public static final String PARAM_SUPPLY_ID = "supplyId";
@@ -46,10 +52,20 @@ public class ActivitySupply extends AppCompatActivity
     /** Formatter used to make strings out of timestamps */
     private TimestampFormatter tFormat;
 
+
+	/** Shows that the list is loading. */
+    @BindView(android.R.id.progress) View vLoading;
+    /** Frame that contains the shuffle's timestamp */
+    @BindView(R.id.time_frame)       View vTimeFrame;
+    /** View that displays the time that the shuffle was made */
+    @BindView(R.id.time)             TextView vTime;
+    /** View used to display additional play resources (Colonies, Shelters, etc) */
+    @BindView(R.id.resources)        TextView vResources;
+    /** The list of cards */
+    @BindView(android.R.id.list)     RecyclerView vList;
     /** The adapter used to display the supply cards. */
-	private AdapterCardsSupply adapter;
-	/** The TextView used to display the resource cards. */
-	private TextView resView;
+    private AdapterCardsDismiss adapter;
+
     /** {@code true} if the supply is from the sample table */
     private boolean sampleSupply = false;
 	/** The supply on display. */
@@ -61,34 +77,28 @@ public class ActivitySupply extends AppCompatActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         Prefs.setup(this);
-
 		setContentView(R.layout.activity_supply);
+        ButterKnife.bind(this);
+
         ActionBar ab = getSupportActionBar();
         if(ab != null) ab.setDisplayHomeAsUpEnabled(true);
         Bundle params = getIntent().getExtras();
 
-        // Basic view setup
-		ListView card_list = (ListView) findViewById(R.id.card_list);
-		View loading = findViewById(android.R.id.progress);
-		card_list.setEmptyView(loading);
-		resView = (TextView) findViewById(R.id.resources);
-		resView.setVisibility(View.GONE);
-        View timeFrame = findViewById(R.id.time_frame);
-        TextView timeView = (TextView)findViewById(R.id.time);
+        // Setup the RecyclerView
+        vList.setLayoutManager(new LinearLayoutManager(this));
+        vList.addItemDecoration(new ListDivider(this));
+        adapter = new AdapterCardsDismiss(vList);
+        adapter.setListener(this);
+        vList.setAdapter(adapter);
 
-        // Time formatter
+        // Setup the time
         tFormat = new TimestampFormatter(this);
-		
-		// Setup the adapter
-		adapter = new AdapterCardsSupply(this);
-		adapter.changeCursor(null);
-		card_list.setAdapter(adapter);
 
         // We have no supply, check for a history id
         if(params == null) return;
         long supplyId = params.getLong(PARAM_HISTORY_ID, -1);
         if(supplyId != -1) {
-            timeView.setText(tFormat.formatShort(supplyId));
+            vTime.setText(tFormat.formatShort(supplyId));
             Bundle args = new Bundle();
             args.putLong(PARAM_HISTORY_ID, supplyId);
             LoaderManager lm = getSupportLoaderManager();
@@ -99,7 +109,7 @@ public class ActivitySupply extends AppCompatActivity
         // We still have no supply, check for a sample supply id.
         supplyId = params.getLong(PARAM_SUPPLY_ID, -1);
         if(supplyId != -1) {
-            timeFrame.setVisibility(View.GONE);
+            vTimeFrame.setVisibility(View.GONE);
             sampleSupply = true;
             Bundle args = new Bundle();
             args.putLong(PARAM_SUPPLY_ID, supplyId);
@@ -219,18 +229,32 @@ public class ActivitySupply extends AppCompatActivity
     }
 
 
+    @Override
+    public void onItemClick(ViewHolder holder, int position, long id, boolean longClick) {
+        AdapterCardsDismiss.launchDetails(this, id);
+    }
+
+
+    @Override
+    public void onDismiss(int position, long id) {
+        // TODO: Draw new card
+    }
+
+
     /** Used to load the cards once the supply is loaded. */
     private class CardLoader implements LoaderCallbacks<Cursor> {
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
             // Display the loading icon, hide the resources
-            resView.setVisibility(View.GONE);
+            vResources.setVisibility(View.GONE);
+            vList.setVisibility(View.GONE);
+            vLoading.setVisibility(View.VISIBLE);
             adapter.changeCursor(null);
 
             // Basic loader
             CursorLoader c = new CursorLoader(getActivity());
             c.setUri(Provider.URI_CARD_ALL);
-            c.setProjection(AdapterCardsSupply.COLS_USED);
+            c.setProjection(AdapterCardsDismiss.COLS_USED);
             c.setSortOrder(Prefs.sort_card);
 
             // Selection string (sql WHERE clause)
@@ -244,12 +268,11 @@ public class ActivitySupply extends AppCompatActivity
 
         @Override
         public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-            // In case the load finishes as the app closes
-            if(data == null) return;
-
             // display the supply cards
-            adapter.changeCursor(data);
             adapter.setBane(supply.bane);
+            adapter.changeCursor(data);
+            vLoading.setVisibility(View.GONE);
+            vList.setVisibility(View.VISIBLE);
 
             // display the resource cards
             String output = "";
@@ -259,8 +282,8 @@ public class ActivitySupply extends AppCompatActivity
                 output += "\n" + getString(R.string.supply_shelters);
             output = output.trim();
             if(! "".equals(output)) {
-                resView.setText(output);
-                resView.setVisibility(View.VISIBLE);
+                vResources.setText(output);
+                vResources.setVisibility(View.VISIBLE);
             }
         }
 
@@ -269,7 +292,7 @@ public class ActivitySupply extends AppCompatActivity
         public void onLoaderReset(Loader<Cursor> loader) {
             if(loader == null) return;
             adapter.changeCursor(null);
-            resView.setVisibility(View.GONE);
+            vResources.setVisibility(View.GONE);
         }
     }
 
@@ -279,7 +302,7 @@ public class ActivitySupply extends AppCompatActivity
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
             // Display the loading icon, hide the resources
-            resView.setVisibility(View.GONE);
+            vResources.setVisibility(View.GONE);
             adapter.changeCursor(null);
 
             // Basic loader

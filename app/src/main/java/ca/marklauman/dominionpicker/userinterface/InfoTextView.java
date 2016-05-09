@@ -1,4 +1,4 @@
-package ca.marklauman.dominionpicker.cardadapters;
+package ca.marklauman.dominionpicker.userinterface;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -14,9 +14,9 @@ import android.text.style.StyleSpan;
 import android.util.AttributeSet;
 
 import ca.marklauman.dominionpicker.R;
-import ca.marklauman.dominionpicker.cardadapters.imagefactories.CoinFactory;
-import ca.marklauman.dominionpicker.cardadapters.imagefactories.ImageFactory;
-import ca.marklauman.dominionpicker.cardadapters.imagefactories.VPFactory;
+import ca.marklauman.dominionpicker.userinterface.imagefactories.CoinFactory;
+import ca.marklauman.dominionpicker.userinterface.imagefactories.ImageFactory;
+import ca.marklauman.dominionpicker.userinterface.imagefactories.VPFactory;
 import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.tools.Utils;
 import ca.marklauman.tools.XmlTextView;

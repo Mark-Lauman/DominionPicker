@@ -33,6 +33,20 @@
         android:background="@android:drawable/divider_horizontal_bright" />
 
     <ca.marklauman.tools.HtmlTextView
+        android:id="@+id/open_butterknife"
+        android:layout_width="match_parent"
+        android:layout_height="?listPreferredItemHeight"
+        android:background="?selectableItemBackground"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/open_butterknife" />
+
+    <View android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:drawable/divider_horizontal_bright" />
+
+    <ca.marklauman.tools.HtmlTextView
         android:id="@+id/open_picasso"
         android:layout_width="match_parent"
         android:layout_height="?listPreferredItemHeight"

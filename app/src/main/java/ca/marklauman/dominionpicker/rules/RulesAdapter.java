@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 import ca.marklauman.dominionpicker.R;
-import ca.marklauman.dominionpicker.cardadapters.imagefactories.CoinFactory;
+import ca.marklauman.dominionpicker.userinterface.imagefactories.CoinFactory;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;

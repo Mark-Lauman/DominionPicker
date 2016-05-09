@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingTranslation"
+    tools:ignore="MissingTranslation|"
     translatable="false" >
     <!-- String resources that must be available in all locales
          so that the cards in non-default languages can display. -->

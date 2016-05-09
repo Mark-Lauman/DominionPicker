@@ -8,21 +8,24 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.LinkedList;
 
-import ca.marklauman.dominionpicker.cardadapters.AdapterCards;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterCards;
+import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterCards.ViewHolder;
 import ca.marklauman.tools.Utils;
+import ca.marklauman.tools.recyclerview.ListDivider;
 
 /** Governs all the Black Market shuffler screens.
  *  @author Mark Lauman */
@@ -108,8 +111,10 @@ public class FragmentMarket extends Fragment
         but_pass.setOnClickListener(new PassListener());
 
         // Setup card list and its adapter
-        ListView card_list = (ListView) view.findViewById(R.id.card_list);
-        adapter = new AdapterCards(getActivity());
+        RecyclerView card_list = (RecyclerView) view.findViewById(R.id.card_list);
+        card_list.setLayoutManager(new LinearLayoutManager(getContext()));
+        card_list.addItemDecoration(new ListDivider(getContext()));
+        adapter = new AdapterCards(card_list);
         adapter.setListener(this);
         card_list.setAdapter(adapter);
 
@@ -192,7 +197,7 @@ public class FragmentMarket extends Fragment
     /** Selects which card was purchased. Called when a card is clicked in the choice panel.
      *  @param id The row id of the item that was clicked. */
     @Override
-    public void onItemClick(int position, long id, boolean longClick) {
+    public void onItemClick(ViewHolder holder, int position, long id, boolean longClick) {
         Toast.makeText(getActivity(), adapter.getName(position), Toast.LENGTH_SHORT)
              .show();
         // Unused choices return to the stock bottom

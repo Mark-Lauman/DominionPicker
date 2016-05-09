@@ -11,7 +11,6 @@
     <string name="sort_card_desc">Ordina le carte come vuoi.</string>
     <string name="drag_handle_desc">Trascinami!</string>
     <string name="sort_card_end">L\'ordinamento finisce qui.</string>
-    <string name="sort_card_notice">Trascina qui gli elementi.</string>
     <string-array name="sort_card_names">
         <item>Espansione</item>
         <item>Nome</item>
