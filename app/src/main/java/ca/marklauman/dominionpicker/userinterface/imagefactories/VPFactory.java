@@ -1,5 +1,6 @@
 package ca.marklauman.dominionpicker.userinterface.imagefactories;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -10,18 +11,19 @@ import android.graphics.Path;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.text.style.ImageSpan;
 
 import ca.marklauman.dominionpicker.R;
 
 /** Factory which provides {@link VPDrawable}s to views that need them.
  *  @author Mark Lauman */
-public class VPFactory implements ImageFactory {
+public class VPFactory extends ImageFactory {
 
     private static final ImageLibrary lib = new ImageLibrary();
 
-    /** Default image size */
-    private final int defSize;
+    /** Available image sizes. */
+    private final int[] img_size;
     /** Border color used around the shield */
     private final int border;
     /** Background color of a positive victory point shield. */
@@ -32,11 +34,14 @@ public class VPFactory implements ImageFactory {
     private int spanId = 0;
 
     /** Create a CoinFactory from the given resources. */
-    public VPFactory(Resources res){
-        defSize = res.getDimensionPixelSize(R.dimen.drawable_size_small);
-        border = res.getColor(R.color.drawable_edge);
-        victory = res.getColor(R.color.vp_plus);
-        curse = res.getColor(R.color.vp_minus);
+    public VPFactory(Context context){
+        Resources res = context.getResources();
+        img_size = new int[]{res.getDimensionPixelSize(R.dimen.drawable_size_small),
+                             res.getDimensionPixelSize(R.dimen.drawable_size_med),
+                             res.getDimensionPixelSize(R.dimen.drawable_size_large)};
+        border = ContextCompat.getColor(context, R.color.drawable_edge);
+        victory = ContextCompat.getColor(context, R.color.vp_plus);
+        curse = ContextCompat.getColor(context, R.color.vp_minus);
     }
 
 
@@ -66,7 +71,7 @@ public class VPFactory implements ImageFactory {
 
     private VPDrawable makeDrawable(CharSequence val, int size) {
         VPDrawable res = new VPDrawable(""+val);
-        res.setBounds(0, 0, size, size);
+        res.setBounds(0, 0, img_size[size], img_size[size]);
         lib.setDrawable(val, size, res);
         return res;
     }
@@ -162,13 +167,13 @@ public class VPFactory implements ImageFactory {
 
         @Override
         public int getIntrinsicHeight() {
-            return defSize;
+            return img_size[SIZE_MED];
         }
 
 
         @Override
         public int getIntrinsicWidth() {
-            return defSize;
+            return img_size[SIZE_MED];
         }
 
         @Override

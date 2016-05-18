@@ -50,6 +50,8 @@ public abstract class TableCard {
     public static final String _COST = "cost";
     /** Integer value of the card's cost. Removes any additional characters. */
     public static final String _COST_VAL = "costVal";
+    /** Integer value of the card's debt cost. */
+    public static final String _DEBT = "debt";
     /** Column for the potion cost of a card (# needed to buy). From the cardData table. */
     public static final String _POT = "potion";
     /** Column for +X buys this card provides. From the cardData table. */
@@ -87,6 +89,8 @@ public abstract class TableCard {
     public static final String _TYPE_TRAVEL = "typeTraveller";
     /** Column representing if this is an event card. From the cardData table. */
     public static final String _TYPE_EVENT = "typeEvent";
+    /** Column representing if this is a landmark card. From the cardData table. */
+    public static final String _TYPE_LANDMARK = "typeLandmark";
 
     /** Column indicating if this card is a curser meta type. From the cardData table. */
     public static final String _META_CURSER = "metaCurser";

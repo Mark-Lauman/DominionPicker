@@ -21,10 +21,12 @@
         <item>@drawable/ic_set_walled_village</item>
         <item>@drawable/ic_set_adventures</item>
         <item>@drawable/ic_set_summon</item>
+        <item>@drawable/ic_set_empires</item>
     </array>
 
     <!-- Default translation to use for each set. Sorted by set_id. -->
     <string-array name="def_trans">
+        <item>en</item>
         <item>en</item>
         <item>en</item>
         <item>en</item>
@@ -48,6 +50,12 @@
     <plurals name="format_coin">
         <item quantity="one">%1$s Coin</item>
         <item quantity="other">%1$s Coins</item>
+    </plurals>
+
+    <string name="debt">Debt Token</string>
+    <plurals name="format_debt">
+        <item quantity="one">%1$s Debt Token</item>
+        <item quantity="other">%1$s Debt Tokens</item>
     </plurals>
 
     <string name="potion">Potion</string>

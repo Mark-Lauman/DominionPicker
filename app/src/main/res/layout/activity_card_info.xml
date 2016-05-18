@@ -66,6 +66,18 @@
             android:src="@color/coin_back"
             tools:ignore="ContentDescription" />
 
+        <ImageView android:id="@+id/card_debt"
+            android:layout_width="@dimen/card_info_bottom"
+            android:layout_height="@dimen/card_info_bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/card_cost"
+            android:layout_toEndOf="@id/card_cost"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:src="@color/coin_back"
+            tools:ignore="ContentDescription" />
+
         <ImageView android:id="@+id/card_potion"
             android:layout_width="@dimen/card_info_bottom"
             android:layout_height="@dimen/card_info_bottom"
@@ -74,8 +86,8 @@
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:src="@drawable/ic_dom_potion"
-            android:layout_toRightOf="@id/card_cost"
-            android:layout_toEndOf="@id/card_cost"
+            android:layout_toRightOf="@id/card_debt"
+            android:layout_toEndOf="@id/card_debt"
             android:contentDescription="@string/potion" />
 
         <TextView android:id="@+id/card_type"

@@ -72,6 +72,51 @@
     </plurals>
 
 
+    <!-- String used to describe debt tokens -->
+    <string-array name="debt">
+        <item>@string/debt</item>
+        <item>Deutsch</item>
+        <item>Debt Tokens</item>
+        <item>Fran&#231;ais</item>
+        <item>Italiano</item>
+        <item>Nederlands</item>
+        <item>Portugu&#234;s</item>
+    </string-array>
+    <array name="format_debt">
+        <item>@plurals/format_debt</item>
+        <item>@plurals/format_debt_de</item>
+        <item>@plurals/format_debt_en</item>
+        <item>@plurals/format_debt_fr</item>
+        <item>@plurals/format_debt_it</item>
+        <item>@plurals/format_debt_nl</item>
+        <item>@plurals/format_debt_pt</item>
+    </array>
+    <plurals name="format_debt_en">
+        <item quantity="one">%1$s Debt Token</item>
+        <item quantity="other">%1$s Debt Tokens</item>
+    </plurals>
+    <plurals name="format_debt_de">
+        <item quantity="one">%1$s Trank</item>
+        <item quantity="other">%1$s Tr&#228;nke</item>
+    </plurals>
+    <plurals name="format_debt_fr">
+        <item quantity="one">%1$s Potion</item>
+        <item quantity="other">%1$s Potions</item>
+    </plurals>
+    <plurals name="format_debt_it">
+        <item quantity="one">%1$s Pozione</item>
+        <item quantity="other">%1$s Pozioni</item>
+    </plurals>
+    <plurals name="format_debt_nl">
+        <item quantity="one">%1$s Toverdrank</item>
+        <item quantity="other">%1$s Toverdrankjes</item>
+    </plurals>
+    <plurals name="format_debt_pt">
+        <item quantity="one">%1$s Po&#231;&#227;o</item>
+        <item quantity="other">%1$s Po&#231;&#245;es</item>
+    </plurals>
+
+
     <!-- String used to describe potions -->
     <string-array name="potion">
         <item>@string/potion</item>

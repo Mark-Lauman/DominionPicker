@@ -86,7 +86,7 @@ class RulesAdapter extends ArrayAdapter<View>
         super(context, R.layout.fragment_rules);
         vFooter = View.inflate(context, R.layout.list_item_loading, null);
         lm = ((AppCompatActivity)context).getSupportLoaderManager();
-        coins = new CoinFactory(context.getResources());
+        coins = new CoinFactory(context);
 
         // Load the preferences
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -269,14 +269,13 @@ class RulesAdapter extends ArrayAdapter<View>
 
                 Resources res = context.getResources();
                 posCost.start = views.size();
-                int coinSize = res.getDimensionPixelSize(R.dimen.drawable_size_small);
                 int _cost = data.getColumnIndex(TableCard._COST_VAL);
                 data.moveToPosition(-1);
                 while (data.moveToNext()){
                     int cost = data.getInt(_cost);
                     view = newChecked(context, !filt_cost.contains(cost),
                                       res.getQuantityString(R.plurals.format_coin, cost, ""+cost),
-                                      coins.getDrawable("" + cost, coinSize));
+                                      coins.getDrawable("" + cost, CoinFactory.SIZE_SML));
                     view.setTag(cost);
                     views.add(view);
                 }

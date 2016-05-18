@@ -24,9 +24,11 @@ import butterknife.OnClick;
 import butterknife.OnLongClick;
 import ca.marklauman.dominionpicker.ActivityCardInfo;
 import ca.marklauman.dominionpicker.R;
+import ca.marklauman.dominionpicker.userinterface.InfoTextView;
 import ca.marklauman.dominionpicker.userinterface.imagefactories.CardColorFactory;
 import ca.marklauman.dominionpicker.userinterface.imagefactories.CoinFactory;
 import ca.marklauman.dominionpicker.database.TableCard;
+import ca.marklauman.dominionpicker.userinterface.imagefactories.DebtFactory;
 import ca.marklauman.tools.Utils;
 import ca.marklauman.tools.recyclerview.dragdrop.BasicTouchAdapter;
 import ca.marklauman.tools.recyclerview.dragdrop.TouchCallback;
@@ -38,10 +40,11 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
     /** The columns used by this adapter. Any other columns provided will be ignored. */
     public static final String[] COLS_USED =
            {TableCard._ID, TableCard._NAME, TableCard._SET_NAME, TableCard._TYPE,
-            TableCard._SET_ID, TableCard._COST, TableCard._POT, TableCard._REQ, TableCard._LANG,
-            TableCard._TYPE_ACT, TableCard._TYPE_TREAS, TableCard._TYPE_VICTORY, // colorFactory
-            TableCard._TYPE_DUR, TableCard._TYPE_REACT, TableCard._TYPE_RESERVE, // required
-            TableCard._TYPE_CURSE, TableCard._TYPE_EVENT};                       // rows
+            TableCard._SET_ID, TableCard._COST, TableCard._DEBT, TableCard._POT,
+            TableCard._REQ, TableCard._LANG,
+            TableCard._TYPE_ACT, TableCard._TYPE_TREAS, TableCard._TYPE_VICTORY,     // colorFactory
+            TableCard._TYPE_DUR, TableCard._TYPE_REACT, TableCard._TYPE_RESERVE,     // required
+            TableCard._TYPE_CURSE, TableCard._TYPE_EVENT, TableCard._TYPE_LANDMARK}; // rows
 
 
     /** Context attached to the RecyclerView that this adapter oversees */
@@ -52,6 +55,8 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
     private final CardColorFactory colorFactory;
     /** Factory used to make the coin drawable */
     private final CoinFactory coinFactory;
+    /** Factory used to make the debt drawable */
+    private final DebtFactory debtFactory;
     /** Size of the factory images */
     public final int imgSize;
     /** Icon used if an expansion is unknown */
@@ -62,6 +67,8 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
     private final String cardDetails;
     /** Plurals used for the coin descriptors. The key is the language of the card. */
     private final HashMap<String, Integer> coinDesc;
+    /** Plurals used for the debt descriptors. THe key is the language of the card. */
+    private final HashMap<String, Integer> debtDesc;
 
 
     /** Cursor on display in this adapter. */
@@ -76,6 +83,8 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
     protected int _set_name;
     /** Index of the "cost" column for {@link #mCursor}. */
     protected int _cost;
+    /** Index of the "debt" column for {@link #mCursor}. */
+    protected int _debt;
     /** Index of the "potion" column for {@link #mCursor}. */
     protected int _potion;
     /** Index of the "language" column for {@link #mCursor}. */
@@ -84,6 +93,8 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
     protected int _type;
     /** Index of the "requires" column for {@link #mCursor}. */
     protected int _requires;
+    /** Index of the landmark card type */
+    protected int _type_landmark;
 
 
     /** Listener to be notified if a card is clicked. */
@@ -113,18 +124,23 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
         hasSwipe = dismiss;
         Resources res   = view.getResources();
         imgSize = res.getDimensionPixelSize(R.dimen.card_thumb_size);
-        colorFactory = new CardColorFactory(res);
-        coinFactory = new CoinFactory(res);
+        colorFactory = new CardColorFactory(mContext);
+        coinFactory = new CoinFactory(mContext);
+        debtFactory = new DebtFactory(mContext);
         set_none = ContextCompat.getDrawable(mContext, R.drawable.ic_set_unknown);
         set_icons = Utils.getDrawableArray(mContext, R.array.card_set_icons);
         cardDetails = res.getString(R.string.card_details_button);
 
-        // fetch the coin descriptions
+        // fetch the coin & debt descriptions
         int[] form_coin = Utils.getResourceArray(mContext, R.array.format_coin);
+        int[] form_debt = Utils.getResourceArray(mContext, R.array.format_debt);
         String[] lang = res.getStringArray(R.array.language_codes);
         coinDesc = new HashMap<>(lang.length);
-        for(int i=0; i<lang.length; i++)
+        debtDesc = new HashMap<>(lang.length);
+        for(int i=0; i<lang.length; i++) {
             coinDesc.put(lang[i], form_coin[i]);
+            debtDesc.put(lang[i], form_debt[i]);
+        }
     }
 
 
@@ -144,10 +160,12 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
         _set_id = cursor.getColumnIndex(TableCard._SET_ID);
         _set_name = cursor.getColumnIndex(TableCard._SET_NAME);
         _cost = cursor.getColumnIndex(TableCard._COST);
+        _debt = cursor.getColumnIndex(TableCard._DEBT);
         _potion = cursor.getColumnIndex(TableCard._POT);
         _language = cursor.getColumnIndex(TableCard._LANG);
         _type = cursor.getColumnIndex(TableCard._TYPE);
         _requires = cursor.getColumnIndex(TableCard._REQ);
+        _type_landmark = cursor.getColumnIndex(TableCard._TYPE_LANDMARK);
         notifyDataSetChanged();
     }
 
@@ -186,16 +204,27 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
         holder.set.setImageDrawable(set_icon);
         holder.set.setContentDescription(mCursor.getString(_set_name));
 
-        // The cost in coins and potions
+        // The cost in coins, debt and potions
         final int costVal = TableCard.parseVal(cost);
-        if(!potion || costVal != 0) {
-            holder.cost.setVisibility(View.VISIBLE);
+        final int debt = mCursor.getInt(_debt);
+        /* Show the coin if we have a nonzero cost
+         * or if this is not a landmark and has no other costs. */
+        if(costVal != 0 || (mCursor.getInt(_type_landmark) == 0 && !potion && debt == 0)) {
             holder.cost.setContentDescription(
                               mContext.getResources()
                                       .getQuantityString(coinDesc.get(mCursor.getString(_language)),
                                                          costVal, cost));
             holder.cost.setImageDrawable(coinFactory.getDrawable(cost, 0));
+            holder.cost.setVisibility(View.VISIBLE);
         } else holder.cost.setVisibility(View.GONE);
+        if(debt != 0) {
+            holder.debt.setContentDescription(
+                              mContext.getResources()
+                                      .getQuantityString(debtDesc.get(mCursor.getString(_language)),
+                                                         debt, ""+debt));
+            holder.debt.setImageDrawable(debtFactory.getDrawable(""+debt, 0));
+            holder.debt.setVisibility(View.VISIBLE);
+        } else holder.debt.setVisibility(View.GONE);
         holder.potion.setVisibility(potion ? View.VISIBLE : View.GONE);
 
         // The card type and requirements
@@ -249,6 +278,7 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
         @BindView(R.id.card_name)          public TextView name;
         @BindView(R.id.card_extra)         public TextView extra;
         @BindView(R.id.card_cost)          public ImageView cost;
+        @BindView(R.id.card_debt)          public ImageView debt;
         @BindView(R.id.card_potion)        public ImageView potion;
         @BindView(R.id.card_type)          public TextView type;
         @BindView(R.id.card_requires)      public TextView requires;

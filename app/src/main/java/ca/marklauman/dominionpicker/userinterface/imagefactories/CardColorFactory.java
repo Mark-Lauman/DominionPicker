@@ -1,6 +1,6 @@
 package ca.marklauman.dominionpicker.userinterface.imagefactories;
 
-import android.content.res.Resources;
+import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
@@ -9,6 +9,7 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.text.style.ImageSpan;
 import android.view.View;
 
@@ -20,7 +21,7 @@ import ca.marklauman.tools.Utils;
 
 /** Builds the background drawables to show card color.
  *  @author Mark Lauman */
-public class CardColorFactory implements ImageFactory {
+public class CardColorFactory extends ImageFactory {
 
     // Cards types listed by color priority
     /** Action card id */
@@ -39,6 +40,8 @@ public class CardColorFactory implements ImageFactory {
     private static final int _curse = 6;
     /** Event card id */
     private static final int _event = 7;
+    /** Landmark card id */
+    private static final int _landmark = 8;
 
     private static final ImageLibrary lib = new ImageLibrary();
 
@@ -53,25 +56,27 @@ public class CardColorFactory implements ImageFactory {
     /** Current ImageSpan id value (increments as they are retrieved) */
     private int spanId = 0;
 
-    public CardColorFactory(Resources res) {
-        width = res.getDimension(R.dimen.card_color_width);
+    public CardColorFactory(Context context) {
+        width = context.getResources()
+                       .getDimension(R.dimen.card_color_width);
 
         // Card colors, sorted by priority
-        color = new int[8];
-        color[_action] = res.getColor(R.color.type_act);
-        color[_treasure] = res.getColor(R.color.type_treasure);
-        color[_reserve] = res.getColor(R.color.type_reserve);
-        color[_victory] = res.getColor(R.color.type_victory);
-        color[_dur] = res.getColor(R.color.type_dur);
-        color[_react] = res.getColor(R.color.type_react);
-        color[_curse] = res.getColor(R.color.type_curse);
-        color[_event] = res.getColor(R.color.type_event);
+        color = new int[9];
+        color[_action]   = ContextCompat.getColor(context, R.color.type_act);
+        color[_treasure] = ContextCompat.getColor(context, R.color.type_treasure);
+        color[_reserve]  = ContextCompat.getColor(context, R.color.type_reserve);
+        color[_victory]  = ContextCompat.getColor(context, R.color.type_victory);
+        color[_dur]      = ContextCompat.getColor(context, R.color.type_dur);
+        color[_react]    = ContextCompat.getColor(context, R.color.type_react);
+        color[_curse]    = ContextCompat.getColor(context, R.color.type_curse);
+        color[_event]    = ContextCompat.getColor(context, R.color.type_event);
+        color[_landmark] = ContextCompat.getColor(context, R.color.type_landmark);
     }
 
 
     public void changeCursor(Cursor cursor) {
         // Columns sorted by color priority
-        column = new int[8];
+        column = new int[9];
         column[_action] = cursor.getColumnIndex(TableCard._TYPE_ACT);
         column[_treasure] = cursor.getColumnIndex(TableCard._TYPE_TREAS);
         column[_reserve] = cursor.getColumnIndex(TableCard._TYPE_RESERVE);
@@ -80,6 +85,7 @@ public class CardColorFactory implements ImageFactory {
         column[_react] = cursor.getColumnIndex(TableCard._TYPE_REACT);
         column[_curse] = cursor.getColumnIndex(TableCard._TYPE_CURSE);
         column[_event] = cursor.getColumnIndex(TableCard._TYPE_EVENT);
+        column[_landmark] = cursor.getColumnIndex(TableCard._TYPE_LANDMARK);
     }
 
 
@@ -113,13 +119,17 @@ public class CardColorFactory implements ImageFactory {
             curColors.add(_curse);
         if(cursor.getInt(column[_event])!=0)
             curColors.add(_event);
+        if(cursor.getInt(column[_landmark])!=0)
+            curColors.add(_landmark);
 
         String val = Utils.join(",", curColors);
         if(action) val = (val.length() == 0) ? ""+_action : _action+","+val;
+        if(val.length() == 0) val = ""+_action;
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            view.setBackground(getDrawable(val, (int)(width+0.5f)));
-        } else view.setBackgroundDrawable(getDrawable(val, (int)(width+0.5f)));
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+            //noinspection deprecation
+            view.setBackgroundDrawable(getDrawable(val, (int)(width+0.5f)));
+        } else view.setBackground(getDrawable(val, (int)(width+0.5f)));
     }
 
 

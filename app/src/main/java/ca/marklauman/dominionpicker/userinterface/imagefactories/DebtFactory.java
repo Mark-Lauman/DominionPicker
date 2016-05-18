@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -14,29 +15,26 @@ import android.text.style.ImageSpan;
 
 import ca.marklauman.dominionpicker.R;
 
-/** Factory which provides {@link CoinDrawable}s to views that need them.
+/** Factory which provides {@link DebtDrawable}s to views that need them.
  *  @author Mark Lauman */
-public class CoinFactory extends ImageFactory {
+public class DebtFactory extends ImageFactory {
 
     private static final ImageLibrary lib = new ImageLibrary();
 
     /** Available image sizes. */
     private final int[] img_size;
-    /** Background color for the coin */
-    private final int coinBack;
-    /** Edge color for the coin */
-    private final int coinEdge;
+    /** Background color for the debt icon */
+    private final int back;
     /** Current ImageSpan id value (increments as they are retrieved) */
     private int spanId = 0;
 
     /** Create a CoinFactory from the given resources. */
-    public CoinFactory(Context context){
+    public DebtFactory(Context context){
         Resources res = context.getResources();
         img_size = new int[]{res.getDimensionPixelSize(R.dimen.drawable_size_small),
                              res.getDimensionPixelSize(R.dimen.drawable_size_med),
                              res.getDimensionPixelSize(R.dimen.drawable_size_large)};
-        coinBack = ContextCompat.getColor(context, R.color.coin_back);
-        coinEdge = ContextCompat.getColor(context, R.color.drawable_edge);
+        back = ContextCompat.getColor(context, R.color.debt);
     }
 
     @Override
@@ -62,28 +60,31 @@ public class CoinFactory extends ImageFactory {
         spanId = 0;
     }
 
-    /** Get a CoinDrawable with the provided value.
+    /** Get a DebtDrawable with the provided value.
      *  @param val The value to display on the coin. */
-    private CoinDrawable makeDrawable(CharSequence val, int size) {
-        CoinDrawable res = new CoinDrawable(""+val);
+    private DebtDrawable makeDrawable(CharSequence val, int size) {
+        DebtDrawable res = new DebtDrawable(""+val);
         res.setBounds(0, 0, img_size[size], img_size[size]);
         lib.setDrawable(val, size, res);
         return res;
     }
 
 
-    public class CoinDrawable extends Drawable {
+    public class DebtDrawable extends Drawable {
         /** Value to display in this coin */
         private final String val;
         /** Paint object used by this drawable */
         private final Paint paint;
+        /** Path used to draw the hexagon */
+        private final Path hex;
         /** Rectangle used to determine the text bounds */
         private final Rect textBounds;
 
-        CoinDrawable(String value) {
+        DebtDrawable(String value) {
             paint = new Paint();
             paint.setAntiAlias(true);
             val = value;
+            hex = new Path();
             textBounds = new Rect();
         }
 
@@ -101,18 +102,29 @@ public class CoinFactory extends ImageFactory {
             float size = (width < height) ? width : height;
             size -= 2; // for anti-aliasing on the borders
 
-            // Draw the coin
-            float coinSize = size/2f;
-            paint.setColor(coinEdge);
-            canvas.drawCircle(x, y, coinSize, paint);
-            paint.setColor(coinBack);
-            canvas.drawCircle(x, y, 0.9f*coinSize, paint);
+            // Draw the hexagon
+            hex.reset();
+            float radius = size/2f;
+            final float section = (float) (2.0 * Math.PI / 6);
+            hex.moveTo(x + radius * (float)Math.cos(0),
+                       y + radius * (float)Math.sin(0));
+            for (int i = 1; i < 7; i++)
+                hex.lineTo(x + radius * (float)Math.cos(section * i),
+                           y + radius * (float)Math.sin(section * i));
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
+            paint.setColor(back);
+            canvas.drawPath(hex, paint);
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setColor(Color.BLACK);
+            paint.setStrokeWidth(size / 14f);
+            canvas.drawPath(hex, paint);
 
             // Draw the text
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
             float fontSize = (val.length() < 2) ? 0.7f*size
-                                                : 0.6f*size;
+                    : 0.6f*size;
             paint.setTextSize(fontSize);
-            paint.setColor(Color.BLACK);
+            paint.setColor(Color.WHITE);
             paint.getTextBounds(val, 0, val.length(), textBounds);
             canvas.drawText(val, x-textBounds.exactCenterX(), y-textBounds.exactCenterY(), paint);
         }

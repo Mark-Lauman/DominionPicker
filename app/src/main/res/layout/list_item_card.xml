@@ -96,6 +96,13 @@
                     android:src="@color/coin_back"
                     android:contentDescription="@string/coin" />
 
+                <ImageView android:id="@+id/card_debt"
+                    android:layout_width="15sp"
+                    android:layout_height="15sp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:src="@color/coin_back" />
+
                 <ImageView android:id="@+id/card_potion"
                     android:layout_width="15sp"
                     android:layout_height="15sp"

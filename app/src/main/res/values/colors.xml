@@ -10,6 +10,7 @@
 
     <color name="card_image_back">#4000</color>
     <color name="coin_back">@color/type_treasure</color>
+    <color name="debt">#C16F47</color>
     <color name="drawable_edge">#888</color>
     <color name="vp_plus">@color/type_victory</color>
     <color name="vp_minus">@color/type_curse</color>
@@ -22,5 +23,6 @@
     <color name="type_dur">#EE9F50</color>
     <color name="type_reserve">#C5A050</color>
     <color name="type_event">#BCBAC5</color>
+    <color name="type_landmark">#59B584</color>
 
 </resources>

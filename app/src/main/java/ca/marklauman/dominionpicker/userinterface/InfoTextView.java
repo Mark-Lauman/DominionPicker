@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Typeface;
+import android.media.Image;
 import android.os.Build;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -15,6 +16,7 @@ import android.util.AttributeSet;
 
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.userinterface.imagefactories.CoinFactory;
+import ca.marklauman.dominionpicker.userinterface.imagefactories.DebtFactory;
 import ca.marklauman.dominionpicker.userinterface.imagefactories.ImageFactory;
 import ca.marklauman.dominionpicker.userinterface.imagefactories.VPFactory;
 import ca.marklauman.dominionpicker.database.TableCard;
@@ -29,6 +31,8 @@ import ca.marklauman.tools.XmlTextView;
 public class InfoTextView extends XmlTextView {
     /** Factory used to build the coin icons */
     private CoinFactory coins;
+    /** Factory used to build the debt icons */
+    private DebtFactory debt;
     /** Factory used to build the victory point icons */
     private VPFactory vps;
 
@@ -37,6 +41,10 @@ public class InfoTextView extends XmlTextView {
     private String coinStr;
     /** Plural resource used for full coin icons */
     private int coinPlural = 0;
+    /** String used for empty debt icons */
+    private String debtStr;
+    /** Plural resource used for full debt icons */
+    private int debtPlural = 0;
     /** String used for empty vp icons */
     private String vpStr;
     /** Plural resource used for full vp icons */
@@ -95,6 +103,8 @@ public class InfoTextView extends XmlTextView {
         if(!isInEditMode()) {
             coinStr    = res.getStringArray(R.array.coin)[langId];
             coinPlural = Utils.getResourceArray(c, R.array.format_coin)[langId];
+            debtStr    = res.getStringArray(R.array.debt)[langId];
+            debtPlural = Utils.getResourceArray(c, R.array.format_debt)[langId];
             vpStr      = res.getStringArray(R.array.vp)[langId];
             vpPlural   = Utils.getResourceArray(c, R.array.format_vp)[langId];
             potStr     = res.getStringArray(R.array.potion)[langId];
@@ -106,9 +116,9 @@ public class InfoTextView extends XmlTextView {
 
 
     private void setup(Context context) {
-        Resources res = context.getResources();
-        coins = new CoinFactory(res);
-        vps = new VPFactory(res);
+        coins = new CoinFactory(context);
+        debt = new DebtFactory(context);
+        vps = new VPFactory(context);
         setHrRes(R.layout.card_info_hr);
         setTextViewRes(R.layout.card_info_txt);
         if (isInEditMode()) setText(context.getString(R.string.demo_card_text),
@@ -128,6 +138,8 @@ public class InfoTextView extends XmlTextView {
         switch (tag) {
             case "vp":  inlineDrawable(txt, start, end, vps,
                                        vpPlural, vpStr);   break;
+            case "debt":inlineDrawable(txt, start, end, debt,
+                                       debtPlural, debtStr); break;
             case "c":   inlineDrawable(txt, start, end, coins,
                                        coinPlural, coinStr); break;
             case "pot": inlineDrawable(txt, start, end, R.drawable.ic_dom_potion,
@@ -149,11 +161,9 @@ public class InfoTextView extends XmlTextView {
         CharSequence content = txt.subSequence(start, end);
         Resources res = getResources();
         int size;
-        if(tagActive("big")) size = res.getDimensionPixelSize(R.dimen.drawable_size_large);
-        else size = (tagActive("b")) ? res.getDimensionPixelSize(R.dimen.drawable_size_med)
-                                     : res.getDimensionPixelSize(R.dimen.drawable_size_small);
-        inlineDrawable(txt, start, end,
-                       factory.getSpan(content, size), pluralRes, single);
+        if(tagActive("big")) size = ImageFactory.SIZE_LRG;
+        else size = (tagActive("b")) ? ImageFactory.SIZE_MED : ImageFactory.SIZE_SML;
+        inlineDrawable(txt, start, end, factory.getSpan(content, size), pluralRes, single);
     }
 
 
@@ -163,9 +173,8 @@ public class InfoTextView extends XmlTextView {
         Resources res = getResources();
         ImageSpan span = new ImageSpan(getContext(), drawRes);
         int size;
-        if(tagActive("big")) size = res.getDimensionPixelSize(R.dimen.drawable_size_large);
-        else size = (tagActive("b")) ? res.getDimensionPixelSize(R.dimen.drawable_size_med)
-                                     : res.getDimensionPixelSize(R.dimen.drawable_size_small);
+        if(tagActive("big")) size = ImageFactory.SIZE_LRG;
+        else size = (tagActive("b")) ? ImageFactory.SIZE_MED : ImageFactory.SIZE_SML;
         span.getDrawable().setBounds(0, 0, size, size);
         inlineDrawable(txt, start, end, span, pluralRes, single);
     }
