@@ -24,7 +24,6 @@ import butterknife.OnClick;
 import butterknife.OnLongClick;
 import ca.marklauman.dominionpicker.ActivityCardInfo;
 import ca.marklauman.dominionpicker.R;
-import ca.marklauman.dominionpicker.userinterface.InfoTextView;
 import ca.marklauman.dominionpicker.userinterface.imagefactories.CardColorFactory;
 import ca.marklauman.dominionpicker.userinterface.imagefactories.CoinFactory;
 import ca.marklauman.dominionpicker.database.TableCard;
@@ -222,7 +221,7 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
                               mContext.getResources()
                                       .getQuantityString(debtDesc.get(mCursor.getString(_language)),
                                                          debt, ""+debt));
-            holder.debt.setImageDrawable(debtFactory.getDrawable(""+debt, 0));
+            holder.debt.setImageDrawable(debtFactory.getDrawable(""+debt, DebtFactory.SIZE_SML));
             holder.debt.setVisibility(View.VISIBLE);
         } else holder.debt.setVisibility(View.GONE);
         holder.potion.setVisibility(potion ? View.VISIBLE : View.GONE);

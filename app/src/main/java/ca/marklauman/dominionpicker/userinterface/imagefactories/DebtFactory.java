@@ -90,25 +90,21 @@ public class DebtFactory extends ImageFactory {
 
         @Override
         public void draw(Canvas canvas) {
-            // Provided width and height
-            float height = getBounds().height();
-            float width = getBounds().width();
+            // Compute the radius of the hex - its the basis for all the measurements
+            float radius = (float) (getBounds().height() / (2 * Math.sin(Math.PI / 3)));
+            // 2 * radius should be less than the width of this drawable
+            if(getBounds().width() < 2 * radius) radius = getBounds().width() / 2;
 
             // X and Y in the center of the canvas
-            float x = width/2f;
-            float y = height/2f;
-
-            // The size is the lesser of width and height
-            float size = (width < height) ? width : height;
-            size -= 2; // for anti-aliasing on the borders
+            float x = getBounds().centerX();
+            float y = getBounds().centerY();
 
             // Draw the hexagon
             hex.reset();
-            float radius = size/2f;
             final float section = (float) (2.0 * Math.PI / 6);
             hex.moveTo(x + radius * (float)Math.cos(0),
                        y + radius * (float)Math.sin(0));
-            for (int i = 1; i < 7; i++)
+            for (int i = 1; i < 8; i++)
                 hex.lineTo(x + radius * (float)Math.cos(section * i),
                            y + radius * (float)Math.sin(section * i));
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
@@ -116,13 +112,13 @@ public class DebtFactory extends ImageFactory {
             canvas.drawPath(hex, paint);
             paint.setStyle(Paint.Style.STROKE);
             paint.setColor(Color.BLACK);
-            paint.setStrokeWidth(size / 14f);
+            paint.setStrokeWidth(radius / 7f);
             canvas.drawPath(hex, paint);
 
             // Draw the text
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            float fontSize = (val.length() < 2) ? 0.7f*size
-                    : 0.6f*size;
+            float fontSize = (val.length() < 2) ? radius * 1.3f
+                                                : radius;
             paint.setTextSize(fontSize);
             paint.setColor(Color.WHITE);
             paint.getTextBounds(val, 0, val.length(), textBounds);
