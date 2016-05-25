@@ -18,7 +18,7 @@ public class PotionIcon extends Icon {
     private final Drawable potion;
 
 
-    public PotionIcon(Context context, IconDescriber describer, String text) {
+    public PotionIcon(Context context, IconDescriber describer) {
         potion = ContextCompat.getDrawable(context, R.drawable.ic_dom_potion);
         mDescriber = describer;
     }

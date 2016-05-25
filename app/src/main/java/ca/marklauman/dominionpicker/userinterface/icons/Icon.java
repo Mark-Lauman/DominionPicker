@@ -26,22 +26,22 @@ public abstract class Icon extends Drawable {
     }
 
     /** Retrieve the width of this icon */
-    public float width() {
+    public int width() {
         return getBounds().width();
     }
 
     /** Retrieve the height of this icon */
-    public float height() {
+    public int height() {
         return getBounds().height();
     }
 
     /** Retrieve the center x of this icon */
     float centerX() {
-        return getBounds().centerX();
+        return width()/2f;
     }
 
     /** Retrieve the center y of this icon */
     float centerY() {
-        return getBounds().centerY();
+        return height()/2f;
     }
 }

@@ -120,12 +120,19 @@ public class FragmentPicker extends Fragment
 
     @Override
     public void onDestroyView() {
+        saveSelections();
+        adapter = null;
+        super.onDestroyView();
+    }
+
+
+    /** Save all selected/filtered cards to the preferences. */
+    public void saveSelections() {
+        if(adapter == null) return;
         Prefs.edit(getContext())
              .putString(Prefs.FILT_CARD, adapter.getFilter())
              .putString(Prefs.REQ_CARDS, adapter.getRequired())
              .commit();
-        adapter = null;
-        super.onDestroyView();
     }
 
 

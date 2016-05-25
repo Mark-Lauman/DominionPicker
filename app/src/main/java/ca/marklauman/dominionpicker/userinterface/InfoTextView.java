@@ -62,9 +62,14 @@ public class InfoTextView extends XmlTextView {
     private void setup(Context context) {
         setHrRes(R.layout.card_info_hr);
         setTextViewRes(R.layout.card_info_txt);
-        if(!isInEditMode())
-            describe = new IconDescriber(context);
-        else setText(context.getString(R.string.demo_card_text), "en");
+        if(isInEditMode())
+            setText(context.getString(R.string.demo_card_text), "en");
+    }
+
+
+    /** Set the describer used to label icons in this text view */
+    public void setDescriber(IconDescriber describer) {
+        describe = describer;
     }
 
 
@@ -97,7 +102,7 @@ public class InfoTextView extends XmlTextView {
                         break;
             case "c":   inlineIcon(txt, start, end, new CoinIcon(getContext(), describe, content));
                         break;
-            case "pot": inlineIcon(txt, start, end, new PotionIcon(getContext(), describe, content));
+            case "pot": inlineIcon(txt, start, end, new PotionIcon(getContext(), describe));
                         break;
             case "big": txt.setSpan(new RelativeSizeSpan(3f), start, end, SPAN_MODE);
                         break;
@@ -117,16 +122,19 @@ public class InfoTextView extends XmlTextView {
      *  @param end Index of the first character NOT covered by the icon after start.
      *  @param icon The icon to place in that range. */
     private void inlineIcon(SpannableStringBuilder txt, int start, int end, Icon icon) {
-        // Determine the height that the icon should have
+        // Determine the height & alignment of the icon
+        int align = ImageSpan.ALIGN_BASELINE;
         int height = getLineHeight();
         if(tagActive("big")) height *= 3;
-        else if(tagActive("b")) height *= 1.2;
+        else if(tagActive("b")) {
+            height *= 1.2;
+            align = ImageSpan.ALIGN_BOTTOM;
+        }
         icon.setHeight(height);
 
         // Apply the icon
-        ImageSpan span = new ImageSpan(icon, ImageSpan.ALIGN_BASELINE);
         String desc = icon.getDescription(lang);
         txt.replace(start, end, desc);
-        txt.setSpan(span, start, start+desc.length(), SPAN_MODE);
+        txt.setSpan(new ImageSpan(icon, align), start, start+desc.length(), SPAN_MODE);
     }
 }

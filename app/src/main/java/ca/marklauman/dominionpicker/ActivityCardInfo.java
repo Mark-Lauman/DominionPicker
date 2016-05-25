@@ -8,25 +8,25 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.HashMap;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ca.marklauman.dominionpicker.userinterface.InfoTextView;
+import ca.marklauman.dominionpicker.userinterface.icons.IconDescriber;
+import ca.marklauman.dominionpicker.userinterface.icons.PriceIcon;
 import ca.marklauman.dominionpicker.userinterface.imagefactories.CardColorFactory;
-import ca.marklauman.dominionpicker.userinterface.imagefactories.CoinFactory;
 import ca.marklauman.dominionpicker.community.EmailButton;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.dominionpicker.settings.Prefs;
-import ca.marklauman.dominionpicker.userinterface.imagefactories.DebtFactory;
 import ca.marklauman.tools.Utils;
 
 /** Activity used to display detailed card information.
@@ -51,14 +51,6 @@ public class ActivityCardInfo extends AppCompatActivity
     private int[] expIcons;
     /** Used to generate the card color. */
     private CardColorFactory colorFactory;
-    /** Used to generate the cost icon in the bottom left. */
-    private CoinFactory coinFactory;
-    /** Maps card language to the correct coin description */
-    private HashMap<String, Integer> coinDesc;
-    /** Used to generate the debt icon if needed. */
-    private DebtFactory debtFactory;
-    /** Maps card language to the correct debt description */
-    private HashMap<String, Integer> debtDesc;
 
     /** Actionbar for this activity */
     private ActionBar actionBar;
@@ -74,16 +66,12 @@ public class ActivityCardInfo extends AppCompatActivity
     @BindView(android.R.id.text1) InfoTextView vInfo;
     /** Displayed if there is no info for this card. */
     @BindView(R.id.card_no_info)  View vNoInfo;
-    /** The cost of the card in coins */
-    @BindView(R.id.card_cost)     ImageView vCost;
-    /** The debt incurred by the card */
-    @BindView(R.id.card_debt)     ImageView vDebt;
-    /** Visible if the card costs a potion too. */
-    @BindView(R.id.card_potion)   ImageView vPotion;
     /** View holding the set's name */
     @BindView(R.id.card_set_name) TextView vSetName;
     /** View holding the set's icon */
     @BindView(R.id.card_set)      ImageView vSetIcon;
+
+    PriceIcon price;
 
 
     @Override
@@ -94,27 +82,19 @@ public class ActivityCardInfo extends AppCompatActivity
         // Set up the view
         setContentView(R.layout.activity_card_info);
         ButterKnife.bind(this);
+        IconDescriber describer = new IconDescriber(this);
+
+        vInfo.setDescriber(describer);
+        price = new PriceIcon(this, describer);
+        price.setHeight((int)(-vType.getPaint().ascent() + 0.5f));
         vLoaded.setVisibility(View.GONE);
         vLoading.setVisibility(View.VISIBLE);
         actionBar = getSupportActionBar();
         if(actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
 
         // Set up the icon providers
-        coinFactory = new CoinFactory(this);
-        debtFactory = new DebtFactory(this);
         colorFactory = new CardColorFactory(this);
         expIcons = Utils.getResourceArray(this, R.array.card_set_icons);
-
-        // Load the coin & debt descriptions
-        int[] form_coin = Utils.getResourceArray(this, R.array.format_coin);
-        int[] form_debt = Utils.getResourceArray(this, R.array.format_debt);
-        String[] lang = getResources().getStringArray(R.array.language_codes);
-        coinDesc = new HashMap<>(lang.length);
-        debtDesc = new HashMap<>(lang.length);
-        for(int i=0; i<lang.length; i++) {
-            coinDesc.put(lang[i], form_coin[i]);
-            debtDesc.put(lang[i], form_debt[i]);
-        }
 
         // Start to load the card
         getSupportLoaderManager().restartLoader(LoaderId.INFO_CARD, null, this);
@@ -159,8 +139,6 @@ public class ActivityCardInfo extends AppCompatActivity
 
         // Name of the card
         if(actionBar != null) actionBar.setTitle(getString(data, TableCard._NAME));
-        // Type of the card
-        vType.setText(getString(data, TableCard._TYPE));
 
         // The text on the card
         String txt = getString(data, TableCard._TEXT);
@@ -171,28 +149,16 @@ public class ActivityCardInfo extends AppCompatActivity
         } else vInfo.setText(getString(data, TableCard._TEXT),
                              getString(data, TableCard._LANG));
 
-        // Potion cost
-        boolean potion = 0 != getInt(data, TableCard._POT);
-        vPotion.setVisibility(potion ? View.VISIBLE : View.GONE);
-
-        // Debt cost
-        int debt = data.getInt(data.getColumnIndex(TableCard._DEBT));
-        if(debt != 0) {
-            vDebt.setImageDrawable(debtFactory.getDrawable(""+debt, DebtFactory.SIZE_SML));
-            int formatId = debtDesc.get(getString(data, TableCard._LANG));
-            vDebt.setContentDescription(res.getQuantityString(formatId, debt, ""+debt));
-            vDebt.setVisibility(View.VISIBLE);
-        } else vDebt.setVisibility(View.GONE);
-
-        // Cost in coins
-        int costVal = getInt(data, TableCard._COST_VAL);
-        if(costVal != 0 || (getInt(data, TableCard._TYPE_LANDMARK) == 0 && !potion && debt == 0)) {
-            String cost = getString(data, TableCard._COST);
-            vCost.setImageDrawable(coinFactory.getDrawable(cost, CoinFactory.SIZE_SML));
-            int formatId = coinDesc.get(getString(data, TableCard._LANG));
-            vCost.setContentDescription(res.getQuantityString(formatId, costVal, cost));
-            vCost.setVisibility(View.VISIBLE);
-        } else vCost.setVisibility(View.GONE);
+        // Type and price of the card
+        SpannableStringBuilder span = new SpannableStringBuilder(getString(data, TableCard._TYPE));
+        price.setValue(getString(data, TableCard._COST),
+                       getInt(data, TableCard._DEBT),
+                       getInt(data, TableCard._POT),
+                       getInt(data, TableCard._TYPE_LANDMARK));
+        String desc = price.getDescription(getString(data, TableCard._LANG));
+        span.insert(0, desc+" ");
+        span.setSpan(new ImageSpan(price, ImageSpan.ALIGN_BASELINE), 0 , desc.length(), 0);
+        vType.setText(span);
 
         // Card color
         colorFactory.changeCursor(data);
@@ -201,7 +167,6 @@ public class ActivityCardInfo extends AppCompatActivity
         // Name of the card set
         String setName = getString(data, TableCard._SET_NAME);
         vSetName.setText(setName);
-        vSetIcon.setContentDescription(setName);
 
         // Icon of the card set
         int expIcon = R.drawable.ic_set_unknown;

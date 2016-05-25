@@ -267,6 +267,8 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public void onClick(View v) {
+            if(active instanceof FragmentPicker)
+                ((FragmentPicker)active).saveSelections();
             startShuffle();
         }
 

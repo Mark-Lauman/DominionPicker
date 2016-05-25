@@ -93,11 +93,10 @@ public class DebtIcon extends Icon {
         hex.transform(transform);
 
         // Draw the text
-        paint.setStyle(Paint.Style.FILL);
-        float fontSize = (value.length() < 2) ? scale * 7f
-                                              : scale * 6f;
-        paint.setTextSize(fontSize);
         paint.setColor(Color.WHITE);
+        paint.setStyle(Paint.Style.FILL);
+        paint.setTextSize(value.length() < 2 ? 8f * scale
+                                             : 6f * scale);
         paint.getTextBounds(value, 0, value.length(), textBounds);
         canvas.drawText(value, centerX() - textBounds.exactCenterX(),
                                centerY() - textBounds.exactCenterY(), paint);

@@ -50,10 +50,9 @@ public class CoinIcon extends Icon {
     @Override
     public void draw(Canvas canvas) {
         // the radius is the smaller of the width and height
-        float x = getBounds().centerX();
-        float y = getBounds().centerY();
-        float radius = getBounds().height();
-        if(getBounds().width() < radius) radius = getBounds().width();
+        float x = centerX();
+        float y = centerY();
+        float radius = minFloat(height()-2, width()-2);
         radius = radius / 2f;
 
         // Draw the coin
@@ -67,9 +66,11 @@ public class CoinIcon extends Icon {
         // Draw the text
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.FILL);
-        paint.setTextSize(value.length() < 2 ? radius * 1.5f : radius);
+        paint.setTextSize(value.length() < 2 ? 1.5f * radius
+                                             : 1.3f * radius);
         paint.getTextBounds(value, 0, value.length(), textBounds);
-        canvas.drawText(value, x-textBounds.exactCenterX(), y-textBounds.exactCenterY(), paint);
+        canvas.drawText(value, x-textBounds.exactCenterX(),
+                               y-textBounds.exactCenterY(), paint);
     }
 
 
