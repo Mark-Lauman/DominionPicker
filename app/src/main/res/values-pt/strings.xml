@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Sorteador Dominion</string>
+    <string name="language">pt</string>
 
     <string name="menu_open">Abrir Menu</string>
     <string name="menu_close">Fechar Menu</string>

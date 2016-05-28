@@ -20,6 +20,7 @@ public class PotionIcon extends Icon {
 
     public PotionIcon(Context context, IconDescriber describer) {
         potion = ContextCompat.getDrawable(context, R.drawable.ic_dom_potion);
+        super.setBounds(potion.getBounds());
         mDescriber = describer;
     }
 

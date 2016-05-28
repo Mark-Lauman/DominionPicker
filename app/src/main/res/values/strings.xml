@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Dominion Picker</string>
+    <string name="language">en</string>
 
     <string name="menu_open">Open Menu</string>
     <string name="menu_close">Close Menu</string>

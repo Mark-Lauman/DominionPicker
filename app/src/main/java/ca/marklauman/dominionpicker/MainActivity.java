@@ -1,7 +1,6 @@
 package ca.marklauman.dominionpicker;
 
 import ca.marklauman.dominionpicker.history.FragmentHistory;
-import ca.marklauman.dominionpicker.rules.FragmentRules;
 import ca.marklauman.dominionpicker.settings.ActivityOptions;
 import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.ExpandedArrayAdapter;
@@ -85,7 +84,7 @@ public class MainActivity extends AppCompatActivity
         // Setup the navigation drawer
         navLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         navToggle = new NavToggle(this, navLayout);
-        navLayout.setDrawerListener(navToggle);
+        navLayout.addDrawerListener(navToggle);
         navView.findViewById(R.id.options)
                .setOnClickListener(new OptionLauncher());
         String[] headers = getResources().getStringArray(R.array.navNames);
@@ -181,6 +180,9 @@ public class MainActivity extends AppCompatActivity
             return;
         }
 
+        if(active instanceof FragmentRules)
+            ((FragmentRules)active).save();
+
         navAdapt.setSelection(position);
         PreferenceManager.getDefaultSharedPreferences(this).edit()
                          .putInt(Prefs.ACTIVE_TAB, position)
@@ -269,6 +271,8 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v) {
             if(active instanceof FragmentPicker)
                 ((FragmentPicker)active).saveSelections();
+            else if(active instanceof FragmentRules)
+                ((FragmentRules)active).save();
             startShuffle();
         }
 

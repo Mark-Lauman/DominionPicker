@@ -24,7 +24,8 @@ public class VPIcon extends Icon {
 
     private final Paint paint;
     private final Path shield;
-    private final Matrix matrix;
+    private final Matrix translate;
+    private final Matrix scale;
     private final Rect textBounds;
     /** Border color used around the shield */
     private final int border;
@@ -37,7 +38,8 @@ public class VPIcon extends Icon {
         value = text;
         paint = new Paint();
         paint.setAntiAlias(true);
-        matrix = new Matrix();
+        scale = new Matrix();
+        translate = new Matrix();
         textBounds = new Rect();
         border = ContextCompat.getColor(context, R.color.drawable_edge);
         back = ContextCompat.getColor(context, R.color.vp_plus);
@@ -56,22 +58,14 @@ public class VPIcon extends Icon {
 
     @Override
     public void draw(Canvas canvas) {
-        // Provided width and height
-        final float height = height();
-        final float width = width();
-
-        // x, y and drawing size
-        float x = 0;
-        float y = 0;
-        final float size = (width < height) ? width : height;
-        if(size == width) y = (height-size)/2f;
-        else x = (width-size)/2f;
-
         // Scale the shield to match the size
-        matrix.reset();
-        matrix.setTranslate(x, y);
-        matrix.setScale(size / DEFAULT_SIZE, size / DEFAULT_SIZE);
-        shield.transform(matrix);
+        final float size = minFloat(width(), height());
+        scale.reset();
+        scale.setScale(size / DEFAULT_SIZE, size / DEFAULT_SIZE);
+        shield.transform(scale);
+        translate.reset();
+        translate.setTranslate((width() - size) / 2f, (height() - size) / 2f);
+        shield.transform(translate);
 
         // Draw the shield
         paint.setColor(back);
@@ -82,19 +76,19 @@ public class VPIcon extends Icon {
         canvas.drawPath(shield, paint);
 
         // Restore the shield to default size
-        matrix.invert(matrix);
-        shield.transform(matrix);
+        translate.invert(translate);
+        shield.transform(translate);
+        scale.invert(scale);
+        shield.transform(scale);
 
         // Draw the text
-        float fontSize = (value.length() < 2) ? 0.7f*size
-                                              : 0.6f*size;
-        paint.setTextSize(fontSize);
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.FILL);
+        paint.setTextSize(value.length() < 2 ? 0.7f*size
+                                             : 0.6f*size);
         paint.getTextBounds(value, 0, value.length(), textBounds);
-        float center = width/2f;
-        canvas.drawText(value, x+center-textBounds.exactCenterX(),
-                y+center-textBounds.exactCenterY(), paint);
+        canvas.drawText(value, centerX()-textBounds.exactCenterX(),
+                               centerY()-textBounds.exactCenterY(), paint);
     }
 
 

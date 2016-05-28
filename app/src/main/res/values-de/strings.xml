@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Dominion Auswahl</string>
+    <string name="language">de</string>
 
     <string name="menu_open">Men&#252; &#246;ffnen</string>
     <string name="menu_close">Men&#252; schlie&#223;en</string>

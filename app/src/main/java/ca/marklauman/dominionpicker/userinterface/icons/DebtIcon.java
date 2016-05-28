@@ -31,8 +31,11 @@ public class DebtIcon extends Icon {
     private final Paint paint;
     /** Path used to draw the hexagon */
     private final Path hex;
-    /** Matrix used to scale/center the hexagon. */
-    private final Matrix transform;
+    /** Matrix used to center the hexagon. */
+    private final Matrix translate;
+    /** Matrix used to scale the hexagon. */
+    private final Matrix scale;
+
     /** Rectangle used to determine the text bounds */
     private final Rect textBounds;
     /** Color on the back of the icon */
@@ -49,7 +52,8 @@ public class DebtIcon extends Icon {
         value = text;
         paint = new Paint();
         paint.setAntiAlias(true);
-        transform = new Matrix();
+        translate = new Matrix();
+        scale = new Matrix();
         textBounds = new Rect();
         back = ContextCompat.getColor(context, R.color.debt);
 
@@ -58,7 +62,7 @@ public class DebtIcon extends Icon {
         final float x = DEF_WIDTH / 2f;
         final float y = DEF_HEIGHT / 2f;
         final float radius = DEF_WIDTH / 2f;
-        final float section = (float) (2.0 * Math.PI / 6);
+        final double section = Math.PI / 3;
         hex.moveTo((float)(x + radius * Math.cos(0)),
                    (float)(y + radius * Math.sin(0)));
         for (int i = 1; i < 6; i++)
@@ -71,32 +75,36 @@ public class DebtIcon extends Icon {
     @Override
     public void draw(Canvas canvas) {
 
-        // Compute the transform for the hex
-        transform.reset();
-        float scale = minFloat(height() / DEF_HEIGHT,
-                               width()  / DEF_WIDTH);
-        transform.setTranslate( (width()  - scale * DEF_WIDTH) / 2f,
-                                (height() - scale * DEF_HEIGHT) / 2f);
-        transform.setScale(scale, scale);
-        hex.transform(transform);
+        // Compute the transforms for the hex
+        float scaleRatio = minFloat(height() / DEF_HEIGHT,
+                                    width()  / DEF_WIDTH);
+        scale.reset();
+        scale.setScale(scaleRatio, scaleRatio);
+        hex.transform(scale);
+        translate.reset();
+        translate.setTranslate( (width()  - scaleRatio * DEF_WIDTH) / 2f,
+                (height() - scaleRatio * DEF_HEIGHT) / 2f);
+        hex.transform(translate);
 
         // Draw the hex
         paint.setColor(back);
         canvas.drawPath(hex, paint);
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(Color.BLACK);
-        paint.setStrokeWidth(scale);
+        paint.setStrokeWidth(scaleRatio);
         canvas.drawPath(hex, paint);
         
-        // revert the transform
-        transform.invert(transform);
-        hex.transform(transform);
+        // revert the transforms
+        translate.invert(translate);
+        hex.transform(translate);
+        scale.invert(scale);
+        hex.transform(scale);
 
         // Draw the text
         paint.setColor(Color.WHITE);
         paint.setStyle(Paint.Style.FILL);
-        paint.setTextSize(value.length() < 2 ? 8f * scale
-                                             : 6f * scale);
+        paint.setTextSize(value.length() < 2 ? 8f * scaleRatio
+                                             : 6f * scaleRatio);
         paint.getTextBounds(value, 0, value.length(), textBounds);
         canvas.drawText(value, centerX() - textBounds.exactCenterX(),
                                centerY() - textBounds.exactCenterY(), paint);

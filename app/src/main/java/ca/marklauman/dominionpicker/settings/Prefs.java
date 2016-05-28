@@ -31,6 +31,8 @@ public abstract class Prefs {
     public static final String FILT_SET = "filt_set";
     /** Key used to save the cost filter to the preferences */
     public static final String FILT_COST = "filt_cost";
+    /** Key used to save the debt filter to the preferences */
+    public static final String FILT_DEBT = "filt_debt";
     /** Key used to save the potion filter */
     public static final String FILT_POTION = "filt_potion";
     /** Key used to save the curse filter to the preferences */

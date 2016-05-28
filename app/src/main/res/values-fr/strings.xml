@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">M&#233;langeur de Dominion</string>
+    <string name="language">fr</string>
 
     <string name="menu_open">Ouvrir le menu</string>
     <string name="menu_close">Fermer le menu</string>

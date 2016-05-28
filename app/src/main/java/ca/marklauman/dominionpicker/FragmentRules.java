@@ -1,21 +1,23 @@
-package ca.marklauman.dominionpicker.rules;
+package ca.marklauman.dominionpicker;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
-import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterRules;
+import ca.marklauman.tools.recyclerview.ListDivider;
 
 /** The fragment governing the Rules screen.
  *  @author Mark Lauman */
 public class FragmentRules extends Fragment
                            implements Prefs.Listener {
     /** Adapter used to load and display the rules */
-    private RulesAdapter adapter;
+    private AdapterRules adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,19 +36,34 @@ public class FragmentRules extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rules, container, false);
-        ListView listView = (ListView)view.findViewById(R.id.loaded);
-        adapter = new RulesAdapter(getContext());
-        listView.setOnItemClickListener(adapter);
+        RecyclerView listView = (RecyclerView)view.findViewById(R.id.loaded);
+        listView.setLayoutManager(new LinearLayoutManager(getContext()));
+        listView.addItemDecoration(new ListDivider(getContext()));
+
+        adapter = new AdapterRules(listView);
         listView.setAdapter(adapter);
         return view;
     }
+
+    /** Save the rules to the preferences. */
+    public void save() {
+        if(adapter != null) adapter.save();
+    }
+
+
+    @Override
+    public void onPause() {
+        save();
+        super.onPause();
+    }
+
 
 
     @Override
     public void prefChanged(String key) {
         switch(key) {
             case Prefs.FILT_LANG: case Prefs.SORT_CARD:
-                if(adapter != null) adapter.rebuild();
+                if(adapter != null) adapter.reload();
                 break;
         }
     }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Selettore Carte Dominion</string>
+    <string name="language">it</string>
 
     <string name="menu_open">Apri Menu</string>
     <string name="menu_close">Chiudi Menu</string>
