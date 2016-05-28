@@ -26,25 +26,22 @@ import ca.marklauman.dominionpicker.userinterface.icons.DebtIcon;
 import ca.marklauman.dominionpicker.userinterface.icons.IconDescriber;
 import ca.marklauman.dominionpicker.userinterface.recyclerview.rules.Rule;
 import ca.marklauman.dominionpicker.userinterface.recyclerview.rules.RuleCheckbox;
-import ca.marklauman.dominionpicker.userinterface.recyclerview.rules.RuleLoading;
 import ca.marklauman.dominionpicker.userinterface.recyclerview.rules.RuleNumber;
 import ca.marklauman.dominionpicker.userinterface.recyclerview.rules.RuleSection;
 import ca.marklauman.tools.Utils;
 
-/**
- * Created by Mark on 2016-05-25.
- */
+/** The card filtration rules are displayed and loaded in this adapter.
+ *  This is a basic filter - it does not set odds of cards.
+ *  @author Mark Lauman. */
 public class AdapterRules extends Adapter<Rule>
                           implements LoaderManager.LoaderCallbacks<Cursor> {
 
-    /** Type for the loading icon */
-    private static final int TYPE_LOADING = 0;
+    /** Type for a new section */
+    private static final int TYPE_SECTION = 0;
     /** Type for a number rule */
     private static final int TYPE_NUMBER = 1;
-    /** Type for a new section */
-    private static final int TYPE_SECTION = 2;
     /** Type for a checkbox rule. */
-    private static final int TYPE_CHECK = 3;
+    private static final int TYPE_CHECK = 2;
 
 
     /** Context used to construct this adapter */
@@ -88,7 +85,7 @@ public class AdapterRules extends Adapter<Rule>
             }
         });
 
-        // retrieve the basic preferences
+        // retrieve the basic preferences and reload the list of options.
         SharedPreferences pref = Prefs.get(mContext);
         loadPref(pref, Prefs.FILT_SET, filt_set);
         loadPref(pref, Prefs.FILT_COST, filt_cost);
@@ -129,7 +126,6 @@ public class AdapterRules extends Adapter<Rule>
             case TYPE_CHECK:   return new RuleCheckbox(recycler);
             case TYPE_SECTION: return new RuleSection(recycler);
             case TYPE_NUMBER:  return new RuleNumber(recycler);
-            case TYPE_LOADING: return new RuleLoading(recycler);
             default: return null;
         }
     }
@@ -230,8 +226,8 @@ public class AdapterRules extends Adapter<Rule>
                 do {
                     int id = data.getInt(_id);
                     insertRule(start+inserted, TYPE_CHECK,
-                               new Object[]{icons[id], data.getString(_name), false,
-                                            ""+id, filt_set});
+                               new RuleCheckbox.Data(icons[id], data.getString(_name),
+                                                     false, ""+id, filt_set));
                     inserted++;
                 } while(data.moveToNext() && data.getInt(_promo) == 0);
 
@@ -241,8 +237,8 @@ public class AdapterRules extends Adapter<Rule>
                 do {
                     int id = data.getInt(_id);
                     insertRule(start+inserted, TYPE_CHECK,
-                               new Object[]{icons[id], data.getString(_name), false,
-                                            ""+id, filt_set});
+                               new RuleCheckbox.Data(icons[id], data.getString(_name),
+                                                     false, ""+id, filt_set));
                     inserted++;
                 } while(data.moveToNext());
 
@@ -257,9 +253,9 @@ public class AdapterRules extends Adapter<Rule>
             case LoaderId.RULES_COST:
                 // Insert the potion cost
                 insertRule(start+inserted, TYPE_CHECK,
-                           new Object[]{R.drawable.ic_dom_potion,
-                                        mContext.getString(R.string.potion),
-                                        false, Prefs.FILT_POTION});
+                           new RuleCheckbox.Data(R.drawable.ic_dom_potion,
+                                                 mContext.getString(R.string.potion),
+                                                 false, Prefs.FILT_POTION, null));
                 inserted++;
 
                 final int _cost = data.getColumnIndex(TableCard._COST_VAL);
@@ -267,8 +263,8 @@ public class AdapterRules extends Adapter<Rule>
                 do {
                     String cost = data.getString(_cost);
                     insertRule(start+inserted, TYPE_CHECK,
-                               new Object[]{new CoinIcon(mContext, describer, cost),
-                                            true, cost, filt_cost});
+                               new RuleCheckbox.Data(new CoinIcon(mContext, describer, cost),
+                                                     true, cost, filt_cost));
                     inserted++;
                 } while(data.moveToNext());
                 startLoader(LoaderId.RULES_DEBT);
@@ -281,8 +277,8 @@ public class AdapterRules extends Adapter<Rule>
                 do {
                     String debt = data.getString(_debt);
                     insertRule(start+inserted, TYPE_CHECK,
-                               new Object[]{new DebtIcon(mContext, describer, debt),
-                                            true, debt, filt_debt});
+                               new RuleCheckbox.Data(new DebtIcon(mContext, describer, debt),
+                                                     true, debt, filt_debt));
                     inserted++;
                 } while(data.moveToNext());
 
@@ -291,9 +287,9 @@ public class AdapterRules extends Adapter<Rule>
                            mContext.getString(R.string.rules_other));
                 inserted++;
                 insertRule(start+inserted, TYPE_CHECK,
-                           new Object[]{R.drawable.ic_dom_curse,
-                                        mContext.getString(R.string.rules_curse),
-                                        false, Prefs.FILT_CURSE});
+                        new RuleCheckbox.Data(R.drawable.ic_dom_curse,
+                                              mContext.getString(R.string.rules_curse),
+                                              false, Prefs.FILT_CURSE, null));
                 lastItem = start+inserted;
                 inserted++;
         }

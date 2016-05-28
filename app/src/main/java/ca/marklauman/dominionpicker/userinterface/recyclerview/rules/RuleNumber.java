@@ -8,13 +8,17 @@ import ca.marklauman.dominionpicker.settings.Prefs;
 import ca.marklauman.tools.preferences.Preference.PreferenceListener;
 import ca.marklauman.tools.preferences.SmallNumberPreference;
 
-/**
- * Created by Mark on 2016-05-25.
- */
+/** Rule for {@link ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterRules}
+ *  that controls a number value in the range 0-99.
+ *  The value set to a SmallNumberPreference is a String array.
+ *  @author Mark Lauman. */
 public class RuleNumber extends Rule implements PreferenceListener {
 
+    /** The preference that is actually displayed in this rule */
     private final SmallNumberPreference pref;
 
+    /** Construct a new RuleCheckbox for the parent.
+     *  @param parent The parent RecyclerView that this Rule will be inserted into. */
     public RuleNumber(RecyclerView parent) {
         super(LayoutInflater.from(parent.getContext())
                             .inflate(R.layout.list_item_numpreference, parent, false));
@@ -22,6 +26,10 @@ public class RuleNumber extends Rule implements PreferenceListener {
         pref.setListener(this);
     }
 
+    /** Set the value on display in this rule.
+     *  @param newValue A string array of the format {@code {key, text}}.
+     *                  The key is the preference key that will contain this rule's value.
+     *                  The text is displayed as a label for the preference. */
     @Override
     public void setValue(Object newValue) {
         String[] value = (String[])newValue;
@@ -29,6 +37,7 @@ public class RuleNumber extends Rule implements PreferenceListener {
         pref.setText(value[1]);
     }
 
+    /** When the preference is updated, notify any listeners. */
     @Override
     public void preferenceChanged(int i) {
         Prefs.notifyChange(itemView.getContext(), pref.getKey());

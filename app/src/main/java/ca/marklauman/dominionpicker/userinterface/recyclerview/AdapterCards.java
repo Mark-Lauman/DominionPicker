@@ -187,7 +187,7 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
         // The card type and cost
         SpannableStringBuilder span = new SpannableStringBuilder(mCursor.getString(_type));
         holder.price.setValue(mCursor.getString(_cost), mCursor.getInt(_debt),
-                mCursor.getInt(_potion), mCursor.getInt(_type_landmark));
+                              mCursor.getInt(_potion), mCursor.getInt(_type_landmark));
         String price = holder.price.getDescription(mCursor.getString(_language));
         span.insert(0, price+" ");
         span.setSpan(new ImageSpan(holder.price, ImageSpan.ALIGN_BASELINE), 0, price.length(), 0);

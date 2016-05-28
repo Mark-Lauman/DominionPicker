@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SimpleCursorAdapter;
@@ -48,7 +49,7 @@ class HandlerSamples extends SimpleCursorAdapter
         mContext = context;
         setViewBinder(this);
         exp_icons = Utils.getDrawableArray(context, R.array.card_set_icons);
-        exp_none = context.getResources().getDrawable(R.drawable.ic_set_unknown);
+        exp_none = ContextCompat.getDrawable(context, R.drawable.ic_set_unknown);
     }
 
     @Override
