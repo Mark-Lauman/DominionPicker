@@ -1,5 +1,7 @@
 package ca.marklauman.dominionpicker;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import ca.marklauman.dominionpicker.history.FragmentHistory;
 import ca.marklauman.dominionpicker.settings.ActivityOptions;
 import ca.marklauman.dominionpicker.settings.Prefs;
@@ -35,26 +37,26 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
                           implements ListView.OnItemClickListener {
 
+    /** Layout for the navigation drawer */
+    @BindView(R.id.drawer_layout) DrawerLayout vDrawerLayout;
+    /** ListView for the navigation drawer */
+    @BindView(R.id.left_drawer) View vDrawer;
+    /** The button used to submit a shuffle */
+    @BindView(R.id.action_submit) FloatingActionButton vSubmit;
+    /** The current active fragment. */
+    private Fragment active;
+
+    /** Listens to and toggles the navigation drawer */
+    private NavToggle drawerToggle;
     /** The name of the app */
     private String app_name;
     /** The names of the navigation drawer entries */
     private String[] navNames;
-
-    /** Layout for the navigation drawer */
-    private DrawerLayout navLayout;
-    /** Listens to and toggles the navigation drawer */
-    private NavToggle navToggle;
-    /** ListView for the navigation drawer */
-    private View navView;
     /** The adapter for the navigation drawer's ListView */
     private ExpandedArrayAdapter<String> navAdapt;
-    /** The button used to submit a shuffle */
-    private FloatingActionButton vSubmit;
-
-    /** The current active fragment. */
-    private Fragment active;
     /** Handler used to manage the shuffler */
     private ShuffleManager shuffler;
+
 
     /** Called when the activity is first created */
 	@Override
@@ -62,11 +64,9 @@ public class MainActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
         Prefs.setup(this);
 
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         shuffler = new ShuffleManager();
-		setContentView(R.layout.activity_main);
-        navLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navView = findViewById(R.id.left_drawer);
-        vSubmit = (FloatingActionButton)findViewById(R.id.action_submit);
         vSubmit.setOnClickListener(shuffler);
 
         // Get the strings for the nav drawer
@@ -82,17 +82,17 @@ public class MainActivity extends AppCompatActivity
         }
 
         // Setup the navigation drawer
-        navLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
-        navToggle = new NavToggle(this, navLayout);
-        navLayout.addDrawerListener(navToggle);
-        navView.findViewById(R.id.options)
+        vDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+        drawerToggle = new NavToggle(this, vDrawerLayout);
+        vDrawerLayout.addDrawerListener(drawerToggle);
+        vDrawer.findViewById(R.id.options)
                .setOnClickListener(new OptionLauncher());
         String[] headers = getResources().getStringArray(R.array.navNames);
         navAdapt = new ExpandedArrayAdapter<>(this, R.layout.nav_drawer_item, headers);
         navAdapt.setIcons(R.drawable.ic_core_checkbox, R.drawable.ic_card,
                           R.drawable.ic_cards, R.drawable.ic_action_market);
         navAdapt.setSelBack(R.color.list_item_sel);
-        ListView navList = (ListView) navView.findViewById(R.id.drawer_list);
+        ListView navList = (ListView) vDrawer.findViewById(R.id.drawer_list);
         navList.setAdapter(navAdapt);
         navList.setOnItemClickListener(this);
 
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity
         active = fm.findFragmentById(R.id.content_frame);
         if(active == null) {
             onItemClick(null, null, sel, 0);
-            navToggle.onDrawerClosed(null);
+            drawerToggle.onDrawerClosed(null);
         } else navAdapt.setSelection(sel);
 	}
 
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         ActionBar bar = getSupportActionBar();
-        if(bar != null && !navLayout.isDrawerOpen(GravityCompat.START))
+        if(bar != null && !vDrawerLayout.isDrawerOpen(GravityCompat.START))
             bar.setTitle(navNames[navAdapt.getSelection()]);
     }
 
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity
      *  is displayed - including after each invalidation.
      *  Useful to hide/display menu items.             */
     public boolean onPrepareOptionsMenu(Menu menu) {
-        boolean navHidden = navLayout != null && !navLayout.isDrawerOpen(navView);
+        boolean navHidden = vDrawerLayout != null && !vDrawerLayout.isDrawerOpen(vDrawer);
         int sel = (navAdapt == null) ? 0 : navAdapt.getSelection();
         // show the toggle all button on the picker screen
         menu.findItem(R.id.action_toggle_all)
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
         // Handle navigation bar requests first
-        if(navToggle.onOptionsItemSelected(item)) {
+        if(drawerToggle.onOptionsItemSelected(item)) {
             vSubmit.hide();
             return true;
         }
@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity
     public void onItemClick(AdapterView parent, View view, int position, long id) {
         // The case where you selected the same thing again.
         if(position == navAdapt.getSelection()) {
-            navLayout.closeDrawer(navView);
+            vDrawerLayout.closeDrawer(vDrawer);
             return;
         }
 
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity
         }
         t.commit();
 
-        navLayout.closeDrawer(navView);
+        vDrawerLayout.closeDrawer(vDrawer);
     }
 
 
@@ -217,7 +217,7 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View view) {
             Intent options = new Intent(getActivity(), ActivityOptions.class);
             startActivity(options);
-            navLayout.closeDrawer(navView);
+            vDrawerLayout.closeDrawer(vDrawer);
         }
     }
 

@@ -127,39 +127,6 @@
         <item>Toverdrank</item>
         <item>Po&#231;&#227;o</item>
     </string-array>
-    <array name="format_potion">
-        <item>@plurals/format_potion</item>
-        <item>@plurals/format_potion_de</item>
-        <item>@plurals/format_potion_en</item>
-        <item>@plurals/format_potion_fr</item>
-        <item>@plurals/format_potion_it</item>
-        <item>@plurals/format_potion_nl</item>
-        <item>@plurals/format_potion_pt</item>
-    </array>
-    <plurals name="format_potion_en">
-        <item quantity="one">%1$s Potion</item>
-        <item quantity="other">%1$s Potions</item>
-    </plurals>
-    <plurals name="format_potion_de">
-        <item quantity="one">%1$s Trank</item>
-        <item quantity="other">%1$s Tr&#228;nke</item>
-    </plurals>
-    <plurals name="format_potion_fr">
-        <item quantity="one">%1$s Potion</item>
-        <item quantity="other">%1$s Potions</item>
-    </plurals>
-    <plurals name="format_potion_it">
-        <item quantity="one">%1$s Pozione</item>
-        <item quantity="other">%1$s Pozioni</item>
-    </plurals>
-    <plurals name="format_potion_nl">
-        <item quantity="one">%1$s Toverdrank</item>
-        <item quantity="other">%1$s Toverdrankjes</item>
-    </plurals>
-    <plurals name="format_potion_pt">
-        <item quantity="one">%1$s Po&#231;&#227;o</item>
-        <item quantity="other">%1$s Po&#231;&#245;es</item>
-    </plurals>
 
 
     <!-- String used to describe victory points -->

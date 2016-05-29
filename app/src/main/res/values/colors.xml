@@ -13,7 +13,6 @@
     <color name="debt">#C16F47</color>
     <color name="drawable_edge">#888</color>
     <color name="vp_plus">@color/type_victory</color>
-    <color name="vp_minus">@color/type_curse</color>
 
     <color name="type_act">#EFECDD</color>
     <color name="type_react">#7FABDC</color>

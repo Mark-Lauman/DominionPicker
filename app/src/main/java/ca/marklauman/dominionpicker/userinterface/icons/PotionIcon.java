@@ -39,9 +39,6 @@ public class PotionIcon extends Icon {
 
 
     @Override
-    public void setText(String text) {}
-
-    @Override
     public String getDescription(String lang) {
         return mDescriber == null ? "" : mDescriber.forPotion(lang);
     }

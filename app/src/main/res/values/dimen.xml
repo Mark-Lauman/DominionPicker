@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="card_color_width">10dp</dimen>
-    <dimen name="drawable_size_small">19sp</dimen>
-    <dimen name="drawable_size_med">22sp</dimen>
-    <dimen name="drawable_size_large">52sp</dimen>
     <dimen name="card_info_bottom">18sp</dimen>
     <dimen name="card_thumb_size">60dp</dimen>
 </resources>

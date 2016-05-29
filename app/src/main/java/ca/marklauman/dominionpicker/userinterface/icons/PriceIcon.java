@@ -110,11 +110,6 @@ public class PriceIcon extends Icon {
     }
 
 
-    @Override @Deprecated
-    public void setText(String value) {
-        throw new UnsupportedOperationException("Please use PriceIcon.setValue() instead");
-    }
-
     @Override
     public void setAlpha(int alpha) {
         mCoin.setAlpha(alpha);

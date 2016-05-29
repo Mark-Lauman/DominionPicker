@@ -30,10 +30,6 @@
     </plurals>
 
     <string name="potion">Toverdrank</string>
-    <plurals name="format_potion">
-        <item quantity="one">%1$s Toverdrank</item>
-        <item quantity="other">%1$s Toverdrankjes</item>
-    </plurals>
 
     <string name="vp">Winstpunt</string>
     <plurals name="format_vp">

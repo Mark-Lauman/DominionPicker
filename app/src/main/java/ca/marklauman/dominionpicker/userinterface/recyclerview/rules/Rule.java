@@ -16,7 +16,7 @@ public abstract class Rule extends RecyclerView.ViewHolder {
     private boolean isLast = false;
 
     /** Default constructor from ViewHolder */
-    public Rule(View itemView) {
+    Rule(View itemView) {
         super(itemView);
     }
 

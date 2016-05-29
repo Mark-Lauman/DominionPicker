@@ -14,31 +14,19 @@ import ca.marklauman.dominionpicker.database.TableSupply;
 public class Supply implements Parcelable {
 
     /** The timestamp of this supply (maps to its database id) */
-    public long time;
+    public final long time;
     /** The name of this supply (optional, may be null) */
     public String name;
 	/** The cards in the supply. */
-	public long[] cards;
+	public final long[] cards;
 	/** {@code true} if colonies + platinum are in use. */
-	public boolean high_cost;
+	public final boolean high_cost;
 	/** {@code true} if shelters are in use. */
-	public boolean shelters;
+	public final boolean shelters;
     /** {@code true} if this is from the sample database. */
     public boolean sample;
 	/** The id of the bane card, or -1 if there isn't one. */
-	long bane;
-
-
-	/** Basic constructor */
-	public Supply() {
-        time = 0;
-        name = null;
-		cards = null;
-		high_cost = false;
-		shelters = false;
-        sample = false;
-		bane = -1L;
-	}
+	final long bane;
 
 
     public Supply(Cursor c) {

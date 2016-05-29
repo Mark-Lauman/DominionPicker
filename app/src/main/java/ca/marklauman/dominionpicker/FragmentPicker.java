@@ -41,7 +41,7 @@ public class FragmentPicker extends Fragment
     /** The adapter for the card list. */
     private AdapterCardsFilter adapter;
     /** The cursor containing the cards on display right now. */
-    public Cursor mCursor = null;
+    private Cursor mCursor = null;
 
 
     @Override

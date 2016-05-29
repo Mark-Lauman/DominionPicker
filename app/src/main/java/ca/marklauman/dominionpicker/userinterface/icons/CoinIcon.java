@@ -81,7 +81,6 @@ public class CoinIcon extends Icon {
     }
 
 
-    @Override
     public void setText(String text) {
         value = text;
         invalidateSelf();

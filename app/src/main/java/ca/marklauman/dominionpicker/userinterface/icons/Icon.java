@@ -12,10 +12,6 @@ public abstract class Icon extends Drawable {
      *  The width is automatically set in respect to the height. */
     public abstract void setHeight(int height);
 
-    /** Change the text on display in this icon.
-     *  (This is the number inside a coin, etc.) */
-    public abstract void setText(String text);
-
     /** Retrieve the description for this icon.
      *  (I would recommend using an {@link IconDescriber} instance to retrieve this description) */
     public abstract String getDescription(String lang);
@@ -26,12 +22,12 @@ public abstract class Icon extends Drawable {
     }
 
     /** Retrieve the width of this icon */
-    public int width() {
+    int width() {
         return getBounds().width();
     }
 
     /** Retrieve the height of this icon */
-    public int height() {
+    int height() {
         return getBounds().height();
     }
 

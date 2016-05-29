@@ -30,10 +30,6 @@
     </plurals>
 
     <string name="potion">Trank</string>
-    <plurals name="format_potion">
-        <item quantity="one">%1$s Trank</item>
-        <item quantity="other">%1$s Tr&#228;nke</item>
-    </plurals>
 
     <string name="vp">Siegpunkte</string>
     <plurals name="format_vp">

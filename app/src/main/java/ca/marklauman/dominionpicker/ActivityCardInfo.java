@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ca.marklauman.dominionpicker.userinterface.DrawableLoader;
 import ca.marklauman.dominionpicker.userinterface.InfoTextView;
 import ca.marklauman.dominionpicker.userinterface.icons.IconDescriber;
 import ca.marklauman.dominionpicker.userinterface.icons.PriceIcon;
@@ -51,6 +52,8 @@ public class ActivityCardInfo extends AppCompatActivity
     private int[] expIcons;
     /** Used to generate the card color. */
     private CardColorFactory colorFactory;
+    /** Holds the price of the card */
+    private PriceIcon price;
 
     /** Actionbar for this activity */
     private ActionBar actionBar;
@@ -70,8 +73,6 @@ public class ActivityCardInfo extends AppCompatActivity
     @BindView(R.id.card_set_name) TextView vSetName;
     /** View holding the set's icon */
     @BindView(R.id.card_set)      ImageView vSetIcon;
-
-    PriceIcon price;
 
 
     @Override
@@ -172,7 +173,8 @@ public class ActivityCardInfo extends AppCompatActivity
         int expIcon = R.drawable.ic_set_unknown;
         try { expIcon = expIcons[getInt(data, TableCard._SET_ID)];
         } catch(Exception ignored){}
-        vSetIcon.setImageResource(expIcon);
+        DrawableLoader.into(vSetIcon)
+                      .place(expIcon);
 
         // Show the card
         vLoading.setVisibility(View.GONE);

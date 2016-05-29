@@ -13,6 +13,7 @@ import ca.marklauman.dominionpicker.R;
 import ca.marklauman.tools.preferences.IntentPreference;
 
 /** Controls the "Community" screen in the Options, and all sub-screens.
+ *  TODO: FIX THIS CLASS
  *  @author Mark Lauman */
 public class ActivityComm extends AppCompatActivity {
     @Override
@@ -86,7 +87,7 @@ public class ActivityComm extends AppCompatActivity {
 
     /** Opens the web browser to the given url */
     private class WebListener implements View.OnClickListener {
-        private String uri;
+        private final String uri;
 
         WebListener(int urlRes) {
             uri = getString(urlRes);

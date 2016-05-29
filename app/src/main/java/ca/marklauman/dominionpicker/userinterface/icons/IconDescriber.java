@@ -16,7 +16,7 @@ import ca.marklauman.tools.Utils;
 public class IconDescriber {
 
     /** Resource object used to retrieve descriptions. */
-    private Resources res;
+    private final Resources res;
     /** Default language used for descriptions. */
     private final String defLanguage;
     /** Unlabelled coin descriptions */

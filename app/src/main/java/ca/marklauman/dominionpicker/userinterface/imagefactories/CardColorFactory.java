@@ -10,7 +10,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
-import android.text.style.ImageSpan;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -20,8 +19,9 @@ import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.tools.Utils;
 
 /** Builds the background drawables to show card color.
+ *  TODO: Replace with alternate version.
  *  @author Mark Lauman */
-public class CardColorFactory extends ImageFactory {
+public class CardColorFactory {
 
     // Cards types listed by color priority
     /** Action card id */
@@ -53,8 +53,6 @@ public class CardColorFactory extends ImageFactory {
     private final ArrayList<Integer> curColors = new ArrayList<>(2);
     /** Column indexes corresponding to each card type */
     private int[] column;
-    /** Current ImageSpan id value (increments as they are retrieved) */
-    private int spanId = 0;
 
     public CardColorFactory(Context context) {
         width = context.getResources()
@@ -133,7 +131,6 @@ public class CardColorFactory extends ImageFactory {
     }
 
 
-    @Override
     public Drawable getDrawable(CharSequence value, int size) {
         Drawable res = lib.getDrawable(value, size);
         if(res == null)
@@ -141,22 +138,6 @@ public class CardColorFactory extends ImageFactory {
         return res;
     }
 
-
-    @Override
-    public ImageSpan getSpan(CharSequence value, int size) {
-        ImageSpan res = lib.getSpan(value, size, spanId);
-        if(res == null) {
-            makeDrawable(value, size);
-            res = lib.getSpan(value, size, spanId);
-        }
-        spanId++;
-        return res;
-    }
-
-    @Override
-    public void newSpannableView() {
-        spanId = 0;
-    }
 
     private synchronized CardBackground makeDrawable(CharSequence value, int size) {
         String str = ""+value;

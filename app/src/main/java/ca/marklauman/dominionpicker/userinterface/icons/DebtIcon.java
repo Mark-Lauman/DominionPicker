@@ -117,7 +117,6 @@ public class DebtIcon extends Icon {
     }
 
 
-    @Override
     public void setText(String text) {
         value = text;
         invalidateSelf();

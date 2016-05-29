@@ -29,10 +29,6 @@
     </plurals>
 
     <string name="potion">Potion</string>
-    <plurals name="format_potion">
-        <item quantity="one">%1$s Potion</item>
-        <item quantity="other">%1$s Potions</item>
-    </plurals>
 
     <string name="vp">Point de Victoire</string>
     <plurals name="format_vp">

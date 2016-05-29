@@ -99,7 +99,6 @@ public class VPIcon extends Icon {
     }
 
 
-    @Override
     public void setText(String text) {
         value = text;
         invalidateSelf();
