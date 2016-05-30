@@ -52,7 +52,7 @@ _id	language	name	type	requires	text	rules
 54	nl	Samenzweerder	Actie			
 55	nl	Kopersmid	Actie			
 56	nl	Ijzergieterij	Actie			
-57	nl	Mijndorp	Actie			
+57	nl	Mijndorp	Actie		<b>+1 Kaart<br/>+2 Acties</b><br/><br/>Je mag deze kaart direct vernietigen.<br/>Als je dat doet: <b>+<c>2</c></b>.	
 58	nl	Verkenner	Actie			
 59	nl	Hertog	Overwinning			
 60	nl	Dienaar	Actie Aanval			
@@ -203,7 +203,7 @@ _id	language	name	type	requires	text	rules
 205	nl	Landbouwgrond	Overwinning			
 206	nl	Prins	Actie		Kies een actiekaart die maximaal 4 kost. Je speelt deze kaart zonder kosten aan het begin van elke beurt. Leg de Prins aan de kant.	
 207	nl	Koninklijke Munt	Geld Reserve			
-208	nl	Ridderset	Actie Reiziger	Benodigd: Opwaarderingen		
+208	nl	Wapenknecht	Actie Reiziger	Benodigd: Opwaarderingen		
 209	nl	Volksset	Actie Reiziger	Benodigd: Opwaarderingen, alle +1 Fiches		
 210	nl	Rattenvanger	Actie Reserve			
 211	nl	Afbraak	Actie		<b>+1 Actie</b><br /><br />Vernietig deze kaart of een kaart uit je hand. Bekijk zoveel kaarten van je gedekte stapel (trek steeds de bovenste) als de waarde in <c/> van de vernietigde kaart. Neem er 1 in je hand en  leg de rest af.	
@@ -225,7 +225,7 @@ _id	language	name	type	requires	text	rules
 227	nl	Reus	Actie Aanval	Benodigd: Reisfiche, Vloek		
 228	nl	Spookbos	Actie Aanval Duurzaam			
 229	nl	Verloren Stad	Actie			
-230	nl	Relikwie	Geld Aanval	Benodigd: -1 Munt Fiche		
+230	nl	Relikwie	Geld Aanval	Benodigd: -1 Kaart Fiche		
 231	nl	Koninklijke Koets	Actie Reserve			
 232	nl	Verteller	Actie			
 233	nl	Heks Uit Het Moeras	Actie Aanval Duurzaam	Benodigd: Vloek		
@@ -233,7 +233,7 @@ _id	language	name	type	requires	text	rules
 235	nl	Wijnhandelaar	Actie Reserve			
 236	nl	Huursoldaat	Actie Duurzaam		Deze kaart blijft in het spel	
 237	nl	Aalmoes	Gebeurtenis			
-238	nl	Lenen	Gebeurtenis	Benodigd: -1 Munt Fiche		
+238	nl	Lenen	Gebeurtenis	Benodigd: -1 Kaart Fiche		
 239	nl	Queste	Gebeurtenis		Leg af voor goud	
 240	nl	Sparen	Gebeurtenis			
 241	nl	Verkennerseenheid	Gebeurtenis			
@@ -245,7 +245,7 @@ _id	language	name	type	requires	text	rules
 247	nl	Missie	Gebeurtenis			
 248	nl	Bedevaart	Gebeurtenis	Benodigd: Reisfiche		
 249	nl	Bal	Gebeurtenis	Benodigd: -1 Munt Fiche		
-250	nl	Overval	Gebeurtenis	Benodigd: -1 Munt Fiche		
+250	nl	Overval	Gebeurtenis	Benodigd: -1 Kaart Fiche		
 251	nl	Zeeroute	Gebeurtenis	Benodigd: +1 Aanschaf Fiche		
 252	nl	Handel	Gebeurtenis		Vernietig voor zilver	
 253	nl	Verloren Kunst	Gebeurtenis	Benodigd: +1 Actie Fiche		

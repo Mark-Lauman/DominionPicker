@@ -227,7 +227,7 @@ _id	language	name	type	requires	text	rules
 227	fr	Géant	Action Attaque	Nécessite: Jeton Voyage, Malédiction	"Retournez votre jeton ""Voyage""(face visible en début de partie).<br/>S'il se retrouve face cachée, +<c>1</c>. S'il se retrouve face visible, +<c>5</c> et tous vos adversaire dévoilent la première carte de leur deck, l'écartent si elle coûte de <c>3</c> à <c>6</c>, sinon la défaussent et reçoivent une carte <i>Malédiction</i>."	
 228	fr	Bois hantés	Action Attaque Durée		Jusqu'à votre prochain tour, quand un adversaire achète une carte, il place sa main restante sur le dessus de son deck dans l'ordre de son choix.<br/>Au début de votre prochain tour: +3 Cartes.	
 229	fr	Cité Perdue	Action		<b>+2 Cartes<br/>+2 Action</b><hr/> Quand vous recevez cette carte, chaque adversaire pioche une carte.	
-230	fr	Relique	Trésor Attaque	Nécessite: -1 Pièce Jeton	"<big> <c>2</c> </big><br/><br/>Lorsque vous jouez cette carte, chaque adversaire place son jeton ""-1 Carte"" sur son deck."	
+230	fr	Relique	Trésor Attaque	Nécessite: -1 Carte Jeton	"<big> <c>2</c> </big><br/><br/>Lorsque vous jouez cette carte, chaque adversaire place son jeton ""-1 Carte"" sur son deck."	
 231	fr	Cortège royal	Action Taverne		<b>+1 Action</b><br/>Placez cette carte dans votre <i>Taverne</i>.<hr/> Après avoir résolu une carte <i>Action</i>, si elle est encore présente dans votre zone de jeu, vous pouvez recourir à ce Cortège Royal pour rejouer la carte <i>Action</i>.	
 232	fr	Conteuse	Action		<b>+1 Action<br/>+<c>1</c></b><br/>Jouez jusqu'à 3 cartes <i>Trésor</i> de votre main. Dépensez toutes les <c/> alors présentes devant vous pour obtenir +1 Carte par <c>1</c> payée.	
 233	fr	Sorcière des marais	Action Attaque Durée	Nécessite: Malédiction	Jusqu'à votre prochain tour, lorsqu'un adversaire achète une carte, il gagne une <i>Malédiction</i>.<br/>Au début de votre prochain tour: +<c>3</c>.	
@@ -235,7 +235,7 @@ _id	language	name	type	requires	text	rules
 235	fr	Marchand de Vin	Action Taverne		<b>+1 Achat<br/>+<c>4</c><br/>Placez cette carte dans votre <i>Taverne</i></b><hr/>A la fin de votre phase d'achat, si vous avez encore au moins <c>2</c> en main, vous pouvez défausser ce Marchand de vin de la <i>Taverne</i>.	
 236	fr	Recrue	Action Durée		Au début de chacun de vos tours (et pour le reste de la partie): <b>+1 Carte</b><br/>(Une fois jouée, cette carte reste définitivement en jeu.)	
 237	fr	Aumône	Evenement		<b>Une fois par tour:</b> si vous n'avez aucune carte <i>Trésor</i> en jeu, recevez une carte coûtant jusqu'à <c>4</c>.	
-238	fr	Emprunt	Evenement	Nécessite: Jeton de -1 Carte	"<b>Une fois par tour: +1 Achat</b> Si vous n'avez pas le jeton ""-1 Carte"", placez-le sur votre deck et +<c>1</c>."	
+238	fr	Emprunt	Evenement	Nécessite: -1 Carte Jeton	"<b>Une fois par tour: +1 Achat</b> Si vous n'avez pas le jeton ""-1 Carte"", placez-le sur votre deck et +<c>1</c>."	
 239	fr	Quête	Evenement		Vous pouvez défausser une carte <i>Attaque</i>, deux cartes <i>Malédictions</i> ou six cartes quelconques. Dans ce cas, recevez une carte <i>Or</i>.	
 240	fr	Resserre	Evenement		<b>Une fois par tour: +1 Achat;</b> mettez de côté une carte de votre main et récupérez-la en fin de tour(après avoir pioché).	
 241	fr	Pistage	Evenement		<b>+1 Achat</b><br/>Consultez les 5 premières cartes de votre deck. Défaussez-en 3 et placez les autres cartes sur le dessus de votre deck dans l'ordre de votre choix.	
@@ -247,7 +247,7 @@ _id	language	name	type	requires	text	rules
 247	fr	Mission	Evenement		<b>Une fois par tour et si le tour précédent n'était pas déjà le votre:</b><br/>jouez un tour supplémentaire pendant lequel vous ne pourrez pas acheter de cartes.	
 248	fr	Pèlerinage	Evenement	Nécessite: Jeton Voyage	"<b>Une fois par tour:</b> retournez votre jeton ""Voyage""(face visible en début de partie); si ce jeton se retrouve face visible, choisissez jusqu'à 3 cartes de votre zone de jeu avec des noms différents et recevez un exemplaire de chacune."	
 249	fr	Bal	Evenement	Nécessite: -1 Pièce Jeton	"Prenez devant vous votre jeton ""-<c>1</c>"" (-1 sur votre prochain gain de pièces)."	Recevez 2 cartescoûtant chacune jusqu'à <c>4</c>.
-250	fr	Raid	Evenement	Nécessite: -1 Pièce Jeton	"Recevez une carte <i>Argent</i> par <i>Argent</i> dans votre zone de jeu. Tous vos adversaires placent leur jeton ""-1 Carte"" sur leur deck."	
+250	fr	Raid	Evenement	Nécessite: -1 Carte Jeton	"Recevez une carte <i>Argent</i> par <i>Argent</i> dans votre zone de jeu. Tous vos adversaires placent leur jeton ""-1 Carte"" sur leur deck."	
 251	fr	Route Maritime	Evenement	Nécessite: +1 Acheter Jeton	"Recevez une carte <i>Action</i> coûtant jusqu'à <c>4</c>. <br/>Placez le jeton ""+1 Achat"" sur la pile de cette carte <i>Action</i> (désormais, dès que vous jouez une carte de cette pile: +1 Achat)."	
 252	fr	Commerce	Evenement		Écartez jusqu'à 2 cartes de votre main. <br/>Recevez une carte <i>Argent</i> par carte écartée de cette manière.	
 253	fr	Arts anciens	Evenement	Requires: +1 Action Jeton	"Placez votre jeton ""+1 Action"" sur une pile de cartes Action de la réserve.<br/>(désormais, dès que vous jouez une carte de cette pile : +1 Action)."	
