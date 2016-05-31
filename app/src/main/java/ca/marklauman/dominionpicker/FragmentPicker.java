@@ -181,6 +181,11 @@ public class FragmentPicker extends Fragment
         if(0 < curSel.length())
             sel += " AND "+TableCard._COST_VAL+" NOT IN ("+curSel+")";
 
+        // Filter out debt
+        curSel = pref.getString(Pref.FILT_DEBT, "");
+        if(0 < curSel.length())
+            sel += " AND "+TableCard._DEBT+" NOT IN ("+curSel+")";
+
         // Filter out cursers
         boolean filt_curse = pref.getBoolean(Pref.FILT_CURSE, true);
         if(!filt_curse)

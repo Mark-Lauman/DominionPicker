@@ -19,7 +19,6 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ca.marklauman.dominionpicker.userinterface.DrawableLoader;
 import ca.marklauman.dominionpicker.userinterface.InfoTextView;
 import ca.marklauman.dominionpicker.userinterface.icons.IconDescriber;
 import ca.marklauman.dominionpicker.userinterface.icons.PriceIcon;
@@ -174,8 +173,7 @@ public class ActivityCardInfo extends AppCompatActivity
         int expIcon = R.drawable.ic_set_unknown;
         try { expIcon = expIcons[getInt(data, TableCard._SET_ID)];
         } catch(Exception ignored){}
-        DrawableLoader.into(vSetIcon)
-                      .place(expIcon);
+        vSetIcon.setImageResource(expIcon);
 
         // Show the card
         vLoading.setVisibility(View.GONE);

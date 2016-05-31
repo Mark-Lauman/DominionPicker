@@ -137,13 +137,15 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
                        .getContentResolver()
                        .query(Provider.URI_CARD_DATA,
                                new String[]{TableCard._ID, TableCard._TYPE_EVENT,
-                                            TableCard._SET_ID, TableCard._COST},
+                                            TableCard._TYPE_LANDMARK, TableCard._SET_ID,
+                                            TableCard._COST},
                                filter, null, "random()");
         if(c == null) return;
 
         try {
             int _id = c.getColumnIndex(TableCard._ID);
             int _event = c.getColumnIndex(TableCard._TYPE_EVENT);
+            int _landmark = c.getColumnIndex(TableCard._TYPE_LANDMARK);
             int _cost = c.getColumnIndex(TableCard._COST);
             int _set_id = c.getColumnIndex(TableCard._SET_ID);
 
@@ -152,10 +154,10 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
                 if(isCancelled())
                     return;
 
-                // We handle events and kingdom cards differently (events first)
+                // We handle special and kingdom cards differently (specials first)
                 long id = c.getLong(_id);
-                if(c.getInt(_event) != 0)
-                    s.addEvent(id, cardsRequired);
+                if(c.getInt(_event) != 0 || c.getInt(_landmark) != 0)
+                    s.addSpecial(id, cardsRequired);
                 else s.addKingdom(id, c.getString(_cost), c.getInt(_set_id), cardsRequired);
             }
         } finally {
@@ -219,8 +221,8 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
 
         /** Minimum amount of kingdom cards needed for this supply to be complete. */
         public int minKingdom;
-        /** Maximum amount of event cards allowed. */
-        public final int maxEvent;
+        /** Maximum amount of special cards allowed. */
+        public final int maxSpecial;
         /** If this is a high cost game or not. */
         public boolean high_cost = false;
         /** If this game uses shelters or not. */
@@ -233,8 +235,8 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
 
         /** Kingdom cards in this supply */
         private final ArrayList<Long> kingdom;
-        /** Event cards in this supply */
-        private final ArrayList<Long> events;
+        /** Special cards in this supply that are not kingdom cards. */
+        private final ArrayList<Long> special;
         /** Current status of the bane card */
         private int baneStatus = BANE_INACTIVE;
         /** Id for a possible bane card */
@@ -244,19 +246,19 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
         public ShuffleSupply() {
             SharedPreferences prefs = Pref.get(Pref.getAppContext());
             minKingdom = prefs.getInt(Pref.LIMIT_SUPPLY, 10);
-            maxEvent = prefs.getInt(Pref.LIMIT_EVENTS, 2);
+            maxSpecial = prefs.getInt(Pref.LIMIT_EVENTS, 2);
             kingdom = new ArrayList<>(minKingdom);
-            events = new ArrayList<>(maxEvent);
+            special = new ArrayList<>(maxSpecial);
             costCard = (int)(Math.random() * minKingdom)+1;
             shelterCard = (int)(Math.random() * minKingdom)+1;
         }
 
 
         /** Add an event to the supply */
-        public void addEvent(long id, boolean required) {
-            if(required) events.add(id);
-            else if(events.size() < maxEvent)
-                events.add(id);
+        public void addSpecial(long id, boolean required) {
+            if(required) special.add(id);
+            else if(special.size() < maxSpecial)
+                special.add(id);
         }
 
 
@@ -303,13 +305,13 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
 
         /** Get all cards in this supply */
         public long[] getCards() {
-            long[] res = new long[kingdom.size() + events.size()];
+            long[] res = new long[kingdom.size() + special.size()];
             int i = 0;
             for(Long card : kingdom) {
                 res[i] = card;
                 i++;
             }
-            for(Long card : events) {
+            for(Long card : special) {
                 res[i] = card;
                 i++;
             }
