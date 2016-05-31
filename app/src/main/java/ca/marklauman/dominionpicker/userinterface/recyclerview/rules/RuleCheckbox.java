@@ -14,7 +14,7 @@ import java.util.HashSet;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ca.marklauman.dominionpicker.R;
-import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.settings.Pref;
 import ca.marklauman.dominionpicker.userinterface.DrawableLoader;
 import ca.marklauman.dominionpicker.userinterface.icons.Icon;
 
@@ -54,8 +54,8 @@ public class RuleCheckbox extends Rule
                            .place(data.iconRes);
         vText.setText(data.text);
         vText.setChecked( data.keySet == null
-                              ? data.inverted != Prefs.get(itemView.getContext())
-                                                      .getBoolean(data.key, true)
+                              ? data.inverted != Pref.get(itemView.getContext())
+                                                     .getBoolean(data.key, true)
                               : data.inverted != data.keySet.contains(data.key));
     }
 
@@ -67,9 +67,9 @@ public class RuleCheckbox extends Rule
         if(data.keySet != null) {
             if(data.inverted != vText.isChecked()) data.keySet.add(data.key);
             else data.keySet.remove(data.key);
-        } else Prefs.edit(itemView.getContext())
-                    .putBoolean(data.key, data.inverted != vText.isChecked())
-                    .commit();
+        } else Pref.edit(itemView.getContext())
+                   .putBoolean(data.key, data.inverted != vText.isChecked())
+                   .commit();
     }
 
 

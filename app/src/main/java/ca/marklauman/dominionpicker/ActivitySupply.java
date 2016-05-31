@@ -3,6 +3,7 @@ package ca.marklauman.dominionpicker;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
@@ -25,7 +26,7 @@ import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.dominionpicker.database.TableSupply;
 import ca.marklauman.dominionpicker.database.TimestampFormatter;
-import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.settings.Pref;
 import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterCards.ViewHolder;
 import ca.marklauman.tools.QueryDialogBuilder;
 import ca.marklauman.tools.QueryDialogBuilder.QueryListener;
@@ -36,7 +37,7 @@ import ca.marklauman.tools.recyclerview.ListDivider;
 /** Activity for displaying the supply piles for a new game.
  *  @author Mark Lauman */
 public class ActivitySupply extends AppCompatActivity
-                            implements Prefs.Listener, AdapterCardsDismiss.Listener {
+                            implements Pref.Listener, AdapterCardsDismiss.Listener {
 
     /** Key used to pass a supply id to this activity.
      *  The supply will load from the supply table. */
@@ -76,7 +77,7 @@ public class ActivitySupply extends AppCompatActivity
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        Prefs.setup(this);
+        Pref.checkLanguage(this);
 		setContentView(R.layout.activity_supply);
         ButterKnife.bind(this);
 
@@ -117,8 +118,8 @@ public class ActivitySupply extends AppCompatActivity
             lm.initLoader(LoaderId.SUPPLY_OBJECT, args, supplyLoader);
         }
 	}
-	
-	
+
+
 	/** Called to inflate the ActionBar */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -220,9 +221,9 @@ public class ActivitySupply extends AppCompatActivity
 
 
     @Override
-    public void prefChanged(String key) {
+    public void onSharedPreferenceChanged(SharedPreferences oref, String key) {
         switch(key) {
-            case Prefs.FILT_LANG: case Prefs.SORT_CARD:
+            case Pref.COMP_LANG: case Pref.COMP_SORT_CARD:
                 getSupportLoaderManager().restartLoader(LoaderId.SUPPLY_CARDS, null, cardLoader);
                 break;
         }
@@ -255,12 +256,12 @@ public class ActivitySupply extends AppCompatActivity
             CursorLoader c = new CursorLoader(getActivity());
             c.setUri(Provider.URI_CARD_ALL);
             c.setProjection(AdapterCardsDismiss.COLS_USED);
-            c.setSortOrder(Prefs.sort_card);
+            c.setSortOrder(Pref.cardSort(ActivitySupply.this));
 
             // Selection string (sql WHERE clause)
             // _id IN (1,2,3,4)
             String cards = TableCard._ID+" IN ("+ Utils.join(",",supply.cards)+")";
-            c.setSelection("("+cards+") AND "+ Prefs.filt_lang);
+            c.setSelection("("+cards+") AND "+ Pref.languageFilter(ActivitySupply.this));
 
             return c;
         }
@@ -322,7 +323,7 @@ public class ActivitySupply extends AppCompatActivity
             supply_id = args.getLong(PARAM_SUPPLY_ID, -1);
             if(supply_id != -1) {
                 c.setUri(Provider.URI_SUPPLY);
-                c.setSelection(TableSupply._ID+"=? AND "+Prefs.filt_lang);
+                c.setSelection(TableSupply._ID+"=? AND "+ Pref.languageFilter(ActivitySupply.this));
                 c.setSelectionArgs(new String[]{""+supply_id});
                 return c;
             }

@@ -4,7 +4,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ca.marklauman.dominionpicker.history.FragmentHistory;
 import ca.marklauman.dominionpicker.settings.ActivityOptions;
-import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.settings.Pref;
 import ca.marklauman.tools.ExpandedArrayAdapter;
 
 import android.app.Activity;
@@ -62,8 +62,7 @@ public class MainActivity extends AppCompatActivity
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        Prefs.setup(this);
-
+        Pref.checkLanguage(this);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         shuffler = new ShuffleManager();
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity
         // setup the active fragment
         FragmentManager fm = getSupportFragmentManager();
         int sel = PreferenceManager.getDefaultSharedPreferences(this)
-                                   .getInt(Prefs.ACTIVE_TAB, getResources().getInteger(R.integer.def_tab));
+                                   .getInt(Pref.ACTIVE_TAB, getResources().getInteger(R.integer.def_tab));
         if(1 < sel) vSubmit.hide();
         active = fm.findFragmentById(R.id.content_frame);
         if(active == null) {
@@ -185,7 +184,7 @@ public class MainActivity extends AppCompatActivity
 
         navAdapt.setSelection(position);
         PreferenceManager.getDefaultSharedPreferences(this).edit()
-                         .putInt(Prefs.ACTIVE_TAB, position)
+                         .putInt(Pref.ACTIVE_TAB, position)
                          .commit();
 
         FragmentTransaction t = getSupportFragmentManager().beginTransaction();

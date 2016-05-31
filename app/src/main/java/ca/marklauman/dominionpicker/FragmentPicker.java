@@ -3,7 +3,6 @@ package ca.marklauman.dominionpicker;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
@@ -23,13 +22,13 @@ import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
 import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterCardsFilter;
-import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.settings.Pref;
 import ca.marklauman.tools.recyclerview.ListDivider;
 
 /** Fragment governing the card list screen.
  *  @author Mark Lauman */
 public class FragmentPicker extends Fragment
-                            implements LoaderCallbacks<Cursor>, Prefs.Listener {
+                            implements LoaderCallbacks<Cursor>, Pref.Listener {
 
     /** The list of cards. */
     @BindView(android.R.id.list)     RecyclerView card_list;
@@ -47,7 +46,7 @@ public class FragmentPicker extends Fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Prefs.addListener(this);
+        Pref.addListener(this);
         getActivity().getSupportLoaderManager()
                      .restartLoader(LoaderId.PICKER, null, this);
     }
@@ -55,18 +54,18 @@ public class FragmentPicker extends Fragment
 
     @Override
     public void onDestroy() {
-        Prefs.removeListener(this);
+        Pref.removeListener(this);
         super.onDestroy();
     }
 
 
     /** Called when a preference's value has changed */
     @Override
-    public void prefChanged(String key) {
+    public void onSharedPreferenceChanged(SharedPreferences pref, String key) {
         switch(key) {
             // These preferences affect the picker
-            case Prefs.FILT_SET:  case Prefs.FILT_COST: case Prefs.FILT_POTION:
-            case Prefs.FILT_CURSE: case Prefs.SORT_CARD: case Prefs.FILT_LANG:
+            case Pref.FILT_SET:  case Pref.FILT_COST: case Pref.FILT_POTION:
+            case Pref.FILT_CURSE: case Pref.COMP_SORT_CARD: case Pref.COMP_LANG:
                 FragmentActivity act = getActivity();
                 if(act == null) return;
                 act.getSupportLoaderManager()
@@ -91,9 +90,9 @@ public class FragmentPicker extends Fragment
         if (animator instanceof SimpleItemAnimator)
             ((SimpleItemAnimator) animator).setSupportsChangeAnimations(false);
 
-        final SharedPreferences pref = Prefs.get(getContext());
-        adapter = new AdapterCardsFilter(card_list, pref.getString(Prefs.FILT_CARD, ""),
-                                                    pref.getString(Prefs.REQ_CARDS, ""));
+        final SharedPreferences pref = Pref.get(getContext());
+        adapter = new AdapterCardsFilter(card_list, pref.getString(Pref.FILT_CARD, ""),
+                                                    pref.getString(Pref.REQ_CARDS, ""));
         card_list.setAdapter(adapter);
         updateView();
         return view;
@@ -129,10 +128,10 @@ public class FragmentPicker extends Fragment
     /** Save all selected/filtered cards to the preferences. */
     public void saveSelections() {
         if(adapter == null) return;
-        Prefs.edit(getContext())
-             .putString(Prefs.FILT_CARD, adapter.getFilter())
-             .putString(Prefs.REQ_CARDS, adapter.getRequired())
-             .commit();
+        Pref.edit(getContext())
+            .putString(Pref.FILT_CARD, adapter.getFilter())
+            .putString(Pref.REQ_CARDS, adapter.getRequired())
+            .commit();
     }
 
 
@@ -153,23 +152,10 @@ public class FragmentPicker extends Fragment
         CursorLoader c = new CursorLoader(getActivity());
         c.setUri(Provider.URI_CARD_ALL);
         c.setProjection(AdapterCardsFilter.COLS_USED);
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        // Selection
-        String sel = getFilter(pref);
-        sel += " AND "+Prefs.filt_lang;
+        String sel = getFilter(Pref.get(getContext()));
+        sel += " AND "+ Pref.languageFilter(getContext());
         c.setSelection(sel);
-
-        // Sort order
-        String[] sort_col = getResources().getStringArray(R.array.sort_card_col);
-        String[] sort_pref = pref.getString(Prefs.SORT_CARD, "").split(",");
-        String sort = "";
-        for(String s : sort_pref) {
-            int i = Integer.parseInt(s);
-            if(i == 1) break;
-            sort += sort_col[i] + ", ";
-        }
-        c.setSortOrder(sort + sort_col[1]);
+        c.setSortOrder(Pref.cardSort(getContext()));
 
         return c;
     }
@@ -182,21 +168,21 @@ public class FragmentPicker extends Fragment
      *  This statement is never null or the empty string. There will be something in here. */
     public static String getFilter(SharedPreferences pref) {
         // Filter out sets (the set filter is always present)
-        String curSel = pref.getString(Prefs.FILT_SET, "");
+        String curSel = pref.getString(Pref.FILT_SET, "");
         String sel = (curSel.length()==0) ? TableCard._SET_ID+"=NULL"
                                           : TableCard._SET_ID+" IN ("+curSel+")";
 
         // Filter out potions
-        if(!pref.getBoolean(Prefs.FILT_POTION, true))
+        if(!pref.getBoolean(Pref.FILT_POTION, true))
             sel += " AND "+TableCard._POT+"=0";
 
         // Filter out coins
-        curSel = pref.getString(Prefs.FILT_COST, "");
+        curSel = pref.getString(Pref.FILT_COST, "");
         if(0 < curSel.length())
             sel += " AND "+TableCard._COST_VAL+" NOT IN ("+curSel+")";
 
         // Filter out cursers
-        boolean filt_curse = pref.getBoolean(Prefs.FILT_CURSE, true);
+        boolean filt_curse = pref.getBoolean(Pref.FILT_CURSE, true);
         if(!filt_curse)
             sel += " AND " + TableCard._META_CURSER + "=0";
 

@@ -1,5 +1,6 @@
 package ca.marklauman.dominionpicker;
 
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -27,14 +28,14 @@ import ca.marklauman.dominionpicker.community.EmailButton;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
-import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.settings.Pref;
 import ca.marklauman.tools.Utils;
 
 /** Activity used to display detailed card information.
  *  This goes into detail on ONE card. No other cards are shown.
  *  @author Mark Lauman */
 public class ActivityCardInfo extends AppCompatActivity
-                              implements LoaderManager.LoaderCallbacks<Cursor>, Prefs.Listener {
+                              implements LoaderManager.LoaderCallbacks<Cursor>, Pref.Listener {
 
     /** Extra used to pass the card id to this activity */
     public static final String PARAM_ID = "card_id";
@@ -78,7 +79,7 @@ public class ActivityCardInfo extends AppCompatActivity
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Prefs.setup(this);
+        Pref.checkLanguage(this);
 
         // Set up the view
         setContentView(R.layout.activity_card_info);
@@ -112,8 +113,8 @@ public class ActivityCardInfo extends AppCompatActivity
 
 
     @Override
-    public void prefChanged(String key) {
-        if(!Prefs.FILT_LANG.equals(key)) return;
+    public void onSharedPreferenceChanged(SharedPreferences pref, String key) {
+        if(!Pref.COMP_LANG.equals(key)) return;
         getSupportLoaderManager().restartLoader(LoaderId.INFO_CARD, null, this);
     }
 
@@ -124,7 +125,7 @@ public class ActivityCardInfo extends AppCompatActivity
         c.setUri(Provider.URI_CARD_ALL);
         c.setProjection(COLS_USED);
         long card = getIntent().getLongExtra(PARAM_ID, -1);
-        c.setSelection(TableCard._ID+"="+card+" AND "+Prefs.filt_lang);
+        c.setSelection(TableCard._ID+"="+card+" AND "+Pref.languageFilter(this));
         return c;
     }
 

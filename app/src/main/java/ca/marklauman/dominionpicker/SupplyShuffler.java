@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.AsyncTask;
-import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ import java.util.Calendar;
 import ca.marklauman.dominionpicker.database.DataDb;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
-import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.settings.Pref;
 import ca.marklauman.tools.Utils;
 
 /** This task is used to shuffle new supplies.
@@ -57,10 +56,10 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
             return successfulResult(supply);
 
         // load applicable filters.
-        SharedPreferences pref = getPreferences();
+        SharedPreferences pref = Pref.get(Pref.getAppContext());
         String filt_pre = FragmentPicker.getFilter(pref);
-        String filt_req = pref.getString(Prefs.REQ_CARDS, "");
-        String filt_card = pref.getString(Prefs.FILT_CARD, "");
+        String filt_req = pref.getString(Pref.REQ_CARDS, "");
+        String filt_card = pref.getString(Pref.FILT_CARD, "");
 
         // Load the required cards into the supply
         if(0 < filt_req.length())
@@ -127,12 +126,6 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
     }
 
 
-    /** Simple shorthand to get the preferences. */
-    private static SharedPreferences getPreferences() {
-        return PreferenceManager.getDefaultSharedPreferences(Prefs.getStaticContext());
-    }
-
-
     /** Load all cards matching the filter and add them to the supply.
      *  @param s The supply object that you want to add to.
      *  @param filter The filter for the cards you wish to add.
@@ -140,12 +133,12 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
      *  If this is false, cards will be added to the supply until it has enough kingdom cards. */
     private void loadCards(ShuffleSupply s, String filter, boolean cardsRequired) {
         // Query the cards in the database
-        Cursor c = Prefs.getStaticContext()
-                        .getContentResolver()
-                        .query(Provider.URI_CARD_DATA,
-                                new String[]{TableCard._ID, TableCard._TYPE_EVENT,
-                                        TableCard._SET_ID, TableCard._COST},
-                                filter, null, "random()");
+        Cursor c = Pref.getAppContext()
+                       .getContentResolver()
+                       .query(Provider.URI_CARD_DATA,
+                               new String[]{TableCard._ID, TableCard._TYPE_EVENT,
+                                            TableCard._SET_ID, TableCard._COST},
+                               filter, null, "random()");
         if(c == null) return;
 
         try {
@@ -175,7 +168,7 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
     @SuppressWarnings("SameReturnValue")
     private Void sendMsg(Intent msg) {
         try {
-            LocalBroadcastManager.getInstance(Prefs.getStaticContext())
+            LocalBroadcastManager.getInstance(Pref.getAppContext())
                                  .sendBroadcast(msg);
         } catch(Exception ignored) {}
         return null;
@@ -202,9 +195,9 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
         values.put(DataDb._H_BANE,      supply.getBane());
         values.put(DataDb._H_HIGH_COST, supply.high_cost);
         values.put(DataDb._H_SHELTERS,  supply.shelters);
-        Prefs.getStaticContext()
-             .getContentResolver()
-             .insert(Provider.URI_HIST, values);
+        Pref.getAppContext()
+            .getContentResolver()
+            .insert(Provider.URI_HIST, values);
 
         // let the listeners know the result
         Intent msg = new Intent(MSG_INTENT);
@@ -249,9 +242,9 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
 
 
         public ShuffleSupply() {
-            SharedPreferences prefs = getPreferences();
-            minKingdom = prefs.getInt(Prefs.LIMIT_SUPPLY, 10);
-            maxEvent = prefs.getInt(Prefs.LIMIT_EVENTS, 2);
+            SharedPreferences prefs = Pref.get(Pref.getAppContext());
+            minKingdom = prefs.getInt(Pref.LIMIT_SUPPLY, 10);
+            maxEvent = prefs.getInt(Pref.LIMIT_EVENTS, 2);
             kingdom = new ArrayList<>(minKingdom);
             events = new ArrayList<>(maxEvent);
             costCard = (int)(Math.random() * minKingdom)+1;

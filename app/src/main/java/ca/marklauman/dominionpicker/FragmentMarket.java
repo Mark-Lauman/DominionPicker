@@ -21,7 +21,7 @@ import java.util.LinkedList;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
-import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.settings.Pref;
 import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterCards;
 import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterCards.ViewHolder;
 import ca.marklauman.tools.Utils;
@@ -31,7 +31,7 @@ import ca.marklauman.tools.recyclerview.ListDivider;
  *  @author Mark Lauman */
 public class FragmentMarket extends Fragment
                             implements LoaderCallbacks<Cursor>, AdapterCards.Listener,
-                                       Prefs.Listener {
+                                       Pref.Listener {
 
     /** Key used to pass the supply pool to this fragment (optional) */
     public static final String PARAM_SUPPLY = "supply";
@@ -70,14 +70,14 @@ public class FragmentMarket extends Fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Prefs.addListener(this);
+        Pref.addListener(this);
     }
 
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Prefs.removeListener(this);
+        Pref.removeListener(this);
     }
 
 
@@ -161,15 +161,15 @@ public class FragmentMarket extends Fragment
 
 
     @Override
-    public void prefChanged(String key) {
+    public void onSharedPreferenceChanged(SharedPreferences pref, String key) {
         switch(key) {
-            case Prefs.FILT_SET: case Prefs.FILT_COST: case Prefs.FILT_POTION:
-            case Prefs.FILT_CURSE: case Prefs.REQ_CARDS: case Prefs.FILT_CARD:
+            case Pref.FILT_SET: case Pref.FILT_COST: case Pref.FILT_POTION:
+            case Pref.FILT_CURSE: case Pref.REQ_CARDS: case Pref.FILT_CARD:
                 setActivePanel(PANEL_STARTUP);
                 getActivity().getSupportLoaderManager()
                              .restartLoader(LoaderId.MARKET_SHUFFLE, null, this);
                 break;
-            case Prefs.FILT_LANG: case Prefs.SORT_CARD:
+            case Pref.COMP_LANG: case Pref.COMP_SORT_CARD:
                 if(choices == null) return;
                 setActivePanel(PANEL_STARTUP);
                 getActivity().getSupportLoaderManager()
@@ -233,7 +233,7 @@ public class FragmentMarket extends Fragment
                              +" AND "+TableCard._TYPE_EVENT+"=0";
 
                 // Filter out cards excluded by the card list
-                String filt_card = pref.getString(Prefs.FILT_CARD, "");
+                String filt_card = pref.getString(Pref.FILT_CARD, "");
 
                 // Get the supply passed to this fragment
                 Bundle args = getArguments();
@@ -249,7 +249,7 @@ public class FragmentMarket extends Fragment
                 // If no supply cards are provided, filter out required cards.
                 // They are required to be in the supply
                 else {
-                    String req_cards = pref.getString(Prefs.REQ_CARDS, "");
+                    String req_cards = pref.getString(Pref.REQ_CARDS, "");
                     if(0 < req_cards.length() && 0 < filt_card.length())
                         filt_card += ",";
                     if(0 < req_cards.length())
@@ -270,7 +270,7 @@ public class FragmentMarket extends Fragment
             case LoaderId.MARKET_SHOW:
                 c.setUri(Provider.URI_CARD_ALL);
                 c.setProjection(AdapterCards.COLS_USED);
-                c.setSortOrder(Prefs.sort_card);
+                c.setSortOrder(Pref.cardSort(getContext()));
 
                 // no choices, no cards
                 if(choices == null || choices.length == 0) {
@@ -284,7 +284,7 @@ public class FragmentMarket extends Fragment
                 for(long ignored : choices)
                     cardSel += ",?";
                 cardSel = TableCard._ID+" IN ("+cardSel.substring(1)+")";
-                c.setSelection("("+cardSel+") AND "+Prefs.filt_lang);
+                c.setSelection("("+cardSel+") AND "+ Pref.languageFilter(getContext()));
 
                 // selection args
                 String[] strChoices = new String[choices.length];

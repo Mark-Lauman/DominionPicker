@@ -20,7 +20,7 @@ import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.LoaderId;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableCard;
-import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.settings.Pref;
 import ca.marklauman.dominionpicker.userinterface.icons.CoinIcon;
 import ca.marklauman.dominionpicker.userinterface.icons.DebtIcon;
 import ca.marklauman.dominionpicker.userinterface.icons.IconDescriber;
@@ -86,10 +86,10 @@ public class AdapterRules extends Adapter<Rule>
         });
 
         // retrieve the basic preferences and reload the list of options.
-        SharedPreferences pref = Prefs.get(mContext);
-        loadPref(pref, Prefs.FILT_SET, filt_set);
-        loadPref(pref, Prefs.FILT_COST, filt_cost);
-        loadPref(pref, Prefs.FILT_DEBT, filt_debt);
+        SharedPreferences pref = Pref.get(mContext);
+        loadPref(pref, Pref.FILT_SET, filt_set);
+        loadPref(pref, Pref.FILT_COST, filt_cost);
+        loadPref(pref, Pref.FILT_DEBT, filt_debt);
         reload();
     }
 
@@ -104,11 +104,11 @@ public class AdapterRules extends Adapter<Rule>
 
     /** Save the rule values to memory. */
     public void save() {
-        Prefs.edit(mContext)
-             .putString(Prefs.FILT_SET, Utils.join(",", filt_set))
-             .putString(Prefs.FILT_COST, Utils.join(",", filt_cost))
-             .putString(Prefs.FILT_DEBT, Utils.join(",", filt_debt))
-             .commit();
+        Pref.edit(mContext)
+            .putString(Pref.FILT_SET, Utils.join(",", filt_set))
+            .putString(Pref.FILT_COST, Utils.join(",", filt_cost))
+            .putString(Pref.FILT_DEBT, Utils.join(",", filt_debt))
+            .commit();
     }
 
 
@@ -166,7 +166,7 @@ public class AdapterRules extends Adapter<Rule>
 
         // And the top few entries and the loading icon
         types.add(TYPE_NUMBER);
-        values.add(new String[]{Prefs.LIMIT_SUPPLY,
+        values.add(new String[]{Pref.LIMIT_SUPPLY,
                    mContext.getString(R.string.limit_supply)});
         types.add(TYPE_SECTION);
         values.add(mContext.getString(R.string.rules_expansions));
@@ -195,7 +195,8 @@ public class AdapterRules extends Adapter<Rule>
             case LoaderId.RULES_EXP:
                 return new CursorLoader(mContext, Provider.URI_CARD_SET,
                         new String[]{TableCard._SET_ID, TableCard._SET_NAME, TableCard._PROMO},
-                        Prefs.filt_lang, null, TableCard._PROMO+", "+Prefs.sort_set);
+                                     Pref.languageFilter(mContext), null,
+                                     TableCard._PROMO+", "+ Pref.setSort(mContext));
             case LoaderId.RULES_COST:
                 return new CursorLoader(mContext, Provider.URI_CARD_DATA_U,
                                         new String[]{TableCard._COST_VAL},
@@ -255,7 +256,7 @@ public class AdapterRules extends Adapter<Rule>
                 insertRule(start+inserted, TYPE_CHECK,
                            new RuleCheckbox.Data(R.drawable.ic_dom_potion,
                                                  mContext.getString(R.string.potion),
-                                                 false, Prefs.FILT_POTION, null));
+                                                 false, Pref.FILT_POTION, null));
                 inserted++;
 
                 final int _cost = data.getColumnIndex(TableCard._COST_VAL);
@@ -289,7 +290,7 @@ public class AdapterRules extends Adapter<Rule>
                 insertRule(start+inserted, TYPE_CHECK,
                         new RuleCheckbox.Data(R.drawable.ic_dom_curse,
                                               mContext.getString(R.string.rules_curse),
-                                              false, Prefs.FILT_CURSE, null));
+                                              false, Pref.FILT_CURSE, null));
                 lastItem = start+inserted;
                 inserted++;
         }

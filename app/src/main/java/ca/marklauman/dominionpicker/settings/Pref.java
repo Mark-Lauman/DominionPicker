@@ -2,6 +2,7 @@ package ca.marklauman.dominionpicker.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
 
@@ -10,46 +11,69 @@ import java.util.HashSet;
 
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.TableCard;
+import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterCards;
 import ca.marklauman.tools.Utils;
 
-/** Used to set up the preferences and store the preference keys.
+/** This class manages the SharedPreferences of this activity.
+ *  It contains the key for every preference, tools for reading preferences
+ *  and routines for keeping compound preferences up to date.
  *  @author Mark Lauman */
-@SuppressWarnings({"WeakerAccess", "UnusedDeclaration", "deprecation"})
-public abstract class Prefs {
+public abstract class Pref implements OnSharedPreferenceChangeListener {
+
+    /** Context of this app's application */
+    private static Context appContext;
+
     /////////// Active preference keys \\\\\\\\\\\
-    /** Key used to store the number of the active MainActivity tab */
-    public static final String ACTIVE_TAB = "active_tab";
-    /** Key used to save the supply size to the the preferences. */
-    public static final String LIMIT_SUPPLY = "limit_supply";
-    /** Key used to save the event limiter to the preferences. */
-    public static final String LIMIT_EVENTS = "limit_event";
-    /** Key used to save the version of the preferences */
+    /** Current preference version */
     public static final String VERSION = "version";
-    /** Key used to save the card sort order */
-    public static final String SORT_CARD = "sort_card";
-    /** Key used to save the set filter to the preferences */
+    /** Index of the tab that the MainActivity should start on. */
+    public static final String ACTIVE_TAB = "active_tab";
+    /** Maximum number of kingdom cards in a supply. */
+    public static final String LIMIT_SUPPLY = "limit_supply";
+    /** Maximum number of event cards in a supply. */
+    public static final String LIMIT_EVENTS = "limit_event";
+
+    /** Filter used to exclude cards by set/expansion */
     public static final String FILT_SET = "filt_set";
-    /** Key used to save the cost filter to the preferences */
+    /** Filter used to exclude cards by cost (in coins) */
     public static final String FILT_COST = "filt_cost";
-    /** Key used to save the debt filter to the preferences */
+    /** Filter used to exclude cards by debt cost */
     public static final String FILT_DEBT = "filt_debt";
-    /** Key used to save the potion filter */
+    /** Filter used to exclude cards that require a potion */
     public static final String FILT_POTION = "filt_potion";
-    /** Key used to save the curse filter to the preferences */
+    /** Filter used to exclude curse-giving cards */
     public static final String FILT_CURSE = "filt_curse";
-    /** Key used to save the current language filter */
-    public static final String FILT_LANG = "filt_lang";
-    /** Key used to save cards deselected from the card list */
+    /** Filter used to exclude specific cards */
     public static final String FILT_CARD = "filt_card";
-    /** Key used to save forced cards that are selected in the card list */
+    /** Filter used to specify required cards. */
     public static final String REQ_CARDS = "req_cards";
+
+    /** Filter used to provide the correct card translation for each set.
+     *  This is computed from {@link #FILT_LANG} and {@link #APP_LANG}
+     *  when those preferences change. */
+    public static final String COMP_LANG = "comp_lang";
+    /** Contains the preferred language for each set. */
+    public static final String FILT_LANG = "filt_lang";
+    /** Language used by the app for ui elements.
+     *  If the language changes, then the default language for each set changes. */
+    public static final String APP_LANG = "app_lang";
+
+    /** Used to sort cards before they are displayed.
+     *  This is an sql ORDER BY clause, derived from {@link #SORT_CARD} */
+    public static final String COMP_SORT_CARD = "comp_sort_card";
+    /** Used to sort sets in the rules screen.
+     *  This is an sql ORDER BY clause, derived from {@link #SORT_CARD} */
+    public static final String COMP_SORT_SET = "comp_sort_set";
+    /** The order in which things should be sorted. This is stored as a list
+     *  of numbers, so that database updates don't break the sort order. */
+    public static final String SORT_CARD = "sort_card";
 
     /////////// Obsolete preference keys \\\\\\\\\\\
     /** The old separator used in the deprecated MultiSelectImagePreference. */
     private static final String OLD_SEP = "\u0001\u0007\u001D\u0007\u0001";
     /** Deprecated key used to identify the version 0 preferences. */
     @Deprecated
-    public static final String FILT_SET_BASE = "filt_set_base";
+    private static final String FILT_SET_BASE = "filt_set_base";
     /** Old attempt to store preference version from v1. Never worked properly. */
     @Deprecated
     public static final String PREF_VERSION = "pref_version";
@@ -57,133 +81,188 @@ public abstract class Prefs {
     @Deprecated
     public static final String SELECTIONS = "selections";
 
-    /////////// Current preference/application state \\\\\\\\\\\
-    private static Context staticContext;
-    private static String activeLocale = null;
-    public static String filt_lang;
-    public static String sort_card;
-    public static String sort_set;
-
-
-    /////////// Other \\\\\\\\\\\
-    /** Set of all listeners currently active */
-    private static HashSet<Listener> listeners = new HashSet<>();
-
-
-    /** Set default preference values and update old preference setups to newer versions.
-     *  @param c A context within DominionPicker. */
-    public static void setup(Context c) {
-        // Get the current preference version
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
-        int version = getVersion(prefs);
-
-        // Set the default value for any undefined preferences
-        setDefaultValues(c);
-
-        // Update the preferences to the current version.
-        final int cur_ver = c.getResources()
-                             .getInteger(R.integer.pref_version);
-        switch(version) {
-            case -1: break; // preferences have been set for the first time
-            case 0: update0(prefs);
-            case 1: update1(prefs);
-            case 2: update2(prefs);
-            case 3: // v3 -> v4 adds filt_lang. Setting default values is all that is needed.
-            case 4: // v4 -> v5 adds sort_card. Setting default values is all that is needed.
-            case 5: update5(prefs);
+    /** Listener used to update the computed preferences when they change */
+    public static final Listener prefUpdater = new Listener() {
+        @Override
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+            switch(key) {
+                case APP_LANG: case FILT_LANG:
+                     updateLanguage(appContext);
+                     break;
+                case SORT_CARD:
+                     updateSort(appContext);
+                     break;
+            }
         }
-        prefs.edit().putInt(VERSION, cur_ver).commit();
+    };
 
-        // Load current configuration
-        staticContext = c.getApplicationContext();
-        parsePreference(c, FILT_LANG);
-        parsePreference(c, SORT_CARD);
 
-        // Check if the system language has changed, notify listeners of change
-        String locale = c.getResources().getConfiguration().locale.toString();
-        if(activeLocale != null && !activeLocale.equals(locale))
-            notifyChange(c, FILT_LANG);
-        activeLocale = locale;
+    //////////// Routine methods - used everywhere \\\\\\\\\\\\
+    /** Get the preferences for this app. */
+    public static SharedPreferences get(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    /** Register this listener to receive preference change notifications. */
+    /** Edit the preferences for this app. */
+    public static SharedPreferences.Editor edit(Context context) {
+        return get(context).edit();
+    }
+
+    /** Get the application context of this app (this is not the context of the UI thread).
+     *  Warning: This context is different from an Activity's context and should only
+     *  be used with care when no other contexts are available. */
+    public static Context getAppContext() {
+        return appContext;
+    }
+
+    /** Register a listener to receive preference change notifications. */
     public static synchronized void addListener(Listener listener) {
-        listeners.add(listener);
+        get(appContext).registerOnSharedPreferenceChangeListener(listener);
     }
 
     /** Unregister a listener. */
     public static synchronized void removeListener(Listener listener) {
-        listeners.remove(listener);
+        get(appContext).unregisterOnSharedPreferenceChangeListener(listener);
     }
 
-    /** Call this method when you change a preference.
-     *  All listeners will be notified of the change
-     *  @param key The key of the preference that was changed. */
-    public static synchronized void notifyChange(Context context, String key) {
-        parsePreference(context, key);
-        for(Listener listener : listeners) {
-            if(listener == null) listeners.remove(null);
-            else listener.prefChanged(key);
-        }
+    /** Retrieves the current language filter ({@link #COMP_LANG}). */
+    public static String languageFilter(Context context) {
+        return get(context).getString(COMP_LANG, "");
+    }
+
+    /** Retrieves the current card sort order ({@link #COMP_SORT_CARD}). */
+    public static String cardSort(Context context) {
+        return get(context).getString(COMP_SORT_CARD, "");
+    }
+
+    /** Retrieves the current card sort order ({@link #COMP_SORT_SET}). */
+    public static String setSort(Context context) {
+        return get(context).getString(COMP_SORT_SET, "");
     }
 
 
-    /** Parse a given preference into a usable sql filter
-     *  @param key key of the preference to parse
-     */
-    private static void parsePreference(Context c, String key) {
-        switch(key) {
-            case FILT_LANG:
-                // Load the default language and current filter
-                String[] def_lang = c.getResources().getStringArray(R.array.def_trans);
-                String[] pref_lang = PreferenceManager.getDefaultSharedPreferences(c)
-                                                .getString(key, c.getString(R.string.filt_lang_def))
-                                                .split(",");
-                // Replace "default" values with the default language for the set
-                for(int i=0; i< pref_lang.length; i++) {
-                    if(pref_lang[i].equals("0"))
-                        pref_lang[i] = def_lang[i];
-                }
-                // Group sets together by language code
-                HashMap<String, String> lang_map = new HashMap<>(2);
-                String language;
-                for (int set = 0; set < pref_lang.length; set++) {
-                    language = pref_lang[set];
-                    if (!lang_map.containsKey(language))
-                        lang_map.put(language, "");
-                    lang_map.put(language, lang_map.get(language)+","+set);
-                }
-                // Make an sql filter using the language preference
-                filt_lang = TableCard._LANG + "=NULL";
-                for (String lang : lang_map.keySet())
-                    filt_lang += " OR (" + TableCard._LANG + "='" + lang
-                               + "' AND " + TableCard._SET_ID + " IN ("
-                               + lang_map.get(lang).substring(1) + "))";
-                filt_lang = "("+filt_lang+")";
-                break;
-            case SORT_CARD:
-                String[] sort = PreferenceManager.getDefaultSharedPreferences(c)
-                                                 .getString(SORT_CARD, c.getString(R.string.sort_card_def))
-                                                 .split(",");
-                String[] sort_card_col = c.getResources().getStringArray(R.array.sort_card_col);
-                String[] sort_set_col = c.getResources().getStringArray(R.array.sort_set_col);
-                sort_card = "";
-                sort_set = "";
+    //////////// Preference setup (called on application start) \\\\\\\\\\\\
+    /** Set the preferences to default values, call for updates if needed and
+     *  retrieve the application context.
+     *  @param context A context within DominionPicker. */
+    public static void setup(Context context) {
+        appContext = context.getApplicationContext();
+        Resources res = context.getResources();
+        SharedPreferences pref = get(context);
 
-                if(sort.length != 0 && !"".equals(sort[0])) {
-                    for(String s : sort) {
-                        int i = Integer.parseInt(s);
-                        if(i == 1) break;
-                        sort_card += sort_card_col[i]+", ";
-                        if(!sort_set_col[i].equals(""))
-                            sort_set += ", "+sort_set_col[i];
-                    }
-                }
-                sort_card += sort_card_col[1];
-                if(sort_set.length() < 1)
-                    sort_set = sort_set_col[0];
-                else sort_set = sort_set.substring(2);
+        // Update the preferences as needed.
+        int oldVersion = getVersion(pref);
+        setDefaultValues(context);
+        final int newVersion = res.getInteger(R.integer.pref_version);
+        switch(oldVersion) {
+            case -1: break; // preferences have been set for the first time
+            case 0: update0(pref);
+            case 1: update1(pref);
+            case 2: update2(pref);
+            case 3: // v3 -> v4 adds filt_lang. Setting default values is all that is needed.
+            case 4: // v4 -> v5 adds sort_card. Setting default values is all that is needed.
+            case 5: update5(pref);
         }
+        pref.edit().putInt(VERSION, newVersion).commit();
+
+        // Compute all computed preferences and add the listener.
+        updateLanguage(context);
+        updateSort(context);
+        addListener(prefUpdater);
+    }
+
+
+    /** Verify that the language has not changed.
+     *  If it has, the language filter will be updated. */
+    public static void checkLanguage(Context context) {
+        if(!context.getString(R.string.language)
+                .equals(get(context).getString(APP_LANG, "")))
+            updateLanguage(context);
+    }
+
+
+    /** Update {@link #COMP_LANG} so it reflects {@link #APP_LANG}. */
+    private static void updateLanguage(Context context) {
+        // Determine current state
+        final Resources res = context.getResources();
+        final SharedPreferences pref = get(context);
+        final String[] defTrans  = res.getStringArray(R.array.def_trans);
+        String[] rawTrans = pref.getString(FILT_LANG, res.getString(R.string.filt_lang_def))
+                                .split(",");
+
+        // Update the app language if needed.
+        final String oldLang = pref.getString(APP_LANG, "");
+        final String newLang = res.getString(R.string.language);
+        if(!oldLang.equals(newLang))
+            pref.edit().putString(APP_LANG, newLang).commit();
+
+        // Replace "0" values with the default language for the set
+        for(int i=0; i<rawTrans.length; i++)
+            if(rawTrans[i].equals("0"))
+                rawTrans[i] = defTrans[i];
+
+        // Group sets together by language
+        HashMap<String, String> transMap = new HashMap<>(2);
+        for(int set=0; set<rawTrans.length; set++) {
+            String lang = rawTrans[set];
+            if(!transMap.containsKey(lang))
+                transMap.put(lang, "");
+            transMap.put(lang, transMap.get(lang)+","+set);
+        }
+
+        // Create an sql filter from transMap
+        String compTrans = TableCard._LANG + "=NULL";
+        for(String lang : transMap.keySet())
+            compTrans += " OR (" + TableCard._LANG + "='" + lang
+                         + "' AND " + TableCard._SET_ID + " IN ("
+                         + transMap.get(lang).substring(1) + "))";
+        compTrans = "("+compTrans+")";
+
+        // Apply that filter to the COMP_LANG preference.
+        if(!compTrans.equals(pref.getString(COMP_LANG, "")))
+            pref.edit()
+                .putString(COMP_LANG, compTrans)
+                .commit();
+    }
+
+
+    /** Update {@link #COMP_SORT_CARD} and {@link #COMP_SORT_SET}
+     *  so it matches the other preferences. */
+    private static void updateSort(Context context) {
+        Resources res = context.getResources();
+        SharedPreferences pref = get(context);
+        String[] rawSort = pref.getString(SORT_CARD, context.getString(R.string.sort_card_def))
+                               .split(",");
+        String[] colCard = res.getStringArray(R.array.sort_card_col);
+        String[] colSet  = res.getStringArray(R.array.sort_set_col);
+        String sortCard = "";
+        String sortSet  = "";
+
+        // If we have any sort rules, add them
+        if(rawSort.length != 0 && !"".equals(rawSort[0])) {
+            for(String rawId : rawSort) {
+                int id = Integer.parseInt(rawId);
+                // Sorting stops at the card name column
+                if(id == 1) break;
+                // Add a new card sort column
+                sortCard += colCard[id]+",";
+                // Not all sort ids apply to card sets
+                if(!colSet[id].equals(""))
+                    sortSet += colSet[id]+", ";
+            }
+        }
+
+        // The final sort category is by name
+        sortCard += colCard[1];
+        sortSet +=  colSet[0];
+
+        // Check if either has changed before writing them to memory
+        SharedPreferences.Editor edit = pref.edit();
+        if(!sortCard.equals(pref.getString(COMP_SORT_CARD, "")))
+            edit.putString(COMP_SORT_CARD, sortCard);
+        if(!sortSet.equals(pref.getString(COMP_SORT_SET, "")))
+            edit.putString(COMP_SORT_SET, sortSet);
+        edit.commit();
     }
 
 
@@ -221,13 +300,14 @@ public abstract class Prefs {
 
     /** Determine which version the preferences are on.
      *  @return The preference version, or -1 for new preferences. */
+    @SuppressWarnings("deprecation")
     private static int getVersion(SharedPreferences prefs) {
         // filt_set_base only in v0
-        if(prefs.contains("filt_set_base")) return 0;
+        if(prefs.contains(FILT_SET_BASE)) return 0;
         // filt_set in all versions except v0
         if(!prefs.contains(FILT_SET)) return -1;
         // The following distinguish v1
-        if(prefs.contains("pref_version")) return 1;
+        if(prefs.contains(PREF_VERSION)) return 1;
         String filt = prefs.getString(FILT_SET, "");
         if(filt.contains(OLD_SEP)) return 1;
         filt = prefs.getString(FILT_COST, "");
@@ -339,6 +419,7 @@ public abstract class Prefs {
     }
 
     /** Updates preferences from v5 to v6. Does not detect version number */
+    @SuppressWarnings("deprecation")
     private static void update5(SharedPreferences prefs) {
         SharedPreferences.Editor edit = prefs.edit();
 
@@ -438,28 +519,6 @@ public abstract class Prefs {
     }
 
 
-    /** Listeners added to {@link Prefs} will be notified when it learns of preference changes. */
-    public interface Listener {
-        /** This method is called when a preference is changed.
-         *  @param key The key identifying the changed preference */
-        void prefChanged(String key);
-    }
-
-    /** Get the context of this application (not the display thread)
-     *  Warning: This context behaves differently that the display context.
-     *  Handle with extreme care. */
-    public static Context getStaticContext() {
-        return staticContext;
-    }
-
-
-    /** Get the preferences for this app. */
-    public static SharedPreferences get(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context);
-    }
-
-    /** Edit the preferences for this app. */
-    public static SharedPreferences.Editor edit(Context context) {
-        return get(context).edit();
-    }
+    /** Listeners added to {@link Pref} will be notified when it learns of preference changes. */
+    public interface Listener extends SharedPreferences.OnSharedPreferenceChangeListener {}
 }

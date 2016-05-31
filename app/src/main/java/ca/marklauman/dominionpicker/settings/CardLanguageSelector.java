@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.CursorLoader;
@@ -55,7 +54,6 @@ public class CardLanguageSelector extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Prefs.setup(this);
         // View and action bar setup
         list = new ListView(this);
         list.setOnItemClickListener(this);
@@ -72,10 +70,10 @@ public class CardLanguageSelector extends AppCompatActivity
             languageNames.put(languageCodes[i], keyNames[i]);
 
         // Load value of this preference
-        prefVal = PreferenceManager.getDefaultSharedPreferences(this)
-                                   .getString(Prefs.FILT_LANG,
-                                              res.getString(R.string.filt_lang_def))
-                                   .split(",");
+        prefVal = Pref.get(this)
+                      .getString(Pref.FILT_LANG,
+                                 res.getString(R.string.filt_lang_def))
+                      .split(",");
 
         // Start to load the order of the sets.
         getSupportLoaderManager().initLoader(LoaderId.LANG_ORDER, null, this);
@@ -233,11 +231,9 @@ public class CardLanguageSelector extends AppCompatActivity
         list.invalidate();
         prefVal[requestCode] = res;
         String out = Utils.join(",", prefVal);
-        PreferenceManager.getDefaultSharedPreferences(this)
-                         .edit()
-                         .putString(Prefs.FILT_LANG, out)
-                         .commit();
-        Prefs.notifyChange(this, Prefs.FILT_LANG);
+        Pref.edit(this)
+            .putString(Pref.FILT_LANG, out)
+            .commit();
     }
 
 

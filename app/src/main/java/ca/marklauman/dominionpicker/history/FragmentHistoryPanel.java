@@ -1,6 +1,7 @@
 package ca.marklauman.dominionpicker.history;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,7 +16,7 @@ import android.widget.ListView;
 import ca.marklauman.dominionpicker.ActivitySupply;
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.LoaderId;
-import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.settings.Pref;
 import ca.marklauman.tools.CursorHandler;
 
 /** Represents a single panel in the History screen.
@@ -23,7 +24,7 @@ import ca.marklauman.tools.CursorHandler;
  *  @author Mark Lauman */
 public class FragmentHistoryPanel extends Fragment
                                   implements LoaderCallbacks<Cursor>, ListView.OnItemClickListener,
-                                             Prefs.Listener {
+                                             Pref.Listener {
 
     /** Parameter indicating the type of panel to use. */
     public static final String PARAM_TYPE = "type";
@@ -48,7 +49,7 @@ public class FragmentHistoryPanel extends Fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Prefs.addListener(this);
+        Pref.addListener(this);
 
         // Select the appropriate handler and loader id
         Bundle args = getArguments();
@@ -100,7 +101,7 @@ public class FragmentHistoryPanel extends Fragment
 
     @Override
     public void onDestroy() {
-        Prefs.removeListener(this);
+        Pref.removeListener(this);
         super.onDestroy();
     }
 
@@ -148,8 +149,8 @@ public class FragmentHistoryPanel extends Fragment
 
 
     @Override
-    public void prefChanged(String key) {
-        if(Prefs.FILT_LANG.equals(key))
+    public void onSharedPreferenceChanged(SharedPreferences pref, String key) {
+        if(Pref.COMP_LANG.equals(key))
             getActivity().getSupportLoaderManager()
                          .restartLoader(loaderId, null, this);
     }

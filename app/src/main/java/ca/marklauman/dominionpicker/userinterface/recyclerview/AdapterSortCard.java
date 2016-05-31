@@ -17,7 +17,7 @@ import java.util.Collections;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ca.marklauman.dominionpicker.R;
-import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.settings.Pref;
 import ca.marklauman.tools.recyclerview.dragdrop.BasicTouchAdapter;
 import ca.marklauman.tools.recyclerview.dragdrop.TouchCallback;
 
@@ -39,9 +39,9 @@ public class AdapterSortCard extends BasicTouchAdapter<AdapterSortCard.ViewHolde
         names = res.getStringArray(R.array.sort_card_names);
 
         // load the sort order
-        String[] prefOrder = Prefs.get(context)
-                                  .getString(Prefs.SORT_CARD, res.getString(R.string.sort_card_def))
-                                  .split(",");
+        String[] prefOrder = Pref.get(context)
+                                 .getString(Pref.SORT_CARD, res.getString(R.string.sort_card_def))
+                                 .split(",");
         sortOrder = new ArrayList<>(prefOrder.length);
         for(String id : prefOrder)
             sortOrder.add(Integer.parseInt(id));
@@ -87,7 +87,7 @@ public class AdapterSortCard extends BasicTouchAdapter<AdapterSortCard.ViewHolde
     public void onBindViewHolder(ViewHolder holder, int position) {
         int id = sortOrder.get(position);
         holder.text1.setText(names[id]);
-        holder.text2.setVisibility(id==0 ? View.VISIBLE : View.GONE);
+        holder.text2.setVisibility(id==1 ? View.VISIBLE : View.GONE);
     }
 
 

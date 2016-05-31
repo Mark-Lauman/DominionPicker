@@ -1,5 +1,6 @@
 package ca.marklauman.dominionpicker;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,26 +9,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.settings.Pref;
 import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterRules;
 import ca.marklauman.tools.recyclerview.ListDivider;
 
 /** The fragment governing the Rules screen.
  *  @author Mark Lauman */
 public class FragmentRules extends Fragment
-                           implements Prefs.Listener {
+                           implements Pref.Listener {
     /** Adapter used to load and display the rules */
     private AdapterRules adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Prefs.addListener(this);
+        Pref.addListener(this);
     }
 
     @Override
     public void onDestroy() {
-        Prefs.removeListener(this);
+        Pref.removeListener(this);
         super.onDestroy();
     }
 
@@ -60,9 +61,9 @@ public class FragmentRules extends Fragment
 
 
     @Override
-    public void prefChanged(String key) {
+    public void onSharedPreferenceChanged(SharedPreferences pref, String key) {
         switch(key) {
-            case Prefs.FILT_LANG: case Prefs.SORT_CARD:
+            case Pref.COMP_LANG: case Pref.COMP_SORT_SET:
                 if(adapter != null) adapter.reload();
                 break;
         }

@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.settings.Pref;
 
 /** Activity used to wrap the {@link FragmentMarket} when it is invoked from inside a supply.
  *  @author Mark Lauman */
@@ -18,7 +18,7 @@ public class ActivityMarket extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-        Prefs.setup(this);
+        Pref.checkLanguage(this);
 
         FrameLayout swapPanel = new FrameLayout(this);
         swapPanel.setId(R.id.content_frame);
@@ -39,7 +39,7 @@ public class ActivityMarket extends AppCompatActivity {
                                    .replace(R.id.content_frame, market)
                                    .commit();
 	}
-	
+
 	
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {

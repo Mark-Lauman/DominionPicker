@@ -15,7 +15,7 @@ import android.widget.TextView;
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.Provider;
 import ca.marklauman.dominionpicker.database.TableSupply;
-import ca.marklauman.dominionpicker.settings.Prefs;
+import ca.marklauman.dominionpicker.settings.Pref;
 import ca.marklauman.tools.CursorHandler;
 import ca.marklauman.tools.Utils;
 
@@ -106,7 +106,7 @@ class HandlerSamples extends SimpleCursorAdapter
                                      TableSupply._HIGH_COST});
         c.setUri(Provider.URI_SUPPLY);
         c.setSortOrder(TableSupply._ID);
-        c.setSelection(Prefs.filt_lang);
+        c.setSelection(Pref.languageFilter(mContext));
         return c;
     }
 

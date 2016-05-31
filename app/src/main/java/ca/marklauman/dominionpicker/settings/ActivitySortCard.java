@@ -21,7 +21,7 @@ public class ActivitySortCard extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Prefs.setup(this);
+        Pref.checkLanguage(this);
         setContentView(R.layout.activity_sort_card);
         ActionBar ab = getSupportActionBar();
         if(ab != null) ab.setDisplayHomeAsUpEnabled(true);
@@ -38,9 +38,9 @@ public class ActivitySortCard extends AppCompatActivity {
     @Override
     public void onStop() {
         super.onStop();
-        Prefs.edit(this)
-             .putString(Prefs.SORT_CARD, Utils.join(",", mAdapter.getSortOrder()))
-             .commit();
+        Pref.edit(this)
+            .putString(Pref.SORT_CARD, Utils.join(",", mAdapter.getSortOrder()))
+            .commit();
     }
 
     @Override
