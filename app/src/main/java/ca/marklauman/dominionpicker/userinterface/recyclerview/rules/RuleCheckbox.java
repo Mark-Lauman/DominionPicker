@@ -15,7 +15,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.settings.Pref;
-import ca.marklauman.dominionpicker.userinterface.DrawableLoader;
 import ca.marklauman.dominionpicker.userinterface.icons.Icon;
 
 /** Rule for {@link ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterRules}
@@ -50,8 +49,7 @@ public class RuleCheckbox extends Rule
         data = (Data)newValue;
         if(data.icon != null)
             vIcon.setImageDrawable(data.icon);
-        else DrawableLoader.into(vIcon)
-                           .place(data.iconRes);
+        else vIcon.setImageResource(data.iconRes);
         vText.setText(data.text);
         vText.setChecked( data.keySet == null
                               ? data.inverted != Pref.get(itemView.getContext())

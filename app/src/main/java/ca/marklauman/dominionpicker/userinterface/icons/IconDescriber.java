@@ -1,6 +1,7 @@
 package ca.marklauman.dominionpicker.userinterface.icons;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 
 import java.util.HashMap;
@@ -36,7 +37,7 @@ public class IconDescriber {
 
 
     /** Icon describer constructor.
-     *  Does not function correctly in Edit Mode. Check  */
+     *  Does not function correctly in edit mode. Check this before calling. */
     public IconDescriber(Context context) {
         res = context.getResources();
         defLanguage = res.getString(R.string.language);
@@ -70,52 +71,65 @@ public class IconDescriber {
 
 
     /** Create a description for the given debt value.
-     *  @param value The value displayed on the debt token. If null or the empty string, will
-     *               describe an empty debt token.
-     *  @param lang The language that this description should be in. Should be a two-letter
-     *              language code, such as "en" or "fr". If null, will be the default language.
-     *  @return An accurate description of that debt token. */
+     *  @param value The value on display inside this token. Null/empty for an empty token.
+     *  @param lang The two-letter code for this language (eg. "fr", "en", etc).
+     *  @return The debt token description for the given language.
+     *          If the language was not found, the default language is used instead. */
     public String forDebt(String value, String lang) {
-        if(lang == null) lang = defLanguage;
-        if(value == null || value.equals(""))
-            return debtEmpty.get(lang);
-        return res.getQuantityString(debtPlurals.get(lang), TableCard.parseVal(value), value);
+        return getString(value, lang, debtEmpty, debtPlurals);
     }
 
 
     /** Create a description for the given coin value.
-     *  @param value The value displayed on the coin icon. If null or the empty string, will
-     *               describe an empty coin.
-     *  @param lang The language that this description should be in. Should be a two-letter
-     *              language code, such as "en" or "fr". If null, will be the default language.
-     *  @return An accurate description of that coin icon. */
+     *  @param value The value on display inside this coin. Null/empty for an empty coin.
+     *  @param lang The two-letter code for this language (eg. "fr", "en", etc).
+     *  @return The coin description for the given language.
+     *          If the language was not found, the default language is used instead. */
     public String forCoin(String value, String lang) {
-        if(lang == null) lang = defLanguage;
-        if(value == null || value.equals(""))
-            return coinEmpty.get(lang);
-        return res.getQuantityString(coinPlurals.get(lang), TableCard.parseVal(value), value);
+        return getString(value, lang, coinEmpty, coinPlurals);
     }
 
 
     /** Create a description for the given victory point icon.
-     *  @param value The value displayed on the shield. If null or the empty string, will
-     *               describe an empty shield.
-     *  @param lang The language that this description should be in. Should be a two-letter
-     *              language code, such as "en" or "fr". If null, will be the default language.
-     *  @return An accurate description of the icon. */
+     *  @param value The value on display inside the shield. Null/empty for an empty shield.
+     *  @param lang The two-letter code for this language (eg. "fr", "en", etc).
+     *  @return The victory point description for the given language.
+      *         If the language was not found, the default language is used instead. */
     public String forVp(String value, String lang) {
-        if(lang == null) lang = defLanguage;
-        if(value == null || value.equals(""))
-            return vpEmpty.get(lang);
-        return res.getQuantityString(vpPlurals.get(lang), TableCard.parseVal(value), value);
+        return getString(value, lang, vpEmpty, vpPlurals);
     }
 
     /** Create a description for the given potion icon.
-     *  @param lang The language that this description should be in. Should be a two-letter
-     *              language code, such as "en" or "fr". If null, will be the default language.
-     *  @return An accurate description of the potion. */
+     *  @param lang The two-letter code for this language (eg. "fr", "en", etc).
+     *  @return The potion description for the given language.
+     *          If the language was not found, the default language is used instead. */
     public String forPotion(String lang) {
+        return getString(null, lang, potion, null);
+    }
+
+
+    /** Used internally to fetch descriptions.
+     *  @param value The value on display inside the icon. Null/empty for an empty icon.
+     *  @param lang The two-letter code for this language (eg. "fr", "en", etc).
+     *  @param empty The map of all the descriptions for an empty icon.
+     *  @param plurals The map of all descriptions for a full icon.
+     *  @return The icon description for the given language.
+     *          If the language was not found, the default language is used instead. */
+    private String getString(String value, String lang,
+                             HashMap<String, String> empty, HashMap<String, Integer> plurals) {
         if(lang == null) lang = defLanguage;
-        return potion.get(lang);
+        String desc;
+        if(value == null || value.equals("")) {
+            // Retrieve description for empty icons
+            desc = empty.get(lang);
+            if(desc == null) desc = empty.get(defLanguage);
+            return desc;
+        } else {
+            // Retrieve description for full icons
+            Integer plural = plurals.get(lang);
+            if(plural == null) plurals.get(defLanguage);
+            return res.getQuantityString((plural == null) ? 0 : plural,
+                                         TableCard.parseVal(value), value);
+        }
     }
 }

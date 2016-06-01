@@ -8,45 +8,42 @@ import android.widget.ImageView;
 
 import java.lang.ref.WeakReference;
 
-/** Used to load a drawable resource into an ImageView.
- *  Less efficient than Picasso, but works with VectorDrawables.
+/** Drawable resources take a while to load, but {@link Context#getDrawable(int)}
+ *  caches drawables to make it load faster in the future.
+ *  This calls {@link Context#getDrawable(int)} on each drawable passed
+ *  so they will be available quickly if needed.
  *  @author Mark Lauman */
-public class DrawableLoader extends AsyncTask<Integer, Void, Drawable> {
+public class DrawableLoader extends AsyncTask<Integer, Void, Void> {
 
     /** Application context (Retrieved from the ImageView) */
     private final Context context;
-    /** Weak reference to the ImageView.
-     *  This allows the ImageView to be garbage collected if the view is destroyed. */
-    private final WeakReference<ImageView> imageView;
 
 
-    private DrawableLoader(ImageView view) {
-        context = view.getContext().getApplicationContext();
-        imageView = new WeakReference<>(view);
+    private DrawableLoader(Context context) {
+        this.context = context.getApplicationContext();
     }
 
 
-    /** Create a DrawableLoader that will insert the drawable into the given ImageView. */
-    public static DrawableLoader into(ImageView view) {
-        return new DrawableLoader(view);
+    public static void load(Context context, Integer... resIds) {
+        DrawableLoader loader = new DrawableLoader(context);
+        loader.execute(resIds);
     }
 
-    /** Start loading the given drawable resource and place it in the ImageView. */
-    public void place(int drawableResource) {
-        execute(drawableResource);
+
+    public static void load(Context context, int... resIds) {
+        Integer[] newIds = new Integer[resIds.length];
+        for(int i=0; i<resIds.length; i++)
+            newIds[i] = resIds[i];
+        load(context, newIds);
     }
+
 
     /** Load the drawable resource on another thread. */
     @Override
-    protected Drawable doInBackground(Integer... drawableRes) {
-        return ContextCompat.getDrawable(context, drawableRes[0]);
-    }
-
-    /** Apply the drawable resource on the UI thread. */
-    @Override
-    protected void onPostExecute(Drawable drawable) {
-        if(imageView == null || drawable == null) return;
-        final ImageView view = imageView.get();
-        if(view != null) view.setImageDrawable(drawable);
+    protected Void doInBackground(Integer... resIds) {
+        if(resIds != null)
+            for(Integer resId : resIds)
+                ContextCompat.getDrawable(context, resId);
+        return null;
     }
 }
