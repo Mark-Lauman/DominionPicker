@@ -1,12 +1,8 @@
 package ca.marklauman.dominionpicker.userinterface;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.support.v4.content.ContextCompat;
-import android.widget.ImageView;
-
-import java.lang.ref.WeakReference;
 
 /** Drawable resources take a while to load, but {@link Context#getDrawable(int)}
  *  caches drawables to make it load faster in the future.
