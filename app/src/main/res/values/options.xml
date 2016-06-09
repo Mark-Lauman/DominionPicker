@@ -24,7 +24,7 @@
         <item>set_name</item>
         <item>name</item>
         <item>release_date</item>
-        <item>cost, potion</item>
+        <item>cost, debt, potion</item>
         <item>type</item>
         <item>CASE language WHEN \'en\' THEN 1 ELSE 0 END, language</item>
         <item>promotional DESC</item>
