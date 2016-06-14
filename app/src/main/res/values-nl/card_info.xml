@@ -29,6 +29,12 @@
         <item quantity="other">%1$s Munten</item>
     </plurals>
 
+    <string name="debt">Debt</string>
+    <plurals name="format_debt">
+        <item quantity="one">%1$s Debt</item>
+        <item quantity="other">%1$s Debt</item>
+    </plurals>
+
     <string name="potion">Toverdrank</string>
 
     <string name="vp">Winstpunt</string>

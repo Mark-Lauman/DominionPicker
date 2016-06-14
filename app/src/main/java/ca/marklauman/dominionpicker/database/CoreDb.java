@@ -13,20 +13,10 @@ import ca.marklauman.dominionpicker.R;
 class CoreDb extends SQLiteAssetHelper {
     /** The file that the database is stored in. */
     static final String FILE_NAME = "core.db";
-    /** The version of this database, set on first construction */
-    private static int version;
 
     public CoreDb(Context c) {
-        super(c, FILE_NAME, null, checkVersion(c));
-        setForcedUpgrade(version);
-    }
-
-    /** Check what version this database is on and update {@link #version}
-     *  @param c Local context.
-     * @return The version number */
-    private static int checkVersion(Context c) {
-        version = c.getResources().getInteger(R.integer.db_ver_core);
-        return version;
+        super(c, FILE_NAME, null, c.getResources().getInteger(R.integer.db_ver_core));
+        setForcedUpgrade();
     }
 
     /** Perform an sql query on this database */

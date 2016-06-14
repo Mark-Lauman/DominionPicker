@@ -11,7 +11,6 @@ import java.util.HashSet;
 
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.TableCard;
-import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterCards;
 import ca.marklauman.tools.Utils;
 
 /** This class manages the SharedPreferences of this activity.
@@ -153,7 +152,6 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
         // Update the preferences as needed.
         int oldVersion = getVersion(pref);
         setDefaultValues(context);
-        final int newVersion = res.getInteger(R.integer.pref_version);
         switch(oldVersion) {
             case -1: break; // preferences have been set for the first time
             case 0: update0(pref);
@@ -162,8 +160,10 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
             case 3: // v3 -> v4 adds filt_lang. Setting default values is all that is needed.
             case 4: // v4 -> v5 adds sort_card. Setting default values is all that is needed.
             case 5: update5(pref);
+            case 6: update6(pref);
         }
-        pref.edit().putInt(VERSION, newVersion).commit();
+        pref.edit().putInt(VERSION, res.getInteger(R.integer.pref_version))
+            .commit();
 
         // Compute all computed preferences and add the listener.
         updateLanguage(context);
@@ -511,6 +511,13 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
         edit.remove(SELECTIONS);
 
         edit.commit();
+    }
+
+    /** Updates preferences from v6 to v7. Does not detect version number */
+    private static void update6(SharedPreferences prefs) {
+        prefs.edit()
+             .putString(FILT_LANG, prefs.getString(FILT_LANG, "")+",0")
+             .commit();
     }
 
     /** Check if a value is within a given range */

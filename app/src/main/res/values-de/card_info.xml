@@ -29,6 +29,12 @@
         <item quantity="other">%1$s M&#252;nzen</item>
     </plurals>
 
+    <string name="debt">Debt</string>
+    <plurals name="format_debt">
+        <item quantity="one">%1$s Debt</item>
+        <item quantity="other">%1$s Debt</item>
+    </plurals>
+
     <string name="potion">Trank</string>
 
     <string name="vp">Siegpunkte</string>

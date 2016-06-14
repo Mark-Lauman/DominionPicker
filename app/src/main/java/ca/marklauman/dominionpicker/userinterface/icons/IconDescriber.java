@@ -1,7 +1,6 @@
 package ca.marklauman.dominionpicker.userinterface.icons;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 
 import java.util.HashMap;

@@ -221,7 +221,7 @@ public class ActivitySupply extends AppCompatActivity
 
 
     @Override
-    public void onSharedPreferenceChanged(SharedPreferences oref, String key) {
+    public void onSharedPreferenceChanged(SharedPreferences pref, String key) {
         switch(key) {
             case Pref.COMP_LANG: case Pref.COMP_SORT_CARD:
                 getSupportLoaderManager().restartLoader(LoaderId.SUPPLY_CARDS, null, cardLoader);

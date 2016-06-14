@@ -230,7 +230,8 @@ public class FragmentMarket extends Fragment
                 // Filter out cards not visible in the picker, and event cards
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
                 String sel = FragmentPicker.getFilter(pref)
-                             +" AND "+TableCard._TYPE_EVENT+"=0";
+                             +" AND "+TableCard._TYPE_EVENT+"=0"
+                             +" AND "+TableCard._TYPE_LANDMARK+"=0";
 
                 // Filter out cards excluded by the card list
                 String filt_card = pref.getString(Pref.FILT_CARD, "");
