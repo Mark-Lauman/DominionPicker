@@ -13,7 +13,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -98,8 +97,8 @@ public class MainActivity extends AppCompatActivity
 
         // setup the active fragment
         FragmentManager fm = getSupportFragmentManager();
-        int sel = PreferenceManager.getDefaultSharedPreferences(this)
-                                   .getInt(Pref.ACTIVE_TAB, getResources().getInteger(R.integer.def_tab));
+        int sel = Pref.get(this)
+                      .getInt(Pref.ACTIVE_TAB, getResources().getInteger(R.integer.def_tab));
         if(1 < sel) vSubmit.hide();
         active = fm.findFragmentById(R.id.content_frame);
         if(active == null) {
@@ -183,9 +182,9 @@ public class MainActivity extends AppCompatActivity
             ((FragmentRules)active).save();
 
         navAdapt.setSelection(position);
-        PreferenceManager.getDefaultSharedPreferences(this).edit()
-                         .putInt(Pref.ACTIVE_TAB, position)
-                         .commit();
+        Pref.edit(this)
+            .putInt(Pref.ACTIVE_TAB, position)
+            .commit();
 
         FragmentTransaction t = getSupportFragmentManager().beginTransaction();
         switch(position) {

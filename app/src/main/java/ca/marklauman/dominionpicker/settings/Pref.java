@@ -268,7 +268,7 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
 
     /** Set the default preference values (current version) */
     private static void setDefaultValues(Context c) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(c);
+        SharedPreferences prefs = get(c);
         SharedPreferences.Editor edit = prefs.edit();
         Resources res = c.getResources();
 
@@ -515,6 +515,7 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
 
     /** Updates preferences from v6 to v7. Does not detect version number */
     private static void update6(SharedPreferences prefs) {
+        // Add one more language for the Empires set
         prefs.edit()
              .putString(FILT_LANG, prefs.getString(FILT_LANG, "")+",0")
              .commit();

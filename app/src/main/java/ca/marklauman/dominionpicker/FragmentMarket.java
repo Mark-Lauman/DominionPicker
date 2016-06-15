@@ -3,7 +3,6 @@ package ca.marklauman.dominionpicker;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
@@ -227,8 +226,8 @@ public class FragmentMarket extends Fragment
                 // Announce the new market
                 hasNewStock = true;
 
-                // Filter out cards not visible in the picker, and event cards
-                SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
+                // Filter out cards not visible in the picker, and special cards
+                SharedPreferences pref = Pref.get(getContext());
                 String sel = FragmentPicker.getFilter(pref)
                              +" AND "+TableCard._TYPE_EVENT+"=0"
                              +" AND "+TableCard._TYPE_LANDMARK+"=0";
