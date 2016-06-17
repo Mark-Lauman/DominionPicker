@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dominion Picker</string>
+    <string name="language">pl</string>
+
+    <string name="menu_open">Otwórz menu</string>
+    <string name="menu_close">Zamknij menu</string>
+
+    <string name="picker">Karty</string>
+    <string name="toggle_all">Wybierz wszystkie</string>
+    <string name="shuffle">Przetasuj</string>
+    <string name="req_card">Wymagane</string>
+    <string name="card_details">Szczegóły karty</string>
+    <!-- Read as "Alchemist-Informationen" or "Stein der Weisen-Informationen" -->
+    <string name="card_details_button">%1$s - szczegółowe informacje</string>
+    <string name="more_k">Potrzeba więcej kart królestwa! (%1$s)</string>
+    <string name="yw_no_bane">Młoda Wiedźma - bez karty Zguby</string>
+    <string name="all_filtered">Wszystkie karty odfiltrowano.</string>
+
+    <string name="games">Gry</string>
+    <string name="sample_games">Przykładowe</string>
+    <string name="favorite_games">Ulubione</string>
+    <string name="game_history">Historia</string>
+    <string name="no_hist">Nowe zestawy kart będą zapisywane tutaj.</string>
+    <plurals name="hist_card">
+        <item quantity="one">%d karta</item>
+        <item quantity="few">%d karty</item>
+        <item quantity="many">%d kart</item>
+    </plurals>
+    <string name="hist_plat">Platyna</string>
+    <string name="hist_shelter">Shelter</string>
+
+    <string name="market_title">Czarny Rynek</string>
+    <string name="market_begin">Stworzono nowy Czarny Rynek z listy kart</string>
+    <string name="market_draw">Dobierz kartę</string>
+    <string name="market_pass">Nie kupuję</string>
+    <string name="market_sold_out">Wyprzedane!</string>
+
+    <string name="supply_no_name">Twój Zestaw!</string>
+    <string name="supply_colonies">Użyj Kolonii i Platyn</string>
+    <string name="supply_shelters">Użyj Shelter</string>
+    <string name="young_witch_bane">Zguba</string>
+    <string name="change_fav">Zmień ulubiony</string>
+    <string name="name_me">Nazwij zestaw</string>
+    <string name="save">Zapisz</string>
+
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Default translation to use for each set. Sorted by set id. -->
+    <!--
+    <string-array name="def_trans">
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+        <item>en</item>
+    </string-array>
+    -->
+    <string name="coin">Moneta</string>
+    <plurals name="format_coin">
+        <item quantity="one">%1$s moneta</item>
+        <item quantity="few">%1$s monety</item>
+        <item quantity="many">%1$s monet</item>
+    </plurals>
+
+    <string name="debt">Debt</string>
+    <plurals name="format_debt">
+        <item quantity="one">%1$s Dług</item>
+        <item quantity="few">%1$s Długi</item>
+        <item quantity="many">%1$s Długów</item>
+    </plurals>
+
+    <string name="potion">Potion</string>
+
+    <string name="vp">Punkty Zwycięstwa</string>
+    <plurals name="format_vp">
+        <item quantity="one">%1$s Punkt Zwycięstwa</item>
+        <item quantity="few">%1$s Punkty Zwycięstwa</item>
+        <item quantity="many">%1$s Punktów Zwycięstwa</item>
+    </plurals>
+
+    <string name="card_no_info">Ta karta nie została jeszcze przetłumaczona na polski.\n\nPosiadasz tę kartę? Jeżeli tak, proszę wyślij tłumaczenie Markowi żeby mógł je dodać do aplikacji.</string>
+    <string name="card_mail_subject">Karta do Dominiona # %1$d (%2$s)</string>
+
+</resources>
