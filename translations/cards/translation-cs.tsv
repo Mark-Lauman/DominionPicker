@@ -1,0 +1,157 @@
+_id	language	name	type	requires	text	rules
+1	cs	Èerný trh 	Action			
+2	cs	Tajná skrý¹ 	Treasure			
+3	cs	Posel 	Action			
+4	cs	Hrazená vesnice 	Action			
+6	cs	Sklepení 	Action			
+7	cs	Kaple 	Action			
+8	cs	Hradní pøíkop 	Action Reaction			
+9	cs	Kancléø 	Action			
+10	cs	Vesnice 	Action			
+11	cs	Døevorubec 	Action			
+12	cs	Dílna 	Action			
+13	cs	Úøedník 	Action Attack			
+14	cs	Hostina 	Action			
+15	cs	Zahrady 	Victory			
+16	cs	Milice 	Action Attack			
+17	cs	Lichváø 	Action			
+18	cs	Pøestavba 	Action			
+19	cs	Kovárna 	Action			
+20	cs	©pion 	Action Attack			
+21	cs	Zlodìj 	Action Attack			
+22	cs	Trùnní sál 	Action			
+23	cs	Zasedání rady 	Action			
+24	cs	Jarmark 	Action			
+25	cs	Laboratoø 	Action			
+26	cs	Knihovna 	Action			
+27	cs	Trh 	Action			
+28	cs	Dùl 	Action			
+29	cs	Èarodìjnice 	Action Attack			
+30	cs	Dobrodruh 	Action			
+31	cs	Bylinkáø 	Action			
+32	cs	Uèedník 	Action			
+33	cs	Pøemìna 	Action			
+34	cs	Vinice 	Victory			
+35	cs	Lékárník 	Action			
+36	cs	Vidìní 	Action Attack			
+37	cs	Univerzita 	Action			
+38	cs	Alchymista 	Action			
+39	cs	Alchymistùv poskok 	Action Attack			
+40	cs	Kámen mudrcù 	Treasure			
+41	cs	Golem	Action			
+42	cs	Posedlost 	Action			
+43	cs	Hradní nádvoøí 	Action			
+44	cs	Pì¹ák 	Action			
+45	cs	Tajemná komnata 	Action Reaction			
+46	cs	Velký sál 	Action Victory			
+47	cs	Ma¹kary 	Action			
+48	cs	Chudinská ètvr» 	Action			
+49	cs	Správce 	Action			
+50	cs	Podvodník 	Action Attack			
+51	cs	Studna pøání 	Action			
+52	cs	Baron	Action			
+53	cs	Most 	Action			
+54	cs	Spiklenec 	Action			
+55	cs	Mìditepec 	Action			
+56	cs	Hutì 	Action			
+57	cs	Dùlní osada 	Action			
+58	cs	Zvìd 	Action			
+59	cs	Vévoda 	Victory			
+60	cs	Slu¾ebník 	Action Attack			
+61	cs	Sabotér 	Action Attack			
+62	cs	®aláøník 	Action Attack			
+63	cs	Obchodní místo 	Action			
+64	cs	Dar poddaných 	Action			
+65	cs	Pokrok 	Action			
+66	cs	Harém 	Treasure Victory			
+67	cs	©lechtici 	Action Victory			
+68	cs	Pùjèka 	Treasure			
+69	cs	Obchodní stezka 	Action			
+70	cs	Strá¾ní vì¾ 	Action Reaction			
+71	cs	Biskup 	Action			
+72	cs	Památník 	Action			
+73	cs	Kamenolom 	Treasure			
+74	cs	Talisman 	Treasure			
+75	cs	Dìlnická ètvr» 	Action			
+76	cs	Mìsto 	Action			
+77	cs	Kontraband 	Treasure			
+78	cs	Zastavárna 	Action			
+79	cs	Mincovna 	Action			
+80	cs	Mastièkáø 	Action Attack			
+81	cs	Dav 	Action Attack			
+82	cs	Královská peèe» 	Treasure			
+83	cs	Trezor 	Action			
+84	cs	Odvá¾livec 	Treasure			
+85	cs	Hrdloøez 	Action Attack			
+86	cs	Velký trh 	Action			
+87	cs	Bohatství 	Treasure			
+88	cs	Banka 	Treasure			
+89	cs	Rùst 	Action			
+90	cs	Kování 	Action			
+91	cs	Královský dvùr 	Action			
+92	cs	Podomní obchodník 	Action			
+93	cs	Embargo 	Action			
+94	cs	Pøístav 	Action Duration			
+95	cs	Maják 	Action Duration			
+96	cs	Domorodá vesnice 	Action			
+97	cs	Lovec perel 	Action			
+98	cs	Velvyslanec 	Action Attack			
+99	cs	Rybáøská vesnice 	Action Duration			
+100	cs	Strá¾ní ko¹ 	Action			
+101	cs	Pa¹eráci 	Action			
+102	cs	Skladi¹tì 	Action			
+103	cs	Karavana 	Action Duration			
+104	cs	Kapsáø 	Action Attack			
+105	cs	Ostrov 	Action Victory			
+106	cs	Navigátor 	Action			
+107	cs	Pirátská loï 	Action Attack			
+108	cs	Zachránce 	Action			
+109	cs	Moøská èarodìjnice 	Action Attack			
+110	cs	Mapa pokladu 	Action			
+111	cs	Bazar 	Action			
+112	cs	Objevitel 	Action			
+113	cs	Loï duchù 	Action Attack			
+114	cs	Obchodní loï 	Action Duration			
+115	cs	Strá¾nice 	Action Duration			
+116	cs	Taktik 	Action Duration			
+117	cs	Pokladnice 	Action			
+118	cs	Lodìnice 	Action Duration			
+154	cs	Osada 	Action			
+155	cs	Vì¹tkynì 	Action Attack			
+156	cs	Zvìøinec 	Action			
+157	cs	Selský dvùr 	Action			
+158	cs	Koò¹tí handlíøi 	Action Reaction			
+159	cs	Nové provedení 	Action			
+160	cs	Turnaj 	Action			
+161	cs	Mladá èarodìjka 	Action Attack			
+162	cs	Sklizeò 	Action			
+163	cs	Roh hojnosti 	Treasure			
+164	cs	Lovci 	Action			
+165	cs	©a¹ek 	Action Attack			
+166	cs	Tr¾i¹tì 	Victory			
+180	cs	Køi¾ovatka 	Action			
+181	cs	Vévodkynì 	Action			
+182	cs	Koèièí zlato 	Treasure Reaction			
+183	cs	Výstavba 	Action			
+184	cs	Oáza 	Action			
+185	cs	Vì¹tírna 	Action Attack			
+186	cs	Pleticha 	Action			
+187	cs	Tunel 	Victory Reaction			
+188	cs	V¹eumìl 	Action			
+189	cs	Zbojník 	Action Attack			
+190	cs	Tábor nomádù 	Action			
+191	cs	Hedvábná stezka 	Victory			
+192	cs	Koøenáø 	Action			
+193	cs	Kramáø 	Action Reaction			
+194	cs	Úkryt 	Treasure			
+195	cs	Kartograf 	Action			
+196	cs	Vyslanectví 	Action			
+197	cs	Handlíø 	Action			
+198	cs	Silnice 	Action			
+199	cs	Neèestné zisky 	Treasure			
+200	cs	Hostinec 	Action			
+201	cs	Mandarín 	Action			
+202	cs	Markrabì 	Action Attack			
+203	cs	Stáje 	Action			
+204	cs	Pohranièní vesnice 	Action			
+205	cs	Úrodná zemì 	Victory			

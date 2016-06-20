@@ -1,0 +1,256 @@
+_id	language	name	type	requires	text	rules
+1	fi	Musta pörssi 	Action			
+2	fi	Kätkö 	Treasure			
+3	fi	Lähettiläs 	Action			
+4	fi	Linnoitettu kylä 	Action			
+5	fi	Kuvernööri 	Action			
+6	fi	Kellari 	Action			
+7	fi	Kappeli 	Action			
+8	fi	Vallihauta 	Action Reaction			
+9	fi	Kansleri 	Action			
+10	fi	Kylä 	Action			
+11	fi	Metsuri 	Action			
+12	fi	Työpaja 	Action			
+13	fi	Byrokraatti 	Action Attack			
+14	fi	Pidot 	Action			
+15	fi	Puutarha 	Victory			
+16	fi	Nostoväki 	Action Attack			
+17	fi	Koronkiskuri 	Action			
+18	fi	Muutostyö 	Action			
+19	fi	Takomo 	Action			
+20	fi	Vakooja 	Action Attack			
+21	fi	Varas 	Action Attack			
+22	fi	Valtaistuinsali 	Action			
+23	fi	Raatihuone 	Action			
+24	fi	Juhlat 	Action			
+25	fi	Laboratorio 	Action			
+26	fi	Kirjasto 	Action			
+27	fi	Tori 	Action			
+28	fi	Kaivos 	Action			
+29	fi	Noita 	Action Attack			
+30	fi	Seikkailija 	Action			
+31	fi	Yrttikauppias 	Action			
+32	fi	Oppipoika 	Action			
+33	fi	Transmutaatio 	Action			
+34	fi	Viinitarha 	Victory			
+35	fi	Apteekkari 	Action			
+36	fi	Ennemalja 	Action Attack			
+37	fi	Yliopisto 	Action			
+38	fi	Alkemisti 	Action			
+39	fi	Apuolento 	Action Attack			
+40	fi	Viisasten kivi 	Treasure			
+41	fi	Golem	Action			
+42	fi	Riivaus 	Action			
+43	fi	Sisäpiha 	Action			
+44	fi	Apuri 	Action			
+45	fi	Salainen kammio 	Action Reaction			
+46	fi	Suuri sali 	Action Victory			
+47	fi	Naamiaiset 	Action			
+48	fi	Hökkelikylä 	Action			
+49	fi	Käskynhaltija 	Action			
+50	fi	Huijari 	Action Attack			
+51	fi	Toivomuskaivo 	Action			
+52	fi	Paroni 	Action			
+53	fi	Silta 	Action			
+54	fi	Vehkeilijä 	Action			
+55	fi	Kupariseppä 	Action			
+56	fi	Rautapaja 	Action			
+57	fi	Kaivoskylä 	Action			
+58	fi	Tiedustelija 	Action			
+59	fi	Herttua 	Victory			
+60	fi	Kätyri 	Action Attack			
+61	fi	Tihulainen 	Action Attack			
+62	fi	Kiduttaja 	Action Attack			
+63	fi	Kauppa-asema 	Action			
+64	fi	Kymmenykset 	Action			
+65	fi	Parannustyö 	Action			
+66	fi	Haaremi 	Treasure Victory			
+67	fi	Aateliset 	Action Victory			
+68	fi	Laina 	Treasure			
+69	fi	Kauppareitti 	Action			
+70	fi	Vartiotorni 	Action Reaction			
+71	fi	Piispa 	Action			
+72	fi	Monumentti 	Action			
+73	fi	Louhos 	Treasure			
+74	fi	Talismaani 	Treasure			
+75	fi	Työläiskylä 	Action			
+76	fi	Kaupunki 	Action			
+77	fi	Hämärät varat 	Treasure			
+78	fi	Tilitoimisto 	Action			
+79	fi	Rahapaja 	Action			
+80	fi	Petkuttaja 	Action Attack			
+81	fi	Rahvas 	Action Attack			
+82	fi	Sinetti 	Treasure			
+83	fi	Holvi 	Action			
+84	fi	Palkkio 	Treasure			
+85	fi	Roistot 	Action Attack			
+86	fi	Suurtori 	Action			
+87	fi	Aarre 	Treasure			
+88	fi	Pankki 	Treasure			
+89	fi	Laajennus 	Action			
+90	fi	Ahjo 	Action			
+91	fi	Kuninkaan Hovi 	Action			
+92	fi	Kulkukauppias 	Action			
+93	fi	Saarto 	Action			
+94	fi	Satama 	Action Duration			
+95	fi	Majakka 	Action Duration			
+96	fi	Alkuasukaskylä 	Action			
+97	fi	Helmenkalastaja 	Action			
+98	fi	Suurlähettiläs 	Action Attack			
+99	fi	Kalastajakylä 	Action Duration			
+100	fi	Tähystäjä 	Action			
+101	fi	Salakuljettajat 	Action			
+102	fi	Varasto 	Action			
+103	fi	Karavaani 	Action Duration			
+104	fi	Taskuvaras 	Action Attack			
+105	fi	Saari 	Action Victory			
+106	fi	Luotsi 	Action			
+107	fi	Merirosvolaiva 	Action Attack			
+108	fi	Hylkysukeltaja 	Action			
+109	fi	Merennoita 	Action Attack			
+110	fi	Aarrekartta 	Action			
+111	fi	Basaari 	Action			
+112	fi	Tutkimusmatkailija 	Action			
+113	fi	Aavelaiva 	Action Attack			
+114	fi	Kauppalaiva 	Action Duration			
+115	fi	Rannikkoasema 	Action Duration			
+116	fi	Taktikko 	Action Duration			
+117	fi	Aarrekammio 	Action			
+118	fi	Laituri 	Action Duration			
+119	fi	Köyhäintalo 	Action			
+120	fi	Kerjäläinen 	Action Reaction			
+121	fi	Aseenkantaja 	Action			
+122	fi	Kulkuri 	Action			
+123	fi	Keräilijä 	Action			
+124	fi	Erakko 	Action			
+125	fi	Kauppatori 	Action Reaction			
+126	fi	Tietäjä 	Action			
+127	fi	Kellarivarasto 	Action			
+128	fi	Katulapsi 	Action Attack			
+129	fi	Asevarasto 	Action			
+130	fi	Ruumisvaunu 	Action Attack			
+131	fi	Sarka 	Victory			
+132	fi	Linnoitus 	Action			
+133	fi	Reppuryssä 	Action Attack			
+134	fi	Vandaali 	Action Attack Looter			
+135	fi	Virkanimitys 	Action			
+136	fi	Rotta 	Action			
+137	fi	Haaskalintu 	Action			
+138	fi	Trubaduuri 	Action			
+139	fi	Hurja joukko 	Action			
+140	fi	Rosvoleiri 	Action			
+141	fi	Katakombit 	Action			
+142	fi	Jaarli 	Action			
+143	fi	Väärennös 	Treasure			
+144	fi	Okkultisti 	Action Attack Looter			
+145	fi	Haudanryöstäjä 	Action			
+146	fi	Romukauppias 	Action			
+147	fi	Ritarit 	Action Attack Knight			
+148	fi	Mystikko 	Action			
+149	fi	Ryöstöretki 	Action Attack			
+150	fi	Kunnostus 	Action			
+151	fi	Ryöstäjä 	Action			
+152	fi	Alttari 	Action			
+153	fi	Metsästysmaat 	Action			
+154	fi	Kyläraitti 	Action			
+155	fi	Ennustaja 	Action Attack			
+156	fi	Villieläintarha 	Action			
+157	fi	Talonpoikaiskylä 	Action			
+158	fi	Hevoskauppias 	Action Reaction			
+159	fi	Jälleenrakennus 	Action			
+160	fi	Turnajaiset 	Action			
+161	fi	Nuori noita 	Action Attack			
+162	fi	Sadonkorjuu 	Action			
+163	fi	Runsaudensarvi 	Treasure			
+164	fi	Jahti 	Action			
+165	fi	Narri 	Action Attack			
+166	fi	Markkinat 	Victory			
+167	fi	Kynttilänvalaja 	Action			
+168	fi	Kivenhakkaaja 	Action			
+169	fi	Lääkäri 	Action			
+170	fi	Mestariteos 	Treasure			
+171	fi	Neuvonantaja 	Action			
+172	fi	Suihkulähde 	Action			
+173	fi	Verottaja 	Action Attack			
+174	fi	Airut 	Action			
+175	fi	Leipuri 	Action			
+176	fi	Teurastaja 	Action			
+177	fi	Reissumies 	Action			
+178	fi	Kilta 	Action			
+179	fi	Manaaja 	Action Attack			
+180	fi	Tienristeys 	Action			
+181	fi	Herttuatar 	Action			
+182	fi	Katinkulta 	Treasure Reaction			
+183	fi	Grynderi 	Action			
+184	fi	Keidas 	Action			
+185	fi	Oraakkeli 	Action Attack			
+186	fi	Juoni 	Action			
+187	fi	Tunneli 	Victory Reaction			
+188	fi	Monitaituri 	Action			
+189	fi	Jalo maantierosvo 	Action Attack			
+190	fi	Paimentolaisleiri 	Action			
+191	fi	Silkkitie 	Victory			
+192	fi	Maustekauppias 	Action			
+193	fi	Kaupustelija 	Action Reaction			
+194	fi	Piilo 	Treasure			
+195	fi	Kartanpiirtäjä 	Action			
+196	fi	Lähetystö 	Action			
+197	fi	Tinkijä 	Action			
+198	fi	Maantie 	Action			
+199	fi	Epäonnen saalis 	Treasure			
+200	fi	Majatalo 	Action			
+201	fi	Mandariini 	Action			
+202	fi	Markiisi 	Action Attack			
+203	fi	Hevostalli 	Action			
+204	fi	Rajakylä 	Action			
+205	fi	Viljelysmaat 	Victory			
+207	fi	Kuninkaallinen raha 	Treasure Reserve			
+208	fi	Kisälli 	Action Traveller			
+209	fi	Maalainen 	Action Traveller			
+210	fi	Rotanmetsästäjä 	Action Reserve			
+211	fi	Hävitys 	Action			
+212	fi	Amuletti 	Action Duration			
+213	fi	Karavaanivartija 	Action Duration Reaction			
+214	fi	Tyrmä 	Action Duration			
+215	fi	Varusteet 	Action Duration			
+216	fi	Opas 	Action Reserve			
+217	fi	Kopio 	Action Reserve			
+218	fi	Harakka 	Action			
+219	fi	Kuriiri 	Action			
+220	fi	Saituri 	Action			
+221	fi	Satamakaupunki 	Action			
+222	fi	Samooja 	Action			
+223	fi	Muodonmuutos 	Action Reserve			
+224	fi	Käsityöläinen 	Action			
+225	fi	Siltapeikko 	Action Attack Duration			
+226	fi	Kaukomaat 	Action Reserve Victory			
+227	fi	Jättiläinen 	Action Attack			
+228	fi	Kummitusmetsä 	Action Attack Duration			
+229	fi	Kadonnut kaupunki 	Action			
+230	fi	Reliikki 	Treasure Attack			
+231	fi	Kuninkaalliset vaunut 	Action Reserve			
+232	fi	Tarinankertoja 	Action			
+233	fi	Suonoita 	Action Attack Duration			
+234	fi	Aarrekasa 	Treasure			
+235	fi	Viinikauppias 	Action Reserve			
+236	fi	Palkollinen 	Action Duration			
+237	fi	Almut 	Event			
+238	fi	Vippi 	Event			
+239	fi	Seikkailu 	Event			
+240	fi	Säästöt 	Event			
+241	fi	Tiedustelupartio 	Event			
+242	fi	Kiertelevät markkinat 	Event			
+243	fi	Kokko 	Event			
+244	fi	Tutkimusmatka 	Event			
+245	fi	Lautta 	Event			
+246	fi	Suunnitelma 	Event			
+247	fi	Tehtävä 	Event			
+248	fi	Pyhiinvaellus 	Event			
+249	fi	Tanssiaiset 	Event			
+250	fi	Ryöstöretki 	Event			
+251	fi	Merireitti 	Event			
+252	fi	Vaihtokauppa 	Event			
+253	fi	Unohdetut kyvyt 	Event			
+254	fi	Koulutus 	Event			
+255	fi	Perintö 	Event			
+256	fi	Reitin etsintä 	Event			

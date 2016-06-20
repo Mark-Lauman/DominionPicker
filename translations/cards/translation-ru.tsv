@@ -1,0 +1,51 @@
+_id	language	name	type	requires	text	rules
+6	ru	Погреба 	Action			
+7	ru	Часовня 	Action			
+8	ru	Ров 	Action Reaction			
+9	ru	Канцлер 	Action			
+10	ru	Деревня 	Action			
+11	ru	Лесоруб 	Action			
+12	ru	Мастерская 	Action			
+13	ru	Чиновник 	Action Attack			
+14	ru	Пир 	Action			
+15	ru	Сады 	Victory			
+16	ru	Ополчение 	Action Attack			
+17	ru	Ростовщик 	Action			
+18	ru	Реконструкция 	Action			
+19	ru	Кузница 	Action			
+20	ru	Шпион 	Action Attack			
+21	ru	Вор 	Action Attack			
+22	ru	Тронный зал 	Action			
+23	ru	Зал совета 	Action			
+24	ru	Ярмарка 	Action			
+25	ru	Лаборатория 	Action			
+26	ru	Библиотека 	Action			
+27	ru	Рынок 	Action			
+28	ru	Рудник 	Action			
+29	ru	Ведьма 	Action Attack			
+30	ru	Искатель приключений 	Action			
+43	ru	Внутренний двор 	Action			
+44	ru	Заложник 	Action			
+45	ru	Тайник 	Action Reaction			
+46	ru	Зал приёмов 	Action Victory			
+47	ru	Маскарад 	Action			
+48	ru	Трущобы 	Action			
+49	ru	Управляющий 	Action			
+50	ru	Мошенник 	Action Attack			
+51	ru	Колодец желаний 	Action			
+52	ru	Барон 	Action			
+53	ru	Мост 	Action			
+54	ru	Заговорщик 	Action			
+55	ru	Медник 	Action			
+56	ru	Кузнечный цех 	Action			
+57	ru	Шахтёрский посёлок 	Action			
+58	ru	Следопыт 	Action			
+59	ru	Герцог 	Victory			
+60	ru	Приспешник 	Action Attack			
+61	ru	Саботажник 	Action Attack			
+62	ru	Мучитель 	Action Attack			
+63	ru	Фактория 	Action			
+64	ru	Подать 	Action			
+65	ru	Улучшение 	Action			
+66	ru	Гарем 	Treasure Victory			
+67	ru	Вельможи 	Action Victory			

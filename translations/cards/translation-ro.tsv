@@ -1,0 +1,26 @@
+_id	language	name	type	requires	text	rules
+6	ro	Pivniţă 	Action			
+7	ro	Capela 	Action			
+8	ro	Șanț 	Action Reaction			
+9	ro	Cancelar 	Action			
+10	ro	Sat 	Action			
+11	ro	Tăietorul de Lemne 	Action			
+12	ro	Atelier 	Action			
+13	ro	Birocrat 	Action Attack			
+14	ro	Ospăţ 	Action			
+15	ro	Ogrody 	Victory			
+16	ro	Gardă 	Action Attack			
+17	ro	Cămătar 	Action			
+18	ro	Remodelare 	Action			
+19	ro	Fierar 	Action			
+20	ro	Spion 	Action Attack			
+21	ro	Hoțul 	Action Attack			
+22	ro	Sala tronului 	Action			
+23	ro	Sala de Consiliu 	Action			
+24	ro	Festival 	Action			
+25	ro	Laborator 	Action			
+26	ro	Bibliotecă 	Action			
+27	ro	Piaţă 	Action			
+28	ro	Mină 	Action			
+29	ro	Vrăjitoare 	Action Attack			
+30	ro	Aventurier 	Action			

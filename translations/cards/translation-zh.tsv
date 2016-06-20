@@ -1,0 +1,91 @@
+_id	language	name	type	requires	text	rules
+1	zh	黑市 	Action			
+3	zh	使節 	Action			
+6	zh	地窖	Action			
+7	zh	禮拜堂	Action			
+8	zh	護城河	Action Reaction			
+9	zh	大臣	Action			
+10	zh	村莊	Action			
+11	zh	伐木工	Action			
+12	zh	工作室	Action			
+13	zh	官員	Action Attack			
+14	zh	晚宴	Action			
+15	zh	花園	Victory			
+16	zh	義勇軍	Action Attack			
+17	zh	錢莊	Action			
+18	zh	重建	Action			
+19	zh	鐵匠	Action			
+20	zh	間諜	Action Attack			
+21	zh	小偷	Action Attack			
+22	zh	王座	Action			
+23	zh	議事廳	Action			
+24	zh	慶典	Action			
+25	zh	實驗室	Action			
+26	zh	圖書館	Action			
+27	zh	市集	Action			
+28	zh	礦坑	Action			
+29	zh	女巫	Action Attack			
+30	zh	冒險者	Action			
+31	zh	Herbalist	Action			
+32	zh	學徒 	Action			
+33	zh	Transmute	Action			
+34	zh	Vineyard	Victory			
+35	zh	Apothecary	Action			
+36	zh	占卜 	Action Attack			
+37	zh	大學 	Action			
+38	zh	煉金術士 	Action			
+39	zh	Familiar	Action Attack			
+40	zh	哲人石 	Treasure			
+41	zh	魔像 	Action			
+42	zh	附身 	Action			
+43	zh	庭院	Action			
+44	zh	小兵	Action			
+45	zh	密室	Action Reaction			
+46	zh	大殿	Action Victory			
+47	zh	化妝舞會	Action			
+48	zh	貧民窟	Action			
+49	zh	男侍	Action			
+50	zh	騙徒	Action Attack			
+51	zh	許願井	Action			
+52	zh	男爵	Action			
+53	zh	橋樑	Action			
+54	zh	共謀者	Action			
+55	zh	銅匠	Action			
+56	zh	打鐵舖	Action			
+57	zh	礦業小鎮	Action			
+58	zh	斥候	Action			
+59	zh	公爵 	Victory			
+60	zh	爪牙 	Action Attack			
+61	zh	炸彈客 	Action Attack			
+62	zh	酷刑者 	Action Attack			
+63	zh	商棧 	Action			
+64	zh	朝貢 	Action			
+65	zh	升級 	Action			
+66	zh	後宮 	Treasure Victory			
+67	zh	貴族 	Action Victory			
+93	zh	封港令 	Action			
+94	zh	港口 	Action Duration			
+95	zh	燈塔 	Action Duration			
+96	zh	原生部落 	Action			
+97	zh	採珠人 	Action			
+98	zh	大使 	Action Attack			
+99	zh	漁村 	Action Duration			
+100	zh	瞭望員 	Action			
+101	zh	走私者 	Action			
+102	zh	倉庫 	Action			
+103	zh	商隊 	Action Duration			
+104	zh	扒手 	Action Attack			
+105	zh	島嶼 	Action Victory			
+106	zh	領航員 	Action			
+107	zh	海盜船 	Action Attack			
+108	zh	打撈員 	Action			
+109	zh	海巫 	Action Attack			
+110	zh	藏寶圖 	Action			
+111	zh	趕集 	Action			
+112	zh	探險者 	Action			
+113	zh	幽靈船 	Action Attack			
+114	zh	商船 	Action Duration			
+115	zh	前哨 	Action Duration			
+116	zh	策士 	Action Duration			
+117	zh	金庫 	Action			
+118	zh	碼頭 	Action Duration			

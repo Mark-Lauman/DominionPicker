@@ -1,0 +1,128 @@
+_id	language	name	type	requires	text	rules
+1	ko	암시장 	Action			
+2	ko	비자금 	Treasure			
+3	ko	사절 	Action			
+6	ko	저장고 	Action			
+7	ko	예배당 	Action			
+8	ko	해자 	Action Reaction			
+9	ko	법관 	Action			
+10	ko	마을 	Action			
+11	ko	나무꾼 	Action			
+12	ko	작업장 	Action			
+13	ko	관료 	Action Attack			
+14	ko	연회 	Action			
+15	ko	정원 	Victory			
+16	ko	민병대 	Action Attack			
+17	ko	대금업자 	Action			
+18	ko	개조 	Action			
+19	ko	대장장이 	Action			
+20	ko	첩자 	Action Attack			
+21	ko	도둑 	Action Attack			
+22	ko	알현실 	Action			
+23	ko	평의회실 	Action			
+24	ko	축제 	Action			
+25	ko	실험실 	Action			
+26	ko	도서관 	Action			
+27	ko	시장 	Action			
+28	ko	광산 	Action			
+29	ko	마녀 	Action Attack			
+30	ko	모험가 	Action			
+43	ko	안마당 	Action			
+44	ko	졸개 	Action			
+45	ko	비밀의 방 	Action Reaction			
+46	ko	대회당 	Action Victory			
+47	ko	가면 무도회 	Action			
+48	ko	빈민가 	Action			
+49	ko	집사 	Action			
+50	ko	사기꾼 	Action Attack			
+51	ko	소원의 우물 	Action			
+52	ko	남작 	Action			
+53	ko	다리 	Action			
+54	ko	공모자 	Action			
+55	ko	동세공인 	Action			
+56	ko	철공소 	Action			
+57	ko	광산촌 	Action			
+58	ko	정찰병 	Action			
+59	ko	공작 	Victory			
+60	ko	하수인 	Action Attack			
+61	ko	파괴 공작원 	Action Attack			
+62	ko	고문기술자 	Action Attack			
+63	ko	교역소 	Action			
+64	ko	공물 	Action			
+65	ko	개선 	Action			
+66	ko	하렘 	Treasure Victory			
+67	ko	귀족 	Action Victory			
+93	ko	입항금지 	Action			
+94	ko	정박소 	Action Duration			
+95	ko	등대 	Action Duration			
+96	ko	원주민 마을 	Action			
+97	ko	진주조개잡이 	Action			
+98	ko	대사 	Action Attack			
+99	ko	어촌 	Action Duration			
+100	ko	망루 	Action			
+101	ko	밀수업자 	Action			
+102	ko	창고 	Action			
+103	ko	대상 	Action Duration			
+104	ko	소매치기 	Action Attack			
+105	ko	섬 	Action Victory			
+106	ko	항해사 	Action			
+107	ko	해적선 	Action Attack			
+108	ko	인양작업 	Action			
+109	ko	바다 마녀 	Action Attack			
+110	ko	보물지도 	Action			
+111	ko	상점가 	Action			
+112	ko	탐험가 	Action			
+113	ko	유령선 	Action Attack			
+114	ko	상선 	Action Duration			
+115	ko	전진기지 	Action Duration			
+116	ko	책략가 	Action Duration			
+117	ko	보물창고 	Action			
+118	ko	부두 	Action Duration			
+119	ko	빈민구제소 	Action			
+120	ko	거지 	Action Reaction			
+121	ko	종자 	Action			
+122	ko	부랑자 	Action			
+123	ko	식량 약탈자 	Action			
+124	ko	은둔자 	Action			
+125	ko	시장 광장 	Action Reaction			
+126	ko	현자 	Action			
+127	ko	저장실 	Action			
+128	ko	양아치 	Action Attack			
+129	ko	무기고 	Action			
+130	ko	시체운반수레 	Action Attack			
+131	ko	봉토 	Victory			
+132	ko	요새 	Action			
+133	ko	철물상 	Action Attack			
+134	ko	습격자 	Action Attack Looter			
+135	ko	행렬 	Action			
+136	ko	쥐떼 	Action			
+137	ko	쓰레기 뒤지는 사람 	Action			
+138	ko	방랑 시인 	Action			
+139	ko	부적응자 	Action			
+140	ko	산적 소굴 	Action			
+141	ko	납골당 	Action			
+142	ko	백작 	Action			
+143	ko	위조 	Treasure			
+144	ko	광신도 	Action Attack Looter			
+145	ko	도굴꾼 	Action			
+146	ko	고물상 	Action			
+147	ko	기사 	Action Attack Knight			
+148	ko	신비주의자 	Action			
+149	ko	강탈 	Action Attack			
+150	ko	재건축 	Action			
+151	ko	방랑자 	Action			
+152	ko	제단 	Action			
+153	ko	사냥터 	Action			
+167	ko	촛대제작자 	Action			
+168	ko	석공 	Action			
+169	ko	의사 	Action			
+170	ko	명작 	Treasure			
+171	ko	고문 	Action			
+172	ko	광장 	Action			
+173	ko	세금징수원 	Action Attack			
+174	ko	전령 	Action			
+175	ko	제빵사 	Action			
+176	ko	도살자 	Action			
+177	ko	여행자 	Action			
+178	ko	상인조합 	Action			
+179	ko	예언자 	Action Attack			

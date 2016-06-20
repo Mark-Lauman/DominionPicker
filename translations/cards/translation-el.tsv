@@ -1,0 +1,26 @@
+_id	language	name	type	requires	text	rules
+6	el	Cellar	Action			
+7	el	Παρεκκλήσι 	Action			
+8	el	Τάφρος 	Action Reaction			
+9	el	Καγκελάριος 	Action			
+10	el	Village	Action			
+11	el	Ξυλοκόπος 	Action			
+12	el	Workshop	Action			
+13	el	Bureaucrat	Action Attack			
+14	el	Γιορτή 	Action			
+15	el	Κήποι 	Victory			
+16	el	Πολιτοφυλακή 	Action Attack			
+17	el	Τοκογλύφος 	Action			
+18	el	Remodel	Action			
+19	el	Σιδεράς 	Action			
+20	el	Κατάσκοπος 	Action Attack			
+21	el	Thief	Action Attack			
+22	el	Αίθουσα του θρόνου 	Action			
+23	el	Council Room	Action			
+24	el	Festival	Action			
+25	el	Εργαστήριο 	Action			
+26	el	Βιβλιοθήκη 	Action			
+27	el	Market	Action			
+28	el	Mine	Action			
+29	el	Witch	Action Attack			
+30	el	Τυχοδιώκτης 	Action			

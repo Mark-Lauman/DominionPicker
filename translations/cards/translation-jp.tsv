@@ -1,0 +1,257 @@
+_id	language	name	type	requires	text	rules
+1	jp	闇市場 	Action			
+2	jp	へそくり 	Treasure			
+3	jp	公使 	Action			
+4	jp	囲郭村 	Action			
+5	jp	総督 	Action			
+6	jp	地下貯蔵庫 	Action			
+7	jp	礼拝堂 	Action			
+8	jp	堀 	Action Reaction			
+9	jp	宰相 	Action			
+10	jp	村 	Action			
+11	jp	木こり 	Action			
+12	jp	工房 	Action			
+13	jp	役人 	Action Attack			
+14	jp	祝宴 	Action			
+15	jp	庭園 	Victory			
+16	jp	民兵 	Action Attack			
+17	jp	金貸し 	Action			
+18	jp	改築 	Action			
+19	jp	鍛冶屋 	Action			
+20	jp	密偵 	Action Attack			
+21	jp	泥棒 	Action Attack			
+22	jp	玉座の間 	Action			
+23	jp	議事堂 	Action			
+24	jp	祝祭 	Action			
+25	jp	研究所 	Action			
+26	jp	書庫 	Action			
+27	jp	市場 	Action			
+28	jp	鉱山 	Action			
+29	jp	魔女 	Action Attack			
+30	jp	冒険者 	Action			
+31	jp	薬草商 	Action			
+32	jp	弟子 	Action			
+33	jp	変成 	Action			
+34	jp	ブドウ園 	Victory			
+35	jp	薬師 	Action			
+36	jp	念視の泉 	Action Attack			
+37	jp	大学 	Action			
+38	jp	錬金術師 	Action			
+39	jp	使い魔 	Action Attack			
+40	jp	賢者の石 	Treasure			
+41	jp	ゴーレム 	Action			
+42	jp	支配 	Action			
+43	jp	中庭 	Action			
+44	jp	手先 	Action			
+45	jp	秘密の部屋 	Action Reaction			
+46	jp	大広間 	Action Victory			
+47	jp	仮面舞踏会 	Action			
+48	jp	貧民街 	Action			
+49	jp	執事 	Action			
+50	jp	詐欺師 	Action Attack			
+51	jp	願いの井戸 	Action			
+52	jp	男爵 	Action			
+53	jp	橋 	Action			
+54	jp	共謀者 	Action			
+55	jp	銅細工師 	Action			
+56	jp	鉄工所 	Action			
+57	jp	鉱山の村 	Action			
+58	jp	偵察員 	Action			
+59	jp	公爵 	Victory			
+60	jp	寵臣 	Action Attack			
+61	jp	破壊工作員 	Action Attack			
+62	jp	拷問人 	Action Attack			
+63	jp	交易所 	Action			
+64	jp	貢物 	Action			
+65	jp	改良 	Action			
+66	jp	ハーレム 	Treasure Victory			
+67	jp	貴族 	Action Victory			
+68	jp	借金 	Treasure			
+69	jp	交易路 	Action			
+70	jp	望楼 	Action Reaction			
+71	jp	司教 	Action			
+72	jp	記念碑 	Action			
+73	jp	石切場 	Treasure			
+74	jp	護符 	Treasure			
+75	jp	労働者の村 	Action			
+76	jp	都市 	Action			
+77	jp	禁制品 	Treasure			
+78	jp	会計所 	Action			
+79	jp	造幣所 	Action			
+80	jp	香具師 	Action Attack			
+81	jp	大衆 	Action Attack			
+82	jp	玉璽 	Treasure			
+83	jp	保管庫 	Action			
+84	jp	投機 	Treasure			
+85	jp	ならず者 	Action Attack			
+86	jp	大市場 	Action			
+87	jp	隠し財産 	Treasure			
+88	jp	銀行 	Treasure			
+89	jp	拡張 	Action			
+90	jp	鍛造 	Action			
+91	jp	宮廷 	Action			
+92	jp	行商人 	Action			
+93	jp	抑留 	Action			
+94	jp	停泊所 	Action Duration			
+95	jp	灯台 	Action Duration			
+96	jp	原住民の村 	Action			
+97	jp	真珠採り 	Action			
+98	jp	大使 	Action Attack			
+99	jp	漁村 	Action Duration			
+100	jp	見張り 	Action			
+101	jp	密輸人 	Action			
+102	jp	倉庫 	Action			
+103	jp	隊商 	Action Duration			
+104	jp	巾着切り 	Action Attack			
+105	jp	島 	Action Victory			
+106	jp	航海士 	Action			
+107	jp	海賊船 	Action Attack			
+108	jp	引揚水夫 	Action			
+109	jp	海の妖婆 	Action Attack			
+110	jp	宝の地図 	Action			
+111	jp	バザー 	Action			
+112	jp	探検家 	Action			
+113	jp	幽霊船 	Action Attack			
+114	jp	商船 	Action Duration			
+115	jp	前哨地 	Action Duration			
+116	jp	策士 	Action Duration			
+117	jp	宝物庫 	Action			
+118	jp	船着場 	Action Duration			
+119	jp	빈민구제소 	Action			
+120	jp	거지 	Action Reaction			
+121	jp	종자 	Action			
+122	jp	부랑자 	Action			
+123	jp	식량 약탈자 	Action			
+124	jp	은둔자 	Action			
+125	jp	시장 광장 	Action Reaction			
+126	jp	현자 	Action			
+127	jp	저장실 	Action			
+128	jp	양아치 	Action Attack			
+129	jp	무기고 	Action			
+130	jp	시체운반수레 	Action Attack			
+131	jp	봉토 	Victory			
+132	jp	요새 	Action			
+133	jp	철물상 	Action Attack			
+134	jp	습격자 	Action Attack Looter			
+135	jp	행렬 	Action			
+136	jp	쥐떼 	Action			
+137	jp	쓰레기 뒤지는 사람 	Action			
+138	jp	방랑 시인 	Action			
+139	jp	부적응자 	Action			
+140	jp	산적 소굴 	Action			
+141	jp	납골당 	Action			
+142	jp	백작 	Action			
+143	jp	위조 	Treasure			
+144	jp	광신도 	Action Attack Looter			
+145	jp	도굴꾼 	Action			
+146	jp	고물상 	Action			
+147	jp	기사 	Action Attack Knight			
+148	jp	신비주의자 	Action			
+149	jp	강탈 	Action Attack			
+150	jp	재건축 	Action			
+151	jp	방랑자 	Action			
+152	jp	제단 	Action			
+153	jp	사냥터 	Action			
+154	jp	村落 	Action			
+155	jp	占い師 	Action Attack			
+156	jp	移動動物園 	Action			
+157	jp	農村 	Action			
+158	jp	馬商人 	Action Reaction			
+159	jp	再建 	Action			
+160	jp	馬上槍試合 	Action			
+161	jp	魔女娘 	Action Attack			
+162	jp	収穫 	Action			
+163	jp	豊穣の角笛 	Treasure			
+164	jp	狩猟団 	Action			
+165	jp	道化師 	Action Attack			
+166	jp	品評会 	Victory			
+167	jp	蝋燭職人 	Action			
+168	jp	石工 	Action			
+169	jp	医者 	Action			
+170	jp	名品 	Treasure			
+171	jp	助言者 	Action			
+172	jp	広場 	Action			
+173	jp	収税吏 	Action Attack			
+174	jp	伝令官 	Action			
+175	jp	パン屋 	Action			
+176	jp	肉屋 	Action			
+177	jp	熟練工 	Action			
+178	jp	商人ギルド 	Action			
+179	jp	預言者 	Action Attack			
+180	jp	岐路 	Action			
+181	jp	公爵夫人 	Action			
+182	jp	愚者の黄金 	Treasure Reaction			
+183	jp	開発 	Action			
+184	jp	オアシス 	Action			
+185	jp	神託 	Action Attack			
+186	jp	画策 	Action			
+187	jp	坑道 	Victory Reaction			
+188	jp	よろずや 	Action			
+189	jp	義賊 	Action Attack			
+190	jp	遊牧民の野営地 	Action			
+191	jp	シルクロード 	Victory			
+192	jp	香辛料商人 	Action			
+193	jp	交易人 	Action Reaction			
+194	jp	埋蔵金 	Treasure			
+195	jp	地図職人 	Action			
+196	jp	大使館 	Action			
+197	jp	値切り屋 	Action			
+198	jp	街道 	Action			
+199	jp	不正利得 	Treasure			
+200	jp	宿屋 	Action			
+201	jp	官吏 	Action			
+202	jp	辺境伯 	Action Attack			
+203	jp	厩舎 	Action			
+204	jp	国境の村 	Action			
+205	jp	農地 	Victory			
+206	jp	王子 	Action			
+207	jp	法貨 	Treasure Reserve			
+208	jp	騎士見習い 	Action Traveller			
+209	jp	農民 	Action Traveller			
+210	jp	鼠捕り 	Action Reserve			
+211	jp	倒壊 	Action			
+212	jp	魔除け 	Action Duration			
+213	jp	隊商の護衛 	Action Duration Reaction			
+214	jp	地下牢 	Action Duration			
+215	jp	道具 	Action Duration			
+216	jp	案内人 	Action Reserve			
+217	jp	複製 	Action Reserve			
+218	jp	カササギ 	Action			
+219	jp	使者 	Action			
+220	jp	守銭奴 	Action			
+221	jp	港町 	Action			
+222	jp	山守 	Action			
+223	jp	変容 	Action Reserve			
+224	jp	工匠 	Action			
+225	jp	橋の下のトロル 	Action Attack Duration			
+226	jp	遠隔地 	Action Reserve Victory			
+227	jp	巨人 	Action Attack			
+228	jp	呪いの森 	Action Attack Duration			
+229	jp	失われた都市 	Action			
+230	jp	遺物 	Treasure Attack			
+231	jp	御料車 	Action Reserve			
+232	jp	語り部 	Action			
+233	jp	沼の妖婆 	Action Attack Duration			
+234	jp	掘出物 	Treasure			
+235	jp	ワイン商 	Action Reserve			
+236	jp	雇人 	Action Duration			
+237	jp	施し 	Event			
+238	jp	借入 	Event			
+239	jp	探索 	Event			
+240	jp	保存 	Event			
+241	jp	偵察隊 	Event			
+242	jp	移動遊園地 	Event			
+243	jp	焚火 	Event			
+244	jp	探検 	Event			
+245	jp	渡し船 	Event			
+246	jp	立案 	Event			
+247	jp	使節団 	Event			
+248	jp	巡礼 	Event			
+249	jp	舞踏会 	Event			
+250	jp	奇襲 	Event			
+251	jp	海路 	Event			
+252	jp	交易 	Event			
+253	jp	失われた技術 	Event			
+254	jp	鍛錬 	Event			
+255	jp	相続 	Event			
+256	jp	誘導 	Event			

@@ -1,0 +1,51 @@
+_id	language	name	type	requires	text	rules
+6	hu	Pince 	Action			
+7	hu	Kápolna 	Action			
+8	hu	Várárok 	Action Reaction			
+9	hu	Kancellár 	Action			
+10	hu	Falu 	Action			
+11	hu	Favágó 	Action			
+12	hu	M?hely 	Action			
+13	hu	Hivatalnok 	Action Attack			
+14	hu	Lakoma 	Action			
+15	hu	Park 	Victory			
+16	hu	Polgár?rség 	Action Attack			
+17	hu	Uzsorás 	Action			
+18	hu	Átépítés 	Action			
+19	hu	Kovácsm?hely 	Action			
+20	hu	Kém 	Action Attack			
+21	hu	Tolvaj 	Action Attack			
+22	hu	Trónterem 	Action			
+23	hu	Tanácsterem 	Action			
+24	hu	Fesztivál 	Action			
+25	hu	Laboratórium 	Action			
+26	hu	Könyvtár 	Action			
+27	hu	Piac 	Action			
+28	hu	Bánya 	Action			
+29	hu	Boszorkány 	Action Attack			
+30	hu	Kalandor 	Action			
+43	hu	Palotaudvar 	Action			
+44	hu	Csatlós 	Action			
+45	hu	Rejtekszoba 	Action Reaction			
+46	hu	Nagyterem 	Action Victory			
+47	hu	Álarcosbál 	Action			
+48	hu	Kunyhótelep 	Action			
+49	hu	Intéz? 	Action			
+50	hu	Szélhámos 	Action Attack			
+51	hu	Kívánságok kútja 	Action			
+52	hu	Báró 	Action			
+53	hu	Híd 	Action			
+54	hu	Összeesküv? 	Action			
+55	hu	Rézm?ves 	Action			
+56	hu	Kohó 	Action			
+57	hu	Bányászfalu 	Action			
+58	hu	Felderít? 	Action			
+59	hu	Herceg 	Victory			
+60	hu	Udvaronc 	Action Attack			
+61	hu	Szabot?r 	Action Attack			
+62	hu	Kínvallató 	Action Attack			
+63	hu	Vándorpiac 	Action			
+64	hu	Sarc 	Action			
+65	hu	Fejlesztés 	Action			
+66	hu	Hárem 	Treasure Victory			
+67	hu	Nemesség 	Action Victory			

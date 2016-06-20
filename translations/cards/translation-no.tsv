@@ -1,0 +1,54 @@
+_id	language	name	type	requires	text	rules
+2	no	Skjult 	Treasure			
+4	no	Befestet landsby 	Action			
+5	no	Guvernør 	Action			
+6	no	Kjeller 	Action			
+7	no	Kapell 	Action			
+8	no	Vollgrav 	Action Reaction			
+9	no	Rikskansler 	Action			
+10	no	Landsby 	Action			
+11	no	Tømmerhogger 	Action			
+12	no	Verksted 	Action			
+13	no	Byråkrat 	Action Attack			
+14	no	Gilde 	Action			
+15	no	Park 	Victory			
+16	no	Hird 	Action Attack			
+17	no	Pengeutlåner 	Action			
+18	no	Ombygging 	Action			
+19	no	Smie 	Action			
+20	no	Spion 	Action Attack			
+21	no	Tyv 	Action Attack			
+22	no	Tronsal 	Action			
+23	no	Rådssal 	Action			
+24	no	Festival 	Action			
+25	no	Laboratorium 	Action			
+26	no	Bibliotek 	Action			
+27	no	Marked 	Action			
+28	no	Gruve 	Action			
+29	no	Heks 	Action Attack			
+30	no	Eventyrer 	Action			
+43	no	Slottshage 	Action			
+44	no	Kongsmann 	Action			
+45	no	Lønnkammer 	Action Reaction			
+46	no	Storsal 	Action Victory			
+47	no	Maskerade 	Action			
+48	no	Fattigkvarter 	Action			
+49	no	Kammerherre 	Action			
+50	no	Bedrager 	Action Attack			
+51	no	Ønskebrønn 	Action			
+52	no	Baron	Action			
+53	no	Bro 	Action			
+54	no	Renkesmed 	Action			
+55	no	Kobbersmed 	Action			
+56	no	Jernverk 	Action			
+57	no	Bergstad 	Action			
+58	no	Speider 	Action			
+59	no	Greve 	Victory			
+60	no	Lensmann 	Action Attack			
+61	no	Sabotør 	Action Attack			
+62	no	Skarpretter 	Action Attack			
+63	no	Handelsstasjon 	Action			
+64	no	Tiende 	Action			
+65	no	Oppgradering 	Action			
+66	no	Harem	Treasure Victory			
+67	no	Adelsmenn 	Action Victory			

@@ -1,6 +1,17 @@
-English    UTF-8
-French     ISO-8859-15
-Dutch      ISO-8859-15
-Portuguese ISO-8859-15
-German	   ISO-8859-15
-Italian	   UTF-8
+cs Czeck      ISO-8859-2
+de German     ISO-8859-15
+el Greek      ISO-8859-7
+en English    UTF-8
+es Spanish    UTF-8
+fi Finnish    ISO-8859-15
+fr French     ISO-8859-15
+hu Hungarian  ISO-8859-15
+it Italian    UTF-8
+jp Japanese   UTF-8
+ko Korean     UTF-8
+nl Dutch      ISO-8859-15
+no Norwegian  ISO-8859-15
+pt Portuguese ISO-8859-15
+ro Romanian   UTF-8
+ru Russian    UTF-8
+zh Chinese    UTF-8
