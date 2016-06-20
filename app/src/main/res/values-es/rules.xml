@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rules">Reglas</string>
+    <string name="limit_supply">Tama&#241;o del suministro</string>
+    <integer name="limit_supply_def">10</integer>
+
+    <string name="rules_expansions">Expansiones</string>
+    <string name="rules_promo">Cartas Promo</string>
+    <string name="rules_cost">Coste de la carta</string>
+
+    <string name="rules_other">Otras</string>
+    <string name="rules_curse">Maldiciones</string>
+
+    <integer name="limit_event_def">2</integer>
+
+</resources>

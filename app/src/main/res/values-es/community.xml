@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="community">Comunidad</string>
+    <string name="community_info">Mejora esta aplicaci&#243;n.</string>
+
+    <string name="email_mark">Escribe a Mark</string>
+    <string name="email_info">&#201;l ha hecho esta aplicaci&#243;n.</string>
+    <string name="no_email">Env&#237; un correo electr&#243;nico a android@marklauman.ca</string>
+
+    <string name="visit_website">Visita el sitio web</string>
+    <string name="no_browser">Puedes encontrarlo en\n%1$s</string>
+
+    <string name="github">Visita GitHub</string>
+    <string name="github_info">Echa un vistazo a las caracter&#237;sticas planeadas.</string>
+    <string name="github_url">https://github.com/Mark-Lauman/DominionPicker/issues</string>
+
+    <string name="contribute">Contribuidores</string>
+    <string name="contribute_info">Mejorando esta aplicaci&#243;n.</string>
+    <string name="thanks">Dominion Picker no sería lo que es sin vuestra ayuda. Gracias.</string>
+    <string name="credits"><![CDATA[
+        <b>Inspiraci&#243;n y testeo</b><br/>
+        \t\tAlison Lauman<br/>
+        \t\tAdam Shambrook<br/>
+        <br/>
+        <b>Traducci&#243;n al Italiano e ideas</b><br/>
+        \t\tLeonardo Finetti<br/><br/>
+        <b>Traducci&#243;n al Portugu&#233;s</b><br/>
+        \t\tLeonardo Costa<br/>
+        <br/>
+        <b>Base de datos de partidas</b><br/>
+        \t\tDerek Kniffin<br/>
+        <br/>
+        <b>Traducci&#243;n al Holand&#233;s</b><br/>
+        \t\tHans Hoogers<br/>
+        <br/>
+        <b>Traducci&#243;n al Franc&#233;s</b><br/>
+        \t\tSébastien Montagne<br/>
+        \t\tNolween Lopez<br/>
+        \t\tSébastien Bougie<br/>
+        <br/>
+        <b>Traducci&#243;n al Alem&#225;n</b><br/>
+        \t\tAlexander Rothe<br/>
+        \t\tIoannis Poutachidis
+    ]]></string>
+
+
+    <string name="open_source">Cr&#233;ditos C&#243;digo Libre</string>
+    <string name="open_source_info">Proyectos de programaci&#243;n que ayudaron.</string>
+    <string name="apache_txt"><![CDATA[
+        Todos los proyectos est&#225;n licenciados bajo la <a href="">Licencia Apache,</a> Versi&#243;n 2.0
+    ]]></string>
+    <string name="apache_url">http://www.apache.org/licenses/LICENSE-2.0</string>
+
+    <string name="open_sql"><![CDATA[
+        <b>Android SQLiteAssetHelper</b><br>
+        &#169;2011 readyState Software Ltd
+    ]]></string>
+    <string name="open_sql_url">https://github.com/jgilfelt/android-sqlite-asset-helper</string>
+
+    <string name="open_list"><![CDATA[
+        <b>DragSortListView</b><br>
+        &#169;2012 Carl Bauer
+    ]]></string>
+    <string name="open_list_url">https://github.com/bauerca/drag-sort-listview</string>
+
+    <string name="open_picasso"><![CDATA[ <b>Picasso</b><br>&#169;2013 Square, Inc. ]]></string>
+    <string name="open_picasso_url">http://square.github.io/picasso/</string>
+
+</resources>
