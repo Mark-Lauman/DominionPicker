@@ -62,7 +62,7 @@
         <item quantity="other">%1$s Puntos de Victoria</item>
     </plurals>
 
-    <string name="card_no_info">Esta carta no ha sido traducida al Espa&241;ol. ¿Tienes esta carta?. Si es tu caso, env&#237;a una traducci&#243; a Mark para que pueda a&#241;adirla. Gracias.</string>
+    <string name="card_no_info">Esta carta no ha sido traducida al Espa&#241;ol. ¿Tienes esta carta?. Si es tu caso, env&#237;a una traducci&#243; a Mark para que pueda a&#241;adirla. Gracias.</string>
     <string name="card_mail_subject">Dominion Card #%1$d (%2$s)</string>
 
 </resources>
