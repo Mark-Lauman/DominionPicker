@@ -173,7 +173,7 @@
         <item>@string/debt</item>
         <item>Debt</item>
         <item>Debt</item>
-        <item>Debt</item>
+        <item>Deuda</item>
         <item>Debt</item>
         <item>Debt</item>
         <item>Debt</item>
@@ -220,8 +220,8 @@
         <item quantity="other">%1$s Debt</item>
     </plurals>
     <plurals name="format_debt_es">
-        <item quantity="one">%1$s Debt</item>
-        <item quantity="other">%1$s Debt</item>
+        <item quantity="one">%1$s Moneda</item>
+        <item quantity="other">%1$s Monedas</item>
     </plurals>
     <plurals name="format_debt_fr">
         <item quantity="one">%1$s Debt</item>
