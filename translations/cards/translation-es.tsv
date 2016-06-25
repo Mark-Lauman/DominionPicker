@@ -1,26 +1,26 @@
-_id language    name    type    requires    text    rules
-6   es  S&#243;tano  Acci&#243;n      <b>+1 Acci&#243;n</b><br/><br/>Descarta las cartas que quieras.<br/>Roba +1 Carta por cada  carta descartada.
-7   es  Capilla  Acci&#243;n      Elimina hasta 4 cartas de tu mano.
-8   es  Foso    Acci&#243;n ReAcci&#243;n     <b>+2 Cartas</b><hr/>Cuando otro jugador juegue una carta de Ataque, puedes ense&#241;ar esta carta de tu mano. Si lo haces, el Ataque no te afecta.
-9   es  Canciller  Acci&#243;n      <b>+<c>2</c></b><br/><br/>Puedes poner inmediatamente tu mazo en tu pila de descartes.
-10  es  Aldea Acci&#243;n      <b>+1 Carta<br/>+2 Acciones</b>
-11  es  Le&#241;adores  Acci&#243;n      <b>+1 Compra<br/>+<c>2</c></b>
-12  es  Taller    Acci&#243;n      Gana una carta que tenga un coste m&#225;ximo de <c>4</c>.
-13  es  Bur&#243;crata  Acci&#243;n Ataque       Ganas una carta de Plata y<br/>la colocas encima de tu mazo.<br/>Los dem&#225;s jugadores tienen que ense&#241;ar una carta de Victoria y ponerla encima de su mazo (o mostrar toda su mano si no tienen cartas de victoria).
-14  es  Banquete   Acci&#243;n      Elimina esta carta.<br/>Gana una carta con un coste m&#225;ximo de <c>5</c>
-15  es  Jardines Victoria     Consigue <vp>1</vp> por cada 10  cartas que tengas en tu mazo (redondeado hacia abajo).
-16  es  Milicia Acci&#243;n Ataque       <b>+<c>2</c></b><br/><br/>Los dem&#225;s jugadores se descartan hasta quedarse con 3 cartas en la mano.
-17  es  Prestamista Acci&#243;n      Elimina una carta de Cobre de tu mano.<br/>Si lo haces, +<c>3</c>.
-18  es  Remodelar Acci&#243;n      Elimina una carta de tu mano.<br/>Gana una carta que cueste hasta <c>2</c> m&#225;s que la carta eliminada.
-19  es  Herrer&#237;a  Acci&#243;n      <b>+3 Cartas</b>
-20  en  Esp&#237;a Acci&#243;n Ataque       <b>+1 Carta<br/>+1 Acci&#243;n</b><br/><br/>Cada jugador (incluso t&#250;) revela la carta superior de su mazo y t&#250; decides si la descarta o la devuelve a su sitio.
-21  es  Ladr&#243;n   Acci&#243;n Ataque       Cada jugador (menos t&#250;) revela las 2 cartas superiores de su mazo y elimina 1 carta de Tesoro entre las reveladas (a elecci&#243;n tuya).<br/>Puedes ganar los Tesoros eliminados que quieras. Las dem&#225;s cartas reveladas se descartan.
-22  es  Sal&#243;n del trono Acci&#243;n      Elige una carta de Acci&#243;n de tu mano. Ju&#233;gala 2 veces.
-23  es  Sala del consejo    Acci&#243;n      <b>+4 Cartas<br/>+1 Compra</b><br/><br/>Los dem&#225;s jugadores roban una carta cada uno.
-24  es  Festival    Acci&#243;n      <b>+2 Acciones<br/>+1 Compra<br/>+<c>2</c></b>
-25  es  Laboratorio  Acci&#243;n      <b>+2 Cartas<br/>+1 Acci&#243;n</b>
-26  es  Biblioteca Acci&#243;n      Roba cartas de una en una hasta tener 7 cartas en la mano. Puedes ir apartando las cartas de Acci&#243;n que vayas sacando.<br/>Cuando termines, descarta las cartas que hayas apartado.
-27  es  Mercado  Acci&#243;n      <b>+1 Carta<br/>+1 Acci&#243;n<br/>+1 Compra<br/>+<c>1</c></b>
-28  es  Mina    Acci&#243;n      Elimina una carta de Tesoro de tu mano. Gana una carta de Tesoro que cueste <c>3</c> m&#225;s.<br/>La carta ganada va directamente a tu mano.
-29  es  Bruja   Acci&#243;n Ataque   <b>+2 Cartas</b><br/><br/>Cada uno de los dem&#225;s jugadores gana una carta de Maldici&#243;n.
-30  es  Aventurero  Acci&#243;n      Levanta cartas de tu mazo hasta que descubras 2 Cartas de Tesoro.<br/>Coloca los Tesoros en tu mano y descarta las dem&#225;s cartas.
+_id	language	name	type	requires	text	rules
+6	es	S&#243;tano	Acci&#243;n		<b>+1 Acci&#243;n</b><br/><br/>Descarta las cartas que quieras.<br/>Roba +1 Carta por cada  carta descartada.
+7	es	Capilla	Acci&#243;n		Elimina hasta 4 cartas de tu mano.
+8	es	Foso	Acci&#243;n Reacci&#243;n		<b>+2 Cartas</b><hr/>Cuando otro jugador juegue una carta de Ataque, puedes ense&#241;ar esta carta de tu mano. Si lo haces, el Ataque no te afecta.
+9	es	Canciller	Acci&#243;n		<b>+<c>2</c></b><br/><br/>Puedes poner inmediatamente tu mazo en tu pila de descartes.
+10	es	Aldea	Acci&#243;n		<b>+1 Carta<br/>+2 Acciones</b>
+11	es	Le&#241;adores	Acci&#243;n		<b>+1 Compra<br/>+<c>2</c></b>
+12	es	Taller	Acci&#243;n		Gana una carta que tenga un coste m&#225;ximo de <c>4</c>.
+13	es	Bur&#243;crata	Acci&#243;n		Ataque	Ganas una carta de Plata y<br/>la colocas encima de tu mazo.<br/>Los dem&#225;s jugadores tienen que ense&#241;ar una carta de Victoria y ponerla encima de su mazo (o mostrar toda su mano si no tienen cartas de victoria).
+14	es	Banquete	Acci&#243;n		Elimina esta carta.<br/>Gana una carta con un coste m&#225;ximo de <c>5</c>
+15	es	Jardines	Victoria		Consigue <vp>1</vp> por cada 10  cartas que tengas en tu mazo (redondeado hacia abajo).
+16	es	Milicia	Acci&#243;n Ataque		<b>+<c>2</c></b><br/><br/>Los dem&#225;s jugadores se descartan hasta quedarse con 3 cartas en la mano.
+17	es	Prestamista	Acci&#243;n		Elimina una carta de Cobre de tu mano.<br/>Si lo haces, +<c>3</c>.
+18	es	Remodelar	Acci&#243;n		Elimina una carta de tu mano.<br/>Gana una carta que cueste hasta <c>2</c> m&#225;s que la carta eliminada.
+19	es	Herrer&#237;a	Acci&#243;n		<b>+3 Cartas</b>
+20	en	Esp&#237;a	Acci&#243;n Ataque		<b>+1 Carta<br/>+1 Acci&#243;n</b><br/><br/>Cada jugador (incluso t&#250;) revela la carta superior de su mazo y t&#250; decides si la descarta o la devuelve a su sitio.
+21	es	Ladr&#243;n	Acci&#243;n Ataque		Cada jugador (menos t&#250;) revela las 2 cartas superiores de su mazo y elimina 1 carta de Tesoro entre las reveladas (a elecci&#243;n tuya).<br/>Puedes ganar los Tesoros eliminados que quieras. Las dem&#225;s cartas reveladas se descartan.
+22	es	Sal&#243;n del trono	Acci&#243;n		Elige una carta de Acci&#243;n de tu mano. Ju&#233;gala 2 veces.
+23	es	Sala del consejo	Acci&#243;n		<b>+4 Cartas<br/>+1 Compra</b><br/><br/>Los dem&#225;s jugadores roban una carta cada uno.
+24	es	Festival	Acci&#243;n		<b>+2 Acciones<br/>+1 Compra<br/>+<c>2</c></b>
+25	es	Laboratorio	Acci&#243;n		<b>+2 Cartas<br/>+1 Acci&#243;n</b>
+26	es	Biblioteca	Acci&#243;n		Roba cartas de una en una hasta tener 7 cartas en la mano. Puedes ir apartando las cartas de Acci&#243;n que vayas sacando.<br/>Cuando termines, descarta las cartas que hayas apartado.
+27	es	Mercado	Acci&#243;n		<b>+1 Carta<br/>+1 Acci&#243;n<br/>+1 Compra<br/>+<c>1</c></b>
+28	es	Mina	Acci&#243;n		Elimina una carta de Tesoro de tu mano. Gana una carta de Tesoro que cueste <c>3</c> m&#225;s.<br/>La carta ganada va directamente a tu mano.
+29	es	Bruja	Acci&#243;n Ataque		<b>+2 Cartas</b><br/><br/>Cada uno de los dem&#225;s jugadores gana una carta de Maldici&#243;n.
+30	es	Aventurero	Acci&#243;n		Levanta cartas de tu mazo hasta que descubras 2 Cartas de Tesoro.<br/>Coloca los Tesoros en tu mano y descarta las dem&#225;s cartas.
