@@ -46,7 +46,7 @@ class HandlerHistory extends CursorSelAdapter
                 new int[]{R.id.name, R.id.desc});
         setChoiceMode(CHOICE_MODE_NONE);
         setViewBinder(this);
-        tFormat = new TimestampFormatter(context);
+        tFormat = new TimestampFormatter();
         onlyFav = onlyFavorites;
     }
 

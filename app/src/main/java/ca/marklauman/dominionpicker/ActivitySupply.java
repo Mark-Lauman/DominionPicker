@@ -93,7 +93,7 @@ public class ActivitySupply extends AppCompatActivity
         vList.setAdapter(adapter);
 
         // Setup the time
-        tFormat = new TimestampFormatter(this);
+        tFormat = new TimestampFormatter();
 
         // We have no supply, check for a history id
         if(params == null) return;

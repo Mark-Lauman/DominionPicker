@@ -2,28 +2,6 @@
 <resources>
     <!-- This file contains values that are used to display cards. -->
 
-    <!-- Icons for each expansion, sorted by set_id -->
-    <array name="card_set_icons">
-        <item>@drawable/ic_set_base</item>
-        <item>@drawable/ic_set_alchemy</item>
-        <item>@drawable/ic_set_black_market</item>
-        <item>@drawable/ic_set_cornucopia</item>
-        <item>@drawable/ic_set_dark_ages</item>
-        <item>@drawable/ic_set_envoy</item>
-        <item>@drawable/ic_set_governor</item>
-        <item>@drawable/ic_set_guilds</item>
-        <item>@drawable/ic_set_hinterlands</item>
-        <item>@drawable/ic_set_intrigue</item>
-        <item>@drawable/ic_set_prince</item>
-        <item>@drawable/ic_set_prosperity</item>
-        <item>@drawable/ic_set_seaside</item>
-        <item>@drawable/ic_set_stash</item>
-        <item>@drawable/ic_set_walled_village</item>
-        <item>@drawable/ic_set_adventures</item>
-        <item>@drawable/ic_set_summon</item>
-    </array>
-
-    <!-- Default translation to use for each set. Sorted by set_id. -->
     <string-array name="def_trans">
         <item>es</item>
         <item>es</item>
@@ -42,6 +20,7 @@
         <item>es</item>
         <item>es</item>
         <item>es</item>
+        <item>en</item>
     </string-array>
 
     <string name="coin">Moneda</string>
@@ -50,11 +29,13 @@
         <item quantity="other">%1$s Monedas</item>
     </plurals>
 
-    <string name="potion">Poci&#243;n</string>
-    <plurals name="format_potion">
-        <item quantity="one">%1$s Poci&#243;n</item>
-        <item quantity="other">%1$s Pociones</item>
+    <string name="debt">Debt</string>
+    <plurals name="format_debt">
+        <item quantity="one">%1$s Debt</item>
+        <item quantity="other">%1$s Debt</item>
     </plurals>
+
+    <string name="potion">Poci&#243;n</string>
 
     <string name="vp">Punto de Victoria</string>
     <plurals name="format_vp">

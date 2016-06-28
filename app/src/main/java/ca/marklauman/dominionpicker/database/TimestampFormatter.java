@@ -1,6 +1,7 @@
 package ca.marklauman.dominionpicker.database;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -23,8 +24,8 @@ public class TimestampFormatter {
     private final Date time;
 
 
-    public TimestampFormatter(Context c) {
-        Locale loc = c.getResources().getConfiguration().locale;
+    public TimestampFormatter() {
+        Locale loc = Locale.getDefault();
         dtFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT, loc);
         dFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, loc);
         tFormat = DateFormat.getTimeInstance(DateFormat.SHORT, loc);
