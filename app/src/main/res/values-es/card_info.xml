@@ -29,10 +29,10 @@
         <item quantity="other">%1$s Monedas</item>
     </plurals>
 
-    <string name="debt">Debt</string>
+    <string name="debt">Deuda</string>
     <plurals name="format_debt">
-        <item quantity="one">%1$s Debt</item>
-        <item quantity="other">%1$s Debt</item>
+        <item quantity="one">%1$s Moneda</item>
+        <item quantity="other">%1$s Monedas</item>
     </plurals>
 
     <string name="potion">Poci&#243;n</string>
