@@ -26,24 +26,24 @@
 
     <!-- Default translation to use for each set. Sorted by set_id. -->
     <string-array name="def_trans">
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
-        <item>en</item>
+        <item>en</item> <!-- 0 Base -->
+        <item>en</item> <!-- 1 Alchemy -->
+        <item>en</item> <!-- 2 Black Market -->
+        <item>en</item> <!-- 3 Cornucopia -->
+        <item>en</item> <!-- 4 Dark Ages -->
+        <item>en</item> <!-- 5 Envoy -->
+        <item>en</item> <!-- 6 Governor -->
+        <item>en</item> <!-- 7 Guilds -->
+        <item>en</item> <!-- 8 Hinterlands -->
+        <item>en</item> <!-- 9 Intrigue -->
+        <item>en</item> <!-- 10 Prince -->
+        <item>en</item> <!-- 11 Prosperity -->
+        <item>en</item> <!-- 12 Seaside -->
+        <item>en</item> <!-- 13 Stash -->
+        <item>en</item> <!-- 14 Walled Village -->
+        <item>en</item> <!-- 15 Adventures -->
+        <item>en</item> <!-- 16 Summon -->
+        <item>en</item> <!-- 17 Empires -->
     </string-array>
 
     <string name="coin">Coin</string>
