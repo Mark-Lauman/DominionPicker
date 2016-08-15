@@ -1,5 +1,5 @@
 _id	language	name	type	requires	text	rules
-1	de	Schwarzmarkt	Aktion			
+1	de	Schwarzmarkt	Aktion		Decke die obersten 3 Karten vom Schwarzmarkt-Sapel auf. Du darfst sofort eine der aufgedeckten Karten kaufen. Lege die nicht gekauften Karten in beliebiger Reihenfolge unter den Schwarzmarkt-Stapel zurück. 	Der Schwarzmarkt-Stapel besteht laut Regelwerk aus einem mindestens 15 Karten großen extra verdeckt ausgelegten Stapel. Die dazugehörigen Karten werden ausgelost bzw. laut Regel einigen sich die Spieler. Es sind 15 einzelne Karten, die ausgewählt werden. Sicherlich wäre es hilfreich, wenn die App das könnte. Ich weiß natürlich nicht, wie aufwändig das ist. Jedenfalls ist das der Inhalt des Schwarzmarktes. 
 2	de	Geldversteck	Geld			
 3	de	Gesandter	Aktion			
 4	de	Carcasonne	Aktion		<b>+1 Karte<br/>+2 Aktionen</b><br/><br/>Wenn du zu Beginn deiner Aufräumphase außer dieser Karte nur noch eine weitere Aktionskarte im Spiel hast, darfst du die Karte Carcassonne auf deinen Nachziehstapel legen.	
@@ -248,7 +248,7 @@ _id	language	name	type	requires	text	rules
 247	de	Mission	Ereignis		Einmal pro Zug: Wenn der vorangegangene Zug nicht deiner war, spielst du nach deinem Zug einen weiteren Zug, in welchem du keine Karten kaufen darfst.	
 248	de	Pilgerfahrt 	Ereignis	Benötigt: Reise-Marker	Einmal pro Zug: Drehe deinen Reise-Marker um. Liegt die Vorderseite oben: Wähle bis zu 3 Karten mit unterschiedlichem Namen, die du im Spiel hast und nimm dir jeweils eine davon.	
 249	de	Ball	Ereignis	Benötigt: -1 Geld-Marker	Nimm deinen <b>-<c>1</c></b>-Marker. Nimm 2 Karten, die jede bis zu <c>4</c> kostet.	
-250	de	Überfall 	Ereignis	Benötigt: -1 Karte-Marker	Pro Silber, das du im Spiel hast, nimmst du dir ein Silber. Jeder Mitspieler legt seinen -1 Karte-Marker auf seinen Nachziehstapel.	
+250	de	Überfall 	Ereignis	Benötigt: -1 Geld-Marker	Pro Silber, das du im Spiel hast, nimmst du dir ein Silber. Jeder Mitspieler legt seinen -1 Karte-Marker auf seinen Nachziehstapel.	
 251	de	Seeweg 	Ereignis	Benötigt: +1 Kauf-Marker	Nimm dir eine Aktionskarte, die bis zu <c>4</c> kostet. Lege deinen <b>+1 Kauf</b>-Marker auf diesen Vorratsstapel. (Wenn du eine Karte von diesem Stapel ausspielst, erhältst du zuerst <b>+1 Kauf</b>.)	
 252	de	Handel 	Ereignis		Entsorge bis zu 2 Handkarten. Nimm dir für jede entsorgte Karte ein Silber.	
 253	de	Verlorene Kunst 	Ereignis	Benötigt: +1 Aktion-Marker	Lege deinen <b>+1 Aktion</b>-Marker auf einen Aktions-Vorratsstapel.<br/>(Wenn du eine Karte von diesem Stapel ausspielst, erhältst du zuerst <b>+1 Aktion</b>.)	

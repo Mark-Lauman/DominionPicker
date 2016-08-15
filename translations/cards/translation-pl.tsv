@@ -1,0 +1,121 @@
+_id	language	name	type	requires	text	rules
+1	pl	Czarny rynek 	Action			
+2	pl	Zaskórniak 	Treasure			
+3	pl	Poseł 	Action			
+4	pl	Kasztel 	Action			
+5	pl	Gubernator 	Action			
+6	pl	Piwnica 	Action			
+7	pl	Kaplica 	Action			
+8	pl	Fosa 	Action Reaction			
+9	pl	Kanclerz 	Action			
+10	pl	Wioska 	Action			
+11	pl	Drwal 	Action			
+12	pl	Warsztat 	Action			
+13	pl	Urzędnik 	Action Attack			
+14	pl	Uczta 	Action			
+15	pl	Ogrody 	Victory			
+16	pl	Milicja 	Action Attack			
+17	pl	Lichwiarz 	Action			
+18	pl	Przebudowa 	Action			
+19	pl	Kuźnia 	Action			
+20	pl	Szpieg 	Action Attack			
+21	pl	Złodziej 	Action Attack			
+22	pl	Sala tronowa 	Action			
+23	pl	Sala obrad 	Action			
+24	pl	Festyn 	Action			
+25	pl	Laboratorium 	Action			
+26	pl	Biblioteka 	Action			
+27	pl	Targowisko 	Action			
+28	pl	Kopalnia 	Action			
+29	pl	Wiedźma 	Action Attack			
+30	pl	Odkrywca 	Action			
+43	pl	Dziedziniec 	Action			
+44	pl	Giermek 	Action			
+45	pl	Tajna komnata 	Action Reaction			
+46	pl	Westybul 	Action Victory			
+47	pl	Maskarada 	Action			
+48	pl	Rudera 	Action			
+49	pl	Zarządca 	Action			
+50	pl	Kanciarz 	Action Attack			
+51	pl	Studnia życzeń 	Action			
+52	pl	Baron 	Action			
+53	pl	Most 	Action			
+54	pl	Spiskowiec 	Action			
+55	pl	Mennica 	Action			
+56	pl	Huta Żelaza 	Action			
+57	pl	Osada górnicza 	Action			
+58	pl	Zwiadowca 	Action			
+59	pl	Starosta 	Victory			
+60	pl	Sługus 	Action Attack			
+61	pl	Sabotażysta 	Action Attack			
+62	pl	Oprawca 	Action Attack			
+63	pl	Faktoria 	Action			
+64	pl	Danina 	Action			
+65	pl	Rozbudowa 	Action			
+66	pl	Harem 	Treasure Victory			
+67	pl	Szlachta 	Action Victory			
+68	pl	Kredyt 	Treasure			
+69	pl	Szlak handlowy 	Action			
+70	pl	Strażnica 	Action Reaction			
+71	pl	Biskup 	Action			
+72	pl	Monument 	Action			
+73	pl	Kamieniołom 	Treasure			
+74	pl	Talizman 	Treasure			
+75	pl	Wioska robotnicza 	Action			
+76	pl	Miasto 	Action			
+77	pl	Kontrabanda 	Treasure			
+78	pl	Rachuba 	Action			
+79	pl	Mincerz 	Action			
+80	pl	Szarlatan 	Action Attack			
+81	pl	Motłoch 	Action Attack			
+82	pl	Królewska pieczęć 	Treasure			
+83	pl	Składnica 	Action			
+84	pl	Złoty interes 	Treasure			
+85	pl	Naciągacze 	Action Attack			
+86	pl	Wielki targ 	Action			
+87	pl	Krocie 	Treasure			
+88	pl	Bank 	Treasure			
+89	pl	Modernizacja 	Action			
+90	pl	Płatnerz 	Action			
+91	pl	Rada królewska 	Action			
+92	pl	Domokrążca 	Action			
+93	pl	Embargo 	Action			
+94	pl	Przystań 	Action Duration			
+95	pl	Latarnia morska 	Action Duration			
+96	pl	Wioska tubylców 	Action			
+97	pl	Poławiacz pereł 	Action			
+98	pl	Ambasador 	Action Attack			
+99	pl	Wioska rybacka 	Action Duration			
+100	pl	Bocianie gniazdo 	Action			
+101	pl	Przemytnicy 	Action			
+102	pl	Magazyn 	Action			
+103	pl	Karawana 	Action Duration			
+104	pl	Kieszonkowiec 	Action Attack			
+105	pl	Wyspa 	Action Victory			
+106	pl	Nawigator 	Action			
+107	pl	Okręt piracki 	Action Attack			
+108	pl	Wyławiacz 	Action			
+109	pl	Morska wiedźma 	Action Attack			
+110	pl	Mapa skarbu 	Action			
+111	pl	Bazar 	Action			
+112	pl	Zdobywca 	Action			
+113	pl	Okręt widmo 	Action Attack			
+114	pl	Okręt kupiecki 	Action Duration			
+115	pl	Przyczółek 	Action Duration			
+116	pl	Strateg 	Action Duration			
+117	pl	Skarbiec 	Action			
+118	pl	Nabrzeże 	Action Duration			
+154	pl	Folwark 	Action			
+155	pl	Cyganka 	Action Attack			
+156	pl	Menażeria 	Action			
+157	pl	Farma 	Action			
+158	pl	Banda Koniokradów 	Action Reaction			
+159	pl	Rozbiórka 	Action			
+160	pl	Turniej Rycerski 	Action			
+161	pl	Młoda Wiedźma 	Action Attack			
+162	pl	Zniwa 	Action			
+163	pl	Róg Obfitości 	Treasure			
+164	pl	Polowanie 	Action			
+165	pl	Błazen 	Action Attack			
+166	pl	Odpust 	Victory			
+206	pl	Książę 	Action			
