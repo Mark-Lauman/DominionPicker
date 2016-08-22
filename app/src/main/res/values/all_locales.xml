@@ -17,7 +17,7 @@
         <item>Magyar</item>
         <item>Nederlands</item>
         <item>Norsk</item>
-        <item>Polskie</item>
+        <item>Polski</item>
         <item>Portugu&#234;s</item>
         <item>Rom&#226;n&#259;</item>
         <item>Suomi</item>
@@ -62,7 +62,7 @@
         <item>Coin</item>
         <item>Munt</item>
         <item>Coin</item>
-        <item>Coin</item>
+        <item>Moneta</item>
         <item>Moeda</item>
         <item>Coin</item>
         <item>Coin</item>
@@ -127,8 +127,9 @@
         <item quantity="other">%1$s Coins</item>
     </plurals>
     <plurals name="format_coin_pl">
-        <item quantity="one">%1$s Coin</item>
-        <item quantity="other">%1$s Coins</item>
+        <item quantity="one">%1$s Moneta</item>
+        <item quantity="few">%1$s Monety</item>
+        <item quantity="many">%1$s Monet</item>
     </plurals>
     <plurals name="format_coin_pt">
         <item quantity="one">%1$s Moeda</item>
@@ -244,8 +245,9 @@
         <item quantity="other">%1$s Debt</item>
     </plurals>
     <plurals name="format_debt_pl">
-        <item quantity="one">%1$s Debt</item>
-        <item quantity="other">%1$s Debt</item>
+        <item quantity="one">%1$s Dług</item>
+        <item quantity="few">%1$s Długi</item>
+        <item quantity="many">%1$s Długów</item>
     </plurals>
     <plurals name="format_debt_pt">
         <item quantity="one">%1$s Debt</item>
@@ -320,7 +322,7 @@
         <item>Victory Points</item>
         <item>Winstpunt</item>
         <item>Victory Points</item>
-        <item>Victory Points</item>
+        <item>Punkty Zwycięstwa</item>
         <item>Ponto de Vit&#243;ria</item>
         <item>Victory Points</item>
         <item>Victory Points</item>
@@ -385,8 +387,9 @@
         <item quantity="other">%1$s Victory Points</item>
     </plurals>
     <plurals name="format_vp_pl">
-        <item quantity="one">%1$s Victory Point</item>
-        <item quantity="other">%1$s Victory Points</item>
+        <item quantity="one">%1$s Punkt Zwycięstwa</item>
+        <item quantity="few">%1$s Punkty Zwycięstwa</item>
+        <item quantity="many">%1$s Punktów Zwycięstwa</item>
     </plurals>
     <plurals name="format_vp_pt">
         <item quantity="one">%1$s Ponto de Vit&#243;ria</item>
@@ -437,7 +440,7 @@
         <item>This card hasn\'t been translated into Hungarian.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>
         <item>Deze kaart is niet in het Nederlands vertaald. Heeft u deze kaart in uw bezit? Als dat zo is, stuur dan een vertaling naar Mark, zodat hij het kan opnemen.</item>
         <item>This card hasn\'t been translated into Norwegian.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>
-        <item>This card hasn\'t been translated into Polish.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>
+        <item>Ta karta nie została jeszcze przetłumaczona na polski.\n\nPosiadasz tę kartę? Jeżeli tak, proszę wyślij tłumaczenie Markowi żeby mógł je dodać do aplikacji.</item>
         <item>Essa carta n&#227;o foi traduzida para o portugu&#234;s-brasileiro.\n\nVoc&#234; tem esta carta? Se sim, por favor envie a tradu&#231;&#227;o para Mark para que ele possa adicionar.</item>
         <item>This card hasn\'t been translated into Romanian.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>
         <item>This card hasn\'t been translated into Finnish.\n\nDo you own this card? If so, please send a translation to Mark so he can add it in.</item>

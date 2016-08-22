@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="options">Opcje</string>
+
+    <string name="filt_lang">Języki kart</string>
+    <string name="filt_lang_desc">Wybierz język kart dla każdego rozszerzenia z osobna.</string>
+    <string name="system_default">Domyślny</string>
+
+    <string name="sort_card">Kolejność kart</string>
+    <string name="sort_card_desc">Sortuj karty w wybranej kolejności.</string>
+    <string name="drag_handle_desc">Przeciągnij mnie!</string>
+    <string name="sort_card_end">Pozycje poniżej tej są ignorowane.</string>
+    <string-array name="sort_card_names">
+        <item>Nazwa dodatku</item>
+        <item>Nazwa karty</item>
+        <item>Data wydania</item>
+        <item>Koszt</item>
+        <item>Typ</item>
+        <item>Język</item>
+        <item>Najpierw karty promocyjne</item>
+    </string-array>
+
+</resources>

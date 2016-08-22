@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="community">Społeczność</string>
+    <string name="community_info">Pomóż ulepszyć aplikację.</string>
+
+    <string name="email_mark">E-Mail do Marka</string>
+    <string name="email_info">Autor aplikacji.</string>
+    <string name="no_email">Wyślij e-mail do android@marklauman.ca</string>
+
+    <string name="visit_website">Odwiedź stronę internetową</string>
+    <string name="no_browser">Możesz to znaleźć na\n%1$s</string>
+
+    <string name="github">Projekt na GitHubie</string>
+    <string name="github_info">Lista zaplanowanych funkcjonalności.</string>
+    <string name="github_url">https://github.com/Mark-Lauman/DominionPicker/issues</string>
+
+    <string name="contribute">Współautorzy</string>
+    <string name="contribute_info">Pomagają uczynić tę aplikację lepszą.</string>
+    <string name="thanks">Dominion Picker nie byłby tak dobry jak teraz bez waszej pomocy. Bardzo wam dziękuję.</string>
+    <string name="credits"><![CDATA[
+        <b>Inspiracja i Testy</b><br/>
+        \t\tAlison Lauman<br/>
+        \t\tAdam Shambrook<br/>
+        <br/>
+        <b>Włoskie Tłumaczenie oraz Pomysły</b><br/>
+        \t\tLeonardo Finetti<br/><br/>
+        <b>Portugalskie Tłumaczenie</b><br/>
+        \t\tLeonardo Costa<br/>
+        <br/>
+        <b>Baza Danych Gry</b><br/>
+        \t\tDerek Kniffin<br/>
+        <br/>
+        <b>Holenderskie Tłumaczenie</b><br/>
+        \t\tHans Hoogers<br/>
+        <br/>
+        <b>Francuskie Tłumaczenie</b><br/>
+        \t\tSébastien Montagne<br/>
+        \t\tNolween Lopez<br/>
+        \t\tSébastien Bougie<br/>
+        <br/>
+        <b>Niemieckie Tłumaczenie</b><br/>
+        \t\tAlexander Rothe<br/>
+        \t\tIoannis Poutachidis
+    ]]></string>
+
+
+    <string name="open_source">Open Source Credits</string>
+    <string name="open_source_info">Otwarte projekty programistyczne które nam pomogły.</string>
+    <string name="apache_txt"><![CDATA[
+        Wszystkie projekty zostały opublikowane na licencji <a href="">Apache License,</a> Version 2.0.
+    ]]></string>
+    <string name="apache_url">http://www.apache.org/licenses/LICENSE-2.0</string>
+
+    <string name="open_sql"><![CDATA[
+        <b>Android SQLiteAssetHelper</b><br>
+        &#169;2011 readyState Software Ltd
+    ]]></string>
+    <string name="open_sql_url">https://github.com/jgilfelt/android-sqlite-asset-helper</string>
+
+    <string name="open_butterknife"><![CDATA[
+        <b>Butterknife</b><br>
+        &#169;2013 Jake Wharton
+    ]]></string>
+    <string name="open_butterknife_url">http://jakewharton.github.io/butterknife/</string>
+
+    <string name="open_picasso"><![CDATA[ <b>Picasso</b><br>&#169;2013 Square, Inc. ]]></string>
+    <string name="open_picasso_url">http://square.github.io/picasso/</string>
+
+</resources>
