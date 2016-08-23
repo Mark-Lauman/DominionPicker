@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="rules">Zasady</string>
-    <string name="limit_supply">Rozmiar Zapasów</string>
+    <string name="limit_supply">Rozmiar Zasobów</string>
 
     <string name="rules_expansions">Dodatki</string>
     <string name="rules_promo">Karty Promocyjne</string>
     <string name="rules_cost">Koszty kart</string>
 
     <string name="rules_other">Inne</string>
-    <string name="rules_curse">Karty rozdające klątwy</string>
+    <string name="rules_curse">Karty rozdające Klątwy</string>
 </resources >

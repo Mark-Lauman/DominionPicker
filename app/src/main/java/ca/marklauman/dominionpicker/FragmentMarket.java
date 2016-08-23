@@ -232,33 +232,26 @@ public class FragmentMarket extends Fragment
                              +" AND "+TableCard._TYPE_EVENT+"=0"
                              +" AND "+TableCard._TYPE_LANDMARK+"=0";
 
-                // Filter out cards excluded by the card list
+                // Filter out cards excluded by the card list & the black market card
                 String filt_card = pref.getString(Pref.FILT_CARD, "");
+                filt_card = (filt_card.length() == 0) ? TableCard.ID_BLACK_MARKET+""
+                                                      : TableCard.ID_BLACK_MARKET+","+filt_card;
 
-                // Get the supply passed to this fragment
+                // Get the supply passed to this fragment and exclude it
                 Bundle args = getArguments();
                 long[] supply_arr = (args == null) ? null : args.getLongArray(PARAM_SUPPLY);
                 if(supply_arr == null) supply_arr = new long[0];
-
-                // If supply cards have been provided, exclude them.
-                if(0 < supply_arr.length && 0 < filt_card.length())
-                    filt_card += ",";
-                if(0 < supply_arr.length)
-                    filt_card += Utils.join(",", supply_arr);
+                if(0 < supply_arr.length) filt_card += ","+Utils.join(",", supply_arr);
 
                 // If no supply cards are provided, filter out required cards.
                 // They are required to be in the supply
                 else {
                     String req_cards = pref.getString(Pref.REQ_CARDS, "");
-                    if(0 < req_cards.length() && 0 < filt_card.length())
-                        filt_card += ",";
-                    if(0 < req_cards.length())
-                        filt_card += req_cards;
+                    if(0 < req_cards.length()) filt_card += ","+req_cards;
                 }
 
                 // Add the card filter to the selection
-                if(0 < filt_card.length())
-                    sel += " AND "+TableCard._ID+" NOT IN ("+filt_card+")";
+                sel += " AND "+TableCard._ID+" NOT IN ("+filt_card+")";
 
                 // Build the cursor loader
                 c.setUri(Provider.URI_CARD_DATA);
