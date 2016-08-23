@@ -1,21 +1,15 @@
 _id	language	name
 1	es	Primeras partidas
 2	es	Dinero a raudales
-3	es	Interacci&#243;n
-4	es	Distorsi&#243;n de tama&#241;
+3	es	Interacción
+4	es	Distorsión de tamañ
 5	es	Plaza del pueblo
 6	es	La danza de la victoria
 7	es	Planes secretos
 8	es	Mis mejores deseos
-9	es	Deconstrucci&#243;n
+9	es	Deconstrucción
 10	es	Locura de mano
 11	es	Subalternos
-12	en	High Seas
-13	en	Buried Treasure
-14	en	Shipwrecks
-15	en	Reach for Tomorrow
-16	en	Repetition
-17	en	Give and Take
 18	es	Artes prohibidas
 19	es	Mezcladores de pociones
 20	es	Lección de química
@@ -25,71 +19,15 @@ _id	language	name
 24	es	Principiantes
 25	es	Roce amistoso
 26	es	Grandes acciones
-27	es	M&#225;s dinero
-28	es	El ej&#233;rcito del rey
+27	es	Más dinero
+28	es	El ejército del rey
 29	es	La buena vida
 30	es	Caminos hacia la victoria
 31	es	Desde la atalaya
 32	es	Que haya suerte
-33	es	Cacer&#237;a con premio
+33	es	Cacería con premio
 34	es	Malos presagios
-35	es	El taller del buf&#243;n
-36	es	Quien r&#237;e &#250;ltimo
+35	es	El taller del bufón
+36	es	Quien ríe último
 37	es	La salsa de la vida
-38	es	Peque&#241;as victorias
-39	en	Introduction
-40	en	Fair Trades
-41	en	Bargains
-42	en	Gambits
-43	en	Highway Robbery
-44	en	Adventures Abroad
-45	en	Money for Nothing
-46	en	The Duke's Ball
-47	en	Travelers
-48	en	Diplomacy
-49	en	Schemas and Dreams
-50	en	Wine Country
-51	en	Instant Gratification
-52	en	Treasure Trove
-53	en	Blue Harvest
-54	en	Traveling Circus
-55	en	Grim Parade
-56	en	Playing Chess With Death
-57	en	High and Low
-58	en	Chivalry and Revelry
-59	en	Prophecy
-60	en	Invasion
-61	en	Watery Graves
-62	en	Peasants
-63	en	Infestations
-64	en	Lamentations
-65	en	One Man's Trash
-66	en	Honor Among Thieves
-67	en	Dark Carnival
-68	en	To the Victor
-69	en	Far From Home
-70	en	Expeditions
-71	en	Arts and Crafts
-72	en	Clean Living
-73	en	Gilding the Lily
-74	en	Name That Card
-75	en	Tricks of the Trade
-76	en	Decisions, Decisions
-77	en	Gentle Intro
-78	en	Expert Intro
-79	en	Level Up
-80	en	Son of Size Distortion
-81	en	Royalty Factory
-82	en	Masters of Finance
-83	en	Prince of Orange
-84	en	Gifts and Mathoms
-85	en	Last Will and Monument
-86	en	Think Big
-87	en	The Hero's Return
-88	en	Seacraft and Witchcraft
-89	en	Traders and Raiders
-90	en	Journeys
-91	en	Cemetery Polka
-92	en	Groovy Decay
-93	en	Spendthrift
-94	en	Queen of Tan
+38	es	Pequeñas victorias

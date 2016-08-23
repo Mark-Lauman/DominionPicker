@@ -5,19 +5,19 @@
     <string-array name="def_trans">
         <item>es</item> <!-- 0 Base -->
         <item>es</item> <!-- 1 Alchemy -->
-        <item>en</item> <!-- 2 Black Market -->
+        <item>es</item> <!-- 2 Black Market -->
         <item>es</item> <!-- 3 Cornucopia -->
         <item>es</item> <!-- 4 Dark Ages -->
-        <item>en</item> <!-- 5 Envoy -->
-        <item>en</item> <!-- 6 Governor -->
+        <item>es</item> <!-- 5 Envoy -->
+        <item>es</item> <!-- 6 Governor -->
         <item>en</item> <!-- 7 Guilds -->
         <item>es</item> <!-- 8 Hinterlands -->
         <item>es</item> <!-- 9 Intrigue -->
-        <item>en</item> <!-- 10 Prince -->
+        <item>es</item> <!-- 10 Prince -->
         <item>es</item> <!-- 11 Prosperity -->
         <item>es</item> <!-- 12 Seaside -->
-        <item>en</item> <!-- 13 Stash -->
-        <item>en</item> <!-- 14 Walled Village -->
+        <item>es</item> <!-- 13 Stash -->
+        <item>es</item> <!-- 14 Walled Village -->
         <item>en</item> <!-- 15 Adventures -->
         <item>en</item> <!-- 16 Summon -->
         <item>en</item> <!-- 17 Empires -->

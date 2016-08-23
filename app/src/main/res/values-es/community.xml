@@ -12,7 +12,7 @@
     <string name="no_browser">Puedes encontrarlo en\n%1$s</string>
 
     <string name="github">Visita GitHub</string>
-    <string name="github_info">Echa un vistazo a las caracter&#237;sticas planeadas.</string>
+    <string name="github_info">Echa un vistazo a las carácter&#237;sticas planeadas.</string>
     <string name="github_url">https://github.com/Mark-Lauman/DominionPicker/issues</string>
 
     <string name="contribute">Contribuidores</string>
@@ -46,7 +46,11 @@
         <b>Traducci&#243;n al Espa&#241;ol</b><br/>
         \t\tGabriel Gross<br/>
         \t\tMart&#237;n Gast&#243;n Borda<br/>
-        \t\tKike Cabrera
+        \t\tKike Cabrera<br/>
+        <br/>
+        <b>Traducci&#243;n al polaco</b><br/>
+        \t\tPawe&#322; Pawlak<br/>
+        \t\tBartosz Prusak
     ]]></string>
 
 
