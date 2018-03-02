@@ -1,9 +1,8 @@
-/.idea
+*.idea
 /.gradle
 /app/build
 /app/manifest-merger-release-report.txt
 /build
-/gradle
 gradlew
 gradlew.bat
 local.properties
