@@ -131,7 +131,7 @@ public class CardColorFactory {
     }
 
 
-    public Drawable getDrawable(CharSequence value, int size) {
+    private Drawable getDrawable(CharSequence value, int size) {
         Drawable res = lib.getDrawable(value, size);
         if(res == null)
             res = makeDrawable(value, size);
@@ -163,7 +163,7 @@ public class CardColorFactory {
 
 
         @Override
-        public void draw(Canvas canvas) {
+        public void draw(@NonNull Canvas canvas) {
             if(mColors == null || mColors.length < 1) return;
 
             // width is determined by the factory

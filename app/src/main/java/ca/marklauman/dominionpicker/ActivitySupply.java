@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
@@ -244,7 +245,7 @@ public class ActivitySupply extends AppCompatActivity
 
     /** Used to load the cards once the supply is loaded. */
     private class CardLoader implements LoaderCallbacks<Cursor> {
-        @Override
+        @Override @NonNull
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
             // Display the loading icon, hide the resources
             vResources.setVisibility(View.GONE);
@@ -268,7 +269,7 @@ public class ActivitySupply extends AppCompatActivity
 
 
         @Override
-        public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
             // display the supply cards
             adapter.setBane(supply.bane);
             adapter.changeCursor(data);
@@ -290,8 +291,7 @@ public class ActivitySupply extends AppCompatActivity
 
 
         @Override
-        public void onLoaderReset(Loader<Cursor> loader) {
-            if(loader == null) return;
+        public void onLoaderReset(@NonNull Loader<Cursor> loader) {
             adapter.changeCursor(null);
             vResources.setVisibility(View.GONE);
         }
@@ -300,7 +300,7 @@ public class ActivitySupply extends AppCompatActivity
 
     /** Used to load the supply from an id */
     private class SupplyLoader implements LoaderCallbacks<Cursor> {
-        @Override
+        @Override @NonNull
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
             // Display the loading icon, hide the resources
             vResources.setVisibility(View.GONE);
@@ -327,11 +327,11 @@ public class ActivitySupply extends AppCompatActivity
                 c.setSelectionArgs(new String[]{""+supply_id});
                 return c;
             }
-            return null;
+            throw new UnsupportedOperationException("Loader id not specified");
         }
 
         @Override
-        public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
             if(data == null || data.getCount() < 1) return;
 
             // Build the supply object
@@ -349,7 +349,7 @@ public class ActivitySupply extends AppCompatActivity
         }
 
         @Override
-        public void onLoaderReset(Loader<Cursor> loader) {}
+        public void onLoaderReset(@NonNull Loader<Cursor> loader) {}
     }
 
     /** Used to ask for the name of the new favorite. */
@@ -358,14 +358,14 @@ public class ActivitySupply extends AppCompatActivity
         final private TextView txt;
         final private Context mContext;
 
-        public FavDialog(Context context) {
+        FavDialog(Context context) {
             super(context);
             mContext = context;
             setPositiveButton(R.string.save);
             setNegativeButton(android.R.string.no);
             setQueryListener(this);
             View v = View.inflate(context, R.layout.dialog_favorite, null);
-            txt = (TextView) v.findViewById(R.id.name);
+            txt = v.findViewById(R.id.name);
             setView(v);
         }
 

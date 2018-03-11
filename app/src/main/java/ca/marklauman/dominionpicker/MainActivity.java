@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity
         navAdapt.setIcons(R.drawable.ic_core_checkbox, R.drawable.ic_card,
                           R.drawable.ic_cards, R.drawable.ic_action_market);
         navAdapt.setSelBack(R.color.list_item_sel);
-        ListView navList = (ListView) vDrawer.findViewById(R.id.drawer_list);
+        ListView navList = vDrawer.findViewById(R.id.drawer_list);
         navList.setAdapter(navAdapt);
         navList.setOnItemClickListener(this);
 
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity
      *  is displayed - including after each invalidation.
      *  Useful to hide/display menu items.             */
     public boolean onPrepareOptionsMenu(Menu menu) {
-        boolean navHidden = vDrawerLayout != null && !vDrawerLayout.isDrawerOpen(vDrawer);
+        boolean navHidden = !vDrawerLayout.isDrawerOpen(vDrawer);
         int sel = (navAdapt == null) ? 0 : navAdapt.getSelection();
         // show the toggle all button on the picker screen
         menu.findItem(R.id.action_toggle_all)
@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity
 
     /** Handles the navigation bar's opening and closing. */
     private class NavToggle extends ActionBarDrawerToggle {
-        public NavToggle(Activity activity, DrawerLayout drawerLayout) {
+        NavToggle(Activity activity, DrawerLayout drawerLayout) {
             super(activity, drawerLayout,
                     R.string.menu_open, R.string.menu_close);
         }

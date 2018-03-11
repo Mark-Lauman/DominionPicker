@@ -25,9 +25,9 @@ public class RuleCheckbox extends Rule
                           implements View.OnClickListener {
 
     /** View that displays the icon. */
-    @BindView(android.R.id.icon) public ImageView vIcon;
+    @BindView(android.R.id.icon) ImageView vIcon;
     /** View that displays the text and the checkbox. */
-    @BindView(android.R.id.checkbox) public CheckedTextView vText;
+    @BindView(android.R.id.checkbox) CheckedTextView vText;
     /** The data on display in this RuleCheckbox. */
     private RuleCheckbox.Data data;
 
@@ -78,17 +78,17 @@ public class RuleCheckbox extends Rule
         /** Icon resource used for the icon and text. */
         public final Drawable icon;
         /** Image resource id used for the icon (fallback if icon is null). */
-        public final int iconRes;
+        final int iconRes;
         /** String used for the display text. */
         public final String text;
         /** True if this checkbox should be inverted.
          *  (Checked if the preference is false, or the key is not in {@link #keySet}). */
-        public final boolean inverted;
+        final boolean inverted;
         /** Key used to save the value of this checkbox. */
         public final String key;
         /** If a keySet is provided, this key will be placed into this set when selected.
           * For no set, the key is the preference key that this checkbox will be saved to. */
-        public final HashSet<String> keySet;
+        final HashSet<String> keySet;
 
 
         /** Build this checkbox from an Icon resource.

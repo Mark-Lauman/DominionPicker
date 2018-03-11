@@ -1,5 +1,6 @@
 package ca.marklauman.dominionpicker.userinterface.recyclerview;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +34,8 @@ public class AdapterCardsDismiss extends AdapterCards
     }
 
 
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @Override @NonNull
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ViewHolder holder = super.onCreateViewHolder(parent, viewType);
         holder.extra.setText(R.string.young_witch_bane);
         return holder;
@@ -42,7 +43,7 @@ public class AdapterCardsDismiss extends AdapterCards
 
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         super.onBindViewHolder(holder, position);
         if(mBane == mCursor.getLong(_id)) {
             holder.background.setBackgroundResource(R.color.type_curse);

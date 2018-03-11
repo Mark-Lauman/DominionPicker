@@ -26,7 +26,7 @@ public class ActivitySortCard extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         if(ab != null) ab.setDisplayHomeAsUpEnabled(true);
 
-        RecyclerView list = (RecyclerView)findViewById(android.R.id.list);
+        RecyclerView list = findViewById(android.R.id.list);
         if(list == null) return;
         list.setLayoutManager(new LinearLayoutManager(this));
         list.addItemDecoration(new ListDivider(this));

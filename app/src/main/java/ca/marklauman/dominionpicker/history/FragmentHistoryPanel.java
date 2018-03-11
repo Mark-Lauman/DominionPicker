@@ -1,10 +1,13 @@
 package ca.marklauman.dominionpicker.history;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
@@ -73,21 +76,23 @@ public class FragmentHistoryPanel extends Fragment
     @Override
     public void onStart() {
         super.onStart();
+        FragmentActivity activity = getActivity();
+        if(activity == null) return;
         if(loaderId == LoaderId.SAMPLE_SUPPLY)
-             getActivity().getSupportLoaderManager()
-                          .restartLoader(loaderId, null, this);
-        else getActivity().getSupportLoaderManager()
-                          .initLoader(loaderId, null, this);
+             activity.getSupportLoaderManager()
+                     .restartLoader(loaderId, null, this);
+        else activity.getSupportLoaderManager()
+                     .initLoader(loaderId, null, this);
     }
 
 
     /** Called to create this fragment's view for the first time.  */
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Basic view setup and retrieval
         View view = inflater.inflate(R.layout.fragment_history_panel, container, false);
-        listView = (ListView) view.findViewById(R.id.card_list);
+        listView = view.findViewById(R.id.card_list);
         empty_view = view.findViewById(android.R.id.empty);
         load_view = view.findViewById(android.R.id.progress);
 
@@ -117,7 +122,7 @@ public class FragmentHistoryPanel extends Fragment
     }
 
 
-    @Override
+    @Override @NonNull
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         loading = true;
         updateEmpty();
@@ -126,7 +131,7 @@ public class FragmentHistoryPanel extends Fragment
 
 
     @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
         handler.onLoadFinished(loader, data);
         loading = false;
         updateEmpty();
@@ -134,7 +139,7 @@ public class FragmentHistoryPanel extends Fragment
 
 
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
+    public void onLoaderReset(@NonNull Loader<Cursor> loader) {
         handler.onLoaderReset(loader);
     }
 
@@ -144,14 +149,17 @@ public class FragmentHistoryPanel extends Fragment
         Intent i = new Intent(getActivity(), ActivitySupply.class);
         if(loaderId == LoaderId.SAMPLE_SUPPLY) i.putExtra(ActivitySupply.PARAM_SUPPLY_ID, id);
         else i.putExtra(ActivitySupply.PARAM_HISTORY_ID, id);
-        getActivity().startActivity(i);
+        Activity activity = getActivity();
+        if(activity != null) activity.startActivity(i);
     }
 
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences pref, String key) {
-        if(Pref.COMP_LANG.equals(key))
-            getActivity().getSupportLoaderManager()
-                         .restartLoader(loaderId, null, this);
+        if(!Pref.COMP_LANG.equals(key)) return;
+        FragmentActivity activity = getActivity();
+        if(activity == null) return;
+        activity.getSupportLoaderManager()
+                .restartLoader(loaderId, null, this);
     }
 }

@@ -2,7 +2,7 @@ package ca.marklauman.dominionpicker.userinterface.recyclerview;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.v4.view.MotionEventCompat;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -76,15 +76,15 @@ public class AdapterSortCard extends BasicTouchAdapter<AdapterSortCard.ViewHolde
     public void onDismiss(int position) { /* Never called */ }
 
 
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @Override @NonNull
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         return new ViewHolder(inflater.inflate(R.layout.list_item_sort, parent, false));
     }
 
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         int id = sortOrder.get(position);
         holder.text1.setText(names[id]);
         holder.text2.setVisibility(id==1 ? View.VISIBLE : View.GONE);
@@ -95,7 +95,7 @@ public class AdapterSortCard extends BasicTouchAdapter<AdapterSortCard.ViewHolde
                             implements View.OnTouchListener {
         @BindView(android.R.id.text1) public TextView text1;
         @BindView(android.R.id.text2) public TextView text2;
-        @BindView(android.R.id.icon)  public ImageView drag;
+        @BindView(android.R.id.icon)  ImageView drag;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -105,7 +105,7 @@ public class AdapterSortCard extends BasicTouchAdapter<AdapterSortCard.ViewHolde
 
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            if(MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN)
+            if(event.getAction() == MotionEvent.ACTION_DOWN)
                 startDrag(this);
             return true;
         }

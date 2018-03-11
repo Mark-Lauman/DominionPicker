@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 
 import ca.marklauman.dominionpicker.R;
@@ -20,13 +21,14 @@ public class PotionIcon extends Icon {
 
     public PotionIcon(Context context, IconDescriber describer) {
         potion = ContextCompat.getDrawable(context, R.drawable.ic_dom_potion);
-        super.setBounds(potion.getBounds());
+        if(potion != null)
+            super.setBounds(potion.getBounds());
         mDescriber = describer;
     }
 
 
     @Override
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         potion.draw(canvas);
     }
 
@@ -51,7 +53,7 @@ public class PotionIcon extends Icon {
     }
 
     @Override
-    public void setBounds(Rect rect) {
+    public void setBounds(@NonNull Rect rect) {
         potion.setBounds(rect);
         super.setBounds(rect);
     }

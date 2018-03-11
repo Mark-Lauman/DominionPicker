@@ -7,6 +7,7 @@ import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 
 import ca.marklauman.dominionpicker.R;
@@ -48,7 +49,7 @@ public class CoinIcon extends Icon {
 
 
     @Override
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         // the radius is the smaller of the width and height
         float x = centerX();
         float y = centerY();

@@ -1,20 +1,18 @@
 package ca.marklauman.dominionpicker.community;
 
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
+import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Button;
 
 import ca.marklauman.dominionpicker.R;
 
 /** A simple button for sending emails to me.
  *  @author Mark Lauman */
-public class EmailButton extends Button implements View.OnClickListener {
+public class EmailButton extends AppCompatButton implements View.OnClickListener {
     /** Who this message is for. */
     private static final String target = "android@marklauman.ca";
     /** Error message to display if there is no email client set up. */
@@ -34,12 +32,6 @@ public class EmailButton extends Button implements View.OnClickListener {
 
     public EmailButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setOnClickListener(this);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public EmailButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
         setOnClickListener(this);
     }
 

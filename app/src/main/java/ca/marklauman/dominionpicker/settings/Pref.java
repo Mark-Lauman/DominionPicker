@@ -24,7 +24,7 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
 
     /////////// Active preference keys \\\\\\\\\\\
     /** Current preference version */
-    public static final String VERSION = "version";
+    private static final String VERSION = "version";
     /** Index of the tab that the MainActivity should start on. */
     public static final String ACTIVE_TAB = "active_tab";
     /** Maximum number of kingdom cards in a supply. */
@@ -55,7 +55,7 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
     public static final String FILT_LANG = "filt_lang";
     /** Language used by the app for ui elements.
      *  If the language changes, then the default language for each set changes. */
-    public static final String APP_LANG = "app_lang";
+    private static final String APP_LANG = "app_lang";
 
     /** Used to sort cards before they are displayed.
      *  This is an sql ORDER BY clause, derived from {@link #SORT_CARD} */
@@ -71,17 +71,20 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
     /** The old separator used in the deprecated MultiSelectImagePreference. */
     private static final String OLD_SEP = "\u0001\u0007\u001D\u0007\u0001";
     /** Deprecated key used to identify the version 0 preferences. */
+    @SuppressWarnings("DeprecatedIsStillUsed")
     @Deprecated
     private static final String FILT_SET_BASE = "filt_set_base";
     /** Old attempt to store preference version from v1. Never worked properly. */
+    @SuppressWarnings("DeprecatedIsStillUsed")
     @Deprecated
     public static final String PREF_VERSION = "pref_version";
     /** Selected cards - used in preferences before v6 */
+    @SuppressWarnings("DeprecatedIsStillUsed")
     @Deprecated
     public static final String SELECTIONS = "selections";
 
     /** Listener used to update the computed preferences when they change */
-    public static final Listener prefUpdater = new Listener() {
+    private static final Listener prefUpdater = new Listener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
             switch(key) {
@@ -163,7 +166,7 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
             case 6: update6(pref);
         }
         pref.edit().putInt(VERSION, res.getInteger(R.integer.pref_version))
-            .commit();
+            .apply();
 
         // Compute all computed preferences and add the listener.
         updateLanguage(context);
@@ -194,7 +197,7 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
         final String oldLang = pref.getString(APP_LANG, "");
         final String newLang = res.getString(R.string.language);
         if(!oldLang.equals(newLang))
-            pref.edit().putString(APP_LANG, newLang).commit();
+            pref.edit().putString(APP_LANG, newLang).apply();
 
         // Replace "0" values with the default language for the set
         for(int i=0; i<rawTrans.length; i++)
@@ -211,18 +214,22 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
         }
 
         // Create an sql filter from transMap
-        String compTrans = TableCard._LANG + "=NULL";
+        StringBuilder compTrans = new StringBuilder("(" + TableCard._LANG + "=NULL");
         for(String lang : transMap.keySet())
-            compTrans += " OR (" + TableCard._LANG + "='" + lang
-                         + "' AND " + TableCard._SET_ID + " IN ("
-                         + transMap.get(lang).substring(1) + "))";
-        compTrans = "("+compTrans+")";
+            compTrans.append(" OR (" + TableCard._LANG + "='")
+                     .append(lang)
+                     .append("' AND ")
+                     .append(TableCard._SET_ID)
+                     .append(" IN (")
+                     .append(transMap.get(lang).substring(1))
+                     .append("))");
+        compTrans.append(')');
 
         // Apply that filter to the COMP_LANG preference.
-        if(!compTrans.equals(pref.getString(COMP_LANG, "")))
+        if(!compTrans.toString().equals(pref.getString(COMP_LANG, "")))
             pref.edit()
-                .putString(COMP_LANG, compTrans)
-                .commit();
+                .putString(COMP_LANG, compTrans.toString())
+                .apply();
     }
 
 
@@ -235,8 +242,8 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
                                .split(",");
         String[] colCard = res.getStringArray(R.array.sort_card_col);
         String[] colSet  = res.getStringArray(R.array.sort_set_col);
-        String sortCard = "";
-        String sortSet  = "";
+        StringBuilder sortCard = new StringBuilder();
+        StringBuilder sortSet  = new StringBuilder();
 
         // If we have any sort rules, add them
         if(rawSort.length != 0 && !"".equals(rawSort[0])) {
@@ -245,24 +252,26 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
                 // Sorting stops at the card name column
                 if(id == 1) break;
                 // Add a new card sort column
-                sortCard += colCard[id]+",";
+                sortCard.append(colCard[id])
+                        .append(",");
                 // Not all sort ids apply to card sets
                 if(!colSet[id].equals(""))
-                    sortSet += colSet[id]+", ";
+                    sortSet.append(colSet[id])
+                           .append(", ");
             }
         }
 
         // The final sort category is by name
-        sortCard += colCard[1];
-        sortSet +=  colSet[0];
+        sortCard.append(colCard[1]);
+        sortSet.append(colSet[0]);
 
         // Check if either has changed before writing them to memory
         SharedPreferences.Editor edit = pref.edit();
-        if(!sortCard.equals(pref.getString(COMP_SORT_CARD, "")))
-            edit.putString(COMP_SORT_CARD, sortCard);
-        if(!sortSet.equals(pref.getString(COMP_SORT_SET, "")))
-            edit.putString(COMP_SORT_SET, sortSet);
-        edit.commit();
+        if(!sortCard.toString().equals(pref.getString(COMP_SORT_CARD, "")))
+            edit.putString(COMP_SORT_CARD, sortCard.toString());
+        if(!sortSet.toString().equals(pref.getString(COMP_SORT_SET, "")))
+            edit.putString(COMP_SORT_SET, sortSet.toString());
+        edit.apply();
     }
 
 
@@ -294,7 +303,7 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
             edit.putString(REQ_CARDS, "");
         if(!prefs.contains(ACTIVE_TAB))
             edit.putInt(ACTIVE_TAB, res.getInteger(R.integer.def_tab));
-        edit.commit();
+        edit.apply();
     }
 
 
@@ -358,7 +367,7 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
         edit.remove("filt_set_seaside");
         edit.remove("filt_set_stash");
         edit.remove("filt_set_walled_village");
-        edit.commit();
+        edit.apply();
     }
 
 
@@ -407,19 +416,19 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
             if(newCost.length() > 1) newCost = newCost.substring(1);
             edit.putString(FILT_COST, newCost);
         }
-        edit.commit();
+        edit.apply();
     }
 
     /** Updates preferences from v2 to v3. Does not detect version number. */
     private static void update2(SharedPreferences prefs) {
         String filter = prefs.getString(FILT_SET, "");
         if(filter.length() < 1)
-             prefs.edit().putString(FILT_SET, "15").commit();
-        else prefs.edit().putString(FILT_SET, filter + ",15").commit();
+             prefs.edit().putString(FILT_SET, "15").apply();
+        else prefs.edit().putString(FILT_SET, filter + ",15").apply();
     }
 
     /** Updates preferences from v5 to v6. Does not detect version number */
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings({"deprecation", "ConstantConditions"})
     private static void update5(SharedPreferences prefs) {
         SharedPreferences.Editor edit = prefs.edit();
 
@@ -510,7 +519,7 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
         edit.putString(FILT_CARD, Utils.join(",", filt_card));
         edit.remove(SELECTIONS);
 
-        edit.commit();
+        edit.apply();
     }
 
     /** Updates preferences from v6 to v7. Does not detect version number */
@@ -518,7 +527,7 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
         // Add one more language for the Empires set
         prefs.edit()
              .putString(FILT_LANG, prefs.getString(FILT_LANG, "")+",0")
-             .commit();
+             .apply();
     }
 
     /** Check if a value is within a given range */

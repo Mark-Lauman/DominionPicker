@@ -3,6 +3,7 @@ package ca.marklauman.dominionpicker;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
@@ -46,9 +47,11 @@ public class FragmentPicker extends Fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FragmentActivity activity = getActivity();
+        if(activity != null)
+            activity.getSupportLoaderManager()
+                    .restartLoader(LoaderId.PICKER, null, this);
         Pref.addListener(this);
-        getActivity().getSupportLoaderManager()
-                     .restartLoader(LoaderId.PICKER, null, this);
     }
 
 
@@ -77,12 +80,12 @@ public class FragmentPicker extends Fragment
 
     /** Called to create this fragment's view for the first time.  */
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_picker, container, false);
         ButterKnife.bind(this, view);
         card_list.setLayoutManager(new LinearLayoutManager(getContext()));
-        card_list.addItemDecoration(new ListDivider(getContext()));
+        card_list.addItemDecoration(new ListDivider(container.getContext()));
 
         // Disable flicker animation when an item changes
         // (otherwise items will flicker when selection state changes)
@@ -140,12 +143,12 @@ public class FragmentPicker extends Fragment
     }
 
 
-    @Override
+    @Override @NonNull
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        assert getActivity() != null;
         // Show the loading icon if we have views
         mCursor = null;
         updateView();
-
 
 
         // Basic setup
@@ -196,13 +199,13 @@ public class FragmentPicker extends Fragment
 
 
     @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
         mCursor = data;
         updateView();
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
+    public void onLoaderReset(@NonNull Loader<Cursor> loader) {
         mCursor = null;
         updateView();
     }

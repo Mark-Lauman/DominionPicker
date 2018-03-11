@@ -20,7 +20,7 @@ public class DrawableLoader extends AsyncTask<Integer, Void, Void> {
     }
 
 
-    public static void load(Context context, Integer... resIds) {
+    private static void load(Context context, Integer... resIds) {
         DrawableLoader loader = new DrawableLoader(context);
         loader.execute(resIds);
     }

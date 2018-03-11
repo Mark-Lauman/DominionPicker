@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.view.View;
@@ -40,7 +41,7 @@ class HandlerHistory extends CursorSelAdapter
     /** Default constructor.
      *  @param context The context that the handler is used in.
      *  @param onlyFavorites Only loads favorite shuffles if true. */
-    public HandlerHistory(Context context, boolean onlyFavorites) {
+    HandlerHistory(Context context, boolean onlyFavorites) {
         super(context, R.layout.list_item_supply,
                 new String[]{DataDb._H_NAME, DataDb._H_CARDS},
                 new int[]{R.id.name, R.id.desc});
@@ -99,7 +100,7 @@ class HandlerHistory extends CursorSelAdapter
         return false;
     }
 
-    @Override
+    @Override @NonNull
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         CursorLoader c = new CursorLoader(mContext);
         c.setProjection(new String[]{DataDb._H_TIME, DataDb._H_NAME, DataDb._H_CARDS,
@@ -111,12 +112,12 @@ class HandlerHistory extends CursorSelAdapter
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
         changeCursor(data);
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
+    public void onLoaderReset(@NonNull Loader<Cursor> loader) {
         changeCursor(null);
     }
 }

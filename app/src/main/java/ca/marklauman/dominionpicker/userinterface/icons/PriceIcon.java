@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
+import android.support.annotation.NonNull;
 
 import ca.marklauman.dominionpicker.database.TableCard;
 
@@ -36,7 +37,7 @@ public class PriceIcon extends Icon {
 
 
     @Override
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         if(showCoin) {
             mCoin.draw(canvas);
             canvas.translate(mCoin.width(), 0);
@@ -105,7 +106,7 @@ public class PriceIcon extends Icon {
     }
 
     @Override @Deprecated
-    public void setBounds(Rect rect) {
+    public void setBounds(@NonNull Rect rect) {
         throw new UnsupportedOperationException("Please use the other setBounds()");
     }
 

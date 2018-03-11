@@ -2,6 +2,7 @@ package ca.marklauman.dominionpicker.history;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -29,22 +30,22 @@ public class FragmentHistory extends Fragment {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(ACTIVE_KEY, activeTab);
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
 
         // Tab setup
-        ViewPager pager = (ViewPager) view.findViewById(R.id.pager);
+        ViewPager pager = view.findViewById(R.id.pager);
         pager.setAdapter(new PagerAdapter(getActivity(), getChildFragmentManager()));
         pager.setCurrentItem(activeTab);
-        SlidingTabLayout tabs = (SlidingTabLayout) view.findViewById(R.id.tabs);
+        SlidingTabLayout tabs = view.findViewById(R.id.tabs);
         tabs.setViewPager(pager);
 
         return view;
@@ -55,7 +56,7 @@ public class FragmentHistory extends Fragment {
         /** The tab names */
         final String[] titles;
 
-        public PagerAdapter(Context c, FragmentManager fm) {
+        PagerAdapter(Context c, FragmentManager fm) {
             super(fm);
             titles = c.getResources().getStringArray(R.array.historyTypes);
         }

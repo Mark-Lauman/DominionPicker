@@ -8,15 +8,15 @@ import ca.marklauman.dominionpicker.shuffler.RafflePool;
  *  @author Mark Lauman */
 public class RaffleTest {
 
-    static void println(Object object) {
+    private static void println(Object object) {
         System.out.println(object);
     }
 
-    static void print(Object object) {
+    private static void print(Object object) {
         System.out.print(object);
     }
 
-    static void fillPool(RafflePool<Long> pool, int maxValue) {
+    private static void fillPool(RafflePool<Long> pool, int maxValue) {
         for(int i=1; i<=maxValue; i++)
             pool.add(i, (long)i);
     }

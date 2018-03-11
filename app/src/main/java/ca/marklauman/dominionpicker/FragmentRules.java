@@ -3,6 +3,7 @@ package ca.marklauman.dominionpicker;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,7 +28,8 @@ public class FragmentRules extends Fragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Context context = getContext();
-        DrawableLoader.load(context, Utils.getResourceArray(context, R.array.card_set_icons));
+        if(context != null)
+            DrawableLoader.load(context, Utils.getResourceArray(context, R.array.card_set_icons));
         Pref.addListener(this);
     }
 
@@ -39,12 +41,12 @@ public class FragmentRules extends Fragment
 
     /** Called to create this fragment's view for the first time.  */
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rules, container, false);
-        RecyclerView listView = (RecyclerView)view.findViewById(R.id.loaded);
-        listView.setLayoutManager(new LinearLayoutManager(getContext()));
-        listView.addItemDecoration(new ListDivider(getContext()));
+        RecyclerView listView = view.findViewById(R.id.loaded);
+        listView.setLayoutManager(new LinearLayoutManager(container.getContext()));
+        listView.addItemDecoration(new ListDivider(container.getContext()));
 
         adapter = new AdapterRules(listView);
         listView.setAdapter(adapter);

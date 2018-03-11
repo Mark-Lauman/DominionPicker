@@ -1,8 +1,5 @@
 package ca.marklauman.dominionpicker.userinterface.recyclerview.rules;
 
-/** General ViewHolder used by
- *  {@link ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterRules}.
- *  @author Mark Lauman */
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -42,7 +43,7 @@ class HandlerSamples extends SimpleCursorAdapter
     /** Column index for high_cost. */
     private int _high_cost;
 
-    public HandlerSamples(Context context) {
+    HandlerSamples(Context context) {
         super(context, R.layout.list_item_supply, null,
                 new String[]{TableSupply._NAME, TableSupply._SET_ID, TableSupply._SET_NAME, TableSupply._CARDS},
                 new int[]{R.id.name, R.id.set, R.id.set, R.id.desc}, 0);
@@ -97,7 +98,7 @@ class HandlerSamples extends SimpleCursorAdapter
         return false;
     }
 
-    @Override
+    @Override @NonNull
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         // start the query going
         CursorLoader c = new CursorLoader(mContext);
@@ -111,12 +112,12 @@ class HandlerSamples extends SimpleCursorAdapter
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
         changeCursor(data);
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
+    public void onLoaderReset(@NonNull Loader<Cursor> loader) {
         changeCursor(null);
     }
 }

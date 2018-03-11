@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
@@ -70,25 +71,25 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
     /** Index of the "_id" column for {@link #mCursor}. */
     int _id;
     /** Index of the "name" column for {@link #mCursor}. */
-    int _name;
+    private int _name;
     /** Index of the "set_id" column for {@link #mCursor}. */
-    int _set_id;
+    private int _set_id;
     /** Index of the "set_name" column for {@link #mCursor}. */
-    int _set_name;
+    private int _set_name;
     /** Index of the "cost" column for {@link #mCursor}. */
-    int _cost;
+    private int _cost;
     /** Index of the "debt" column for {@link #mCursor}. */
-    int _debt;
+    private int _debt;
     /** Index of the "potion" column for {@link #mCursor}. */
-    int _potion;
+    private int _potion;
     /** Index of the "language" column for {@link #mCursor}. */
-    int _language;
+    private int _language;
     /** Index of the "type" column for {@link #mCursor}. */
-    int _type;
+    private int _type;
     /** Index of the "requires" column for {@link #mCursor}. */
-    int _requires;
+    private int _requires;
     /** Index of the landmark card type */
-    int _type_landmark;
+    private int _type_landmark;
 
 
     /** Listener to be notified if a card is clicked. */
@@ -152,15 +153,15 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
     }
 
 
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @Override @NonNull
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         return new ViewHolder(inflater.inflate(R.layout.list_item_card, parent, false));
     }
 
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         mCursor.moveToPosition(position);
 
         final long id = mCursor.getLong(_id);
@@ -243,7 +244,7 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
         @BindView(R.id.card_name)          public TextView name;
         @BindView(R.id.card_extra)         public TextView extra;
         @BindView(R.id.card_type)          public TextView type;
-        @BindView(R.id.card_requires)      public TextView requires;
+        @BindView(R.id.card_requires)      TextView requires;
         /** Icon used to display the price of this card */
         private final PriceIcon price;
 
@@ -256,7 +257,7 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
 
         /** View the details of this card. Triggered when the card's image is clicked. */
         @OnClick(R.id.card_details)
-        public void launchDetails() {
+        void launchDetails() {
             mCursor.moveToPosition(getAdapterPosition());
             AdapterCards.launchDetails(context, mCursor.getLong(_id));
         }
@@ -269,12 +270,12 @@ public class AdapterCards extends BasicTouchAdapter<AdapterCards.ViewHolder> {
         }
 
         @OnClick(R.id.click_area)
-        public void click() {
+        void click() {
             notifyClick(false);
         }
 
         @OnLongClick(R.id.click_area)
-        public boolean longClick() {
+        boolean longClick() {
             notifyClick(true);
             return !hasSwipe;
         }

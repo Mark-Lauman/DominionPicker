@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:width="18dp"
     android:height="18dp"
     android:viewportWidth="18"
@@ -465,6 +466,7 @@
         2.17 14.56 2.29 14.6L2.35 14.63zM12.3 9.6C11.56 10.75 10.55 11.63 9.38 12.07C9.31 9.6 7.54
         9.79 7.56 7.35C5.72 9.77 6.4 12.68 8.56 13.28C10.24 13.75 12.4 11.83 12.3 9.6zM6.27
         0.16C8.27 3.58 5.09 3.11 4.72 5.84C3.7 2.9 6.05 3.37 6.27 0.16zM11.75 0.2C10.42 1.88 10.76
-        3.76 12 4.99C11.47 3.11 11.51 1.69 11.75 0.2z" />
+        3.76 12 4.99C11.47 3.11 11.51 1.69 11.75 0.2z"
+        tools:ignore="VectorPath" />
 
 </vector>

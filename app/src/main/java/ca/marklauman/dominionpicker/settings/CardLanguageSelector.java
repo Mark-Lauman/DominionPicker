@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.CursorLoader;
@@ -149,7 +150,7 @@ public class CardLanguageSelector extends AppCompatActivity
 
 
     /** Start loading the set order or language options */
-    @Override
+    @Override @NonNull
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         switch(id) {
             case LoaderId.LANG_ORDER:
@@ -162,13 +163,13 @@ public class CardLanguageSelector extends AppCompatActivity
                                         new String[]{TableCard._SET_ID, TableCard._LANG,
                                         TableCard._SET_NAME}, null, null, null);
         }
-        return null;
+        throw new UnsupportedOperationException("CardLanguageSelector: Loader id not specified");
     }
 
 
     /** Pass the cursors to the appropriate methods when they finish loading */
     @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
         switch(loader.getId()) {
             case LoaderId.LANG_ORDER: createPreferences(data); break;
             case LoaderId.LANG_CHOICES: setChoices(data);
@@ -178,7 +179,7 @@ public class CardLanguageSelector extends AppCompatActivity
 
     /** Cursors are not retained */
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {}
+    public void onLoaderReset(@NonNull Loader<Cursor> loader) {}
 
 
     /** When a preference is clicked, launch a selector to choose that set's language */
@@ -244,13 +245,13 @@ public class CardLanguageSelector extends AppCompatActivity
         /** The icon used for this preference */
         public int icon;
         /** The internal set_id. */
-        public int set_id;
+        int set_id;
         /** The default language code. */
-        public String def;
+        String def;
         /** The current value */
-        public String val;
+        String val;
         /** Available choices of val, mapped to their display counterparts. */
-        final public HashMap<String, String> choices = new HashMap<>();
+        final HashMap<String, String> choices = new HashMap<>();
     }
 
 
@@ -259,16 +260,17 @@ public class CardLanguageSelector extends AppCompatActivity
         /** The values on display */
         final private LangPreference[] values;
 
-        public PrefAdapter(Context c, LangPreference[] values) {
+        PrefAdapter(Context c, LangPreference[] values) {
             super(c, R.layout.card_language_pref, values);
             this.values = values;
         }
 
-        public LangPreference getPreference(int position) {
+        LangPreference getPreference(int position) {
             return values[position];
         }
 
-        public View getView(int position, View convertView, ViewGroup parent) {
+        @NonNull
+        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
             // View setup
             if(convertView == null)
                 convertView = View.inflate(getContext(), R.layout.card_language_pref, null);
@@ -285,11 +287,11 @@ public class CardLanguageSelector extends AppCompatActivity
 
             // Apply preference state to views
             convertView.setBackgroundColor(ContextCompat.getColor(getContext(), back));
-            TextView txt = (TextView) convertView.findViewById(android.R.id.text1);
+            TextView txt = convertView.findViewById(android.R.id.text1);
             txt.setText(pref.name);
-            txt = (TextView) convertView.findViewById(android.R.id.text2);
+            txt = convertView.findViewById(android.R.id.text2);
             txt.setText(languageNames.get(values[position].val));
-            ImageView icon = (ImageView) convertView.findViewById(android.R.id.icon2);
+            ImageView icon = convertView.findViewById(android.R.id.icon2);
             icon.setImageResource(pref.icon);
 
             return convertView;

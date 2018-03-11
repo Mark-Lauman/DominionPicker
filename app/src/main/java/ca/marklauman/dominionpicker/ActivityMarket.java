@@ -31,8 +31,9 @@ public class ActivityMarket extends AppCompatActivity {
         Bundle appExtras = getIntent().getExtras();
         FragmentMarket market = new FragmentMarket();
         Bundle args = new Bundle();
-        args.putLongArray(FragmentMarket.PARAM_SUPPLY,
-                          appExtras.getLongArray(PARAM_SUPPLY));
+        if(appExtras != null)
+            args.putLongArray(FragmentMarket.PARAM_SUPPLY,
+                              appExtras.getLongArray(PARAM_SUPPLY));
         market.setArguments(args);
 
         getSupportFragmentManager().beginTransaction()

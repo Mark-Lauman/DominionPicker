@@ -3,6 +3,7 @@ package ca.marklauman.dominionpicker.userinterface.recyclerview;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -120,20 +121,20 @@ public class AdapterRules extends Adapter<Rule>
 
 
     /** Create an empty rule for the given position in the adapter. */
-    @Override
-    public Rule onCreateViewHolder(ViewGroup parent, int viewType) {
+    @Override @NonNull
+    public Rule onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         switch(viewType) {
             case TYPE_CHECK:   return new RuleCheckbox(recycler);
             case TYPE_SECTION: return new RuleSection(recycler);
             case TYPE_NUMBER:  return new RuleNumber(recycler);
-            default: return null;
+            default: throw new UnsupportedOperationException("Invalid rule type");
         }
     }
 
 
     /** Put data into the rule at the given position. */
     @Override
-    public void onBindViewHolder(Rule holder, int position) {
+    public void onBindViewHolder(@NonNull Rule holder, int position) {
         holder.setLast(hasScroll && position == lastItem);
         holder.setValue(values.get(position));
     }
@@ -189,7 +190,7 @@ public class AdapterRules extends Adapter<Rule>
     }
 
 
-    @Override
+    @Override @NonNull
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         switch(id) {
             case LoaderId.RULES_EXP:
@@ -206,12 +207,12 @@ public class AdapterRules extends Adapter<Rule>
                                         new String[]{TableCard._DEBT},
                                         null, null, TableCard._DEBT);
         }
-        return null;
+        throw new UnsupportedOperationException("No loader specified");
     }
 
 
     @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
         int start = values.size();
         int inserted = 0;
 
@@ -299,5 +300,5 @@ public class AdapterRules extends Adapter<Rule>
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {}
+    public void onLoaderReset(@NonNull Loader<Cursor> loader) {}
 }

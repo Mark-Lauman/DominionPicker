@@ -1,5 +1,6 @@
 package ca.marklauman.dominionpicker.userinterface.recyclerview;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -132,8 +133,8 @@ public class AdapterCardsFilter extends AdapterCards
     }
 
 
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @Override @NonNull
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ViewHolder result = super.onCreateViewHolder(parent, viewType);
         result.extra.setText(R.string.req_card);
         return result;
@@ -141,7 +142,7 @@ public class AdapterCardsFilter extends AdapterCards
 
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         super.onBindViewHolder(holder, position);
 
         // Determine and apply the selection status to the view

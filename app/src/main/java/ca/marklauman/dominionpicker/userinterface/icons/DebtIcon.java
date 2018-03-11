@@ -9,6 +9,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 
 import ca.marklauman.dominionpicker.R;
@@ -73,7 +74,7 @@ public class DebtIcon extends Icon {
 
 
     @Override
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
 
         // Compute the transforms for the hex
         float scaleRatio = minFloat(height() / DEF_HEIGHT,

@@ -1,8 +1,5 @@
 package ca.marklauman.dominionpicker.database;
 
-import android.content.Context;
-import android.support.v4.content.ContextCompat;
-
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
