@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
-import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PixelFormat;
@@ -25,17 +24,13 @@ public class DebtIcon extends Icon {
 
     /** Describer used to describe this icon */
     private final IconDescriber mDescriber;
-    /** Value on display in this coin */
+    /** Value in the middle of this icon */
     private String value;
 
-    /** Paint object used by this drawable */
+    /** Paint object used to draw things */
     private final Paint paint;
-    /** Path used to draw the hexagon */
+    /** Path for the hexagon */
     private final Path hex;
-    /** Matrix used to center the hexagon. */
-    private final Matrix translate;
-    /** Matrix used to scale the hexagon. */
-    private final Matrix scale;
 
     /** Rectangle used to determine the text bounds */
     private final Rect textBounds;
@@ -51,61 +46,41 @@ public class DebtIcon extends Icon {
     public DebtIcon(Context context, IconDescriber describer, String text) {
         mDescriber = describer;
         value = text;
+        hex = new Path();
         paint = new Paint();
         paint.setAntiAlias(true);
-        translate = new Matrix();
-        scale = new Matrix();
         textBounds = new Rect();
         back = ContextCompat.getColor(context, R.color.debt);
-
-        // Create the hex
-        hex = new Path();
-        final float x = DEF_WIDTH / 2f;
-        final float y = DEF_HEIGHT / 2f;
-        final float radius = DEF_WIDTH / 2f;
-        final double section = Math.PI / 3;
-        hex.moveTo((float)(x + radius * Math.cos(0)),
-                   (float)(y + radius * Math.sin(0)));
-        for (int i = 1; i < 6; i++)
-            hex.lineTo((float)(x + radius * Math.cos(section * i)),
-                       (float)(y + radius * Math.sin(section * i)));
-        hex.close();
     }
 
 
     @Override
     public void draw(@NonNull Canvas canvas) {
+        // Determine the scale of the icon
+        float scale = minFloat(height() / DEF_HEIGHT,
+                               width()  / DEF_WIDTH);
 
-        // Compute the transforms for the hex
-        float scaleRatio = minFloat(height() / DEF_HEIGHT,
-                                    width()  / DEF_WIDTH);
-        scale.reset();
-        scale.setScale(scaleRatio, scaleRatio);
-        hex.transform(scale);
-        translate.reset();
-        translate.setTranslate( (width()  - scaleRatio * DEF_WIDTH) / 2f,
-                (height() - scaleRatio * DEF_HEIGHT) / 2f);
-        hex.transform(translate);
+        // Calculate the hexagon
+        float radius = scale * DEF_WIDTH / 2f;
+        hex.reset();
+        hex.moveTo(centerX() + radius, centerY());
+        for(int i=1; i<6; i++)
+            hex.lineTo((float)(centerX() + radius * Math.cos(i * Math.PI/3)),
+                       (float)(centerY() + radius * Math.sin(i * Math.PI/3)));
+        hex.close();
 
-        // Draw the hex
+        // Draw the hexagon
         paint.setColor(back);
         canvas.drawPath(hex, paint);
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(Color.BLACK);
-        paint.setStrokeWidth(scaleRatio);
+        paint.setStrokeWidth(scale);
         canvas.drawPath(hex, paint);
-        
-        // revert the transforms
-        translate.invert(translate);
-        hex.transform(translate);
-        scale.invert(scale);
-        hex.transform(scale);
 
         // Draw the text
         paint.setColor(Color.WHITE);
         paint.setStyle(Paint.Style.FILL);
-        paint.setTextSize(value.length() < 2 ? 8f * scaleRatio
-                                             : 6f * scaleRatio);
+        paint.setTextSize(value.length() < 2 ? 8f*scale : 6f*scale);
         paint.getTextBounds(value, 0, value.length(), textBounds);
         canvas.drawText(value, centerX() - textBounds.exactCenterX(),
                                centerY() - textBounds.exactCenterY(), paint);

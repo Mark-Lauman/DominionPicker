@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.CheckedTextView;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import java.util.HashSet;
 
 import butterknife.BindView;
@@ -48,8 +51,13 @@ public class RuleCheckbox extends Rule
     public void setValue(Object newValue) {
         data = (Data)newValue;
         if(data.icon != null)
-            vIcon.setImageDrawable(data.icon);
-        else vIcon.setImageResource(data.iconRes);
+            Glide.with(vIcon)
+                 .load(data.icon)
+                 .into(vIcon);
+        else Glide.with(vIcon)
+                  .load(data.iconRes)
+                  .apply(RequestOptions.noTransformation())
+                  .into(vIcon);
         vText.setText(data.text);
         vText.setChecked( data.keySet == null
                               ? data.inverted != Pref.get(itemView.getContext())

@@ -21,6 +21,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import java.util.HashMap;
 import java.util.Set;
 
@@ -292,7 +295,10 @@ public class CardLanguageSelector extends AppCompatActivity
             txt = convertView.findViewById(android.R.id.text2);
             txt.setText(languageNames.get(values[position].val));
             ImageView icon = convertView.findViewById(android.R.id.icon2);
-            icon.setImageResource(pref.icon);
+            Glide.with(icon)
+                 .load(pref.icon)
+                 .apply(RequestOptions.noTransformation())
+                 .into(icon);
 
             return convertView;
         }

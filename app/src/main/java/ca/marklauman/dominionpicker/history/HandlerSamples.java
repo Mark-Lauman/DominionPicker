@@ -2,16 +2,17 @@ package ca.marklauman.dominionpicker.history;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import ca.marklauman.dominionpicker.R;
 import ca.marklauman.dominionpicker.database.Provider;
@@ -28,9 +29,7 @@ class HandlerSamples extends SimpleCursorAdapter
     /** The context this handler is in */
     private final Context mContext;
     /** Maps expansion names to expansion icons */
-    private final Drawable[] exp_icons;
-    /** Icon for an unknown expansion */
-    private final Drawable exp_none;
+    private final int[] exp_icons;
 
     /** Column index for set id */
     private int _set_id;
@@ -49,8 +48,7 @@ class HandlerSamples extends SimpleCursorAdapter
                 new int[]{R.id.name, R.id.set, R.id.set, R.id.desc}, 0);
         mContext = context;
         setViewBinder(this);
-        exp_icons = Utils.getDrawableArray(context, R.array.card_set_icons);
-        exp_none = ContextCompat.getDrawable(context, R.drawable.ic_set_unknown);
+        exp_icons = Utils.getResourceArray(context, R.array.card_set_icons);
     }
 
     @Override
@@ -69,11 +67,14 @@ class HandlerSamples extends SimpleCursorAdapter
     public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
         if(columnIndex == _set_id) {
             // Map the set id to an image
-            Drawable setImg = exp_none;
+            int setImg = R.drawable.ic_set_unknown;
             try{ setImg = exp_icons[cursor.getInt(_set_id)];
             } catch (Exception ignored) {}
             view.setVisibility(View.VISIBLE);
-            ((ImageView)view).setImageDrawable(setImg);
+            Glide.with(view)
+                 .load(setImg)
+                 .apply(RequestOptions.noTransformation())
+                 .into((ImageView) view);
             return true;
 
         } else if(columnIndex == _set_name) {

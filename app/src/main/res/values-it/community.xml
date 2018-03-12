@@ -74,7 +74,7 @@
     ]]></string>
     <string name="open_butterknife_url">http://jakewharton.github.io/butterknife/</string>
 
-    <string name="open_picasso"><![CDATA[ <b>Picasso</b><br>&#169;2013 Square, Inc. ]]></string>
-    <string name="open_picasso_url">http://square.github.io/picasso/</string>
+    <string name="open_glide"><![CDATA[ <b>Glide</b><br>&#169;2014 Google, Inc. ]]></string>
+    <string name="open_glide_url">https://bumptech.github.io/glide/</string>
 
 </resources>

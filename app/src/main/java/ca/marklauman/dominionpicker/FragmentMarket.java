@@ -11,7 +11,6 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -282,20 +281,17 @@ public class FragmentMarket extends Fragment
 
                 // Generate selection string
                 StringBuilder cardSel = new StringBuilder(TableCard._ID+" IN (");
-                int remove = cardSel.length()-1;
                 for(long ignored : choices)
-                    cardSel.append(",?");
-                cardSel.deleteCharAt(remove)
-                        .insert(0, '(')
+                    cardSel.append("?,");
+                cardSel.deleteCharAt(cardSel.length()-1)
                        .append(") AND ")
                        .append(Pref.languageFilter(getContext()));
-                Log.d("select", cardSel.toString());
                 c.setSelection(cardSel.toString());
 
                 // selection args
                 String[] strChoices = new String[choices.length];
                 for(int i=0; i<choices.length; i++)
-                    strChoices[i] = "" + choices[i];
+                    strChoices[i] = Long.toString(choices[i]);
                 c.setSelectionArgs(strChoices);
                 return c;
         }

@@ -38,7 +38,7 @@ public class ActivityComm extends AppCompatActivity {
                 findViewById(R.id.open_butterknife)
                         .setOnClickListener(new WebListener(R.string.open_butterknife_url));
                 findViewById(R.id.open_picasso)
-                        .setOnClickListener(new WebListener(R.string.open_picasso_url));
+                        .setOnClickListener(new WebListener(R.string.open_glide_url));
                 break;
             default:
                 setTitle(R.string.community);

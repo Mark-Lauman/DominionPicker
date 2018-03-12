@@ -52,12 +52,6 @@ public class InfoTextView extends XmlTextView {
         setup(context);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public InfoTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        setup(context);
-    }
-
 
     private void setup(Context context) {
         setHrRes(R.layout.card_info_hr);

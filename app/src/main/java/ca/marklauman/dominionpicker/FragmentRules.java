@@ -1,6 +1,5 @@
 package ca.marklauman.dominionpicker;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,9 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import ca.marklauman.dominionpicker.settings.Pref;
-import ca.marklauman.dominionpicker.userinterface.DrawableLoader;
 import ca.marklauman.dominionpicker.userinterface.recyclerview.AdapterRules;
-import ca.marklauman.tools.Utils;
 import ca.marklauman.tools.recyclerview.ListDivider;
 
 /** The fragment governing the Rules screen.
@@ -27,9 +24,6 @@ public class FragmentRules extends Fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Context context = getContext();
-        if(context != null)
-            DrawableLoader.load(context, Utils.getResourceArray(context, R.array.card_set_icons));
         Pref.addListener(this);
     }
 

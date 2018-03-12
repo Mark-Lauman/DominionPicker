@@ -18,6 +18,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ca.marklauman.dominionpicker.userinterface.InfoTextView;
@@ -174,7 +177,10 @@ public class ActivityCardInfo extends AppCompatActivity
         int expIcon = R.drawable.ic_set_unknown;
         try { expIcon = expIcons[getInt(data, TableCard._SET_ID)];
         } catch(Exception ignored){}
-        vSetIcon.setImageResource(expIcon);
+        Glide.with(this)
+             .load(expIcon)
+             .apply(RequestOptions.noTransformation())
+             .into(vSetIcon);
 
         // Show the card
         vLoading.setVisibility(View.GONE);
