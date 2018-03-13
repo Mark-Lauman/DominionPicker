@@ -1,53 +1,53 @@
 _id	language	name
 1	de	Erstes Spiel
-2	de	Großes Geld
+2	de	GroÃŸes Geld
 3	de	Interaktion
 4	de	Im Wandel
 5	de	Dorfplatz
 6	de	Siegestanz
-7	de	Geheime Pläne
-8	de	Besten Wünsche
+7	de	Geheime PlÃ¤ne
+8	de	Besten WÃ¼nsche
 9	de	Demontage
 10	de	Eine Hand voll
 11	de	Untergebene
 12	de	Auf hoher See
-13	de	Vergrabene Schätze
+13	de	Vergrabene SchÃ¤tze
 14	de	Schiffswracks
 15	de	Griff nach den Sternen
 16	de	Wiederholung
 17	de	Geben und Nehmen
-18	de	Verbotenen Künste
+18	de	Verbotenen KÃ¼nste
 19	de	Quacksalber
 20	de	Chemiestunde
 21	de	Diener
 22	de	Geheime Forschung
-23	de	Töpfe, Tranke und Trottel
-24	de	Anfänger
+23	de	TÃ¶pfe, Tranke und Trottel
+24	de	AnfÃ¤nger
 25	de	Freundliche Interaktion
-26	de	Große Aktionen
+26	de	GroÃŸe Aktionen
 27	de	Haufenweise Geld
-28	de	Die Armee des Königs
+28	de	Die Armee des KÃ¶nigs
 29	de	Ein gutes Leben
 30	de	Pfade zum Sieg
 31	de	Am Wachturm entlang
-32	de	Glücksritter
+32	de	GlÃ¼cksritter
 33	de	Kopfgeld
-34	de	Böses Omen
+34	de	BÃ¶ses Omen
 35	de	Wanderzirkus
 36	de	Wer zuletzt lacht
-37	de	Würze des Lebens
+37	de	WÃ¼rze des Lebens
 38	de	Kleine Siege
-39	de	Einführung
+39	de	EinfÃ¼hrung
 40	de	Lauterer Wettbewerb
 41	de	Gelegenheiten
-42	de	Eröffnungen
-43	de	Straßenräuber
+42	de	ErÃ¶ffnungen
+43	de	StraÃŸenrÃ¤uber
 44	de	Abenteuerfahrt
 45	de	Geld aus Nichts
 46	de	Am Hof des Herzogs
 47	de	Reisende
 48	de	Diplomatie
-49	de	Träume sind Schäume
+49	de	TrÃ¤ume sind SchÃ¤ume
 50	de	Weinviertel
 51	de	Karriereleiter
 52	de	Schatzfund
@@ -63,33 +63,41 @@ _id	language	name
 62	de	Einfaches Volk
 63	de	Seuchenherd
 64	de	Klagelied
-65	de	Des einen Müll ...
+65	de	Des einen MÃ¼ll ...
 66	de	Ehre unter Dieben
 67	de	Dunkler Karneval
 68	de	Auf den Sieger
 69	de	Fern von Zuhause
 70	de	Expeditionen
 71	de	Kunsthandwerk
-72	de	Rechtschaffen und anständig
+72	de	Rechtschaffen und anstÃ¤ndig
 73	de	Des Guten zuviel
 74	de	Nenne diese Karte
-75	de	Geschäftstricks
+75	de	GeschÃ¤ftstricks
 76	de	Entscheidungen, Entscheidungen
-77	de	Sanfte Einführung
-78	de	Profi-Einführung
-79	de	Auf höchster Ebene
-80	de	Verzerrte Größen
+77	de	Sanfte EinfÃ¼hrung
+78	de	Profi-EinfÃ¼hrung
+79	de	Auf hÃ¶chster Ebene
+80	de	Verzerrte GrÃ¶ÃŸen
 81	de	Lizenz Fabrik
 82	de	Fach Finanziers
 83	de	Prinz von orange
 84	de	Gute und schlechte Geschenke
 85	de	Testament und Monument
-86	de	Groß denken
-87	de	Des Helden Rückkehr
+86	de	GroÃŸ denken
+87	de	Des Helden RÃ¼ckkehr
 88	de	Segeln und Hexerei
-89	de	Händler und Räuber
+89	de	HÃ¤ndler und RÃ¤uber
 90	de	Fahrten
 91	de	Friedhofspolka
 92	de	Toll Zerfall
 93	de	Verschwender
-94	de	Königin von hellbraun
+94	de	KÃ¶nigin von hellbraun
+95	de	Basis EinfÃ¼hrung
+96	de	Fortgeschrittene EinfÃ¼hrung
+97	de	Alles in MaÃŸen
+98	de	Silberne Kugeln
+99	de	KÃ¶stliche Folter
+100	de	Buddy-Prinzip
+113	de	Kontrollbereich
+114	de	Kein Geld, keine Probleme

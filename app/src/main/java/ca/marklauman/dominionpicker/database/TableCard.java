@@ -21,6 +21,9 @@ public abstract class TableCard {
     /** View that spans all 3 card tables. */
     static final String VIEW_ALL = "cardAll";
 
+    /** Table containing expansion editions */
+    static final String SET_EDITION = "setEdition";
+
     /** Unique identifier for an expansion. From the cardSet and cardData tables. */
     public static final String _SET_ID = "set_id";
     /** Column for expansion name. From the cardSet table. */
@@ -94,6 +97,15 @@ public abstract class TableCard {
 
     /** Column indicating if this card is a curser meta type. From the cardData table. */
     public static final String _META_CURSER = "metaCurser";
+
+    /** Column indicating if this card is an event, a landmark or another card */
+    public static final String _META_KINGDOM = "metaKingdom";
+
+    /** Column indicating the edition of a set */
+    public static final String _EDITION = "edition";
+
+    /** Column indicating that a card is unique to a specific edition */
+    public static final String _UNIQUE_TO_EDITION = "uniqueToEdition";
 
     /** Routine used to convert number-like values (like cost) into a numeric quantity. */
     public static int parseVal(String value) {

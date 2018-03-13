@@ -60,6 +60,7 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
         String filt_pre = FragmentPicker.getFilter(pref);
         String filt_req = pref.getString(Pref.REQ_CARDS, "");
         String filt_card = pref.getString(Pref.FILT_CARD, "");
+        String edition_filter = pref.getString(Pref.FILT_EDITION, "");
 
         // Load the required cards into the supply
         if(0 < filt_req.length())
@@ -70,11 +71,21 @@ class SupplyShuffler extends AsyncTask<Void, Void, Void> {
             return successfulResult(supply);
 
         // Filter out both required and excluded cards
-        String filt = filt_req+filt_card;
-        if(0 < filt_req.length() && 0 < filt_card.length())
-            filt = filt_req+","+filt_card;
+        String filt = filt_req;
+
+        if(0 < filt_card.length())
+            if (0 < filt.length())
+                filt += ",";
+            filt += filt_card;
+
         if(0 < filt.length())
             filt = TableCard._ID+" NOT IN ("+filt+")";
+
+        if (0 < filt.length()) {
+            filt += " AND " + edition_filter;
+        } else {
+            filt = edition_filter;
+        }
 
         // Shuffle the remaining cards into the supply
         loadCards(supply, joinFilters(filt_pre, filt), false);

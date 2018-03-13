@@ -9,8 +9,15 @@
 
     <string name="sort_card">Kartensortierung</string>
     <string name="sort_card_desc">Wie sollen die Karten sortiert werden.</string>
+    <string name="edition_choice">Editionen</string>
+    <string name="edition_choice_desc">Wähle welche Edition von Dominion und Intrige benutzt werden soll.</string>
+    <string name="expansion_editions_all_desc">Karten aller Editionen verwenden</string>
     <string name="drag_handle_desc">Zieh mich!</string>
     <string name="sort_card_end">Alles unterhalb dieser Option wird ignoriert.</string>
+    <string-array name="expansion_edition_names">
+        <item>1. Edition</item>
+        <item>2. Edition</item>
+    </string-array>
     <string-array name="sort_card_names">
         <item>Erweiterung</item>
         <item>Kartenname</item>
@@ -19,6 +26,7 @@
         <item>Karten-Typ</item>
         <item>Sprache</item>
         <item>Promokarten zuerst</item>
+        <item>Ereignisse und Landmarken zuletzt</item>
     </string-array>
 
 </resources>

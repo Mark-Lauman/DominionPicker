@@ -9,6 +9,13 @@
 
     <string name="sort_card">Orden de las cartas</string>
     <string name="sort_card_desc">Ordena las cartas a tu antojo.</string>
+    <string name="edition_choice">Editions</string>
+    <string name="edition_choice_desc">Choose which editions of Dominion and Intrigue to use</string>
+    <string name="expansion_editions_all_desc">Use cards of all editions</string>
+    <string-array name="expansion_edition_names">
+        <item>1st Edition</item>
+        <item>2nd Edition</item>
+    </string-array>
     <string name="drag_handle_desc">¡Arrastrame!</string>
     <string name="sort_card_end">Ordena hasta aqu&#237;.</string>
     <string-array name="sort_card_names">

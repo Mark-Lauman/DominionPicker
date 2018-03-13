@@ -5,9 +5,9 @@
     <!-- This file contains resources that the user never sees, and is the same in all locales -->
 
     <!-- Current version of preferences -->
-    <integer name="pref_version">7</integer>
+    <integer name="pref_version">9</integer>
     <!-- core.db version -->
-    <integer name="db_ver_core">4</integer>
+    <integer name="db_ver_core">5</integer>
     <!-- data.db version -->
     <integer name="db_ver_data">11</integer>
 
@@ -17,8 +17,12 @@
     <bool name="filt_pot_def">true</bool>
     <string name="filt_cost_def" />
     <bool name="filt_curse_def">true</bool>
-    <string name="filt_lang_def">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</string>
-    <string name="sort_card_def">5,6,2,0,3,1,4</string>
+    <string name="filt_lang_def">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</string>
+    <string name="sort_card_def">5,6,2,0,3,1,4,7</string>
+
+    <!-- default expansion edition values -->
+    <integer name="expansion_editions_all">-1</integer>
+    <string name="expansion_editions_def">1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1</string>
 
     <!-- Dummy text used to make debugging views easier -->
     <string name="demo_card_title">Name of the card goes here, even if it overextends</string>

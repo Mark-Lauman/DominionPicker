@@ -22,6 +22,7 @@
         <item>@drawable/ic_set_adventures</item>
         <item>@drawable/ic_set_promo_flag</item>
         <item>@drawable/ic_set_empires</item>
+        <item>@drawable/ic_set_sauna_avanto</item>
     </array>
 
     <!-- Default translation to use for each set. Sorted by set_id. -->
@@ -44,6 +45,7 @@
         <item>en</item> <!-- 15 Adventures -->
         <item>en</item> <!-- 16 Summon -->
         <item>en</item> <!-- 17 Empires -->
+        <item>en</item> <!-- 18 Sauna/Avanto -->
     </string-array>
 
     <string name="coin">Coin</string>

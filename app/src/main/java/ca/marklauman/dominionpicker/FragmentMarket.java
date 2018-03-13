@@ -170,6 +170,7 @@ public class FragmentMarket extends Fragment
         switch(key) {
             case Pref.FILT_SET: case Pref.FILT_COST: case Pref.FILT_POTION:
             case Pref.FILT_CURSE: case Pref.REQ_CARDS: case Pref.FILT_CARD:
+            case Pref.FILT_EDITION:
                 setActivePanel(PANEL_STARTUP);
                 activity.getSupportLoaderManager()
                         .restartLoader(LoaderId.MARKET_SHUFFLE, null, this);
@@ -259,6 +260,11 @@ public class FragmentMarket extends Fragment
 
                 // Add the card filter to the selection
                 sel += " AND "+TableCard._ID+" NOT IN ("+filt_card+")";
+
+                // Exclude cards from disabled editions
+                String edition_filter = pref.getString(Pref.FILT_EDITION, "");
+                if (0 < edition_filter.length())
+                    sel += " AND " + edition_filter;
 
                 // Build the cursor loader
                 c.setUri(Provider.URI_CARD_DATA);

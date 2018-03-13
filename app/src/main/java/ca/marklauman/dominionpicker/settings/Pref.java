@@ -67,6 +67,13 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
      *  of numbers, so that database updates don't break the sort order. */
     public static final String SORT_CARD = "sort_card";
 
+    /** Which Edition to use for each expansion
+     * Currently only Dominion and Intrigue have two editions. */
+    public static final String EXPANSION_EDITIONS = "expansion_editions";
+
+    /** Filters out cards that are not in the selected editions */
+    public static final String FILT_EDITION = "edition_filter";
+
     /////////// Obsolete preference keys \\\\\\\\\\\
     /** The old separator used in the deprecated MultiSelectImagePreference. */
     private static final String OLD_SEP = "\u0001\u0007\u001D\u0007\u0001";
@@ -94,6 +101,9 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
                 case SORT_CARD:
                      updateSort(appContext);
                      break;
+                case EXPANSION_EDITIONS:
+                    updateEditions(appContext);
+                    break;
             }
         }
     };
@@ -164,6 +174,8 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
             case 4: // v4 -> v5 adds sort_card. Setting default values is all that is needed.
             case 5: update5(pref);
             case 6: update6(pref);
+            case 7: update7(pref);
+            case 8: // v8 -> v9 adds expansion_editions. Setting default values is all that is needed.
         }
         pref.edit().putInt(VERSION, res.getInteger(R.integer.pref_version))
             .apply();
@@ -171,6 +183,7 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
         // Compute all computed preferences and add the listener.
         updateLanguage(context);
         updateSort(context);
+        updateEditions(context);
         addListener(prefUpdater);
     }
 
@@ -192,6 +205,7 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
         final String[] defTrans  = res.getStringArray(R.array.def_trans);
         String[] rawTrans = pref.getString(FILT_LANG, res.getString(R.string.filt_lang_def))
                                 .split(",");
+
 
         // Update the app language if needed.
         final String oldLang = pref.getString(APP_LANG, "");
@@ -274,6 +288,29 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
         edit.apply();
     }
 
+    private static void updateEditions(Context context) {
+        Resources res = context.getResources();
+        SharedPreferences pref = get(context);
+
+        String filter = "(uniqueToEdition is NULL";
+
+        String editions[] = pref.getString(Pref.EXPANSION_EDITIONS, "").split(",");
+        for (int set_id = 0; set_id < editions.length; set_id++) {
+            //Need to look for all sets, even if it's set to all editions, otherwise it will only return cards that are in all editions of that set.
+            //But wee only need to look at the UNIQUE_TO_EDITION value if the user chose a specific edition.
+            filter += " OR (" + TableCard._SET_ID + '=' + set_id;
+            if (Integer.parseInt(editions[set_id]) != res.getInteger(R.integer.expansion_editions_all))
+                filter += " AND " + TableCard._UNIQUE_TO_EDITION + '=' + editions[set_id];
+            filter +=  ")";
+        }
+        filter += " ) ";
+
+        SharedPreferences.Editor edit = pref.edit();
+        edit.putString(Pref.FILT_EDITION, filter);
+        edit.commit();
+
+    }
+
 
     /** Set the default preference values (current version) */
     private static void setDefaultValues(Context c) {
@@ -301,6 +338,8 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
             edit.putString(FILT_CARD, "");
         if(!prefs.contains(REQ_CARDS))
             edit.putString(REQ_CARDS, "");
+        if (!prefs.contains(EXPANSION_EDITIONS))
+            edit.putString(EXPANSION_EDITIONS, res.getString(R.string.expansion_editions_def));
         if(!prefs.contains(ACTIVE_TAB))
             edit.putInt(ACTIVE_TAB, res.getInteger(R.integer.def_tab));
         edit.apply();
@@ -526,8 +565,19 @@ public abstract class Pref implements OnSharedPreferenceChangeListener {
     private static void update6(SharedPreferences prefs) {
         // Add one more language for the Empires set
         prefs.edit()
-             .putString(FILT_LANG, prefs.getString(FILT_LANG, "")+",0")
-             .apply();
+                .putString(FILT_LANG, prefs.getString(FILT_LANG, "")+",0")
+                .apply();
+    }
+
+    /** Updates preferences from v7 to v8. Does not detect version number */
+    private static void update7(SharedPreferences prefs) {
+        // Add one more language for the Sauna/Avanto Promo
+        prefs.edit()
+                .putString(FILT_LANG, prefs.getString(FILT_LANG, "")+",0")
+                .apply();
+        prefs.edit()
+                .putString(SORT_CARD, prefs.getString(SORT_CARD, "")+",7")
+                .apply();
     }
 
     /** Check if a value is within a given range */

@@ -69,6 +69,7 @@ public class FragmentPicker extends Fragment
             // These preferences affect the picker
             case Pref.FILT_SET:  case Pref.FILT_COST: case Pref.FILT_POTION:
             case Pref.FILT_CURSE: case Pref.COMP_SORT_CARD: case Pref.COMP_LANG:
+            case Pref.FILT_EDITION:
                 FragmentActivity act = getActivity();
                 if(act == null) return;
                 act.getSupportLoaderManager()
@@ -193,6 +194,11 @@ public class FragmentPicker extends Fragment
         boolean filt_curse = pref.getBoolean(Pref.FILT_CURSE, true);
         if(!filt_curse)
             sel += " AND " + TableCard._META_CURSER + "=0";
+
+        // Filter out excluded editions
+        String edition_filter = pref.getString(Pref.FILT_EDITION, "");
+        if (0 < edition_filter.length())
+            sel += " AND " + edition_filter;
 
         return sel;
     }

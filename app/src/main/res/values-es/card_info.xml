@@ -21,6 +21,7 @@
         <item>en</item> <!-- 15 Adventures -->
         <item>en</item> <!-- 16 Summon -->
         <item>en</item> <!-- 17 Empires -->
+        <item>en</item> <!-- 17 Sauna/Avanto -->
     </string-array>
 
     <string name="coin">Moneda</string>

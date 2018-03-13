@@ -31,4 +31,9 @@ public abstract class LoaderId {
     public static final int RULES_DEBT = 13;
     /** The card info screen's loader */
     public static final int INFO_CARD = 14;
+    /** The Expansion edition selection order. */
+    public static final int EXP_EDITIONS_ORDER = 15;
+    /** The Expansion edition selection loader. */
+    public static final int EXP_EDITION_CHOICES = 16;
+
 }

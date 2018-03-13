@@ -42,6 +42,8 @@ public class Provider extends ContentProvider {
     private static final int ID_SUPPLY = 5;
     /** Internal id for the history table's URI. */
     private static final int ID_HIST = 6;
+    /** Internal id for the setEdition table's URI. */
+    private static final int ID_SET_EDITION = 7;
 
     /** URI to access the card data table */
     public static final Uri URI_CARD_DATA = Uri.parse("content://"+AUTHORITY+"/cardData");
@@ -55,6 +57,8 @@ public class Provider extends ContentProvider {
     public static final Uri URI_SUPPLY = Uri.parse("content://"+AUTHORITY+"/supply");
     /** URI to access the history table */
     public static final Uri URI_HIST = Uri.parse("content://"+AUTHORITY+"/history");
+    /** URI to access the set edition table */
+    public static final Uri URI_SET_EDITION = Uri.parse("content://"+AUTHORITY+"/setEdition");
 
     /** Used to match URIs to tables. */
     UriMatcher matcher;
@@ -74,6 +78,7 @@ public class Provider extends ContentProvider {
         matcher.addURI(AUTHORITY, "cardAll", ID_CARD_ALL);
         matcher.addURI(AUTHORITY, "supply", ID_SUPPLY);
         matcher.addURI(AUTHORITY, "history", ID_HIST);
+        matcher.addURI(AUTHORITY, "setEdition", ID_SET_EDITION);
 
         // Remove old database files.
         Context c = getContext();
@@ -106,6 +111,7 @@ public class Provider extends ContentProvider {
             case ID_CARD_DATA:
             case ID_CARD_DATA_U:
             case ID_CARD_SET:
+            case ID_SET_EDITION:
             case ID_CARD_ALL: return MIME_CARD;
             case ID_SUPPLY: return MIME_SUPPLY_TRANS;
             case ID_HIST: return MIME_SUPPLY;
@@ -143,8 +149,12 @@ public class Provider extends ContentProvider {
             case ID_HIST:
                 db = data_db.getReadableDatabase();
                 res = db.query(DataDb.TABLE_HISTORY, projection,
-                               selection, selectionArgs,
-                               null, null, sortOrder);
+                        selection, selectionArgs,
+                        null, null, sortOrder);
+                break;
+            case ID_SET_EDITION:
+                res = core_db.query("setEdition", projection,
+                                selection, selectionArgs, sortOrder, false);
                 break;
             default: return null;
         }

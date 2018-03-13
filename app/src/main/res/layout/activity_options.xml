@@ -47,6 +47,17 @@
         android:background="?attr/selectableItemBackground"
         app:intent="ca.marklauman.dominionpicker.settings.ActivitySortCard" />
 
+    <ca.marklauman.tools.preferences.IntentPreference
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:image="@drawable/ic_core_edition"
+        app:name="@string/edition_choice"
+        app:summary="@string/edition_choice_desc"
+        android:background="?attr/selectableItemBackground"
+        app:intent="ca.marklauman.dominionpicker.settings.ActivityChooseEdition" />
+
     <View android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@android:drawable/divider_horizontal_bright" />

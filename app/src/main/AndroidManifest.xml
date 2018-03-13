@@ -37,6 +37,9 @@
         <activity android:name=".settings.ActivitySortCard"
             android:label="@string/sort_card" />
 
+        <activity android:name=".settings.ActivityChooseEdition"
+            android:label="@string/edition_choice" />
+
         <activity android:name=".ActivityCardInfo"
             android:label="@string/card_details" />
 
